@@ -3444,16 +3444,16 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   %39 = zext nneg i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 24
   %41 = or disjoint i32 %34, %40
-  br label %55
+  br label %58
 
 42:                                               ; preds = %43
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 251
-  br i1 %.not, label %51, label %43, !llvm.loop !11
+  %19 = add nuw nsw i64 %indvars.iv, 1
+  %44 = icmp eq i64 %23, 251
+  br i1 %44, label %51, label %.lr.ph, !llvm.loop !11
 
-43:                                               ; preds = %.preheader, %42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
-  %44 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %indvars.iv
+.lr.ph:                                           ; preds = %.preheader, %42
+  %.01721 = phi i64 [ %19, %42 ], [ 0, %.preheader ]
+  %44 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %.01721
   %45 = load ptr, ptr %44, align 16
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %45) #11
   %47 = icmp eq i32 %46, 0
@@ -3472,7 +3472,7 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2253, ptr noundef nonnull @__func__.plpgsql_recognize_err_condition) #9
   unreachable
 
-55:                                               ; preds = %48, %9
+58:                                               ; preds = %48, %9
   %.014 = phi i32 [ %41, %9 ], [ %50, %48 ]
   ret i32 %.014
 }
@@ -3496,12 +3496,12 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %7, align 8
-  br label %24
+  br label %28
 
 .preheader:                                       ; preds = %1, %18
-  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
+  %8 = phi i64 [ %23, %18 ], [ 0, %1 ]
   %.025 = phi ptr [ %.1, %18 ], [ null, %1 ]
-  %8 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %.01721
   %9 = load ptr, ptr %8, align 16
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #11
   %11 = icmp eq i32 %10, 0
@@ -3520,23 +3520,23 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
 
 18:                                               ; preds = %.preheader, %12
   %.1 = phi ptr [ %13, %12 ], [ %.025, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 251
+  %19 = add nuw nsw i64 %.01721, 1
+  %44 = icmp eq i64 %19, 251
   br i1 %.not, label %19, label %.preheader, !llvm.loop !12
 
-19:                                               ; preds = %18
+23:                                               ; preds = %18
   %.not23 = icmp eq ptr %.1, null
-  br i1 %.not23, label %20, label %24
+  br i1 %.not23, label %24, label %28
 
-20:                                               ; preds = %19
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #9
+24:                                               ; preds = %23
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
+  tail call void @llvm.assume(i1 %25)
+  %26 = tail call i32 @errcode(i32 noundef 67137668) #9
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #9
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2306, ptr noundef nonnull @__func__.plpgsql_parse_err_condition) #9
   unreachable
 
-24:                                               ; preds = %19, %4
+28:                                               ; preds = %23, %4
   %.021 = phi ptr [ %5, %4 ], [ %.1, %19 ]
   ret ptr %.021
 }

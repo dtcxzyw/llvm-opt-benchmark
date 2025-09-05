@@ -9851,8 +9851,8 @@ if.end32:                                         ; preds = %if.end17
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %if.end32
-  %12 = load i8, ptr %failed.i, align 8
-  %tobool37 = trunc i8 %12 to i1
+  %16 = load i8, ptr %failed.i, align 8
+  %tobool37 = trunc i8 %16 to i1
   br i1 %tobool37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %invoke.cont33
@@ -9860,8 +9860,8 @@ if.then38:                                        ; preds = %invoke.cont33
   br label %cleanup
 
 if.end39:                                         ; preds = %invoke.cont33
-  %13 = load ptr, ptr %ep.i, align 8
-  store ptr %13, ptr %epp, align 8
+  %17 = load ptr, ptr %ep.i, align 8
+  store ptr %17, ptr %epp, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end17, %if.end39, %if.then38, %if.then22, %if.then16

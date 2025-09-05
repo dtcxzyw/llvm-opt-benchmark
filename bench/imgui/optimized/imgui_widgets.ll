@@ -9207,13 +9207,13 @@ define noundef zeroext i1 @_ZN5ImGui21DataTypeApplyFromTextEPKciPvS1_S2_(ptr nou
 
 16:                                               ; preds = %12
   %.not36 = icmp eq ptr %4, null
-  br i1 %.not36, label %92, label %17
+  br i1 %.not36, label %90, label %17
 
 17:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %4, i64 %11, i1 false)
   %bcmp = call i32 @bcmp(ptr nonnull %6, ptr %2, i64 %11)
   %18 = icmp ne i32 %bcmp, 0
-  br label %92
+  br label %90
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -9337,63 +9337,63 @@ _Z32ImParseFormatSanitizeForScanningPKcPcm.exit:  ; preds = %58, %24, %_Z20ImPar
   %64 = icmp slt i32 %63, 1
   br i1 %64, label %91, label %65
 
-65:                                               ; preds = %59
+64:                                               ; preds = %59
   %66 = add nsw i64 %9, -10
   %67 = icmp ult i64 %66, -6
   br i1 %67, label %68, label %89
 
-68:                                               ; preds = %65
+66:                                               ; preds = %64
   switch i32 %1, label %89 [
-    i32 0, label %69
-    i32 1, label %74
-    i32 2, label %79
-    i32 3, label %84
+    i32 0, label %67
+    i32 1, label %72
+    i32 2, label %77
+    i32 3, label %82
   ]
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %8, align 4, !tbaa !177
-  %71 = call i32 @llvm.smax.i32(i32 %70, i32 -128)
-  %72 = call i32 @llvm.smin.i32(i32 %71, i32 127)
-  %73 = trunc nsw i32 %72 to i8
-  store i8 %73, ptr %2, align 1, !tbaa !341
-  br label %89
+67:                                               ; preds = %66
+  %68 = load i32, ptr %8, align 4, !tbaa !177
+  %69 = call i32 @llvm.smax.i32(i32 %68, i32 -128)
+  %70 = call i32 @llvm.smin.i32(i32 %69, i32 127)
+  %71 = trunc nsw i32 %70 to i8
+  store i8 %71, ptr %2, align 1, !tbaa !341
+  br label %87
 
-74:                                               ; preds = %68
-  %75 = load i32, ptr %8, align 4, !tbaa !177
-  %76 = call i32 @llvm.smax.i32(i32 %75, i32 0)
-  %77 = call i32 @llvm.umin.i32(i32 %76, i32 255)
-  %78 = trunc nuw i32 %77 to i8
-  store i8 %78, ptr %2, align 1, !tbaa !341
-  br label %89
+72:                                               ; preds = %66
+  %73 = load i32, ptr %8, align 4, !tbaa !177
+  %74 = call i32 @llvm.smax.i32(i32 %73, i32 0)
+  %75 = call i32 @llvm.umin.i32(i32 %74, i32 255)
+  %76 = trunc nuw i32 %75 to i8
+  store i8 %76, ptr %2, align 1, !tbaa !341
+  br label %87
 
-79:                                               ; preds = %68
-  %80 = load i32, ptr %8, align 4, !tbaa !177
-  %81 = call i32 @llvm.smax.i32(i32 %80, i32 -32768)
-  %82 = call i32 @llvm.smin.i32(i32 %81, i32 32767)
-  %83 = trunc nsw i32 %82 to i16
-  store i16 %83, ptr %2, align 2, !tbaa !190
-  br label %89
+77:                                               ; preds = %66
+  %78 = load i32, ptr %8, align 4, !tbaa !177
+  %79 = call i32 @llvm.smax.i32(i32 %78, i32 -32768)
+  %80 = call i32 @llvm.smin.i32(i32 %79, i32 32767)
+  %81 = trunc nsw i32 %80 to i16
+  store i16 %81, ptr %2, align 2, !tbaa !190
+  br label %87
 
-84:                                               ; preds = %68
-  %85 = load i32, ptr %8, align 4, !tbaa !177
-  %86 = call i32 @llvm.smax.i32(i32 %85, i32 0)
-  %87 = call i32 @llvm.umin.i32(i32 %86, i32 65535)
-  %88 = trunc nuw i32 %87 to i16
-  store i16 %88, ptr %2, align 2, !tbaa !190
-  br label %89
+82:                                               ; preds = %66
+  %83 = load i32, ptr %8, align 4, !tbaa !177
+  %84 = call i32 @llvm.smax.i32(i32 %83, i32 0)
+  %85 = call i32 @llvm.umin.i32(i32 %84, i32 65535)
+  %86 = trunc nuw i32 %85 to i16
+  store i16 %86, ptr %2, align 2, !tbaa !190
+  br label %87
 
-89:                                               ; preds = %68, %69, %79, %84, %74, %65
+87:                                               ; preds = %66, %67, %77, %82, %72, %64
   %bcmp37 = call i32 @bcmp(ptr nonnull %6, ptr %2, i64 %11)
-  %90 = icmp ne i32 %bcmp37, 0
-  br label %91
+  %88 = icmp ne i32 %bcmp37, 0
+  br label %89
 
-91:                                               ; preds = %59, %89
-  %.1 = phi i1 [ %90, %89 ], [ false, %59 ]
+89:                                               ; preds = %59, %87
+  %.1 = phi i1 [ %88, %89 ], [ false, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %92
+  br label %90
 
-92:                                               ; preds = %16, %91, %17
+90:                                               ; preds = %16, %89, %17
   %.0 = phi i1 [ %.1, %91 ], [ %18, %17 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

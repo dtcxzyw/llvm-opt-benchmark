@@ -16456,7 +16456,7 @@ ehcleanup38:                                      ; preds = %if.then.i.i107, %_Z
 if.end39:                                         ; preds = %if.end14
   %conv40 = zext i8 %12 to i32
   %cmp41 = icmp ugt i8 %12, 3
-  br i1 %cmp41, label %if.then42, label %memptr.nonvirtual
+  br i1 %cmp41, label %if.then42, label %if.end66
 
 if.then42:                                        ; preds = %if.end39
   %.not = icmp eq ptr @_ZTH8derr_con, null
@@ -16570,7 +16570,7 @@ lpad63:                                           ; preds = %_ZNSt7__cxx1112basi
   call void @__cxa_free_exception(ptr nonnull %exception62) #28
   br label %ehcleanup73
 
-memptr.nonvirtual:                                ; preds = %if.end39
+if.end66:                                         ; preds = %if.end39
   %idxprom = zext nneg i8 %12 to i64
   %arrayidx = getelementptr inbounds nuw %"struct.con::ConnectionReceiveThread::PacketTypeHandler", ptr @_ZN3con23ConnectionReceiveThread16packetTypeRouterE, i64 %idxprom
   %.unpack = load i64, ptr %arrayidx, align 16, !tbaa !283
@@ -16578,18 +16578,18 @@ memptr.nonvirtual:                                ; preds = %if.end39
   invoke void %memptr.nonvirtualfn(ptr dead_on_unwind writable sret(%class.SharedBuffer) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %packetdata, ptr noundef nonnull %1, i8 noundef zeroext %channelnum, i1 noundef zeroext %reliable)
           to label %invoke.cont70 unwind label %lpad67
 
-invoke.cont70:                                    ; preds = %memptr.nonvirtual
+invoke.cont70:                                    ; preds = %if.end66
   call void @_ZN3con10PeerHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %peer) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %peer)
   ret void
 
-lpad67:                                           ; preds = %memptr.nonvirtual
-  %44 = landingpad { ptr, i32 }
+lpad67:                                           ; preds = %if.end66
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup73
 
 ehcleanup73:                                      ; preds = %lpad67, %lpad63, %ehcleanup61, %ehcleanup38, %lpad15, %lpad12, %lpad6, %lpad
-  %.pn90 = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad6 ], [ %10, %lpad12 ], [ %.pn86.pn, %ehcleanup38 ], [ %20, %lpad15 ], [ %43, %lpad63 ], [ %.pn.pn, %ehcleanup61 ], [ %44, %lpad67 ]
+  %.pn90 = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad6 ], [ %10, %lpad12 ], [ %.pn86.pn, %ehcleanup38 ], [ %20, %lpad15 ], [ %43, %lpad63 ], [ %.pn.pn, %ehcleanup61 ], [ %48, %lpad67 ]
   call void @_ZN3con10PeerHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %peer) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %peer)
   resume { ptr, i32 } %.pn90

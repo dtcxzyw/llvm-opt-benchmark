@@ -1291,7 +1291,7 @@ define hidden void @_ZN2os19print_active_localeEP12outputStream(ptr noundef nonn
   %.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not, label %9, label %2, !llvm.loop !14
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   ret void
 }
 

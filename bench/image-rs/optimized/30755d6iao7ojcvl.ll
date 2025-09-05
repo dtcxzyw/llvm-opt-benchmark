@@ -29210,21 +29210,21 @@ define void @_ZN5image6codecs4jpeg7encoder26build_quantization_segment17h1d32434
   %23 = icmp eq i64 %17, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit8"
 
-24:                                               ; preds = %16
+26:                                               ; preds = %16
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h708f43c12be0f87bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17)
   %.pre.i7 = load i64, ptr %5, align 8, !alias.scope !5227
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit8"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit8": ; preds = %16, %24
-  %25 = phi i64 [ %.pre.i7, %24 ], [ %17, %16 ]
-  %26 = load ptr, ptr %12, align 8, !alias.scope !5227, !nonnull !13, !noundef !13
-  %27 = getelementptr inbounds i8, ptr %26, i64 %25
-  store i8 %21, ptr %27, align 1
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit8": ; preds = %16, %26
+  %27 = phi i64 [ %.pre.i7, %24 ], [ %17, %16 ]
+  %28 = load ptr, ptr %12, align 8, !alias.scope !5227, !nonnull !13, !noundef !13
+  %29 = getelementptr inbounds i8, ptr %28, i64 %27
+  store i8 %21, ptr %29, align 1
   %storemerge.in = load i64, ptr %5, align 8, !noundef !13
   %storemerge = add i64 %storemerge.in, 1
   store i64 %storemerge, ptr %5, align 8
-  %28 = icmp eq i64 %.sroa.0.0.add, 64
-  br i1 %28, label %15, label %16
+  %30 = icmp eq i64 %.sroa.0.0.add, 64
+  br i1 %30, label %15, label %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

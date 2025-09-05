@@ -45,7 +45,7 @@ define ptr @OSSL_trace_get_category_name(i32 noundef %0) local_unnamed_addr #0 {
   %spec.select = select i1 %9, ptr %6, ptr null, !prof !11
   br label %10
 
-10:                                               ; preds = %3, %1
+10:; preds = %3, %1
   %.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.0
 }

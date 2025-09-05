@@ -1085,7 +1085,7 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   ret void
 
 78:                                               ; preds = %1, %78
-  %.059 = phi i64 [ 0, %1 ], [ %86, %78 ]
+  %79 = phi i64 [ 0, %1 ], [ %86, %78 ]
   %.05558 = phi i64 [ 0, %1 ], [ %spec.select, %78 ]
   %79 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.059
   %80 = load ptr, ptr %79, align 16, !tbaa !109
@@ -1095,10 +1095,10 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !111
   %85 = icmp eq i32 %84, %4
-  %spec.select = select i1 %85, i64 %.059, i64 %.05558
-  %86 = add nuw nsw i64 %.059, 1
-  %.not57 = icmp eq i64 %86, 3
-  br i1 %.not57, label %12, label %78
+  %spec.select = select i1 %85, i64 %79, i64 %.05558
+  %86 = add nuw nsw i64 %79, 1
+  %exitcond = icmp eq i64 %86, 3
+  br i1 %exitcond, label %12, label %78
 }
 
 declare ptr @dt_bauhaus_combobox_new_action(ptr noundef) local_unnamed_addr #2
@@ -1214,8 +1214,8 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 15:                                               ; preds = %9
   %16 = add nuw nsw i64 %.018, 1
-  %.not16 = icmp eq i64 %16, 3
-  br i1 %.not16, label %.loopexit, label %9
+  %exitcond = icmp eq i64 %16, 3
+  br i1 %exitcond, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %15, %13
   %.015 = phi i32 [ %14, %13 ], [ 0, %15 ]

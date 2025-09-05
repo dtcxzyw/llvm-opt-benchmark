@@ -9348,14 +9348,14 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.us:       ; preds = %_ZNSt6vectorIhSaIhE
   %371 = load i32, ptr %279, align 4, !tbaa !228
   %372 = sdiv i32 %359, %371
   %373 = mul nsw i32 %372, %371
-  %.recomposed618 = srem i32 %359, %371
+  %.recomposed617 = srem i32 %359, %371
   %374 = load ptr, ptr %280, align 8, !tbaa !166
   %375 = load ptr, ptr %281, align 8, !tbaa !167
   %376 = load i64, ptr %375, align 8, !tbaa !72
   %377 = sext i32 %372 to i64
   %378 = mul i64 %376, %377
   %379 = getelementptr inbounds nuw i8, ptr %374, i64 %378
-  %380 = sext i32 %.recomposed618 to i64
+  %380 = sext i32 %.recomposed617 to i64
   %381 = getelementptr inbounds i8, ptr %379, i64 %380
   br label %_ZN2cv3Mat2atIhEERT_i.exit213.us
 
@@ -9539,14 +9539,14 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit224.us:    ; preds = %_ZNSt6vectorIhSaIhE
   %445 = trunc nuw nsw i64 %indvars.iv494 to i32
   %446 = sdiv i32 %445, %444
   %447 = mul nsw i32 %446, %444
-  %.recomposed619 = srem i32 %445, %444
+  %.recomposed618 = srem i32 %445, %444
   %448 = load ptr, ptr %276, align 8, !tbaa !166
   %449 = load ptr, ptr %277, align 8, !tbaa !167
   %450 = load i64, ptr %449, align 8, !tbaa !72
   %451 = sext i32 %446 to i64
   %452 = mul i64 %450, %451
   %453 = getelementptr inbounds nuw i8, ptr %448, i64 %452
-  %454 = sext i32 %.recomposed619 to i64
+  %454 = sext i32 %.recomposed618 to i64
   %455 = getelementptr inbounds i8, ptr %453, i64 %454
   br label %_ZN2cv3Mat2atIhEERT_i.exit227
 
@@ -9651,14 +9651,14 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit238:       ; preds = %_ZNSt6vectorIhSaIhE
   %498 = trunc nuw nsw i64 %indvars.iv494 to i32
   %499 = sdiv i32 %498, %497
   %500 = mul nsw i32 %499, %497
-  %.recomposed620 = srem i32 %498, %497
+  %.recomposed619 = srem i32 %498, %497
   %501 = load ptr, ptr %280, align 8, !tbaa !166
   %502 = load ptr, ptr %281, align 8, !tbaa !167
   %503 = load i64, ptr %502, align 8, !tbaa !72
   %504 = sext i32 %499 to i64
   %505 = mul i64 %503, %504
   %506 = getelementptr inbounds nuw i8, ptr %501, i64 %505
-  %507 = sext i32 %.recomposed620 to i64
+  %507 = sext i32 %.recomposed619 to i64
   %508 = getelementptr inbounds i8, ptr %506, i64 %507
   br label %_ZN2cv3Mat2atIhEERT_i.exit241
 
@@ -9823,8 +9823,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
 
 557:                                              ; preds = %581
   %558 = add nuw i64 %.092459, 1
-  %exitcond499.not = icmp eq i64 %558, %umax498
-  br i1 %exitcond499.not, label %._crit_edge461.thread, label %554, !llvm.loop !296
+  %exitcond498.not = icmp eq i64 %558, %umax498
+  br i1 %exitcond498.not, label %._crit_edge461.thread, label %554, !llvm.loop !296
 
 559:                                              ; preds = %.preheader, %563
   %.2 = phi i64 [ %564, %563 ], [ %.1456, %.preheader ]

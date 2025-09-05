@@ -1252,14 +1252,14 @@ declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @logg_facility(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
-  br label %3
+  br label %5
 
-2:                                                ; preds = %3
+2:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 21
-  br i1 %.not, label %.loopexit, label %3
+  br i1 %.not, label %.loopexit, label %5
 
-3:                                                ; preds = %1, %2
+5:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !25
@@ -1267,7 +1267,7 @@ define i32 @logg_facility(ptr noundef readonly captures(none) %0) local_unnamed_
   %.not7 = icmp eq i32 %6, 0
   br i1 %.not7, label %7, label %2
 
-7:                                                ; preds = %3
+7: ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !27
   br label %.loopexit

@@ -11673,7 +11673,7 @@ define internal fastcc void @_ZN8uv_cache5Cache23find_archive_references17h56dbc
 
 33:                                               ; preds = %.backedge12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  br label %36
+  br label %37
 
 34:                                               ; preds = %1, %.backedge12
   %.sroa.0.0.idx16 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge12 ]
@@ -11681,7 +11681,7 @@ define internal fastcc void @_ZN8uv_cache5Cache23find_archive_references17h56dbc
   %35 = icmp eq i64 %.sroa.0.0.idx16, 6
   br i1 %35, label %.backedge12, label %switch.lookup
 
-36:                                               ; preds = %117, %33
+37:                                               ; preds = %117, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
@@ -11694,9 +11694,9 @@ switch.lookup:                                    ; preds = %34
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = zext nneg i8 %37 to i64
-  %switch.gep30 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E.35, i64 %39
-  %switch.load31 = load i64, ptr %switch.gep30, align 8
-  invoke void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.8.val, i64 noundef %.16.val, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load31)
+  %switch.gep31 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8uv_cache5Cache23find_archive_references17h56dbc1a5b03d61a6E.35, i64 %39
+  %switch.load32 = load i64, ptr %switch.gep31, align 8
+  invoke void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.8.val, i64 noundef %.16.val, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load32)
           to label %_ZN8uv_cache5Cache6bucket17h8f1c51db1f939f48E.exit unwind label %31
 
 _ZN8uv_cache5Cache6bucket17h8f1c51db1f939f48E.exit: ; preds = %switch.lookup
@@ -11987,7 +11987,7 @@ _ZN8uv_cache5Cache12resolve_link17h1bd08edb0e46225bE.exit: ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %118 = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h1a7ed7d5164ea9cbE(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %118, i64 noundef 24, i64 noundef 16)
-  br label %36
+  br label %37
 
 119:                                              ; preds = %_ZN8uv_cache5Cache6bucket17h8f1c51db1f939f48E.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }

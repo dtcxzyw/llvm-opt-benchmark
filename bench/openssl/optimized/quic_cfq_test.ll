@@ -235,28 +235,28 @@ declare i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #0 {
-  br label %.lr.ph
+  br label %3
 
 2:                                                ; preds = %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !23
 
-.lr.ph:                                           ; preds = %2, %1
+3:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %4 = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %0, i32 noundef %3) #3
-  %5 = getelementptr inbounds nuw [11 x i32], ptr @expect, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4, !tbaa !6
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
+  %5 = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %0, i32 noundef %4) #3
+  %6 = getelementptr inbounds nuw [11 x i32], ptr @expect, i64 %indvars.iv
+  %7 = load i32, ptr %6, align 4, !tbaa !6
   %7 = getelementptr inbounds nuw [10 x ptr], ptr @items, i64 %indvars.iv
   br label %9
 
-._crit_edge:                                      ; preds = %24
-  %8 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @.str.15, ptr noundef %26) #3
-  %.not26 = icmp eq i32 %8, 0
+23:                                               ; preds = %24
+  %24 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @.str.15, ptr noundef %26) #3
+  %.not26 = icmp eq i32 %24, 0
   br i1 %.not26, label %.loopexit, label %2
 
-9:                                                ; preds = %.lr.ph, %24
+26:                                               ; preds = %3, %24
   %10 = phi i32 [ %6, %.lr.ph ], [ %28, %24 ]
   %.02030 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
   %.02129 = phi ptr [ %4, %.lr.ph ], [ %26, %24 ]

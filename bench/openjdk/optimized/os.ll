@@ -3709,7 +3709,7 @@ declare i32 @jio_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 define hidden noundef ptr @_ZN2os8strerrorEi(i32 noundef %0) local_unnamed_addr #14 align 2 {
   br label %3
 
-2:                                                ; preds = %3
+_ZL15errno_to_stringib.exit:                      ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 79
   br i1 %.not.i, label %_ZL15errno_to_stringib.exit, label %3, !llvm.loop !28
@@ -3732,7 +3732,7 @@ _ZL15errno_to_stringib.exit:                      ; preds = %2, %3
 define hidden noundef ptr @_ZN2os10errno_nameEi(i32 noundef %0) local_unnamed_addr #14 align 2 {
   br label %3
 
-2:                                                ; preds = %3
+_ZL15errno_to_stringib.exit:                      ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 79
   br i1 %.not.i, label %_ZL15errno_to_stringib.exit, label %3, !llvm.loop !28

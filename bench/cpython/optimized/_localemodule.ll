@@ -2077,8 +2077,8 @@ define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_add
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 56
-  br i1 %.not, label %49, label %3, !llvm.loop !49
+  %exitcond = icmp eq i64 %indvars.iv.next, 56
+  br i1 %exitcond, label %49, label %3, !llvm.loop !49
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -2341,7 +2341,7 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
 
 30:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 56
+  %exitcond = icmp eq i64 %indvars.iv.next, 56
   br i1 %.not, label %38, label %.preheader, !llvm.loop !56
 
 .preheader:                                       ; preds = %25, %30
@@ -2355,7 +2355,7 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.loopexit, label %30
 
-38:                                               ; preds = %30
+38:   ; preds = %30
   %39 = tail call ptr @PyErr_Occurred() #8
   %.not19 = icmp ne ptr %39, null
   %. = sext i1 %.not19 to i32

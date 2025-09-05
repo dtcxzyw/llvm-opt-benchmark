@@ -554,45 +554,45 @@ define internal fastcc range(i32 -22, 1) i32 @rtsp_send_reply(ptr noundef %0, i3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %9
+  br label %11
 
-8:                                                ; preds = %9
+8:                                                ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 11
-  br i1 %cond, label %.loopexit, label %9, !llvm.loop !42
+  br i1 %cond, label %.thread, label %9, !llvm.loop !42
 
-9:                                                ; preds = %4, %8
+11:                                               ; preds = %4, %8
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %8 ]
   %10 = getelementptr inbounds nuw %struct.RTSPStatusMessage, ptr @status_messages, i64 %indvars.iv
   %11 = load i32, ptr %10, align 16, !tbaa !43
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %8
 
-13:                                               ; preds = %9
+13: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.34, i32 noundef %1, ptr noundef %15) #11
   %17 = zext i16 %3 to i32
-  %18 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.35, i32 noundef %17) #11
+  %20 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.35, i32 noundef %17) #11
   %19 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #11
   %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %22, label %20
+  br i1 %.not18, label %23, label %21
 
-20:                                               ; preds = %13
-  %21 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef 4096) #11
-  br label %22
+21:                                               ; preds = %13
+  %22 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef 4096) #11
+  br label %23
 
-22:                                               ; preds = %20, %13
-  %23 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.38, i64 noundef 4096) #11
+23:                                               ; preds = %21, %13
+  %24 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.38, i64 noundef 4096) #11
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.39, ptr noundef nonnull %5) #11
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8880
-  %25 = load ptr, ptr %24, align 8, !tbaa !46
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
-  %27 = trunc i64 %26 to i32
-  %28 = call i32 @ffurl_write2(ptr noundef %25, ptr noundef nonnull %5, i32 noundef %27) #11
-  br label %.loopexit
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8880
+  %26 = load ptr, ptr %25, align 8, !tbaa !46
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
+  %28 = trunc i64 %27 to i32
+  %29 = call i32 @ffurl_write2(ptr noundef %26, ptr noundef nonnull %5, i32 noundef %28) #11
+  br label %.thread
 
-.loopexit:                                        ; preds = %8, %22
+.thread:                                          ; preds = %8, %23
   %.013 = phi i32 [ 0, %22 ], [ -22, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.013

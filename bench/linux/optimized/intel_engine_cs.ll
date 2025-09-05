@@ -3398,12 +3398,12 @@ define dso_local void @intel_engine_wait_for_pending_mi_fw(ptr noundef readonly 
   %4 = zext i32 %3 to i64
   %5 = shl nuw i64 1, %4
   %6 = and i64 %5, 67109884
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %.thread
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %19, label %.thread
 
-7:                                                ; preds = %1
-  %8 = getelementptr %struct.i915_reg_t, ptr @__cs_pending_mi_force_wakes._reg, i64 %4
-  %9 = load i32, ptr %8, align 4
+19:                                               ; preds = %1
+  %20 = getelementptr %struct.i915_reg_t, ptr @__cs_pending_mi_force_wakes._reg, i64 %4
+  %21 = load i32, ptr %20, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -3420,9 +3420,9 @@ define dso_local void @intel_engine_wait_for_pending_mi_fw(ptr noundef readonly 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @__const_udelay(i64 noundef 4295) #18
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %24, i32 41632, i32 noundef %18, i32 noundef %18, i32 noundef 5000, i32 noundef 0, ptr noundef null) #18
+  %22 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %23, i32 41632, i32 noundef %18, i32 noundef %18, i32 noundef 5000, i32 noundef 0, ptr noundef null) #18
   tail call void @__const_udelay(i64 noundef 4295) #18
   br label %.thread
 

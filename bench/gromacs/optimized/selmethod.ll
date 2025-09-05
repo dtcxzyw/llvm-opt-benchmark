@@ -1174,7 +1174,7 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %.01215 = phi i8 [ 1, %1 ], [ %spec.select, %6 ]
+  %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %6 ]
   %7 = getelementptr inbounds nuw %struct.t_register_method, ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !52

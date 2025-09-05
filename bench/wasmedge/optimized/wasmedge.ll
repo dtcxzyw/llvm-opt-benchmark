@@ -1938,42 +1938,42 @@ _ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_
   %8 = icmp sgt i64 %.1.i.i.i.i, 0
   br i1 %8, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i, label %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit, !llvm.loop !25
 
-_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit: ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i
+_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit:; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i
   %9 = icmp eq i64 %.sroa.4.1.i.i.i.i, 12
   %spec.select.i.i = select i1 %9, i64 12, i64 126
-  br label %25
+  br label %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit
 
 _ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i4: ; preds = %1, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10
   %.025.i.i.i.i5 = phi i64 [ %.1.i.i.i.i12, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10 ], [ 126, %1 ]
   %.sroa.4.024.i.i.i.i6 = phi i64 [ %.sroa.4.1.i.i.i.i11, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10 ], [ 0, %1 ]
-  %10 = lshr i64 %.025.i.i.i.i5, 1
-  %.sroa.3.0.i.i.i.i7 = add i64 %10, %.sroa.4.024.i.i.i.i6
-  %11 = getelementptr inbounds %"struct.std::pair", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.3.0.i.i.i.i7
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %12, %0
-  br i1 %13, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14, label %14
+  %13 = lshr i64 %.025.i.i.i.i5, 1
+  %.sroa.3.0.i.i.i.i7 = add i64 %13, %.sroa.4.024.i.i.i.i6
+  %14 = getelementptr inbounds %"struct.std::pair", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.3.0.i.i.i.i7
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ult i32 %15, %0
+  br i1 %16, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14, label %17
 
-14:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i4
-  %15 = icmp ult i32 %0, %12
-  br i1 %15, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8
+17:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i4
+  %18 = icmp ult i32 %0, %15
+  br i1 %18, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8: ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.01.0.copyload.i.i.i.i.i.i9 = load i64, ptr %16, align 8
-  %17 = icmp slt i64 %.sroa.01.0.copyload.i.i.i.i.i.i9, 0
-  br i1 %17, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8: ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.01.0.copyload.i.i.i.i.i.i9 = load i64, ptr %19, align 8
+  %20 = icmp slt i64 %.sroa.01.0.copyload.i.i.i.i.i.i9, 0
+  br i1 %20, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8, %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i4
-  %18 = add i64 %.sroa.3.0.i.i.i.i7, 1
-  %19 = xor i64 %10, -1
-  %20 = add nsw i64 %.025.i.i.i.i5, %19
+  %21 = add i64 %.sroa.3.0.i.i.i.i7, 1
+  %22 = xor i64 %13, -1
+  %23 = add nsw i64 %.025.i.i.i.i5, %22
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8, %14
-  %.sroa.4.1.i.i.i.i11 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14 ], [ %.sroa.4.024.i.i.i.i6, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8 ], [ %.sroa.4.024.i.i.i.i6, %14 ]
-  %.1.i.i.i.i12 = phi i64 [ %20, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14 ], [ %10, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8 ], [ %10, %14 ]
-  %21 = icmp sgt i64 %.1.i.i.i.i12, 0
-  br i1 %21, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i4, label %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15, !llvm.loop !25
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8, %17
+  %.sroa.4.1.i.i.i.i11 = phi i64 [ %21, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14 ], [ %.sroa.4.024.i.i.i.i6, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8 ], [ %.sroa.4.024.i.i.i.i6, %14 ]
+  %.1.i.i.i.i12 = phi i64 [ %23, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread.i.i.i.i14 ], [ %13, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.i.i.i.i8 ], [ %13, %14 ]
+  %24 = icmp sgt i64 %.1.i.i.i.i12, 0
+  br i1 %24, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i4, label %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15, !llvm.loop !25
 
 _ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm126ENS3_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS6_SA_EEEbT_RT0_.exit.thread23.i.i.i.i10
   %22 = getelementptr inbounds %"struct.std::pair", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.4.1.i.i.i.i11
@@ -1982,8 +1982,8 @@ _ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11c
   %spec.select.i.i13 = select i1 %24, i64 %.sroa.4.1.i.i.i.i11, i64 126
   br label %25
 
-25:                                               ; preds = %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15, %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit
-  %spec.select.i.i.pn = phi i64 [ %spec.select.i.i, %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit ], [ %spec.select.i.i13, %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15 ]
+_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit: ; preds = %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15, %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit
+  %.sroa.4.1.i.i.i.i11.lcssa.sink22 = phi i64 [ %spec.select.i.i, %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit ], [ %spec.select.i.i13, %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit15 ]
   %.0.in = getelementptr inbounds %"struct.std::pair", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %spec.select.i.i.pn, i32 1, i32 1
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0

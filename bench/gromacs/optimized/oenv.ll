@@ -242,18 +242,18 @@ define void @_Z24output_env_get_time_unitB5cxx11PK16gmx_output_env_t(ptr dead_on
   %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !25
-  %11 = icmp ugt i64 %10, 15
-  br i1 %11, label %.noexc.i, label %._crit_edge.i.i
+  %13 = icmp ugt i64 %10, 15
+  br i1 %13, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %2
-  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %12, ptr %0, align 8, !tbaa !27
-  %13 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %13, ptr %9, align 8, !tbaa !29
+  %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %14, ptr %0, align 8, !tbaa !27
+  %15 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %15, ptr %9, align 8, !tbaa !29
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
-  %14 = phi ptr [ %12, %.noexc.i ], [ %9, %2 ]
+  %16 = phi ptr [ %14, %.noexc.i ], [ %9, %2 ]
   switch i64 %10, label %17 [
     i64 1, label %15
     i64 0, label %18
@@ -350,8 +350,8 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr noundef readon
   %7 = getelementptr inbounds nuw float, ptr @_ZL23c_picosecondsInTimeUnit, i64 %6
   %8 = load float, ptr %7, align 4, !tbaa !31
   %.not = icmp ne i32 %5, 1
-  %9 = icmp sgt i32 %1, 0
-  %or.cond = and i1 %.not, %9
+  %10 = icmp sgt i32 %1, 0
+  %or.cond = and i1 %.not, %10
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -360,10 +360,10 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %11 = load float, ptr %10, align 4, !tbaa !31
-  %12 = fmul float %8, %11
-  store float %12, ptr %10, align 4, !tbaa !31
+  %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %12 = load float, ptr %11, align 4, !tbaa !31
+  %13 = fmul float %8, %12
+  store float %13, ptr %11, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33

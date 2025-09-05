@@ -1156,25 +1156,25 @@ define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEhPi(i8 noundef zeroext 
 
 .preheader:                                       ; preds = %.preheader18, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %.preheader18 ]
-  %.01521 = phi i32 [ %12, %.preheader ], [ 0, %.preheader18 ]
-  %5 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv25
-  %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv25
-  store i32 %6, ptr %7, align 4
-  %8 = or disjoint i64 %indvars.iv25, 1
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %8
-  store i32 %10, ptr %11, align 4
-  %12 = add nuw nsw i32 %.01521, 1
+  %.01521 = phi i32 [ %13, %.preheader ], [ 0, %.preheader18 ]
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv25
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv25
+  store i32 %7, ptr %8, align 4
+  %9 = or disjoint i64 %indvars.iv25, 1
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %9
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  store i32 %11, ptr %12, align 4
+  %13 = add nuw nsw i32 %.01521, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 2
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next26
-  %14 = load i32, ptr %13, align 4
-  %.not17 = icmp eq i32 %14, -1
+  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next26
+  %15 = load i32, ptr %14, align 4
+  %.not17 = icmp eq i32 %15, -1
   br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %2, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %12, %.preheader ]
+  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %13, %.preheader ]
   ret i32 %.016
 }
 
@@ -1210,25 +1210,25 @@ define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEPKddPi(ptr noundef read
 
 .preheader.i:                                     ; preds = %.preheader18.i, %.preheader.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.preheader.i ], [ 0, %.preheader18.i ]
-  %.01521.i = phi i32 [ %27, %.preheader.i ], [ 0, %.preheader18.i ]
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv25.i
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv25.i
-  store i32 %21, ptr %22, align 4
-  %23 = or disjoint i64 %indvars.iv25.i, 1
-  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %23
-  store i32 %25, ptr %26, align 4
-  %27 = add nuw nsw i32 %.01521.i, 1
+  %.01521.i = phi i32 [ %28, %.preheader.i ], [ 0, %.preheader18.i ]
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv25.i
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv25.i
+  store i32 %22, ptr %23, align 4
+  %24 = or disjoint i64 %indvars.iv25.i, 1
+  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %24
+  store i32 %26, ptr %27, align 4
+  %28 = add nuw nsw i32 %.01521.i, 1
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 2
-  %28 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next26.i
-  %29 = load i32, ptr %28, align 4
-  %.not17.i = icmp eq i32 %29, -1
+  %29 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next26.i
+  %30 = load i32, ptr %29, align 4
+  %.not17.i = icmp eq i32 %30, -1
   br i1 %.not17.i, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit, label %.preheader.i, !llvm.loop !8
 
 _ZN15MarchingSquares14AddEdgeIndicesEhPi.exit:    ; preds = %.preheader.i, %3, %3
-  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %27, %.preheader.i ]
+  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %28, %.preheader.i ]
   ret i32 %.016.i
 }
 
@@ -1524,7 +1524,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
   %37 = load i32, ptr %36, align 4
   br label %40
 
-.preheader.lr.ph:                                 ; preds = %_ZN13MarchingCubes9SetVertexEiPKdd.exit
+.preheader37:                                     ; preds = %_ZN13MarchingCubes9SetVertexEiPKdd.exit
   %38 = getelementptr inbounds nuw [16 x i32], ptr @_ZN13MarchingCubes9trianglesE, i64 %34
   %39 = load i32, ptr %38, align 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
@@ -1622,7 +1622,7 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
   %95 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
@@ -1788,39 +1788,39 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr noundef re
   %.7.i = select i1 %32, i8 %33, i8 %.6.i
   %34 = add i8 %.7.i, 1
   %.not = icmp ult i8 %34, 2
-  br i1 %.not, label %.loopexit, label %.preheader.preheader
+  br i1 %.not, label %.loopexit, label %.preheader20
 
-.preheader.preheader:                             ; preds = %3
+.preheader20:                                     ; preds = %3
   %35 = zext i8 %.7.i to i64
   %36 = getelementptr inbounds nuw [16 x i32], ptr @_ZN13MarchingCubes9trianglesE, i64 %35
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %42
+.preheader:; preds = %.preheader20, %42
   %indvars.iv27 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next28, %42 ]
   %.01723 = phi i32 [ 0, %.preheader.preheader ], [ %43, %42 ]
   br label %37
 
-37:                                               ; preds = %.preheader, %37
+37:; preds = %.preheader, %37
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
   %38 = add nuw nsw i64 %indvars.iv, %indvars.iv27
   %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %38
-  store i32 %40, ptr %41, align 4
+  %39 = load i32, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %38
+  store i32 %40, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %42, label %37, !llvm.loop !17
+  br i1 %exitcond.not, label %43, label %37, !llvm.loop !17
 
-42:                                               ; preds = %37
-  %43 = add nuw nsw i32 %.01723, 1
+43:                                               ; preds = %37
+  %44 = add nuw nsw i32 %.01723, 1
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 3
-  %44 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next28
-  %45 = load i32, ptr %44, align 4
-  %.not19 = icmp eq i32 %45, -1
+  %45 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next28
+  %46 = load i32, ptr %45, align 4
+  %.not19 = icmp eq i32 %46, -1
   br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %42, %3
-  %.018 = phi i32 [ 0, %3 ], [ %43, %42 ]
+  %.018 = phi i32 [ 0, %3 ], [ %44, %43 ]
   ret i32 %.018
 }
 
@@ -2360,7 +2360,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef 
   %37 = load i32, ptr %36, align 4
   br label %40
 
-.preheader.lr.ph:                                 ; preds = %_ZN13MarchingCubes9SetVertexEiPKff.exit
+.preheader37:                                     ; preds = %_ZN13MarchingCubes9SetVertexEiPKff.exit
   %38 = getelementptr inbounds nuw [16 x i32], ptr @_ZN13MarchingCubes9trianglesE, i64 %34
   %39 = load i32, ptr %38, align 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
@@ -2461,7 +2461,7 @@ _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
   %98 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !31
+  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !31
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
@@ -2638,32 +2638,32 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef re
   %35 = getelementptr inbounds nuw [16 x i32], ptr @_ZN13MarchingCubes9trianglesE, i64 %34
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader18.i, %41
+.preheader.i:; preds = %.preheader18.i, %41
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %41 ], [ 0, %.preheader18.i ]
   %.01521.i = phi i32 [ %42, %41 ], [ 0, %.preheader18.i ]
   br label %36
 
-36:                                               ; preds = %36, %.preheader.i
+36:; preds = %36, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %36 ]
   %37 = add nuw nsw i64 %indvars.iv.i, %indvars.iv25.i
   %38 = getelementptr inbounds nuw i32, ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %37
-  store i32 %39, ptr %40, align 4
+  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %37
+  store i32 %39, ptr %39, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %41, label %36, !llvm.loop !33
+  br i1 %exitcond.not.i, label %42, label %36, !llvm.loop !33
 
-41:                                               ; preds = %36
-  %42 = add nuw nsw i32 %.01521.i, 1
+42:                                               ; preds = %36
+  %43 = add nuw nsw i32 %.01521.i, 1
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 3
-  %43 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.next26.i
-  %44 = load i32, ptr %43, align 4
-  %.not17.i = icmp eq i32 %44, -1
+  %44 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.next26.i
+  %45 = load i32, ptr %44, align 4
+  %.not17.i = icmp eq i32 %45, -1
   br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !34
 
-_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %41, %3, %3
-  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %42, %41 ]
+_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %42, %3, %3
+  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %43, %41 ]
   ret i32 %.016.i
 }
 
@@ -2679,32 +2679,32 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, p
   %4 = getelementptr inbounds [16 x i32], ptr @_ZN13MarchingCubes9trianglesE, i64 %3
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader18, %10
+.preheader:; preds = %.preheader18, %10
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %10 ], [ 0, %.preheader18 ]
   %.01521 = phi i32 [ %11, %10 ], [ 0, %.preheader18 ]
-  br label %5
+  br label %6
 
-5:                                                ; preds = %.preheader, %5
+5:; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = add nuw nsw i64 %indvars.iv, %indvars.iv25
+  %7 = add nuw nsw i64 %indvars.iv, %indvars.iv25
   %7 = getelementptr inbounds nuw i32, ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %6
-  store i32 %8, ptr %9, align 4
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %7
+  store i32 %8, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %10, label %5, !llvm.loop !33
+  br i1 %exitcond.not, label %11, label %6, !llvm.loop !33
 
-10:                                               ; preds = %5
-  %11 = add nuw nsw i32 %.01521, 1
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %.01521, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 3
-  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next26
-  %13 = load i32, ptr %12, align 4
-  %.not17 = icmp eq i32 %13, -1
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next26
+  %14 = load i32, ptr %13, align 4
+  %.not17 = icmp eq i32 %14, -1
   br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !34
 
-.loopexit:                                        ; preds = %10, %2, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %11, %10 ]
+.loopexit:                                        ; preds = %11, %2, %2
+  %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %12, %11 ]
   ret i32 %.016
 }
 

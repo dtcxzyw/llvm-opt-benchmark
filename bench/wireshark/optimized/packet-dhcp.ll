@@ -3311,8 +3311,8 @@ define internal void @dhcp_stat_init(ptr noundef %0) #0 {
   store ptr %15, ptr %10, align 8
   store i32 1, ptr %11, align 8
   store i32 0, ptr %12, align 16
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %16, i32 noundef 2, ptr noundef nonnull %2)
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 18
   br i1 %.not17, label %.loopexit, label %13, !llvm.loop !9

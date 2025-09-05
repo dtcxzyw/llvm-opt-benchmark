@@ -259,7 +259,7 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq i32 %4, 105
   br i1 %.not, label %.split.loop.exit8, label %5, !llvm.loop !3
 
-5:                                                ; preds = %1, %3
+5:; preds = %1, %3
   %.0610 = phi i32 [ 0, %1 ], [ %4, %3 ]
   %6 = zext nneg i32 %.0610 to i64
   %7 = getelementptr %struct.anon, ptr @error_codes, i64 %6
@@ -268,7 +268,7 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   %10 = icmp eq i64 %9, %2
   br i1 %10, label %.split.loop.exit, label %3
 
-.split.loop.exit:                                 ; preds = %5
+.split.loop.exit:; preds = %5
   %11 = load ptr, ptr %7, align 16, !tbaa !12
   br label %.split.loop.exit8
 
@@ -1844,7 +1844,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_error_constants(ptr noundef %0)
   %or.cond = select i1 %8, i1 true, i1 %.not.not
   br i1 %or.cond, label %9, label %2, !llvm.loop !61
 
-9:                                                ; preds = %2
+9:; preds = %2
   %.lobit = ashr i32 %7, 31
   ret i32 %.lobit
 }

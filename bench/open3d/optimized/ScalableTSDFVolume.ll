@@ -3371,8 +3371,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   %256 = mul nuw <2 x i64> %255, %253
   %257 = bitcast <2 x i64> %256 to <4 x float>
   %258 = and <4 x i32> %.sroa.0349.12.vec.insert, <i32 0, i32 -1, i32 0, i32 -1>
-  %.inner624 = shufflevector <4 x i32> %258, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %259 = bitcast <4 x i32> %.inner624 to <2 x i64>
+  %.inner625 = shufflevector <4 x i32> %258, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %259 = bitcast <4 x i32> %.inner625 to <2 x i64>
   %260 = mul nuw <2 x i64> %255, %259
   %261 = bitcast <2 x i64> %260 to <4 x float>
   %262 = shufflevector <4 x float> %257, <4 x float> %261, <4 x i32> <i32 0, i32 2, i32 4, i32 6>

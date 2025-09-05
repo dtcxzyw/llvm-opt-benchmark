@@ -7229,13 +7229,13 @@ sub_1:                                            ; preds = %sub_0
   br label %107
 
 106:                                              ; preds = %107
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv306, 1
-  %.not140 = icmp eq i64 %indvars.iv.next, 5
-  br i1 %.not140, label %.lr.ph.preheader, label %107, !llvm.loop !161
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv311, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, 5
+  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !161
 
 107:                                              ; preds = %.preheader, %106
-  %indvars.iv306 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
-  %108 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_cipher_opt, i64 %indvars.iv306
+  %indvars.iv311 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
+  %108 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_cipher_opt, i64 %indvars.iv311
   %109 = load ptr, ptr %108, align 16, !tbaa !162
   %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #20
   %.not180.not = icmp eq i32 %110, 0
@@ -7254,13 +7254,13 @@ sub_1:                                            ; preds = %sub_0
   br label %114
 
 .lr.ph:                                           ; preds = %114
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233307, 1
-  %.not143 = icmp eq i64 %indvars.iv.next234, 14
-  br i1 %.not143, label %.lr.ph201.preheader, label %114, !llvm.loop !165
+  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233312, 1
+  %exitcond236 = icmp eq i64 %indvars.iv.next234, 14
+  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !165
 
 114:                                              ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv233307 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
-  %115 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_digest_opt, i64 %indvars.iv233307
+  %indvars.iv233312 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
+  %115 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_digest_opt, i64 %indvars.iv233312
   %116 = load ptr, ptr %115, align 16, !tbaa !162
   %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #20
   %.not181.not = icmp eq i32 %117, 0
@@ -7279,13 +7279,13 @@ sub_1:                                            ; preds = %sub_0
   br label %121
 
 .lr.ph201:                                        ; preds = %121
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236308, 1
-  %.not146 = icmp eq i64 %indvars.iv.next237, 9
-  br i1 %.not146, label %.lr.ph208.preheader, label %121, !llvm.loop !166
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237313, 1
+  %exitcond240 = icmp eq i64 %indvars.iv.next238, 9
+  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !166
 
 121:                                              ; preds = %.lr.ph201.preheader, %.lr.ph201
-  %indvars.iv236308 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next237, %.lr.ph201 ]
-  %122 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_mac_opt, i64 %indvars.iv236308
+  %indvars.iv237313 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next238, %.lr.ph201 ]
+  %122 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_mac_opt, i64 %indvars.iv237313
   %123 = load ptr, ptr %122, align 16, !tbaa !162
   %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #20
   %.not182.not = icmp eq i32 %124, 0
@@ -7314,13 +7314,13 @@ sub_1:                                            ; preds = %sub_0
   br label %129
 
 .lr.ph215:                                        ; preds = %129
-  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242309, 1
-  %.not152 = icmp eq i64 %indvars.iv.next243, 6
-  br i1 %.not152, label %.lr.ph221.preheader, label %129, !llvm.loop !168
+  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245314, 1
+  %exitcond248 = icmp eq i64 %indvars.iv.next246, 6
+  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !168
 
 129:                                              ; preds = %.lr.ph215.preheader, %.lr.ph215
-  %indvars.iv242309 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next243, %.lr.ph215 ]
-  %130 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_asym_opt, i64 %indvars.iv242309
+  %indvars.iv245314 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next246, %.lr.ph215 ]
+  %130 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_asym_opt, i64 %indvars.iv245314
   %131 = load ptr, ptr %130, align 16, !tbaa !162
   %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %131) #20
   %.not184.not = icmp eq i32 %132, 0
@@ -7339,13 +7339,13 @@ sub_1:                                            ; preds = %sub_0
   br label %136
 
 .lr.ph221:                                        ; preds = %136
-  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245310, 1
-  %.not155 = icmp eq i64 %indvars.iv.next246, 2
-  br i1 %.not155, label %.critedge13, label %136, !llvm.loop !169
+  %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249315, 1
+  %exitcond252 = icmp eq i64 %indvars.iv.next250, 2
+  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !169
 
 136:                                              ; preds = %.lr.ph221.preheader, %.lr.ph221
-  %indvars.iv245310 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next246, %.lr.ph221 ]
-  %137 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_other_opt, i64 %indvars.iv245310
+  %indvars.iv249315 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next250, %.lr.ph221 ]
+  %137 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_other_opt, i64 %indvars.iv249315
   %138 = load ptr, ptr %137, align 16, !tbaa !162
   %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %138) #20
   %.not185.not = icmp eq i32 %139, 0
@@ -7459,11 +7459,11 @@ define internal fastcc void @Usage() unnamed_addr #12 {
   %49 = icmp eq i32 %.08090, 0
   br i1 %49, label %50, label %52
 
-50:                                               ; preds = %46
+50:; preds = %46
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull @.str.216)
   br label %52
 
-52:                                               ; preds = %50, %46
+52:; preds = %50, %46
   %.6 = phi i32 [ 13, %50 ], [ %.08090, %46 ]
   %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %48)
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #20
@@ -7516,18 +7516,18 @@ print_alg.exit60:                                 ; preds = %65, %72
   br i1 %.not54, label %.preheader88, label %.preheader89, !llvm.loop !172
 
 .preheader88:                                     ; preds = %print_alg.exit60, %.preheader88.backedge
-  %indvars.iv112 = phi i64 [ %indvars.iv112.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
+  %indvars.iv113 = phi i64 [ %indvars.iv113.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
   %.28294 = phi i32 [ %.28294.be, %.preheader88.backedge ], [ %.9, %print_alg.exit60 ]
   %73 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_mac_opt, i64 %indvars.iv112
   %74 = load ptr, ptr %73, align 16, !tbaa !162
   %75 = icmp eq i32 %.28294, 0
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %.preheader88
+76:; preds = %.preheader89
   %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull @.str.216)
   br label %78
 
-78:                                               ; preds = %76, %.preheader88
+78:; preds = %76, %.preheader88
   %.10 = phi i32 [ 13, %76 ], [ %.28294, %.preheader88 ]
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %74)
   %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #20
@@ -7537,47 +7537,47 @@ print_alg.exit60:                                 ; preds = %65, %72
   %84 = icmp sgt i32 %83, 80
   br i1 %84, label %print_alg.exit62.thread, label %print_alg.exit62
 
-print_alg.exit62:                                 ; preds = %78
+print_alg.exit62:; preds = %78
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %.not55 = icmp eq i64 %indvars.iv.next113, 9
   br i1 %.not55, label %.preheader87.preheader, label %.preheader88.backedge
 
 .preheader88.backedge:                            ; preds = %print_alg.exit62, %print_alg.exit62.thread
-  %indvars.iv112.be = phi i64 [ %indvars.iv.next113, %print_alg.exit62 ], [ %indvars.iv.next113130, %print_alg.exit62.thread ]
+  %indvars.iv113.be = phi i64 [ %indvars.iv.next113, %print_alg.exit62 ], [ %indvars.iv.next114134, %print_alg.exit62.thread ]
   %.28294.be = phi i32 [ %83, %print_alg.exit62 ], [ 0, %print_alg.exit62.thread ]
   br label %.preheader88, !llvm.loop !173
 
 print_alg.exit62.thread:                          ; preds = %78
   %putchar.i61 = tail call i32 @putchar(i32 10)
-  %indvars.iv.next113130 = add nuw nsw i64 %indvars.iv112, 1
-  %.not55131 = icmp eq i64 %indvars.iv.next113130, 9
-  br i1 %.not55131, label %.thread, label %.preheader88.backedge
+  %indvars.iv.next114134 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond116135 = icmp eq i64 %indvars.iv.next114134, 9
+  br i1 %exitcond116135, label %.thread, label %.preheader88.backedge
 
 .preheader87.preheader:                           ; preds = %print_alg.exit62
-  %85 = icmp eq i32 %83, 0
-  br i1 %85, label %.thread, label %88
+  %86 = icmp eq i32 %83, 0
+  br i1 %86, label %.thread, label %89
 
 .thread:                                          ; preds = %print_alg.exit62.thread, %.preheader87.preheader
-  %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull @.str.216)
-  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull @.str.249)
+  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull @.str.216)
+  %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull @.str.249)
   br label %.preheader86.preheader
 
-88:                                               ; preds = %.preheader87.preheader
-  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull @.str.249)
-  %90 = add nsw i32 %83, 5
-  %91 = icmp sgt i32 %83, 75
-  br i1 %91, label %92, label %.preheader86.preheader
+89:                                               ; preds = %.preheader87.preheader
+  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull @.str.249)
+  %91 = add nsw i32 %83, 5
+  %92 = icmp sgt i32 %83, 75
+  br i1 %92, label %93, label %.preheader86.preheader
 
-92:                                               ; preds = %88
+93:                                               ; preds = %89
   %putchar.i63 = tail call i32 @putchar(i32 10)
   br label %.preheader86.preheader
 
-.preheader86.preheader:                           ; preds = %.thread, %88, %92
-  %.48498.ph = phi i32 [ 0, %92 ], [ %90, %88 ], [ 18, %.thread ]
+.preheader86.preheader:                           ; preds = %.thread, %89, %93
+  %.48498.ph = phi i32 [ 0, %92 ], [ %91, %88 ], [ 18, %.thread ]
   br label %.preheader86
 
 .preheader86:                                     ; preds = %.preheader86.preheader, %print_alg.exit66
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %print_alg.exit66 ], [ 0, %.preheader86.preheader ]
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %print_alg.exit66 ], [ 0, %.preheader86.preheader ]
   %.48498 = phi i32 [ %.15, %print_alg.exit66 ], [ %.48498.ph, %.preheader86.preheader ]
   %93 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_asym_opt, i64 %indvars.iv118
   %94 = load ptr, ptr %93, align 16, !tbaa !162
@@ -7604,24 +7604,24 @@ print_alg.exit62.thread:                          ; preds = %78
 
 print_alg.exit66:                                 ; preds = %98, %105
   %.15 = phi i32 [ 0, %105 ], [ %103, %98 ]
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %.not57 = icmp eq i64 %indvars.iv.next119, 6
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %.not57 = icmp eq i64 %indvars.iv.next121, 6
   br i1 %.not57, label %.preheader, label %.preheader86, !llvm.loop !174
 
 .preheader:                                       ; preds = %print_alg.exit66, %print_alg.exit68
-  %.not58 = phi i1 [ true, %print_alg.exit68 ], [ false, %print_alg.exit66 ]
-  %indvars.iv121 = phi i64 [ 1, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
+  %exitcond127 = phi i1 [ true, %print_alg.exit68 ], [ false, %print_alg.exit66 ]
+  %indvars.iv124 = phi i64 [ 1, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
   %.585100 = phi i32 [ %.17, %print_alg.exit68 ], [ %.15, %print_alg.exit66 ]
   %106 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_other_opt, i64 %indvars.iv121
   %107 = load ptr, ptr %106, align 16, !tbaa !162
   %108 = icmp eq i32 %.585100, 0
   br i1 %108, label %109, label %111
 
-109:                                              ; preds = %.preheader
+109:; preds = %.preheader
   %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull @.str.216)
   br label %111
 
-111:                                              ; preds = %109, %.preheader
+111: ; preds = %109, %.preheader
   %.16 = phi i32 [ 13, %109 ], [ %.585100, %.preheader ]
   %112 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %107)
   %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #20
@@ -7637,30 +7637,30 @@ print_alg.exit66:                                 ; preds = %98, %105
 
 print_alg.exit68:                                 ; preds = %111, %118
   %.17 = phi i32 [ 0, %118 ], [ %116, %111 ]
-  br i1 %.not58, label %119, label %.preheader, !llvm.loop !175
+  br i1 %.not58, label %122, label %.preheader, !llvm.loop !175
 
-119:                                              ; preds = %print_alg.exit68
+122:                                              ; preds = %print_alg.exit68
   %putchar = tail call i32 @putchar(i32 10)
-  %120 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %121, i64 18
-  %123 = load ptr, ptr %122, align 8, !tbaa !8
-  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %123)
-  %125 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %126, i64 19
-  %128 = load ptr, ptr %127, align 8, !tbaa !8
-  %129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %128)
-  %130 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %131, i64 20
-  %133 = load ptr, ptr %132, align 8, !tbaa !8
-  %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %133)
-  %135 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %136, i64 23
-  %138 = load ptr, ptr %137, align 8, !tbaa !8
-  %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %138)
+  %123 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %124, i64 18
+  %126 = load ptr, ptr %125, align 8, !tbaa !8
+  %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %126)
+  %128 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %129, i64 19
+  %131 = load ptr, ptr %130, align 8, !tbaa !8
+  %132 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %131)
+  %133 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %134, i64 20
+  %136 = load ptr, ptr %135, align 8, !tbaa !8
+  %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %136)
+  %138 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %139, i64 23
+  %141 = load ptr, ptr %140, align 8, !tbaa !8
+  %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %141)
   %puts107 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
   ret void
 }

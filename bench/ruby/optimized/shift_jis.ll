@@ -536,9 +536,9 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
 9:                                                ; preds = %3
   %.val.i = load i8, ptr %1, align 1, !tbaa !6
   %10 = getelementptr i8, ptr %1, i64 2
-  %.val30.i = load i8, ptr %10, align 1, !tbaa !6
+  %.val29.i = load i8, ptr %10, align 1, !tbaa !6
   %11 = trunc i64 %6 to i32
-  %12 = zext i8 %.val30.i to i64
+  %12 = zext i8 %.val29.i to i64
   %13 = getelementptr inbounds nuw i8, ptr @onig_jis_property_hash.asso_values, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !6
   %15 = zext i8 %14 to i32
@@ -570,23 +570,23 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %.critedge29.thread.i
 
-37:                                               ; preds = %28
+37:; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %39 = tail call i32 @onigenc_with_ascii_strnicmp(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef nonnull %32, i32 noundef %11) #7
   %.not27.i = icmp eq i32 %39, 0
   br i1 %.not27.i, label %40, label %.critedge29.thread.i
 
-40:                                               ; preds = %37
+40:; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 %7
   %42 = load i8, ptr %41, align 1, !tbaa !6
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %onig_jis_property.exit, label %.critedge29.thread.i
 
-.critedge29.thread.i:                             ; preds = %9, %23, %28, %37, %40, %3
+.critedge29.thread.i:; preds = %9, %23, %28, %37, %40, %3
   %44 = tail call i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   br label %48
 
-onig_jis_property.exit:                           ; preds = %40
+onig_jis_property.exit:; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !21
   %47 = zext i8 %46 to i32

@@ -19,31 +19,31 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  br label %4
+  br label %6
 
-3:                                                ; preds = %4
+3:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %.not, label %12, label %4, !llvm.loop !4
 
-4:                                                ; preds = %2, %3
+6:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %5 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16, !tbaa !6
   %7 = icmp eq i32 %1, %6
   br i1 %7, label %8, label %3
 
-8:                                                ; preds = %4
+8: ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = tail call i32 %10(ptr noundef %0) #3
   br label %13
 
-12:                                               ; preds = %3
+13:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str) #3
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %8
+14:                                               ; preds = %13, %8
   %.07 = phi i32 [ %11, %8 ], [ -30, %12 ]
   ret i32 %.07
 }

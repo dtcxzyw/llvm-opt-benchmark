@@ -1931,35 +1931,35 @@ define internal noundef i32 @show_smap(ptr noundef initializes((32, 40)) %0, ptr
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.54) #13
   br label %46
 
-46:                                               ; preds = %60, %45
-  %47 = phi i64 [ 0, %45 ], [ %61, %60 ]
+46:                                               ; preds = %59, %45
+  %47 = phi i64 [ 0, %45 ], [ %60, %60 ]
   %48 = getelementptr [2 x i8], ptr @show_smap_vma_flags.mnemonics, i64 %47
   %49 = load i8, ptr %48, align 2
   %50 = and i64 %47, 9223372036854775804
   %51 = icmp eq i64 %50, 32
   br i1 %51, label %60, label %52
 
-52:                                               ; preds = %46
+52:; preds = %46
   %53 = load i64, ptr %39, align 8
   %54 = shl nuw i64 1, %47
   %55 = and i64 %53, %54
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %52
+56:                                               ; preds = %52
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext %49) #13
-  %58 = getelementptr i8, ptr %48, i64 1
-  %59 = load i8, ptr %58, align 1
-  call void @seq_putc(ptr noundef %0, i8 noundef zeroext %59) #13
+  %57 = getelementptr i8, ptr %48, i64 1
+  %58 = load i8, ptr %57, align 1
+  call void @seq_putc(ptr noundef %0, i8 noundef zeroext %58) #13
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #13
-  br label %60
+  br label %59
 
-60:                                               ; preds = %57, %52, %46
-  %61 = add nuw nsw i64 %47, 1
-  %62 = icmp eq i64 %61, 64
-  br i1 %62, label %63, label %46, !llvm.loop !26
+59:                                               ; preds = %56, %52, %46
+  %60 = add nuw nsw i64 %47, 1
+  %61 = icmp eq i64 %60, 64
+  br i1 %61, label %62, label %46, !llvm.loop !26
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0

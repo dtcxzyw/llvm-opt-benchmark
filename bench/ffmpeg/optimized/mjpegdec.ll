@@ -397,7 +397,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_default_huffman_table
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   br label %6
 
-6:                                                ; preds = %1, %36
+6:                                                ; preds = %1, %35
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %36 ]
   %7 = getelementptr inbounds nuw %struct.anon, ptr @init_default_huffman_tables.ht, i64 %indvars.iv
   %8 = load i32, ptr %7, align 16, !tbaa !76
@@ -420,11 +420,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_default_huffman_table
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %37, label %25
 
-25:                                               ; preds = %6
+25:; preds = %6
   %26 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %26, label %27, label %36
 
-27:                                               ; preds = %25
+27: ; preds = %25
   %28 = getelementptr inbounds [4 x [16 x i8]], ptr %4, i64 %9
   %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %13
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -437,12 +437,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_default_huffman_table
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %32, ptr align 1 %18, i64 %35, i1 false)
   br label %36
 
-36:                                               ; preds = %25, %27
+35:                                               ; preds = %25, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %37, label %6, !llvm.loop !82
+  br i1 %exitcond.not, label %36, label %6, !llvm.loop !82
 
-37:                                               ; preds = %36, %6
+36:                                               ; preds = %35, %6
   %.0 = phi i32 [ %23, %6 ], [ 0, %36 ]
   ret i32 %.0
 }

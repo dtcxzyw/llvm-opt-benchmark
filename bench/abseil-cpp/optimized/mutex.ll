@@ -2583,8 +2583,8 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   br i1 %or.cond, label %55, label %61
 
 .thread48:                                        ; preds = %26
-  %52 = zext nneg i32 %1 to i64
-  %53 = shl nuw nsw i64 1, %52
+  %53 = zext nneg i32 %1 to i64
+  %53 = shl nuw nsw i64 1, %53
   %54 = and i64 %53, 933
   %.not51 = icmp eq i64 %54, 0
   br i1 %.not51, label %.thread50, label %55
@@ -2601,50 +2601,50 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   call void %57(ptr noundef %60)
   br label %.thread50
 
-61:                                               ; preds = %._crit_edge
+63:                                               ; preds = %._crit_edge
   br i1 %25, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit, label %.thread50
 
-.thread50:                                        ; preds = %55, %58, %.thread48, %61
-  %62 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
-  %63 = and i32 %62, 1
-  %.not.i.i.i.i42 = icmp eq i32 %63, 0
+.thread50:                                        ; preds = %55, %58, %.thread48, %63
+  %64 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
+  %65 = and i32 %64, 1
+  %.not.i.i.i.i42 = icmp eq i32 %65, 0
   br i1 %.not.i.i.i.i42, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46: ; preds = %.thread50
-  %64 = or disjoint i32 %62, 1
-  %65 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %62, i32 %64 acquire monotonic, align 4
-  %66 = extractvalue { i32, i1 } %65, 0
-  %.pre.i.i.i47 = and i32 %66, 1
-  %67 = icmp eq i32 %.pre.i.i.i47, 0
-  br i1 %67, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
+  %66 = or disjoint i32 %64, 1
+  %67 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %64, i32 %66 acquire monotonic, align 4
+  %68 = extractvalue { i32, i1 } %67, 0
+  %.pre.i.i.i47 = and i32 %68, 1
+  %69 = icmp eq i32 %.pre.i.i.i47, 0
+  br i1 %69, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46, %.thread50
   call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #29
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i44: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46
-  %68 = load i32, ptr %.011.i, align 8, !tbaa !44
-  %69 = add nsw i32 %68, -1
-  store i32 %69, ptr %.011.i, align 8, !tbaa !44
-  %70 = icmp eq i32 %69, 0
-  %71 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
-  %72 = and i32 %71, 2
-  %73 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %72 release, align 4
-  %.not4.i.i45 = icmp ult i32 %73, 8
-  br i1 %.not4.i.i45, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %74
+  %70 = load i32, ptr %.011.i, align 8, !tbaa !44
+  %71 = add nsw i32 %70, -1
+  store i32 %71, ptr %.011.i, align 8, !tbaa !44
+  %72 = icmp eq i32 %71, 0
+  %73 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
+  %74 = and i32 %73, 2
+  %75 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %74 release, align 4
+  %.not4.i.i45 = icmp ult i32 %75, 8
+  br i1 %.not4.i.i45, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %76
 
-74:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
-  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %73) #29
+76:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
+  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %75) #29
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %74, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
-  br i1 %70, label %75, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %76, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
+  br i1 %72, label %77, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
 
-75:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
+77:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
   call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef nonnull %.011.i)
   br label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
 
-_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %61, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %75
+_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %63, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %77
   ret void
 }
 

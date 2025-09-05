@@ -3389,7 +3389,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   %16 = icmp eq i8 %.0.i.i, 0
   br i1 %16, label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i", label %18
 
-"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i": ; preds = %12
+16:                                               ; preds = %12
   %17 = or i8 %15, %0
   br label %26
 
@@ -3398,28 +3398,28 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   %20 = icmp sgt i8 %19, -1
   br i1 %20, label %21, label %23
 
+19:                                               ; preds = %18
+  %20 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8add_mags17h9a00cd23be3a2e8cE"(i8 noundef %0, i8 noundef %15)
+  br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i"
+
 21:                                               ; preds = %18
-  %22 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8add_mags17h9a00cd23be3a2e8cE"(i8 noundef %0, i8 noundef %15)
+  %22 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8sub_mags17ha4f3a95c6ccd881bE"(i8 noundef %0, i8 noundef %15)
   br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i"
 
-23:                                               ; preds = %18
-  %24 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8sub_mags17ha4f3a95c6ccd881bE"(i8 noundef %0, i8 noundef %15)
-  br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i"
+"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i": ; preds = %21, %19
+  %.0.i7.i = phi i8 [ %20, %21 ], [ %22, %23 ]
+  %23 = icmp slt i8 %.0.i7.i, 0
+  br i1 %23, label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit", label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
 
-"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i": ; preds = %23, %21
-  %.0.i7.i = phi i8 [ %22, %21 ], [ %24, %23 ]
-  %25 = icmp slt i8 %.0.i7.i, 0
-  br i1 %25, label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit", label %26
-
-26:                                               ; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
+26:; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
   %.0.i718.i = phi i8 [ %17, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i" ], [ %.0.i7.i, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ]
-  %27 = zext nneg i8 %.0.i718.i to i64
-  %28 = getelementptr inbounds nuw i8, ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 %27
-  %29 = load i8, ptr %28, align 1, !noundef !4
+  %24 = zext nneg i8 %.0.i718.i to i64
+  %25 = getelementptr inbounds nuw i8, ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 %24
+  %26 = load i8, ptr %25, align 1, !noundef !4
   br label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit"
 
-"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit": ; preds = %1, %3, %3, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i", %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %26
-  %.04.i = phi i8 [ -128, %1 ], [ %29, %26 ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ -128, %3 ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i" ], [ -128, %3 ]
+"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit": ; preds = %1, %3, %3, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i", %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
+  %.04.i = phi i8 [ -128, %1 ], [ %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i", %26 ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ -128, %3 ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i" ], [ -128, %3 ]
   ret i8 %.04.i
 }
 

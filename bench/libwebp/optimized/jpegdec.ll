@@ -441,7 +441,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br label %77
 
 77:                                               ; preds = %.preheader, %.critedge
-  %.not39 = phi i1 [ false, %.preheader ], [ true, %.critedge ]
+  %exitcond = phi i1 [ false, %.preheader ], [ true, %.critedge ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %.critedge ]
   %78 = phi ptr [ @ExtractMetadataFromJPEG.kJPEGMetadataMap, %.preheader ], [ %106, %.critedge ]
   %79 = load i32, ptr %78, align 16, !tbaa !81

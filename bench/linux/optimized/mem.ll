@@ -68,10 +68,10 @@ define internal i32 @chr_dev_init() #1 section ".init.text" align 16 {
   %8 = phi i64 [ %18, %17 ], [ 1, %5 ]
   %9 = shl nuw i64 1, %8
   %10 = and i64 %9, 1093
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %17
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %11, label %17
 
-11:                                               ; preds = %.preheader
+12:                                               ; preds = %.preheader
   %12 = getelementptr %struct.memdev, ptr @devlist, i64 %8
   %13 = load ptr, ptr %12, align 8
   %14 = trunc i64 %8 to i32
@@ -79,16 +79,16 @@ define internal i32 @chr_dev_init() #1 section ".init.text" align 16 {
   %16 = tail call ptr (ptr, ptr, i32, ptr, ptr, ...) @device_create(ptr noundef nonnull @mem_class, ptr noundef null, i32 noundef %15, ptr noundef null, ptr noundef nonnull %13) #12
   br label %17
 
-17:                                               ; preds = %11, %.preheader
+17:; preds = %11, %.preheader
   %18 = add nuw nsw i64 %8, 1
   %19 = icmp eq i64 %18, 12
   br i1 %19, label %20, label %.preheader, !llvm.loop !6
 
-20:                                               ; preds = %17
+20:; preds = %17
   %21 = tail call i32 @tty_init() #13
   br label %22
 
-22:                                               ; preds = %20, %5
+22:; preds = %20, %5
   %23 = phi i32 [ %21, %20 ], [ %6, %5 ]
   ret i32 %23
 }

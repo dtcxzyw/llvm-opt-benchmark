@@ -472,28 +472,28 @@ define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unna
   br label %4
 
 2:                                                ; preds = %4
-  %3 = add nuw nsw i32 %.01115, 1
-  %.not = icmp eq i32 %3, 4
+  %indvars.iv.next = add nuw nsw i32 %.01115, 1
+  %.not = icmp eq i32 %indvars.iv.next, 4
   br i1 %.not, label %.thread, label %4, !llvm.loop !25
 
-4:                                                ; preds = %1, %2
+4:   ; preds = %1, %2
   %.01115 = phi i32 [ 0, %1 ], [ %3, %2 ]
   %5 = zext nneg i32 %.01115 to i64
   %6 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !27
-  %8 = icmp eq i32 %7, %0
-  br i1 %8, label %9, label %2
+  %7 = icmp eq i32 %7, %0
+  br i1 %7, label %8, label %2
 
-9:                                                ; preds = %4
+8:                                                ; preds = %4
   %10 = tail call ptr @BN_CTX_new() #11
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
-12:                                               ; preds = %9
+12:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 450) #11
   br label %102
 
-13:                                               ; preds = %9
+13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1507,9 +1507,9 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %4, null
   %or.cond = select i1 %6, i1 true, i1 %7
-  br i1 %or.cond, label %.thread, label %.preheader
+  br i1 %or.cond, label %.thread, label %.lr.ph
 
-.preheader:                                       ; preds = %3, %22
+.lr.ph:                                           ; preds = %3, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv, i32 3
   %9 = load ptr, ptr %8, align 16, !tbaa !30
@@ -1519,7 +1519,7 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
 
-14:                                               ; preds = %.preheader
+14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %16 = zext i8 %11 to i64
   %17 = mul nuw nsw i64 %16, 5
@@ -1539,9 +1539,9 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
   store ptr %12, ptr %24, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
-.thread:                                          ; preds = %14, %20, %.preheader, %3
+.thread:                                          ; preds = %14, %20, %.lr.ph, %3
   %.026 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %12, %20 ], [ %12, %14 ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.026) #11
   %25 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33

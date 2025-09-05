@@ -272,8 +272,8 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   %.not7176.not = icmp eq i64 %4, 0
   br i1 %.not7176.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %43
-  %.03677 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %45
+  %.03677 = phi i64 [ %46, %43 ], [ 0, %.preheader ]
   %10 = shl nuw i64 %.03677, 3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   %.0.copyload = load i64, ptr %11, align 1
@@ -297,7 +297,7 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   %23 = load ptr, ptr %22, align 16, !tbaa !20
   br label %24
 
-24:                                               ; preds = %17, %40
+24: ; preds = %17, %40
   %.04274 = phi i64 [ %19, %17 ], [ %.143, %40 ]
   %.04573 = phi i64 [ 0, %17 ], [ %.146, %40 ]
   %25 = sub nuw i64 %.04274, %.04573
@@ -315,40 +315,40 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   %33 = icmp slt i32 %.0.i, 0
   br i1 %33, label %34, label %37
 
-34:                                               ; preds = %24
+34:; preds = %24
   %35 = icmp eq i64 %27, 0
   %36 = add i64 %27, -1
   br i1 %35, label %.thread64, label %40
 
-37:                                               ; preds = %24
+37:; preds = %24
   %.not53 = icmp eq i32 %.0.i, 0
-  br i1 %.not53, label %41, label %38
+  br i1 %.not53, label %43, label %40
 
-38:                                               ; preds = %37
-  %39 = add i64 %27, 1
-  br label %40
+40:                                               ; preds = %37
+  %41 = add i64 %27, 1
+  br label %42
 
-40:                                               ; preds = %34, %38
-  %.146 = phi i64 [ %39, %38 ], [ %.04573, %34 ]
+42:                                               ; preds = %34, %40
+  %.146 = phi i64 [ %41, %38 ], [ %.04573, %34 ]
   %.143 = phi i64 [ %.04274, %38 ], [ %36, %34 ]
   %.not52 = icmp ult i64 %.143, %.146
   br i1 %.not52, label %.thread64, label %24
 
-.thread64:                                        ; preds = %34, %40, %12
-  br i1 %13, label %12, label %43, !llvm.loop !21
+.thread64:                                        ; preds = %34, %42, %12
+  br i1 %13, label %12, label %45, !llvm.loop !21
 
-41:                                               ; preds = %37
+43:                                               ; preds = %37
   store i64 %.0.copyload, ptr %5, align 8, !tbaa !6
-  %42 = trunc i64 %27 to i32
-  store i32 %42, ptr %6, align 4, !tbaa !22
+  %44 = trunc i64 %27 to i32
+  store i32 %44, ptr %6, align 4, !tbaa !22
   br label %.loopexit
 
-43:                                               ; preds = %.thread64
-  %44 = add nuw nsw i64 %.03677, 1
-  %exitcond.not = icmp eq i64 %44, %9
+45:                                               ; preds = %.thread64
+  %46 = add nuw nsw i64 %.03677, 1
+  %exitcond.not = icmp eq i64 %46, %9
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
-.loopexit:                                        ; preds = %43, %.preheader, %41, %7
+.loopexit:                                        ; preds = %45, %.preheader, %43, %7
   %.0 = phi i1 [ false, %7 ], [ true, %41 ], [ false, %.preheader ], [ false, %43 ]
   ret i1 %.0
 }

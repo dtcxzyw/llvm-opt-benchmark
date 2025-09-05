@@ -785,12 +785,12 @@ split:                                            ; preds = %34
   %.not50 = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not50, label %55, label %.preheader, !llvm.loop !68
 
-55:                                               ; preds = %54
+55: ; preds = %54
   %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.6) #8
   %.not51 = icmp eq i32 %56, 0
   br i1 %.not51, label %57, label %parse_fmtp_config.exit.thread
 
-57:                                               ; preds = %55
+57:; preds = %55
   %58 = load i32, ptr %2, align 8, !tbaa !69
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 48

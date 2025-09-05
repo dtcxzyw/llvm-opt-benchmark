@@ -7947,21 +7947,21 @@ define internal noundef i32 @_ZL23ucurr_countCurrencyListP12UEnumerationP10UErro
   %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = load i32, ptr %4, align 4, !tbaa !98
   %6 = icmp eq i32 %5, 2147483647
-  br i1 %6, label %.split14.us, label %.split
+  br i1 %6, label %.split.us, label %.split
 
-.split14.us:                                      ; preds = %.split, %2
-  %.us-phi = phi i32 [ 308, %2 ], [ %spec.select, %.split ]
+.split.us:                                        ; preds = %.split, %2
+  %indvars.iv17 = phi i32 [ 308, %2 ], [ %spec.select, %.split ]
   ret i32 %.us-phi
 
 .split:                                           ; preds = %2, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %2 ]
   %.0911 = phi i32 [ %spec.select, %.split ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv, i32 1
-  %8 = load i32, ptr %7, align 8, !tbaa !119
-  %9 = and i32 %8, %5
-  %10 = icmp eq i32 %9, %5
-  %11 = zext i1 %10 to i32
-  %spec.select = add nuw nsw i32 %.0911, %11
+  %9 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !119
+  %11 = and i32 %10, %5
+  %12 = icmp eq i32 %11, %5
+  %13 = zext i1 %12 to i32
+  %spec.select = add nuw nsw i32 %.0911, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 308
   br i1 %.not, label %.split14.us, label %.split, !llvm.loop !121

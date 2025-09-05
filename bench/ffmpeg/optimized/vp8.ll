@@ -19491,7 +19491,7 @@ define internal fastcc void @vp78_update_probability_tables(ptr noundef captures
   %.promoted80 = load i32, ptr %4, align 8, !tbaa !67
   br label %.preheader35
 
-.preheader35:                                     ; preds = %1, %92
+.preheader35:                                     ; preds = %1, %93
   %indvars.iv103 = phi i64 [ 0, %1 ], [ %indvars.iv.next104, %92 ]
   %.promoted597588 = phi i32 [ %.promoted74, %1 ], [ %.promoted5976, %92 ]
   %.promoted627887 = phi i32 [ %.promoted77, %1 ], [ %.promoted6279, %92 ]
@@ -19500,7 +19500,7 @@ define internal fastcc void @vp78_update_probability_tables(ptr noundef captures
   %9 = getelementptr inbounds nuw [16 x [3 x [11 x i8]]], ptr %7, i64 %indvars.iv103
   br label %.preheader34
 
-.preheader34:                                     ; preds = %.preheader35, %91
+.preheader34:                                     ; preds = %.preheader35, %92
   %indvars.iv99 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next100, %91 ]
   %.promoted446072 = phi i32 [ %.promoted597588, %.preheader35 ], [ %.promoted5976, %91 ]
   %.promoted6371 = phi i32 [ %.promoted627887, %.preheader35 ], [ %.promoted6279, %91 ]
@@ -19509,7 +19509,7 @@ define internal fastcc void @vp78_update_probability_tables(ptr noundef captures
   %11 = getelementptr inbounds nuw [10 x i8], ptr @vp8_coeff_band_indexes, i64 %indvars.iv99
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader34, %90
+.preheader:                                       ; preds = %.preheader34, %91
   %indvars.iv95 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next96, %90 ]
   %.promoted4557 = phi i32 [ %.promoted446072, %.preheader34 ], [ %.promoted5976, %90 ]
   %.promoted394756 = phi i32 [ %.promoted6371, %.preheader34 ], [ %.promoted6279, %90 ]
@@ -19632,24 +19632,24 @@ vpx_rac_renorm.exit.i28:                          ; preds = %64, %60, %47
   store i32 %82, ptr %4, align 8, !tbaa !67
   %83 = or disjoint i8 %51, %81
   %.not.i31 = icmp eq i32 %50, 0
-  br i1 %.not.i31, label %.lr.ph, label %47, !llvm.loop !79
+  br i1 %.not.i31, label %vp89_rac_get_uint.exit.preheader, label %47, !llvm.loop !79
 
-.lr.ph:                                           ; preds = %vpx_rac_renorm.exit.i28
+vp89_rac_get_uint.exit.preheader:                 ; preds = %vpx_rac_renorm.exit.i28
   %84 = load i8, ptr %11, align 2, !tbaa !56
   %invariant.gep37 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv92
   br label %vp89_rac_get_uint.exit
 
 vp89_rac_get_uint.exit:                           ; preds = %.lr.ph, %vp89_rac_get_uint.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %vp89_rac_get_uint.exit ]
-  %85 = phi i8 [ %84, %.lr.ph ], [ %88, %vp89_rac_get_uint.exit ]
-  %86 = zext nneg i8 %85 to i64
-  %gep38 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %invariant.gep37, i64 %86
+  %86 = phi i8 [ %84, %.lr.ph ], [ %89, %vp89_rac_get_uint.exit ]
+  %87 = zext nneg i8 %86 to i64
+  %gep38 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %invariant.gep37, i64 %87
   store i8 %83, ptr %gep38, align 1, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next
-  %88 = load i8, ptr %87, align 1, !tbaa !56
-  %89 = icmp sgt i8 %88, -1
-  br i1 %89, label %vp89_rac_get_uint.exit, label %.loopexit, !llvm.loop !258
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next
+  %89 = load i8, ptr %88, align 1, !tbaa !56
+  %90 = icmp sgt i8 %89, -1
+  br i1 %90, label %vp89_rac_get_uint.exit, label %.loopexit, !llvm.loop !258
 
 .loopexit:                                        ; preds = %vp89_rac_get_uint.exit, %vpx_rac_get_prob_branchy.exit.thread
   %.promoted82 = phi i32 [ %.0.i.i, %vpx_rac_get_prob_branchy.exit.thread ], [ %82, %vp89_rac_get_uint.exit ]
@@ -19657,24 +19657,24 @@ vp89_rac_get_uint.exit:                           ; preds = %.lr.ph, %vp89_rac_g
   %.promoted5976 = phi i32 [ %43, %vpx_rac_get_prob_branchy.exit.thread ], [ %80, %vp89_rac_get_uint.exit ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next93, 11
-  br i1 %exitcond.not, label %90, label %13, !llvm.loop !259
+  br i1 %exitcond.not, label %91, label %13, !llvm.loop !259
 
-90:                                               ; preds = %.loopexit
+91:                                               ; preds = %.loopexit
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 3
-  br i1 %exitcond98.not, label %91, label %.preheader, !llvm.loop !260
-
-91:                                               ; preds = %90
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next100, 8
-  br i1 %exitcond102.not, label %92, label %.preheader34, !llvm.loop !261
+  br i1 %exitcond98.not, label %92, label %.preheader, !llvm.loop !260
 
 92:                                               ; preds = %91
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next104, 4
-  br i1 %exitcond106.not, label %93, label %.preheader35, !llvm.loop !262
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next100, 8
+  br i1 %exitcond102.not, label %93, label %.preheader34, !llvm.loop !261
 
 93:                                               ; preds = %92
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next104, 4
+  br i1 %exitcond106.not, label %94, label %.preheader35, !llvm.loop !262
+
+94:                                               ; preds = %93
   ret void
 }
 

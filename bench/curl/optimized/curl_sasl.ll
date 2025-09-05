@@ -83,8 +83,8 @@ switch.early.test.us:                             ; preds = %10
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %16 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next61
   %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %.not.us = icmp eq i64 %indvars.iv.next61, 11
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !13
+  %exitcond63 = icmp eq i64 %indvars.iv.next61, 11
+  br i1 %exitcond63, label %.loopexit, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %3, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %3 ]
@@ -125,12 +125,12 @@ switch.early.test:                                ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !13
+  %exitcond = icmp eq i64 %indvars.iv.next, 11
+  br i1 %exitcond, label %.loopexit, label %.split, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %switch.early.test, %22, %switch.early.test.us, %8
-  %.sink74 = phi i64 [ %indvars.iv60, %8 ], [ %indvars.iv60, %switch.early.test.us ], [ %indvars.iv, %22 ], [ %indvars.iv, %switch.early.test ]
-  %32 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %.sink74, i32 2
+  %.sink75 = phi i64 [ %indvars.iv60, %8 ], [ %indvars.iv60, %switch.early.test.us ], [ %indvars.iv, %22 ], [ %indvars.iv, %switch.early.test ]
+  %32 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %.sink75, i32 2
   %33 = load i16, ptr %32, align 8, !tbaa !16
   br label %.loopexit
 
@@ -183,7 +183,7 @@ define hidden range(i32 0, 4) i32 @Curl_sasl_parse_url_auth_option(ptr noundef c
 
 19:                                               ; preds = %18
   %20 = icmp eq i64 %2, %17
-  br i1 %20, label %29, label %21
+  br i1 %20, label %Curl_sasl_decode_mech.exit, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %17
@@ -206,19 +206,19 @@ switch.early.test.i:                              ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next.i
   %28 = load ptr, ptr %27, align 8, !tbaa !12
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %.not.i, label %Curl_sasl_decode_mech.exit.thread, label %.split.i, !llvm.loop !13
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %exitcond.i, label %Curl_sasl_decode_mech.exit.thread, label %.split.i, !llvm.loop !13
 
-29:                                               ; preds = %19
-  %30 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.i, i32 2
-  %31 = load i16, ptr %30, align 8, !tbaa !16
+Curl_sasl_decode_mech.exit:                       ; preds = %19
+  %29 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.i, i32 2
+  %30 = load i16, ptr %29, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %33 = load i16, ptr %32, align 2, !tbaa !17
-  %34 = or i16 %33, %31
+  %34 = or i16 %33, %30
   store i16 %34, ptr %32, align 2, !tbaa !17
   br label %Curl_sasl_decode_mech.exit.thread
 
-Curl_sasl_decode_mech.exit.thread:                ; preds = %26, %switch.early.test.i, %13, %29, %3
+Curl_sasl_decode_mech.exit.thread:                ; preds = %26, %switch.early.test.i, %13, %Curl_sasl_decode_mech.exit, %3
   %.0 = phi i32 [ 3, %3 ], [ 0, %13 ], [ 0, %29 ], [ 3, %switch.early.test.i ], [ 3, %26 ]
   ret i32 %.0
 }

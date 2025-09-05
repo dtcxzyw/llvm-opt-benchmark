@@ -995,12 +995,12 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
   br i1 %or.cond.not.i, label %48, label %pgstat_get_kind_info.exit.thread.i
 
 .thread.i:                                        ; preds = %pgstat_get_kind_info.exit.i
-  %46 = load i8, ptr %43, align 8
-  %47 = and i8 %46, 5
-  %or.cond.not85.i = icmp eq i8 %47, 5
+  %48 = load i8, ptr %43, align 8
+  %49 = and i8 %48, 5
+  %or.cond.not85.i = icmp eq i8 %49, 5
   br i1 %or.cond.not85.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
 
-48:                                               ; preds = %44
+pgstat_get_kind_info.exit.i.i:                    ; preds = %44
   %49 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
   br label %pgstat_get_kind_info.exit.i.i
 

@@ -253,8 +253,8 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %123 = and i64 %113, 9223372036854775807
   %124 = shl nuw i64 1, %123
   %125 = and i64 %124, 4288
-  %.not187.not.not = icmp eq i64 %125, 0
-  br i1 %.not187.not.not, label %.loopexit237.preheader, label %.preheader
+  %.not187 = icmp eq i64 %125, 0
+  br i1 %.not187, label %.loopexit237.preheader, label %.preheader
 
 .preheader:                                       ; preds = %122
   %126 = load i32, ptr %60, align 8

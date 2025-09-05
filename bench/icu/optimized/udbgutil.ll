@@ -1376,7 +1376,7 @@ udbg_getSystemParameterNameByIndex.exit:          ; preds = %1, %18
   %5 = getelementptr inbounds nuw %struct.USystemParams, ptr @_ZL12systemParams, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !tbaa !13
+  store i32 0, ptr %3, align 4, !tbaa !udbg_getSystemParameterValueByIndex.exit
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = call noundef i32 %8(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 2000, ptr noundef nonnull %3)
@@ -1385,11 +1385,11 @@ udbg_getSystemParameterNameByIndex.exit:          ; preds = %1, %18
   br i1 %11, label %15, label %13
 
 udbg_getSystemParameterNameByIndex.exit.thread:   ; preds = %18
-  %12 = call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %0)
+  %7 = call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-13:                                               ; preds = %udbg_getSystemParameterNameByIndex.exit
+udbg_getSystemParameterValueByIndex.exit:         ; preds = %udbg_getSystemParameterNameByIndex.exit
   %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %6, ptr noundef nonnull %2) #26
   br label %18
 

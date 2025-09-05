@@ -1361,8 +1361,8 @@ define internal i64 @store_shost_state(ptr noundef %0, ptr readnone captures(non
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %20, %.loopexit
-  %27 = phi i64 [ %26, %.loopexit ], [ -22, %20 ]
-  ret i64 %27
+  %29 = phi i64 [ %26, %.loopexit ], [ -22, %20 ]
+  ret i64 %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -2484,24 +2484,24 @@ define internal i64 @store_state_field(ptr noundef %0, ptr readnone captures(non
   tail call void @mutex_unlock(ptr noundef %25) #15
   br label %.loopexit.thread
 
-34:                                               ; preds = %29
-  %35 = tail call i32 @scsi_device_set_state(ptr noundef %5, i32 noundef %23) #15
-  %36 = icmp eq i32 %35, 0
-  %37 = and i1 %32, %36
-  %38 = select i1 %36, i64 %3, i64 -22
+33:                                               ; preds = %29
+  %34 = tail call i32 @scsi_device_set_state(ptr noundef %5, i32 noundef %23) #15
+  %35 = icmp eq i32 %34, 0
+  %36 = and i1 %32, %35
+  %37 = select i1 %35, i64 %3, i64 -22
   tail call void @mutex_unlock(ptr noundef %25) #15
-  br i1 %37, label %39, label %.loopexit.thread
+  br i1 %36, label %38, label %.loopexit.thread
 
-39:                                               ; preds = %34
-  %40 = getelementptr i8, ptr %0, i64 -432
-  %41 = load ptr, ptr %40, align 8
-  tail call void @blk_mq_run_hw_queues(ptr noundef %41, i1 noundef zeroext true) #15
-  %42 = tail call i32 @scsi_rescan_device(ptr noundef %5) #15
+38:                                               ; preds = %33
+  %39 = getelementptr i8, ptr %0, i64 -432
+  %40 = load ptr, ptr %39, align 8
+  tail call void @blk_mq_run_hw_queues(ptr noundef %40, i1 noundef zeroext true) #15
+  %41 = tail call i32 @scsi_rescan_device(ptr noundef %5) #15
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %20, %.thread1, %39, %34, %28, %.loopexit
-  %43 = phi i64 [ -22, %28 ], [ -22, %.loopexit ], [ %38, %39 ], [ %38, %34 ], [ %3, %.thread1 ], [ -22, %20 ]
-  ret i64 %43
+.loopexit.thread:                                 ; preds = %20, %.thread1, %38, %33, %28, %.loopexit
+  %42 = phi i64 [ -22, %28 ], [ -22, %.loopexit ], [ %37, %39 ], [ %37, %34 ], [ %3, %.thread1 ], [ -22, %20 ]
+  ret i64 %42
 }
 
 ; Function Attrs: null_pointer_is_valid

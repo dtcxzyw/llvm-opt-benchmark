@@ -2514,18 +2514,18 @@ declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define hidden ptr @rb_builtin_type_name(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp ugt i32 %0, 28
-  br i1 %2, label %8, label %3
+  br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = shl nuw nsw i64 1, %4
   %6 = and i64 %5, 58785793
-  %.not.not = icmp eq i64 %6, 0
+  %.not = icmp eq i64 %6, 0
   %7 = getelementptr [10 x i8], ptr @builtin_types, i64 %4
-  %spec.select = select i1 %.not.not, ptr %7, ptr null
+  %spec.select = select i1 %.not, ptr %7, ptr null
   br label %8
 
-8:                                                ; preds = %3, %1
+7:                                                ; preds = %3, %1
   %.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.0
 }
@@ -2709,28 +2709,28 @@ define internal fastcc void @unexpected_type(i64 noundef %0, i32 noundef range(i
   %6 = zext nneg i32 %2 to i64
   %7 = shl nuw nsw i64 1, %6
   %8 = and i64 %7, 58785793
-  %.not.not.i = icmp ne i64 %8, 0
+  %.not.i = icmp ne i64 %8, 0
   %9 = getelementptr [10 x i8], ptr @builtin_types, i64 %6
   %.not = icmp eq ptr %9, null
-  %or.cond = or i1 %.not, %.not.not.i
+  %or.cond = or i1 %.not, %.not.i
   br i1 %or.cond, label %rb_builtin_type_name.exit.thread, label %10
 
-10:                                               ; preds = %5
+rb_builtin_type_name.exit:                        ; preds = %5
   %11 = tail call fastcc i64 @displaying_class_of(i64 noundef %0)
   %12 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.15, i64 noundef %11, ptr noundef nonnull %9) #33
   %13 = load i64, ptr @rb_eTypeError, align 8, !tbaa !15
-  br label %16
+  br label %14
 
 rb_builtin_type_name.exit.thread:                 ; preds = %5, %3
   %14 = load i64, ptr @rb_eFatal, align 8, !tbaa !15
   %15 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.282, i32 noundef %2, i32 noundef %1) #33
   br label %16
 
-16:                                               ; preds = %rb_builtin_type_name.exit.thread, %10
+14:                                               ; preds = %rb_builtin_type_name.exit.thread, %rb_builtin_type_name.exit
   %.012 = phi i64 [ %12, %10 ], [ %15, %rb_builtin_type_name.exit.thread ]
   %.0 = phi i64 [ %13, %10 ], [ %14, %rb_builtin_type_name.exit.thread ]
-  %17 = tail call i64 @rb_exc_new_str(i64 noundef %.0, i64 noundef %.012)
-  tail call void @rb_exc_raise(i64 noundef %17) #37
+  %15 = tail call i64 @rb_exc_new_str(i64 noundef %.0, i64 noundef %.012)
+  tail call void @rb_exc_raise(i64 noundef %15) #37
   unreachable
 }
 

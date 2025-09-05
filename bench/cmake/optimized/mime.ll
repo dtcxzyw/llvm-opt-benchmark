@@ -3295,12 +3295,12 @@ define internal i64 @encoder_qp_read(ptr noundef writeonly captures(none) %0, i6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %13
 
-13:                                               ; preds = %.lr.ph, %80
-  %14 = phi i64 [ %10, %.lr.ph ], [ %92, %80 ]
-  %15 = phi i64 [ %9, %.lr.ph ], [ %91, %80 ]
-  %.054107 = phi i64 [ 0, %.lr.ph ], [ %81, %80 ]
-  %.057106 = phi ptr [ %0, %.lr.ph ], [ %82, %80 ]
-  %.059105 = phi i64 [ %1, %.lr.ph ], [ %83, %80 ]
+13:                                               ; preds = %.lr.ph, %93
+  %14 = phi i64 [ %10, %.lr.ph ], [ %105, %80 ]
+  %15 = phi i64 [ %9, %.lr.ph ], [ %104, %80 ]
+  %.054107 = phi i64 [ 0, %.lr.ph ], [ %94, %80 ]
+  %.057106 = phi ptr [ %0, %.lr.ph ], [ %95, %80 ]
+  %.059105 = phi i64 [ %1, %.lr.ph ], [ %96, %80 ]
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !67
   %18 = zext i8 %17 to i32
@@ -3321,7 +3321,7 @@ define internal i64 @encoder_qp_read(ptr noundef writeonly captures(none) %0, i6
   switch i8 %29, label %55 [
     i8 1, label %qp_lookahead_eol.exit.thread79
     i8 2, label %30
-    i8 3, label %44
+    i8 3, label %50
   ]
 
 30:                                               ; preds = %13
@@ -3341,7 +3341,7 @@ define internal i64 @encoder_qp_read(ptr noundef writeonly captures(none) %0, i6
   %39 = icmp eq i8 %38, 13
   br i1 %39, label %40, label %qp_lookahead_eol.exit.thread79
 
-40:                                               ; preds = %36
+40:; preds = %36
   %41 = getelementptr i8, ptr %37, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !67
   %43 = icmp eq i8 %42, 10
@@ -3354,9 +3354,9 @@ qp_lookahead_eol.exit.thread:                     ; preds = %40, %30
   store i8 61, ptr %5, align 4, !tbaa !67
   br label %qp_lookahead_eol.exit.thread79
 
-44:                                               ; preds = %13
-  %45 = icmp uge i64 %15, %14
-  %or.cond.i65 = and i1 %2, %45
+50:                                               ; preds = %13
+  %51 = icmp uge i64 %15, %14
+  %or.cond.i65 = and i1 %2, %51
   br i1 %or.cond.i65, label %qp_lookahead_eol.exit68.thread, label %46
 
 46:                                               ; preds = %44
@@ -3364,113 +3364,113 @@ qp_lookahead_eol.exit.thread:                     ; preds = %40, %30
   %48 = icmp ugt i64 %47, %14
   br i1 %48, label %qp_lookahead_eol.exit68, label %49
 
-49:                                               ; preds = %46
+52:                                               ; preds = %46
   %50 = icmp eq i8 %17, 13
   br i1 %50, label %51, label %qp_lookahead_eol.exit68.thread82
 
-51:                                               ; preds = %49
-  %52 = getelementptr i8, ptr %16, i64 1
-  %53 = load i8, ptr %52, align 1, !tbaa !67
-  %54 = icmp eq i8 %53, 10
+55:                                               ; preds = %52
+  %56 = getelementptr i8, ptr %16, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !67
+  %54 = icmp eq i8 %57, 10
   br i1 %54, label %qp_lookahead_eol.exit68.thread, label %qp_lookahead_eol.exit68.thread82
 
 qp_lookahead_eol.exit68:                          ; preds = %46
   br i1 %2, label %qp_lookahead_eol.exit68.thread82, label %.thread88
 
-qp_lookahead_eol.exit68.thread:                   ; preds = %51, %44
+qp_lookahead_eol.exit68.thread:                   ; preds = %55, %50
   store i8 10, ptr %.051.sroa.gep73, align 1, !tbaa !67
   br label %qp_lookahead_eol.exit.thread79
 
-qp_lookahead_eol.exit68.thread82:                 ; preds = %qp_lookahead_eol.exit68, %51, %49
+qp_lookahead_eol.exit68.thread82:                 ; preds = %qp_lookahead_eol.exit68, %51, %52
   store i8 61, ptr %5, align 4, !tbaa !67
   br label %qp_lookahead_eol.exit.thread79
 
-55:                                               ; preds = %13
+62:                                               ; preds = %13
   store i8 61, ptr %5, align 4, !tbaa !67
   br label %qp_lookahead_eol.exit.thread79
 
-qp_lookahead_eol.exit.thread79:                   ; preds = %qp_lookahead_eol.exit, %40, %36, %qp_lookahead_eol.exit68.thread, %qp_lookahead_eol.exit68.thread82, %qp_lookahead_eol.exit.thread, %55, %13
+qp_lookahead_eol.exit.thread79:                   ; preds = %qp_lookahead_eol.exit, %40, %36, %qp_lookahead_eol.exit68.thread, %qp_lookahead_eol.exit68.thread82, %qp_lookahead_eol.exit.thread, %62, %13
   %.051.sroa.phi = phi ptr [ %.051.sroa.gep, %55 ], [ %.051.sroa.gep73, %13 ], [ %.051.sroa.gep, %qp_lookahead_eol.exit.thread ], [ %.051.sroa.gep73, %qp_lookahead_eol.exit ], [ %.051.sroa.gep, %qp_lookahead_eol.exit68.thread82 ], [ %.051.sroa.gep77, %qp_lookahead_eol.exit68.thread ], [ %.051.sroa.gep73, %36 ], [ %.051.sroa.gep73, %40 ]
   %.051 = phi i64 [ 3, %55 ], [ 1, %13 ], [ 3, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 3, %qp_lookahead_eol.exit68.thread82 ], [ 2, %qp_lookahead_eol.exit68.thread ], [ 1, %36 ], [ 1, %40 ]
   %.049 = phi i64 [ 1, %55 ], [ 1, %13 ], [ 1, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 1, %qp_lookahead_eol.exit68.thread82 ], [ 2, %qp_lookahead_eol.exit68.thread ], [ 1, %36 ], [ 1, %40 ]
-  %56 = getelementptr i8, ptr %.051.sroa.phi, i64 -1
-  %57 = load i8, ptr %56, align 1, !tbaa !67
-  %.not = icmp eq i8 %57, 10
-  br i1 %.not, label %.thread, label %58
+  %63 = getelementptr i8, ptr %.051.sroa.phi, i64 -1
+  %64 = load i8, ptr %63, align 1, !tbaa !67
+  %.not = icmp eq i8 %64, 10
+  br i1 %.not, label %.thread, label %65
 
-58:                                               ; preds = %qp_lookahead_eol.exit.thread79
-  %59 = load i64, ptr %6, align 8, !tbaa !99
-  %60 = add i64 %59, %.051
-  %61 = icmp eq i64 %60, 76
-  br i1 %61, label %62, label %76
+65:                                               ; preds = %qp_lookahead_eol.exit.thread79
+  %66 = load i64, ptr %6, align 8, !tbaa !99
+  %67 = add i64 %66, %.051
+  %68 = icmp eq i64 %67, 76
+  br i1 %68, label %69, label %89
 
-62:                                               ; preds = %58
-  %63 = add i64 %15, %.049
-  %64 = icmp uge i64 %63, %14
-  %or.cond.i69 = and i1 %2, %64
-  br i1 %or.cond.i69, label %.thread, label %65
+69:                                               ; preds = %65
+  %70 = add i64 %15, %.049
+  %71 = icmp uge i64 %70, %14
+  %or.cond.i69 = and i1 %2, %71
+  br i1 %or.cond.i69, label %.thread, label %72
 
-65:                                               ; preds = %62
-  %66 = add i64 %63, 2
-  %67 = icmp ugt i64 %66, %14
-  br i1 %67, label %qp_lookahead_eol.exit72, label %68
+72:                                               ; preds = %69
+  %73 = add i64 %70, 2
+  %74 = icmp ugt i64 %73, %14
+  br i1 %74, label %qp_lookahead_eol.exit72, label %75
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %12, i64 %63
-  %70 = load i8, ptr %69, align 1, !tbaa !67
-  %71 = icmp eq i8 %70, 13
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 %70
+  %77 = load i8, ptr %76, align 1, !tbaa !67
+  %71 = icmp eq i8 %77, 13
   br i1 %71, label %72, label %.critedge
 
-72:                                               ; preds = %68
+72:; preds = %68
   %73 = getelementptr i8, ptr %69, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !67
   %75 = icmp eq i8 %74, 10
   br i1 %75, label %.thread, label %.critedge
 
-qp_lookahead_eol.exit72:                          ; preds = %65
+qp_lookahead_eol.exit72:; preds = %65
   br i1 %2, label %.critedge, label %.thread88
 
-76:                                               ; preds = %58
-  %77 = icmp ugt i64 %60, 76
-  br i1 %77, label %.critedge, label %.thread
+89:                                               ; preds = %65
+  %90 = icmp ugt i64 %67, 76
+  br i1 %90, label %.critedge, label %.thread
 
-.critedge:                                        ; preds = %qp_lookahead_eol.exit72, %72, %68, %76
+.critedge:                                        ; preds = %qp_lookahead_eol.exit72, %72, %75, %89
   store i32 658749, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %72, %62, %76, %.critedge, %qp_lookahead_eol.exit.thread79
+.thread:                                          ; preds = %72, %69, %89, %.critedge, %qp_lookahead_eol.exit.thread79
   %.152 = phi i64 [ 3, %.critedge ], [ %.051, %76 ], [ %.051, %qp_lookahead_eol.exit.thread79 ], [ %.051, %62 ], [ %.051, %72 ]
   %.150 = phi i64 [ 0, %.critedge ], [ %.049, %76 ], [ %.049, %qp_lookahead_eol.exit.thread79 ], [ %.049, %62 ], [ %.049, %72 ]
-  %78 = icmp ugt i64 %.152, %.059105
-  br i1 %78, label %79, label %80
+  %91 = icmp ugt i64 %.152, %.059105
+  br i1 %91, label %92, label %93
 
-79:                                               ; preds = %.thread
+92:                                               ; preds = %.thread
   %.not63 = icmp eq i64 %.054107, 0
   %spec.select = select i1 %.not63, i64 -2, i64 %.054107
   br label %.thread88
 
-80:                                               ; preds = %.thread
+93:                                               ; preds = %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.057106, ptr noundef nonnull align 4 dereferenceable(1) %5, i64 %.152, i1 false)
-  %81 = add i64 %.152, %.054107
-  %82 = getelementptr inbounds nuw i8, ptr %.057106, i64 %.152
-  %83 = sub nuw i64 %.059105, %.152
-  %84 = load i64, ptr %6, align 8, !tbaa !99
-  %85 = add i64 %84, %.152
-  %86 = getelementptr i8, ptr %5, i64 %.152
-  %87 = getelementptr i8, ptr %86, i64 -1
-  %88 = load i8, ptr %87, align 1, !tbaa !67
-  %89 = icmp eq i8 %88, 10
-  %spec.store.select = select i1 %89, i64 0, i64 %85
+  %94 = add i64 %.152, %.054107
+  %95 = getelementptr inbounds nuw i8, ptr %.057106, i64 %.152
+  %96 = sub nuw i64 %.059105, %.152
+  %97 = load i64, ptr %6, align 8, !tbaa !99
+  %98 = add i64 %97, %.152
+  %99 = getelementptr i8, ptr %5, i64 %.152
+  %100 = getelementptr i8, ptr %99, i64 -1
+  %101 = load i8, ptr %100, align 1, !tbaa !67
+  %102 = icmp eq i8 %101, 10
+  %spec.store.select = select i1 %102, i64 0, i64 %98
   store i64 %spec.store.select, ptr %6, align 8
-  %90 = load i64, ptr %7, align 8, !tbaa !69
-  %91 = add i64 %90, %.150
-  store i64 %91, ptr %7, align 8, !tbaa !69
-  %92 = load i64, ptr %8, align 8, !tbaa !70
-  %93 = icmp ult i64 %91, %92
-  br i1 %93, label %13, label %.thread88
+  %103 = load i64, ptr %7, align 8, !tbaa !69
+  %104 = add i64 %103, %.150
+  store i64 %104, ptr %7, align 8, !tbaa !69
+  %105 = load i64, ptr %8, align 8, !tbaa !70
+  %106 = icmp ult i64 %104, %105
+  br i1 %106, label %13, label %.thread88
 
-.thread88:                                        ; preds = %80, %qp_lookahead_eol.exit68, %qp_lookahead_eol.exit, %qp_lookahead_eol.exit72, %4, %79
-  %.2 = phi i64 [ %spec.select, %79 ], [ 0, %4 ], [ %81, %80 ], [ %.054107, %qp_lookahead_eol.exit68 ], [ %.054107, %qp_lookahead_eol.exit ], [ %.054107, %qp_lookahead_eol.exit72 ]
+.thread88:                                        ; preds = %93, %qp_lookahead_eol.exit68, %qp_lookahead_eol.exit, %qp_lookahead_eol.exit72, %4, %92
+  %.2 = phi i64 [ %spec.select, %79 ], [ 0, %4 ], [ %94, %80 ], [ %.054107, %qp_lookahead_eol.exit68 ], [ %.054107, %qp_lookahead_eol.exit ], [ %.054107, %qp_lookahead_eol.exit72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.2
 }

@@ -10302,19 +10302,19 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
   %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6, i64 1
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %10
+  br i1 %9, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i.i
 
-10:                                               ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
-  %11 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
+_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i.i: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
+  %10 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
   %12 = sext i32 %8 to i64
   %.idx.i = shl nsw i64 %12, 2
   %.add.i = add nsw i64 %.idx.i, 8
-  %.ptr15.i = getelementptr i8, ptr %11, i64 %.add.i
+  %.ptr15.i = getelementptr i8, ptr %10, i64 %.add.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %16, %10
   %.076.i.i.idx.i = phi i64 [ %.076.i.i.add.i, %16 ], [ 8, %10 ]
-  %.076.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.076.i.i.idx.i
+  %.076.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.076.i.i.idx.i
   %13 = load i32, ptr %.076.i.i.ptr.i, align 4, !tbaa !7
   %14 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %13)
   %15 = icmp eq i32 %14, 3
@@ -10333,7 +10333,7 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
   br i1 %or.cond.i.i, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.lr.ph.i19.i.preheader.i
 
 .lr.ph.i19.i.preheader.i:                         ; preds = %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i"
-  %.076.i.i.ptr.i.le = getelementptr inbounds nuw i8, ptr %11, i64 %.076.i.i.idx.i
+  %.076.i.i.ptr.i.le = getelementptr inbounds nuw i8, ptr %10, i64 %.076.i.i.idx.i
   %19 = getelementptr inbounds nuw i8, ptr %.076.i.i.ptr.i.le, i64 4
   br label %.lr.ph.i19.i.i
 

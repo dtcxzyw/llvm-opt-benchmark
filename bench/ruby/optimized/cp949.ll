@@ -36,22 +36,22 @@ define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr n
   %11 = icmp ult i8 %10, -126
   br i1 %11, label %12, label %15
 
-12:                                               ; preds = %3
+12:; preds = %3
   %13 = icmp eq i8 %8, -1
   %14 = select i1 %13, i32 1, i32 -1
   br label %30
 
-15:                                               ; preds = %3
+15:; preds = %3
   %16 = icmp eq ptr %4, %1
   br i1 %16, label %17, label %21
 
-17:                                               ; preds = %15
+17: ; preds = %15
   %18 = getelementptr inbounds nuw i32, ptr @EncLen_CP949, i64 %6
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %20 = sub nsw i32 0, %19
   br label %30
 
-21:                                               ; preds = %15
+21: ; preds = %15
   %22 = and i64 %9, 4294967295
   %23 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %22
   %24 = load i8, ptr %4, align 1, !tbaa !6

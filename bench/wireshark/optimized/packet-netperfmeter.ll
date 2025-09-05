@@ -354,8 +354,8 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   store double -1.000000e+00, ptr %26, align 8
   store i32 0, ptr %27, align 8
   store double -1.000000e+00, ptr %28, align 16
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %32, i32 noundef 10, ptr noundef nonnull %2)
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %31, i32 noundef 10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 8
   br i1 %.not17, label %.loopexit, label %29, !llvm.loop !6
@@ -405,8 +405,8 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   br label %33
 
 33:                                               ; preds = %10, %33
-  %.0104109 = phi i32 [ 0, %10 ], [ %54, %33 ]
-  %34 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 1)
+  %indvars.iv = phi i32 [ 0, %10 ], [ %54, %33 ]
+  %34 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %indvars.iv, i32 noundef 1)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 3)
@@ -466,8 +466,8 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   store double %71, ptr %61, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 5, ptr noundef %60)
   %.pre = load i32, ptr %56, align 8
-  %.pre110 = and i32 %.pre, 1
-  %72 = icmp eq i32 %.pre110, 0
+  %.pre111 = and i32 %.pre, 1
+  %72 = icmp eq i32 %.pre111, 0
   br i1 %72, label %.thread, label %73
 
 73:                                               ; preds = %70
@@ -495,9 +495,9 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %55, %84, %70
-  %.0103116 = phi double [ %71, %84 ], [ %71, %70 ], [ -1.000000e+00, %55 ]
+  %.0103117 = phi double [ %71, %84 ], [ %71, %70 ], [ -1.000000e+00, %55 ]
   %.0102 = phi double [ %85, %84 ], [ -1.000000e+00, %70 ], [ -1.000000e+00, %55 ]
-  %86 = fsub double %.0102, %.0103116
+  %86 = fsub double %.0102, %.0103117
   %87 = fcmp ogt double %86, 0.000000e+00
   br i1 %87, label %88, label %99
 

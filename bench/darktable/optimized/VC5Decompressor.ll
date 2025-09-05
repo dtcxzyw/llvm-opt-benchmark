@@ -3961,7 +3961,7 @@ _ZN8rawspeed8OptionalItE5resetEv.exit:            ; preds = %_ZNSt10unique_ptrIN
   %106 = or i32 %105, %25
   store i32 %106, ptr %23, align 8, !tbaa !6
   %107 = icmp eq i32 %106, 15
-  br i1 %107, label %108, label %128
+  br i1 %107, label %108, label %127
 
 108:                                              ; preds = %_ZN8rawspeed8OptionalItE5resetEv.exit
   %109 = add i16 %10, -7
@@ -3989,29 +3989,29 @@ _ZN8rawspeed8OptionalItE5resetEv.exit:            ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not.i.i.i29, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30
 
 _ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30: ; preds = %108
-  %122 = load ptr, ptr %121, align 8, !tbaa !76
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8
+  %121 = load ptr, ptr %121, align 8, !tbaa !76
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = load ptr, ptr %122, align 8
   tail call void %124(ptr noundef nonnull align 8 dereferenceable(88) %121) #33
   br label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30, %108
-  %125 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %126 = load i32, ptr %125, align 8, !tbaa !6
-  %127 = or i32 %126, 1
-  store i32 %127, ptr %125, align 8, !tbaa !6
-  br label %128
+  %124 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %125 = load i32, ptr %124, align 8, !tbaa !6
+  %126 = or i32 %125, 1
+  store i32 %126, ptr %124, align 8, !tbaa !6
+  br label %127
 
-128:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, %_ZN8rawspeed8OptionalItE5resetEv.exit
-  %129 = load i8, ptr %3, align 4, !tbaa !103, !range !60, !noundef !21
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %_ZN8rawspeed8OptionalItE5resetEv.exit32
+127:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, %_ZN8rawspeed8OptionalItE5resetEv.exit
+  %128 = load i8, ptr %3, align 4, !tbaa !103, !range !60, !noundef !21
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %130, label %_ZN8rawspeed8OptionalItE5resetEv.exit32
 
-131:                                              ; preds = %128
+130:                                              ; preds = %127
   store i8 0, ptr %3, align 4, !tbaa !103
   br label %_ZN8rawspeed8OptionalItE5resetEv.exit32
 
-_ZN8rawspeed8OptionalItE5resetEv.exit32:          ; preds = %128, %131
+_ZN8rawspeed8OptionalItE5resetEv.exit32:          ; preds = %127, %130
   ret void
 }
 

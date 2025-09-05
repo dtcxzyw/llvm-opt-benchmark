@@ -629,7 +629,7 @@ define dso_local void @phy_check_downshift(ptr noundef %0) #1 align 16 {
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %32, label %.thread
 
-32:                                               ; preds = %28
+32:; preds = %28
   %33 = call ptr @phy_speed_to_str(i32 noundef %29)
   %34 = call ptr @phy_speed_to_str(i32 noundef %30)
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %33, ptr noundef nonnull %34) #10
@@ -688,14 +688,14 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_speed_down_core(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
-24:                                               ; preds = %22, %29
+.preheader:                                       ; preds = %22, %29
   %25 = phi i32 [ %33, %29 ], [ 0, %22 ]
   %26 = phi ptr [ %34, %29 ], [ @settings, %22 ]
   %27 = load i32, ptr %26, align 4
   %28 = icmp ugt i32 %27, %23
   br i1 %28, label %29, label %.loopexit
 
-29:                                               ; preds = %24
+29:                                               ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
@@ -703,9 +703,9 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_speed_down_core(ptr noundef 
   %33 = add nuw nsw i32 %25, 1
   %34 = getelementptr i8, ptr %26, i64 8
   %35 = icmp eq i32 %33, 89
-  br i1 %35, label %.loopexit, label %24, !llvm.loop !17
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %29, %24, %.thread
+.loopexit:                                        ; preds = %29, %.preheader, %.thread
   %36 = phi i32 [ -22, %.thread ], [ 0, %24 ], [ 0, %29 ]
   ret i32 %36
 }

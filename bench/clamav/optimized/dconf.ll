@@ -383,8 +383,8 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = getelementptr inbounds nuw %struct.dconf_module, ptr @modules, i64 %indvars.iv.next
   %130 = load ptr, ptr %129, align 8, !tbaa !23
-  %.not52 = icmp eq i64 %indvars.iv.next, 91
-  br i1 %.not52, label %.loopexit, label %sub_0
+  %exitcond = icmp eq i64 %indvars.iv.next, 91
+  br i1 %exitcond, label %.loopexit, label %sub_0
 
 .loopexit:                                        ; preds = %128, %1
   ret ptr %2
@@ -780,8 +780,8 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %155 = getelementptr inbounds nuw %struct.dconf_module, ptr @modules, i64 %indvars.iv.next
   %156 = load ptr, ptr %155, align 8, !tbaa !23
-  %.not = icmp eq i64 %indvars.iv.next, 91
-  br i1 %.not, label %157, label %sub_0
+  %exitcond = icmp eq i64 %indvars.iv.next, 91
+  br i1 %exitcond, label %157, label %sub_0
 
 157:                                              ; preds = %154
   ret void

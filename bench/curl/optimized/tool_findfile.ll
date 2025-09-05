@@ -28,7 +28,7 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 5:                                                ; preds = %.preheader, %.thread83
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread83 ]
   %.039102 = phi i32 [ %1, %.preheader ], [ %.44387, %.thread83 ]
-  %6 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = tail call ptr @curl_getenv(ptr noundef %7) #5
   %.not64 = icmp eq ptr %8, null
@@ -40,7 +40,7 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not65, label %.thread83.sink.split, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %.not66 = icmp eq ptr %13, null
   br i1 %.not66, label %16, label %14
@@ -53,7 +53,7 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 16:                                               ; preds = %14, %11
   %.051 = phi ptr [ %15, %14 ], [ %8, %11 ]
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8, !tbaa !13, !range !14, !noundef !15
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %21
@@ -84,41 +84,41 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %.not60 = icmp eq i64 %indvars.iv.next, 5
   br i1 %.not60, label %24, label %5, !llvm.loop !16
 
-24:                                               ; preds = %.thread83
+24:; preds = %.thread83
   %25 = tail call i32 @geteuid() #5
   %26 = tail call ptr @getpwuid(i32 noundef %25) #5
   %.not61 = icmp eq ptr %26, null
   br i1 %.not61, label %checkhome.exit, label %27
 
-27:                                               ; preds = %24
+27:   ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !18
   %.not62 = icmp eq ptr %29, null
   br i1 %.not62, label %checkhome.exit, label %30
 
-30:                                               ; preds = %27
+30:; preds = %27
   %31 = load i8, ptr %29, align 1, !tbaa !4
   %.not63 = icmp eq i8 %31, 0
   br i1 %.not63, label %checkhome.exit, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %30
-  %32 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %29, ptr noundef nonnull %0) #5
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %checkhome.exit, label %33
+  %34 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %29, ptr noundef nonnull %0) #5
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %checkhome.exit, label %35
 
-33:                                               ; preds = %.split.i.preheader
-  %34 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %32, i32 noundef 0) #5
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %checkhome.exit.sink.split, label %.split30.us.i
+35:                                               ; preds = %.split.i.preheader
+  %36 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %34, i32 noundef 0) #5
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %checkhome.exit.sink.split, label %.split30.us.i
 
-.split30.us.i:                                    ; preds = %33
-  %36 = tail call noalias ptr @strdup(ptr noundef nonnull %32) #5
-  %37 = tail call i32 @close(i32 noundef %34) #5
+.split30.us.i:                                    ; preds = %35
+  %38 = tail call noalias ptr @strdup(ptr noundef nonnull %34) #5
+  %39 = tail call i32 @close(i32 noundef %36) #5
   br label %checkhome.exit.sink.split
 
-checkhome.exit.sink.split:                        ; preds = %33, %.split30.us.i
-  %.0.ph = phi ptr [ %36, %.split30.us.i ], [ null, %33 ]
-  tail call void @curl_free(ptr noundef nonnull %32) #5
+checkhome.exit.sink.split:                        ; preds = %35, %.split30.us.i
+  %.0.ph = phi ptr [ %38, %.split30.us.i ], [ null, %33 ]
+  tail call void @curl_free(ptr noundef nonnull %34) #5
   br label %checkhome.exit
 
 checkhome.exit:                                   ; preds = %21, %14, %checkhome.exit.sink.split, %.split.i.preheader, %24, %30, %27, %2

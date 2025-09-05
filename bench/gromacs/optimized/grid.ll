@@ -127,28 +127,28 @@ define void @_ZN3gmx4Grid8GeometryC2ENS_12PairlistTypeE(ptr noundef nonnull writ
   %17 = icmp samesign ult i32 %16, 2
   br i1 %17, label %_ZN3gmxL8get_2logEi.exit, label %18
 
-18:                                               ; preds = %2
+20:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 1 dereferenceable(128) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 66, ptr noundef nonnull @.str.1, i32 noundef %9) #30
-          to label %19 unwind label %20
+          to label %19 unwind label %22
 
-19:                                               ; preds = %18
+21:                                               ; preds = %20
   unreachable
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %23
 
 _ZN3gmxL8get_2logEi.exit:                         ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = tail call noundef i32 @_ZN3gmx5log2IEi(i32 noundef %9)
-  store i32 %23, ptr %22, align 4, !tbaa !15
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %1, ptr %24, align 4, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = tail call noundef i32 @_ZN3gmx5log2IEi(i32 noundef %9)
+  store i32 %25, ptr %24, align 4, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %1, ptr %26, align 4, !tbaa !16
   ret void
 }
 

@@ -808,7 +808,7 @@ ossl_ec_set_ecdh_cofactor_mode.exit:              ; preds = %15, %12, %10
 43:                                               ; preds = %40
   %.pr.i.i = load ptr, ptr %4, align 8, !tbaa !26
   %44 = icmp eq ptr %.pr.i.i, null
-  br i1 %44, label %54, label %.preheader.i.preheader.i.i
+  br i1 %44, label %ossl_ec_pt_format_name2id.exit.thread14.i.i, label %.preheader.i.preheader.i.i
 
 .preheader.i.preheader.i.i:                       ; preds = %43, %37
   %45 = phi ptr [ %.pr.i.i, %43 ], [ %39, %37 ]
@@ -832,7 +832,7 @@ ossl_ec_pt_format_name2id.exit.i.i:               ; preds = %.preheader.i.i.i
   %53 = load i32, ptr %48, align 16, !tbaa !11
   br label %54
 
-54:                                               ; preds = %ossl_ec_pt_format_name2id.exit.i.i, %43
+ossl_ec_pt_format_name2id.exit.thread14.i.i:      ; preds = %ossl_ec_pt_format_name2id.exit.i.i, %43
   %.06.i = phi i32 [ %53, %ossl_ec_pt_format_name2id.exit.i.i ], [ 4, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @EC_KEY_set_conv_form(ptr noundef nonnull %0, i32 noundef %.06.i) #4
@@ -845,7 +845,7 @@ ec_key_point_format_fromdata.exit:                ; preds = %46, %34, %37, %40
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 104, ptr noundef null) #4
   br label %ec_key_group_check_fromdata.exit.thread
 
-55:                                               ; preds = %54, %32
+55:                                               ; preds = %ossl_ec_pt_format_name2id.exit.thread14.i.i, %32
   %56 = call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.30) #4
   %.not.i33 = icmp eq ptr %56, null
   br i1 %.not.i33, label %ec_key_group_check_fromdata.exit.thread, label %57

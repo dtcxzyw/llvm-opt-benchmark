@@ -1949,16 +1949,16 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared
   %15 = shl nuw i64 1, %13
   %16 = and i64 %15, 100892729
   %17 = icmp ne i64 %16, 0
-  %18 = icmp ne ptr %.sroa.5.0.copyload, null
-  %or.cond = select i1 %17, i1 %18, i1 false
-  %19 = icmp ne ptr %.sroa.7.0.copyload, null
+  %17 = icmp ne ptr %.sroa.5.0.copyload, null
+  %or.cond5 = select i1 %17, i1 %17, i1 false
+  %18 = icmp ne ptr %.sroa.7.0.copyload, null
   %or.cond5 = select i1 %or.cond, i1 %19, i1 false
   %20 = icmp ne i64 %2, 0
   %or.cond7 = and i1 %20, %or.cond5
   br i1 %or.cond7, label %21, label %25
 
-21:                                               ; preds = %12
-  %.sroa.0.0.copyload = load ptr, ptr %14, align 8
+21:; preds = %12
+  %21 = load ptr, ptr %14, align 8
   %22 = tail call noundef ptr %.sroa.5.0.copyload(i64 noundef %2)
   tail call void @_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EE5resetIS2_PFvPS2_EEENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPSB_T0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %22, ptr noundef nonnull %.sroa.7.0.copyload)
   %23 = load ptr, ptr %0, align 8

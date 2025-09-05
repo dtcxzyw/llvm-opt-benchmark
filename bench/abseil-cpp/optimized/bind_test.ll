@@ -2071,41 +2071,41 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %or.cond4 = and i1 %174, %171
   br i1 %or.cond4, label %175, label %181
 
-175:                                              ; preds = %168
+175:; preds = %168
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 1, ptr %176, align 1, !tbaa !30
   %177 = icmp eq ptr %169, %1
   br i1 %177, label %.critedge71, label %178, !prof !78
 
-178:                                              ; preds = %175
+178:; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %.0152, i64 2
   %180 = load i8, ptr %169, align 1, !tbaa !7
   br label %192
 
-181:                                              ; preds = %168
+181:; preds = %168
   %182 = icmp eq i8 %170, 108
   %183 = icmp eq i8 %166, 2
   %or.cond6 = and i1 %183, %182
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 13
   br i1 %or.cond6, label %185, label %190
 
-185:                                              ; preds = %181
+185:; preds = %181
   store i8 3, ptr %184, align 1, !tbaa !30
   %186 = icmp eq ptr %169, %1
   br i1 %186, label %.critedge71, label %187, !prof !78
 
-187:                                              ; preds = %185
+187:; preds = %185
   %188 = getelementptr inbounds nuw i8, ptr %.0152, i64 2
   %189 = load i8, ptr %169, align 1, !tbaa !7
   br label %192
 
-190:                                              ; preds = %181
+190:; preds = %181
   store i8 %166, ptr %184, align 1, !tbaa !30
   %191 = icmp eq i8 %166, 2
   br label %192
 
-192:                                              ; preds = %187, %190, %178
-  %193 = phi i1 [ false, %178 ], [ false, %187 ], [ %191, %190 ]
+192: ; preds = %187, %190, %178
+  %.6 = phi i1 [ false, %178 ], [ false, %187 ], [ %191, %190 ]
   %.5159 = phi i8 [ %180, %178 ], [ %189, %187 ], [ %170, %190 ]
   %.6 = phi ptr [ %179, %178 ], [ %188, %187 ], [ %169, %190 ]
   %194 = zext i8 %.5159 to i64
@@ -2116,19 +2116,19 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %or.cond192 = select i1 %196, i1 %197, i1 false
   br i1 %or.cond192, label %198, label %.critedge71, !prof !87
 
-198:                                              ; preds = %192
+198:; preds = %192
   %199 = icmp eq i8 %.5159, 99
   %or.cond9 = and i1 %199, %193
   br i1 %or.cond9, label %200, label %204
 
-200:                                              ; preds = %198
+200:   ; preds = %198
   %201 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %202 = load i8, ptr %201, align 4, !tbaa !25
   %203 = or i8 %202, 32
   store i8 %203, ptr %201, align 4, !tbaa !25
   br label %204
 
-204:                                              ; preds = %200, %198, %.critedge
+204:; preds = %200, %198, %.critedge
   %.5153 = phi ptr [ %.0152, %.critedge ], [ %.6, %200 ], [ %.6, %198 ]
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload.i108, %.critedge ], [ %.sroa.0.0.copyload.i109, %200 ], [ %.sroa.0.0.copyload.i109, %198 ]
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 14

@@ -6920,9 +6920,9 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 
 .preheader51.i:                                   ; preds = %21
   %.not56.i = icmp eq i32 %5, 0
-  br i1 %.not56.i, label %.lr.ph55.preheader.i, label %.lr.ph.i
+  br i1 %.not56.i, label %.preheader.i, label %.lr.ph.i
 
-.lr.ph55.preheader.i:                             ; preds = %34, %.preheader51.i
+.preheader.i:                                     ; preds = %34, %.preheader51.i
   %umax.i = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
   %wide.trip.count.i = zext i32 %umax.i to i64
   br label %.lr.ph55.i
@@ -6951,7 +6951,7 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   store i64 %38, ptr %36, align 8, !tbaa !66
   %39 = add nuw i32 %.04052.i, 1
   %exitcond.not.i = icmp eq i32 %39, %5
-  br i1 %exitcond.not.i, label %.lr.ph55.preheader.i, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !67
 
 .lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.lr.ph55.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph55.preheader.i ], [ %indvars.iv.next.i, %.lr.ph55.i ]

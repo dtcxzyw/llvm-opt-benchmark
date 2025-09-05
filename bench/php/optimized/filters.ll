@@ -51,26 +51,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zm_startup_standard_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  br label %4
+  br label %6
 
-3:                                                ; preds = %4
+3:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not, label %13, label %4
+  br i1 %.not, label %13, label %6
 
-4:                                                ; preds = %2, %3
+6:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %5 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr %10, align 8, !tbaa !14
   %11 = tail call i32 @php_stream_filter_register_factory(ptr noundef %8, ptr noundef %10) #18
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %3
 
-13:                                               ; preds = %3, %4
+13:; preds = %3, %6
   %.05 = phi i32 [ -1, %4 ], [ 0, %3 ]
   ret i32 %.05
 }
@@ -90,9 +90,9 @@ define hidden noundef i32 @zm_shutdown_standard_filters(i32 noundef %0, i32 noun
   %8 = tail call i32 @php_stream_filter_unregister_factory(ptr noundef %7) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not, label %9, label %3
+  br i1 %.not, label %10, label %3
 
-9:                                                ; preds = %3
+10:                                               ; preds = %3
   ret i32 0
 }
 
