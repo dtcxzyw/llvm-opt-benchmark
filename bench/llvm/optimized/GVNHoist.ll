@@ -6201,7 +6201,7 @@ define dso_local void @_ZN4llvm8GVNHoist8raMPHIuwEPNS_14MemoryUseOrDefE(ptr noun
   %.v.v.i4.i2.i = select i1 %14, i32 %11, i32 %10
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
+  %15 = getelementptr i8, ptr %13, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_9MemoryPhiEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -7150,7 +7150,7 @@ define linkonce_odr hidden void @_ZN4llvm8GVNHoist22computeInsertionPointsERKNS_
 
 23:                                               ; preds = %4
   %.idx.i = shl nuw nsw i64 %20, 6
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %24 = getelementptr i8, ptr %17, i64 %.idx.i
   %.not7.i5.i10.i2.i = icmp eq i32 %19, 0
   br i1 %.not7.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIjmENS_11SmallVectorIPNS_11InstructionELj4EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -9580,7 +9580,7 @@ _ZN4llvm19SmallPtrSetImplBase7reserveEj.exit29:   ; preds = %58, %53, %48, %_ZN4
   %.v.v.i4.i2.i = select i1 %70, i32 %72, i32 %74
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i
+  %75 = getelementptr i8, ptr %67, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

@@ -73,13 +73,14 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %14
   %17 = shl nuw nsw i64 %15, 2
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #13
   store i32 0, ptr %18, align 4, !tbaa !9
-  %19 = icmp eq i32 %5, 1
-  br i1 %19, label %.lr.ph68.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %19 = add nsw i64 %15, -1
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %.lr.ph68.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
-  %20 = getelementptr i8, ptr %18, i64 4
-  %21 = add nsw i64 %17, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %21, i1 false), !tbaa !9
+  %21 = getelementptr i8, ptr %18, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %19, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !9
   br label %.lr.ph68.preheader
 
 .lr.ph68.preheader:                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i

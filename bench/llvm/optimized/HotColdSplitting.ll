@@ -1879,7 +1879,7 @@ _ZL19getOutliningBenefitN4llvm8ArrayRefIPNS_10BasicBlockEEERNS_19TargetTransform
   %157 = trunc nuw i8 %.146.i to i1
   %.v.i5.i3.i.i = zext i32 %156 to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %158 = getelementptr inbounds nuw i8, ptr %287, i64 %.idx.i.i
+  %158 = getelementptr i8, ptr %287, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %156, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 

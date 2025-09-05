@@ -3550,9 +3550,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %do.end
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont28, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %31 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %31, i1 false), !tbaa !104
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !104
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont28
 
@@ -3561,8 +3560,8 @@ invoke.cont28:                                    ; preds = %if.end.i.i.i.i.i.i.
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !105
   store double %initialNotional, ptr %call5.i.i.i.i2.i.i37, align 8, !tbaa !104
-  %32 = load i32, ptr %sinkingFrequency, align 4, !tbaa !102
-  %conv32 = sitofp i32 %32 to double
+  %31 = load i32, ptr %sinkingFrequency, align 4, !tbaa !102
+  %conv32 = sitofp i32 %31 to double
   %div = fdiv double %couponRate, %conv32
   %add33 = fadd double %div, 1.000000e+00
   %conv.i38 = sitofp i32 %i.017.i to double

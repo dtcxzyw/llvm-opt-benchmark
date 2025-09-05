@@ -4429,7 +4429,7 @@ _ZN4llvm13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12De
   %82 = select i1 %.not.i.i.i2.i.i.i, i32 %81, i32 8
   %83 = zext i32 %82 to i64
   %.idx.i.i.i = shl nuw nsw i64 %83, 4
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i.i.i
+  %84 = getelementptr i8, ptr %80, i64 %.idx.i.i.i
   %.not5.i5.i10.i4.i.i.i = icmp eq i32 %82, 0
   br i1 %.not5.i5.i10.i4.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i5.i.i.i
 
@@ -4450,7 +4450,7 @@ _ZN4llvm13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12De
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit.i.i: ; preds = %.critedge2.i8.i14.i8.i.i.i, %.lr.ph.i6.i12.i5.i.i.i, %77, %70
   %.pre-phi19.i = phi i64 [ 0, %77 ], [ %75, %70 ], [ %83, %.lr.ph.i6.i12.i5.i.i.i ], [ %83, %.critedge2.i8.i14.i8.i.i.i ]
   %.pre-phi.i = phi ptr [ %80, %77 ], [ %72, %70 ], [ %80, %.lr.ph.i6.i12.i5.i.i.i ], [ %80, %.critedge2.i8.i14.i8.i.i.i ]
-  %.pn16.i.i.i = phi ptr [ %80, %77 ], [ %76, %70 ], [ %86, %.critedge2.i8.i14.i8.i.i.i ], [ %.sroa.0.3.i6.i.i.i, %.lr.ph.i6.i12.i5.i.i.i ]
+  %.pn16.i.i.i = phi ptr [ %80, %77 ], [ %76, %70 ], [ %84, %.critedge2.i8.i14.i8.i.i.i ], [ %.sroa.0.3.i6.i.i.i, %.lr.ph.i6.i12.i5.i.i.i ]
   %.pn14.i.i.i = phi ptr [ %84, %77 ], [ %76, %70 ], [ %84, %.lr.ph.i6.i12.i5.i.i.i ], [ %84, %.critedge2.i8.i14.i8.i.i.i ]
   %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.126", ptr %.pre-phi.i, i64 %.pre-phi19.i
   %.not6077.i.i = icmp eq ptr %.pn16.i.i.i, %87
@@ -4825,7 +4825,7 @@ _ZN4llvm16DenseMapIteratorIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbNS_12Den
   %275 = select i1 %.not.i.i.i2.i39.i.i, i32 %274, i32 8
   %276 = zext i32 %275 to i64
   %.idx.i40.i.i = shl nuw nsw i64 %276, 4
-  %277 = getelementptr inbounds nuw i8, ptr %273, i64 %.idx.i40.i.i
+  %277 = getelementptr i8, ptr %273, i64 %.idx.i40.i.i
   %.not5.i5.i10.i4.i41.i.i = icmp eq i32 %275, 0
   br i1 %.not5.i5.i10.i4.i41.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit52.i.i, label %.lr.ph.i6.i12.i5.i42.i.i
 
@@ -4846,7 +4846,7 @@ _ZN4llvm16DenseMapIteratorIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbNS_12Den
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit52.i.i: ; preds = %.critedge2.i8.i14.i8.i45.i.i, %.lr.ph.i6.i12.i5.i42.i.i, %270, %263
   %.pre-phi22.i = phi i64 [ 0, %270 ], [ %268, %263 ], [ %276, %.lr.ph.i6.i12.i5.i42.i.i ], [ %276, %.critedge2.i8.i14.i8.i45.i.i ]
   %.pre-phi20.i = phi ptr [ %273, %270 ], [ %265, %263 ], [ %273, %.lr.ph.i6.i12.i5.i42.i.i ], [ %273, %.critedge2.i8.i14.i8.i45.i.i ]
-  %.pn16.i47.i.i = phi ptr [ %273, %270 ], [ %269, %263 ], [ %279, %.critedge2.i8.i14.i8.i45.i.i ], [ %.sroa.0.3.i6.i43.i.i, %.lr.ph.i6.i12.i5.i42.i.i ]
+  %.pn16.i47.i.i = phi ptr [ %273, %270 ], [ %269, %263 ], [ %277, %.critedge2.i8.i14.i8.i45.i.i ], [ %.sroa.0.3.i6.i43.i.i, %.lr.ph.i6.i12.i5.i42.i.i ]
   %.pn14.i48.i.i = phi ptr [ %277, %270 ], [ %269, %263 ], [ %277, %.lr.ph.i6.i12.i5.i42.i.i ], [ %277, %.critedge2.i8.i14.i8.i45.i.i ]
   %280 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.126", ptr %.pre-phi20.i, i64 %.pre-phi22.i
   %.not6185.i.i = icmp eq ptr %.pn16.i47.i.i, %280
@@ -5282,90 +5282,90 @@ define dso_local void @_ZN4llvm26BlockFrequencyInfoImplBase25updateLoopWithIrred
 
 .lr.ph.preheader:                                 ; preds = %2
   %6 = zext i32 %5 to i64
+  %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load ptr, ptr %7, align 8, !tbaa !25
-  %9 = shl nuw nsw i64 %6, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %9, i1 false), !tbaa !55
+  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %.idx, i1 false), !tbaa !55
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %14 = load i32, ptr %13, align 8, !tbaa !26
-  %15 = zext i32 %14 to i64
-  %.idx33 = shl nuw nsw i64 %15, 2
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx33
-  %.not2428 = icmp eq i32 %14, 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %13 = load i32, ptr %12, align 8, !tbaa !26
+  %14 = zext i32 %13 to i64
+  %.idx33 = shl nuw nsw i64 %14, 2
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx33
+  %.not2428 = icmp eq i32 %13, 1
   br i1 %.not2428, label %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE5eraseEPKS2_S5_.exit, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !132
-  br label %24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = load ptr, ptr %16, align 8, !tbaa !132
+  br label %23
 
-_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE5eraseEPKS2_S5_.exit: ; preds = %44, %._crit_edge
-  %.023.lcssa = phi ptr [ %12, %._crit_edge ], [ %.1, %44 ]
-  %19 = ptrtoint ptr %.023.lcssa to i64
-  %20 = ptrtoint ptr %11 to i64
-  %21 = sub i64 %19, %20
-  %22 = lshr exact i64 %21, 2
-  %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %13, align 8, !tbaa !26
+_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE5eraseEPKS2_S5_.exit: ; preds = %43, %._crit_edge
+  %.023.lcssa = phi ptr [ %11, %._crit_edge ], [ %.1, %43 ]
+  %18 = ptrtoint ptr %.023.lcssa to i64
+  %19 = ptrtoint ptr %10 to i64
+  %20 = sub i64 %18, %19
+  %21 = lshr exact i64 %20, 2
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %12, align 8, !tbaa !26
   ret void
 
-24:                                               ; preds = %.lr.ph32, %44
-  %.02230 = phi ptr [ %12, %.lr.ph32 ], [ %45, %44 ]
-  %.02329 = phi ptr [ %12, %.lr.ph32 ], [ %.1, %44 ]
-  %25 = load i32, ptr %.02230, align 4, !tbaa !115
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::BlockFrequencyInfoImplBase::WorkingData", ptr %18, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !137
-  %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit, label %30
+23:                                               ; preds = %.lr.ph32, %43
+  %.02230 = phi ptr [ %11, %.lr.ph32 ], [ %44, %43 ]
+  %.02329 = phi ptr [ %11, %.lr.ph32 ], [ %.1, %43 ]
+  %24 = load i32, ptr %.02230, align 4, !tbaa !115
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"struct.llvm::BlockFrequencyInfoImplBase::WorkingData", ptr %17, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !137
+  %.not.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit, label %29
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i8, ptr %31, align 8, !tbaa !140, !range !48, !noundef !49
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %.preheader.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %31 = load i8, ptr %30, align 8, !tbaa !140, !range !48, !noundef !49
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %.preheader.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit
 
-.preheader.i.i.i:                                 ; preds = %30, %35
-  %.0.i.i.i = phi ptr [ %34, %35 ], [ %29, %30 ]
-  %34 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !158
-  %.not9.i.i.i = icmp eq ptr %34, null
-  br i1 %.not9.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i, label %35
+.preheader.i.i.i:                                 ; preds = %29, %34
+  %.0.i.i.i = phi ptr [ %33, %34 ], [ %28, %29 ]
+  %33 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !158
+  %.not9.i.i.i = icmp eq ptr %33, null
+  br i1 %.not9.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i, label %34
 
-35:                                               ; preds = %.preheader.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = load i8, ptr %36, align 8, !tbaa !140, !range !48, !noundef !49
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %.preheader.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i, !llvm.loop !159
+34:                                               ; preds = %.preheader.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %36 = load i8, ptr %35, align 8, !tbaa !140, !range !48, !noundef !49
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %.preheader.i.i.i, label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i, !llvm.loop !159
 
-_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i: ; preds = %35, %.preheader.i.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  %40 = load ptr, ptr %39, align 8, !tbaa !25
+_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i: ; preds = %34, %.preheader.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   br label %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit
 
-_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit: ; preds = %24, %30, %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i
-  %.sroa.0.0.in.i.i = phi ptr [ %40, %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i ], [ %27, %30 ], [ %27, %24 ]
+_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit: ; preds = %23, %29, %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i
+  %.sroa.0.0.in.i.i = phi ptr [ %39, %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData15getPackagedLoopEv.exit.i.i ], [ %26, %29 ], [ %26, %23 ]
   %.sroa.0.0.i.i = load i32, ptr %.sroa.0.0.in.i.i, align 4, !tbaa !66
-  %41 = load i32, ptr %27, align 4, !tbaa !115
-  %.not25 = icmp eq i32 %.sroa.0.0.i.i, %41
-  br i1 %.not25, label %42, label %44
+  %40 = load i32, ptr %26, align 4, !tbaa !115
+  %.not25 = icmp eq i32 %.sroa.0.0.i.i, %40
+  br i1 %.not25, label %41, label %43
 
-42:                                               ; preds = %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit
-  %43 = getelementptr inbounds nuw i8, ptr %.02329, i64 4
-  store i32 %25, ptr %.02329, align 4, !tbaa !66
-  br label %44
+41:                                               ; preds = %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit
+  %42 = getelementptr inbounds nuw i8, ptr %.02329, i64 4
+  store i32 %24, ptr %.02329, align 4, !tbaa !66
+  br label %43
 
-44:                                               ; preds = %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit, %42
-  %.1 = phi ptr [ %.02329, %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit ], [ %43, %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.02230, i64 4
-  %.not24 = icmp eq ptr %45, %16
-  br i1 %.not24, label %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE5eraseEPKS2_S5_.exit, label %24, !llvm.loop !329
+43:                                               ; preds = %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit, %41
+  %.1 = phi ptr [ %.02329, %_ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData10isPackagedEv.exit ], [ %42, %41 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.02230, i64 4
+  %.not24 = icmp eq ptr %44, %15
+  br i1 %.not24, label %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE5eraseEPKS2_S5_.exit, label %23, !llvm.loop !329
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -4020,7 +4020,7 @@ define dso_local void @_ZNK5clang13CXXRecordDecl18getFinalOverridersERNS_20CXXFi
 
 25:                                               ; preds = %._crit_edge53
   %.idx.i.i = shl nuw nsw i64 %22, 4
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  %26 = getelementptr i8, ptr %19, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %21, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPNS2_20CXXFinalOverriderMapENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 

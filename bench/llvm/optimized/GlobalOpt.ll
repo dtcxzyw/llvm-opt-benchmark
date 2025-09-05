@@ -4724,7 +4724,7 @@ _ZN12_GLOBAL__N_18LLVMUsedC2ERN4llvm6ModuleE.exit.i: ; preds = %1606, %_ZN4llvm1
   %.v.v.i4.i2.i.i.i.i = select i1 %1609, i32 %1610, i32 %1611
   %.v.i5.i3.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i, 3
-  %1612 = getelementptr inbounds nuw i8, ptr %1607, i64 %.idx.i.i.i.i
+  %1612 = getelementptr i8, ptr %1607, i64 %.idx.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i, label %_ZN12_GLOBAL__N_18LLVMUsed4usedEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i
 
@@ -10125,7 +10125,7 @@ _ZL15collectSRATypesRN4llvm8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6deta
   %337 = load i32, ptr %336, align 8, !tbaa !462
   %338 = zext i32 %337 to i64
   %.idx.i.i = shl nuw nsw i64 %338, 5
-  %339 = getelementptr inbounds nuw i8, ptr %335, i64 %.idx.i.i
+  %339 = getelementptr i8, ptr %335, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %337, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -10154,7 +10154,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6detai
   %.pre-phi.i = phi i64 [ %.pre260.i, %._crit_edge253.i ], [ %338, %_ZN4llvm12DenseMapBaseINS_8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E5beginEv.exit.i ]
   %348 = phi i32 [ %.pre254.i, %._crit_edge253.i ], [ %337, %_ZN4llvm12DenseMapBaseINS_8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E5beginEv.exit.i ]
   %349 = phi ptr [ %.pre.i, %._crit_edge253.i ], [ %335, %_ZN4llvm12DenseMapBaseINS_8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E5beginEv.exit.i ]
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 %.idx.i.i.i.i.i.pre-phi.i
+  %350 = getelementptr i8, ptr %349, i64 %.idx.i.i.i.i.i.pre-phi.i
   %.not4.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %348, 0
   br i1 %.not4.i5.i10.i2.i.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_8DenseMapIm10GlobalPartNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i
 
@@ -11228,7 +11228,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %779, %._crit_edge25
 
 790:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
   %.idx.i174.i = shl nuw nsw i64 %787, 4
-  %791 = getelementptr inbounds nuw i8, ptr %784, i64 %.idx.i174.i
+  %791 = getelementptr i8, ptr %784, i64 %.idx.i174.i
   %.not4.i5.i10.i2.i175.i = icmp eq i32 %786, 0
   br i1 %.not4.i5.i10.i2.i175.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_14GlobalVariableENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i176.i
 
@@ -19364,7 +19364,7 @@ _ZL25EvaluateStaticConstructorPN4llvm8FunctionERKNS_10DataLayoutEPNS_17TargetLib
 
 79:                                               ; preds = %69
   %.idx.i.i.i.i = shl nuw nsw i64 %76, 4
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i.i.i.i
+  %80 = getelementptr i8, ptr %73, i64 %.idx.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i = icmp eq i32 %75, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableENS_9Evaluator12MutableValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i
 
@@ -19455,7 +19455,7 @@ _ZNK4llvm9Evaluator22getMutatedInitializersEv.exit.i.i: ; preds = %_ZN4llvm16Den
 
 103:                                              ; preds = %_ZNK4llvm9Evaluator22getMutatedInitializersEv.exit.i.i
   %.idx.i.i.i = shl nuw nsw i64 %97, 4
-  %104 = getelementptr inbounds nuw i8, ptr %.pre35.i.i, i64 %.idx.i.i.i
+  %104 = getelementptr i8, ptr %.pre35.i.i, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %.pre37.i.i, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableEPNS_8ConstantENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -19492,7 +19492,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableEPNS_8ConstantENS_12Dens
   %.v.v.i4.i2.i.i.i = select i1 %113, i32 %114, i32 %115
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i13.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx.i13.i.i
+  %116 = getelementptr i8, ptr %111, i64 %.idx.i13.i.i
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_14GlobalVariableEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 
@@ -20382,7 +20382,7 @@ define internal fastcc void @_ZL18setUsedInitializerRN4llvm14GlobalVariableERKNS
   %.v.v.i4.i2.i = select i1 %28, i32 %29, i32 %31
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
+  %32 = getelementptr i8, ptr %25, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

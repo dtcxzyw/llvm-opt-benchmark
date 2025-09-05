@@ -744,13 +744,13 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm
   br i1 %.not10.i, label %_ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endEm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %12 = shl i64 %1, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %12, i1 false)
-  %scevgep.i = getelementptr i8, ptr %6, i64 %12
+  %.idx.i = shl i64 %1, 2
+  %12 = getelementptr i8, ptr %6, i64 %.idx.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %.idx.i, i1 false)
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endEm.exit
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endEm.exit: ; preds = %11, %.lr.ph.preheader.i
-  %.sroa.3.0.lcssa.i = phi ptr [ %6, %11 ], [ %scevgep.i, %.lr.ph.preheader.i ]
+  %.sroa.3.0.lcssa.i = phi ptr [ %6, %11 ], [ %12, %.lr.ph.preheader.i ]
   store ptr %.sroa.3.0.lcssa.i, ptr %5, align 8
   br label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEED2Ev.exit
 
@@ -793,14 +793,14 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i: ; preds
   %storemerge.i = phi ptr [ %28, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i ], [ null, %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit ]
   %29 = getelementptr inbounds i8, ptr %storemerge.i, i64 %16
   %30 = getelementptr inbounds float, ptr %storemerge.i, i64 %.0.i
-  %31 = shl i64 %1, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %31, i1 false)
-  %scevgep.i8 = getelementptr i8, ptr %29, i64 %31
+  %.idx.i8 = shl i64 %1, 2
+  %31 = getelementptr i8, ptr %29, i64 %.idx.i8
+  tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %.idx.i8, i1 false)
   %32 = sub nsw i64 0, %17
   %33 = getelementptr inbounds float, ptr %29, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %14, i64 %16, i1 false)
   store ptr %33, ptr %0, align 8
-  store ptr %scevgep.i8, ptr %5, align 8
+  store ptr %31, ptr %5, align 8
   store ptr %30, ptr %3, align 8
   %.not.i9 = icmp eq ptr %14, null
   br i1 %.not.i9, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEED2Ev.exit, label %34

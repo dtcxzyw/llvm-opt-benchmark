@@ -55,9 +55,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %3 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false), !tbaa !20
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !20
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -76,22 +75,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %z_, align 8, !tbaa !17
-  %tobool.not.i.i.i3 = icmp eq ptr %5, null
+  %4 = load ptr, ptr %z_, align 8, !tbaa !17
+  %tobool.not.i.i.i3 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIdSaIdEED2Ev.exit9, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %lpad
-  %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %5 to i64
+  %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !19
+  %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i.i8) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %sub.ptr.sub.i.i8) #10
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit9
 
 _ZNSt6vectorIdSaIdEED2Ev.exit9:                   ; preds = %lpad, %if.then.i.i.i4
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 }
 
 declare i32 @__gxx_personality_v0(...)

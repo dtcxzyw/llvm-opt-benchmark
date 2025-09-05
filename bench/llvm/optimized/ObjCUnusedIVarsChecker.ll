@@ -822,7 +822,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.i.i:
 
 127:                                              ; preds = %118
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %124, 4
-  %128 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i.i.i.i.i
+  %128 = getelementptr i8, ptr %121, i64 %.idx.i.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %123, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i.i, label %_ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i
 
@@ -985,7 +985,7 @@ _ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_
 
 188:                                              ; preds = %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_11DeclContextENS1_6FileIDERKNS1_13SourceManagerE.exit.i.i
   %.idx.i.i.i = shl nuw nsw i64 %185, 4
-  %189 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx.i.i.i
+  %189 = getelementptr i8, ptr %183, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %184, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 

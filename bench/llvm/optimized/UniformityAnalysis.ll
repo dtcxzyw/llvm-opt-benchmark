@@ -1226,7 +1226,7 @@ _ZN4llvm8DenseSetIPKNS_5ValueENS_12DenseMapInfoIS3_vEEEC2ERKS6_.exit.thread: ; p
   br label %_ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit
 
 14:                                               ; preds = %_ZN4llvm8DenseSetIPKNS_5ValueENS_12DenseMapInfoIS3_vEEEC2ERKS6_.exit
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %6
+  %15 = getelementptr i8, ptr %7, i64 %6
   br label %.lr.ph.i6.i12.i3.i.i
 
 .lr.ph.i6.i12.i3.i.i:                             ; preds = %14, %.critedge2.i8.i14.i6.i.i
@@ -1759,7 +1759,7 @@ define linkonce_odr void @_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericS
   %50 = load i32, ptr %49, align 8, !tbaa !10
   %51 = zext i32 %50 to i64
   %.idx.i.i = shl nuw nsw i64 %51, 3
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i
+  %52 = getelementptr i8, ptr %48, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %50, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -2067,7 +2067,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %173, %175
   %.v.v.i4.i2.i = select i1 %181, i32 %182, i32 %184
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %185 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx.i
+  %185 = getelementptr i8, ptr %178, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -5466,7 +5466,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.e
   %.v.v.i4.i2.i = select i1 %47, i32 %49, i32 %51
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
+  %52 = getelementptr i8, ptr %44, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -6001,7 +6001,7 @@ _ZN4llvm19SmallPtrSetIteratorIPKNS_10BasicBlockEEppEv.exit: ; preds = %.lr.ph.i4
   %.v.v.i4.i2.i48 = select i1 %269, i32 %271, i32 %273
   %.v.i5.i3.i49 = zext i32 %.v.v.i4.i2.i48 to i64
   %.idx.i50 = shl nuw nsw i64 %.v.i5.i3.i49, 3
-  %274 = getelementptr inbounds nuw i8, ptr %266, i64 %.idx.i50
+  %274 = getelementptr i8, ptr %266, i64 %.idx.i50
   %.not3.i4.i.i6.i4.i51 = icmp eq i32 %.v.v.i4.i2.i48, 0
   br i1 %.not3.i4.i.i6.i4.i51, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit60, label %.lr.ph.i5.i.i7.i5.i52
 

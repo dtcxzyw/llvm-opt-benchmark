@@ -9544,7 +9544,7 @@ _ZN4llvm5APIntD2Ev.exit208:                       ; preds = %_ZN4llvmeqEmRKNS_5A
   %.v.v.i4.i2.i = select i1 %677, i32 %678, i32 %679
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %680 = getelementptr inbounds nuw i8, ptr %675, i64 %.idx.i
+  %680 = getelementptr i8, ptr %675, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -11424,7 +11424,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit92:     ; preds = %_ZL11getNumBytesPKN
   %.v.v.i4.i2.i = select i1 %188, i32 %190, i32 %192
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %193 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i
+  %193 = getelementptr i8, ptr %185, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -11799,7 +11799,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit12.i.i: ; preds = %_ZN
   %.v.v.i4.i2.i.i.i = select i1 %343, i32 %340, i32 %344
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %345 = getelementptr inbounds nuw i8, ptr %341, i64 %.idx.i.i.i
+  %345 = getelementptr i8, ptr %341, i64 %.idx.i.i.i
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 
@@ -12028,7 +12028,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i: ; preds = %425, %_ZN4llvm23
   %.v.v.i4.i2.i101 = select i1 %428, i32 %429, i32 %430
   %.v.i5.i3.i102 = zext i32 %.v.v.i4.i2.i101 to i64
   %.idx.i103 = shl nuw nsw i64 %.v.i5.i3.i102, 3
-  %431 = getelementptr inbounds nuw i8, ptr %426, i64 %.idx.i103
+  %431 = getelementptr i8, ptr %426, i64 %.idx.i103
   %.not3.i4.i.i6.i4.i104 = icmp eq i32 %.v.v.i4.i2.i101, 0
   br i1 %.not3.i4.i.i6.i4.i104, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit113, label %.lr.ph.i5.i.i7.i5.i105
 

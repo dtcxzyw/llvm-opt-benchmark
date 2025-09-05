@@ -5407,11 +5407,16 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate24QLessThanOperatorForTypeI
   %15 = getelementptr i8, ptr %5, i64 %.idx6.i
   %spec.select.i.i.i.i.i.i.i = select i1 %14, ptr %15, ptr %8
   %.not21.i.i.i.i.i.i = icmp eq ptr %5, %spec.select.i.i.i.i.i.i.i
-  br i1 %.not21.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not21.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %3, %18
-  %.sroa.0.023.i.i.i.i.i.i = phi ptr [ %20, %18 ], [ %10, %3 ]
-  %.sroa.017.022.i.i.i.i.i.i = phi ptr [ %19, %18 ], [ %5, %3 ]
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %3
+  %smin.i = tail call i64 @llvm.smin.i64(i64 %.idx6.i, i64 %.idx.i)
+  %scevgep.i = getelementptr i8, ptr %10, i64 %smin.i
+  br label %.lr.ph.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %18, %.lr.ph.i.i.i.i.i.preheader.i
+  %.sroa.0.023.i.i.i.i.i.i = phi ptr [ %20, %18 ], [ %10, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.017.022.i.i.i.i.i.i = phi ptr [ %19, %18 ], [ %5, %.lr.ph.i.i.i.i.i.preheader.i ]
   %16 = load i32, ptr %.sroa.017.022.i.i.i.i.i.i, align 4
   %17 = load i32, ptr %.sroa.0.023.i.i.i.i.i.i, align 4
   %or.cond.not = icmp eq i32 %17, %16
@@ -5424,7 +5429,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate24QLessThanOperatorForTypeI
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !57
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %18, %3
-  %.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %10, %3 ], [ %20, %18 ]
+  %.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %10, %3 ], [ %scevgep.i, %18 ]
   %21 = icmp ne ptr %.sroa.0.0.lcssa.i.i.i.i.i.i, %13
   br label %_ZNK5QListIiEltIiEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofIS0_T_EN11QTypeTraits22has_operator_less_thanIS5_EEEEEEbE4typeERKS0_.exit
 

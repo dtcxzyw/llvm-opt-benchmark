@@ -7780,7 +7780,7 @@ define dso_local void @_ZN5clang10ASTContext7cleanupEv(ptr noundef nonnull align
 
 18:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %15, 4
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
+  %19 = getelementptr i8, ptr %12, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %14, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang17ObjCContainerDeclEPKNS2_15ASTRecordLayoutENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -7877,7 +7877,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang17ObjCContainerDeclEPKNS2_15ASTReco
 
 53:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang17ObjCContainerDeclEPKNS2_15ASTRecordLayoutENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5clearEv.exit
   %.idx.i21 = shl nuw nsw i64 %50, 4
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i21
+  %54 = getelementptr i8, ptr %47, i64 %.idx.i21
   %.not5.i5.i10.i2.i22 = icmp eq i32 %49, 0
   br i1 %.not5.i5.i10.i2.i22, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_15ASTRecordLayoutENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i23
 
@@ -7999,7 +7999,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_15ASTRecordLayou
 
 91:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_15ASTRecordLayoutENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5clearEv.exit
   %.idx.i41 = shl nuw nsw i64 %88, 4
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i41
+  %92 = getelementptr i8, ptr %85, i64 %.idx.i41
   %.not5.i5.i10.i2.i42 = icmp eq i32 %87, 0
   br i1 %.not5.i5.i10.i2.i42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEPNS_11SmallVectorIPNS2_4AttrELj4EEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i43
 
@@ -8121,7 +8121,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEPNS_11SmallVectorIPNS2_4AttrE
 
 129:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEPNS_11SmallVectorIPNS2_4AttrELj4EEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E5clearEv.exit
   %.idx.i71 = shl nuw nsw i64 %126, 4
-  %130 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i71
+  %130 = getelementptr i8, ptr %123, i64 %.idx.i71
   %.not5.i5.i10.i2.i72 = icmp eq i32 %125, 0
   br i1 %.not5.i5.i10.i2.i72, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang6ModuleEPNS2_10ASTContext21PerModuleInitializersENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i73
 
@@ -108827,7 +108827,7 @@ _ZNK5clang21ObjCObjectPointerType5qualsEv.exit:   ; preds = %_ZNK5clang21ObjCObj
   %.v.v.i4.i2.i = select i1 %110, i32 %111, i32 %112
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %113 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i
+  %113 = getelementptr i8, ptr %108, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -108894,7 +108894,7 @@ _ZN4llvm19SmallPtrSetIteratorIPN5clang16ObjCProtocolDeclEEppEv.exit: ; preds = %
   %.v.v.i4.i2.i62 = select i1 %126, i32 %127, i32 %128
   %.v.i5.i3.i63 = zext i32 %.v.v.i4.i2.i62 to i64
   %.idx.i64 = shl nuw nsw i64 %.v.i5.i3.i63, 3
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i64
+  %129 = getelementptr i8, ptr %124, i64 %.idx.i64
   %.not3.i4.i.i6.i4.i65 = icmp eq i32 %.v.v.i4.i2.i62, 0
   br i1 %.not3.i4.i.i6.i4.i65, label %_ZNK4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE5beginEv.exit74, label %.lr.ph.i5.i.i7.i5.i66
 
@@ -130014,7 +130014,7 @@ _ZNK5clang21ObjCObjectPointerType5qualsEv.exit253: ; preds = %_ZNK5clang21ObjCOb
   %.v.v.i4.i2.i = select i1 %345, i32 %342, i32 %346
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %347 = getelementptr inbounds nuw i8, ptr %343, i64 %.idx.i
+  %347 = getelementptr i8, ptr %343, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -130856,7 +130856,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit102: ; preds = %69, %_ZNK5clang4T
   %.v.v.i4.i2.i = select i1 %108, i32 %109, i32 %110
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i
+  %111 = getelementptr i8, ptr %106, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -133217,7 +133217,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit60: ; preds = %80, %_ZNK5clang4Ty
   %.v.v.i4.i2.i = select i1 %93, i32 %94, i32 %95
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i
+  %96 = getelementptr i8, ptr %91, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

@@ -3024,7 +3024,7 @@ define dso_local void @_ZN4llvm15MLInlineAdvisor11onPassEntryEPNS_13LazyCallGrap
   %.v.v.i4.i2.i = select i1 %42, i32 %39, i32 %43
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i
+  %44 = getelementptr i8, ptr %40, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_13LazyCallGraph4NodeEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -3150,7 +3150,7 @@ _ZNSt3mapIPKN4llvm13LazyCallGraph4NodeEjSt4lessIS4_ESaISt4pairIKS4_jEEE2atERS8_.
   %92 = load i32, ptr %91, align 8, !tbaa !26
   %93 = zext i32 %92 to i64
   %.idx.i11 = shl nuw nsw i64 %93, 3
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i11
+  %94 = getelementptr i8, ptr %90, i64 %.idx.i11
   %.not4.i.i = icmp eq i32 %92, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i12
 
@@ -3592,7 +3592,7 @@ define dso_local void @_ZN4llvm15MLInlineAdvisor10onPassExitEPNS_13LazyCallGraph
   %.v.v.i4.i2.i = select i1 %25, i32 %27, i32 %29
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
+  %30 = getelementptr i8, ptr %22, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_13LazyCallGraph4NodeEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

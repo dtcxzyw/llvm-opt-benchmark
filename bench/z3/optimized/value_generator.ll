@@ -1149,7 +1149,7 @@ define linkonce_odr hidden void @_ZN24datatype_value_generatorD2Ev(ptr noundef n
   %5 = load i32, ptr %4, align 8, !tbaa !72
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -2642,10 +2642,10 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.i:               ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %507, label %_ZN24datatype_value_generator12index2vectorEjP9func_declR7svectorIjjE.exit, label %_ZN6vectorIjLb0EjE4backEv.exit.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ 1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i ]
-  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i ]
+  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ 1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i ]
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i ]
   %.23135.i = phi i32 [ %521, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.025.lcssa.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i ]
-  %508 = getelementptr inbounds nuw i32, ptr %421, i64 %indvars.iv41.i
+  %508 = getelementptr inbounds nuw i32, ptr %421, i64 %indvars.iv40.i
   %509 = load i32, ptr %508, align 4, !tbaa !12
   %510 = zext i32 %509 to i64
   %511 = getelementptr inbounds nuw i32, ptr %424, i64 %510
@@ -2662,11 +2662,11 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %_ZNK6vectorIjLb0EjE
   %521 = sub i32 %.23135.i, %520
   %522 = sub i32 %517, %521
   store i32 %522, ptr %511, align 4, !tbaa !12
-  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %523 = load i32, ptr %423, align 4, !tbaa !12
   %524 = zext i32 %523 to i64
-  %525 = icmp samesign ult i64 %indvars.iv.next44.i, %524
-  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %525 = icmp samesign ult i64 %indvars.iv.next43.i, %524
+  %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   br i1 %525, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.i
 
 _ZN6vectorIjLb0EjE4backEv.exit.i:                 ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.i

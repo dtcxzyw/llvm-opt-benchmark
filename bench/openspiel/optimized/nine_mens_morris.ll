@@ -3357,7 +3357,7 @@ define void @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisState17Observatio
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
-  br label %96
+  br label %95
 
 26:                                               ; preds = %4
   store i32 %1, ptr %13, align 4
@@ -3380,16 +3380,16 @@ define void @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisState17Observatio
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
-  br label %96
+  br label %95
 
 34:                                               ; preds = %26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #27
   %35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %.noexc unwind label %68
+          to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %18)
-          to label %.noexc29 unwind label %68
+          to label %.noexc29 unwind label %67
 
 .noexc29:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 56))
@@ -3458,8 +3458,8 @@ _ZNK10open_spiel10TensorViewILi3EE4sizeEv.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %.not5.i.i.i.i.not, label %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %48
-  %49 = shl nsw i64 %3, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %49, i1 false)
+  %.idx.i = shl nsw i64 %3, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx.i, i1 false)
   br label %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit
 
 _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit: ; preds = %48, %.lr.ph.i.i.i.preheader.i
@@ -3467,52 +3467,52 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %51 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit, %94
-  %indvars.iv47 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit ], [ %indvars.iv.next48, %94 ]
-  %.02643 = phi i32 [ 0, %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit ], [ %.235, %94 ]
-  %53 = shl nuw nsw i64 %indvars.iv47, 3
-  %54 = trunc nuw nsw i64 %indvars.iv47 to i32
-  br label %55
+.preheader:                                       ; preds = %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit, %93
+  %indvars.iv47 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit ], [ %indvars.iv.next48, %93 ]
+  %.02643 = phi i32 [ 0, %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit ], [ %.235, %93 ]
+  %52 = shl nuw nsw i64 %indvars.iv47, 3
+  %53 = trunc nuw nsw i64 %indvars.iv47 to i32
+  br label %54
 
-55:                                               ; preds = %.preheader, %93
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %93 ]
-  %.12741 = phi i32 [ %.02643, %.preheader ], [ %.235, %93 ]
-  %56 = add nuw nsw i64 %indvars.iv, %53
-  %57 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %56)
-          to label %58 unwind label %.loopexit
+54:                                               ; preds = %.preheader, %92
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %92 ]
+  %.12741 = phi i32 [ %.02643, %.preheader ], [ %.235, %92 ]
+  %55 = add nuw nsw i64 %indvars.iv, %52
+  %56 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %55)
+          to label %57 unwind label %.loopexit
 
-58:                                               ; preds = %55
-  %59 = load i8, ptr %57, align 1
-  %60 = icmp eq i8 %59, 46
-  br i1 %60, label %61, label %70
+57:                                               ; preds = %54
+  %58 = load i8, ptr %56, align 1
+  %59 = icmp eq i8 %58, 46
+  br i1 %59, label %60, label %69
 
-61:                                               ; preds = %58
-  %62 = sext i32 %.12741 to i64
-  %63 = getelementptr inbounds i32, ptr %50, i64 %62
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 1
-  %66 = icmp eq i32 %64, 2
-  %. = select i1 %66, i32 1, i32 2
-  %.0 = select i1 %65, i32 0, i32 %.
-  %67 = add nsw i32 %.12741, 1
+60:                                               ; preds = %57
+  %61 = sext i32 %.12741 to i64
+  %62 = getelementptr inbounds i32, ptr %49, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %63, 1
+  %65 = icmp eq i32 %63, 2
+  %. = select i1 %65, i32 1, i32 2
+  %.0 = select i1 %64, i32 0, i32 %.
+  %66 = add nsw i32 %.12741, 1
   br label %select.unfold
 
-68:                                               ; preds = %.noexc, %34
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %.noexc, %34
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %36, %68
-  %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %37, %36 ]
+.body:                                            ; preds = %36, %67
+  %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %37, %36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #27
-  br label %96
+  br label %95
 
-.loopexit:                                        ; preds = %55, %70, %75
+.loopexit:                                        ; preds = %54, %69, %74
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body31
@@ -3525,78 +3525,78 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 .body31:                                          ; preds = %.loopexit, %.loopexit.split-lp, %46
   %eh.lpad-body32 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #27
-  br label %96
+  br label %95
 
-70:                                               ; preds = %58
-  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %56)
-          to label %72 unwind label %.loopexit
+69:                                               ; preds = %57
+  %70 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %55)
+          to label %71 unwind label %.loopexit
 
-72:                                               ; preds = %70
-  %73 = load i8, ptr %71, align 1
-  %74 = icmp eq i8 %73, 45
-  br i1 %74, label %select.unfold, label %75
+71:                                               ; preds = %69
+  %72 = load i8, ptr %70, align 1
+  %73 = icmp eq i8 %72, 45
+  br i1 %73, label %select.unfold, label %74
 
-75:                                               ; preds = %72
-  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %56)
-          to label %77 unwind label %.loopexit
+74:                                               ; preds = %71
+  %75 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %55)
+          to label %76 unwind label %.loopexit
 
-77:                                               ; preds = %75
-  %78 = load i8, ptr %76, align 1
-  %79 = icmp eq i8 %78, 124
-  br i1 %79, label %select.unfold, label %93
+76:                                               ; preds = %74
+  %77 = load i8, ptr %75, align 1
+  %78 = icmp eq i8 %77, 124
+  br i1 %78, label %select.unfold, label %92
 
-select.unfold:                                    ; preds = %77, %61, %72
-  %.2.ph = phi i32 [ %.12741, %72 ], [ %67, %61 ], [ %.12741, %77 ]
-  %.1.ph = phi i32 [ 3, %72 ], [ %.0, %61 ], [ 4, %77 ]
+select.unfold:                                    ; preds = %76, %60, %71
+  %.2.ph = phi i32 [ %.12741, %71 ], [ %66, %60 ], [ %.12741, %76 ]
+  %.1.ph = phi i32 [ 3, %71 ], [ %.0, %60 ], [ 4, %76 ]
   store i32 %.1.ph, ptr %20, align 4
-  store i32 %54, ptr %51, align 4
-  %80 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %80, ptr %52, align 4
-  br label %81
+  store i32 %53, ptr %50, align 4
+  %79 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %79, ptr %51, align 4
+  br label %80
 
-81:                                               ; preds = %81, %select.unfold
-  %indvars.iv.i.i = phi i64 [ 0, %select.unfold ], [ %indvars.iv.next.i.i, %81 ]
-  %.078.i.i = phi i32 [ 0, %select.unfold ], [ %87, %81 ]
-  %82 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i
-  %83 = load i32, ptr %82, align 4
-  %84 = mul nsw i32 %83, %.078.i.i
-  %85 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
-  %86 = load i32, ptr %85, align 4
-  %87 = add nsw i32 %84, %86
+80:                                               ; preds = %80, %select.unfold
+  %indvars.iv.i.i = phi i64 [ 0, %select.unfold ], [ %indvars.iv.next.i.i, %80 ]
+  %.078.i.i = phi i32 [ 0, %select.unfold ], [ %86, %80 ]
+  %81 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i
+  %82 = load i32, ptr %81, align 4
+  %83 = mul nsw i32 %82, %.078.i.i
+  %84 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
+  %85 = load i32, ptr %84, align 4
+  %86 = add nsw i32 %83, %85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i, label %81, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i, label %80, !llvm.loop !27
 
-_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i: ; preds = %81
-  %88 = sext i32 %87 to i64
-  %89 = icmp ugt i64 %3, %88
-  br i1 %89, label %91, label %90
+_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i: ; preds = %80
+  %87 = sext i32 %86 to i64
+  %88 = icmp ugt i64 %3, %87
+  br i1 %88, label %90, label %89
 
-90:                                               ; preds = %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i
+89:                                               ; preds = %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i
   call void @llvm.trap()
   unreachable
 
-91:                                               ; preds = %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i
-  %92 = getelementptr inbounds float, ptr %2, i64 %88
-  store float 1.000000e+00, ptr %92, align 4
-  br label %93
+90:                                               ; preds = %_ZNK10open_spiel10TensorViewILi3EE5indexERKSt5arrayIiLm3EE.exit.i
+  %91 = getelementptr inbounds float, ptr %2, i64 %87
+  store float 1.000000e+00, ptr %91, align 4
+  br label %92
 
-93:                                               ; preds = %77, %91
-  %.235 = phi i32 [ %.2.ph, %91 ], [ %.12741, %77 ]
+92:                                               ; preds = %76, %90
+  %.235 = phi i32 [ %.2.ph, %90 ], [ %.12741, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %94, label %55, !llvm.loop !28
+  br i1 %exitcond.not, label %93, label %54, !llvm.loop !28
 
-94:                                               ; preds = %93
+93:                                               ; preds = %92
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 7
-  br i1 %exitcond50.not, label %95, label %.preheader, !llvm.loop !29
+  br i1 %exitcond50.not, label %94, label %.preheader, !llvm.loop !29
 
-95:                                               ; preds = %94
+94:                                               ; preds = %93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #27
   ret void
 
-96:                                               ; preds = %.body31, %.body, %32, %24
+95:                                               ; preds = %.body31, %.body, %32, %24
   %.pn = phi { ptr, i32 } [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body, %.body ], [ %33, %32 ], [ %25, %24 ]
   resume { ptr, i32 } %.pn
 }

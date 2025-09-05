@@ -669,7 +669,7 @@ define internal fastcc void @_ZL27getStableIndexOperandHashesPKN4llvm17StableFun
 
 14:                                               ; preds = %1
   %.idx.i = shl nuw nsw i64 %11, 4
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %15 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %10, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

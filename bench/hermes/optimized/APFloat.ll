@@ -20121,51 +20121,51 @@ if.end.i.i:                                       ; preds = %entry
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %if.end.i.i.thread, %if.end.i.i
   %1 = phi ptr [ %.pre.i, %if.end.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.end.i.i ]
-  %2 = shl nuw nsw i64 %div1.i.i, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %2, i1 false)
+  %conv.i4.i.i = shl nuw nsw i64 %div1.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %conv.i4.i.i, i1 false)
   %.pre = load ptr, ptr %parts, align 8
   %.pre12 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh11SmallVectorImLj4EEC2EmRKm.exit
 
 _ZN4llvh11SmallVectorImLj4EEC2EmRKm.exit:         ; preds = %for.body.i.i.i.i.i.i.i.preheader, %if.end.i.i
-  %3 = phi i32 [ %.pre12, %for.body.i.i.i.i.i.i.i.preheader ], [ %conv1.i.i, %if.end.i.i ]
-  %4 = phi ptr [ %.pre, %for.body.i.i.i.i.i.i.i.preheader ], [ %add.ptr.i.i.i.i.i, %if.end.i.i ]
-  %conv.i.i.i = zext i32 %3 to i64
+  %2 = phi i32 [ %.pre12, %for.body.i.i.i.i.i.i.i.preheader ], [ %conv1.i.i, %if.end.i.i ]
+  %3 = phi ptr [ %.pre, %for.body.i.i.i.i.i.i.i.preheader ], [ %add.ptr.i.i.i.i.i, %if.end.i.i ]
+  %conv.i.i.i = zext i32 %2 to i64
   %IsUnsigned.i = getelementptr inbounds nuw i8, ptr %result, i64 12
-  %5 = load i8, ptr %IsUnsigned.i, align 4
-  %tobool.i = trunc i8 %5 to i1
+  %4 = load i8, ptr %IsUnsigned.i, align 4
+  %tobool.i = trunc i8 %4 to i1
   %lnot.i = xor i1 %tobool.i, true
-  %call4 = call noundef i32 @_ZNK4llvh7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %4, i64 %conv.i.i.i, i32 noundef %0, i1 noundef zeroext %lnot.i, i32 noundef %rounding_mode, ptr noundef %isExact)
-  %6 = load ptr, ptr %parts, align 8
-  %7 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i.i6 = zext i32 %7 to i64
-  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp5, i32 noundef %0, ptr %6, i64 %conv.i.i6) #26
-  %8 = load i32, ptr %BitWidth.i, align 8
-  %cmp.i.i.i = icmp ult i32 %8, 65
+  %call4 = call noundef i32 @_ZNK4llvh7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %3, i64 %conv.i.i.i, i32 noundef %0, i1 noundef zeroext %lnot.i, i32 noundef %rounding_mode, ptr noundef %isExact)
+  %5 = load ptr, ptr %parts, align 8
+  %6 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %conv.i.i6 = zext i32 %6 to i64
+  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp5, i32 noundef %0, ptr %5, i64 %conv.i.i6) #26
+  %7 = load i32, ptr %BitWidth.i, align 8
+  %cmp.i.i.i = icmp ult i32 %7, 65
   br i1 %cmp.i.i.i, label %_ZN4llvh5APIntD2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %_ZN4llvh11SmallVectorImLj4EEC2EmRKm.exit
-  %9 = load ptr, ptr %result, align 8
-  %isnull.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %result, align 8
+  %isnull.i.i = icmp eq ptr %8, null
   br i1 %isnull.i.i, label %_ZN4llvh5APIntD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i7
-  call void @_ZdaPv(ptr noundef nonnull %9) #25
+  call void @_ZdaPv(ptr noundef nonnull %8) #25
   br label %_ZN4llvh5APIntD2Ev.exit
 
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %delete.notnull.i.i, %if.then.i.i7, %_ZN4llvh11SmallVectorImLj4EEC2EmRKm.exit
-  %10 = load i64, ptr %agg.tmp5, align 8
-  store i64 %10, ptr %result, align 8
+  %9 = load i64, ptr %agg.tmp5, align 8
+  store i64 %9, ptr %result, align 8
   %BitWidth.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 8
-  %11 = load i32, ptr %BitWidth.i.i, align 8
-  store i32 %11, ptr %BitWidth.i, align 8
+  %10 = load i32, ptr %BitWidth.i.i, align 8
+  store i32 %10, ptr %BitWidth.i, align 8
   store i32 0, ptr %BitWidth.i.i, align 8
-  %12 = load ptr, ptr %parts, align 8
-  %cmp.i.i.i10 = icmp eq ptr %12, %add.ptr.i.i.i.i.i
+  %11 = load ptr, ptr %parts, align 8
+  %cmp.i.i.i10 = icmp eq ptr %11, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i10, label %_ZN4llvh11SmallVectorImLj4EED2Ev.exit, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %_ZN4llvh5APIntD2Ev.exit
-  call void @free(ptr noundef %12) #26
+  call void @free(ptr noundef %11) #26
   br label %_ZN4llvh11SmallVectorImLj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorImLj4EED2Ev.exit:            ; preds = %_ZN4llvh5APIntD2Ev.exit, %if.then.i.i11

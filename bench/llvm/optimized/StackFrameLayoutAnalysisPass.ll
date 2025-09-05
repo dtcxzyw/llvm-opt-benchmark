@@ -703,7 +703,7 @@ _ZN4llvm13SmallDenseMapIiNS_9SetVectorIPKNS_15DILocalVariableENS_11SmallVectorIS
   %157 = load i32, ptr %156, align 8, !tbaa !221, !noalias !282
   %158 = zext i32 %157 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %158, 5
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx.i.i.i.i
+  %159 = getelementptr i8, ptr %155, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i32 %157, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZN4llvm15MachineFunction29getInStackSlotVariableDbgInfoEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i47.i
 

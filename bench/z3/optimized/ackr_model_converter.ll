@@ -213,7 +213,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   %34 = load i32, ptr %10, align 8, !tbaa !10
   %35 = zext i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %35, 4
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
+  %36 = getelementptr i8, ptr %33, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not1.i.i.i.i, label %.loopexit106, label %.lr.ph.i.i.i.i
 
@@ -456,7 +456,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit.thread: ; preds = %118, %112, %_ZN
   %135 = load i32, ptr %15, align 8, !tbaa !16
   %136 = zext i32 %135 to i64
   %.idx.i.i80 = shl nuw nsw i64 %136, 4
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i.i80
+  %137 = getelementptr i8, ptr %134, i64 %.idx.i.i80
   %.not1.i.i.i.i81 = icmp eq i32 %135, 0
   br i1 %.not1.i.i.i.i81, label %.loopexit, label %.lr.ph.i.i.i.i82
 

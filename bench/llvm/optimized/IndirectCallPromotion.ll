@@ -6515,7 +6515,7 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERN
   %1299 = select i1 %.not.i.i2.i.i, i32 %1298, i32 16
   %1300 = zext i32 %1299 to i64
   %.idx.i.i47 = shl nuw nsw i64 %1300, 4
-  %1301 = getelementptr inbounds nuw i8, ptr %1296, i64 %.idx.i.i47
+  %1301 = getelementptr i8, ptr %1296, i64 %.idx.i.i47
   %.not4.i5.i10.i4.i.i = icmp eq i32 %1299, 0
   %1302 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.377", ptr %1296, i64 %1300
   br i1 %.not4.i5.i10.i4.i.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit54.i, label %.lr.ph.i6.i12.i5.i44.i
@@ -6532,7 +6532,7 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERN
   br i1 %.not.i9.i15.i12.i52.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit54.i, label %.lr.ph.i6.i12.i5.i44.i, !llvm.loop !511
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit54.i: ; preds = %.critedge2.i8.i14.i11.i51.i, %.lr.ph.i6.i12.i5.i44.i, %.loopexit300
-  %.pn16.i47.i = phi ptr [ %1296, %.loopexit300 ], [ %.sroa.0.3.i6.i45.i, %.lr.ph.i6.i12.i5.i44.i ], [ %1304, %.critedge2.i8.i14.i11.i51.i ]
+  %.pn16.i47.i = phi ptr [ %1296, %.loopexit300 ], [ %.sroa.0.3.i6.i45.i, %.lr.ph.i6.i12.i5.i44.i ], [ %1301, %.critedge2.i8.i14.i11.i51.i ]
   %.not1737.i = icmp eq ptr %.pn16.i47.i, %1302
   br i1 %.not1737.i, label %.thread.i, label %.lr.ph40.i
 
@@ -6917,7 +6917,7 @@ _ZN4llvm16DenseMapIteratorImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEE
   %1457 = select i1 %.not.i.i2.i.i61, i32 %1456, i32 16
   %1458 = zext i32 %1457 to i64
   %.idx.i.i62 = shl nuw nsw i64 %1458, 4
-  %1459 = getelementptr inbounds nuw i8, ptr %1454, i64 %.idx.i.i62
+  %1459 = getelementptr i8, ptr %1454, i64 %.idx.i.i62
   %.not4.i5.i10.i4.i.i63 = icmp eq i32 %1457, 0
   br i1 %.not4.i5.i10.i4.i.i63, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i67, label %.lr.ph.i6.i12.i5.i.i64
 
@@ -6935,7 +6935,7 @@ _ZN4llvm16DenseMapIteratorImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEE
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i67: ; preds = %.critedge2.i8.i14.i11.i.i, %.lr.ph.i6.i12.i5.i.i64, %1450, %1441
   %.pre-phi498 = phi i64 [ 0, %1450 ], [ %1448, %1441 ], [ %1458, %.lr.ph.i6.i12.i5.i.i64 ], [ %1458, %.critedge2.i8.i14.i11.i.i ]
   %.pre-phi = phi ptr [ %1454, %1450 ], [ %1444, %1441 ], [ %1454, %.lr.ph.i6.i12.i5.i.i64 ], [ %1454, %.critedge2.i8.i14.i11.i.i ]
-  %.pn16.i.i = phi ptr [ %1454, %1450 ], [ %1449, %1441 ], [ %1461, %.critedge2.i8.i14.i11.i.i ], [ %.sroa.0.3.i6.i.i65, %.lr.ph.i6.i12.i5.i.i64 ]
+  %.pn16.i.i = phi ptr [ %1454, %1450 ], [ %1449, %1441 ], [ %1459, %.critedge2.i8.i14.i11.i.i ], [ %.sroa.0.3.i6.i.i65, %.lr.ph.i6.i12.i5.i.i64 ]
   %.pn14.i.i = phi ptr [ %1459, %1450 ], [ %1449, %1441 ], [ %1459, %.lr.ph.i6.i12.i5.i.i64 ], [ %1459, %.critedge2.i8.i14.i11.i.i ]
   %1462 = getelementptr inbounds nuw i8, ptr %.03649.i, i64 24
   %1463 = getelementptr inbounds nuw i8, ptr %.03649.i, i64 32
@@ -7954,7 +7954,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit30.i.i.i: ; preds = %_
   %1832 = select i1 %.not.i.i2.i.i.i.i, i32 %1831, i32 16
   %1833 = zext i32 %1832 to i64
   %.idx.i.i.i.i76 = shl nuw nsw i64 %1833, 4
-  %1834 = getelementptr inbounds nuw i8, ptr %1830, i64 %.idx.i.i.i.i76
+  %1834 = getelementptr i8, ptr %1830, i64 %.idx.i.i.i.i76
   %.not4.i5.i10.i4.i.i.i.i = icmp eq i32 %1832, 0
   br i1 %.not4.i5.i10.i4.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i.i.i, label %.lr.ph.i6.i12.i5.i.i.i.i
 
@@ -7972,7 +7972,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit30.i.i.i: ; preds = %_
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i.i.i: ; preds = %.critedge2.i8.i14.i11.i.i.i.i, %.lr.ph.i6.i12.i5.i.i.i.i, %1827, %1820
   %.pre-phi6.i.i = phi i64 [ 0, %1827 ], [ %1825, %1820 ], [ %1833, %.lr.ph.i6.i12.i5.i.i.i.i ], [ %1833, %.critedge2.i8.i14.i11.i.i.i.i ]
   %.pre-phi.i.i = phi ptr [ %1830, %1827 ], [ %1822, %1820 ], [ %1830, %.lr.ph.i6.i12.i5.i.i.i.i ], [ %1830, %.critedge2.i8.i14.i11.i.i.i.i ]
-  %.pn16.i.i.i.i = phi ptr [ %1830, %1827 ], [ %1826, %1820 ], [ %1836, %.critedge2.i8.i14.i11.i.i.i.i ], [ %.sroa.0.3.i6.i.i.i.i, %.lr.ph.i6.i12.i5.i.i.i.i ]
+  %.pn16.i.i.i.i = phi ptr [ %1830, %1827 ], [ %1826, %1820 ], [ %1834, %.critedge2.i8.i14.i11.i.i.i.i ], [ %.sroa.0.3.i6.i.i.i.i, %.lr.ph.i6.i12.i5.i.i.i.i ]
   %.pn14.i.i.i.i = phi ptr [ %1834, %1827 ], [ %1826, %1820 ], [ %1834, %.lr.ph.i6.i12.i5.i.i.i.i ], [ %1834, %.critedge2.i8.i14.i11.i.i.i.i ]
   %1837 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.377", ptr %.pre-phi.i.i, i64 %.pre-phi6.i.i
   %.not82.i.i.i = icmp eq ptr %.pn16.i.i.i.i, %1837
@@ -8677,7 +8677,7 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallB
 
 .loopexit:                                        ; preds = %1428, %.thread.i, %_ZN12_GLOBAL__N_120IndirectCallPromoter16shouldSkipVTableEm.exit.i, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit.thread, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit
   %2118 = phi i64 [ %826, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit.thread ], [ %1281, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit ], [ %1281, %_ZN12_GLOBAL__N_120IndirectCallPromoter16shouldSkipVTableEm.exit.i ], [ %1281, %.thread.i ], [ %1281, %1428 ]
-  %.0.i801 = phi ptr [ null, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit.thread ], [ %.0.i, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit ], [ %.0.i, %_ZN12_GLOBAL__N_120IndirectCallPromoter16shouldSkipVTableEm.exit.i ], [ %.0.i, %.thread.i ], [ %.0.i, %1428 ]
+  %.0.i800 = phi ptr [ null, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit.thread ], [ %.0.i, %_ZN12_GLOBAL__N_120IndirectCallPromoter18computeVTableInfosEPKN4llvm8CallBaseERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEERSt6vectorINS0_18PromotionCandidateESaISE_EE.exit ], [ %.0.i, %_ZN12_GLOBAL__N_120IndirectCallPromoter16shouldSkipVTableEm.exit.i ], [ %.0.i, %.thread.i ], [ %.0.i, %1428 ]
   %2119 = load i32, ptr %58, align 4, !tbaa !66
   %.not26.i116 = icmp eq ptr %.sroa.13.5, %.sroa.0276.5
   br i1 %.not26.i116, label %_ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit, label %.lr.ph31.i
@@ -8687,8 +8687,8 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallB
   br label %2121
 
 ._crit_edge32.i:                                  ; preds = %.loopexit.i117
-  %.not85.i = icmp eq i32 %2130, 0
-  br i1 %.not85.i, label %_ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit, label %2272
+  %.not83.i = icmp eq i32 %2130, 0
+  br i1 %.not83.i, label %_ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit, label %2272
 
 2121:                                             ; preds = %.loopexit.i117, %.lr.ph31.i
   %.03729.i = phi i64 [ %2120, %.lr.ph31.i ], [ %2129, %.loopexit.i117 ]
@@ -8724,7 +8724,7 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallB
   %2144 = select i1 %.not.i.i2.i.i121, i32 %2143, i32 16
   %2145 = zext i32 %2144 to i64
   %.idx.i.i122 = shl nuw nsw i64 %2145, 4
-  %2146 = getelementptr inbounds nuw i8, ptr %2141, i64 %.idx.i.i122
+  %2146 = getelementptr i8, ptr %2141, i64 %.idx.i.i122
   %.not4.i5.i10.i4.i.i123 = icmp eq i32 %2144, 0
   br i1 %.not4.i5.i10.i4.i.i123, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i127, label %.lr.ph.i6.i12.i5.i.i124
 
@@ -8740,7 +8740,7 @@ _ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallB
   br i1 %.not.i9.i15.i12.i.i167, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i127, label %.lr.ph.i6.i12.i5.i.i124, !llvm.loop !511
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit.i127: ; preds = %.critedge2.i8.i14.i11.i.i166, %.lr.ph.i6.i12.i5.i.i124, %2137
-  %.pn16.i.i128 = phi ptr [ %2141, %2137 ], [ %2148, %.critedge2.i8.i14.i11.i.i166 ], [ %.sroa.0.3.i6.i.i125, %.lr.ph.i6.i12.i5.i.i124 ]
+  %.pn16.i.i128 = phi ptr [ %2141, %2137 ], [ %2146, %.critedge2.i8.i14.i11.i.i166 ], [ %.sroa.0.3.i6.i.i125, %.lr.ph.i6.i12.i5.i.i124 ]
   %2149 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.377", ptr %2141, i64 %2145
   %.not1120.i = icmp eq ptr %.pn16.i.i128, %2149
   br i1 %.not1120.i, label %._crit_edge.i134, label %.lr.ph.i129
@@ -8761,7 +8761,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6deta
   br i1 %.not.i9.i15.i12.i55.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit57.i, label %.lr.ph.i6.i12.i5.i47.i, !llvm.loop !511
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit57.i: ; preds = %.critedge2.i8.i14.i11.i54.i, %.lr.ph.i6.i12.i5.i47.i, %._crit_edge.i134
-  %.pn16.i50.i = phi ptr [ %2141, %._crit_edge.i134 ], [ %2151, %.critedge2.i8.i14.i11.i54.i ], [ %.sroa.0.3.i6.i48.i, %.lr.ph.i6.i12.i5.i47.i ]
+  %.pn16.i50.i = phi ptr [ %2141, %._crit_edge.i134 ], [ %2146, %.critedge2.i8.i14.i11.i54.i ], [ %.sroa.0.3.i6.i48.i, %.lr.ph.i6.i12.i5.i47.i ]
   %.not1223.i = icmp eq ptr %.pn16.i50.i, %2149
   br i1 %.not1223.i, label %.loopexit.i117, label %.lr.ph25.i
 
@@ -9036,7 +9036,7 @@ _ZN4llvm16DenseMapIteratorImmNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEE
   br label %_ZN12_GLOBAL__N_120IndirectCallPromoter23updateFuncValueProfilesERN4llvm8CallBaseENS1_8ArrayRefI18InstrProfValueDataEEmj.exit.i120
 
 _ZN12_GLOBAL__N_120IndirectCallPromoter23updateFuncValueProfilesERN4llvm8CallBaseENS1_8ArrayRefI18InstrProfValueDataEEmj.exit.i120: ; preds = %2273, %2272
-  call fastcc void @_ZN12_GLOBAL__N_120IndirectCallPromoter23updateVPtrValueProfilesEPN4llvm11InstructionERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %.0.i801, ptr noundef nonnull align 8 dereferenceable(264) %60)
+  call fastcc void @_ZN12_GLOBAL__N_120IndirectCallPromoter23updateVPtrValueProfilesEPN4llvm11InstructionERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %.0.i800, ptr noundef nonnull align 8 dereferenceable(264) %60)
   br label %_ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit
 
 _ZN12_GLOBAL__N_120IndirectCallPromoter23tryToPromoteWithFuncCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmNS6_I18InstrProfValueDataEEjRNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit: ; preds = %_ZN12_GLOBAL__N_120IndirectCallPromoter23updateFuncValueProfilesERN4llvm8CallBaseENS1_8ArrayRefI18InstrProfValueDataEEmj.exit.i120, %._crit_edge32.i, %.loopexit, %_ZN12_GLOBAL__N_120IndirectCallPromoter25tryToPromoteWithVTableCmpERN4llvm8CallBaseEPNS1_11InstructionENS1_8ArrayRefINS0_18PromotionCandidateEEEmjNS1_15MutableArrayRefI18InstrProfValueDataEERNS1_13SmallDenseMapImmLj16ENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImmEEEE.exit
@@ -15040,7 +15040,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %9
   %33 = select i1 %.not.i.i.i2.i, i32 %32, i32 16
   %34 = zext i32 %33 to i64
   %.idx.i = shl nuw nsw i64 %34, 4
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
+  %35 = getelementptr i8, ptr %30, i64 %.idx.i
   %.not4.i5.i10.i4.i = icmp eq i32 %33, 0
   br i1 %.not4.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImmEEEEmmS3_S6_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -15059,7 +15059,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapImmLj16ENS_12DenseMapInfoImvEENS_6detai
   %.pre-phi = phi i32 [ %15, %17 ], [ %27, %26 ], [ %27, %.critedge2.i8.i14.i11.i ], [ %27, %.lr.ph.i6.i12.i5.i ]
   %38 = phi i32 [ %22, %17 ], [ %32, %26 ], [ %32, %.critedge2.i8.i14.i11.i ], [ %32, %.lr.ph.i6.i12.i5.i ]
   %39 = phi ptr [ %19, %17 ], [ %29, %26 ], [ %29, %.critedge2.i8.i14.i11.i ], [ %29, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i = phi ptr [ %25, %17 ], [ %30, %26 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %37, %.critedge2.i8.i14.i11.i ]
+  %.pn16.i = phi ptr [ %25, %17 ], [ %30, %26 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %35, %.critedge2.i8.i14.i11.i ]
   %.pn14.i = phi ptr [ %25, %17 ], [ %35, %26 ], [ %35, %.critedge2.i8.i14.i11.i ], [ %35, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8

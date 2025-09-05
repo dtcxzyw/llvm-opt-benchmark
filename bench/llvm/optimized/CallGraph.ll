@@ -8087,7 +8087,7 @@ define linkonce_odr hidden void @_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10wr
 
 16:                                               ; preds = %2
   %.idx.i.i.i.i.i = shl nuw nsw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i, label %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i
 

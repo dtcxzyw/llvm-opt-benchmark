@@ -11588,19 +11588,19 @@ _ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit._crit_edge: ; preds = %_ZNK9
   br i1 %57, label %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split.sink.split, label %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split
 
 _ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split.sink.split: ; preds = %47, %52, %36, %41
-  %.sink52 = phi ptr [ %38, %41 ], [ %38, %36 ], [ %49, %52 ], [ %49, %47 ]
-  tail call void @_ZN6vectorIPN9fm_tactic10constraintELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink52)
-  %.pre.i12.sink = load ptr, ptr %.sink52, align 8, !tbaa !71
+  %.sink51 = phi ptr [ %38, %41 ], [ %38, %36 ], [ %49, %52 ], [ %49, %47 ]
+  tail call void @_ZN6vectorIPN9fm_tactic10constraintELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink51)
+  %.pre.i12.sink = load ptr, ptr %.sink51, align 8, !tbaa !71
   %.phi.trans.insert.i13 = getelementptr inbounds i8, ptr %.pre.i12.sink, i64 -4
   %.pre2.i14 = load i32, ptr %.phi.trans.insert.i13, align 4, !tbaa !117
   br label %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split
 
 _ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split: ; preds = %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split.sink.split, %52, %41
-  %.sink51 = phi ptr [ %39, %41 ], [ %50, %52 ], [ %.pre.i12.sink, %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split.sink.split ]
+  %.sink50 = phi ptr [ %39, %41 ], [ %50, %52 ], [ %.pre.i12.sink, %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split.sink.split ]
   %.sink = phi i32 [ %43, %41 ], [ %54, %52 ], [ %.pre2.i14, %_ZNK9fm_tactic3imp8is_falseERKNS_10constraintE.exit.sink.split.sink.split ]
-  %58 = getelementptr inbounds i8, ptr %.sink51, i64 -4
+  %58 = getelementptr inbounds i8, ptr %.sink50, i64 -4
   %59 = zext i32 %.sink to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %.sink51, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %.sink50, i64 %59
   store ptr %1, ptr %60, align 8, !tbaa !159
   %61 = add i32 %.sink, 1
   store i32 %61, ptr %58, align 4, !tbaa !117

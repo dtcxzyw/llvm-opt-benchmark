@@ -2381,18 +2381,18 @@ define void @_ZNK10open_spiel10phantom_go14PhantomGoState17ObservationTensorEiN4
   br i1 %.not5.i.i.i.i.i, label %_ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %4
-  %9 = shl i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %9, i1 false)
+  %.idx.i.i = shl i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx.i.i, i1 false)
   br label %_ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit
 
 _ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit: ; preds = %4, %.lr.ph.i.i.i.i.preheader.i
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
+  %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, ptr noundef nonnull %5)
+  call void %14(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, ptr noundef nonnull %5)
   ret void
 }
 

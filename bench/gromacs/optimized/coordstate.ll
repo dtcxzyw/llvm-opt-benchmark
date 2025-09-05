@@ -182,181 +182,180 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i:      ; preds = %.noexc19.i
   br label %._crit_edge.i
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
-  %25 = add nsw i64 %12, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %25, i1 false), !tbaa !28
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 3
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
-  %27 = load double, ptr %3, align 8, !tbaa !28
-  store double %27, ptr %20, align 8, !tbaa !28
-  %28 = icmp samesign ugt i64 %18, 1
-  br i1 %28, label %.lr.ph.i.preheader, label %._crit_edge.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
+  %26 = load double, ptr %3, align 8, !tbaa !28
+  store double %26, ptr %20, align 8, !tbaa !28
+  %27 = icmp samesign ugt i64 %18, 1
+  br i1 %27, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i
   %load_initial = load double, ptr %20, align 8
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i59.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %26, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %26, %.lr.ph.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i59.i, i64 -8
-  %30 = load double, ptr %29, align 8, !tbaa !28
-  %31 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %30, double noundef 1.000000e+00, double noundef 1.000000e-02)
-          to label %39 unwind label %32
+  %.0.i.i.i.i.i59.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %25, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %25, %.lr.ph.i ]
+  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i59.i, i64 -8
+  %29 = load double, ptr %28, align 8, !tbaa !28
+  %30 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %29, double noundef 1.000000e+00, double noundef 1.000000e-02)
+          to label %38 unwind label %31
 
-32:                                               ; preds = %._crit_edge.i
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %._crit_edge.i
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit26.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %store_forwarded = phi double [ %load_initial, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
-  %.01453.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
-  %34 = getelementptr double, ptr %20, i64 %.01453.i
-  %35 = getelementptr inbounds nuw double, ptr %3, i64 %.01453.i
-  %36 = load double, ptr %35, align 8, !tbaa !28
-  %37 = fadd double %store_forwarded, %36
-  store double %37, ptr %34, align 8, !tbaa !28
-  %38 = add nuw nsw i64 %.01453.i, 1
-  %exitcond.not.i = icmp eq i64 %38, %18
+  %store_forwarded = phi double [ %load_initial, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.01453.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
+  %33 = getelementptr double, ptr %20, i64 %.01453.i
+  %34 = getelementptr inbounds nuw double, ptr %3, i64 %.01453.i
+  %35 = load double, ptr %34, align 8, !tbaa !28
+  %36 = fadd double %store_forwarded, %35
+  store double %36, ptr %33, align 8, !tbaa !28
+  %37 = add nuw nsw i64 %.01453.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %18
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
-39:                                               ; preds = %._crit_edge.i
-  br i1 %31, label %41, label %40
+38:                                               ; preds = %._crit_edge.i
+  br i1 %30, label %40, label %39
 
-40:                                               ; preds = %39
+39:                                               ; preds = %38
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElllENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 122) #17
-          to label %.noexc20.i unwind label %133
+          to label %.noexc20.i unwind label %132
 
-.noexc20.i:                                       ; preds = %40
+.noexc20.i:                                       ; preds = %39
   unreachable
 
-41:                                               ; preds = %39
-  %42 = add i64 %6, %5
-  %43 = xor i64 %6, 2004413935125301794
-  %44 = add nsw i64 %13, 36864
-  %45 = add i64 %42, %44
-  %46 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 16)
-  %47 = xor i64 %46, %45
-  %48 = add i64 %47, %45
-  %49 = tail call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 42)
-  %50 = xor i64 %49, %48
-  %51 = add i64 %50, %48
-  %52 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 12)
-  %53 = xor i64 %52, %51
-  %54 = add i64 %53, %51
-  %55 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 31)
-  %56 = xor i64 %55, %54
-  %57 = add i64 %54, 36864
-  %58 = add i64 %43, 1
-  %59 = add i64 %58, %56
-  %60 = add i64 %57, %59
-  %61 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 16)
-  %62 = xor i64 %61, %60
-  %63 = add i64 %62, %60
-  %64 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 32)
-  %65 = xor i64 %64, %63
-  %66 = add i64 %65, %63
-  %67 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 24)
-  %68 = xor i64 %67, %66
-  %69 = add i64 %68, %66
-  %70 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 21)
-  %71 = xor i64 %70, %69
-  %72 = add i64 %69, %43
-  %73 = add i64 %14, %71
-  %74 = add i64 %72, %73
-  %75 = tail call i64 @llvm.fshl.i64(i64 %73, i64 %73, i64 16)
-  %76 = xor i64 %75, %74
-  %77 = add i64 %76, %74
-  %78 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 42)
-  %79 = xor i64 %78, %77
-  %80 = add i64 %79, %77
-  %81 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 12)
-  %82 = xor i64 %81, %80
-  %83 = add i64 %82, %80
-  %84 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 31)
-  %85 = xor i64 %84, %83
-  %86 = add i64 %83, %6
-  %87 = add i64 %85, 36867
-  %88 = add i64 %86, %87
-  %89 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 16)
-  %90 = xor i64 %89, %88
-  %91 = add i64 %90, %88
-  %92 = tail call i64 @llvm.fshl.i64(i64 %90, i64 %90, i64 32)
-  %93 = xor i64 %92, %91
-  %94 = add i64 %93, %91
-  %95 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 24)
-  %96 = xor i64 %95, %94
-  %97 = add i64 %96, %94
-  %98 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 21)
-  %99 = xor i64 %98, %97
-  %100 = add i64 %97, 36864
-  %101 = add i64 %43, 4
-  %102 = add i64 %101, %99
-  %103 = add i64 %100, %102
-  %104 = tail call i64 @llvm.fshl.i64(i64 %102, i64 %102, i64 16)
-  %105 = xor i64 %104, %103
-  %106 = add i64 %105, %103
-  %107 = tail call i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 42)
-  %108 = xor i64 %107, %106
-  %109 = add i64 %108, %106
-  %110 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 12)
-  %111 = xor i64 %110, %109
-  %112 = add i64 %109, %43
-  %113 = add i64 %112, %111
-  %114 = uitofp i64 %113 to float
-  %115 = fmul float %114, 0x3BF0000000000000
-  %116 = fcmp oeq float %115, 1.000000e+00
-  %117 = fadd float %115, 0.000000e+00
-  %118 = select i1 %116, float 0.000000e+00, float %117
-  %119 = fpext float %118 to double
-  %120 = ptrtoint ptr %29 to i64
-  %121 = ptrtoint ptr %20 to i64
-  %122 = sub i64 %120, %121
-  %123 = ashr exact i64 %122, 3
-  %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit
+40:                                               ; preds = %38
+  %41 = add i64 %6, %5
+  %42 = xor i64 %6, 2004413935125301794
+  %43 = add nsw i64 %13, 36864
+  %44 = add i64 %41, %43
+  %45 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 16)
+  %46 = xor i64 %45, %44
+  %47 = add i64 %46, %44
+  %48 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %46, i64 42)
+  %49 = xor i64 %48, %47
+  %50 = add i64 %49, %47
+  %51 = tail call i64 @llvm.fshl.i64(i64 %49, i64 %49, i64 12)
+  %52 = xor i64 %51, %50
+  %53 = add i64 %52, %50
+  %54 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 31)
+  %55 = xor i64 %54, %53
+  %56 = add i64 %53, 36864
+  %57 = add i64 %42, 1
+  %58 = add i64 %57, %55
+  %59 = add i64 %56, %58
+  %60 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 16)
+  %61 = xor i64 %60, %59
+  %62 = add i64 %61, %59
+  %63 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 32)
+  %64 = xor i64 %63, %62
+  %65 = add i64 %64, %62
+  %66 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 24)
+  %67 = xor i64 %66, %65
+  %68 = add i64 %67, %65
+  %69 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 21)
+  %70 = xor i64 %69, %68
+  %71 = add i64 %68, %42
+  %72 = add i64 %14, %70
+  %73 = add i64 %71, %72
+  %74 = tail call i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 16)
+  %75 = xor i64 %74, %73
+  %76 = add i64 %75, %73
+  %77 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 42)
+  %78 = xor i64 %77, %76
+  %79 = add i64 %78, %76
+  %80 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 12)
+  %81 = xor i64 %80, %79
+  %82 = add i64 %81, %79
+  %83 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 31)
+  %84 = xor i64 %83, %82
+  %85 = add i64 %82, %6
+  %86 = add i64 %84, 36867
+  %87 = add i64 %85, %86
+  %88 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 16)
+  %89 = xor i64 %88, %87
+  %90 = add i64 %89, %87
+  %91 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 32)
+  %92 = xor i64 %91, %90
+  %93 = add i64 %92, %90
+  %94 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 24)
+  %95 = xor i64 %94, %93
+  %96 = add i64 %95, %93
+  %97 = tail call i64 @llvm.fshl.i64(i64 %95, i64 %95, i64 21)
+  %98 = xor i64 %97, %96
+  %99 = add i64 %96, 36864
+  %100 = add i64 %42, 4
+  %101 = add i64 %100, %98
+  %102 = add i64 %99, %101
+  %103 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 16)
+  %104 = xor i64 %103, %102
+  %105 = add i64 %104, %102
+  %106 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 42)
+  %107 = xor i64 %106, %105
+  %108 = add i64 %107, %105
+  %109 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 12)
+  %110 = xor i64 %109, %108
+  %111 = add i64 %108, %42
+  %112 = add i64 %111, %110
+  %113 = uitofp i64 %112 to float
+  %114 = fmul float %113, 0x3BF0000000000000
+  %115 = fcmp oeq float %114, 1.000000e+00
+  %116 = fadd float %114, 0.000000e+00
+  %117 = select i1 %115, float 0.000000e+00, float %116
+  %118 = fpext float %117 to double
+  %119 = ptrtoint ptr %28 to i64
+  %120 = ptrtoint ptr %20 to i64
+  %121 = sub i64 %119, %120
+  %122 = ashr exact i64 %121, 3
+  %123 = icmp sgt i64 %122, 0
+  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i: ; preds = %41, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i
-  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %123, %41 ]
-  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %20, %41 ]
-  %125 = lshr i64 %.013.i.i.i, 1
-  %126 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %125
-  %127 = load double, ptr %126, align 8, !tbaa !28
-  %128 = fcmp ogt double %127, %119
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %130 = xor i64 %125, -1
-  %131 = add nsw i64 %.013.i.i.i, %130
-  %.sroa.011.1.i.i.i = select i1 %128, ptr %.sroa.011.012.i.i.i, ptr %129
-  %.1.i.i.i = select i1 %128, i64 %125, i64 %131
-  %132 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i, !llvm.loop !35
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i: ; preds = %40, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i
+  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %122, %40 ]
+  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i ], [ %20, %40 ]
+  %124 = lshr i64 %.013.i.i.i, 1
+  %125 = getelementptr inbounds nuw double, ptr %.sroa.011.012.i.i.i, i64 %124
+  %126 = load double, ptr %125, align 8, !tbaa !28
+  %127 = fcmp ogt double %126, %118
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %129 = xor i64 %124, -1
+  %130 = add nsw i64 %.013.i.i.i, %129
+  %.sroa.011.1.i.i.i = select i1 %127, ptr %.sroa.011.012.i.i.i, ptr %128
+  %.1.i.i.i = select i1 %127, i64 %124, i64 %130
+  %131 = icmp sgt i64 %.1.i.i.i, 0
+  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i, !llvm.loop !35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i:         ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_.exit.i.i.i
   %.pre.i = ptrtoint ptr %.sroa.011.1.i.i.i to i64
   br label %_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit
 
-133:                                              ; preds = %40
-  %134 = landingpad { ptr, i32 }
+132:                                              ; preds = %39
+  %133 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit26.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %133, %32
-  %.pn.pn.i = phi { ptr, i32 } [ %33, %32 ], [ %134, %133 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %132, %31
+  %.pn.pn.i = phi { ptr, i32 } [ %32, %31 ], [ %133, %132 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit: ; preds = %41, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i ], [ %121, %41 ]
-  %135 = sext i32 %2 to i64
-  %136 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %135, i32 2
-  %137 = sub i64 %.pre-phi.i, %121
+_ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit: ; preds = %40, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i ], [ %120, %40 ]
+  %134 = sext i32 %2 to i64
+  %135 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %134, i32 2
+  %136 = sub i64 %.pre-phi.i, %120
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #19
-  %sext = shl i64 %137, 29
-  %138 = ashr i64 %sext, 32
-  %139 = load ptr, ptr %136, align 8, !tbaa !36
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %138
-  %141 = load i32, ptr %140, align 4, !tbaa !39
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %141, ptr %142, align 4, !tbaa !14
+  %sext = shl i64 %136, 29
+  %137 = ashr i64 %sext, 32
+  %138 = load ptr, ptr %135, align 8, !tbaa !36
+  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %137
+  %140 = load i32, ptr %139, align 4, !tbaa !39
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %140, ptr %141, align 4, !tbaa !14
   ret void
 }
 

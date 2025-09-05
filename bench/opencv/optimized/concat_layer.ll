@@ -2795,8 +2795,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   %108 = mul nsw i32 %.057.lcssa, %25
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.not122 = icmp eq i32 %108, 0
-  br i1 %.not122, label %_ZNSt6vectorIPKaSaIS1_EE6resizeEm.exit, label %111
+  %.not123 = icmp eq i32 %108, 0
+  br i1 %.not123, label %_ZNSt6vectorIPKaSaIS1_EE6resizeEm.exit, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2817,13 +2817,14 @@ _ZNKSt6vectorIPKaSaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %111
 
 .noexc79:                                         ; preds = %_ZNKSt6vectorIPKaSaIS1_EE12_M_check_lenEmPKc.exit.i
   store ptr null, ptr %116, align 8, !tbaa !123
-  %117 = icmp eq i32 %108, 1
-  br i1 %117, label %_ZNSt12_Vector_baseIPKaSaIS1_EE13_M_deallocateEPS1_m.exit36.i, label %_ZSt6fill_nIPPKamS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %117 = add nsw i64 %109, -1
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %_ZNSt12_Vector_baseIPKaSaIS1_EE13_M_deallocateEPS1_m.exit36.i, label %_ZSt6fill_nIPPKamS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPPKamS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc79
-  %118 = getelementptr i8, ptr %116, i64 8
-  %119 = add nsw i64 %115, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %118, i8 0, i64 %119, i1 false), !tbaa !123
+  %119 = getelementptr i8, ptr %116, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %117, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %119, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !123
   br label %_ZNSt12_Vector_baseIPKaSaIS1_EE13_M_deallocateEPS1_m.exit36.i
 
 _ZNSt12_Vector_baseIPKaSaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds = %_ZSt6fill_nIPPKamS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc79
@@ -3184,8 +3185,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   %108 = mul nsw i32 %.057.lcssa, %25
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.not122 = icmp eq i32 %108, 0
-  br i1 %.not122, label %_ZNSt6vectorIPKfSaIS1_EE6resizeEm.exit, label %111
+  %.not123 = icmp eq i32 %108, 0
+  br i1 %.not123, label %_ZNSt6vectorIPKfSaIS1_EE6resizeEm.exit, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3206,13 +3207,14 @@ _ZNKSt6vectorIPKfSaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %111
 
 .noexc79:                                         ; preds = %_ZNKSt6vectorIPKfSaIS1_EE12_M_check_lenEmPKc.exit.i
   store ptr null, ptr %116, align 8, !tbaa !142
-  %117 = icmp eq i32 %108, 1
-  br i1 %117, label %_ZNSt12_Vector_baseIPKfSaIS1_EE13_M_deallocateEPS1_m.exit36.i, label %_ZSt6fill_nIPPKfmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %117 = add nsw i64 %109, -1
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %_ZNSt12_Vector_baseIPKfSaIS1_EE13_M_deallocateEPS1_m.exit36.i, label %_ZSt6fill_nIPPKfmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPPKfmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc79
-  %118 = getelementptr i8, ptr %116, i64 8
-  %119 = add nsw i64 %115, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %118, i8 0, i64 %119, i1 false), !tbaa !142
+  %119 = getelementptr i8, ptr %116, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %117, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %119, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !142
   br label %_ZNSt12_Vector_baseIPKfSaIS1_EE13_M_deallocateEPS1_m.exit36.i
 
 _ZNSt12_Vector_baseIPKfSaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds = %_ZSt6fill_nIPPKfmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc79

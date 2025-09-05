@@ -1344,7 +1344,7 @@ define hidden void @_ZN1q11model_fixer24add_projection_functionsER5modelRK10ptr_
   %11 = load i32, ptr %6, align 8, !tbaa !520
   %12 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %13 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

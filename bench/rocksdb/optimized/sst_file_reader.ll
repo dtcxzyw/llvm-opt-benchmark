@@ -2171,19 +2171,20 @@ _ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds
 
 .noexc180:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr null, ptr %116, align 8, !tbaa !359
-  %117 = icmp eq i64 %113, 1
-  br i1 %117, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit, label %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %117 = add nsw i64 %43, -33
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit, label %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc180
-  %118 = getelementptr i8, ptr %116, i64 8
-  %119 = add nsw i64 %115, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %118, i8 0, i64 %119, i1 false), !tbaa !359
+  %119 = getelementptr i8, ptr %116, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %117, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %119, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !359
   br label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit
 
 _ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i: ; preds = %.loopexit204
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread306
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread307
 
-_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread306: ; preds = %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i
+_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread307: ; preds = %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i
   %120 = ashr exact i64 %42, 1
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %103, i8 0, i64 %120, i1 false), !tbaa !359
   store i64 %43, ptr %16, align 8, !tbaa !335
@@ -2198,7 +2199,7 @@ _ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit: ; preds = %.noexc
   store i64 32, ptr %16, align 8, !tbaa !335
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread306, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit
+.lr.ph:                                           ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread307, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit
   %122 = getelementptr inbounds nuw i8, ptr %18, i64 1048
   %123 = getelementptr inbounds nuw i8, ptr %18, i64 1056
   %124 = getelementptr inbounds nuw i8, ptr %96, i64 2224

@@ -144,7 +144,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit: ; p
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
-  %.sroa.04.09 = phi ptr [ %44, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %28, %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit ]
+  %.sroa.04.09 = phi ptr [ %43, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %28, %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit ]
   %29 = load i32, ptr %6, align 4, !tbaa !14
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 8
@@ -182,14 +182,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
   %42 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !17
-  %43 = shl nuw nsw i64 %30, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %43, i1 false), !tbaa !28
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
-  %45 = load ptr, ptr %11, align 8, !tbaa !24
-  %.not = icmp eq ptr %44, %45
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
+  %44 = load ptr, ptr %11, align 8, !tbaa !24
+  %.not = icmp eq ptr %43, %44
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit, %1, %5
@@ -209,7 +209,7 @@ define void @_ZN3g2o17JacobianWorkspace7setZeroEv(ptr noundef nonnull readonly a
   ret void
 
 .lr.ph:                                           ; preds = %1, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
-  %.sroa.04.08 = phi ptr [ %10, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %2, %1 ]
+  %.sroa.04.08 = phi ptr [ %9, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !25
   %7 = icmp slt i64 %6, 1
@@ -217,13 +217,13 @@ define void @_ZN3g2o17JacobianWorkspace7setZeroEv(ptr noundef nonnull readonly a
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %.lr.ph
   %8 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !17
-  %9 = shl i64 %6, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %9, i1 false), !tbaa !28
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %6, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
-  %.not = icmp eq ptr %10, %4
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
+  %.not = icmp eq ptr %9, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

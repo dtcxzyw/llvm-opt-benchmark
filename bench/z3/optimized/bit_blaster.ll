@@ -482,7 +482,7 @@ _ZN6vectorIP9func_declLb0EjE3endEv.exit:          ; preds = %117
   %126 = load i32, ptr %114, align 8, !tbaa !71
   %127 = zext i32 %126 to i64
   %.idx.i.i = shl nuw nsw i64 %127, 4
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx.i.i
+  %128 = getelementptr i8, ptr %125, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %126, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

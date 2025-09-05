@@ -1533,8 +1533,7 @@ define dso_local void @_ZN5clang6interp7InitMapC2Ej(ptr noundef nonnull writeonl
   br i1 %9, label %_ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %10 = and i64 %6, 1073741816
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %10, i1 false), !tbaa !118
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !tbaa !118
   br label %_ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit
 
 _ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i, %2

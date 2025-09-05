@@ -1375,7 +1375,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_15DILocalVariableEE6insertES2_.exit.i.i.i.i: ; pre
   %418 = load i24, ptr %417, align 8, !noalias !386
   %419 = zext i24 %418 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %419, 5
-  %420 = getelementptr inbounds nuw i8, ptr %416, i64 %.idx.i.i.i.i.i
+  %420 = getelementptr i8, ptr %416, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i212.i.i.i.i = icmp eq i24 %418, 0
   br i1 %.not1.i.i.i.i.i212.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i213.i.i.i.i
 

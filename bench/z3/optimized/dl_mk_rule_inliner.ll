@@ -3063,7 +3063,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE3endEv.exit: ; preds = %2
   %23 = load i32, ptr %22, align 8, !tbaa !368
   %24 = zext i32 %23 to i64
   %.idx.i = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
+  %25 = getelementptr i8, ptr %21, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -3164,7 +3164,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %._crit_edge
   %44 = load i32, ptr %43, align 8, !tbaa !368
   %45 = zext i32 %44 to i64
   %.idx.i = shl nuw nsw i64 %45, 3
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
+  %46 = getelementptr i8, ptr %42, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %44, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -4895,7 +4895,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE3endEv.exit.i: ; preds = %_ZNK6vec
   %28 = load i32, ptr %27, align 8, !tbaa !368
   %29 = zext i32 %28 to i64
   %.idx.i.i = shl nuw nsw i64 %29, 3
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i
+  %30 = getelementptr i8, ptr %26, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %28, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -5275,7 +5275,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE3endEv.exit: ; preds = %135
   %152 = load i32, ptr %151, align 8, !tbaa !368
   %153 = zext i32 %152 to i64
   %.idx.i = shl nuw nsw i64 %153, 3
-  %154 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx.i
+  %154 = getelementptr i8, ptr %150, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %152, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

@@ -3152,7 +3152,7 @@ define dso_local { ptr, ptr } @_ZN4llvm25ObjectSizeOffsetEvaluator7computeEPNS_5
   %.v.v.i4.i2.i = select i1 %21, i32 %23, i32 %25
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
+  %26 = getelementptr i8, ptr %18, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_5ValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -3193,7 +3193,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_5ValueEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7
   %.v.v.i4.i2.i12 = select i1 %38, i32 %40, i32 %42
   %.v.i5.i3.i13 = zext i32 %.v.v.i4.i2.i12 to i64
   %.idx.i14 = shl nuw nsw i64 %.v.i5.i3.i13, 3
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i14
+  %43 = getelementptr i8, ptr %35, i64 %.idx.i14
   %.not3.i4.i.i6.i4.i15 = icmp eq i32 %.v.v.i4.i2.i12, 0
   br i1 %.not3.i4.i.i6.i4.i15, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i16
 

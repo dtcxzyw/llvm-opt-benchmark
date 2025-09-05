@@ -2555,7 +2555,7 @@ _ZN4llvm13BlotMapVectorIPNS_5ValueENS_7objcarc6RRInfoEE4findERKS2_.exit.i.i.i: ;
   %.v.v.i4.i2.i.i.i.i = select i1 %863, i32 %865, i32 %867
   %.v.i5.i3.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i, 3
-  %868 = getelementptr inbounds nuw i8, ptr %860, i64 %.idx.i.i.i.i
+  %868 = getelementptr i8, ptr %860, i64 %.idx.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i
 
@@ -2939,7 +2939,7 @@ _ZNK12_GLOBAL__N_17BBState27GetAllPathCountWithOverflowERj.exit.i.i.i: ; preds =
   %.v.v.i4.i2.i303.i.i.i = select i1 %1037, i32 %1039, i32 %1041
   %.v.i5.i3.i304.i.i.i = zext i32 %.v.v.i4.i2.i303.i.i.i to i64
   %.idx.i305.i.i.i = shl nuw nsw i64 %.v.i5.i3.i304.i.i.i, 3
-  %1042 = getelementptr inbounds nuw i8, ptr %1034, i64 %.idx.i305.i.i.i
+  %1042 = getelementptr i8, ptr %1034, i64 %.idx.i305.i.i.i
   %.not3.i4.i.i6.i4.i306.i.i.i = icmp eq i32 %.v.v.i4.i2.i303.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i306.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit316.i.i.i, label %.lr.ph.i5.i.i7.i5.i307.i.i.i
 
@@ -3358,7 +3358,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_7objcarc6RRInfoENS_12DenseMapI
   %.v.v.i4.i2.i408.i.i.i = select i1 %1206, i32 %1208, i32 %1210
   %.v.i5.i3.i409.i.i.i = zext i32 %.v.v.i4.i2.i408.i.i.i to i64
   %.idx.i410.i.i.i = shl nuw nsw i64 %.v.i5.i3.i409.i.i.i, 3
-  %1211 = getelementptr inbounds nuw i8, ptr %1203, i64 %.idx.i410.i.i.i
+  %1211 = getelementptr i8, ptr %1203, i64 %.idx.i410.i.i.i
   %.not3.i4.i.i6.i4.i411.i.i.i = icmp eq i32 %.v.v.i4.i2.i408.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i411.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit421.i.i.i, label %.lr.ph.i5.i.i7.i5.i412.i.i.i
 
@@ -3717,7 +3717,7 @@ _ZNK12_GLOBAL__N_17BBState27GetAllPathCountWithOverflowERj.exit509.i.i.i: ; pred
   %.v.v.i4.i2.i510.i.i.i = select i1 %1370, i32 %1372, i32 %1374
   %.v.i5.i3.i511.i.i.i = zext i32 %.v.v.i4.i2.i510.i.i.i to i64
   %.idx.i512.i.i.i = shl nuw nsw i64 %.v.i5.i3.i511.i.i.i, 3
-  %1375 = getelementptr inbounds nuw i8, ptr %1367, i64 %.idx.i512.i.i.i
+  %1375 = getelementptr i8, ptr %1367, i64 %.idx.i512.i.i.i
   %.not3.i4.i.i6.i4.i513.i.i.i = icmp eq i32 %.v.v.i4.i2.i510.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i513.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit523.i.i.i, label %.lr.ph.i5.i.i7.i5.i514.i.i.i
 
@@ -4204,7 +4204,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit614.i.i.i: ; preds = %1546, %1544, %15
   %.v.v.i4.i2.i.i25.i.i = select i1 %1559, i32 %1560, i32 %1561
   %.v.i5.i3.i.i26.i.i = zext i32 %.v.v.i4.i2.i.i25.i.i to i64
   %.idx.i.i27.i.i = shl nuw nsw i64 %.v.i5.i3.i.i26.i.i, 3
-  %1562 = getelementptr inbounds nuw i8, ptr %1557, i64 %.idx.i.i27.i.i
+  %1562 = getelementptr i8, ptr %1557, i64 %.idx.i.i27.i.i
   %.not3.i4.i.i6.i4.i.i28.i.i = icmp eq i32 %.v.v.i4.i2.i.i25.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i28.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i32.i.i, label %.lr.ph.i5.i.i7.i5.i.i29.i.i
 
@@ -4234,7 +4234,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i32.i.i: ; preds = %
   %.v.v.i4.i2.i49.i.i.i = select i1 %1568, i32 %1569, i32 %1570
   %.v.i5.i3.i50.i.i.i = zext i32 %.v.v.i4.i2.i49.i.i.i to i64
   %.idx.i51.i.i.i = shl nuw nsw i64 %.v.i5.i3.i50.i.i.i, 3
-  %1571 = getelementptr inbounds nuw i8, ptr %1566, i64 %.idx.i51.i.i.i
+  %1571 = getelementptr i8, ptr %1566, i64 %.idx.i51.i.i.i
   %.not3.i4.i.i6.i4.i52.i.i.i = icmp eq i32 %.v.v.i4.i2.i49.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i52.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit61.i.i.i, label %.lr.ph.i5.i.i7.i5.i53.i.i.i
 
@@ -4545,7 +4545,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i46.i.i: ; preds = %.
   %.v.v.i4.i2.i68.i.i.i = select i1 %1696, i32 %1697, i32 %1698
   %.v.i5.i3.i69.i.i.i = zext i32 %.v.v.i4.i2.i68.i.i.i to i64
   %.idx.i70.i.i.i = shl nuw nsw i64 %.v.i5.i3.i69.i.i.i, 3
-  %1699 = getelementptr inbounds nuw i8, ptr %1694, i64 %.idx.i70.i.i.i
+  %1699 = getelementptr i8, ptr %1694, i64 %.idx.i70.i.i.i
   %.not3.i4.i.i6.i4.i71.i.i.i = icmp eq i32 %.v.v.i4.i2.i68.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i71.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit80.i.i.i, label %.lr.ph.i5.i.i7.i5.i72.i.i.i
 
@@ -4892,7 +4892,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit128.i.i.i: ; preds = %
   %.v.v.i4.i2.i129.i.i.i = select i1 %1837, i32 %1838, i32 %1839
   %.v.i5.i3.i130.i.i.i = zext i32 %.v.v.i4.i2.i129.i.i.i to i64
   %.idx.i131.i.i.i = shl nuw nsw i64 %.v.i5.i3.i130.i.i.i, 3
-  %1840 = getelementptr inbounds nuw i8, ptr %1835, i64 %.idx.i131.i.i.i
+  %1840 = getelementptr i8, ptr %1835, i64 %.idx.i131.i.i.i
   %.not3.i4.i.i6.i4.i132.i.i.i = icmp eq i32 %.v.v.i4.i2.i129.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i132.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit141.i.i.i, label %.lr.ph.i5.i.i7.i5.i133.i.i.i
 
@@ -12084,7 +12084,7 @@ _ZN4llvm7objcarc17GetRCIdentityRootEPNS_5ValueE.exit.i: ; preds = %_ZN4llvm7objc
   %.v.v.i4.i2.i.i = select i1 %1334, i32 %1336, i32 %1338
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %1339 = getelementptr inbounds nuw i8, ptr %1331, i64 %.idx.i.i
+  %1339 = getelementptr i8, ptr %1331, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -13239,7 +13239,7 @@ _ZL37getRCIdentityRootsFromReleaseInsertPtPKN4llvm11InstructionERKNS_8DenseMapIS
   %.v.v.i4.i2.i.i.i = select i1 %1888, i32 %1890, i32 %1892
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i.i.i136 = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %1893 = getelementptr inbounds nuw i8, ptr %1885, i64 %.idx.i.i.i136
+  %1893 = getelementptr i8, ptr %1885, i64 %.idx.i.i.i136
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_5ValueEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 

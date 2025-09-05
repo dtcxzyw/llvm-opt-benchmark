@@ -478,7 +478,7 @@ _ZN6vectorIPvLb0EjE5resetEv.exit:                 ; preds = %1, %._crit_edge, %.
   %15 = load i32, ptr %14, align 8, !tbaa !46
   %16 = zext i32 %15 to i64
   %.idx.i.i = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_decljE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1144,7 +1144,7 @@ define hidden void @_ZNK3smt8cg_table7displayERSo(ptr noundef nonnull readonly a
   %7 = load i32, ptr %6, align 8, !tbaa !46
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_decljE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1262,7 +1262,7 @@ define hidden void @_ZNK3smt8cg_table13display_unaryERSoPv(ptr nonnull readnone 
   %10 = load i32, ptr %9, align 4, !tbaa !87, !noalias !131
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %10, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -1344,7 +1344,7 @@ define hidden void @_ZNK3smt8cg_table14display_binaryERSoPv(ptr nonnull readnone
   %10 = load i32, ptr %9, align 4, !tbaa !122, !noalias !136
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %10, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -1453,7 +1453,7 @@ define hidden void @_ZNK3smt8cg_table19display_binary_commERSoPv(ptr nonnull rea
   %11 = load i32, ptr %10, align 4, !tbaa !111, !noalias !140
   %12 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %11, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -1535,7 +1535,7 @@ define hidden void @_ZNK3smt8cg_table12display_naryERSoPv(ptr nonnull readnone a
   %10 = load i32, ptr %9, align 4, !tbaa !99, !noalias !144
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %10, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 

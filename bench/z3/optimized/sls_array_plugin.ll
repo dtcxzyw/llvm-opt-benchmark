@@ -7954,7 +7954,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sls12array_pl
   %13 = load i32, ptr %12, align 8, !tbaa !38
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 5
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapIN3euf5enodeE3mapIN3sls12array_plugin11select_argsEPS1_NS4_16select_args_hashENS4_14select_args_eqEEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

@@ -507,39 +507,36 @@ _ZNK6vectorIPN16cached_var_subst3keyELb0EjE8capacityEv.exit.thread.i.i: ; preds 
   %18 = zext i32 %5 to i64
   %19 = zext i32 %.0.i17.i.i.ph to i64
   %20 = getelementptr ptr, ptr %11, i64 %19
-  %21 = shl nuw nsw i64 %18, 3
-  %22 = add nsw i64 %21, -8
-  %23 = shl nuw nsw i64 %19, 3
-  %24 = sub nsw i64 %22, %23
-  %25 = add nsw i64 %24, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %25, i1 false), !tbaa !95
+  %21 = sub nsw i64 %18, %19
+  %22 = shl nsw i64 %21, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %22, i1 false), !tbaa !95
   br label %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit
 
 _ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZNK6vectorIPN16cached_var_subst3keyELb0EjE4sizeEv.exit.thread.i, %16
-  %26 = phi ptr [ %11, %.lr.ph.preheader.i.i ], [ %6, %_ZNK6vectorIPN16cached_var_subst3keyELb0EjE4sizeEv.exit.thread.i ], [ %11, %16 ]
-  %27 = zext i32 %2 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
-  %29 = load ptr, ptr %28, align 8, !tbaa !95
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store ptr %29, ptr %30, align 8, !tbaa !93
-  %31 = icmp eq ptr %29, null
-  br i1 %31, label %32, label %37
+  %23 = phi ptr [ %11, %.lr.ph.preheader.i.i ], [ %6, %_ZNK6vectorIPN16cached_var_subst3keyELb0EjE4sizeEv.exit.thread.i ], [ %11, %16 ]
+  %24 = zext i32 %2 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !95
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  store ptr %26, ptr %27, align 8, !tbaa !93
+  %28 = icmp eq ptr %26, null
+  br i1 %28, label %29, label %34
 
-32:                                               ; preds = %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %34 = shl nuw nsw i64 %27, 3
-  %35 = add nuw nsw i64 %34, 16
-  %36 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %33, i64 noundef %35)
-  store ptr %36, ptr %30, align 8, !tbaa !93
-  br label %37
+29:                                               ; preds = %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %31 = shl nuw nsw i64 %24, 3
+  %32 = add nuw nsw i64 %31, 16
+  %33 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %30, i64 noundef %32)
+  store ptr %33, ptr %27, align 8, !tbaa !93
+  br label %34
 
-37:                                               ; preds = %32, %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit
-  %38 = phi ptr [ %36, %32 ], [ %29, %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit ]
-  store ptr %1, ptr %38, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i32 %2, ptr %39, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  ret ptr %40
+34:                                               ; preds = %29, %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit
+  %35 = phi ptr [ %33, %29 ], [ %26, %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit ]
+  store ptr %1, ptr %35, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 %2, ptr %36, align 8, !tbaa !10
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  ret ptr %37
 }
 
 declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0

@@ -5808,7 +5808,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %38
   %40 = load i32, ptr %.val133, align 8, !tbaa !1311
   %41 = zext i32 %40 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i.i.i
+  %42 = getelementptr i8, ptr %39, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -5880,7 +5880,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %65
   %69 = load i32, ptr %66, align 8, !tbaa !1311, !noalias !1328
   %70 = zext i32 %69 to i64
   %.idx.i.i.i = shl nuw nsw i64 %70, 3
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i
+  %71 = getelementptr i8, ptr %68, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %69, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6143,7 +6143,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i146: ; preds = %194
   %198 = load i32, ptr %196, align 8, !tbaa !1311, !noalias !1354
   %199 = zext i32 %198 to i64
   %.idx.i.i.i147 = shl nuw nsw i64 %199, 3
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx.i.i.i147
+  %200 = getelementptr i8, ptr %197, i64 %.idx.i.i.i147
   %.not1.i.i.i.i148 = icmp eq i32 %198, 0
   br i1 %.not1.i.i.i.i148, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPFirstprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i149
 
@@ -7690,7 +7690,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %7
   %11 = load i32, ptr %9, align 8, !tbaa !1311, !noalias !1442
   %12 = zext i32 %11 to i64
   %.idx.i.i.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %13 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPPrivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -8028,7 +8028,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %23
   %27 = load i32, ptr %25, align 8, !tbaa !1311, !noalias !1459
   %28 = zext i32 %27 to i64
   %.idx.i.i.i = shl nuw nsw i64 %28, 3
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i
+  %29 = getelementptr i8, ptr %26, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %27, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPCopyinClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -9055,7 +9055,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %21
   %23 = load i32, ptr %.val60, align 8, !tbaa !1311
   %24 = zext i32 %23 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr i8, ptr %22, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -9173,7 +9173,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %.loopexit133
   %70 = load i32, ptr %68, align 8, !tbaa !1311, !noalias !1534
   %71 = zext i32 %70 to i64
   %.idx.i.i.i = shl nuw nsw i64 %71, 3
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i
+  %72 = getelementptr i8, ptr %69, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %70, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -9686,7 +9686,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %32
   %36 = load i32, ptr %34, align 8, !tbaa !1311, !noalias !1549
   %37 = zext i32 %36 to i64
   %.idx.i.i.i = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i
+  %38 = getelementptr i8, ptr %35, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -9999,7 +9999,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i92: ; preds = %_ZN4llvm8dyn_c
   %159 = load i32, ptr %157, align 8, !tbaa !1311, !noalias !1559
   %160 = zext i32 %159 to i64
   %.idx.i.i.i93 = shl nuw nsw i64 %160, 3
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i.i.i93
+  %161 = getelementptr i8, ptr %158, i64 %.idx.i.i.i93
   %.not1.i.i.i.i94 = icmp eq i32 %159, 0
   br i1 %.not1.i.i.i.i94, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit103, label %.lr.ph.i.i.i.i95
 
@@ -11007,7 +11007,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %28
   %107 = load i32, ptr %105, align 8, !tbaa !1311, !noalias !1615
   %108 = zext i32 %107 to i64
   %.idx.i.i.i = shl nuw nsw i64 %108, 3
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i.i.i
+  %109 = getelementptr i8, ptr %106, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %107, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -11979,7 +11979,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %549
   %551 = load i32, ptr %.val112, align 8, !tbaa !1311
   %552 = zext i32 %551 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %552, 3
-  %553 = getelementptr inbounds nuw i8, ptr %550, i64 %.idx.i.i.i.i.i
+  %553 = getelementptr i8, ptr %550, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %551, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -12729,7 +12729,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %13
   %29 = load i32, ptr %27, align 8, !tbaa !1311, !noalias !1668
   %30 = zext i32 %29 to i64
   %.idx.i.i.i = shl nuw nsw i64 %30, 3
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i
+  %31 = getelementptr i8, ptr %28, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -12963,7 +12963,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %132
   %134 = load i32, ptr %.val40, align 8, !tbaa !1311
   %135 = zext i32 %134 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %135, 3
-  %136 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx.i.i.i.i.i
+  %136 = getelementptr i8, ptr %133, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %134, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -13047,7 +13047,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i84: ; preds = %168
   %171 = load i32, ptr %169, align 8, !tbaa !1311
   %172 = zext i32 %171 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %172, 3
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 %.idx.i.i.i.i
+  %173 = getelementptr i8, ptr %170, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %171, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -14696,7 +14696,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %26
   %33 = load i32, ptr %31, align 8, !tbaa !1311
   %34 = zext i32 %33 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i
+  %35 = getelementptr i8, ptr %32, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -14744,7 +14744,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i35: ; preds = %_ZNK5clang22OM
   %50 = load i32, ptr %48, align 8, !tbaa !1311
   %51 = zext i32 %50 to i64
   %.idx.i.i.i.i36 = shl nuw nsw i64 %51, 3
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i.i36
+  %52 = getelementptr i8, ptr %49, i64 %.idx.i.i.i.i36
   %.not1.i.i.i.i.i37 = icmp eq i32 %50, 0
   br i1 %.not1.i.i.i.i.i37, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_19OMPNumThreadsClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i38
 
@@ -14792,7 +14792,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i47: ; preds = %_ZNK5clang22OM
   %67 = load i32, ptr %65, align 8, !tbaa !1311
   %68 = zext i32 %67 to i64
   %.idx.i.i.i.i48 = shl nuw nsw i64 %68, 3
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i.i.i48
+  %69 = getelementptr i8, ptr %66, i64 %.idx.i.i.i.i48
   %.not1.i.i.i.i.i49 = icmp eq i32 %67, 0
   br i1 %.not1.i.i.i.i.i49, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPProcBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i50
 
@@ -15279,7 +15279,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %53 = load i32, ptr %51, align 8, !tbaa !1311
   %54 = zext i32 %53 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %54, 3
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i.i
+  %55 = getelementptr i8, ptr %52, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_19OMPNumThreadsClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -15403,7 +15403,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i51: ; preds = %_ZNK5clang22OM
   %115 = load i32, ptr %113, align 8, !tbaa !1311
   %116 = zext i32 %115 to i64
   %.idx.i.i.i.i52 = shl nuw nsw i64 %116, 3
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx.i.i.i.i52
+  %117 = getelementptr i8, ptr %114, i64 %.idx.i.i.i.i52
   %.not1.i.i.i.i.i53 = icmp eq i32 %115, 0
   br i1 %.not1.i.i.i.i.i53, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPProcBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i54
 
@@ -15525,7 +15525,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i66: ; preds = %_ZNK5clang22OM
   %176 = load i32, ptr %174, align 8, !tbaa !1311, !noalias !1829
   %177 = zext i32 %176 to i64
   %.idx.i.i.i = shl nuw nsw i64 %177, 3
-  %178 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx.i.i.i
+  %178 = getelementptr i8, ptr %175, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %176, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -15604,7 +15604,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i: ; preds = %201
   %203 = load i32, ptr %174, align 8, !tbaa !1311
   %204 = zext i32 %203 to i64
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %204, 3
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i.i.i.i.i.i.i
+  %205 = getelementptr i8, ptr %202, i64 %.idx.i.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %203, 0
   br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -15728,7 +15728,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %10
   %12 = load i32, ptr %.24.val, align 8, !tbaa !1311, !noalias !1839
   %13 = zext i32 %12 to i64
   %.idx.i.i.i = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i
+  %14 = getelementptr i8, ptr %11, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -15914,7 +15914,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %12
   %16 = load i32, ptr %14, align 8, !tbaa !1311, !noalias !1845
   %17 = zext i32 %16 to i64
   %.idx.i.i.i = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
+  %18 = getelementptr i8, ptr %15, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -15960,7 +15960,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i99: ; preds = %._crit_edge485
   %32 = load i32, ptr %30, align 8, !tbaa !1311, !noalias !1851
   %33 = zext i32 %32 to i64
   %.idx.i.i.i100 = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i100
+  %34 = getelementptr i8, ptr %31, i64 %.idx.i.i.i100
   %.not1.i.i.i.i101 = icmp eq i32 %32, 0
   br i1 %.not1.i.i.i.i101, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i102
 
@@ -16277,7 +16277,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i125: ; preds = %._crit_edge49
   %185 = load i32, ptr %183, align 8, !tbaa !1311, !noalias !1871
   %186 = zext i32 %185 to i64
   %.idx.i.i.i126 = shl nuw nsw i64 %186, 3
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx.i.i.i126
+  %187 = getelementptr i8, ptr %184, i64 %.idx.i.i.i126
   %.not1.i.i.i.i127 = icmp eq i32 %185, 0
   br i1 %.not1.i.i.i.i127, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i128
 
@@ -16594,7 +16594,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i166: ; preds = %._crit_edge50
   %338 = load i32, ptr %336, align 8, !tbaa !1311, !noalias !1883
   %339 = zext i32 %338 to i64
   %.idx.i.i.i167 = shl nuw nsw i64 %339, 3
-  %340 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx.i.i.i167
+  %340 = getelementptr i8, ptr %337, i64 %.idx.i.i.i167
   %.not1.i.i.i.i168 = icmp eq i32 %338, 0
   br i1 %.not1.i.i.i.i168, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPFirstprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i169
 
@@ -17291,7 +17291,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %62
   %64 = load i32, ptr %.val49, align 8, !tbaa !1311
   %65 = zext i32 %64 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %65, 3
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i.i.i
+  %66 = getelementptr i8, ptr %63, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %64, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -17356,7 +17356,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %83
   %86 = load i32, ptr %84, align 8, !tbaa !1311, !noalias !1906
   %87 = zext i32 %86 to i64
   %.idx.i.i.i = shl nuw nsw i64 %87, 3
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i.i.i
+  %88 = getelementptr i8, ptr %85, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %86, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -19393,7 +19393,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %12
   %16 = load i32, ptr %14, align 8, !tbaa !1311, !noalias !1986
   %17 = zext i32 %16 to i64
   %.idx.i.i.i = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
+  %18 = getelementptr i8, ptr %15, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -19642,7 +19642,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %16
   %20 = load i32, ptr %18, align 8, !tbaa !1311, !noalias !2003
   %21 = zext i32 %20 to i64
   %.idx.i.i.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i
+  %22 = getelementptr i8, ptr %19, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -21028,7 +21028,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %._crit_edge
   %64 = load i32, ptr %62, align 8, !tbaa !1311, !noalias !2023
   %65 = zext i32 %64 to i64
   %.idx.i.i.i = shl nuw nsw i64 %65, 3
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i
+  %66 = getelementptr i8, ptr %63, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %64, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPOrderedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -21408,7 +21408,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %13
   %15 = load i32, ptr %.val35, align 8, !tbaa !1311
   %16 = zext i32 %15 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %16, 3
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i.i
+  %17 = getelementptr i8, ptr %14, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -21522,7 +21522,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %.loopexit64
   %62 = load i32, ptr %60, align 8, !tbaa !1311, !noalias !2039
   %63 = zext i32 %62 to i64
   %.idx.i.i.i = shl nuw nsw i64 %63, 3
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i
+  %64 = getelementptr i8, ptr %61, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %62, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -21744,7 +21744,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %11
   %15 = load i32, ptr %13, align 8, !tbaa !1311
   %16 = zext i32 %15 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %16, 3
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i.i
+  %17 = getelementptr i8, ptr %14, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPSimdlenClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -21815,7 +21815,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i21.i: ; preds = %26
   %41 = load i32, ptr %39, align 8, !tbaa !1311
   %42 = zext i32 %41 to i64
   %.idx.i.i.i.i22.i = shl nuw nsw i64 %42, 3
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i.i.i22.i
+  %43 = getelementptr i8, ptr %40, i64 %.idx.i.i.i.i22.i
   %.not1.i.i.i.i.i23.i = icmp eq i32 %41, 0
   br i1 %.not1.i.i.i.i.i23.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPSafelenClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i24.i
 
@@ -21860,7 +21860,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i33.i: ; preds = %_ZNK5clang22
   %56 = load i32, ptr %13, align 8, !tbaa !1311
   %57 = zext i32 %56 to i64
   %.idx.i.i.i.i34.i = shl nuw nsw i64 %57, 3
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i.i34.i
+  %58 = getelementptr i8, ptr %55, i64 %.idx.i.i.i.i34.i
   %.not1.i.i.i.i.i35.i = icmp eq i32 %56, 0
   br i1 %.not1.i.i.i.i.i35.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPSafelenClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i39.i, label %.lr.ph.i.i.i.i.i36.i
 
@@ -21939,7 +21939,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZL24emitSimdlen
   %83 = load i32, ptr %81, align 8, !tbaa !1311
   %84 = zext i32 %83 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %84, 3
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i.i.i.i
+  %85 = getelementptr i8, ptr %82, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %83, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -21998,7 +21998,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i13: ; preds = %100
   %102 = load i32, ptr %.val10, align 8, !tbaa !1311
   %103 = zext i32 %102 to i64
   %.idx.i.i.i.i.i14 = shl nuw nsw i64 %103, 3
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i.i.i.i.i14
+  %104 = getelementptr i8, ptr %101, i64 %.idx.i.i.i.i.i14
   %.not1.i.i.i.i.i.i15 = icmp eq i32 %102, 0
   br i1 %.not1.i.i.i.i.i.i15, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i16
 
@@ -22073,7 +22073,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i24: ; preds = %thread-pre-spl
   %128 = load i32, ptr %126, align 8, !tbaa !1311, !noalias !2091
   %129 = zext i32 %128 to i64
   %.idx.i.i.i = shl nuw nsw i64 %129, 3
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i.i.i
+  %130 = getelementptr i8, ptr %127, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %128, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -23283,7 +23283,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %_ZNK5clang22OM
   %58 = load i32, ptr %56, align 8, !tbaa !1311
   %59 = zext i32 %58 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %59, 3
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i.i.i
+  %60 = getelementptr i8, ptr %57, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %58, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPPartialClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -23483,7 +23483,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i55: ; preds = %125
   %130 = load i32, ptr %128, align 8, !tbaa !1311
   %131 = zext i32 %130 to i64
   %.idx.i.i.i.i56 = shl nuw nsw i64 %131, 3
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx.i.i.i.i56
+  %132 = getelementptr i8, ptr %129, i64 %.idx.i.i.i.i56
   %.not1.i.i.i.i.i57 = icmp eq i32 %130, 0
   br i1 %.not1.i.i.i.i.i57, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPPartialClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i72, label %.lr.ph.i.i.i.i.i58
 
@@ -23928,7 +23928,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %175
   %177 = load i32, ptr %.val52, align 8, !tbaa !1311
   %178 = zext i32 %177 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %178, 3
-  %179 = getelementptr inbounds nuw i8, ptr %176, i64 %.idx.i.i.i.i.i
+  %179 = getelementptr i8, ptr %176, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %177, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -24086,7 +24086,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %14
   %16 = load i32, ptr %.val22, align 8, !tbaa !1311
   %17 = zext i32 %16 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i
+  %18 = getelementptr i8, ptr %15, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -24143,7 +24143,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %33
   %36 = load i32, ptr %34, align 8, !tbaa !1311, !noalias !2189
   %37 = zext i32 %36 to i64
   %.idx.i.i.i = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i
+  %38 = getelementptr i8, ptr %35, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -24472,7 +24472,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %78
   %80 = load i32, ptr %.val58, align 8, !tbaa !1311
   %81 = zext i32 %80 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %81, 3
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i.i.i.i.i
+  %82 = getelementptr i8, ptr %79, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %80, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -24665,7 +24665,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %32
   %34 = load i32, ptr %.val42, align 8, !tbaa !1311
   %35 = zext i32 %34 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.i.i
+  %36 = getelementptr i8, ptr %33, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -25593,7 +25593,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %36
   %40 = load i32, ptr %38, align 8, !tbaa !1311, !noalias !2251
   %41 = zext i32 %40 to i64
   %.idx.i.i.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i
+  %42 = getelementptr i8, ptr %39, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -25666,7 +25666,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i78: ; preds = %.loopexit
   %66 = load i32, ptr %38, align 8, !tbaa !1311
   %67 = zext i32 %66 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %67, 3
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i.i.i
+  %68 = getelementptr i8, ptr %65, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %66, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDeviceClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -26178,7 +26178,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %123
   %150 = load i32, ptr %148, align 8, !tbaa !1311
   %151 = zext i32 %150 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %151, 3
-  %152 = getelementptr inbounds nuw i8, ptr %149, i64 %.idx.i.i.i.i
+  %152 = getelementptr i8, ptr %149, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %150, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPOrderedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -26275,7 +26275,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %191
   %193 = load i32, ptr %.val143, align 8, !tbaa !1311
   %194 = zext i32 %193 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %194, 3
-  %195 = getelementptr inbounds nuw i8, ptr %192, i64 %.idx.i.i.i.i.i
+  %195 = getelementptr i8, ptr %192, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %193, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -26460,7 +26460,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i149: ; preds = %273
   %278 = load i32, ptr %276, align 8, !tbaa !1311
   %279 = zext i32 %278 to i64
   %.idx.i.i.i.i150 = shl nuw nsw i64 %279, 3
-  %280 = getelementptr inbounds nuw i8, ptr %277, i64 %.idx.i.i.i.i150
+  %280 = getelementptr i8, ptr %277, i64 %.idx.i.i.i.i150
   %.not1.i.i.i.i.i151 = icmp eq i32 %278, 0
   br i1 %.not1.i.i.i.i.i151, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPScheduleClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i152
 
@@ -27180,7 +27180,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %._crit_edge.i
   %75 = load i32, ptr %73, align 8, !tbaa !1311, !noalias !2345
   %76 = zext i32 %75 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i
+  %77 = getelementptr i8, ptr %74, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %75, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPPrivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -28473,7 +28473,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %6
   %8 = load i32, ptr %.24.val, align 8, !tbaa !1311, !noalias !2362
   %9 = zext i32 %8 to i64
   %.idx.i.i.i = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i.i
+  %10 = getelementptr i8, ptr %7, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPAlignedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -28867,7 +28867,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i23: ; preds = %52
   %56 = load i32, ptr %54, align 8, !tbaa !1311
   %57 = zext i32 %56 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %57, 3
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i.i
+  %58 = getelementptr i8, ptr %55, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %56, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -28966,7 +28966,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %23 = load i32, ptr %21, align 8, !tbaa !1311
   %24 = zext i32 %23 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i.i
+  %25 = getelementptr i8, ptr %22, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -29101,7 +29101,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %43
   %45 = load i32, ptr %.val23, align 8, !tbaa !1311
   %46 = zext i32 %45 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %46, 3
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i.i.i.i
+  %47 = getelementptr i8, ptr %44, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %45, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -29202,7 +29202,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %84
   %87 = load i32, ptr %85, align 8, !tbaa !1311
   %88 = zext i32 %87 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %88, 3
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i.i.i
+  %89 = getelementptr i8, ptr %86, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %87, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -29296,7 +29296,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %21 = load i32, ptr %19, align 8, !tbaa !1311
   %22 = zext i32 %21 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %22, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i
+  %23 = getelementptr i8, ptr %20, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -29703,7 +29703,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %154
   %182 = load i32, ptr %180, align 8, !tbaa !1311
   %183 = zext i32 %182 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %183, 3
-  %184 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i.i.i.i
+  %184 = getelementptr i8, ptr %181, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %182, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -29881,7 +29881,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i54: ; preds = %228
   %233 = load i32, ptr %231, align 8, !tbaa !1311
   %234 = zext i32 %233 to i64
   %.idx.i.i.i.i55 = shl nuw nsw i64 %234, 3
-  %235 = getelementptr inbounds nuw i8, ptr %232, i64 %.idx.i.i.i.i55
+  %235 = getelementptr i8, ptr %232, i64 %.idx.i.i.i.i55
   %.not1.i.i.i.i.i56 = icmp eq i32 %233, 0
   br i1 %.not1.i.i.i.i.i56, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i60, label %.lr.ph.i.i.i.i.i57
 
@@ -30290,7 +30290,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %29 = load i32, ptr %27, align 8, !tbaa !1311, !noalias !2432
   %30 = zext i32 %29 to i64
   %.idx.i.i.i = shl nuw nsw i64 %30, 3
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i
+  %31 = getelementptr i8, ptr %28, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPCopyprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -30377,7 +30377,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i30: ; preds = %._crit_edge
   %69 = load i32, ptr %67, align 8, !tbaa !1311
   %70 = zext i32 %69 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %70, 3
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i
+  %71 = getelementptr i8, ptr %68, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %69, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -30592,7 +30592,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i65: ; preds = %157
   %162 = load i32, ptr %67, align 8, !tbaa !1311
   %163 = zext i32 %162 to i64
   %.idx.i.i.i.i66 = shl nuw nsw i64 %163, 3
-  %164 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx.i.i.i.i66
+  %164 = getelementptr i8, ptr %161, i64 %.idx.i.i.i.i66
   %.not1.i.i.i.i.i67 = icmp eq i32 %162, 0
   br i1 %.not1.i.i.i.i.i67, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i71, label %.lr.ph.i.i.i.i.i68
 
@@ -31028,7 +31028,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !793
   %.idx.i.i.i.i = shl nuw nsw i64 %26, 3
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i
+  %33 = getelementptr i8, ptr %24, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPFilterClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -31336,7 +31336,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %_ZN5clang7Code
   %171 = load i32, ptr %169, align 8, !tbaa !1311
   %172 = zext i32 %171 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %172, 3
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 %.idx.i.i.i.i.i
+  %173 = getelementptr i8, ptr %170, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %171, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPFilterClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -31444,7 +31444,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !793
   %.idx.i.i.i.i = shl nuw nsw i64 %32, 3
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i
+  %39 = getelementptr i8, ptr %30, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPHintClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -31721,7 +31721,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i38: ; preds = %149
   %153 = load i32, ptr %151, align 8, !tbaa !1311
   %154 = zext i32 %153 to i64
   %.idx.i.i.i.i39 = shl nuw nsw i64 %154, 3
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i.i.i.i39
+  %155 = getelementptr i8, ptr %152, i64 %.idx.i.i.i.i39
   %.not1.i.i.i.i.i40 = icmp eq i32 %153, 0
   br i1 %.not1.i.i.i.i.i40, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPHintClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i44, label %.lr.ph.i.i.i.i.i41
 
@@ -31918,7 +31918,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %11 = load i32, ptr %9, align 8, !tbaa !1311, !noalias !2500
   %12 = zext i32 %11 to i64
   %.idx.i.i.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %13 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -32096,7 +32096,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %4
   %44 = load i32, ptr %42, align 8, !tbaa !1311, !noalias !2507
   %45 = zext i32 %44 to i64
   %.idx.i.i.i = shl nuw nsw i64 %45, 3
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i
+  %46 = getelementptr i8, ptr %43, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %44, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -32614,7 +32614,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %4
   %52 = load i32, ptr %50, align 8, !tbaa !1311, !noalias !2531
   %53 = zext i32 %52 to i64
   %.idx.i.i.i = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i
+  %54 = getelementptr i8, ptr %51, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %52, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -33122,7 +33122,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %11 = load i32, ptr %9, align 8, !tbaa !1311, !noalias !2546
   %12 = zext i32 %11 to i64
   %.idx.i.i.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %13 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -33426,7 +33426,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %54 = load i32, ptr %52, align 8, !tbaa !1311
   %55 = zext i32 %54 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %55, 3
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.i
+  %56 = getelementptr i8, ptr %53, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFinalClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -33504,7 +33504,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i156: ; preds = %84
   %87 = load i32, ptr %85, align 8, !tbaa !1311
   %88 = zext i32 %87 to i64
   %.idx.i.i.i.i157 = shl nuw nsw i64 %88, 3
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i.i.i157
+  %89 = getelementptr i8, ptr %86, i64 %.idx.i.i.i.i157
   %.not1.i.i.i.i.i158 = icmp eq i32 %87, 0
   br i1 %.not1.i.i.i.i.i158, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPPriorityClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i159
 
@@ -33571,7 +33571,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i170: ; preds = %_ZNK5clang22O
   %117 = load i32, ptr %115, align 8, !tbaa !1311, !noalias !2571
   %118 = zext i32 %117 to i64
   %.idx.i.i.i = shl nuw nsw i64 %118, 3
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx.i.i.i
+  %119 = getelementptr i8, ptr %116, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %117, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPPrivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -33668,7 +33668,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i181: ; preds = %_ZN4llvm6deta
   %158 = load i32, ptr %156, align 8, !tbaa !1311, !noalias !2578
   %159 = zext i32 %158 to i64
   %.idx.i.i.i182 = shl nuw nsw i64 %159, 3
-  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i.i.i182
+  %160 = getelementptr i8, ptr %157, i64 %.idx.i.i.i182
   %.not1.i.i.i.i183 = icmp eq i32 %158, 0
   br i1 %.not1.i.i.i.i183, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPFirstprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i184
 
@@ -33974,7 +33974,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i210: ; preds = %._crit_edge65
   %314 = load i32, ptr %308, align 8, !tbaa !1311, !noalias !2589
   %315 = zext i32 %314 to i64
   %.idx.i.i.i211 = shl nuw nsw i64 %315, 3
-  %316 = getelementptr inbounds nuw i8, ptr %313, i64 %.idx.i.i.i211
+  %316 = getelementptr i8, ptr %313, i64 %.idx.i.i.i211
   %.not1.i.i.i.i212 = icmp eq i32 %314, 0
   br i1 %.not1.i.i.i.i212, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i213
 
@@ -34309,7 +34309,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i248: ; preds = %._crit_edge66
   %485 = load i32, ptr %477, align 8, !tbaa !1311, !noalias !2600
   %486 = zext i32 %485 to i64
   %.idx.i.i.i249 = shl nuw nsw i64 %486, 3
-  %487 = getelementptr inbounds nuw i8, ptr %484, i64 %.idx.i.i.i249
+  %487 = getelementptr i8, ptr %484, i64 %.idx.i.i.i249
   %.not1.i.i.i.i250 = icmp eq i32 %485, 0
   br i1 %.not1.i.i.i.i250, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i251
 
@@ -35220,7 +35220,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %937
   %939 = load i32, ptr %.val147, align 8, !tbaa !1311
   %940 = zext i32 %939 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %940, 3
-  %941 = getelementptr inbounds nuw i8, ptr %938, i64 %.idx.i.i.i.i.i
+  %941 = getelementptr i8, ptr %938, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %939, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -35370,7 +35370,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %10 = load i32, ptr %8, align 8, !tbaa !1311, !noalias !2640
   %11 = zext i32 %10 to i64
   %.idx.i.i.i = shl nuw nsw i64 %11, 3
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i
+  %12 = getelementptr i8, ptr %9, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDependClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -35515,7 +35515,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i25: ; preds = %"_ZN4llvm6any_
   %72 = load i32, ptr %70, align 8, !tbaa !1311, !noalias !2659
   %73 = zext i32 %72 to i64
   %.idx.i.i.i26 = shl nuw nsw i64 %73, 3
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i26
+  %74 = getelementptr i8, ptr %71, i64 %.idx.i.i.i26
   %.not1.i.i.i.i27 = icmp eq i32 %72, 0
   br i1 %.not1.i.i.i.i27, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDependClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit36, label %.lr.ph.i.i.i.i28
 
@@ -37129,7 +37129,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %113 = load i32, ptr %111, align 8, !tbaa !1311, !noalias !2666
   %114 = zext i32 %113 to i64
   %.idx.i.i.i = shl nuw nsw i64 %114, 3
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx.i.i.i
+  %115 = getelementptr i8, ptr %112, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %113, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPFirstprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -37183,7 +37183,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i110: ; preds = %._crit_edge26
   %132 = load i32, ptr %124, align 8, !tbaa !1311, !noalias !2672
   %133 = zext i32 %132 to i64
   %.idx.i.i.i111 = shl nuw nsw i64 %133, 3
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i.i.i111
+  %134 = getelementptr i8, ptr %131, i64 %.idx.i.i.i111
   %.not1.i.i.i.i112 = icmp eq i32 %132, 0
   br i1 %.not1.i.i.i.i112, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPInReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i113
 
@@ -37783,7 +37783,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %429
   %431 = load i32, ptr %.val102, align 8, !tbaa !1311
   %432 = zext i32 %431 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %432, 3
-  %433 = getelementptr inbounds nuw i8, ptr %430, i64 %.idx.i.i.i.i.i
+  %433 = getelementptr i8, ptr %430, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %431, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -37876,7 +37876,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i205: ; preds = %_ZL25getEff
   %472 = load i32, ptr %470, align 8, !tbaa !1311, !noalias !2695
   %473 = zext i32 %472 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %473, 3
-  %474 = getelementptr inbounds nuw i8, ptr %471, i64 %.idx.i.i.i.i
+  %474 = getelementptr i8, ptr %471, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %472, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -38110,7 +38110,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %27
   %29 = load i32, ptr %.val114, align 8, !tbaa !1311
   %30 = zext i32 %29 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %30, 3
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i.i
+  %31 = getelementptr i8, ptr %28, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -38506,7 +38506,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZN5clang7CodeGe
   %223 = load i32, ptr %221, align 8, !tbaa !1311, !noalias !2712
   %224 = zext i32 %223 to i64
   %.idx.i.i.i124 = shl nuw nsw i64 %224, 3
-  %225 = getelementptr inbounds nuw i8, ptr %222, i64 %.idx.i.i.i124
+  %225 = getelementptr i8, ptr %222, i64 %.idx.i.i.i124
   %.not1.i.i.i.i = icmp eq i32 %223, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPInReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -39136,7 +39136,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %49 = load i32, ptr %47, align 8, !tbaa !1311, !noalias !2722
   %50 = zext i32 %49 to i64
   %.idx.i.i.i = shl nuw nsw i64 %50, 3
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i.i
+  %51 = getelementptr i8, ptr %48, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %49, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -39304,7 +39304,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i28: ; preds = %.loopexit
   %128 = load i32, ptr %47, align 8, !tbaa !1311
   %129 = zext i32 %128 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %129, 3
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i.i.i.i
+  %130 = getelementptr i8, ptr %127, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %128, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPUntiedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -39403,7 +39403,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %6 = load i32, ptr %4, align 8, !tbaa !1311
   %7 = zext i32 %6 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
+  %8 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPMessageClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -39447,7 +39447,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i13: ; preds = %_ZNK5clang22OM
   %22 = load i32, ptr %4, align 8, !tbaa !1311
   %23 = zext i32 %22 to i64
   %.idx.i.i.i.i14 = shl nuw nsw i64 %23, 3
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i14
+  %24 = getelementptr i8, ptr %21, i64 %.idx.i.i.i.i14
   %.not1.i.i.i.i.i15 = icmp eq i32 %22, 0
   br i1 %.not1.i.i.i.i.i15, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPSeverityClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i16
 
@@ -39627,7 +39627,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %2
   %61 = load i32, ptr %59, align 8, !tbaa !1311, !noalias !2751
   %62 = zext i32 %61 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %62, 3
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i
+  %63 = getelementptr i8, ptr %60, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %61, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -39885,7 +39885,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %6 = load i32, ptr %4, align 8, !tbaa !1311
   %7 = zext i32 %6 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
+  %8 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -39929,7 +39929,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %_ZNK5clang22OM
   %25 = load i32, ptr %4, align 8, !tbaa !1311
   %26 = zext i32 %25 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %26, 3
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i
+  %27 = getelementptr i8, ptr %24, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPFlushClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -39990,7 +39990,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i:
   %8 = load i32, ptr %6, align 8, !tbaa !1311
   %9 = zext i32 %8 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i.i.i
+  %10 = getelementptr i8, ptr %7, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDepobjClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -40026,7 +40026,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i37: ; preds = %_ZN5clang22OMP
   %23 = load i32, ptr %21, align 8, !tbaa !1311
   %24 = zext i32 %23 to i64
   %.idx.i.i.i.i38 = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i.i38
+  %25 = getelementptr i8, ptr %22, i64 %.idx.i.i.i.i38
   %.not1.i.i.i.i.i39 = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i.i.i39, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDependClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i40
 
@@ -40212,7 +40212,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i49: ; preds = %.critedge
   %108 = load i32, ptr %21, align 8, !tbaa !1311
   %109 = zext i32 %108 to i64
   %.idx.i.i.i.i50 = shl nuw nsw i64 %109, 3
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i50
+  %110 = getelementptr i8, ptr %107, i64 %.idx.i.i.i.i50
   %.not1.i.i.i.i.i51 = icmp eq i32 %108, 0
   br i1 %.not1.i.i.i.i.i51, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPDestroyClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i52
 
@@ -40259,7 +40259,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i62: ; preds = %.critedge35
   %125 = load i32, ptr %21, align 8, !tbaa !1311
   %126 = zext i32 %125 to i64
   %.idx.i.i.i.i63 = shl nuw nsw i64 %126, 3
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i.i.i.i63
+  %127 = getelementptr i8, ptr %124, i64 %.idx.i.i.i.i63
   %.not1.i.i.i.i.i64 = icmp eq i32 %125, 0
   br i1 %.not1.i.i.i.i.i64, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPUpdateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i65
 
@@ -40381,7 +40381,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %48
   %52 = load i32, ptr %50, align 8, !tbaa !1311, !noalias !2796
   %53 = zext i32 %52 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i.i
+  %54 = getelementptr i8, ptr %51, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %52, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_18OMPInclusiveClauseEEEbv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -40470,7 +40470,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %90 = load i32, ptr %88, align 8, !tbaa !1311, !noalias !2803
   %91 = zext i32 %90 to i64
   %.idx.i.i.i = shl nuw nsw i64 %91, 3
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i.i
+  %92 = getelementptr i8, ptr %89, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %90, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -42215,7 +42215,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %225
   %228 = load i32, ptr %226, align 8, !tbaa !1311
   %229 = zext i32 %228 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %229, 3
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 %.idx.i.i.i.i
+  %230 = getelementptr i8, ptr %227, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %228, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPDistScheduleClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -42690,7 +42690,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %31
   %38 = load i32, ptr %36, align 8, !tbaa !1311
   %39 = zext i32 %38 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %39, 3
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i
+  %40 = getelementptr i8, ptr %37, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPSIMDClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -42742,7 +42742,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %61 = load i32, ptr %36, align 8, !tbaa !1311, !noalias !2865
   %62 = zext i32 %61 to i64
   %.idx.i.i.i = shl nuw nsw i64 %62, 3
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i
+  %63 = getelementptr i8, ptr %60, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %61, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDependClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -42799,7 +42799,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i60: ; preds = %._crit_edge
   %83 = load i32, ptr %81, align 8, !tbaa !1311, !noalias !2871
   %84 = zext i32 %83 to i64
   %.idx.i.i.i61 = shl nuw nsw i64 %84, 3
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i.i.i61
+  %85 = getelementptr i8, ptr %82, i64 %.idx.i.i.i61
   %.not1.i.i.i.i62 = icmp eq i32 %83, 0
   br i1 %.not1.i.i.i.i62, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPDoacrossClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i63
 
@@ -43205,7 +43205,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i118: ; preds = %_ZNK5clang22O
   %.pre370 = zext i32 %.pr336.pre to i64
   %.pre372 = shl nuw nsw i64 %.pre370, 3
   %217 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 %.pre372
+  %218 = getelementptr i8, ptr %217, i64 %.pre372
   %.not1.i.i.i.i.i120 = icmp eq i32 %.pr336.pre, 0
   br i1 %.not1.i.i.i.i.i120, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPSIMDClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i121
 
@@ -43365,7 +43365,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i134: ; preds = %263
   %267 = load i32, ptr %265, align 8, !tbaa !1311
   %268 = zext i32 %267 to i64
   %.idx.i.i.i.i135 = shl nuw nsw i64 %268, 3
-  %269 = getelementptr inbounds nuw i8, ptr %266, i64 %.idx.i.i.i.i135
+  %269 = getelementptr i8, ptr %266, i64 %.idx.i.i.i.i135
   %.not1.i.i.i.i.i136 = icmp eq i32 %267, 0
   br i1 %.not1.i.i.i.i.i136, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPSIMDClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i216, label %.lr.ph.i.i.i.i.i137
 
@@ -43462,7 +43462,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i183: ; preds = %_ZNK5clang22O
   %305 = load i32, ptr %265, align 8, !tbaa !1311, !noalias !2923
   %306 = zext i32 %305 to i64
   %.idx.i.i.i184 = shl nuw nsw i64 %306, 3
-  %307 = getelementptr inbounds nuw i8, ptr %304, i64 %.idx.i.i.i184
+  %307 = getelementptr i8, ptr %304, i64 %.idx.i.i.i184
   %.not1.i.i.i.i185 = icmp eq i32 %305, 0
   br i1 %.not1.i.i.i.i185, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPDoacrossClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit194, label %.lr.ph.i.i.i.i186
 
@@ -43523,7 +43523,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i210: ; preds = %_ZNK5clang22O
   %.pre368 = zext i32 %.pr339.pre to i64
   %.pre369 = shl nuw nsw i64 %.pre368, 3
   %329 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 %.pre369
+  %330 = getelementptr i8, ptr %329, i64 %.pre369
   %.not1.i.i.i.i.i212 = icmp eq i32 %.pr339.pre, 0
   br i1 %.not1.i.i.i.i.i212, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPSIMDClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i216, label %.lr.ph.i.i.i.i.i213
 
@@ -44179,7 +44179,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %72 = load i32, ptr %70, align 8, !tbaa !1311
   %73 = zext i32 %72 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %73, 3
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i.i
+  %74 = getelementptr i8, ptr %71, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPSeqCstClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -44217,7 +44217,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i94: ; preds = %_ZNK5clang22OM
   %84 = load i32, ptr %70, align 8, !tbaa !1311
   %85 = zext i32 %84 to i64
   %.idx.i.i.i.i95 = shl nuw nsw i64 %85, 3
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i.i95
+  %86 = getelementptr i8, ptr %83, i64 %.idx.i.i.i.i95
   %.not1.i.i.i.i.i96 = icmp eq i32 %84, 0
   br i1 %.not1.i.i.i.i.i96, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPAcqRelClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i97
 
@@ -44255,7 +44255,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i106: ; preds = %_ZNK5clang22O
   %96 = load i32, ptr %70, align 8, !tbaa !1311
   %97 = zext i32 %96 to i64
   %.idx.i.i.i.i107 = shl nuw nsw i64 %97, 3
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i.i.i.i107
+  %98 = getelementptr i8, ptr %95, i64 %.idx.i.i.i.i107
   %.not1.i.i.i.i.i108 = icmp eq i32 %96, 0
   br i1 %.not1.i.i.i.i.i108, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPAcquireClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i109
 
@@ -44293,7 +44293,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i118: ; preds = %_ZNK5clang22O
   %108 = load i32, ptr %70, align 8, !tbaa !1311
   %109 = zext i32 %108 to i64
   %.idx.i.i.i.i119 = shl nuw nsw i64 %109, 3
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i119
+  %110 = getelementptr i8, ptr %107, i64 %.idx.i.i.i.i119
   %.not1.i.i.i.i.i120 = icmp eq i32 %108, 0
   br i1 %.not1.i.i.i.i.i120, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPReleaseClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i121
 
@@ -44659,7 +44659,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i188: ; preds = %214
   %217 = load i32, ptr %215, align 8, !tbaa !1311
   %218 = zext i32 %217 to i64
   %.idx.i.i.i.i189 = shl nuw nsw i64 %218, 3
-  %219 = getelementptr inbounds nuw i8, ptr %216, i64 %.idx.i.i.i.i189
+  %219 = getelementptr i8, ptr %216, i64 %.idx.i.i.i.i189
   %.not1.i.i.i.i.i190 = icmp eq i32 %217, 0
   br i1 %.not1.i.i.i.i.i190, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPFailClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i191
 
@@ -46197,7 +46197,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %1
   %5 = load i32, ptr %3, align 8, !tbaa !1311
   %6 = zext i32 %5 to i64
   %.idx.i.i.i = shl nuw nsw i64 %6, 3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
+  %7 = getelementptr i8, ptr %4, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPRelaxedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i, label %.lr.ph.i.i.i.i
 
@@ -46391,7 +46391,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %51 = load i32, ptr %49, align 8, !tbaa !1311
   %52 = zext i32 %51 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %52, 3
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i
+  %53 = getelementptr i8, ptr %50, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %51, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPNumTeamsClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -46429,7 +46429,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i33: ; preds = %_ZNK5clang22OM
   %64 = load i32, ptr %49, align 8, !tbaa !1311
   %65 = zext i32 %64 to i64
   %.idx.i.i.i.i34 = shl nuw nsw i64 %65, 3
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i.i34
+  %66 = getelementptr i8, ptr %63, i64 %.idx.i.i.i.i34
   %.not1.i.i.i.i.i35 = icmp eq i32 %64, 0
   br i1 %.not1.i.i.i.i.i35, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i36
 
@@ -46512,7 +46512,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i.i: ; preds = %97
   %99 = load i32, ptr %.val4.i, align 8, !tbaa !1311
   %100 = zext i32 %99 to i64
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %100, 3
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i.i.i.i.i.i.i
+  %101 = getelementptr i8, ptr %98, i64 %.idx.i.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %99, 0
   br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -46907,7 +46907,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %20 = load i32, ptr %18, align 8, !tbaa !1311
   %21 = zext i32 %20 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i
+  %22 = getelementptr i8, ptr %19, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDeviceClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -47106,7 +47106,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %110
   %114 = load i32, ptr %111, align 8, !tbaa !1311, !noalias !3111
   %115 = zext i32 %114 to i64
   %.idx.i.i.i.i36 = shl nuw nsw i64 %115, 3
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i.i.i36
+  %116 = getelementptr i8, ptr %113, i64 %.idx.i.i.i.i36
   %.not1.i.i.i.i.i37 = icmp eq i32 %114, 0
   br i1 %.not1.i.i.i.i.i37, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPNowaitClauseEEEbv.exit.thread152, label %.lr.ph.i.i.i.i.i38
 
@@ -47142,7 +47142,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i43: ; preds = %_ZNK5clang22OM
   %129 = load i32, ptr %111, align 8, !tbaa !1311, !noalias !3117
   %130 = zext i32 %129 to i64
   %.idx.i.i.i = shl nuw nsw i64 %130, 3
-  %131 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i.i
+  %131 = getelementptr i8, ptr %113, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %129, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPInitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -47251,7 +47251,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i54: ; preds = %.loopexit162
   %170 = load i32, ptr %168, align 8, !tbaa !1311, !noalias !3130
   %171 = zext i32 %170 to i64
   %.idx.i.i.i55 = shl nuw nsw i64 %171, 3
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx.i.i.i55
+  %172 = getelementptr i8, ptr %169, i64 %.idx.i.i.i55
   %.not1.i.i.i.i56 = icmp eq i32 %170, 0
   br i1 %.not1.i.i.i.i56, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPDestroyClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i57
 
@@ -47355,7 +47355,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i86: ; preds = %.loopexit160
   %207 = load i32, ptr %205, align 8, !tbaa !1311, !noalias !3141
   %208 = zext i32 %207 to i64
   %.idx.i.i.i87 = shl nuw nsw i64 %208, 3
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 %.idx.i.i.i87
+  %209 = getelementptr i8, ptr %206, i64 %.idx.i.i.i87
   %.not1.i.i.i.i88 = icmp eq i32 %207, 0
   br i1 %.not1.i.i.i.i88, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_12OMPUseClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i89
 
@@ -47591,7 +47591,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %9 = load i32, ptr %7, align 8, !tbaa !1311, !noalias !3159
   %10 = zext i32 %9 to i64
   %.idx.i.i.i = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i
+  %11 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -48701,7 +48701,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %38
   %42 = load i32, ptr %40, align 8, !tbaa !1311
   %43 = zext i32 %42 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %43, 3
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i.i
+  %44 = getelementptr i8, ptr %41, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -48745,7 +48745,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i17: ; preds = %_ZNK5clang22OM
   %57 = load i32, ptr %40, align 8, !tbaa !1311
   %58 = zext i32 %57 to i64
   %.idx.i.i.i.i18 = shl nuw nsw i64 %58, 3
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i18
+  %59 = getelementptr i8, ptr %56, i64 %.idx.i.i.i.i18
   %.not1.i.i.i.i.i19 = icmp eq i32 %57, 0
   br i1 %.not1.i.i.i.i.i19, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDeviceClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i20
 
@@ -48863,7 +48863,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %13
   %17 = load i32, ptr %15, align 8, !tbaa !1311
   %18 = zext i32 %17 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i
+  %19 = getelementptr i8, ptr %16, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -48907,7 +48907,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i16: ; preds = %_ZNK5clang22OM
   %32 = load i32, ptr %15, align 8, !tbaa !1311
   %33 = zext i32 %32 to i64
   %.idx.i.i.i.i17 = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i17
+  %34 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i17
   %.not1.i.i.i.i.i18 = icmp eq i32 %32, 0
   br i1 %.not1.i.i.i.i.i18, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDeviceClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i19
 
@@ -48988,7 +48988,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %13
   %17 = load i32, ptr %15, align 8, !tbaa !1311
   %18 = zext i32 %17 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i
+  %19 = getelementptr i8, ptr %16, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -49032,7 +49032,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i16: ; preds = %_ZNK5clang22OM
   %32 = load i32, ptr %15, align 8, !tbaa !1311
   %33 = zext i32 %32 to i64
   %.idx.i.i.i.i17 = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i17
+  %34 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i17
   %.not1.i.i.i.i.i18 = icmp eq i32 %32, 0
   br i1 %.not1.i.i.i.i.i18, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDeviceClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i19
 
@@ -49340,7 +49340,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZNK5clang22OMPE
   %52 = load i32, ptr %50, align 8, !tbaa !1311, !noalias !3261
   %53 = zext i32 %52 to i64
   %.idx.i.i.i = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i
+  %54 = getelementptr i8, ptr %51, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %52, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -49509,7 +49509,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i45: ; preds = %.loopexit
   %132 = load i32, ptr %50, align 8, !tbaa !1311
   %133 = zext i32 %132 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %133, 3
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i.i.i.i
+  %134 = getelementptr i8, ptr %131, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %132, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPNogroupClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -49551,7 +49551,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i47: ; preds = %_ZNK5clang22OM
   %147 = load i32, ptr %50, align 8, !tbaa !1311
   %148 = zext i32 %147 to i64
   %.idx.i.i.i.i48 = shl nuw nsw i64 %148, 3
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i.i.i.i48
+  %149 = getelementptr i8, ptr %146, i64 %.idx.i.i.i.i48
   %.not1.i.i.i.i.i49 = icmp eq i32 %147, 0
   br i1 %.not1.i.i.i.i.i49, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPGrainsizeClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i50
 
@@ -49589,7 +49589,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i60: ; preds = %_ZNK5clang22OM
   %159 = load i32, ptr %50, align 8, !tbaa !1311
   %160 = zext i32 %159 to i64
   %.idx.i.i.i.i61 = shl nuw nsw i64 %160, 3
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i.i.i.i61
+  %161 = getelementptr i8, ptr %158, i64 %.idx.i.i.i.i61
   %.not1.i.i.i.i.i62 = icmp eq i32 %159, 0
   br i1 %.not1.i.i.i.i.i62, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPNumTasksClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i63
 
@@ -50068,7 +50068,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %13
   %17 = load i32, ptr %15, align 8, !tbaa !1311
   %18 = zext i32 %17 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i
+  %19 = getelementptr i8, ptr %16, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -50112,7 +50112,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i16: ; preds = %_ZNK5clang22OM
   %32 = load i32, ptr %15, align 8, !tbaa !1311
   %33 = zext i32 %32 to i64
   %.idx.i.i.i.i17 = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i17
+  %34 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i17
   %.not1.i.i.i.i.i18 = icmp eq i32 %32, 0
   br i1 %.not1.i.i.i.i.i18, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPDeviceClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i19
 
@@ -50186,7 +50186,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %2
   %12 = load i32, ptr %10, align 8, !tbaa !1311
   %13 = zext i32 %12 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i
+  %14 = getelementptr i8, ptr %11, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -50702,7 +50702,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %78
   %80 = load i32, ptr %.val134, align 8, !tbaa !1311
   %81 = zext i32 %80 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %81, 3
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i.i.i.i.i
+  %82 = getelementptr i8, ptr %79, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %80, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -51050,7 +51050,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %235
   %238 = load i32, ptr %236, align 8, !tbaa !1311, !noalias !3338
   %239 = zext i32 %238 to i64
   %.idx.i.i.i = shl nuw nsw i64 %239, 3
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 %.idx.i.i.i
+  %240 = getelementptr i8, ptr %237, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %238, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -56637,7 +56637,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i: ; preds = %16
   %24 = load i32, ptr %.val.i, align 8, !tbaa !1311, !noalias !3435
   %25 = zext i32 %24 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %26 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPAlignedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -57138,7 +57138,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %_ZNK5clang22OM
   %277 = load i32, ptr %275, align 8, !tbaa !1311
   %278 = zext i32 %277 to i64
   %.idx.i.i.i.i27.i = shl nuw nsw i64 %278, 3
-  %279 = getelementptr inbounds nuw i8, ptr %276, i64 %.idx.i.i.i.i27.i
+  %279 = getelementptr i8, ptr %276, i64 %.idx.i.i.i.i27.i
   %.not1.i.i.i.i.i28.i = icmp eq i32 %277, 0
   br i1 %.not1.i.i.i.i.i28.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPSimdlenClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i29.i
 
@@ -57207,7 +57207,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i35.i: ; preds = %_ZNK5clang22
   %296 = load i32, ptr %294, align 8, !tbaa !1311
   %297 = zext i32 %296 to i64
   %.idx.i.i.i.i36.i = shl nuw nsw i64 %297, 3
-  %298 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx.i.i.i.i36.i
+  %298 = getelementptr i8, ptr %295, i64 %.idx.i.i.i.i36.i
   %.not1.i.i.i.i.i37.i = icmp eq i32 %296, 0
   br i1 %.not1.i.i.i.i.i37.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPSafelenClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i38.i
 
@@ -57276,7 +57276,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i52.i: ; preds = %_ZNK5clang22
   %315 = load i32, ptr %313, align 8, !tbaa !1311
   %316 = zext i32 %315 to i64
   %.idx.i.i.i.i53.i = shl nuw nsw i64 %316, 3
-  %317 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx.i.i.i.i53.i
+  %317 = getelementptr i8, ptr %314, i64 %.idx.i.i.i.i53.i
   %.not1.i.i.i.i.i54.i = icmp eq i32 %315, 0
   br i1 %.not1.i.i.i.i.i54.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i55.i
 
@@ -57673,7 +57673,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %49
   %51 = load i32, ptr %.val85, align 8, !tbaa !1311
   %52 = zext i32 %51 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 3
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i.i
+  %53 = getelementptr i8, ptr %50, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %51, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -58652,7 +58652,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %12
   %16 = load i32, ptr %14, align 8, !tbaa !1311
   %17 = zext i32 %16 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i
+  %18 = getelementptr i8, ptr %15, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPNowaitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -58691,7 +58691,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i25.i: ; preds = %_ZNK5clang22
   %30 = load i32, ptr %14, align 8, !tbaa !1311
   %31 = zext i32 %30 to i64
   %.idx.i.i.i.i26.i = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i26.i
+  %32 = getelementptr i8, ptr %29, i64 %.idx.i.i.i.i26.i
   %.not1.i.i.i.i.i27.i = icmp eq i32 %30, 0
   br i1 %.not1.i.i.i.i.i27.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_17OMPScheduleClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i28.i
 
@@ -58870,7 +58870,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %22
   %24 = load i32, ptr %.val27, align 8, !tbaa !1311
   %25 = zext i32 %24 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %26 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -58922,7 +58922,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i: ; preds = %_ZL25getEffectiv
   %41 = load i32, ptr %.val27, align 8, !tbaa !1311, !noalias !3520
   %42 = zext i32 %41 to i64
   %.idx.i.i.i = shl nuw nsw i64 %42, 3
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i.i
+  %43 = getelementptr i8, ptr %40, i64 %.idx.i.i.i
   %.not1.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not1.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, label %.lr.ph.i.i.i.i
 
@@ -59054,7 +59054,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i33: ; preds = %._crit_edge
   %95 = load i32, ptr %93, align 8, !tbaa !1311, !noalias !3527
   %96 = zext i32 %95 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %96, 3
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i.i.i
+  %97 = getelementptr i8, ptr %94, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %95, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -59178,7 +59178,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i: ; preds = %151
   %153 = load i32, ptr %.val36.i, align 8, !tbaa !1311
   %154 = zext i32 %153 to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %154, 3
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i.i.i.i.i.i
+  %155 = getelementptr i8, ptr %152, i64 %.idx.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i32 %153, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -65965,7 +65965,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %8
   %17 = load i32, ptr %15, align 8, !tbaa !1311
   %18 = zext i32 %17 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i
+  %19 = getelementptr i8, ptr %16, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -66223,7 +66223,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %9
   %11 = load i32, ptr %.val6, align 8, !tbaa !1311
   %12 = zext i32 %11 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i
+  %13 = getelementptr i8, ptr %10, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_13OMPBindClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -66708,7 +66708,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %10
   %14 = load i32, ptr %12, align 8, !tbaa !1311
   %15 = zext i32 %14 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i.i.i
+  %16 = getelementptr i8, ptr %13, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_14OMPOrderClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -69904,7 +69904,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i.i: ; preds = %_ZN5clang7Co
   %75 = load i32, ptr %73, align 8, !tbaa !1311
   %76 = zext i32 %75 to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i.i.i
+  %77 = getelementptr i8, ptr %74, i64 %.idx.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i32 %75, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPFilterClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -70637,7 +70637,7 @@ _ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfo16getCaptureFieldsEv.exit.
   %141 = select i1 %.not.i.i.i2.i.i, i32 %140, i32 4
   %142 = zext i32 %141 to i64
   %.idx.i.i = shl nuw nsw i64 %142, 4
-  %143 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i.i
+  %143 = getelementptr i8, ptr %138, i64 %.idx.i.i
   %.not5.i5.i10.i4.i.i = icmp eq i32 %141, 0
   br i1 %.not5.i5.i10.i4.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit.i, label %.lr.ph.i6.i12.i5.i.i
 
@@ -70658,7 +70658,7 @@ _ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfo16getCaptureFieldsEv.exit.
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i8.i.i, %.lr.ph.i6.i12.i5.i.i, %134, %125
   %.pre-phi13 = phi i64 [ 0, %134 ], [ %132, %125 ], [ %142, %.lr.ph.i6.i12.i5.i.i ], [ %142, %.critedge2.i8.i14.i8.i.i ]
   %.pre-phi = phi ptr [ %138, %134 ], [ %128, %125 ], [ %138, %.lr.ph.i6.i12.i5.i.i ], [ %138, %.critedge2.i8.i14.i8.i.i ]
-  %.pn16.i.i = phi ptr [ %138, %134 ], [ %133, %125 ], [ %145, %.critedge2.i8.i14.i8.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
+  %.pn16.i.i = phi ptr [ %138, %134 ], [ %133, %125 ], [ %143, %.critedge2.i8.i14.i8.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
   %.pn14.i.i = phi ptr [ %143, %134 ], [ %133, %125 ], [ %143, %.lr.ph.i6.i12.i5.i.i ], [ %143, %.critedge2.i8.i14.i8.i.i ]
   %146 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -73144,7 +73144,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %_ZN5clang7Code
   %1347 = load i32, ptr %1345, align 8, !tbaa !1311, !noalias !4083
   %1348 = zext i32 %1347 to i64
   %.idx.i.i.i580.i = shl nuw nsw i64 %1348, 3
-  %1349 = getelementptr inbounds nuw i8, ptr %1346, i64 %.idx.i.i.i580.i
+  %1349 = getelementptr i8, ptr %1346, i64 %.idx.i.i.i580.i
   %.not1.i.i.i.i.i = icmp eq i32 %1347, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPInReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i581.i
 
@@ -75404,7 +75404,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %578
   %586 = load i32, ptr %584, align 8, !tbaa !1311
   %587 = zext i32 %586 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %587, 3
-  %588 = getelementptr inbounds nuw i8, ptr %585, i64 %.idx.i.i.i.i.i
+  %588 = getelementptr i8, ptr %585, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %586, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -75791,7 +75791,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %20
   %85 = load i32, ptr %83, align 8, !tbaa !1311, !noalias !4152
   %86 = zext i32 %85 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %86, 3
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i.i.i.i
+  %87 = getelementptr i8, ptr %84, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %85, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_22OMPTaskReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -79954,7 +79954,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %23
   %55 = load i32, ptr %53, align 8, !tbaa !1311, !noalias !4293
   %56 = zext i32 %55 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %56, 3
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i.i
+  %57 = getelementptr i8, ptr %54, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %55, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPUseDevicePtrClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -80003,7 +80003,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i55.i: ; preds = %._crit_edge2
   %72 = load i32, ptr %70, align 8, !tbaa !1311, !noalias !4300
   %73 = zext i32 %72 to i64
   %.idx.i.i.i56.i = shl nuw nsw i64 %73, 3
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i56.i
+  %74 = getelementptr i8, ptr %71, i64 %.idx.i.i.i56.i
   %.not1.i.i.i.i57.i = icmp eq i32 %72, 0
   br i1 %.not1.i.i.i.i57.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_22OMPUseDeviceAddrClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i58.i
 
@@ -80229,7 +80229,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i85.i: ; preds = %165
   %171 = load i32, ptr %169, align 8, !tbaa !1311, !noalias !4310
   %172 = zext i32 %171 to i64
   %.idx.i.i.i86.i = shl nuw nsw i64 %172, 3
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 %.idx.i.i.i86.i
+  %173 = getelementptr i8, ptr %170, i64 %.idx.i.i.i86.i
   %.not1.i.i.i.i87.i = icmp eq i32 %171, 0
   br i1 %.not1.i.i.i.i87.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPUseDevicePtrClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit96.i, label %.lr.ph.i.i.i.i88.i
 
@@ -80271,7 +80271,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i108.i: ; preds = %._crit_edge
   %184 = load i32, ptr %182, align 8, !tbaa !1311, !noalias !4316
   %185 = zext i32 %184 to i64
   %.idx.i.i.i109.i = shl nuw nsw i64 %185, 3
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx.i.i.i109.i
+  %186 = getelementptr i8, ptr %183, i64 %.idx.i.i.i109.i
   %.not1.i.i.i.i110.i = icmp eq i32 %184, 0
   br i1 %.not1.i.i.i.i110.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_22OMPUseDeviceAddrClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit119.i, label %.lr.ph.i.i.i.i111.i
 
@@ -83360,7 +83360,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %39
   %43 = load i32, ptr %41, align 8, !tbaa !1311, !noalias !4435
   %44 = zext i32 %43 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i.i.i
+  %45 = getelementptr i8, ptr %42, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_21OMPFirstprivateClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -83809,7 +83809,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i87.i: ; preds = %._crit_edge2
   %230 = load i32, ptr %228, align 8, !tbaa !1311, !noalias !4441
   %231 = zext i32 %230 to i64
   %.idx.i.i.i88.i = shl nuw nsw i64 %231, 3
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx.i.i.i88.i
+  %232 = getelementptr i8, ptr %229, i64 %.idx.i.i.i88.i
   %.not1.i.i.i.i89.i = icmp eq i32 %230, 0
   br i1 %.not1.i.i.i.i89.i, label %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_16OMPOrderedClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, label %.lr.ph.i.i.i.i90.i
 

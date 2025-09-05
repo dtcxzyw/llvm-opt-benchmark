@@ -573,7 +573,7 @@ define weak_odr void @_ZN4llvm20SyntheticCountsUtilsIPKNS_9CallGraphEE16propagat
 
 37:                                               ; preds = %._crit_edge
   %.idx.i.i = shl nuw nsw i64 %31, 3
-  %38 = getelementptr inbounds nuw i8, ptr %.pre121, i64 %.idx.i.i
+  %38 = getelementptr i8, ptr %.pre121, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %.pre123, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPKNS_13CallGraphNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -1470,7 +1470,7 @@ define weak_odr void @_ZN4llvm20SyntheticCountsUtilsIPNS_18ModuleSummaryIndexEE1
 
 37:                                               ; preds = %._crit_edge
   %.idx.i.i = shl nuw nsw i64 %31, 3
-  %38 = getelementptr inbounds nuw i8, ptr %.pre129, i64 %.idx.i.i
+  %38 = getelementptr i8, ptr %.pre129, i64 %.idx.i.i
   %.not9.i5.i10.i2.i.i = icmp eq i32 %.pre131, 0
   br i1 %.not9.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

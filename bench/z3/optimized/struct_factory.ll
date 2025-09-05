@@ -792,7 +792,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit29:    ; preds = %71, %73, %80
   %85 = load i32, ptr %84, align 8, !tbaa !28
   %86 = zext i32 %85 to i64
   %.idx.i = shl nuw nsw i64 %86, 3
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i
+  %87 = getelementptr i8, ptr %83, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %85, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %.lr.ph.i.i.i
 

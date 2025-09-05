@@ -140446,7 +140446,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9get_tur
   %51 = getelementptr inbounds %class.const_point, ptr %38, i64 %47
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %53 = load i64, ptr %52, align 8, !tbaa !2495
-  %54 = getelementptr inbounds %class.const_point, ptr %38, i64 %53
+  %54 = getelementptr %class.const_point, ptr %38, i64 %53
   %.not27.i = icmp eq i64 %47, %53
   br i1 %.not27.i, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsISt6vectorI11const_pointSaIS5_EES7_Lb0ELb0ENS0_7sectionINS0_5model3boxINS9_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESG_NS1_7overlay13get_turn_infoINSH_18assign_null_policyEEEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKS7_LNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESG_SF_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorISX_vE4typeES12_S12_RlS13_iRKT1_RKT2_.exit, label %.lr.ph.i
 
@@ -140611,7 +140611,7 @@ _ZN5boost8geometry6detail7section9exceedingILm0E11const_pointNS0_5model3boxINS5_
   %121 = load i64, ptr %89, align 8, !tbaa !2494
   %122 = getelementptr inbounds %class.const_point, ptr %41, i64 %120
   %123 = load i64, ptr %90, align 8, !tbaa !2495
-  %124 = getelementptr inbounds %class.const_point, ptr %41, i64 %123
+  %124 = getelementptr %class.const_point, ptr %41, i64 %123
   %.not27.i93 = icmp eq i64 %120, %123
   br i1 %.not27.i93, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsISt6vectorI11const_pointSaIS5_EES7_Lb0ELb0ENS0_7sectionINS0_5model3boxINS9_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESG_NS1_7overlay13get_turn_infoINSH_18assign_null_policyEEEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKS7_LNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESG_SF_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorISX_vE4typeES12_S12_RlS13_iRKT1_RKT2_.exit101, label %.lr.ph.i94
 

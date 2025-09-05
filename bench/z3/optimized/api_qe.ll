@@ -765,7 +765,7 @@ _ZN3refI5modelEC2EPS0_.exit:                      ; preds = %59, %56
   %71 = load i32, ptr %70, align 8, !tbaa !199
   %72 = zext i32 %71 to i64
   %.idx.i.i.i = shl nuw nsw i64 %72, 4
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i
+  %73 = getelementptr i8, ptr %69, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %71, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i
 

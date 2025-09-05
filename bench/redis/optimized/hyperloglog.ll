@@ -62,7 +62,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   %8 = and i32 %1, 7
   %9 = and i32 %1, -8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr i8, ptr %0, i64 %10
   %.not39 = icmp eq i32 %9, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
@@ -178,7 +178,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   %8 = and i32 %4, 7
   %9 = and i32 %4, -8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr i8, ptr %0, i64 %10
   %.not39.i = icmp eq i32 %9, 0
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 

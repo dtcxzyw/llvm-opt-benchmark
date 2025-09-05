@@ -1957,7 +1957,7 @@ if.then39:                                        ; preds = %_ZN4llvh12DenseMapB
   %cond.v.v.i7.i6.i = select i1 %cmp.i.i4.i3.i, i32 %86, i32 %87
   %cond.v.i8.i7.i = zext i32 %cond.v.v.i7.i6.i to i64
   %cond.i9.i8.idx.i = shl nuw nsw i64 %cond.v.i8.i7.i, 3
-  %cond.i9.i8.i = getelementptr inbounds nuw i8, ptr %84, i64 %cond.i9.i8.idx.i
+  %cond.i9.i8.i = getelementptr i8, ptr %84, i64 %cond.i9.i8.idx.i
   %cmp.not2.i3.i.i11.i9.i = icmp eq i32 %cond.v.v.i7.i6.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 
@@ -2299,7 +2299,7 @@ for.body71:                                       ; preds = %_ZN4llvh12DenseMapB
   %cond.v.v.i7.i6.i428 = select i1 %cmp.i.i4.i3.i425, i32 %131, i32 %132
   %cond.v.i8.i7.i429 = zext i32 %cond.v.v.i7.i6.i428 to i64
   %cond.i9.i8.idx.i430 = shl nuw nsw i64 %cond.v.i8.i7.i429, 3
-  %cond.i9.i8.i431 = getelementptr inbounds nuw i8, ptr %129, i64 %cond.i9.i8.idx.i430
+  %cond.i9.i8.i431 = getelementptr i8, ptr %129, i64 %cond.i9.i8.idx.i430
   %cmp.not2.i3.i.i11.i9.i432 = icmp eq i32 %cond.v.v.i7.i6.i428, 0
   br i1 %cmp.not2.i3.i.i11.i9.i432, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5beginEv.exit442, label %land.rhs.i4.i.i12.i10.i433
 
@@ -2769,7 +2769,7 @@ if.then125:                                       ; preds = %for.body117
   %cond.v.v.i7.i6.i745 = select i1 %cmp.i.i4.i3.i742, i32 %188, i32 %192
   %cond.v.i8.i7.i746 = zext i32 %cond.v.v.i7.i6.i745 to i64
   %cond.i9.i8.idx.i747 = shl nuw nsw i64 %cond.v.i8.i7.i746, 3
-  %cond.i9.i8.i748 = getelementptr inbounds nuw i8, ptr %190, i64 %cond.i9.i8.idx.i747
+  %cond.i9.i8.i748 = getelementptr i8, ptr %190, i64 %cond.i9.i8.idx.i747
   %cmp.not2.i3.i.i11.i9.i749 = icmp eq i32 %cond.v.v.i7.i6.i745, 0
   br i1 %cmp.not2.i3.i.i11.i9.i749, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5beginEv.exit759, label %land.rhs.i4.i.i12.i10.i750
 

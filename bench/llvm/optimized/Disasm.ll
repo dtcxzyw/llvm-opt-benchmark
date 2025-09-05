@@ -21026,7 +21026,7 @@ _ZN5clang10ColorScopeD2Ev.exit116:                ; preds = %159, %161
 
 176:                                              ; preds = %_ZN5clang10ColorScopeD2Ev.exit116
   %.idx.i117 = shl nuw nsw i64 %173, 4
-  %177 = getelementptr inbounds nuw i8, ptr %170, i64 %.idx.i117
+  %177 = getelementptr i8, ptr %170, i64 %.idx.i117
   %.not5.i5.i10.i2.i = icmp eq i32 %172, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

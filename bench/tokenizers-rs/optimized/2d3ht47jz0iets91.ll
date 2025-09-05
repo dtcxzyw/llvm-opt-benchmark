@@ -13945,20 +13945,20 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   br label %.noexc32
 
 .lr.ph1452.i.i:                                   ; preds = %700, %705
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %705 ], [ 0, %700 ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %705 ], [ 0, %700 ]
   %.51450.i.i = phi i64 [ %710, %705 ], [ %.4.lcssa.i.i, %700 ]
   %704 = icmp ult i64 %.51450.i.i, %.val32.i
   br i1 %704, label %705, label %.invoke2908, !prof !555
 
 705:                                              ; preds = %.lr.ph1452.i.i
-  %706 = sub nuw nsw i64 56, %indvars.iv.i
+  %706 = sub nuw nsw i64 56, %indvars.iv.i.i
   %707 = lshr i64 %.0152.ph.lcssa4432496.i.i, %706
   %708 = trunc i64 %707 to i8
   %709 = getelementptr inbounds i8, ptr %.val31.i, i64 %.51450.i.i
   store i8 %708, ptr %709, align 1, !alias.scope !2810, !noalias !2915
   %710 = add nuw i64 %.51450.i.i, 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %711 = icmp samesign ult i64 %indvars.iv.next.i, %.0141.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
+  %711 = icmp samesign ult i64 %indvars.iv.next.i.i, %.0141.i.i
   br i1 %711, label %.lr.ph1452.i.i, label %.loopexit.i
 
 712:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.i.i"

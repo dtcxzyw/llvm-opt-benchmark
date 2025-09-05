@@ -831,7 +831,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21layoutNonVirtualBasesEPKN5clang
 
 334:                                              ; preds = %._crit_edge.i126
   %.idx.i.i127 = shl nuw nsw i64 %331, 4
-  %335 = getelementptr inbounds nuw i8, ptr %328, i64 %.idx.i.i127
+  %335 = getelementptr i8, ptr %328, i64 %.idx.i.i127
   %.not5.i5.i10.i2.i.i128 = icmp eq i32 %330, 0
   br i1 %.not5.i5.i10.i2.i.i128, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i134, label %.lr.ph.i6.i12.i3.i.i129
 
@@ -974,7 +974,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder11injectVBPtrEPKN5clang13CXXRecor
 
 393:                                              ; preds = %._crit_edge.i
   %.idx.i.i = shl nuw nsw i64 %390, 4
-  %394 = getelementptr inbounds nuw i8, ptr %387, i64 %.idx.i.i
+  %394 = getelementptr i8, ptr %387, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %389, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -1534,7 +1534,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
   %.v.v.i4.i2.i = select i1 %628, i32 %625, i32 %629
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i247 = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %630 = getelementptr inbounds nuw i8, ptr %626, i64 %.idx.i247
+  %630 = getelementptr i8, ptr %626, i64 %.idx.i247
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXMethodDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

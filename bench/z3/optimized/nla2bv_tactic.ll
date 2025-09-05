@@ -3583,7 +3583,7 @@ define linkonce_odr hidden void @_ZN13nla2bv_tactic3imp14collect_power2ER4goal(p
   %11 = load i32, ptr %10, align 8, !tbaa !116
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 

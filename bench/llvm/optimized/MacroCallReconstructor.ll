@@ -2309,7 +2309,7 @@ define dso_local void @_ZNK5clang6format22MacroCallReconstructor14debugParentMap
 
 15:                                               ; preds = %1
   %.idx.i = shl nuw nsw i64 %12, 4
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %11, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -2355,7 +2355,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseM
 
 26:                                               ; preds = %._crit_edge
   %.idx.i11 = shl nuw nsw i64 %.pre-phi, 4
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i11
+  %27 = getelementptr i8, ptr %21, i64 %.idx.i11
   %.not5.i5.i10.i2.i12 = icmp eq i32 %20, 0
   br i1 %.not5.i5.i10.i2.i12, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit22, label %.lr.ph.i6.i12.i3.i13
 
@@ -4494,7 +4494,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt10unique_ptrIN5clan
   %5 = load i32, ptr %4, align 8, !tbaa !17
   %6 = zext i32 %5 to i64
   %7 = icmp eq i64 %1, %6
-  br i1 %7, label %50, label %8
+  br i1 %7, label %47, label %8
 
 8:                                                ; preds = %2
   %9 = icmp ult i64 %1, %6
@@ -4610,20 +4610,17 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrIN5clang6format22MacroCallReconstructor1
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EEE7reserveEm.exit
   %43 = getelementptr %"class.std::unique_ptr.25", ptr %42, i64 %.pre-phi
-  %44 = shl i64 %1, 3
-  %45 = add i64 %44, -8
-  %46 = shl nuw nsw i64 %.pre-phi, 3
-  %47 = sub i64 %45, %46
-  %48 = add i64 %47, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %48, i1 false), !tbaa !216
+  %44 = sub i64 %1, %.pre-phi
+  %45 = shl i64 %44, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %45, i1 false), !tbaa !216
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit.i.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EEE7reserveEm.exit, %.lr.ph.preheader
-  %49 = trunc i64 %1 to i32
-  store i32 %49, ptr %4, align 8, !tbaa !17
-  br label %50
+  %46 = trunc i64 %1 to i32
+  store i32 %46, ptr %4, align 8, !tbaa !17
+  br label %47
 
-50:                                               ; preds = %.sink.split, %2
+47:                                               ; preds = %.sink.split, %2
   ret void
 }
 

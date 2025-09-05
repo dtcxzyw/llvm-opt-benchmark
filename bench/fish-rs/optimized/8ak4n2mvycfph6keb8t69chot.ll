@@ -20560,7 +20560,7 @@ _ZN4fish8builtins3set7Options5scope17hac79886ae95d44f5E.exit.i: ; preds = %415, 
   %450 = icmp ult i64 %.sroa.53.0.copyload.i, 1152921504606846976
   call void @llvm.assume(i1 %450)
   %.idx19.i = shl nuw nsw i64 %.sroa.53.0.copyload.i, 3
-  %451 = getelementptr inbounds nuw i8, ptr %.sroa.42.0.copyload.i, i64 %.idx19.i
+  %451 = getelementptr i8, ptr %.sroa.42.0.copyload.i, i64 %.idx19.i
   %452 = icmp sgt i64 %.sroa.01.0.copyload.i, -1
   call void @llvm.assume(i1 %452)
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1644

@@ -1221,7 +1221,7 @@ if.else.i:                                        ; preds = %_ZN4llvh13ManagedSt
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %2, i32 %8
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %6, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -2248,7 +2248,7 @@ if.else.i:                                        ; preds = %_ZN4llvh13ManagedSt
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %2, i32 %8
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %6, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -2438,7 +2438,7 @@ if.else.i:                                        ; preds = %_ZN4llvh13ManagedSt
   %cond.v.v.i7.i6.i.i.i.i.i.i.i = select i1 %cmp.i.i4.i3.i.i.i.i.i.i.i, i32 %2, i32 %8
   %cond.v.i8.i7.i.i.i.i.i.i.i = zext i32 %cond.v.v.i7.i6.i.i.i.i.i.i.i to i64
   %cond.i9.i8.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i.i.i.i.i.i, 3
-  %cond.i9.i8.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %cond.i9.i8.idx.i.i.i.i.i.i.i
+  %cond.i9.i8.i.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 %cond.i9.i8.idx.i.i.i.i.i.i.i
   %cmp.not2.i3.i.i11.i9.i.i.i.i.i.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i.i.i.i.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i.i.i.i.i.i, label %_ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_detailE9adl_beginclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i.i.i, label %land.rhs.i4.i.i12.i10.i.i.i.i.i.i.i
 
@@ -2514,7 +2514,7 @@ if.then4.i:                                       ; preds = %_ZNK4llvh2cl6Option
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %16, i32 %17
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %14, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -2568,7 +2568,7 @@ if.else11.i:                                      ; preds = %_ZN4llvh19SmallPtrS
   %cond.v.v.i7.i6.i14.i = select i1 %cmp.i.i4.i3.i11.i, i32 %23, i32 %24
   %cond.v.i8.i7.i15.i = zext i32 %cond.v.v.i7.i6.i14.i to i64
   %cond.i9.i8.idx.i16.i = shl nuw nsw i64 %cond.v.i8.i7.i15.i, 3
-  %cond.i9.i8.i17.i = getelementptr inbounds nuw i8, ptr %21, i64 %cond.i9.i8.idx.i16.i
+  %cond.i9.i8.i17.i = getelementptr i8, ptr %21, i64 %cond.i9.i8.idx.i16.i
   %cmp.not2.i3.i.i11.i9.i18.i = icmp eq i32 %cond.v.v.i7.i6.i14.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i18.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit28.i, label %land.rhs.i4.i.i12.i10.i19.i
 
@@ -2670,7 +2670,7 @@ if.else.i:                                        ; preds = %_ZN4llvh13ManagedSt
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %3, i32 %9
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %7, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -5145,7 +5145,7 @@ if.end.i.i:                                       ; preds = %_ZN4llvh9StringRefC
   %cond.v.v.i7.i6.i.i.i = select i1 %cmp.i.i4.i3.i.i.i, i32 %18, i32 %19
   %cond.v.i8.i7.i.i.i = zext i32 %cond.v.v.i7.i6.i.i.i to i64
   %cond.i9.i8.idx.i.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i.i, 3
-  %cond.i9.i8.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %cond.i9.i8.idx.i.i.i
+  %cond.i9.i8.i.i.i = getelementptr i8, ptr %16, i64 %cond.i9.i8.idx.i.i.i
   %cmp.not2.i3.i.i11.i9.i.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i.i, label %land.rhs.i4.i.i12.i10.i.i.i
 
@@ -10606,7 +10606,7 @@ _ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %9, i32 %10
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %7, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -12155,7 +12155,7 @@ _ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %4, i32 %5
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %2, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZN12_GLOBAL__N_117CommandLineParser24getRegisteredSubcommandsEv.exit, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -12606,7 +12606,7 @@ _ZN4llvh19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %if.end8.i.i, %if.th
   %cond.v.v.i7.i6.i.i.i = select i1 %cmp.i.i4.i3.i.i.i, i32 %11, i32 %12
   %cond.v.i8.i7.i.i.i = zext i32 %cond.v.v.i7.i6.i.i.i to i64
   %cond.i9.i8.idx.i.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i.i, 3
-  %cond.i9.i8.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %cond.i9.i8.idx.i.i.i
+  %cond.i9.i8.i.i.i = getelementptr i8, ptr %9, i64 %cond.i9.i8.idx.i.i.i
   %cmp.not2.i3.i.i11.i9.i.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i.i, label %land.rhs.i4.i.i12.i10.i.i.i
 
@@ -12923,7 +12923,7 @@ _ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS
   %cond.v.v.i7.i6.i.i = select i1 %cmp.i.i4.i3.i.i, i32 %4, i32 %5
   %cond.v.i8.i7.i.i = zext i32 %cond.v.v.i7.i6.i.i to i64
   %cond.i9.i8.idx.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i, 3
-  %cond.i9.i8.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %cond.i9.i8.idx.i.i
+  %cond.i9.i8.i.i = getelementptr i8, ptr %2, i64 %cond.i9.i8.idx.i.i
   %cmp.not2.i3.i.i11.i9.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, label %land.rhs.i4.i.i12.i10.i.i
 
@@ -13581,7 +13581,7 @@ if.then13:                                        ; preds = %_ZN4llvh13ManagedSt
   %cond.v.v.i7.i6.i = select i1 %cmp.i.i4.i3.i, i32 %6, i32 %7
   %cond.v.i8.i7.i = zext i32 %cond.v.v.i7.i6.i to i64
   %cond.i9.i8.idx.i = shl nuw nsw i64 %cond.v.i8.i7.i, 3
-  %cond.i9.i8.i = getelementptr inbounds nuw i8, ptr %4, i64 %cond.i9.i8.idx.i
+  %cond.i9.i8.i = getelementptr i8, ptr %4, i64 %cond.i9.i8.idx.i
   %cmp.not2.i3.i.i11.i9.i = icmp eq i32 %cond.v.v.i7.i6.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 
@@ -13978,7 +13978,7 @@ if.then37:                                        ; preds = %_ZN4llvh13ManagedSt
   %cond.v.v.i7.i6.i = select i1 %cmp.i.i4.i3.i, i32 %30, i32 %31
   %cond.v.i8.i7.i = zext i32 %cond.v.v.i7.i6.i to i64
   %cond.i9.i8.idx.i = shl nuw nsw i64 %cond.v.i8.i7.i, 3
-  %cond.i9.i8.i = getelementptr inbounds nuw i8, ptr %28, i64 %cond.i9.i8.idx.i
+  %cond.i9.i8.i = getelementptr i8, ptr %28, i64 %cond.i9.i8.idx.i
   %cmp.not2.i3.i.i11.i9.i = icmp eq i32 %cond.v.v.i7.i6.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 
@@ -14775,7 +14775,7 @@ _ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS
   %cond.v.v.i7.i6.i = select i1 %cmp.i.i4.i3.i, i32 %5, i32 %6
   %cond.v.i8.i7.i = zext i32 %cond.v.v.i7.i6.i to i64
   %cond.i9.i8.idx.i = shl nuw nsw i64 %cond.v.i8.i7.i, 3
-  %cond.i9.i8.i = getelementptr inbounds nuw i8, ptr %3, i64 %cond.i9.i8.idx.i
+  %cond.i9.i8.i = getelementptr i8, ptr %3, i64 %cond.i9.i8.idx.i
   %cmp.not2.i3.i.i11.i9.i = icmp eq i32 %cond.v.v.i7.i6.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPNS_2cl14OptionCategoryEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 

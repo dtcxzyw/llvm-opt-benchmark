@@ -5212,7 +5212,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4PassELb1EE9push_backES2_.exit49: ; preds 
   %.v.v.i4.i2.i = select i1 %253, i32 %255, i32 %257
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i50 = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %258 = getelementptr inbounds nuw i8, ptr %250, i64 %.idx.i50
+  %258 = getelementptr i8, ptr %250, i64 %.idx.i50
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_4PassEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -5248,7 +5248,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_4PassEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i
   %.v.v.i4.i2.i51 = select i1 %265, i32 %266, i32 %267
   %.v.i5.i3.i52 = zext i32 %.v.v.i4.i2.i51 to i64
   %.idx.i53 = shl nuw nsw i64 %.v.i5.i3.i52, 3
-  %268 = getelementptr inbounds nuw i8, ptr %263, i64 %.idx.i53
+  %268 = getelementptr i8, ptr %263, i64 %.idx.i53
   %.not3.i4.i.i6.i4.i54 = icmp eq i32 %.v.v.i4.i2.i51, 0
   br i1 %.not3.i4.i.i6.i4.i54, label %_ZNK4llvm15SmallPtrSetImplIPNS_4PassEE5beginEv.exit63, label %.lr.ph.i5.i.i7.i5.i55
 
@@ -6323,7 +6323,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4PassENS_11SmallPtrSetIS3_Lj8EEENS_12Den
   %.v.v.i4.i2.i = select i1 %39, i32 %41, i32 %43
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
+  %44 = getelementptr i8, ptr %36, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_4PassEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -9318,7 +9318,7 @@ define dso_local void @_ZN4llvm13PMDataManager26removeNotPreservedAnalysisEPNS_4
 
 21:                                               ; preds = %9
   %.idx.i = shl nuw nsw i64 %18, 4
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
+  %22 = getelementptr i8, ptr %15, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %17, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPNS_4PassENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -9685,7 +9685,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %167, %165, %_ZN4llv
 
 188:                                              ; preds = %178
   %.idx.i43 = shl nuw nsw i64 %185, 4
-  %189 = getelementptr inbounds nuw i8, ptr %182, i64 %.idx.i43
+  %189 = getelementptr i8, ptr %182, i64 %.idx.i43
   %.not5.i5.i10.i2.i44 = icmp eq i32 %184, 0
   br i1 %.not5.i5.i10.i2.i44, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPNS_4PassENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit54, label %.lr.ph.i6.i12.i3.i45
 

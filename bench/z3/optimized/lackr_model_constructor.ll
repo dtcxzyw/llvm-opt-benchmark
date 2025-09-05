@@ -850,7 +850,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %.preheader, %_ZNK10
   %75 = load i32, ptr %74, align 8, !tbaa !77
   %76 = zext i32 %75 to i64
   %.idx.i.i = shl nuw nsw i64 %76, 4
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i.i
+  %77 = getelementptr i8, ptr %73, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %75, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1033,7 +1033,7 @@ _ZN14core_hashtableIN7obj_mapI3appP4exprE13obj_map_entryE8obj_hashINS4_8key_data
   br i1 %.not101116, label %._crit_edge120.thread, label %.lr.ph119
 
 ._crit_edge120.thread:                            ; preds = %.loopexit103
-  %151 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %151 = getelementptr i8, ptr %122, i64 128
   br label %.lr.ph.i.i.i.i70.preheader
 
 ._crit_edge120:                                   ; preds = %_ZN14core_hashtableIN7obj_mapI3appN23lackr_model_constructor3imp8val_infoEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
@@ -1041,7 +1041,7 @@ _ZN14core_hashtableIN7obj_mapI3appP4exprE13obj_map_entryE8obj_hashINS4_8key_data
   %.pre133 = load i32, ptr %123, align 8, !tbaa !160
   %152 = zext i32 %.pre133 to i64
   %.idx.i.i68 = shl nuw nsw i64 %152, 4
-  %153 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i68
+  %153 = getelementptr i8, ptr %.pre, i64 %.idx.i.i68
   %.not1.i.i.i.i69 = icmp eq i32 %.pre133, 0
   br i1 %.not1.i.i.i.i69, label %.loopexit, label %.lr.ph.i.i.i.i70.preheader
 

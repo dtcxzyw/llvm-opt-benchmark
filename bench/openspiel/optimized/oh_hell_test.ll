@@ -5089,19 +5089,19 @@ _ZNSt6vectorIN10open_spiel7oh_hell5TrickESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_Z
   %1628 = getelementptr inbounds nuw float, ptr %1627, i64 %indvars.iv516.i.i
   %1629 = load float, ptr %1628, align 4
   %1630 = fcmp oeq float %1629, 1.000000e+00
-  br i1 %1630, label %._crit_edge.split.loop.exit635.i.i, label %1631
+  br i1 %1630, label %._crit_edge.split.loop.exit636.i.i, label %1631
 
 1631:                                             ; preds = %.lr.ph430.i.i
   %indvars.iv.next517.i.i = add nuw nsw i64 %indvars.iv516.i.i, 1
   %exitcond520.not.i.i = icmp eq i64 %indvars.iv.next517.i.i, 52
   br i1 %exitcond520.not.i.i, label %._crit_edge.i.i, label %.lr.ph430.i.i, !llvm.loop !23
 
-._crit_edge.split.loop.exit635.i.i:               ; preds = %.lr.ph430.i.i
+._crit_edge.split.loop.exit636.i.i:               ; preds = %.lr.ph430.i.i
   %1632 = trunc nuw nsw i64 %indvars.iv516.i.i to i32
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %1631, %._crit_edge.split.loop.exit635.i.i
-  %.0160.lcssa.i.i = phi i32 [ %1632, %._crit_edge.split.loop.exit635.i.i ], [ 52, %1631 ]
+._crit_edge.i.i:                                  ; preds = %1631, %._crit_edge.split.loop.exit636.i.i
+  %.0160.lcssa.i.i = phi i32 [ %1632, %._crit_edge.split.loop.exit636.i.i ], [ 52, %1631 ]
   %1633 = getelementptr inbounds nuw i8, ptr %1621, i64 428
   br label %.lr.ph437.i.i
 

@@ -1627,7 +1627,7 @@ _ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit: ; preds = %24
 
 38:                                               ; preds = %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit
   %.idx.i = shl nuw nsw i64 %35, 4
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
+  %39 = getelementptr i8, ptr %32, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %34, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_16MCCVFunctionInfo8LineInfoENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

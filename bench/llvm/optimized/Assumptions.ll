@@ -362,7 +362,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14addAssumptionsERNS_8FunctionERKNS
 
 22:                                               ; preds = %12
   %.idx.i.i.i.i = shl nuw nsw i64 %19, 4
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i
+  %23 = getelementptr i8, ptr %16, i64 %.idx.i.i.i.i
   %.not17.i5.i10.i2.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not17.i5.i10.i2.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i.i
 
@@ -440,7 +440,7 @@ _ZN4llvm9set_unionINS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS2_vEEEES5_EEbRT
 
 43:                                               ; preds = %32
   %.idx.i.i.i = shl nuw nsw i64 %40, 4
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i
+  %44 = getelementptr i8, ptr %37, i64 %.idx.i.i.i
   %.not17.i5.i10.i2.i.i.i = icmp eq i32 %39, 0
   br i1 %.not17.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i
 
@@ -556,7 +556,7 @@ _ZN4llvm14getAssumptionsERKNS_8CallBaseE.exit.i:  ; preds = %16, %13
 
 26:                                               ; preds = %_ZN4llvm14getAssumptionsERKNS_8CallBaseE.exit.i
   %.idx.i.i.i.i = shl nuw nsw i64 %23, 4
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i
+  %27 = getelementptr i8, ptr %20, i64 %.idx.i.i.i.i
   %.not17.i5.i10.i2.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not17.i5.i10.i2.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i.i
 
@@ -634,7 +634,7 @@ _ZN4llvm9set_unionINS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS2_vEEEES5_EEbRT
 
 47:                                               ; preds = %36
   %.idx.i.i.i = shl nuw nsw i64 %44, 4
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i
+  %48 = getelementptr i8, ptr %41, i64 %.idx.i.i.i
   %.not17.i5.i10.i2.i.i.i = icmp eq i32 %43, 0
   br i1 %.not17.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i
 

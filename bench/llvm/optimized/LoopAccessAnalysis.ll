@@ -14994,7 +14994,7 @@ define dso_local void @_ZN4llvm21LoopAccessInfoManager5clearEv(ptr noundef nonnu
 
 11:                                               ; preds = %1
   %.idx.i = shl nuw nsw i64 %8, 4
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %12 = getelementptr i8, ptr %5, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %7, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4LoopESt10unique_ptrINS_14LoopAccessInfoESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

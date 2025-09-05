@@ -19203,8 +19203,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit: ; preds = %_ZS
   %249 = ptrtoint ptr %247 to i64
   %250 = ptrtoint ptr %248 to i64
   %251 = sub i64 %249, %250
-  %sext460 = shl i64 %251, 28
-  %252 = ashr i64 %sext460, 32
+  %sext461 = shl i64 %251, 28
+  %252 = ashr i64 %sext461, 32
   %.not144 = icmp slt i64 %indvars.iv.next390, %252
   br i1 %.not144, label %144, label %.critedge167, !llvm.loop !813
 
@@ -19693,8 +19693,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit253: ; preds = %
   %445 = ptrtoint ptr %443 to i64
   %446 = ptrtoint ptr %444 to i64
   %447 = sub i64 %445, %446
-  %sext459 = shl i64 %447, 28
-  %448 = ashr i64 %sext459, 32
+  %sext460 = shl i64 %447, 28
+  %448 = ashr i64 %sext460, 32
   %.not = icmp slt i64 %indvars.iv.next, %448
   br i1 %.not, label %284, label %.critedge167, !llvm.loop !818
 
@@ -19875,13 +19875,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5arrow6Stat
 .noexc277:                                        ; preds = %511
   %514 = getelementptr inbounds nuw i32, ptr %513, i64 %508
   store i32 0, ptr %513, align 4, !tbaa !44
-  %515 = icmp eq i64 %508, 1
-  br i1 %515, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %515 = add nsw i64 %508, -1
+  %516 = icmp eq i64 %515, 0
+  br i1 %516, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc277
-  %516 = getelementptr i8, ptr %513, i64 4
-  %517 = add nsw i64 %512, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %516, i8 0, i64 %517, i1 false), !tbaa !44
+  %517 = getelementptr i8, ptr %513, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %515, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %517, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !44
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc277, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

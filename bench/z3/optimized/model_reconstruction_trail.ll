@@ -869,7 +869,7 @@ _ZNK26model_reconstruction_trail5entry8is_substEv.exit: ; preds = %_ZNK26model_r
   %174 = load i32, ptr %173, align 8, !tbaa !103
   %175 = zext i32 %174 to i64
   %.idx.i.i = shl nuw nsw i64 %175, 4
-  %176 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx.i.i
+  %176 = getelementptr i8, ptr %172, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %174, 0
   br i1 %.not1.i.i.i.i, label %.loopexit442, label %.lr.ph.i.i.i.i
 
@@ -2976,7 +2976,7 @@ _ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depen
   %25 = load i32, ptr %24, align 8, !tbaa !103
   %26 = zext i32 %25 to i64
   %.idx.i.i = shl nuw nsw i64 %26, 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3955,7 +3955,7 @@ _ZNK26model_reconstruction_trail5entry6is_defEv.exit.thread: ; preds = %_ZNK26mo
   %69 = load i32, ptr %68, align 8, !tbaa !103
   %70 = zext i32 %69 to i64
   %.idx.i.i = shl nuw nsw i64 %70, 4
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i
+  %71 = getelementptr i8, ptr %67, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %69, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -4217,7 +4217,7 @@ _ZNK26model_reconstruction_trail5entry6is_defEv.exit.thread: ; preds = %_ZNK26mo
   %84 = load i32, ptr %83, align 8, !tbaa !103
   %85 = zext i32 %84 to i64
   %.idx.i.i = shl nuw nsw i64 %85, 4
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i.i
+  %86 = getelementptr i8, ptr %82, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %84, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 

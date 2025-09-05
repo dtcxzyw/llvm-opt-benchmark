@@ -26504,7 +26504,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98: ; preds = %.thread, %36
-  %.pn255 = phi { ptr, i32 } [ %35, %.thread ], [ %37, %36 ]
+  %.pn256 = phi { ptr, i32 } [ %35, %.thread ], [ %37, %36 ]
   %39 = load i64, ptr %12, align 8, !tbaa !22
   %40 = icmp ult i64 %39, 16
   call void @llvm.assume(i1 %40)
@@ -26517,7 +26517,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98
-  %.pn254 = phi { ptr, i32 } [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97 ], [ %.pn255, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98 ]
+  %.pn255 = phi { ptr, i32 } [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97 ], [ %.pn256, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit180
 
@@ -26685,13 +26685,14 @@ _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_len
   %98 = shl nuw nsw i64 %27, 3
   %99 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #41
   store ptr null, ptr %99, align 8, !tbaa !192
-  %100 = icmp eq i64 %27, 1
-  br i1 %100, label %.lr.ph, label %_ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i33.i.i
+  %100 = add nsw i64 %27, -1
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %.lr.ph, label %_ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i33.i.i
 
 _ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i33.i.i: ; preds = %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i
-  %101 = getelementptr i8, ptr %99, i64 8
-  %102 = add nsw i64 %98, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %101, i8 0, i64 %102, i1 false), !tbaa !192
+  %102 = getelementptr i8, ptr %99, i64 8
+  %.idx.i.i.i.i.i34.i.i = shl nuw nsw i64 %100, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %102, i8 0, i64 %.idx.i.i.i.i.i34.i.i, i1 false), !tbaa !192
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i33.i.i, %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -26721,9 +26722,9 @@ _ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit
   br label %126
 
 ._crit_edge:                                      ; preds = %337, %95
-  %.sroa.0184.1260 = phi ptr [ null, %95 ], [ %99, %337 ]
-  %.sroa.15.1258 = phi ptr [ null, %95 ], [ %103, %337 ]
-  %125 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeArrayERKSt6vectorIPNS1_9HeapThunkESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.sroa.0184.1260, ptr %.sroa.15.1258)
+  %.sroa.0184.1261 = phi ptr [ null, %95 ], [ %99, %337 ]
+  %.sroa.15.1259 = phi ptr [ null, %95 ], [ %103, %337 ]
+  %125 = invoke fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeArrayERKSt6vectorIPNS1_9HeapThunkESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.sroa.0184.1261, ptr %.sroa.15.1259)
           to label %._crit_edge._crit_edge unwind label %.loopexit.split-lp204
 
 126:                                              ; preds = %.lr.ph, %337
@@ -27380,14 +27381,14 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRKPKNS0
   store i32 16, ptr %342, align 8, !tbaa !21
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %125, ptr %.sroa.51.0..sroa_idx, align 8, !tbaa !21
-  %.not.i.i.i178 = icmp eq ptr %.sroa.0184.1260, null
+  %.not.i.i.i178 = icmp eq ptr %.sroa.0184.1261, null
   br i1 %.not.i.i.i178, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit, label %343
 
 343:                                              ; preds = %._crit_edge._crit_edge
-  %344 = ptrtoint ptr %.sroa.15.1258 to i64
-  %345 = ptrtoint ptr %.sroa.0184.1260 to i64
+  %344 = ptrtoint ptr %.sroa.15.1259 to i64
+  %345 = ptrtoint ptr %.sroa.0184.1261 to i64
   %346 = sub i64 %344, %345
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0184.1260, i64 noundef %346) #39
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0184.1261, i64 noundef %346) #39
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit: ; preds = %._crit_edge._crit_edge, %343
@@ -27396,21 +27397,21 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit: ; pr
 .loopexit.split-lp204:                            ; preds = %._crit_edge
   %347 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i179 = icmp eq ptr %.sroa.0184.1260, null
+  %.not.i.i.i179 = icmp eq ptr %.sroa.0184.1261, null
   br i1 %.not.i.i.i179, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit180, label %.loopexit.split-lp204.thread
 
 .loopexit.split-lp204.thread:                     ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp204.loopexit.split-lp.loopexit, %.loopexit.split-lp204.loopexit, %.loopexit203, %340, %.loopexit.split-lp204
-  %.pn55.pn.pn.pn268 = phi { ptr, i32 } [ %347, %.loopexit.split-lp204 ], [ %lpad.loopexit.split-lp213, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit212, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit200, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.split-lp204.loopexit.split-lp.loopexit ], [ %lpad.loopexit207, %.loopexit.split-lp204.loopexit ], [ %lpad.loopexit205, %.loopexit203 ], [ %341, %340 ]
-  %.sroa.15.1259267 = phi ptr [ %.sroa.15.1258, %.loopexit.split-lp204 ], [ %103, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %103, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %103, %.loopexit.split-lp.loopexit ], [ %103, %.loopexit ], [ %103, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp ], [ %103, %.loopexit.split-lp204.loopexit.split-lp.loopexit ], [ %103, %.loopexit.split-lp204.loopexit ], [ %103, %.loopexit203 ], [ %103, %340 ]
-  %.sroa.0184.1261266 = phi ptr [ %.sroa.0184.1260, %.loopexit.split-lp204 ], [ %99, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %99, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %99, %.loopexit.split-lp.loopexit ], [ %99, %.loopexit ], [ %99, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp ], [ %99, %.loopexit.split-lp204.loopexit.split-lp.loopexit ], [ %99, %.loopexit.split-lp204.loopexit ], [ %99, %.loopexit203 ], [ %99, %340 ]
-  %348 = ptrtoint ptr %.sroa.15.1259267 to i64
-  %349 = ptrtoint ptr %.sroa.0184.1261266 to i64
+  %.pn55.pn.pn.pn269 = phi { ptr, i32 } [ %347, %.loopexit.split-lp204 ], [ %lpad.loopexit.split-lp213, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit212, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit200, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.split-lp204.loopexit.split-lp.loopexit ], [ %lpad.loopexit207, %.loopexit.split-lp204.loopexit ], [ %lpad.loopexit205, %.loopexit203 ], [ %341, %340 ]
+  %.sroa.15.1260268 = phi ptr [ %.sroa.15.1259, %.loopexit.split-lp204 ], [ %103, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %103, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %103, %.loopexit.split-lp.loopexit ], [ %103, %.loopexit ], [ %103, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp ], [ %103, %.loopexit.split-lp204.loopexit.split-lp.loopexit ], [ %103, %.loopexit.split-lp204.loopexit ], [ %103, %.loopexit203 ], [ %103, %340 ]
+  %.sroa.0184.1262267 = phi ptr [ %.sroa.0184.1261, %.loopexit.split-lp204 ], [ %99, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %99, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %99, %.loopexit.split-lp.loopexit ], [ %99, %.loopexit ], [ %99, %.loopexit.split-lp204.loopexit.split-lp.loopexit.split-lp ], [ %99, %.loopexit.split-lp204.loopexit.split-lp.loopexit ], [ %99, %.loopexit.split-lp204.loopexit ], [ %99, %.loopexit203 ], [ %99, %340 ]
+  %348 = ptrtoint ptr %.sroa.15.1260268 to i64
+  %349 = ptrtoint ptr %.sroa.0184.1262267 to i64
   %350 = sub i64 %348, %349
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0184.1261266, i64 noundef %350) #39
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0184.1262267, i64 noundef %350) #39
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit180
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit180: ; preds = %94, %.loopexit.split-lp204.thread, %.loopexit.split-lp204, %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn254, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.pn60.pn, %57 ], [ %347, %.loopexit.split-lp204 ], [ %.pn55.pn.pn.pn268, %.loopexit.split-lp204.thread ], [ %.pn55.pn.pn, %94 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.pn60.pn, %57 ], [ %347, %.loopexit.split-lp204 ], [ %.pn55.pn.pn.pn269, %.loopexit.split-lp204.thread ], [ %.pn55.pn.pn, %94 ]
   resume { ptr, i32 } %.pn60.pn.pn.pn
 
 351:                                              ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit107, %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit

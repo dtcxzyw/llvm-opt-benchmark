@@ -607,21 +607,18 @@ _ZNK6vectorI7svectorIN3sat10xor_finder13clause_filterEjELb1EjE8capacityEv.exit.t
   %53 = zext i32 %.ph to i64
   %54 = zext i32 %.0.i16.i.ph to i64
   %55 = getelementptr %class.svector.55, ptr %46, i64 %54
-  %56 = shl nuw nsw i64 %53, 3
-  %57 = add nsw i64 %56, -8
-  %58 = shl nuw nsw i64 %54, 3
-  %59 = sub nsw i64 %57, %58
-  %60 = add nsw i64 %59, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %60, i1 false), !tbaa !42
+  %56 = sub nsw i64 %53, %54
+  %57 = shl nsw i64 %56, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %57, i1 false), !tbaa !42
   br label %_ZN6vectorI7svectorIN3sat10xor_finder13clause_filterEjELb1EjE6resizeEj.exit
 
 _ZN6vectorI7svectorIN3sat10xor_finder13clause_filterEjELb1EjE6resizeEj.exit: ; preds = %_ZN6vectorI7svectorIN3sat10xor_finder13clause_filterEjELb1EjE5resetEv.exit.thread, %.lr.ph.preheader.i, %_ZNK6vectorI7svectorIN3sat10xor_finder13clause_filterEjELb1EjE4sizeEv.exit.i, %._crit_edge.i.i, %51
-  %61 = load ptr, ptr %0, align 8, !tbaa !28
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 3224
-  tail call void @_ZN3sat10xor_finder18init_clause_filterER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(8) %62)
-  %63 = load ptr, ptr %0, align 8, !tbaa !28
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 3232
-  tail call void @_ZN3sat10xor_finder18init_clause_filterER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(8) %64)
+  %58 = load ptr, ptr %0, align 8, !tbaa !28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 3224
+  tail call void @_ZN3sat10xor_finder18init_clause_filterER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(8) %59)
+  %60 = load ptr, ptr %0, align 8, !tbaa !28
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 3232
+  tail call void @_ZN3sat10xor_finder18init_clause_filterER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(8) %61)
   ret void
 }
 

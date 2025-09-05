@@ -7720,7 +7720,7 @@ define internal fastcc void @"_ZZN4llvm13LiveIntervals24checkRegMaskInterference
   %3 = load ptr, ptr %0, align 8, !tbaa !646
   %4 = load i8, ptr %3, align 1, !tbaa !264, !range !265, !noundef !266
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %44, label %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
+  br i1 %5, label %43, label %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
 
 _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7761,111 +7761,111 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %25 = phi i32 [ 0, %20 ], [ %.pre.i.i.i, %23 ]
   %26 = load ptr, ptr %9, align 8, !tbaa !62
   %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.pre-phi.i.i
-  %28 = shl nuw nsw i64 %18, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 -1, i64 %28, i1 false), !tbaa !105
-  %29 = add i32 %25, %17
-  store i32 %29, ptr %11, align 8, !tbaa !63
-  %30 = zext i32 %29 to i64
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %18, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 -1, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !105
+  %28 = add i32 %25, %17
+  store i32 %28, ptr %11, align 8, !tbaa !63
+  %29 = zext i32 %28 to i64
   br label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
 
 _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
-  %31 = phi i64 [ 0, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %30, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
-  %32 = phi i32 [ %15, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.pre4.pre.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
-  %33 = and i32 %32, 63
-  %.not.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm9BitVector6resizeEjb.exit, label %34
+  %30 = phi i64 [ 0, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %29, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
+  %31 = phi i32 [ %15, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.pre4.pre.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
+  %32 = and i32 %31, 63
+  %.not.i.i.i = icmp eq i32 %32, 0
+  br i1 %.not.i.i.i, label %_ZN4llvm9BitVector6resizeEjb.exit, label %33
 
-34:                                               ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
-  %35 = zext nneg i32 %33 to i64
-  %36 = shl nsw i64 -1, %35
-  %37 = xor i64 %36, -1
-  %38 = load ptr, ptr %9, align 8, !tbaa !62
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %31
-  %40 = getelementptr inbounds i8, ptr %39, i64 -8
-  %41 = load i64, ptr %40, align 8, !tbaa !105
-  %42 = and i64 %41, %37
-  store i64 %42, ptr %40, align 8, !tbaa !105
+33:                                               ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
+  %34 = zext nneg i32 %32 to i64
+  %35 = shl nsw i64 -1, %34
+  %36 = xor i64 %35, -1
+  %37 = load ptr, ptr %9, align 8, !tbaa !62
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %30
+  %39 = getelementptr inbounds i8, ptr %38, i64 -8
+  %40 = load i64, ptr %39, align 8, !tbaa !105
+  %41 = and i64 %40, %36
+  store i64 %41, ptr %39, align 8, !tbaa !105
   br label %_ZN4llvm9BitVector6resizeEjb.exit
 
-_ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, %34
-  %43 = load ptr, ptr %0, align 8, !tbaa !646
-  store i8 1, ptr %43, align 1, !tbaa !264
-  br label %44
+_ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, %33
+  %42 = load ptr, ptr %0, align 8, !tbaa !646
+  store i8 1, ptr %42, align 1, !tbaa !264
+  br label %43
 
-44:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit, %2
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !647
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !650
-  %49 = zext i32 %1 to i64
-  %50 = load ptr, ptr %48, align 8, !tbaa !651
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
-  %52 = load ptr, ptr %51, align 8, !tbaa !653
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %54 = load i32, ptr %53, align 8, !tbaa !649
-  %55 = add i32 %54, 31
-  %56 = lshr i32 %55, 5
-  %57 = icmp ugt i32 %55, 63
-  br i1 %57, label %.lr.ph.i.i, label %.preheader.i.i
+43:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit, %2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !647
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !650
+  %48 = zext i32 %1 to i64
+  %49 = load ptr, ptr %47, align 8, !tbaa !651
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %51 = load ptr, ptr %50, align 8, !tbaa !653
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %53 = load i32, ptr %52, align 8, !tbaa !649
+  %54 = add i32 %53, 31
+  %55 = lshr i32 %54, 5
+  %56 = icmp ugt i32 %54, 63
+  br i1 %56, label %.lr.ph.i.i, label %.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %44
-  %58 = load ptr, ptr %46, align 8, !tbaa !62
-  %59 = add nsw i32 %56, -2
-  %60 = lshr i32 %59, 1
-  %61 = add nuw nsw i32 %60, 1
-  %wide.trip.count.i.i = zext nneg i32 %61 to i64
-  br label %69
+.lr.ph.i.i:                                       ; preds = %43
+  %57 = load ptr, ptr %45, align 8, !tbaa !62
+  %58 = add nsw i32 %55, -2
+  %59 = lshr i32 %58, 1
+  %60 = add nuw nsw i32 %59, 1
+  %wide.trip.count.i.i = zext nneg i32 %60 to i64
+  br label %68
 
-.preheader.i.loopexit.i:                          ; preds = %72
-  %62 = and i32 %56, 1
+.preheader.i.loopexit.i:                          ; preds = %71
+  %61 = and i32 %55, 1
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.loopexit.i, %44
-  %.029.lcssa.i.i = phi i32 [ %56, %44 ], [ %62, %.preheader.i.loopexit.i ]
-  %.018.lcssa.i.i = phi i64 [ 0, %44 ], [ %wide.trip.count.i.i, %.preheader.i.loopexit.i ]
-  %.0.lcssa.i.i = phi ptr [ %52, %44 ], [ %scevgep.i.i, %.preheader.i.loopexit.i ]
+.preheader.i.i:                                   ; preds = %.preheader.i.loopexit.i, %43
+  %.029.lcssa.i.i = phi i32 [ %55, %43 ], [ %61, %.preheader.i.loopexit.i ]
+  %.018.lcssa.i.i = phi i64 [ 0, %43 ], [ %wide.trip.count.i.i, %.preheader.i.loopexit.i ]
+  %.0.lcssa.i.i = phi ptr [ %51, %43 ], [ %scevgep.i.i, %.preheader.i.loopexit.i ]
   %.not39.i.i = icmp eq i32 %.029.lcssa.i.i, 0
   br i1 %.not39.i.i, label %_ZN4llvm9BitVector18clearBitsNotInMaskEPKjj.exit, label %.lr.ph43.i.i
 
 .lr.ph43.i.i:                                     ; preds = %.preheader.i.i
-  %63 = load ptr, ptr %46, align 8, !tbaa !62
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %.018.lcssa.i.i
-  %.promoted.i.i = load i64, ptr %64, align 8, !tbaa !105
-  %65 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !316
-  %66 = zext i32 %65 to i64
-  %67 = or disjoint i64 %66, -4294967296
-  %68 = and i64 %.promoted.i.i, %67
-  store i64 %68, ptr %64, align 8, !tbaa !105
+  %62 = load ptr, ptr %45, align 8, !tbaa !62
+  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %.018.lcssa.i.i
+  %.promoted.i.i = load i64, ptr %63, align 8, !tbaa !105
+  %64 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !316
+  %65 = zext i32 %64 to i64
+  %66 = or disjoint i64 %65, -4294967296
+  %67 = and i64 %.promoted.i.i, %66
+  store i64 %67, ptr %63, align 8, !tbaa !105
   br label %_ZN4llvm9BitVector18clearBitsNotInMaskEPKjj.exit
 
-69:                                               ; preds = %72, %.lr.ph.i.i
-  %indvars.iv49.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next50.i.i, %72 ]
-  %.036.i.i = phi ptr [ %52, %.lr.ph.i.i ], [ %scevgep.i.i, %72 ]
-  %70 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv49.i.i
-  %71 = load i64, ptr %70, align 8, !tbaa !105
-  br label %73
+68:                                               ; preds = %71, %.lr.ph.i.i
+  %indvars.iv49.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next50.i.i, %71 ]
+  %.036.i.i = phi ptr [ %51, %.lr.ph.i.i ], [ %scevgep.i.i, %71 ]
+  %69 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv49.i.i
+  %70 = load i64, ptr %69, align 8, !tbaa !105
+  br label %72
 
-72:                                               ; preds = %73
+71:                                               ; preds = %72
   %scevgep.i.i = getelementptr i8, ptr %.036.i.i, i64 8
-  store i64 %80, ptr %70, align 8, !tbaa !105
+  store i64 %79, ptr %69, align 8, !tbaa !105
   %indvars.iv.next50.i.i = add nuw nsw i64 %indvars.iv49.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next50.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.loopexit.i, label %69, !llvm.loop !654
+  br i1 %exitcond.not.i.i, label %.preheader.i.loopexit.i, label %68, !llvm.loop !654
 
-73:                                               ; preds = %73, %69
-  %indvars.iv.i.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i, %73 ]
-  %.133.i.i = phi ptr [ %.036.i.i, %69 ], [ %74, %73 ]
-  %.02031.i.i = phi i64 [ %71, %69 ], [ %80, %73 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.133.i.i, i64 4
-  %75 = load i32, ptr %.133.i.i, align 4, !tbaa !316
-  %76 = xor i32 %75, -1
-  %77 = zext i32 %76 to i64
-  %78 = shl i64 %77, %indvars.iv.i.i
-  %79 = xor i64 %78, -1
-  %80 = and i64 %.02031.i.i, %79
+72:                                               ; preds = %72, %68
+  %indvars.iv.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i, %72 ]
+  %.133.i.i = phi ptr [ %.036.i.i, %68 ], [ %73, %72 ]
+  %.02031.i.i = phi i64 [ %70, %68 ], [ %79, %72 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.133.i.i, i64 4
+  %74 = load i32, ptr %.133.i.i, align 4, !tbaa !316
+  %75 = xor i32 %74, -1
+  %76 = zext i32 %75 to i64
+  %77 = shl i64 %76, %indvars.iv.i.i
+  %78 = xor i64 %77, -1
+  %79 = and i64 %.02031.i.i, %78
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 32
   %.not21.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %.not21.i.i, label %72, label %73, !llvm.loop !655
+  br i1 %.not21.i.i, label %71, label %72, !llvm.loop !655
 
 _ZN4llvm9BitVector18clearBitsNotInMaskEPKjj.exit: ; preds = %.preheader.i.i, %.lr.ph43.i.i
   ret void

@@ -3444,7 +3444,7 @@ define hidden noundef zeroext i1 @_ZN3sls10euf_plugin6is_satEv(ptr noundef nonnu
   %13 = load i32, ptr %12, align 8, !tbaa !12
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 4
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -4703,7 +4703,7 @@ define hidden noundef zeroext i1 @_ZN3sls10euf_plugin9propagateEv(ptr noundef no
   %20 = load i32, ptr %19, align 8, !tbaa !12
   %21 = zext i32 %20 to i64
   %.idx.i.i = shl nuw nsw i64 %21, 4
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
+  %22 = getelementptr i8, ptr %18, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6277,7 +6277,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sls10euf_plug
   %11 = load i32, ptr %10, align 8, !tbaa !12
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

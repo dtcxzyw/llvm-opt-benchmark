@@ -3917,7 +3917,7 @@ define dso_local void @_ZNK5clang8consumed16ConsumedStateMap29checkParamsForRetu
 
 16:                                               ; preds = %3
   %.idx.i = shl nuw nsw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %12, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -4469,7 +4469,7 @@ define dso_local void @_ZN5clang8consumed16ConsumedStateMap9intersectERKS1_(ptr 
 
 22:                                               ; preds = %11
   %.idx.i = shl nuw nsw i64 %19, 4
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %23 = getelementptr i8, ptr %16, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %18, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -5329,7 +5329,7 @@ _ZL14getLastStmtLocPKN5clang8CFGBlockE.exit:      ; preds = %_ZL15getFirstStmtLo
 
 86:                                               ; preds = %_ZL14getLastStmtLocPKN5clang8CFGBlockE.exit
   %.idx.i = shl nuw nsw i64 %83, 4
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i
+  %87 = getelementptr i8, ptr %80, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %82, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -5676,7 +5676,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8consumed16ConsumedStateMapneEPKS
 
 13:                                               ; preds = %2
   %.idx.i = shl nuw nsw i64 %10, 4
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %14 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %9, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

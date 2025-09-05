@@ -18437,8 +18437,8 @@ define hidden void @"_ZN4rkyv5impls5alloc3vec174_$LT$impl$u20$rkyv..traits..Dese
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %8, i64 noundef 8) #58
   %11 = getelementptr inbounds i8, ptr %1, i64 %7
-  %12 = shl nuw nsw i64 %6, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr nonnull readonly align 8 %11, i64 %12, i1 false)
+  %.idx.i = shl nuw nsw i64 %6, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr nonnull readonly align 8 %11, i64 %.idx.i, i1 false)
   br label %"_ZN4rkyv5impls4core97_$LT$impl$u20$rkyv..traits..DeserializeUnsized$LT$$u5b$U$u5d$$C$D$GT$$u20$for$u20$$u5b$T$u5d$$GT$19deserialize_unsized17hae4d3671de3eb71eE.exit"
 
 "_ZN4rkyv5impls4core97_$LT$impl$u20$rkyv..traits..DeserializeUnsized$LT$$u5b$U$u5d$$C$D$GT$$u20$for$u20$$u5b$T$u5d$$GT$19deserialize_unsized17hae4d3671de3eb71eE.exit": ; preds = %3, %.lr.ph.preheader.i

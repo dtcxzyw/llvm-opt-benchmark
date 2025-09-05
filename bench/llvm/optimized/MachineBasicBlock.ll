@@ -13467,7 +13467,7 @@ define dso_local void @_ZNK4llvm17MachineBasicBlock13liveout_beginEv(ptr dead_on
   %34 = load i32, ptr %33, align 8, !tbaa !26
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i
+  %36 = getelementptr i8, ptr %31, i64 %.idx.i
   store ptr %36, ptr %32, align 8, !tbaa !756
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %37, align 8, !tbaa !757

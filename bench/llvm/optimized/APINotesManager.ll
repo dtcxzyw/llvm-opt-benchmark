@@ -191,7 +191,7 @@ define dso_local void @_ZN5clang9api_notes15APINotesManagerD2Ev(ptr noundef nonn
 
 12:                                               ; preds = %1
   %.idx.i = shl nuw nsw i64 %9, 4
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  %13 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %8, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS_12PointerUnionIJNS2_17DirectoryEntryRefEPNS2_9api_notes14APINotesReaderEEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

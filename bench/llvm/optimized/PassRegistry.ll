@@ -470,7 +470,7 @@ _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %3
 
 16:                                               ; preds = %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit
   %.idx.i = shl nuw nsw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %12, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

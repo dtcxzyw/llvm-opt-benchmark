@@ -1508,7 +1508,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   %78 = load i32, ptr %77, align 8, !tbaa !120
   %79 = zext i32 %78 to i64
   %.idx.i = shl nuw nsw i64 %79, 3
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
+  %80 = getelementptr i8, ptr %76, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %78, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -1575,7 +1575,7 @@ _ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8itera
   %101 = load i32, ptr %100, align 8, !tbaa !120
   %102 = zext i32 %101 to i64
   %.idx.i98 = shl nuw nsw i64 %102, 3
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i98
+  %103 = getelementptr i8, ptr %99, i64 %.idx.i98
   %.not1.i.i.i99 = icmp eq i32 %101, 0
   br i1 %.not1.i.i.i99, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit107, label %.lr.ph.i.i.i100
 
@@ -1678,7 +1678,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %124, %126, %133
   %143 = load i32, ptr %142, align 8, !tbaa !120
   %144 = zext i32 %143 to i64
   %.idx.i115 = shl nuw nsw i64 %144, 3
-  %145 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx.i115
+  %145 = getelementptr i8, ptr %141, i64 %.idx.i115
   %.not1.i.i.i116 = icmp eq i32 %143, 0
   br i1 %.not1.i.i.i116, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit124, label %.lr.ph.i.i.i117
 
@@ -1741,7 +1741,7 @@ _ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8itera
   %166 = load i32, ptr %165, align 8, !tbaa !120
   %167 = zext i32 %166 to i64
   %.idx.i132 = shl nuw nsw i64 %167, 3
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i132
+  %168 = getelementptr i8, ptr %164, i64 %.idx.i132
   %.not1.i.i.i133 = icmp eq i32 %166, 0
   br i1 %.not1.i.i.i133, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit141, label %.lr.ph.i.i.i134
 

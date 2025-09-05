@@ -4842,7 +4842,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_8ConstantEE6insertES2_.exit: ; preds = %.lr.ph.i.i
   %.v.v.i4.i2.i = select i1 %1190, i32 %1191, i32 %1192
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %1193 = getelementptr inbounds nuw i8, ptr %1188, i64 %.idx.i
+  %1193 = getelementptr i8, ptr %1188, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_8ConstantEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -25158,148 +25158,146 @@ _ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit: ; preds = %2, %
   %29 = getelementptr i8, ptr %26, i64 8
   %30 = add nsw i64 %22, -1
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %34, label %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %31, label %33, label %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %24
-  %32 = add nsw i64 %25, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %32, i1 false), !tbaa !348
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 3
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i.i
-  br label %34
+  tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !348
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i.i
+  br label %33
 
-34:                                               ; preds = %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %24
-  %.0.i.i.i.i.i.ph.i = phi ptr [ %33, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %29, %24 ]
+33:                                               ; preds = %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %24
+  %.0.i.i.i.i.i.ph.i = phi ptr [ %32, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %29, %24 ]
   store ptr %.0.i.i.i.i.i.ph.i, ptr %23, align 8, !tbaa !579
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #24
-  store ptr %36, ptr %5, align 8, !tbaa !577
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %22
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %37, ptr %38, align 8, !tbaa !578
-  store ptr null, ptr %36, align 8, !tbaa !348
-  %39 = getelementptr i8, ptr %36, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #24
+  store ptr %35, ptr %5, align 8, !tbaa !577
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %22
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %36, ptr %37, align 8, !tbaa !578
+  store ptr null, ptr %35, align 8, !tbaa !348
+  %38 = getelementptr i8, ptr %35, i64 8
   br i1 %31, label %.lr.ph.i, label %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i
 
-_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i: ; preds = %34
-  %40 = add nsw i64 %25, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 %40, i1 false), !tbaa !348
+_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i: ; preds = %33
   %.idx.i.i.i.i.i.i.i18.i = shl nuw nsw i64 %30, 3
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i.i.i.i.i18.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i18.i, i1 false), !tbaa !348
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i18.i
   br label %.lr.ph.i
 
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit.thread.i: ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %43 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction14combineOriginsERKSt6vectorIPN4llvm5ValueESaIS4_EES8_NS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ENS2_10BasicBlockEEELb0ELb0EEEPNS2_11ConstantIntE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %42, i64 0, ptr noundef null)
+  %41 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction14combineOriginsERKSt6vectorIPN4llvm5ValueESaIS4_EES8_NS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ENS2_10BasicBlockEEELb0ELb0EEEPNS2_11ConstantIntE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %40, i64 0, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit
 
-.lr.ph.i:                                         ; preds = %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i, %34
-  %.0.i.i.i.i.i19.ph.i = phi ptr [ %41, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i ], [ %39, %34 ]
-  store ptr %.0.i.i.i.i.i19.ph.i, ptr %35, align 8, !tbaa !579
-  %44 = getelementptr inbounds i8, ptr %1, i64 -8
-  br label %48
+.lr.ph.i:                                         ; preds = %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i, %33
+  %.0.i.i.i.i.i19.ph.i = phi ptr [ %39, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i17.i ], [ %38, %33 ]
+  store ptr %.0.i.i.i.i.i19.ph.i, ptr %34, align 8, !tbaa !579
+  %42 = getelementptr inbounds i8, ptr %1, i64 -8
+  br label %46
 
-45:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit25.i
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction14combineOriginsERKSt6vectorIPN4llvm5ValueESaIS4_EES8_NS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ENS2_10BasicBlockEEELb0ELb0EEEPNS2_11ConstantIntE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %46, i64 0, ptr noundef null)
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %25) #22
+43:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit25.i
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %45 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction14combineOriginsERKSt6vectorIPN4llvm5ValueESaIS4_EES8_NS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ENS2_10BasicBlockEEELb0ELb0EEEPNS2_11ConstantIntE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %44, i64 0, ptr noundef null)
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %25) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %25) #22
   br label %_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit
 
-48:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit25.i, %.lr.ph.i
+46:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit25.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK4llvm4User10getOperandEj.exit25.i ]
-  %49 = load i32, ptr %19, align 4
-  %50 = and i32 %49, 1073741824
-  %.not.i.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i.i, label %53, label %51
+  %47 = load i32, ptr %19, align 4
+  %48 = and i32 %47, 1073741824
+  %.not.i.i.i = icmp eq i32 %48, 0
+  br i1 %.not.i.i.i, label %51, label %49
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %44, align 8, !tbaa !107
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %42, align 8, !tbaa !107
   br label %_ZNK4llvm4User10getOperandEj.exit.i
 
-53:                                               ; preds = %48
-  %54 = and i32 %49, 134217727
-  %55 = zext nneg i32 %54 to i64
-  %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %56
+51:                                               ; preds = %46
+  %52 = and i32 %47, 134217727
+  %53 = zext nneg i32 %52 to i64
+  %54 = sub nsw i64 0, %53
+  %55 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %54
   br label %_ZNK4llvm4User10getOperandEj.exit.i
 
-_ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %53, %51
-  %58 = phi ptr [ %52, %51 ], [ %57, %53 ]
-  %59 = getelementptr inbounds nuw %"class.llvm::Use", ptr %58, i64 %indvars.iv.i
-  %60 = load ptr, ptr %59, align 8, !tbaa !102
-  %61 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction9getShadowEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef %60)
-  %62 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
-  store ptr %61, ptr %62, align 8, !tbaa !348
-  %63 = load i32, ptr %19, align 4
-  %64 = and i32 %63, 1073741824
-  %.not.i.i24.i = icmp eq i32 %64, 0
-  br i1 %.not.i.i24.i, label %67, label %65
+_ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %51, %49
+  %56 = phi ptr [ %50, %49 ], [ %55, %51 ]
+  %57 = getelementptr inbounds nuw %"class.llvm::Use", ptr %56, i64 %indvars.iv.i
+  %58 = load ptr, ptr %57, align 8, !tbaa !102
+  %59 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction9getShadowEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef %58)
+  %60 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  store ptr %59, ptr %60, align 8, !tbaa !348
+  %61 = load i32, ptr %19, align 4
+  %62 = and i32 %61, 1073741824
+  %.not.i.i24.i = icmp eq i32 %62, 0
+  br i1 %.not.i.i24.i, label %65, label %63
+
+63:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit.i
+  %64 = load ptr, ptr %42, align 8, !tbaa !107
+  br label %_ZNK4llvm4User10getOperandEj.exit25.i
 
 65:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit.i
-  %66 = load ptr, ptr %44, align 8, !tbaa !107
+  %66 = and i32 %61, 134217727
+  %67 = zext nneg i32 %66 to i64
+  %68 = sub nsw i64 0, %67
+  %69 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %68
   br label %_ZNK4llvm4User10getOperandEj.exit25.i
 
-67:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit.i
-  %68 = and i32 %63, 134217727
-  %69 = zext nneg i32 %68 to i64
-  %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %70
-  br label %_ZNK4llvm4User10getOperandEj.exit25.i
-
-_ZNK4llvm4User10getOperandEj.exit25.i:            ; preds = %67, %65
-  %72 = phi ptr [ %66, %65 ], [ %71, %67 ]
-  %73 = getelementptr inbounds nuw %"class.llvm::Use", ptr %72, i64 %indvars.iv.i
-  %74 = load ptr, ptr %73, align 8, !tbaa !102
-  %75 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction9getOriginEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef %74)
-  %76 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
-  store ptr %75, ptr %76, align 8, !tbaa !348
+_ZNK4llvm4User10getOperandEj.exit25.i:            ; preds = %65, %63
+  %70 = phi ptr [ %64, %63 ], [ %69, %65 ]
+  %71 = getelementptr inbounds nuw %"class.llvm::Use", ptr %70, i64 %indvars.iv.i
+  %72 = load ptr, ptr %71, align 8, !tbaa !102
+  %73 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DFSanFunction9getOriginEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef %72)
+  %74 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  store ptr %73, ptr %74, align 8, !tbaa !348
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i4 = icmp eq i64 %indvars.iv.next.i, %22
-  br i1 %.not.i4, label %45, label %48, !llvm.loop !855
+  br i1 %.not.i4, label %43, label %46, !llvm.loop !855
 
-_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit: ; preds = %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit.thread.i, %45
-  %77 = phi ptr [ %43, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit.thread.i ], [ %47, %45 ]
+_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit: ; preds = %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit.thread.i, %43
+  %75 = phi ptr [ %41, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit.thread.i ], [ %45, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %78 = load ptr, ptr %0, align 8, !tbaa !803
-  %79 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins acquire, align 8
-  %80 = icmp eq i8 %79, 0
-  br i1 %80, label %81, label %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i, !prof !447
+  %76 = load ptr, ptr %0, align 8, !tbaa !803
+  %77 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins acquire, align 8
+  %78 = icmp eq i8 %77, 0
+  br i1 %78, label %79, label %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i, !prof !447
 
-81:                                               ; preds = %_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit
-  %82 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins) #21
-  %.not.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i, label %83
+79:                                               ; preds = %_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit
+  %80 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins) #21
+  %.not.i.i = icmp eq i32 %80, 0
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i, label %81
 
-83:                                               ; preds = %81
-  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ClTrackOrigins, i64 120), align 8, !tbaa !80
-  %85 = icmp ne i32 %84, 0
-  %86 = zext i1 %85 to i8
-  store i8 %86, ptr @_ZZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins, align 1, !tbaa !51
-  %87 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins)
+81:                                               ; preds = %79
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ClTrackOrigins, i64 120), align 8, !tbaa !80
+  %83 = icmp ne i32 %82, 0
+  %84 = zext i1 %83 to i8
+  store i8 %84, ptr @_ZZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins, align 1, !tbaa !51
+  %85 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins) #21
   br label %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i
 
-_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i: ; preds = %83, %81, %_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit
-  %88 = load i8, ptr @_ZZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins, align 1, !tbaa !51, !range !52, !noundef !53
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %90, label %_ZN12_GLOBAL__N_113DFSanFunction9setOriginEPN4llvm11InstructionEPNS1_5ValueE.exit
+_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i: ; preds = %81, %79, %_ZN12_GLOBAL__N_113DFSanFunction21combineOperandOriginsEPN4llvm11InstructionE.exit
+  %86 = load i8, ptr @_ZZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEvE18ShouldTrackOrigins, align 1, !tbaa !51, !range !52, !noundef !53
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %_ZN12_GLOBAL__N_113DFSanFunction9setOriginEPN4llvm11InstructionEPNS1_5ValueE.exit
 
-90:                                               ; preds = %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i
-  %91 = getelementptr inbounds nuw i8, ptr %78, i64 200
+88:                                               ; preds = %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i
+  %89 = getelementptr inbounds nuw i8, ptr %76, i64 200
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !348
-  %92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr %77, ptr %92, align 8, !tbaa !348
+  %90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %75, ptr %90, align 8, !tbaa !348
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_113DFSanFunction9setOriginEPN4llvm11InstructionEPNS1_5ValueE.exit
 
-_ZN12_GLOBAL__N_113DFSanFunction9setOriginEPN4llvm11InstructionEPNS1_5ValueE.exit: ; preds = %90, %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i, %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit
+_ZN12_GLOBAL__N_113DFSanFunction9setOriginEPN4llvm11InstructionEPNS1_5ValueE.exit: ; preds = %88, %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit.i, %_ZN12_GLOBAL__N_117DataFlowSanitizer18shouldTrackOriginsEv.exit
   ret void
 }
 

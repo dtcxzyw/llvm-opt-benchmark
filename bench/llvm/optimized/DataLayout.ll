@@ -1272,7 +1272,7 @@ define dso_local noundef nonnull align 8 dereferenceable(496) ptr @_ZN4llvm10Dat
 
 16:                                               ; preds = %6
   %.idx.i.i = shl nuw nsw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %12, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -4739,7 +4739,7 @@ define dso_local void @_ZN4llvm10DataLayoutD2Ev(ptr noundef nonnull readonly ali
 
 15:                                               ; preds = %5
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %11, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 

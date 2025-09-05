@@ -10607,9 +10607,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.preheader, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
-  %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.preheader
 
@@ -10618,13 +10617,13 @@ for.body.i.preheader:                             ; preds = %if.then.i.i.i.i.i, 
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i.i.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   %rawOffsets_ = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %3 = load ptr, ptr %rawOffsets_, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %3, i64 %idxprom
-  %4 = load i32, ptr %arrayidx6, align 4
+  %2 = load ptr, ptr %rawOffsets_, align 8
+  %arrayidx6 = getelementptr inbounds i32, ptr %2, i64 %idxprom
+  %3 = load i32, ptr %arrayidx6, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %__value.addr.06.i = phi i32 [ %inc.i, %for.body.i ], [ %4, %for.body.i.preheader ]
+  %__value.addr.06.i = phi i32 [ %inc.i, %for.body.i ], [ %3, %for.body.i.preheader ]
   %__first.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %call5.i.i.i.i2.i.i3, %for.body.i.preheader ]
   store i32 %__value.addr.06.i, ptr %__first.sroa.0.05.i, align 4
   %inc.i = add nsw i32 %__value.addr.06.i, 1
@@ -10634,35 +10633,35 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont.thread
   %sortedKeys_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %5 = load i8, ptr %sortedKeys_, align 8
-  %tobool = trunc i8 %5 to i1
+  %4 = load i8, ptr %sortedKeys_, align 8
+  %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %nrvo.skipdtor, label %if.then
 
 if.then:                                          ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
   %keys_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %6 = load ptr, ptr %keys_, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %keys_, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
-  %7 = load ptr, ptr %vfn, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(99) %6, ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 257)
+  %6 = load ptr, ptr %vfn, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(99) %5, ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 257)
           to label %nrvo.skipdtor unwind label %lpad9
 
 lpad9:                                            ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad9
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #27
   br label %eh.resume
 
 nrvo.skipdtor:                                    ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad9
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable

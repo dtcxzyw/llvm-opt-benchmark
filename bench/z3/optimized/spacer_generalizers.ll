@@ -3050,7 +3050,7 @@ _Z18for_each_expr_coreIN6spacer12_GLOBAL__N_118collect_array_procE8obj_markI4exp
   %343 = load i32, ptr %26, align 8, !tbaa !230
   %344 = zext i32 %343 to i64
   %.idx.i = shl nuw nsw i64 %344, 3
-  %345 = getelementptr inbounds nuw i8, ptr %.pre348, i64 %.idx.i
+  %345 = getelementptr i8, ptr %.pre348, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %343, 0
   br i1 %.not1.i.i.i, label %.loopexit214, label %.lr.ph.i.i.i
 

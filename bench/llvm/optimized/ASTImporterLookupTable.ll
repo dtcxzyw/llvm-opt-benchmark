@@ -2458,7 +2458,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %45, %43, %_ZNK4llvm
   %67 = select i1 %.not.i.i2.i, i32 %66, i32 4
   %68 = zext i32 %67 to i64
   %.idx.i = shl nuw nsw i64 %68, 6
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i
+  %69 = getelementptr i8, ptr %64, i64 %.idx.i
   %.not8.i5.i10.i4.i = icmp eq i32 %67, 0
   br i1 %.not8.i5.i10.i4.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS_14SmallSetVectorIPNS2_9NamedDeclELj2EEELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -2477,7 +2477,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS_14SmallSe
   %.pre-phi = phi i32 [ %49, %51 ], [ %61, %60 ], [ %61, %.critedge2.i9.i15.i12.i ], [ %61, %.lr.ph.i6.i12.i5.i ]
   %71 = phi i32 [ %56, %51 ], [ %66, %60 ], [ %66, %.critedge2.i9.i15.i12.i ], [ %66, %.lr.ph.i6.i12.i5.i ]
   %72 = phi ptr [ %53, %51 ], [ %63, %60 ], [ %63, %.critedge2.i9.i15.i12.i ], [ %63, %.lr.ph.i6.i12.i5.i ]
-  %.pn17.i = phi ptr [ %59, %51 ], [ %64, %60 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %70, %.critedge2.i9.i15.i12.i ]
+  %.pn17.i = phi ptr [ %59, %51 ], [ %64, %60 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %69, %.critedge2.i9.i15.i12.i ]
   %.pn15.i = phi ptr [ %59, %51 ], [ %69, %60 ], [ %69, %.critedge2.i9.i15.i12.i ], [ %69, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16

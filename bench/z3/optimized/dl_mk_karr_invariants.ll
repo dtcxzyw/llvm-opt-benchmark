@@ -1654,7 +1654,7 @@ define hidden void @_ZN7datalog18mk_karr_invariants14get_invariantsERKNS_8rule_s
   %14 = load i32, ptr %13, align 8, !tbaa !280
   %15 = zext i32 %14 to i64
   %.idx.i = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
+  %16 = getelementptr i8, ptr %12, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %14, 0
   br i1 %.not1.i.i.i, label %.loopexit84, label %.lr.ph.i.i.i
 
@@ -1735,7 +1735,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %41 = load i32, ptr %40, align 8, !tbaa !286
   %42 = zext i32 %41 to i64
   %.idx.i.i.i = shl nuw nsw i64 %42, 4
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i
+  %43 = getelementptr i8, ptr %39, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit83, label %.lr.ph.i.i.i.i.i
 
@@ -1841,7 +1841,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %._crit_edge94, %71
   %77 = load i32, ptr %40, align 8, !tbaa !286
   %78 = zext i32 %77 to i64
   %.idx.i.i.i36 = shl nuw nsw i64 %78, 4
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i.i36
+  %79 = getelementptr i8, ptr %76, i64 %.idx.i.i.i36
   %.not1.i.i.i.i.i37 = icmp eq i32 %77, 0
   br i1 %.not1.i.i.i.i.i37, label %.loopexit81, label %.lr.ph.i.i.i.i.i38
 
@@ -2238,7 +2238,7 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %2
   %40 = load i32, ptr %39, align 8, !tbaa !286
   %41 = zext i32 %40 to i64
   %.idx.i.i.i = shl nuw nsw i64 %41, 4
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i
+  %42 = getelementptr i8, ptr %38, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit48, label %.lr.ph.i.i.i.i.i
 

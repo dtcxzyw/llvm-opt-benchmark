@@ -4398,7 +4398,7 @@ define void @_ZNK10open_spiel3nim8NimState17ObservationTensorEiN4absl7debian24Sp
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
 22:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
@@ -4420,132 +4420,132 @@ define void @_ZNK10open_spiel3nim8NimState17ObservationTensorEiN4absl7debian24Sp
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
 30:                                               ; preds = %22
   %.not5.i.i.i = icmp eq i64 %3, 0
   br i1 %.not5.i.i.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %30
-  %31 = shl i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %31, i1 false)
+  %.idx = shl i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx, i1 false)
   br label %_ZSt4fillIPfiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = icmp ugt i64 %3, %34
-  br i1 %35, label %_ZNK4absl7debian24SpanIfEixEm.exit, label %36
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %32 = load i32, ptr %31, align 8
+  %33 = sext i32 %32 to i64
+  %34 = icmp ugt i64 %3, %33
+  br i1 %34, label %_ZNK4absl7debian24SpanIfEixEm.exit, label %35
 
-36:                                               ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit
+35:                                               ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit
   tail call void @llvm.trap()
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit
-  %37 = getelementptr inbounds float, ptr %2, i64 %34
-  store float 1.000000e+00, ptr %37, align 4
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(108) %0)
-  %42 = icmp ugt i64 %3, 2
-  br i1 %42, label %_ZNK4absl7debian24SpanIfEixEm.exit19, label %43
+  %36 = getelementptr inbounds float, ptr %2, i64 %33
+  store float 1.000000e+00, ptr %36, align 4
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(108) %0)
+  %41 = icmp ugt i64 %3, 2
+  br i1 %41, label %_ZNK4absl7debian24SpanIfEixEm.exit19, label %42
 
-43:                                               ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit
+42:                                               ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit
   tail call void @llvm.trap()
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit19:             ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit
-  %44 = uitofp i1 %41 to float
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %44, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %47, 2
-  %49 = sext i32 %48 to i64
-  %50 = icmp ugt i64 %3, %49
-  br i1 %50, label %_ZNK4absl7debian24SpanIfEixEm.exit20, label %51
+  %43 = uitofp i1 %40 to float
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float %43, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %46 = load i32, ptr %45, align 4
+  %47 = add nsw i32 %46, 2
+  %48 = sext i32 %47 to i64
+  %49 = icmp ugt i64 %3, %48
+  br i1 %49, label %_ZNK4absl7debian24SpanIfEixEm.exit20, label %50
 
-51:                                               ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit19
+50:                                               ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit19
   tail call void @llvm.trap()
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit20:             ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit19
-  %52 = getelementptr inbounds float, ptr %2, i64 %49
-  store float 1.000000e+00, ptr %52, align 4
-  %53 = load i32, ptr %46, align 4
-  %54 = add nsw i32 %53, 3
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %55, align 8
-  %.not = icmp eq ptr %57, %58
+  %51 = getelementptr inbounds float, ptr %2, i64 %48
+  store float 1.000000e+00, ptr %51, align 4
+  %52 = load i32, ptr %45, align 4
+  %53 = add nsw i32 %52, 3
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %54, align 8
+  %.not = icmp eq ptr %56, %57
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit20
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  br label %60
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  br label %59
 
-60:                                               ; preds = %.lr.ph, %_ZNK4absl7debian24SpanIfEixEm.exit21
-  %61 = phi ptr [ %58, %.lr.ph ], [ %74, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
-  %.034 = phi i64 [ 0, %.lr.ph ], [ %72, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
-  %.01533 = phi i32 [ %54, %.lr.ph ], [ %71, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
-  %62 = getelementptr inbounds i32, ptr %61, i64 %.034
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, %.01533
-  %65 = sext i32 %64 to i64
-  %66 = icmp ugt i64 %3, %65
-  br i1 %66, label %_ZNK4absl7debian24SpanIfEixEm.exit21, label %67
+59:                                               ; preds = %.lr.ph, %_ZNK4absl7debian24SpanIfEixEm.exit21
+  %60 = phi ptr [ %57, %.lr.ph ], [ %73, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %71, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
+  %.01533 = phi i32 [ %53, %.lr.ph ], [ %70, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
+  %61 = getelementptr inbounds i32, ptr %60, i64 %.034
+  %62 = load i32, ptr %61, align 4
+  %63 = add nsw i32 %62, %.01533
+  %64 = sext i32 %63 to i64
+  %65 = icmp ugt i64 %3, %64
+  br i1 %65, label %_ZNK4absl7debian24SpanIfEixEm.exit21, label %66
 
-67:                                               ; preds = %60
+66:                                               ; preds = %59
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian24SpanIfEixEm.exit21:             ; preds = %60
-  %68 = getelementptr inbounds float, ptr %2, i64 %65
-  store float 1.000000e+00, ptr %68, align 4
-  %69 = load i32, ptr %59, align 8
-  %70 = add i32 %.01533, 1
-  %71 = add i32 %70, %69
-  %72 = add nuw i64 %.034, 1
-  %73 = load ptr, ptr %56, align 8
-  %74 = load ptr, ptr %55, align 8
+_ZNK4absl7debian24SpanIfEixEm.exit21:             ; preds = %59
+  %67 = getelementptr inbounds float, ptr %2, i64 %64
+  store float 1.000000e+00, ptr %67, align 4
+  %68 = load i32, ptr %58, align 8
+  %69 = add i32 %.01533, 1
+  %70 = add i32 %69, %68
+  %71 = add nuw i64 %.034, 1
+  %72 = load ptr, ptr %55, align 8
+  %73 = load ptr, ptr %54, align 8
+  %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = ashr exact i64 %77, 2
-  %79 = icmp ult i64 %72, %78
-  br i1 %79, label %60, label %._crit_edge, !llvm.loop !39
+  %76 = sub i64 %74, %75
+  %77 = ashr exact i64 %76, 2
+  %78 = icmp ult i64 %71, %77
+  br i1 %78, label %59, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZNK4absl7debian24SpanIfEixEm.exit21, %_ZNK4absl7debian24SpanIfEixEm.exit20
-  %.015.lcssa = phi i32 [ %54, %_ZNK4absl7debian24SpanIfEixEm.exit20 ], [ %71, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
+  %.015.lcssa = phi i32 [ %53, %_ZNK4absl7debian24SpanIfEixEm.exit20 ], [ %70, %_ZNK4absl7debian24SpanIfEixEm.exit21 ]
   store i32 %.015.lcssa, ptr %13, align 4
   store i64 %3, ptr %14, align 8
-  %80 = sext i32 %.015.lcssa to i64
-  %81 = icmp eq i64 %3, %80
-  br i1 %81, label %86, label %82
+  %79 = sext i32 %.015.lcssa to i64
+  %80 = icmp eq i64 %3, %79
+  br i1 %80, label %85, label %81
 
-82:                                               ; preds = %._crit_edge
+81:                                               ; preds = %._crit_edge
   store i32 217, ptr %16, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA126_KcRA2_S2_iS6_RA24_S2_RA8_S2_RA4_S2_RiRA19_S2_RmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 1 dereferenceable(126) @.str.7, ptr noundef nonnull align 1 dereferenceable(2) @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 1 dereferenceable(2) @.str.12, ptr noundef nonnull align 1 dereferenceable(24) @.str.31, ptr noundef nonnull align 1 dereferenceable(8) @.str.32, ptr noundef nonnull align 1 dereferenceable(4) @.str.15, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 1 dereferenceable(19) @.str.33, ptr noundef nonnull align 8 dereferenceable(8) %14)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
-          to label %83 unwind label %84
+          to label %82 unwind label %83
 
-83:                                               ; preds = %82
+82:                                               ; preds = %81
   unreachable
 
-84:                                               ; preds = %82
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %81
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-86:                                               ; preds = %._crit_edge
+85:                                               ; preds = %._crit_edge
   ret void
 
-87:                                               ; preds = %84, %28, %20
-  %.sink = phi ptr [ %15, %84 ], [ %11, %28 ], [ %7, %20 ]
-  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %29, %28 ], [ %21, %20 ]
+86:                                               ; preds = %83, %28, %20
+  %.sink = phi ptr [ %15, %83 ], [ %11, %28 ], [ %7, %20 ]
+  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %29, %28 ], [ %21, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27
   resume { ptr, i32 } %.pn
 }

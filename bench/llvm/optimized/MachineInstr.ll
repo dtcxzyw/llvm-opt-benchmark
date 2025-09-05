@@ -9147,7 +9147,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr6isDeadERKNS_19Machi
   %8 = load i24, ptr %7, align 8, !noalias !321
   %9 = zext i24 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 5
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %8, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -14664,7 +14664,7 @@ define dso_local void @_ZN4llvm12MachineInstr18clearRegisterDeadsENS_8RegisterE(
   %6 = load i24, ptr %5, align 8, !noalias !492
   %7 = zext i24 %6 to i64
   %.idx.i = shl nuw nsw i64 %7, 5
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %6, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -14731,7 +14731,7 @@ define dso_local void @_ZN4llvm12MachineInstr23setRegisterDefReadUndefENS_8Regis
   %7 = load i24, ptr %6, align 8, !noalias !499
   %8 = zext i24 %7 to i64
   %.idx.i = shl nuw nsw i64 %8, 5
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %7, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -14915,7 +14915,7 @@ _ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetReg
   %54 = load i24, ptr %53, align 8, !noalias !515
   %55 = zext i24 %54 to i64
   %.idx.i = shl nuw nsw i64 %55, 5
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i
+  %56 = getelementptr i8, ptr %52, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %54, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -19569,7 +19569,7 @@ _ZN4llvm15SmallVectorImplINS_14MachineOperandEE12emplace_backIJRS1_EEES4_DpOT_.e
   %107 = select i1 %.not.i.i.i2.i, i32 %106, i32 4
   %108 = zext i32 %107 to i64
   %.idx.i = shl nuw nsw i64 %108, 3
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i
+  %109 = getelementptr i8, ptr %105, i64 %.idx.i
   %.not4.i5.i10.i4.i = icmp eq i32 %107, 0
   br i1 %.not4.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -19588,7 +19588,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail
   %.pre-phi = phi i32 [ %93, %95 ], [ %103, %102 ], [ %103, %.critedge2.i8.i14.i11.i ], [ %103, %.lr.ph.i6.i12.i5.i ]
   %112 = phi i32 [ %98, %95 ], [ %106, %102 ], [ %106, %.critedge2.i8.i14.i11.i ], [ %106, %.lr.ph.i6.i12.i5.i ]
   %113 = phi ptr [ %96, %95 ], [ %104, %102 ], [ %104, %.critedge2.i8.i14.i11.i ], [ %104, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i = phi ptr [ %101, %95 ], [ %105, %102 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %111, %.critedge2.i8.i14.i11.i ]
+  %.pn16.i = phi ptr [ %101, %95 ], [ %105, %102 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %109, %.critedge2.i8.i14.i11.i ]
   %.pn14.i = phi ptr [ %101, %95 ], [ %109, %102 ], [ %109, %.critedge2.i8.i14.i11.i ], [ %109, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %114 = select i1 %.not.i.i.i.i.i, ptr %113, ptr %.phi.trans.insert.i.i.ptr

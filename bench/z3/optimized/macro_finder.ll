@@ -4699,7 +4699,7 @@ define hidden void @_ZN12macro_finder20revert_unsafe_macrosER6vectorI14justified
   %9 = load i32, ptr %8, align 8, !tbaa !185
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 

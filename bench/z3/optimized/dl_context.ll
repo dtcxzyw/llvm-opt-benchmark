@@ -4068,7 +4068,7 @@ define linkonce_odr hidden void @_Z20reset_dealloc_valuesIK4sortN7datalog7contex
   %4 = load i32, ptr %3, align 8, !tbaa !231
   %5 = zext i32 %4 to i64
   %.idx.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5299,7 +5299,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %38 = load i32, ptr %37, align 8, !tbaa !237
   %39 = zext i32 %38 to i64
   %.idx.i4 = shl nuw nsw i64 %39, 3
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i4
+  %40 = getelementptr i8, ptr %36, i64 %.idx.i4
   %.not1.i.i.i = icmp eq i32 %38, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -12236,7 +12236,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %200, %.
   %203 = load i32, ptr %44, align 8, !tbaa !237
   %204 = zext i32 %203 to i64
   %.idx.i = shl nuw nsw i64 %204, 3
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i
+  %205 = getelementptr i8, ptr %202, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %203, 0
   br i1 %.not1.i.i.i, label %.loopexit519, label %.lr.ph.i.i.i233
 
@@ -12298,7 +12298,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %220 = load i32, ptr %44, align 8, !tbaa !237
   %221 = zext i32 %220 to i64
   %.idx.i237 = shl nuw nsw i64 %221, 3
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 %.idx.i237
+  %222 = getelementptr i8, ptr %219, i64 %.idx.i237
   %.not1.i.i.i238 = icmp eq i32 %220, 0
   br i1 %.not1.i.i.i238, label %.loopexit518, label %.lr.ph.i.i.i239
 

@@ -1896,7 +1896,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMapD2Ev(ptr n
 
 11:                                               ; preds = %1
   %.idx.i = shl nuw nsw i64 %8, 4
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %12 = getelementptr i8, ptr %5, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %7, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

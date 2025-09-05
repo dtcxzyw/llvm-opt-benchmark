@@ -2595,7 +2595,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter19setWeakDefaultNamesEv(ptr nounde
   %.us-phi = phi ptr [ %.val42.us.us.us, %26 ], [ %.val42.us.us.us, %29 ], [ %.val42.us.us100, %19 ], [ %.val42.us.us100, %.thread.us.us103 ], [ %.val42, %58 ], [ %.val42, %61 ], [ %.val42, %.thread ]
   %66 = zext i32 %.val45 to i64
   %.idx.i.i = shl nuw nsw i64 %66, 3
-  %67 = getelementptr inbounds nuw i8, ptr %.val44, i64 %.idx.i.i
+  %67 = getelementptr i8, ptr %.val44, i64 %.idx.i.i
   br i1 %10, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i.i.i.i.i56
 
 .lr.ph.i.i.i.i.i56:                               ; preds = %.split.us, %.critedge2.i.i.i.i.i

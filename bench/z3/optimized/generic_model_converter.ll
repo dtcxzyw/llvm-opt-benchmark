@@ -350,7 +350,7 @@ _ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit: ; preds = %20
   br label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit, %20
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %30 = getelementptr i8, ptr %19, i64 128
   br label %.lr.ph.i.i.i.i.preheader
 
 ._crit_edge:                                      ; preds = %.critedge
@@ -358,7 +358,7 @@ _ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit: ; preds = %20
   %.pre172 = load i32, ptr %21, align 8, !tbaa !56
   %31 = zext i32 %.pre172 to i64
   %.idx.i.i = shl nuw nsw i64 %31, 4
-  %32 = getelementptr inbounds nuw i8, ptr %.pre171, i64 %.idx.i.i
+  %32 = getelementptr i8, ptr %.pre171, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %.pre172, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.preheader
 
@@ -2136,7 +2136,7 @@ define hidden void @_ZN23generic_model_converter9get_unitsER7obj_mapI4exprbE(ptr
   %30 = load i32, ptr %29, align 8, !tbaa !213
   %31 = zext i32 %30 to i64
   %.idx.i.i = shl nuw nsw i64 %31, 4
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i
+  %32 = getelementptr i8, ptr %28, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not1.i.i.i.i, label %.loopexit103, label %.lr.ph.i.i.i.i
 

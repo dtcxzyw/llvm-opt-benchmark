@@ -4289,25 +4289,24 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
   br i1 %26, label %.lr.ph.i.preheader, label %27
 
 27:                                               ; preds = %.noexc4
-  %28 = add nsw i64 %20, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %28, i1 false)
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %25, 3
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.noexc4, %27
-  %.sink = phi ptr [ %29, %27 ], [ %24, %.noexc4 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %30, align 8
+  %.sink = phi ptr [ %28, %27 ], [ %24, %.noexc4 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %29, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.02.06.i = phi ptr [ %31, %.lr.ph.i ], [ %21, %.lr.ph.i.preheader ]
+  %.sroa.02.06.i = phi ptr [ %30, %.lr.ph.i ], [ %21, %.lr.ph.i.preheader ]
   store i64 %indvars.iv.i, ptr %.sroa.02.06.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %31, %.sink
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %30, %.sink
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !35
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit.sink.split: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %2
@@ -4702,7 +4701,7 @@ define void @_ZNK10open_spiel11tiny_hanabi15TinyHanabiState22InformationStateTen
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
 
 22:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
@@ -4724,7 +4723,7 @@ define void @_ZNK10open_spiel11tiny_hanabi15TinyHanabiState22InformationStateTen
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
 
 30:                                               ; preds = %22
   store i64 %3, ptr %13, align 8
@@ -4753,97 +4752,97 @@ define void @_ZNK10open_spiel11tiny_hanabi15TinyHanabiState22InformationStateTen
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
 
 45:                                               ; preds = %30
   %.not5.i.i.i = icmp eq i64 %3, 0
   br i1 %.not5.i.i.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %45
-  %46 = shl nsw i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %46, i1 false)
+  %.idx = shl nsw i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx, i1 false)
   br label %_ZSt4fillIPfiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %47, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %46, align 8
+  %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 4
-  %55 = zext nneg i32 %1 to i64
-  %56 = icmp ugt i64 %54, %55
-  br i1 %56, label %57, label %63
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 4
+  %54 = zext nneg i32 %1 to i64
+  %55 = icmp ugt i64 %53, %54
+  br i1 %55, label %56, label %62
 
-57:                                               ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit
-  %58 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %50, i64 %55, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = icmp ult i64 %59, %3
-  br i1 %60, label %_ZNK4absl7debian24SpanIfE2atEm.exit, label %61
+56:                                               ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit
+  %57 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %49, i64 %54, i32 1
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp ult i64 %58, %3
+  br i1 %59, label %_ZNK4absl7debian24SpanIfE2atEm.exit, label %60
 
-61:                                               ; preds = %57
+60:                                               ; preds = %56
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.42) #24
   unreachable
 
-_ZNK4absl7debian24SpanIfE2atEm.exit:              ; preds = %57
-  %62 = getelementptr inbounds float, ptr %2, i64 %59
-  store float 1.000000e+00, ptr %62, align 4
-  %.pre = load ptr, ptr %48, align 8
-  %.pre24 = load ptr, ptr %47, align 8
+_ZNK4absl7debian24SpanIfE2atEm.exit:              ; preds = %56
+  %61 = getelementptr inbounds float, ptr %2, i64 %58
+  store float 1.000000e+00, ptr %61, align 4
+  %.pre = load ptr, ptr %47, align 8
+  %.pre24 = load ptr, ptr %46, align 8
   %.pre25 = ptrtoint ptr %.pre to i64
   %.pre26 = ptrtoint ptr %.pre24 to i64
   %.pre28 = sub i64 %.pre25, %.pre26
   %.pre30 = ashr exact i64 %.pre28, 4
-  br label %63
+  br label %62
 
-63:                                               ; preds = %_ZNK4absl7debian24SpanIfE2atEm.exit, %_ZSt4fillIPfiEvT_S1_RKT0_.exit
-  %.pre-phi31 = phi i64 [ %.pre30, %_ZNK4absl7debian24SpanIfE2atEm.exit ], [ %54, %_ZSt4fillIPfiEvT_S1_RKT0_.exit ]
-  %64 = phi ptr [ %.pre24, %_ZNK4absl7debian24SpanIfE2atEm.exit ], [ %50, %_ZSt4fillIPfiEvT_S1_RKT0_.exit ]
-  %65 = load i32, ptr %31, align 8
-  %66 = sext i32 %65 to i64
-  %67 = icmp ugt i64 %.pre-phi31, %66
-  br i1 %67, label %.lr.ph, label %._crit_edge
+62:                                               ; preds = %_ZNK4absl7debian24SpanIfE2atEm.exit, %_ZSt4fillIPfiEvT_S1_RKT0_.exit
+  %.pre-phi31 = phi i64 [ %.pre30, %_ZNK4absl7debian24SpanIfE2atEm.exit ], [ %53, %_ZSt4fillIPfiEvT_S1_RKT0_.exit ]
+  %63 = phi ptr [ %.pre24, %_ZNK4absl7debian24SpanIfE2atEm.exit ], [ %49, %_ZSt4fillIPfiEvT_S1_RKT0_.exit ]
+  %64 = load i32, ptr %31, align 8
+  %65 = sext i32 %64 to i64
+  %66 = icmp ugt i64 %.pre-phi31, %65
+  br i1 %66, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %63, %_ZNK4absl7debian24SpanIfE2atEm.exit15
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4absl7debian24SpanIfE2atEm.exit15 ], [ %66, %63 ]
-  %68 = phi ptr [ %84, %_ZNK4absl7debian24SpanIfE2atEm.exit15 ], [ %64, %63 ]
-  %69 = load i32, ptr %32, align 4
-  %70 = load i32, ptr %31, align 8
-  %71 = trunc nsw i64 %indvars.iv to i32
-  %72 = sub nsw i32 %71, %70
-  %73 = load i32, ptr %34, align 8
-  %74 = mul nsw i32 %72, %73
-  %75 = add nsw i32 %74, %69
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %"struct.open_spiel::State::PlayerAction", ptr %68, i64 %indvars.iv, i32 1
-  %78 = load i64, ptr %77, align 8
-  %79 = add nsw i64 %78, %76
-  %80 = icmp ult i64 %79, %3
-  br i1 %80, label %_ZNK4absl7debian24SpanIfE2atEm.exit15, label %81
+.lr.ph:                                           ; preds = %62, %_ZNK4absl7debian24SpanIfE2atEm.exit15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4absl7debian24SpanIfE2atEm.exit15 ], [ %65, %62 ]
+  %67 = phi ptr [ %83, %_ZNK4absl7debian24SpanIfE2atEm.exit15 ], [ %63, %62 ]
+  %68 = load i32, ptr %32, align 4
+  %69 = load i32, ptr %31, align 8
+  %70 = trunc nsw i64 %indvars.iv to i32
+  %71 = sub nsw i32 %70, %69
+  %72 = load i32, ptr %34, align 8
+  %73 = mul nsw i32 %71, %72
+  %74 = add nsw i32 %73, %68
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %"struct.open_spiel::State::PlayerAction", ptr %67, i64 %indvars.iv, i32 1
+  %77 = load i64, ptr %76, align 8
+  %78 = add nsw i64 %77, %75
+  %79 = icmp ult i64 %78, %3
+  br i1 %79, label %_ZNK4absl7debian24SpanIfE2atEm.exit15, label %80
 
-81:                                               ; preds = %.lr.ph
+80:                                               ; preds = %.lr.ph
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.42) #24
   unreachable
 
 _ZNK4absl7debian24SpanIfE2atEm.exit15:            ; preds = %.lr.ph
-  %82 = getelementptr inbounds float, ptr %2, i64 %79
-  store float 1.000000e+00, ptr %82, align 4
+  %81 = getelementptr inbounds float, ptr %2, i64 %78
+  store float 1.000000e+00, ptr %81, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = load ptr, ptr %48, align 8
-  %84 = load ptr, ptr %47, align 8
+  %82 = load ptr, ptr %47, align 8
+  %83 = load ptr, ptr %46, align 8
+  %84 = ptrtoint ptr %82 to i64
   %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = ashr exact i64 %87, 4
-  %89 = icmp ugt i64 %88, %indvars.iv.next
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  %86 = sub i64 %84, %85
+  %87 = ashr exact i64 %86, 4
+  %88 = icmp ugt i64 %87, %indvars.iv.next
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %_ZNK4absl7debian24SpanIfE2atEm.exit15, %63
+._crit_edge:                                      ; preds = %_ZNK4absl7debian24SpanIfE2atEm.exit15, %62
   ret void
 
-90:                                               ; preds = %43, %28, %20
+89:                                               ; preds = %43, %28, %20
   %.sink = phi ptr [ %15, %43 ], [ %11, %28 ], [ %7, %20 ]
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %29, %28 ], [ %21, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #25

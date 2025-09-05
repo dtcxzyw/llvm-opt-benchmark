@@ -465,7 +465,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS
 
 123:                                              ; preds = %105
   %.idx.i.i = shl nuw nsw i64 %120, 4
-  %124 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i.i
+  %124 = getelementptr i8, ptr %117, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %119, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiPNS_11InstructionENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -2733,7 +2733,7 @@ define dso_local { i32, ptr } @_ZN4llvm8VPlanSlp7getBestENS0_6OpModeEPNS_7VPValu
   %.v.v.i4.i2.i = select i1 %13, i32 %15, i32 %17
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %18 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_7VPValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -3051,7 +3051,7 @@ _ZNK4llvm23VPInterleavedAccessInfo18getInterleaveGroupEPNS_13VPInstructionE.exit
 
 70:                                               ; preds = %59
   %.idx.i.i = shl nuw nsw i64 %67, 4
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i
+  %71 = getelementptr i8, ptr %64, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %66, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiPNS_13VPInstructionENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -3129,7 +3129,7 @@ _ZNK4llvm15InterleaveGroupINS_13VPInstructionEE8getIndexEPKS1_.exit: ; preds = %
 
 94:                                               ; preds = %_ZNK4llvm15InterleaveGroupINS_13VPInstructionEE8getIndexEPKS1_.exit
   %.idx.i.i30 = shl nuw nsw i64 %91, 4
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i.i30
+  %95 = getelementptr i8, ptr %88, i64 %.idx.i.i30
   %.not4.i5.i10.i2.i.i31 = icmp eq i32 %90, 0
   br i1 %.not4.i5.i10.i2.i.i31, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiPNS_13VPInstructionENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E5beginEv.exit.i36, label %.lr.ph.i6.i12.i3.i.i32
 

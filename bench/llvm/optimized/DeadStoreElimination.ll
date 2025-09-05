@@ -9603,7 +9603,7 @@ _ZN12_GLOBAL__N_18DSEState11pushMemUsesEPN4llvm12MemoryAccessERNS1_15SmallVector
   %.v.v.i4.i2.i.i.i.i.i.i.i = select i1 %676, i32 %677, i32 %678
   %.v.i5.i3.i.i.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i.i.i to i64
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i.i.i, 3
-  %679 = getelementptr inbounds nuw i8, ptr %674, i64 %.idx.i.i.i.i.i.i.i
+  %679 = getelementptr i8, ptr %674, i64 %.idx.i.i.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_11SmallPtrSetIPNS_11InstructionELj16EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i.i.i
 
@@ -9756,7 +9756,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MemoryAccessEE6insertES2_.exit.i195.thread485.i.
   %.v.v.i4.i2.i.i.i.i.i211.i.i = select i1 %730, i32 %731, i32 %732
   %.v.i5.i3.i.i.i.i.i212.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i211.i.i to i64
   %.idx.i.i.i.i.i213.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i212.i.i, 3
-  %733 = getelementptr inbounds nuw i8, ptr %728, i64 %.idx.i.i.i.i.i213.i.i
+  %733 = getelementptr i8, ptr %728, i64 %.idx.i.i.i.i.i213.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i214.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i211.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i214.i.i, label %_ZN4llvm9adl_beginIRNS_11SmallPtrSetIPNS_11InstructionELj16EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i218.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i215.i.i
 
@@ -10147,7 +10147,7 @@ _ZN12_GLOBAL__N_18DSEState19isCompleteOverwriteERKN4llvm14MemoryLocationEPNS1_11
   %.v.v.i4.i2.i.i.i = select i1 %866, i32 %867, i32 %868
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i.i76.i = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %869 = getelementptr inbounds nuw i8, ptr %864, i64 %.idx.i.i76.i
+  %869 = getelementptr i8, ptr %864, i64 %.idx.i.i76.i
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 
@@ -10179,7 +10179,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i: ; preds = %.cri
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %.v.i5.i3.i265.i.i = zext i32 %874 to i64
   %.idx.i266.i.i = shl nuw nsw i64 %.v.i5.i3.i265.i.i, 3
-  %875 = getelementptr inbounds nuw i8, ptr %914, i64 %.idx.i266.i.i
+  %875 = getelementptr i8, ptr %914, i64 %.idx.i266.i.i
   %.not3.i4.i.i6.i4.i267.i.i = icmp eq i32 %874, 0
   br i1 %.not3.i4.i.i6.i4.i267.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.thread.i.i, label %.lr.ph.i5.i.i7.i5.i268.i.i
 

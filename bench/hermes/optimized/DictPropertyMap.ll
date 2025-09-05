@@ -148,8 +148,8 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_15DictPropertyMapELNS0_12HasFinalizerE0
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %capacity to i64
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i.i.i.i = zext nneg i32 %conv1.i to i64
-  %3 = shl nuw nsw i64 %idx.ext.i.i.i.i.i.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i.i.i, i8 0, i64 %3, i1 false)
+  %add.ptr.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i.i.i.i.i, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i.i, i1 false)
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 184549376
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4

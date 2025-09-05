@@ -18,7 +18,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !5
   %7 = and i64 %1, -8
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  %8 = getelementptr i8, ptr %0, i64 %7
   %9 = trunc i64 %1 to i32
   %10 = and i32 %9, 7
   %11 = shl i64 %1, 56
@@ -191,7 +191,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !5
   %7 = and i64 %1, -8
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  %8 = getelementptr i8, ptr %0, i64 %7
   %9 = trunc i64 %1 to i32
   %10 = and i32 %9, 7
   %11 = shl i64 %1, 56

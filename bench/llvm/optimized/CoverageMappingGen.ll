@@ -2251,7 +2251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %193 = select i1 %.not.i.i.i2.i, i32 %192, i32 8
   %194 = zext i32 %193 to i64
   %.idx.i = shl nuw nsw i64 %194, 4
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx.i
+  %195 = getelementptr i8, ptr %190, i64 %.idx.i
   %.not13.i5.i10.i4.i = icmp eq i32 %193, 0
   br i1 %.not13.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang12FileEntryRefEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -2273,7 +2273,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang12FileEntryRefEjLj8ENS_12DenseM
   %.pre-phi = phi i32 [ %175, %177 ], [ %187, %186 ], [ %187, %.critedge2.i9.i15.i9.i ], [ %187, %.lr.ph.i6.i12.i5.i ]
   %197 = phi i32 [ %182, %177 ], [ %192, %186 ], [ %192, %.critedge2.i9.i15.i9.i ], [ %192, %.lr.ph.i6.i12.i5.i ]
   %198 = phi ptr [ %179, %177 ], [ %189, %186 ], [ %189, %.critedge2.i9.i15.i9.i ], [ %189, %.lr.ph.i6.i12.i5.i ]
-  %.pn17.i = phi ptr [ %185, %177 ], [ %190, %186 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %196, %.critedge2.i9.i15.i9.i ]
+  %.pn17.i = phi ptr [ %185, %177 ], [ %190, %186 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %195, %.critedge2.i9.i15.i9.i ]
   %.pn15.i = phi ptr [ %185, %177 ], [ %195, %186 ], [ %195, %.critedge2.i9.i15.i9.i ], [ %195, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3534,7 +3534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   %117 = select i1 %.not.i.i.i2.i, i32 %116, i32 8
   %118 = zext i32 %117 to i64
   %.idx.i = shl nuw nsw i64 %118, 4
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx.i
+  %119 = getelementptr i8, ptr %114, i64 %.idx.i
   %.not13.i5.i10.i4.i = icmp eq i32 %117, 0
   br i1 %.not13.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang12FileEntryRefEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -3556,7 +3556,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang12FileEntryRefEjLj8ENS_12DenseM
   %.pre-phi = phi i32 [ %99, %101 ], [ %111, %110 ], [ %111, %.critedge2.i9.i15.i9.i ], [ %111, %.lr.ph.i6.i12.i5.i ]
   %121 = phi i32 [ %106, %101 ], [ %116, %110 ], [ %116, %.critedge2.i9.i15.i9.i ], [ %116, %.lr.ph.i6.i12.i5.i ]
   %122 = phi ptr [ %103, %101 ], [ %113, %110 ], [ %113, %.critedge2.i9.i15.i9.i ], [ %113, %.lr.ph.i6.i12.i5.i ]
-  %.pn17.i = phi ptr [ %109, %101 ], [ %114, %110 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %120, %.critedge2.i9.i15.i9.i ]
+  %.pn17.i = phi ptr [ %109, %101 ], [ %114, %110 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %119, %.critedge2.i9.i15.i9.i ]
   %.pn15.i = phi ptr [ %109, %101 ], [ %119, %110 ], [ %119, %.critedge2.i9.i15.i9.i ], [ %119, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24

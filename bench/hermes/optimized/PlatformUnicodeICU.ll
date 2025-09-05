@@ -156,8 +156,8 @@ if.end.i18:                                       ; preds = %if.then6.i
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then6.i, %if.end.i18
-  %conv.i17.pre-phi.i.in91 = phi i32 [ %.pre.i21, %if.end.i18 ], [ %10, %if.then6.i ]
-  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in91 to i64
+  %conv.i17.pre-phi.i.in88 = phi i32 [ %.pre.i21, %if.end.i18 ], [ %10, %if.then6.i ]
+  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in88 to i64
   %12 = load ptr, ptr %buf, align 8
   %add.ptr.i.i19 = getelementptr i16, ptr %12, i64 %conv.i17.pre-phi.i
   %13 = shl nuw nsw i64 %conv.i17.pre-phi.i, 1
@@ -291,9 +291,9 @@ for.body.preheader.i74:                           ; preds = %if.end.i71
   br label %if.end23.sink.split.sink.split
 
 if.end23.sink.split.sink.split:                   ; preds = %for.body.preheader.i54, %for.body.preheader.i74
-  %.sink92 = phi i64 [ %29, %for.body.preheader.i74 ], [ %25, %for.body.preheader.i54 ]
+  %.sink89 = phi i64 [ %29, %for.body.preheader.i74 ], [ %25, %for.body.preheader.i54 ]
   %add.ptr.i.i75.sink = phi ptr [ %add.ptr.i.i75, %for.body.preheader.i74 ], [ %add.ptr.i.i55, %for.body.preheader.i54 ]
-  %30 = shl nsw i64 %.sink92, 1
+  %30 = shl nsw i64 %.sink89, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i75.sink, i8 0, i64 %30, i1 false)
   br label %if.end23.sink.split
 
@@ -392,11 +392,11 @@ for.body.preheader.i:                             ; preds = %if.end.i.for.body.p
 
 if.end15.sink.split.i:                            ; preds = %for.body.preheader.i, %if.end.i
   store i32 %1, ptr %Size.i.i.i.i.i, align 8
-  %.pre45 = load ptr, ptr %dest, align 8
+  %.pre43 = load ptr, ptr %dest, align 8
   br label %_ZN4llvh15SmallVectorImplIDsE6resizeEm.exit
 
 _ZN4llvh15SmallVectorImplIDsE6resizeEm.exit:      ; preds = %if.else.i, %if.end15.sink.split.i
-  %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.else.i ], [ %.pre45, %if.end15.sink.split.i ]
+  %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.else.i ], [ %.pre43, %if.end15.sink.split.i ]
   store i32 0, ptr %err, align 4
   %call8 = call noundef i32 %u_strToUpper_70.u_strToLower_70(ptr noundef %5, i32 noundef %1, ptr noundef %0, i32 noundef %1, ptr noundef %cond, ptr noundef nonnull %err) #8, !callees !7
   %conv9 = sext i32 %call8 to i64
@@ -603,11 +603,11 @@ for.body.preheader.i:                             ; preds = %if.end.i.for.body.p
 
 if.end15.sink.split.i:                            ; preds = %for.body.preheader.i, %if.end.i
   store i32 %1, ptr %Size.i.i.i.i.i, align 8
-  %.pre44 = load ptr, ptr %dest, align 8
+  %.pre42 = load ptr, ptr %dest, align 8
   br label %_ZN4llvh15SmallVectorImplIDsE6resizeEm.exit
 
 _ZN4llvh15SmallVectorImplIDsE6resizeEm.exit:      ; preds = %if.else.i, %if.end15.sink.split.i
-  %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.else.i ], [ %.pre44, %if.end15.sink.split.i ]
+  %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.else.i ], [ %.pre42, %if.end15.sink.split.i ]
   store i32 0, ptr %err, align 4
   %call11 = call i32 @unorm2_normalize_70(ptr noundef %norm.0, ptr noundef %0, i32 noundef %1, ptr noundef %5, i32 noundef %1, ptr noundef nonnull %err) #8
   %conv12 = sext i32 %call11 to i64

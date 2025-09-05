@@ -745,7 +745,7 @@ _ZN14core_hashtableIN7obj_mapI4exprSt4pairI8rationalbEE13obj_map_entryE8obj_hash
   %52 = load i32, ptr %51, align 8, !tbaa !27
   %53 = zext i32 %52 to i64
   %.idx.i.i80 = shl nuw nsw i64 %53, 4
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i80
+  %54 = getelementptr i8, ptr %50, i64 %.idx.i.i80
   %.not1.i.i.i.i81 = icmp eq i32 %52, 0
   br i1 %.not1.i.i.i.i81, label %.loopexit160, label %.lr.ph.i.i.i.i82
 
@@ -823,7 +823,7 @@ _ZN14core_hashtableIN7obj_mapI4exprSt4pairI8rationalbEE13obj_map_entryE8obj_hash
   %80 = load i32, ptr %79, align 8, !tbaa !27
   %81 = zext i32 %80 to i64
   %.idx.i.i99 = shl nuw nsw i64 %81, 4
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i99
+  %82 = getelementptr i8, ptr %78, i64 %.idx.i.i99
   %.not1.i.i.i.i100 = icmp eq i32 %80, 0
   br i1 %.not1.i.i.i.i100, label %.loopexit, label %.lr.ph.i.i.i.i101
 

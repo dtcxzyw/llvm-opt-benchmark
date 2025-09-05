@@ -640,7 +640,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i:    ; preds = %_ZNK6vectorIP4sortL
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i
   %.ph = phi ptr [ %15, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
-  %.ph85 = phi i32 [ %20, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ %19, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
+  %.ph84 = phi i32 [ %20, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ %19, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.ph = phi i32 [ %18, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
@@ -656,7 +656,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i:       ; preds = %thread-pre-split.i
   %24 = getelementptr inbounds i8, ptr %22, i64 -8
   %25 = load i32, ptr %24, align 4, !tbaa !29
-  %26 = icmp ugt i32 %.ph85, %25
+  %26 = icmp ugt i32 %.ph84, %25
   br i1 %26, label %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.thread.i, label %27
 
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i, %thread-pre-split.i
@@ -666,12 +666,12 @@ _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIP4sort
 
 27:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i
   %28 = getelementptr inbounds i8, ptr %22, i64 -4
-  store i32 %.ph85, ptr %28, align 4, !tbaa !29
-  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph85
+  store i32 %.ph84, ptr %28, align 4, !tbaa !29
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph84
   br i1 %.not1218.i, label %_ZN6vectorIP4sortLb0EjE6resizeEj.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %27
-  %29 = zext i32 %.ph85 to i64
+  %29 = zext i32 %.ph84 to i64
   %30 = zext i32 %.0.i16.i.ph to i64
   %31 = getelementptr ptr, ptr %22, i64 %30
   %32 = sub nsw i64 %29, %30

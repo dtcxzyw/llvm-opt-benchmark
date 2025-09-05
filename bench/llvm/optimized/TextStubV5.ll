@@ -12348,7 +12348,7 @@ _ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit: 
 
 446:                                              ; preds = %_ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit
   %.idx.i.i.i = shl nuw nsw i64 %443, 5
-  %447 = getelementptr inbounds nuw i8, ptr %440, i64 %.idx.i.i.i
+  %447 = getelementptr i8, ptr %440, i64 %.idx.i.i.i
   %.not19.i5.i10.i2.i.i.i = icmp eq i32 %442, 0
   br i1 %.not19.i5.i10.i2.i.i.i, label %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -12449,7 +12449,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_sy
 
 481:                                              ; preds = %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS2_6SymbolEEESt20forward_iterator_tagEEED2Ev.exit
   %.idx.i.i.i77 = shl nuw nsw i64 %478, 5
-  %482 = getelementptr inbounds nuw i8, ptr %475, i64 %.idx.i.i.i77
+  %482 = getelementptr i8, ptr %475, i64 %.idx.i.i.i77
   %.not19.i5.i10.i2.i.i.i78 = icmp eq i32 %477, 0
   br i1 %.not19.i5.i10.i2.i.i.i78, label %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i84, label %.lr.ph.i6.i12.i3.i.i.i79
 
@@ -12555,7 +12555,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_sy
 
 519:                                              ; preds = %507
   %.idx.i.i.i99 = shl nuw nsw i64 %516, 5
-  %520 = getelementptr inbounds nuw i8, ptr %513, i64 %.idx.i.i.i99
+  %520 = getelementptr i8, ptr %513, i64 %.idx.i.i.i99
   %.not19.i5.i10.i2.i.i.i100 = icmp eq i32 %515, 0
   br i1 %.not19.i5.i10.i2.i.i.i100, label %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i106, label %.lr.ph.i6.i12.i3.i.i.i101
 

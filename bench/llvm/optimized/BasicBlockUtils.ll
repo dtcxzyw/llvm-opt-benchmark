@@ -2779,7 +2779,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm35MergeBlockSuccessorsIntoGivenBloc
   %.v.v.i4.i2.i = select i1 %19, i32 %16, i32 %20
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -11865,7 +11865,7 @@ _ZN4llvm15SmallVectorImplINS_3cfg6UpdateIPNS_10BasicBlockEEEE12emplace_backIJRKN
   %.v.v.i4.i2.i = select i1 %168, i32 %169, i32 %170
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %171 = getelementptr inbounds nuw i8, ptr %166, i64 %.idx.i
+  %171 = getelementptr i8, ptr %166, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -11902,7 +11902,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit: ; preds = %.lr.ph.i5
   %.v.i5.i3.i52.pre-phi = phi i64 [ %.pre120, %._crit_edge.loopexit ], [ %.v.i5.i3.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit ]
   %.v.v.i4.i2.i51.pre-phi = phi i32 [ %.pre119, %._crit_edge.loopexit ], [ %.v.v.i4.i2.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit ]
   %175 = phi ptr [ %.pre114, %._crit_edge.loopexit ], [ %166, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit ]
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx.i53.pre-phi
+  %176 = getelementptr i8, ptr %175, i64 %.idx.i53.pre-phi
   %.not3.i4.i.i6.i4.i54 = icmp eq i32 %.v.v.i4.i2.i51.pre-phi, 0
   br i1 %.not3.i4.i.i6.i4.i54, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit63, label %.lr.ph.i5.i.i7.i5.i55
 

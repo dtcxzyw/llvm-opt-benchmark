@@ -2578,7 +2578,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit: ; preds = %_ZN4llvm15Small
 
 172:                                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit
   %.idx.i = shl nuw nsw i64 %169, 4
-  %173 = getelementptr inbounds nuw i8, ptr %166, i64 %.idx.i
+  %173 = getelementptr i8, ptr %166, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %168, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AllocaInstEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

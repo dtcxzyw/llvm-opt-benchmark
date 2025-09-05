@@ -538,8 +538,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_1
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %4, 4294967295
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
-  %.idx = shl nuw nsw i64 %.sroa.4.0.extract.shift.i, 3
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %10 = getelementptr ptr, ptr %6, i64 %.sroa.4.0.extract.shift.i
   %.not30.i.i.i = icmp samesign eq i64 %8, %.sroa.4.0.extract.shift.i
   br i1 %.not30.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 

@@ -689,7 +689,7 @@ _ZN13bool_rewriterC2ER11ast_managerRK10params_ref.exit: ; preds = %4
   %58 = load i32, ptr %57, align 8, !tbaa !82
   %59 = zext i32 %58 to i64
   %.idx.i = shl nuw nsw i64 %59, 3
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i
+  %60 = getelementptr i8, ptr %56, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %58, 0
   br i1 %.not1.i.i.i, label %.loopexit661, label %.lr.ph.i.i.i
 
@@ -1509,7 +1509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %407 = load i32, ptr %406, align 8, !tbaa !82
   %408 = zext i32 %407 to i64
   %.idx.i.i = shl nuw nsw i64 %408, 3
-  %409 = getelementptr inbounds nuw i8, ptr %405, i64 %.idx.i.i
+  %409 = getelementptr i8, ptr %405, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %407, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1799,7 +1799,7 @@ _Z9set_unionI13obj_hashtableI4exprES2_EvRT_RKT0_.exit: ; preds = %_ZN14core_hash
   %498 = load i32, ptr %497, align 8, !tbaa !82
   %499 = zext i32 %498 to i64
   %.idx.i.i272 = shl nuw nsw i64 %499, 3
-  %500 = getelementptr inbounds nuw i8, ptr %496, i64 %.idx.i.i272
+  %500 = getelementptr i8, ptr %496, i64 %.idx.i.i272
   %.not1.i.i.i.i273 = icmp eq i32 %498, 0
   br i1 %.not1.i.i.i.i273, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i277, label %.lr.ph.i.i.i.i274
 
@@ -2688,7 +2688,7 @@ _ZN7obj_mapI4exprP13obj_hashtableIS0_EE6insertEPS0_RKS3_.exit348: ; preds = %802
   %846 = load i32, ptr %845, align 8, !tbaa !82
   %847 = zext i32 %846 to i64
   %.idx.i.i356 = shl nuw nsw i64 %847, 3
-  %848 = getelementptr inbounds nuw i8, ptr %844, i64 %.idx.i.i356
+  %848 = getelementptr i8, ptr %844, i64 %.idx.i.i356
   %.not1.i.i.i.i357 = icmp eq i32 %846, 0
   br i1 %.not1.i.i.i.i357, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i361, label %.lr.ph.i.i.i.i358
 

@@ -715,13 +715,14 @@ define noundef zeroext i1 @_ZN5draco21MeshSequentialDecoder26DecodeAndDecompress
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #18
   %8 = getelementptr inbounds nuw i32, ptr %7, i64 %5
   store i32 0, ptr %7, align 4, !tbaa !34
-  %9 = icmp eq i32 %4, 1
-  br i1 %9, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %9 = add nsw i64 %5, -1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
-  %10 = getelementptr i8, ptr %7, i64 4
-  %11 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %11, i1 false), !tbaa !34
+  %11 = getelementptr i8, ptr %7, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %9, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !34
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc, %2
@@ -881,17 +882,17 @@ _ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = add nuw i32 %.03485, 1
   %exitcond93.not = icmp eq i32 %65, %1
-  br i1 %exitcond93.not, label %.critedge54.thread100, label %17, !llvm.loop !94
+  br i1 %exitcond93.not, label %.critedge54.thread101, label %17, !llvm.loop !94
 
 .critedge54.thread:                               ; preds = %24, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge54.thread100
+  br label %.critedge54.thread101
 
 .critedge54:                                      ; preds = %15
   %.not.i.i.i57 = icmp eq ptr %.sroa.060.0, null
-  br i1 %.not.i.i.i57, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %.critedge54.thread100
+  br i1 %.not.i.i.i57, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %.critedge54.thread101
 
-.critedge54.thread100:                            ; preds = %64, %.critedge54.thread, %.critedge54
+.critedge54.thread101:                            ; preds = %64, %.critedge54.thread, %.critedge54
   %.075 = phi i1 [ false, %.critedge54.thread ], [ %14, %.critedge54 ], [ %14, %64 ]
   %66 = ptrtoint ptr %.sroa.11.0 to i64
   %67 = ptrtoint ptr %.sroa.060.0 to i64
@@ -899,8 +900,8 @@ _ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0, i64 noundef %68) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.critedge54.thread100
-  %.076 = phi i1 [ %14, %.critedge54 ], [ %.075, %.critedge54.thread100 ]
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.critedge54.thread101
+  %.076 = phi i1 [ %14, %.critedge54 ], [ %.075, %.critedge54.thread101 ]
   ret i1 %.076
 
 69:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
@@ -910,7 +911,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.crit
   br i1 %.not.i.i.i58, label %_ZNSt6vectorIjSaIjEED2Ev.exit59, label %71
 
 71:                                               ; preds = %.thread, %69
-  %.pn104 = phi { ptr, i32 } [ %lpad.phi, %.thread ], [ %70, %69 ]
+  %.pn105 = phi { ptr, i32 } [ %lpad.phi, %.thread ], [ %70, %69 ]
   %72 = ptrtoint ptr %.sroa.11.0 to i64
   %73 = ptrtoint ptr %.sroa.060.0 to i64
   %74 = sub i64 %72, %73
@@ -918,8 +919,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.crit
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit59
 
 _ZNSt6vectorIjSaIjEED2Ev.exit59:                  ; preds = %71, %69
-  %.pn105 = phi { ptr, i32 } [ %.pn104, %71 ], [ %70, %69 ]
-  resume { ptr, i32 } %.pn105
+  %.pn106 = phi { ptr, i32 } [ %.pn105, %71 ], [ %70, %69 ]
+  resume { ptr, i32 } %.pn106
 }
 
 ; Function Attrs: mustprogress uwtable

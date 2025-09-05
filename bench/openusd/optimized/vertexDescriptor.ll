@@ -176,13 +176,13 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit: ; pr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %6, ptr %25, align 8
   %26 = load i16, ptr %3, align 2
-  %.not5.i.i.i = icmp eq i16 %26, -1
-  br i1 %.not5.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
-
-.lr.ph.i.i.i.preheader:                           ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit
   %27 = sext i16 %26 to i64
   %.idx = shl nsw i64 %27, 2
   %28 = add nsw i64 %.idx, 4
+  %.not5.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not5.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
+
+.lr.ph.i.i.i.preheader:                           ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit
   tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %28, i1 false)
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
@@ -256,14 +256,14 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit: ; p
   %27 = sext i16 %26 to i32
   %28 = shl nsw i32 %27, 1
   %29 = sext i32 %28 to i64
-  %30 = shl nsw i64 %29, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %30, i1 false)
+  %.idx = shl nsw i64 %29, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %.idx, i1 false)
   br label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
 _ZSt4fillIPffEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit
-  %31 = load i8, ptr %0, align 8
-  %32 = or i8 %31, 64
-  store i8 %32, ptr %0, align 8
+  %30 = load i8, ptr %0, align 8
+  %31 = or i8 %30, 64
+  store i8 %31, ptr %0, align 8
   ret void
 }
 

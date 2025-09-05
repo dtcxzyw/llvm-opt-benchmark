@@ -3387,36 +3387,35 @@ thread-pre-split.thread:                          ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %18, label %.lr.ph.i.preheader, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.noexc11
-  %19 = add nsw i64 %9, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %19, i1 false), !tbaa !56
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %17, 3
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !56
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.noexc11, %thread-pre-split
-  %.sink = phi ptr [ %20, %thread-pre-split ], [ %16, %.noexc11 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8, !tbaa !51
+  %.sink = phi ptr [ %19, %thread-pre-split ], [ %16, %.noexc11 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8, !tbaa !51
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.02.06.i = phi ptr [ %22, %.lr.ph.i ], [ %13, %.lr.ph.i.preheader ]
+  %.sroa.02.06.i = phi ptr [ %21, %.lr.ph.i ], [ %13, %.lr.ph.i.preheader ]
   store i64 %indvars.iv.i, ptr %.sroa.02.06.i, align 8, !tbaa !56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %22, %.sink
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %21, %.sink
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !237
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: ; preds = %.lr.ph.i
-  %23 = ptrtoint ptr %.sink to i64
-  %24 = ptrtoint ptr %13 to i64
-  %25 = sub i64 %23, %24
-  %26 = ashr exact i64 %25, 3
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 true)
-  %28 = shl nuw nsw i64 %27, 1
-  %29 = xor i64 %28, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_T1_(ptr nonnull %13, ptr %.sink, i64 noundef %29, ptr nonnull %2, ptr nonnull %1)
+  %22 = ptrtoint ptr %.sink to i64
+  %23 = ptrtoint ptr %13 to i64
+  %24 = sub i64 %22, %23
+  %25 = ashr exact i64 %24, 3
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %27 = shl nuw nsw i64 %26, 1
+  %28 = xor i64 %27, 126
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_T1_(ptr nonnull %13, ptr %.sink, i64 noundef %28, ptr nonnull %2, ptr nonnull %1)
           to label %.noexc12 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .noexc12:                                         ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit
@@ -3427,14 +3426,14 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5arrow8internal7
   ret void
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.noexc12, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !136
-  %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %33, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %34) #23
-  resume { ptr, i32 } %30
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !136
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %23
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %33) #23
+  resume { ptr, i32 } %29
 }
 
 declare void @_ZNK5arrow6Tensor12CountNonZeroEv(ptr dead_on_unwind writable sret(%"class.arrow::Result.23") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #2

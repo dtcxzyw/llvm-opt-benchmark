@@ -2151,7 +2151,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: ;
   %47 = load i32, ptr %46, align 8, !tbaa !76
   %48 = zext i32 %47 to i64
   %.idx.i.i.i = shl nuw nsw i64 %48, 4
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i.i
+  %49 = getelementptr i8, ptr %45, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %47, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI3appP10ptr_vectorIS0_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -2389,7 +2389,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: 
   %127 = load i32, ptr %46, align 8, !tbaa !76
   %128 = zext i32 %127 to i64
   %.idx.i.i = shl nuw nsw i64 %128, 4
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i
+  %129 = getelementptr i8, ptr %126, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %127, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -3627,7 +3627,7 @@ _ZN3mbp20array_project_plugin3imp19assert_store_selectER5modelRNS_10term_graphER
   %84 = load i32, ptr %83, align 8, !tbaa !36
   %85 = zext i32 %84 to i64
   %.idx.i.i = shl nuw nsw i64 %85, 4
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i.i
+  %86 = getelementptr i8, ptr %82, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %84, 0
   br i1 %.not1.i.i.i.i, label %.loopexit102, label %.lr.ph.i.i.i.i
 
@@ -3655,7 +3655,7 @@ _ZN3mbp20array_project_plugin3imp19assert_store_selectER5modelRNS_10term_graphER
   %94 = load i32, ptr %93, align 8, !tbaa !36
   %95 = zext i32 %94 to i64
   %.idx.i.i43 = shl nuw nsw i64 %95, 4
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i43
+  %96 = getelementptr i8, ptr %92, i64 %.idx.i.i43
   %.not1.i.i.i.i44 = icmp eq i32 %94, 0
   br i1 %.not1.i.i.i.i44, label %.loopexit101, label %.lr.ph.i.i.i.i45
 
@@ -22248,7 +22248,7 @@ define linkonce_odr hidden void @_ZN3mbp20array_project_plugin3imp21assert_exten
   %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = zext i32 %17 to i64
   %.idx.i.i = shl nuw nsw i64 %18, 4
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i
+  %19 = getelementptr i8, ptr %15, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4sortP10ref_vectorI3app11ast_managerEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

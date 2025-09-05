@@ -250,8 +250,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit238:                 ; preds = %59, %_ZNSt6vectorIf
   %85 = icmp slt i32 %10, 0
   %.not.i.i.i.i = icmp eq i32 %10, 0
   %86 = shl nuw nsw i64 %84, 2
-  %87 = icmp eq i32 %10, 1
-  %88 = add nsw i64 %86, -4
+  %87 = add nsw i64 %84, -1
+  %88 = icmp eq i64 %87, 0
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %87, 2
   %89 = icmp sgt i32 %10, 0
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -314,11 +315,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %107
 .noexc241:                                        ; preds = %113
   %115 = getelementptr inbounds nuw i32, ptr %114, i64 %84
   store i32 0, ptr %114, align 4, !tbaa !173
-  br i1 %87, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  br i1 %88, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc241
   %116 = getelementptr i8, ptr %114, i64 4
-  call void @llvm.memset.p0.i64(ptr align 4 %116, i8 0, i64 %88, i1 false), !tbaa !173
+  call void @llvm.memset.p0.i64(ptr align 4 %116, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !173
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc241, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

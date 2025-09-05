@@ -871,7 +871,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12
   %321 = phi i32 [ %310, %._crit_edge537.thread.i ], [ %315, %._crit_edge537.i ]
   %322 = phi ptr [ %308, %._crit_edge537.thread.i ], [ %313, %._crit_edge537.i ]
   %.idx.i.i.i = shl nuw nsw i64 %320, 3
-  %323 = getelementptr inbounds nuw i8, ptr %322, i64 %.idx.i.i.i
+  %323 = getelementptr i8, ptr %322, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %321, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplIPKNS_6ComdatENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -965,7 +965,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_6ComdatENS_8DenseMapIS4_NS0_13DenseSetEmptyEN
   %.v.v.i4.i2.i.i = select i1 %352, i32 %354, i32 %356
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %357 = getelementptr inbounds nuw i8, ptr %349, i64 %.idx.i.i
+  %357 = getelementptr i8, ptr %349, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 

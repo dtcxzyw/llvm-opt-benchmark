@@ -3931,7 +3931,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
 
 29:                                               ; preds = %19
   %.idx.i.i = shl nuw nsw i64 %26, 3
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i
+  %30 = getelementptr i8, ptr %23, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %25, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -4131,7 +4131,7 @@ _ZNK12_GLOBAL__N_119SimpleStreamChecker24guaranteedNotToCloseFileERKN5clang4ento
 
 51:                                               ; preds = %_ZNK12_GLOBAL__N_119SimpleStreamChecker24guaranteedNotToCloseFileERKN5clang4ento9CallEventE.exit.thread
   %.idx.i.i = shl nuw nsw i64 %48, 3
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i
+  %52 = getelementptr i8, ptr %45, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %47, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

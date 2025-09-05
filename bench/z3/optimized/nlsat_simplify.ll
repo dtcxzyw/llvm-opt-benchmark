@@ -2658,9 +2658,9 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %42
   %49 = shl nuw nsw i64 %48, 2
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 %49
   %.not4255 = icmp eq i32 %47, 0
-  br i1 %.not4255, label %._crit_edge59.thread79, label %.lr.ph58
+  br i1 %.not4255, label %._crit_edge59.thread78, label %.lr.ph58
 
-._crit_edge59.thread79:                           ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
+._crit_edge59.thread78:                           ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %51, align 8, !tbaa !42
   br label %54
@@ -2676,8 +2676,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %42
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZN6vectorIjLb0EjED2Ev.exit, label %54
 
-54:                                               ; preds = %._crit_edge59.thread79, %._crit_edge59
-  %55 = phi ptr [ %43, %._crit_edge59.thread79 ], [ %.pre, %._crit_edge59 ]
+54:                                               ; preds = %._crit_edge59.thread78, %._crit_edge59
+  %55 = phi ptr [ %43, %._crit_edge59.thread78 ], [ %.pre, %._crit_edge59 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %56)
           to label %_ZN6vectorIjLb0EjED2Ev.exit unwind label %57

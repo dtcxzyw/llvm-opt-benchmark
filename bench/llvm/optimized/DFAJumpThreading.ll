@@ -10098,7 +10098,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionES3_EE7reserveEm.exit.i.i.i.i
 
 1636:                                             ; preds = %_ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionES3_EE7reserveEm.exit.i.i.i.i
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %1633, 6
-  %1637 = getelementptr inbounds nuw i8, ptr %1631, i64 %.idx.i.i.i.i.i.i
+  %1637 = getelementptr i8, ptr %1631, i64 %.idx.i.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %1632, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i.i, label %_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit.i.i.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i
 
@@ -11700,7 +11700,7 @@ _ZN12_GLOBAL__N_112TransformDFA9updateSSAERN4llvm9MapVectorIPNS1_11InstructionES
   %.v.v.i4.i2.i.i = select i1 %2275, i32 %2276, i32 %2277
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i55.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %2278 = getelementptr inbounds nuw i8, ptr %2273, i64 %.idx.i55.i
+  %2278 = getelementptr i8, ptr %2273, i64 %.idx.i55.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 

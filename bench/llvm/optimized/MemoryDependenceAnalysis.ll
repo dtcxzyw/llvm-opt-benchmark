@@ -7402,7 +7402,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_11SmallPtrSetIPKNS_5Val
   %.v.v.i4.i2.i = select i1 %162, i32 %164, i32 %166
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %167 = getelementptr inbounds nuw i8, ptr %159, i64 %.idx.i
+  %167 = getelementptr i8, ptr %159, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_5ValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -8282,7 +8282,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_11SmallPtrSetIS3_Lj4EEE
   %.v.v.i4.i2.i = select i1 %265, i32 %267, i32 %269
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %270 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx.i
+  %270 = getelementptr i8, ptr %262, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -8519,7 +8519,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_11SmallPtrSetIS3_Lj4EEE
   %.v.v.i4.i2.i150 = select i1 %369, i32 %371, i32 %373
   %.v.i5.i3.i151 = zext i32 %.v.v.i4.i2.i150 to i64
   %.idx.i152 = shl nuw nsw i64 %.v.i5.i3.i151, 3
-  %374 = getelementptr inbounds nuw i8, ptr %366, i64 %.idx.i152
+  %374 = getelementptr i8, ptr %366, i64 %.idx.i152
   %.not3.i4.i.i6.i4.i153 = icmp eq i32 %.v.v.i4.i2.i150, 0
   br i1 %.not3.i4.i.i6.i4.i153, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit163, label %.lr.ph.i5.i.i7.i5.i154
 
@@ -8904,7 +8904,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_11SmallPtrSetINS_14Poin
   %.v.v.i4.i2.i229 = select i1 %522, i32 %524, i32 %526
   %.v.i5.i3.i230 = zext i32 %.v.v.i4.i2.i229 to i64
   %.idx.i231 = shl nuw nsw i64 %.v.i5.i3.i230, 3
-  %527 = getelementptr inbounds nuw i8, ptr %519, i64 %.idx.i231
+  %527 = getelementptr i8, ptr %519, i64 %.idx.i231
   %.not3.i4.i.i6.i4.i232 = icmp eq i32 %.v.v.i4.i2.i229, 0
   br i1 %.not3.i4.i.i6.i4.i232, label %_ZNK4llvm15SmallPtrSetImplINS_14PointerIntPairIPKNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i233
 

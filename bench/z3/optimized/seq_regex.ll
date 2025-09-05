@@ -7950,7 +7950,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %148 = load i32, ptr %31, align 8, !tbaa !841
   %149 = zext i32 %148 to i64
   %.idx.i = shl nuw nsw i64 %149, 3
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx.i
+  %150 = getelementptr i8, ptr %147, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %148, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

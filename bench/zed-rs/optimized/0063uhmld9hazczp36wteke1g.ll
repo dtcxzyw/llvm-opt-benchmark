@@ -40365,25 +40365,25 @@ define hidden void @"_ZN96_$LT$image..codecs..farbfeld..FarbfeldDecoder$LT$R$GT$
 
 .lr.ph.i.i:                                       ; preds = %17, %53
   %19 = phi i64 [ %51, %53 ], [ %.sroa.5.0.copyload, %17 ]
-  %.sroa.017.i.sroa.4.0.extract.trunc.i.i69.i.i = phi i8 [ %.sroa.017.i.sroa.4.0.extract.trunc.i.i6890.i.i, %53 ], [ %.sroa.20.0.copyload, %17 ]
+  %.sroa.017.i.sroa.4.0.extract.trunc.i.i68.i.i = phi i8 [ %.sroa.017.i.sroa.4.0.extract.trunc.i.i6788.i.i, %53 ], [ %.sroa.20.0.copyload, %17 ]
   %20 = phi i8 [ %50, %53 ], [ %.sroa.15.0.copyload, %17 ]
-  %.sroa.0.063.i.i = phi ptr [ %55, %53 ], [ %2, %17 ]
-  %.sroa.4.062.i.i = phi i64 [ %54, %53 ], [ %3, %17 ]
+  %.sroa.0.062.i.i = phi ptr [ %55, %53 ], [ %2, %17 ]
+  %.sroa.4.061.i.i = phi i64 [ %54, %53 ], [ %3, %17 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13427)
   %trunc.i.i.i = trunc nuw i8 %20 to i1
   br i1 %trunc.i.i.i, label %23, label %21
 
 21:                                               ; preds = %23, %.lr.ph.i.i
   %.sroa.021.0.i.i.i = phi i64 [ 1, %23 ], [ 0, %.lr.ph.i.i ]
-  %.sroa.6.0.i.i.i = phi i64 [ %24, %23 ], [ %.sroa.4.062.i.i, %.lr.ph.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %25, %23 ], [ %.sroa.0.063.i.i, %.lr.ph.i.i ]
+  %.sroa.6.0.i.i.i = phi i64 [ %24, %23 ], [ %.sroa.4.061.i.i, %.lr.ph.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %25, %23 ], [ %.sroa.0.062.i.i, %.lr.ph.i.i ]
   %22 = icmp eq i64 %.sroa.6.0.i.i.i, 1
   br i1 %22, label %26, label %29
 
 23:                                               ; preds = %.lr.ph.i.i
-  store i8 %.sroa.017.i.sroa.4.0.extract.trunc.i.i69.i.i, ptr %.sroa.0.063.i.i, align 1, !alias.scope !13430, !noalias !13431
-  %24 = add i64 %.sroa.4.062.i.i, -1
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.063.i.i, i64 1
+  store i8 %.sroa.017.i.sroa.4.0.extract.trunc.i.i68.i.i, ptr %.sroa.0.062.i.i, align 1, !alias.scope !13430, !noalias !13431
+  %24 = add i64 %.sroa.4.061.i.i, -1
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.062.i.i, i64 1
   br label %21
 
 26:                                               ; preds = %21
@@ -40395,66 +40395,68 @@ define hidden void @"_ZN96_$LT$image..codecs..farbfeld..FarbfeldDecoder$LT$R$GT$
 29:                                               ; preds = %21
   %30 = and i64 %.sroa.6.0.i.i.i, -2
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.loopexit.i.i, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i"
+  br i1 %31, label %.loopexit.i.i, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.lr.ph.i.i.i"
+
+"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.lr.ph.i.i.i": ; preds = %29
+  %32 = or disjoint i64 %30, %.sroa.021.0.i.i.i
+  br label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i"
 
 .loopexit.thread.i.i:                             ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i
-  %.sroa.016.0.copyload.i.i.i.i.i = load i16, ptr %32, align 1, !alias.scope !13434, !noalias !13438
-  %33 = add i64 %19, 2
-  %34 = tail call i16 @llvm.bswap.i16(i16 %.sroa.016.0.copyload.i.i.i.i.i)
-  %.sroa.017.i.sroa.0.0.extract.trunc.i.i.i.i = trunc i16 %34 to i8
-  %.sroa.017.i.sroa.4.0.extract.shift.i.i.i.i = lshr i16 %34, 8
+  %33 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i
+  %.sroa.016.0.copyload.i.i.i.i.i = load i16, ptr %33, align 1, !alias.scope !13434, !noalias !13438
+  %34 = add i64 %19, 2
+  %35 = tail call i16 @llvm.bswap.i16(i16 %.sroa.016.0.copyload.i.i.i.i.i)
+  %.sroa.017.i.sroa.0.0.extract.trunc.i.i.i.i = trunc i16 %35 to i8
+  %.sroa.017.i.sroa.4.0.extract.shift.i.i.i.i = lshr i16 %35, 8
   %.sroa.017.i.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i16 %.sroa.017.i.sroa.4.0.extract.shift.i.i.i.i to i8
   store i8 %.sroa.017.i.sroa.0.0.extract.trunc.i.i.i.i, ptr %.sroa.0.0.i.i.i, align 1, !alias.scope !13430, !noalias !13431
-  %35 = add nuw nsw i64 %.sroa.021.0.i.i.i, 1
+  %36 = add nuw nsw i64 %.sroa.021.0.i.i.i, 1
   br label %49
 
-"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i": ; preds = %29, %39
-  %36 = phi i64 [ %43, %39 ], [ %19, %29 ]
-  %.sroa.021.152.i.i.i = phi i64 [ %45, %39 ], [ %.sroa.021.0.i.i.i, %29 ]
-  %.sroa.8.051.i.i.i = phi i64 [ %40, %39 ], [ %30, %29 ]
-  %.sroa.536.050.i.i.i = phi ptr [ %41, %39 ], [ %.sroa.0.0.i.i.i, %29 ]
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %36, i64 %.sroa.4.0.copyload)
-  %37 = sub nuw i64 %.sroa.4.0.copyload, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
-  %38 = icmp ult i64 %37, 2
-  br i1 %38, label %_ZN3std2io18default_read_exact17ha60881227767a92cE.exit.i, label %39
+"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i": ; preds = %40, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.lr.ph.i.i.i"
+  %37 = phi i64 [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.lr.ph.i.i.i" ], [ %44, %40 ]
+  %.sroa.8.051.i.i.i = phi i64 [ %30, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.lr.ph.i.i.i" ], [ %41, %40 ]
+  %.sroa.536.050.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.lr.ph.i.i.i" ], [ %42, %40 ]
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %37, i64 %.sroa.4.0.copyload)
+  %38 = sub nuw i64 %.sroa.4.0.copyload, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
+  %39 = icmp ult i64 %38, 2
+  br i1 %39, label %_ZN3std2io18default_read_exact17ha60881227767a92cE.exit.i, label %40
 
-39:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i"
-  %40 = add i64 %.sroa.8.051.i.i.i, -2
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.536.050.i.i.i, i64 2
-  %42 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
-  %.sroa.016.0.copyload.i.i.i.i = load i16, ptr %42, align 1, !alias.scope !13451, !noalias !13455
-  %43 = add i64 %36, 2
-  %44 = tail call i16 @llvm.bswap.i16(i16 %.sroa.016.0.copyload.i.i.i.i)
-  store i16 %44, ptr %.sroa.536.050.i.i.i, align 1, !alias.scope !13464, !noalias !13468
-  %45 = add i64 %.sroa.021.152.i.i.i, 2
-  %46 = icmp eq i64 %40, 0
+40:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i"
+  %41 = add i64 %.sroa.8.051.i.i.i, -2
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.536.050.i.i.i, i64 2
+  %43 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
+  %.sroa.016.0.copyload.i.i.i.i = load i16, ptr %43, align 1, !alias.scope !13451, !noalias !13455
+  %44 = add i64 %37, 2
+  %45 = tail call i16 @llvm.bswap.i16(i16 %.sroa.016.0.copyload.i.i.i.i)
+  store i16 %45, ptr %.sroa.536.050.i.i.i, align 1, !alias.scope !13464, !noalias !13468
+  %46 = icmp eq i64 %41, 0
   br i1 %46, label %.loopexit.i.i, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4c5507532495ca9E.exit.i.i.i"
 
-.loopexit.i.i:                                    ; preds = %39, %29
-  %47 = phi i64 [ %19, %29 ], [ %43, %39 ]
-  %.sroa.021.2.i.i.i = phi i64 [ %.sroa.021.0.i.i.i, %29 ], [ %45, %39 ]
+.loopexit.i.i:                                    ; preds = %40, %29
+  %47 = phi i64 [ %19, %29 ], [ %44, %40 ]
+  %.sroa.021.2.i.i.i = phi i64 [ %.sroa.021.0.i.i.i, %29 ], [ %32, %40 ]
   %48 = icmp eq i64 %.sroa.021.2.i.i.i, 0
   br i1 %48, label %_ZN3std2io18default_read_exact17ha60881227767a92cE.exit.i, label %49
 
 49:                                               ; preds = %.loopexit.i.i, %.loopexit.thread.i.i
-  %.sroa.021.2.i91.i.i = phi i64 [ %35, %.loopexit.thread.i.i ], [ %.sroa.021.2.i.i.i, %.loopexit.i.i ]
+  %.sroa.021.2.i89.i.i = phi i64 [ %36, %.loopexit.thread.i.i ], [ %.sroa.021.2.i.i.i, %.loopexit.i.i ]
   %50 = phi i8 [ 1, %.loopexit.thread.i.i ], [ 0, %.loopexit.i.i ]
-  %.sroa.017.i.sroa.4.0.extract.trunc.i.i6890.i.i = phi i8 [ %.sroa.017.i.sroa.4.0.extract.trunc.i.i.i.i, %.loopexit.thread.i.i ], [ %.sroa.017.i.sroa.4.0.extract.trunc.i.i69.i.i, %.loopexit.i.i ]
-  %51 = phi i64 [ %33, %.loopexit.thread.i.i ], [ %47, %.loopexit.i.i ]
-  %52 = icmp ugt i64 %.sroa.021.2.i91.i.i, %.sroa.4.062.i.i
+  %.sroa.017.i.sroa.4.0.extract.trunc.i.i6788.i.i = phi i8 [ %.sroa.017.i.sroa.4.0.extract.trunc.i.i.i.i, %.loopexit.thread.i.i ], [ %.sroa.017.i.sroa.4.0.extract.trunc.i.i68.i.i, %.loopexit.i.i ]
+  %51 = phi i64 [ %34, %.loopexit.thread.i.i ], [ %47, %.loopexit.i.i ]
+  %52 = icmp ugt i64 %.sroa.021.2.i89.i.i, %.sroa.4.061.i.i
   br i1 %52, label %.noexc.i.i, label %53
 
 .noexc.i.i:                                       ; preds = %49
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.021.2.i91.i.i, i64 noundef %.sroa.4.062.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a58ca14b8540b50fa38bce56da43586.75) #47
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.021.2.i89.i.i, i64 noundef %.sroa.4.061.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a58ca14b8540b50fa38bce56da43586.75) #47
           to label %.noexc4 unwind label %57
 
 .noexc4:                                          ; preds = %.noexc.i.i
   unreachable
 
 53:                                               ; preds = %49
-  %54 = sub nuw i64 %.sroa.4.062.i.i, %.sroa.021.2.i91.i.i
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.063.i.i, i64 %.sroa.021.2.i91.i.i
+  %54 = sub nuw i64 %.sroa.4.061.i.i, %.sroa.021.2.i89.i.i
+  %55 = getelementptr inbounds i8, ptr %.sroa.0.062.i.i, i64 %.sroa.021.2.i89.i.i
   %56 = icmp eq i64 %54, 0
   br i1 %56, label %..loopexit50_crit_edge.i.i, label %.lr.ph.i.i
 

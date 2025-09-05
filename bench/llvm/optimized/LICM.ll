@@ -9619,7 +9619,7 @@ _ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit.thread.i: ; preds = %_ZN4llvm9pred_si
 
 548:                                              ; preds = %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit.thread.i
   %.idx.i.i = shl nuw nsw i64 %545, 4
-  %549 = getelementptr inbounds nuw i8, ptr %543, i64 %.idx.i.i
+  %549 = getelementptr i8, ptr %543, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %544, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BranchInstEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -13366,7 +13366,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread: ; preds =
   %.v.v.i4.i2.i.i = select i1 %2225, i32 %2218, i32 %2226
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i202 = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %2227 = getelementptr inbounds nuw i8, ptr %2223, i64 %.idx.i.i202
+  %2227 = getelementptr i8, ptr %2223, i64 %.idx.i.i202
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -14325,7 +14325,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockES3_NS_12DenseMapInfoIS3_vE
 
 55:                                               ; preds = %.loopexit84
   %.idx.i.i.i.i.i = shl nuw nsw i64 %52, 4
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i.i.i
+  %56 = getelementptr i8, ptr %49, i64 %.idx.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i = icmp eq i32 %51, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_8DenseMapIPNS_10BranchInstEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSD_.exit.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i
 
@@ -14585,7 +14585,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thre
 
 187:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i56
   %.idx.i = shl nuw nsw i64 %184, 4
-  %188 = getelementptr inbounds nuw i8, ptr %182, i64 %.idx.i
+  %188 = getelementptr i8, ptr %182, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %183, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

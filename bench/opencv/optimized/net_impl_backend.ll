@@ -130,7 +130,7 @@ define void @_ZN2cv3dnn14dnn4_v202412233Net4Impl4wrapERNS_3MatE(ptr dead_on_unwi
 29:                                               ; preds = %25, %3
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !67
-  %32 = zext i32 %31 to i64
+  %32 = sext i32 %31 to i64
   %33 = icmp slt i32 %31, 0
   br i1 %33, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -146,13 +146,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %29
   %34 = shl nuw nsw i64 %32, 2
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #19
   store i32 0, ptr %35, align 4, !tbaa !74
-  %36 = icmp eq i32 %31, 1
-  br i1 %36, label %.lr.ph, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %36 = add nsw i64 %32, -1
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %.lr.ph, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc43
-  %37 = getelementptr i8, ptr %35, i64 4
-  %38 = add nsw i64 %34, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %37, i8 0, i64 %38, i1 false), !tbaa !74
+  %38 = getelementptr i8, ptr %35, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %36, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !74
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc43
@@ -162,7 +163,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc43
   br label %51
 
 ._crit_edge:                                      ; preds = %51, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.090.0117 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %35, %51 ]
+  %.sroa.090.0118 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %35, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !76
@@ -844,21 +845,21 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122314BackendWrapperELN9__gnu_cxx12_Lock
 
 _ZN2cv3PtrINS_3dnn14dnn4_v2024122314BackendWrapperEEaSERKS4_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %215, %_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122314BackendWrapperELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit84
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not.i.i.i85 = icmp eq ptr %.sroa.090.0117, null
+  %.not.i.i.i85 = icmp eq ptr %.sroa.090.0118, null
   br i1 %.not.i.i.i85, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %279
 
 279:                                              ; preds = %_ZN2cv3PtrINS_3dnn14dnn4_v2024122314BackendWrapperEEaSERKS4_.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.090.0117) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.090.0118) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 280:                                              ; preds = %255, %253, %198
   %.pn37.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn, %198 ], [ %256, %255 ], [ %254, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not.i.i.i86 = icmp eq ptr %.sroa.090.0117, null
+  %.not.i.i.i86 = icmp eq ptr %.sroa.090.0118, null
   br i1 %.not.i.i.i86, label %_ZNSt6vectorIiSaIiEED2Ev.exit87, label %281
 
 281:                                              ; preds = %280
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.090.0117) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.090.0118) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit87
 
 _ZNSt6vectorIiSaIiEED2Ev.exit87:                  ; preds = %281, %280

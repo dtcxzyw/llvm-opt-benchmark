@@ -490,7 +490,7 @@ _ZNSt13unordered_mapIPN4llvm8ConstantENS0_11SmallPtrSetIPNS0_11GlobalValueELj8EE
   %.v.v.i4.i2.i = select i1 %86, i32 %88, i32 %90
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i
+  %91 = getelementptr i8, ptr %83, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -604,7 +604,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11GlobalValueEEppEv.exit.i: ; preds = %.crited
   %.v.v.i4.i2.i65 = select i1 %124, i32 %126, i32 %128
   %.v.i5.i3.i66 = zext i32 %.v.v.i4.i2.i65 to i64
   %.idx.i67 = shl nuw nsw i64 %.v.i5.i3.i66, 3
-  %129 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i67
+  %129 = getelementptr i8, ptr %121, i64 %.idx.i67
   %.not3.i4.i.i6.i4.i68 = icmp eq i32 %.v.v.i4.i2.i65, 0
   br i1 %.not3.i4.i.i6.i4.i68, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5beginEv.exit77, label %.lr.ph.i5.i.i7.i5.i69
 
@@ -791,7 +791,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5eraseES2_.exit: ; preds = %23, %._
   %.v.v.i4.i2.i = select i1 %32, i32 %33, i32 %34
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
+  %35 = getelementptr i8, ptr %30, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -2964,7 +2964,7 @@ _ZNK4llvm11GlobalValue21isDiscardableIfUnusedEv.exit134.thread: ; preds = %.lr.p
   %.v.v.i4.i2.i = select i1 %130, i32 %132, i32 %134
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %135 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i
+  %135 = getelementptr i8, ptr %127, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -3124,7 +3124,7 @@ _ZNK4llvm11GlobalValue21isDiscardableIfUnusedEv.exit137.thread: ; preds = %.lr.p
   %.v.v.i4.i2.i138 = select i1 %176, i32 %178, i32 %180
   %.v.i5.i3.i139 = zext i32 %.v.v.i4.i2.i138 to i64
   %.idx.i140 = shl nuw nsw i64 %.v.i5.i3.i139, 3
-  %181 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx.i140
+  %181 = getelementptr i8, ptr %173, i64 %.idx.i140
   %.not3.i4.i.i6.i4.i141 = icmp eq i32 %.v.v.i4.i2.i138, 0
   br i1 %.not3.i4.i.i6.i4.i141, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5beginEv.exit150, label %.lr.ph.i5.i.i7.i5.i142
 

@@ -2572,7 +2572,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end8.i:                                        ; preds = %entry
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 7
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %1, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %2, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS2_17RegisterAllocator17BlockLifetimeInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -5724,7 +5724,7 @@ if.then.i306:                                     ; preds = %do.end
 
 if.end8.i:                                        ; preds = %do.end
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i305, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %196, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %196, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %197, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -9791,7 +9791,7 @@ if.then.i378:                                     ; preds = %while.end160
 
 if.end8.i:                                        ; preds = %while.end160
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i377, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %199, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %199, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %200, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

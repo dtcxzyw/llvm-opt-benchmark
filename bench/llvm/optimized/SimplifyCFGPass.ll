@@ -3725,7 +3725,7 @@ define internal fastcc noundef zeroext i1 @_ZL22iterativelySimplifyCFGRN4llvm8Fu
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.v.i5.i3.i = zext i32 %21 to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %22 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i
+  %22 = getelementptr i8, ptr %80, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %21, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

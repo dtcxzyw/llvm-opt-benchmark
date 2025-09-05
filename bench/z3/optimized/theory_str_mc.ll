@@ -22443,7 +22443,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit1
   %214 = load i32, ptr %213, align 8, !tbaa !92
   %215 = zext i32 %214 to i64
   %.idx.i.i = shl nuw nsw i64 %215, 4
-  %216 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i
+  %216 = getelementptr i8, ptr %212, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %214, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprP10ref_vectorIS0_11ast_managerEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -22552,7 +22552,7 @@ _ZN7obj_mapI4exprP10ref_vectorIS0_11ast_managerEE5resetEv.exit: ; preds = %._cri
   %254 = load i32, ptr %253, align 8, !tbaa !92
   %255 = zext i32 %254 to i64
   %.idx.i.i1108 = shl nuw nsw i64 %255, 4
-  %256 = getelementptr inbounds nuw i8, ptr %252, i64 %.idx.i.i1108
+  %256 = getelementptr i8, ptr %252, i64 %.idx.i.i1108
   %.not1.i.i.i.i1109 = icmp eq i32 %254, 0
   br i1 %.not1.i.i.i.i1109, label %_ZNK7obj_mapI4exprP10ref_vectorIS0_11ast_managerEE5beginEv.exit1117, label %.lr.ph.i.i.i.i1110
 
@@ -28951,7 +28951,7 @@ _ZN3smt6kernel5checkERK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZNK15r
   %2732 = load i32, ptr %213, align 8, !tbaa !92
   %2733 = zext i32 %2732 to i64
   %.idx.i.i1805 = shl nuw nsw i64 %2733, 4
-  %2734 = getelementptr inbounds nuw i8, ptr %2731, i64 %.idx.i.i1805
+  %2734 = getelementptr i8, ptr %2731, i64 %.idx.i.i1805
   %.not1.i.i.i.i1806 = icmp eq i32 %2732, 0
   br i1 %.not1.i.i.i.i1806, label %.loopexit2603, label %.lr.ph.i.i.i.i1807
 
@@ -28984,7 +28984,7 @@ _ZN3smt6kernel5checkERK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZNK15r
   %2744 = load i32, ptr %253, align 8, !tbaa !92
   %2745 = zext i32 %2744 to i64
   %.idx.i.i1817 = shl nuw nsw i64 %2745, 4
-  %2746 = getelementptr inbounds nuw i8, ptr %2743, i64 %.idx.i.i1817
+  %2746 = getelementptr i8, ptr %2743, i64 %.idx.i.i1817
   %.not1.i.i.i.i1818 = icmp eq i32 %2744, 0
   br i1 %.not1.i.i.i.i1818, label %.loopexit2600, label %.lr.ph.i.i.i.i1819
 

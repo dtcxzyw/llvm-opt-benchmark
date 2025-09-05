@@ -608,7 +608,7 @@ define linkonce_odr hidden void @_Z16dec_ref_map_keysI11ast_manager7obj_mapI4exp
   %5 = load i32, ptr %4, align 8, !tbaa !20
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4expriE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1870,7 +1870,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10, %18
   %24 = load i32, ptr %23, align 8, !tbaa !33
   %25 = zext i32 %24 to i64
   %.idx.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
+  %26 = getelementptr i8, ptr %22, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %24, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -2218,7 +2218,7 @@ define hidden void @_ZN7grobner12update_orderER13obj_hashtableINS_8equationEEb(p
   %12 = load i32, ptr %11, align 8, !tbaa !33
   %13 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -7670,7 +7670,7 @@ define hidden noundef ptr @_ZN7grobner24simplify_using_processedEPNS_8equationE(
   %8 = load i32, ptr %4, align 8, !tbaa !33
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %10 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -7844,7 +7844,7 @@ define hidden noundef ptr @_ZN7grobner9pick_nextEv(ptr noundef nonnull align 8 d
   %10 = load i32, ptr %9, align 8, !tbaa !33
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 3
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -8153,7 +8153,7 @@ define hidden noundef zeroext i1 @_ZN7grobner18simplify_processedEPNS_8equationE
   %22 = load i32, ptr %21, align 8, !tbaa !33
   %23 = zext i32 %22 to i64
   %.idx.i = shl nuw nsw i64 %23, 3
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
+  %24 = getelementptr i8, ptr %20, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %22, 0
   br i1 %.not1.i.i.i, label %.loopexit159, label %.lr.ph.i.i.i
 
@@ -8833,7 +8833,7 @@ define hidden void @_ZN7grobner19simplify_to_processEPNS_8equationE(ptr noundef 
   %20 = load i32, ptr %19, align 8, !tbaa !33
   %21 = zext i32 %20 to i64
   %.idx.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
+  %22 = getelementptr i8, ptr %18, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %20, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -9878,7 +9878,7 @@ define hidden void @_ZN7grobner9superposeEPNS_8equationE(ptr noundef nonnull ali
   %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = zext i32 %6 to i64
   %.idx.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -9962,7 +9962,7 @@ define hidden noundef zeroext i1 @_ZN7grobner18compute_basis_stepEv(ptr noundef 
   %13 = load i32, ptr %9, align 8, !tbaa !33
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 3
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i
+  %15 = getelementptr i8, ptr %12, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -10078,7 +10078,7 @@ _ZN7grobner24simplify_using_processedEPNS_8equationE.exit.thread: ; preds = %.lr
   %53 = load i32, ptr %9, align 8, !tbaa !33
   %54 = zext i32 %53 to i64
   %.idx.i.i8 = shl nuw nsw i64 %54, 3
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i8
+  %55 = getelementptr i8, ptr %52, i64 %.idx.i.i8
   %.not1.i.i.i.i9 = icmp eq i32 %53, 0
   br i1 %.not1.i.i.i.i9, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit.i13, label %.lr.ph.i.i.i.i10
 
@@ -10172,7 +10172,7 @@ define hidden void @_ZNK7grobner7copy_toERK13obj_hashtableINS_8equationEER10ptr_
   %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = zext i32 %6 to i64
   %.idx.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -10260,7 +10260,7 @@ define hidden void @_ZNK7grobner13get_equationsER10ptr_vectorINS_8equationEE(ptr
   %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -10343,7 +10343,7 @@ _ZNK7grobner7copy_toERK13obj_hashtableINS_8equationEER10ptr_vectorIS1_E.exit: ; 
   %36 = load i32, ptr %35, align 8, !tbaa !33
   %37 = zext i32 %36 to i64
   %.idx.i.i3 = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i3
+  %38 = getelementptr i8, ptr %34, i64 %.idx.i.i3
   %.not1.i.i.i.i4 = icmp eq i32 %36, 0
   br i1 %.not1.i.i.i.i4, label %_ZNK14core_hashtableI14obj_hash_entryIN7grobner8equationEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE5beginEv.exit.i8, label %.lr.ph.i.i.i.i5
 

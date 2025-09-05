@@ -3246,7 +3246,7 @@ _ZN4llvm5MachO13InterfaceFile20addReexportedLibraryENS_9StringRefERKNS0_6TargetE
 
 536:                                              ; preds = %._crit_edge551
   %.idx.i.i.i = shl nuw nsw i64 %533, 5
-  %537 = getelementptr inbounds nuw i8, ptr %530, i64 %.idx.i.i.i
+  %537 = getelementptr i8, ptr %530, i64 %.idx.i.i.i
   %.not19.i5.i10.i2.i.i.i = icmp eq i32 %532, 0
   br i1 %.not19.i5.i10.i2.i.i.i, label %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -3316,7 +3316,7 @@ _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit:    ; preds = %.lr.ph.i6.i12.i3.i.
 
 561:                                              ; preds = %._crit_edge555
   %.idx.i.i.i292 = shl nuw nsw i64 %558, 5
-  %562 = getelementptr inbounds nuw i8, ptr %555, i64 %.idx.i.i.i292
+  %562 = getelementptr i8, ptr %555, i64 %.idx.i.i.i292
   %.not19.i5.i10.i2.i.i.i293 = icmp eq i32 %557, 0
   br i1 %.not19.i5.i10.i2.i.i.i293, label %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit308, label %.lr.ph.i6.i12.i3.i.i.i294
 
@@ -4450,7 +4450,7 @@ _ZN4llvm5MachO13InterfaceFile18addAllowableClientENS_9StringRefERKNS0_6TargetE.e
 
 327:                                              ; preds = %._crit_edge342
   %.idx.i.i.i = shl nuw nsw i64 %324, 5
-  %328 = getelementptr inbounds nuw i8, ptr %321, i64 %.idx.i.i.i
+  %328 = getelementptr i8, ptr %321, i64 %.idx.i.i.i
   %.not19.i5.i10.i2.i.i.i = icmp eq i32 %323, 0
   br i1 %.not19.i5.i10.i2.i.i.i, label %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -6087,7 +6087,7 @@ _ZN4llvm5MachO13InterfaceFile18addAllowableClientENS_9StringRefERKNS0_6TargetE.e
 
 312:                                              ; preds = %._crit_edge283
   %.idx.i.i.i = shl nuw nsw i64 %309, 5
-  %313 = getelementptr inbounds nuw i8, ptr %306, i64 %.idx.i.i.i
+  %313 = getelementptr i8, ptr %306, i64 %.idx.i.i.i
   %.not19.i5.i10.i2.i.i.i = icmp eq i32 %308, 0
   br i1 %.not19.i5.i10.i2.i.i.i, label %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -7886,7 +7886,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvmeqINS_8DenseMapINS_13SymbolsMapK
 
 15:                                               ; preds = %7
   %.idx.i = shl nuw nsw i64 %12, 5
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not19.i5.i10.i2.i = icmp eq i32 %11, 0
   br i1 %.not19.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13SymbolsMapKeyEPNS_5MachO6SymbolENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

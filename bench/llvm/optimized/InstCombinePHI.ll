@@ -642,7 +642,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit31: ; pre
   %.v.v.i4.i2.i = select i1 %61, i32 %.pre101, i32 %.pre102
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %62 = getelementptr inbounds nuw i8, ptr %.pre99, i64 %.idx.i
+  %62 = getelementptr i8, ptr %.pre99, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -679,7 +679,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i
   %.v.i5.i3.i33.pre-phi = phi i64 [ %.pre109, %._crit_edge92.loopexit ], [ %.v.i5.i3.i, %_ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit ]
   %.v.v.i4.i2.i32.pre-phi = phi i32 [ %.pre108, %._crit_edge92.loopexit ], [ %.v.v.i4.i2.i, %_ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit ]
   %66 = phi ptr [ %.pre103, %._crit_edge92.loopexit ], [ %.pre99, %_ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i34.pre-phi
+  %67 = getelementptr i8, ptr %66, i64 %.idx.i34.pre-phi
   %.not3.i4.i.i6.i4.i35 = icmp eq i32 %.v.v.i4.i2.i32.pre-phi, 0
   br i1 %.not3.i4.i.i6.i4.i35, label %_ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit44, label %.lr.ph.i5.i.i7.i5.i36
 

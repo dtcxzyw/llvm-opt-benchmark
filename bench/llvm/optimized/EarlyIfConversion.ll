@@ -2849,33 +2849,33 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %51 = phi i32 [ 0, %46 ], [ %.pre.i.i.i, %49 ]
   %52 = load ptr, ptr %39, align 8, !tbaa !25
   %53 = getelementptr inbounds nuw i64, ptr %52, i64 %.pre-phi.i.i
-  %54 = shl nuw nsw i64 %44, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %53, i8 0, i64 %54, i1 false), !tbaa !53
-  %55 = add i32 %51, %43
-  store i32 %55, ptr %41, align 8, !tbaa !26
-  %56 = zext i32 %55 to i64
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %44, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %53, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !53
+  %54 = add i32 %51, %43
+  store i32 %54, ptr %41, align 8, !tbaa !26
+  %55 = zext i32 %54 to i64
   br label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
 
 _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
-  %57 = phi i64 [ 0, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %56, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
-  %58 = phi i32 [ %38, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.pre4.pre.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
-  %59 = and i32 %58, 63
-  %.not.i.i.i4 = icmp eq i32 %59, 0
-  br i1 %.not.i.i.i4, label %_ZN4llvm9BitVector6resizeEjb.exit, label %60
+  %56 = phi i64 [ 0, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %55, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
+  %57 = phi i32 [ %38, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.pre4.pre.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ]
+  %58 = and i32 %57, 63
+  %.not.i.i.i4 = icmp eq i32 %58, 0
+  br i1 %.not.i.i.i4, label %_ZN4llvm9BitVector6resizeEjb.exit, label %59
 
-60:                                               ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
-  %61 = zext nneg i32 %59 to i64
-  %62 = shl nsw i64 -1, %61
-  %63 = xor i64 %62, -1
-  %64 = load ptr, ptr %39, align 8, !tbaa !25
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %57
-  %66 = getelementptr inbounds i8, ptr %65, i64 -8
-  %67 = load i64, ptr %66, align 8, !tbaa !53
-  %68 = and i64 %67, %63
-  store i64 %68, ptr %66, align 8, !tbaa !53
+59:                                               ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
+  %60 = zext nneg i32 %58 to i64
+  %61 = shl nsw i64 -1, %60
+  %62 = xor i64 %61, -1
+  %63 = load ptr, ptr %39, align 8, !tbaa !25
+  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %56
+  %65 = getelementptr inbounds i8, ptr %64, i64 -8
+  %66 = load i64, ptr %65, align 8, !tbaa !53
+  %67 = and i64 %66, %62
+  store i64 %67, ptr %65, align 8, !tbaa !53
   br label %_ZN4llvm9BitVector6resizeEjb.exit
 
-_ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, %60
+_ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, %59
   ret void
 }
 
@@ -3986,65 +3986,65 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %.critedge
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %165 = zext i32 %163 to i64
+  %.idx.i.i = shl nuw nsw i64 %165, 3
   %166 = load ptr, ptr %164, align 8, !tbaa !25
-  %167 = shl nuw nsw i64 %165, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %166, i8 0, i64 %167, i1 false), !tbaa !53
+  call void @llvm.memset.p0.i64(ptr align 8 %166, i8 0, i64 %.idx.i.i, i1 false), !tbaa !53
   br label %_ZN4llvm9BitVector5resetEv.exit
 
 _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %.critedge, %.lr.ph.i.i.i.i.preheader.i
-  %168 = load ptr, ptr %8, align 8, !tbaa !312
-  %169 = load ptr, ptr %6, align 8, !tbaa !313
-  %.not48 = icmp eq ptr %168, %169
-  br i1 %2, label %170, label %178
+  %167 = load ptr, ptr %8, align 8, !tbaa !312
+  %168 = load ptr, ptr %6, align 8, !tbaa !313
+  %.not48 = icmp eq ptr %167, %168
+  br i1 %2, label %169, label %177
 
-170:                                              ; preds = %_ZN4llvm9BitVector5resetEv.exit
-  br i1 %.not48, label %173, label %171
+169:                                              ; preds = %_ZN4llvm9BitVector5resetEv.exit
+  br i1 %.not48, label %172, label %170
 
-171:                                              ; preds = %170
-  %172 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canPredicateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %168)
-  br i1 %172, label %._crit_edge89, label %.critedge50
+170:                                              ; preds = %169
+  %171 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canPredicateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %167)
+  br i1 %171, label %._crit_edge89, label %.critedge50
 
-._crit_edge89:                                    ; preds = %171
+._crit_edge89:                                    ; preds = %170
   %.pre90 = load ptr, ptr %6, align 8, !tbaa !313
-  br label %173
+  br label %172
 
-173:                                              ; preds = %._crit_edge89, %170
-  %174 = phi ptr [ %.pre90, %._crit_edge89 ], [ %168, %170 ]
-  %175 = load ptr, ptr %7, align 8, !tbaa !314
-  %.not49 = icmp eq ptr %175, %174
-  br i1 %.not49, label %186, label %176
+172:                                              ; preds = %._crit_edge89, %169
+  %173 = phi ptr [ %.pre90, %._crit_edge89 ], [ %167, %169 ]
+  %174 = load ptr, ptr %7, align 8, !tbaa !314
+  %.not49 = icmp eq ptr %174, %173
+  br i1 %.not49, label %185, label %175
 
-176:                                              ; preds = %173
-  %177 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canPredicateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %175)
-  br i1 %177, label %186, label %.critedge50
+175:                                              ; preds = %172
+  %176 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canPredicateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %174)
+  br i1 %176, label %185, label %.critedge50
 
-178:                                              ; preds = %_ZN4llvm9BitVector5resetEv.exit
-  br i1 %.not48, label %181, label %179
+177:                                              ; preds = %_ZN4llvm9BitVector5resetEv.exit
+  br i1 %.not48, label %180, label %178
 
-179:                                              ; preds = %178
-  %180 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %168)
-  br i1 %180, label %._crit_edge87, label %.critedge50
+178:                                              ; preds = %177
+  %179 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %167)
+  br i1 %179, label %._crit_edge87, label %.critedge50
 
-._crit_edge87:                                    ; preds = %179
+._crit_edge87:                                    ; preds = %178
   %.pre88 = load ptr, ptr %6, align 8, !tbaa !313
-  br label %181
+  br label %180
 
-181:                                              ; preds = %._crit_edge87, %178
-  %182 = phi ptr [ %.pre88, %._crit_edge87 ], [ %168, %178 ]
-  %183 = load ptr, ptr %7, align 8, !tbaa !314
-  %.not47 = icmp eq ptr %183, %182
-  br i1 %.not47, label %186, label %184
+180:                                              ; preds = %._crit_edge87, %177
+  %181 = phi ptr [ %.pre88, %._crit_edge87 ], [ %167, %177 ]
+  %182 = load ptr, ptr %7, align 8, !tbaa !314
+  %.not47 = icmp eq ptr %182, %181
+  br i1 %.not47, label %185, label %183
 
-184:                                              ; preds = %181
-  %185 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %183)
-  br i1 %185, label %186, label %.critedge50
+183:                                              ; preds = %180
+  %184 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canSpeculateInstrsEPN4llvm17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %182)
+  br i1 %184, label %185, label %.critedge50
 
-186:                                              ; preds = %181, %184, %173, %176
-  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18findInsertionPointEv(ptr noundef nonnull align 8 dereferenceable(704) %0)
+185:                                              ; preds = %180, %183, %172, %175
+  %186 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18findInsertionPointEv(ptr noundef nonnull align 8 dereferenceable(704) %0)
   br label %.critedge50
 
-.critedge50:                                      ; preds = %._crit_edge, %186, %50, %21, %11, %34, %31, %28, %38, %45, %55, %184, %179, %176, %171, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %21 ], [ false, %11 ], [ false, %34 ], [ false, %31 ], [ false, %28 ], [ false, %38 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %171 ], [ false, %176 ], [ false, %179 ], [ false, %184 ], [ %187, %186 ], [ false, %._crit_edge ]
+.critedge50:                                      ; preds = %._crit_edge, %185, %50, %21, %11, %34, %31, %28, %38, %45, %55, %183, %178, %175, %170, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %21 ], [ false, %11 ], [ false, %34 ], [ false, %31 ], [ false, %28 ], [ false, %38 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %170 ], [ false, %175 ], [ false, %178 ], [ false, %183 ], [ %186, %185 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

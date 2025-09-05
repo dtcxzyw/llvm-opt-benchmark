@@ -5312,7 +5312,7 @@ _ZN6recfun4utilC2ER11ast_manager.exit:            ; preds = %.noexc72, %36
   %71 = load i32, ptr %40, align 8, !tbaa !257
   %72 = zext i32 %71 to i64
   %.idx.i.i = shl nuw nsw i64 %72, 4
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i.i
+  %73 = getelementptr i8, ptr %70, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %71, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -6619,7 +6619,7 @@ define hidden void @_ZN6recfun4decl6plugin8finalizeEv(ptr noundef nonnull align 
   %5 = load i32, ptr %4, align 8, !tbaa !289
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPN6recfun3defEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -7017,7 +7017,7 @@ define hidden void @_ZN6recfun4decl6plugin7inheritEP11decl_pluginR15ast_translat
   %9 = load i32, ptr %8, align 8, !tbaa !289
   %10 = zext i32 %9 to i64
   %.idx.i.i = shl nuw nsw i64 %10, 4
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPN6recfun3defEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

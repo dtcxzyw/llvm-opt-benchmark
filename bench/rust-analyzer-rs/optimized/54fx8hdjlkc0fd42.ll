@@ -33157,7 +33157,7 @@ define hidden noundef zeroext i1 @_ZN3ide11inlay_hints14fn_lifetime_fn5hints17he
   %327 = load ptr, ptr %326, align 8, !nonnull !11, !noundef !11
   %328 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %329 = load i64, ptr %328, align 8, !noundef !11
-  %330 = getelementptr inbounds { ptr, ptr, ptr, i8, [7 x i8] }, ptr %327, i64 %329
+  %330 = getelementptr { ptr, ptr, ptr, i8, [7 x i8] }, ptr %327, i64 %329
   %331 = load ptr, ptr %68, align 8, !noundef !11
   %.not193 = icmp eq ptr %331, null
   br i1 %.not193, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h151ab04efde18d8dE.exit.thread", label %.preheader

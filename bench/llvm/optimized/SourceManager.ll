@@ -2320,7 +2320,7 @@ define dso_local void @_ZN5clang13SourceManagerD2Ev(ptr noundef nonnull align 8 
 
 22:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %19, 4
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %23 = getelementptr i8, ptr %16, i64 %.idx.i
   %.not13.i5.i10.i2.i = icmp eq i32 %18, 0
   br i1 %.not13.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12FileEntryRefEPNS2_6SrcMgr12ContentCacheENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -3012,7 +3012,7 @@ define dso_local void @_ZN5clang13SourceManager19initializeForReplayERKS0_(ptr n
 
 19:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %16, 4
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
+  %20 = getelementptr i8, ptr %13, i64 %.idx.i
   %.not13.i5.i10.i2.i = icmp eq i32 %15, 0
   br i1 %.not13.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang12FileEntryRefEPNS2_6SrcMgr12ContentCacheENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -3818,14 +3818,14 @@ define dso_local i64 @_ZN5clang13SourceManager25AllocateLoadedSLocEntriesEjj(ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %5 = load i32, ptr %4, align 4, !tbaa !272
   %6 = icmp ult i32 %5, %2
-  br i1 %6, label %150, label %7
+  br i1 %6, label %140, label %7
 
 7:                                                ; preds = %3
   %8 = sub nuw i32 %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load i32, ptr %9, align 8, !tbaa !271
   %11 = icmp ult i32 %8, %10
-  br i1 %11, label %150, label %12
+  br i1 %11, label %140, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3879,71 +3879,67 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %23, %._ZN4llvm9BitV
   br i1 %42, label %.sink.split.i.i, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %45 = load i32, ptr %44, align 4, !tbaa !113
-  %.not.i.i.i.i.i = icmp ugt i32 %37, %45
-  br i1 %.not.i.i.i.i.i, label %46, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i, !prof !105
+  %44 = sub nuw nsw i64 %38, %.pre-phi.i
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %46 = load i32, ptr %45, align 4, !tbaa !113
+  %.not.i.i.i.i.i = icmp ugt i32 %37, %46
+  br i1 %.not.i.i.i.i.i, label %47, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i, !prof !105
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef nonnull %47, i64 noundef %38, i64 noundef 8) #30
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef nonnull %48, i64 noundef %38, i64 noundef 8) #30
   %.pre.i.i.i = load i32, ptr %39, align 8, !tbaa !137
   %.pre.i.i = zext i32 %.pre.i.i.i to i64
   %.pre4.pre.i.pre = load i32, ptr %20, align 8, !tbaa !209
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i: ; preds = %46, %43
-  %.pre4.pre.i = phi i32 [ %19, %43 ], [ %.pre4.pre.i.pre, %46 ]
-  %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %43 ], [ %.pre.i.i, %46 ]
-  %48 = phi i32 [ %35, %43 ], [ %.pre.i.i.i, %46 ]
-  %49 = load ptr, ptr %17, align 8, !tbaa !111
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.pre-phi.i.i
-  %51 = shl nuw nsw i64 %38, 3
-  %52 = add nsw i64 %51, -8
-  %53 = shl nuw nsw i64 %.pre-phi.i, 3
-  %54 = sub nsw i64 %52, %53
-  %55 = add nsw i64 %54, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %50, i8 0, i64 %55, i1 false), !tbaa !72
-  %56 = trunc nuw i64 %.pre-phi.i to i32
-  %57 = sub i32 %37, %56
-  %58 = add i32 %48, %57
+_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i: ; preds = %47, %43
+  %.pre4.pre.i = phi i32 [ %19, %43 ], [ %.pre4.pre.i.pre, %47 ]
+  %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %43 ], [ %.pre.i.i, %47 ]
+  %49 = phi i32 [ %35, %43 ], [ %.pre.i.i.i, %47 ]
+  %50 = load ptr, ptr %17, align 8, !tbaa !111
+  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %.pre-phi.i.i
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %44, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !72
+  %52 = trunc nuw nsw i64 %44 to i32
+  %53 = add i32 %49, %52
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i, %41
   %.pre4.i = phi i32 [ %.pre4.pre.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ], [ %19, %41 ]
-  %.sink.i.i = phi i32 [ %58, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ], [ %37, %41 ]
+  %.sink.i.i = phi i32 [ %53, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i ], [ %37, %41 ]
   store i32 %.sink.i.i, ptr %39, align 8, !tbaa !137
   br label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
 
 _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
-  %59 = phi i32 [ %35, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.sink.i.i, %.sink.split.i.i ]
-  %60 = phi i32 [ %19, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.pre4.i, %.sink.split.i.i ]
-  %61 = and i32 %60, 63
-  %.not.i.i.i = icmp eq i32 %61, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm9BitVector6resizeEjb.exit, label %62
+  %54 = phi i32 [ %35, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.sink.i.i, %.sink.split.i.i ]
+  %55 = phi i32 [ %19, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i ], [ %.pre4.i, %.sink.split.i.i ]
+  %56 = and i32 %55, 63
+  %.not.i.i.i = icmp eq i32 %56, 0
+  br i1 %.not.i.i.i, label %_ZN4llvm9BitVector6resizeEjb.exit, label %57
 
-62:                                               ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
-  %63 = zext nneg i32 %61 to i64
-  %64 = shl nsw i64 -1, %63
-  %65 = xor i64 %64, -1
-  %66 = load ptr, ptr %17, align 8, !tbaa !111
-  %67 = zext i32 %59 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 -8
-  %70 = load i64, ptr %69, align 8, !tbaa !72
-  %71 = and i64 %70, %65
-  store i64 %71, ptr %69, align 8, !tbaa !72
+57:                                               ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i
+  %58 = zext nneg i32 %56 to i64
+  %59 = shl nsw i64 -1, %58
+  %60 = xor i64 %59, -1
+  %61 = load ptr, ptr %17, align 8, !tbaa !111
+  %62 = zext i32 %54 to i64
+  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
+  %64 = getelementptr inbounds i8, ptr %63, i64 -8
+  %65 = load i64, ptr %64, align 8, !tbaa !72
+  %66 = and i64 %65, %60
+  store i64 %66, ptr %64, align 8, !tbaa !72
   br label %_ZN4llvm9BitVector6resizeEjb.exit
 
-_ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, %62
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %73 = load i64, ptr %13, align 8, !tbaa !252
-  %74 = trunc i64 %73 to i32
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %76 = load i32, ptr %75, align 8, !tbaa !209
-  %77 = and i32 %76, 63
-  %.not.i.i5 = icmp eq i32 %77, 0
-  br i1 %.not.i.i5, label %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24, label %78
+_ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, %57
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %68 = load i64, ptr %13, align 8, !tbaa !252
+  %69 = trunc i64 %68 to i32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %71 = load i32, ptr %70, align 8, !tbaa !209
+  %72 = and i32 %71, 63
+  %.not.i.i5 = icmp eq i32 %72, 0
+  br i1 %.not.i.i5, label %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24, label %73
 
 ._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24: ; preds = %_ZN4llvm9BitVector6resizeEjb.exit
   %.phi.trans.insert.i25 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -3951,133 +3947,129 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %.pre6.i27 = zext i32 %.pre.i26 to i64
   br label %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6
 
-78:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit
-  %79 = zext nneg i32 %77 to i64
-  %80 = shl nsw i64 -1, %79
-  %81 = xor i64 %80, -1
-  %82 = load ptr, ptr %72, align 8, !tbaa !111
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %84 = load i32, ptr %83, align 8, !tbaa !137
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i64, ptr %82, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 -8
-  %88 = load i64, ptr %87, align 8, !tbaa !72
-  %89 = and i64 %88, %81
-  store i64 %89, ptr %87, align 8, !tbaa !72
+73:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit
+  %74 = zext nneg i32 %72 to i64
+  %75 = shl nsw i64 -1, %74
+  %76 = xor i64 %75, -1
+  %77 = load ptr, ptr %67, align 8, !tbaa !111
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %79 = load i32, ptr %78, align 8, !tbaa !137
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw i64, ptr %77, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 -8
+  %83 = load i64, ptr %82, align 8, !tbaa !72
+  %84 = and i64 %83, %76
+  store i64 %84, ptr %82, align 8, !tbaa !72
   br label %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6
 
-_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6:    ; preds = %78, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24
-  %.pre-phi.i7 = phi i64 [ %.pre6.i27, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24 ], [ %85, %78 ]
-  %90 = phi i32 [ %.pre.i26, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24 ], [ %84, %78 ]
-  store i32 %74, ptr %75, align 8, !tbaa !209
-  %91 = add i32 %74, 63
-  %92 = lshr i32 %91, 6
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %95 = icmp eq i32 %92, %90
-  br i1 %95, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20, label %96
+_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6:    ; preds = %73, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24
+  %.pre-phi.i7 = phi i64 [ %.pre6.i27, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24 ], [ %80, %73 ]
+  %85 = phi i32 [ %.pre.i26, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i24 ], [ %79, %73 ]
+  store i32 %69, ptr %70, align 8, !tbaa !209
+  %86 = add i32 %69, 63
+  %87 = lshr i32 %86, 6
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %90 = icmp eq i32 %87, %85
+  br i1 %90, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20, label %91
 
-96:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6
-  %97 = icmp ult i32 %92, %90
-  br i1 %97, label %.sink.split.i.i17, label %98
+91:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6
+  %92 = icmp ult i32 %87, %85
+  br i1 %92, label %.sink.split.i.i17, label %93
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %100 = load i32, ptr %99, align 4, !tbaa !113
-  %.not.i.i.i.i.i8 = icmp ugt i32 %92, %100
-  br i1 %.not.i.i.i.i.i8, label %101, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9, !prof !105
+93:                                               ; preds = %91
+  %94 = sub nuw nsw i64 %88, %.pre-phi.i7
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  %96 = load i32, ptr %95, align 4, !tbaa !113
+  %.not.i.i.i.i.i8 = icmp ugt i32 %87, %96
+  br i1 %.not.i.i.i.i.i8, label %97, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9, !prof !105
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %72, ptr noundef nonnull %102, i64 noundef %93, i64 noundef 8) #30
-  %.pre.i.i.i22 = load i32, ptr %94, align 8, !tbaa !137
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %67, ptr noundef nonnull %98, i64 noundef %88, i64 noundef 8) #30
+  %.pre.i.i.i22 = load i32, ptr %89, align 8, !tbaa !137
   %.pre.i.i23 = zext i32 %.pre.i.i.i22 to i64
-  %.pre4.pre.i16.pre = load i32, ptr %75, align 8, !tbaa !209
+  %.pre4.pre.i16.pre = load i32, ptr %70, align 8, !tbaa !209
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9
 
-_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9: ; preds = %101, %98
-  %.pre4.pre.i16 = phi i32 [ %74, %98 ], [ %.pre4.pre.i16.pre, %101 ]
-  %.pre-phi.i.i10 = phi i64 [ %.pre-phi.i7, %98 ], [ %.pre.i.i23, %101 ]
-  %103 = phi i32 [ %90, %98 ], [ %.pre.i.i.i22, %101 ]
-  %104 = load ptr, ptr %72, align 8, !tbaa !111
-  %105 = getelementptr inbounds nuw i64, ptr %104, i64 %.pre-phi.i.i10
-  %106 = shl nuw nsw i64 %93, 3
-  %107 = add nsw i64 %106, -8
-  %108 = shl nuw nsw i64 %.pre-phi.i7, 3
-  %109 = sub nsw i64 %107, %108
-  %110 = add nsw i64 %109, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %110, i1 false), !tbaa !72
-  %111 = trunc nuw i64 %.pre-phi.i7 to i32
-  %112 = sub i32 %92, %111
-  %113 = add i32 %103, %112
+_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9: ; preds = %97, %93
+  %.pre4.pre.i16 = phi i32 [ %69, %93 ], [ %.pre4.pre.i16.pre, %97 ]
+  %.pre-phi.i.i10 = phi i64 [ %.pre-phi.i7, %93 ], [ %.pre.i.i23, %97 ]
+  %99 = phi i32 [ %85, %93 ], [ %.pre.i.i.i22, %97 ]
+  %100 = load ptr, ptr %67, align 8, !tbaa !111
+  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.pre-phi.i.i10
+  %.idx.i.i.i.i.i.i.i11 = shl nuw nsw i64 %94, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %101, i8 0, i64 %.idx.i.i.i.i.i.i.i11, i1 false), !tbaa !72
+  %102 = trunc nuw nsw i64 %94 to i32
+  %103 = add i32 %99, %102
   br label %.sink.split.i.i17
 
-.sink.split.i.i17:                                ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9, %96
-  %.pre4.i18 = phi i32 [ %.pre4.pre.i16, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9 ], [ %74, %96 ]
-  %.sink.i.i19 = phi i32 [ %113, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9 ], [ %92, %96 ]
-  store i32 %.sink.i.i19, ptr %94, align 8, !tbaa !137
+.sink.split.i.i17:                                ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9, %91
+  %.pre4.i18 = phi i32 [ %.pre4.pre.i16, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9 ], [ %69, %91 ]
+  %.sink.i.i19 = phi i32 [ %103, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i9 ], [ %87, %91 ]
+  store i32 %.sink.i.i19, ptr %89, align 8, !tbaa !137
   br label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20
 
 _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20:  ; preds = %.sink.split.i.i17, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6
-  %114 = phi i32 [ %90, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6 ], [ %.sink.i.i19, %.sink.split.i.i17 ]
-  %115 = phi i32 [ %74, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6 ], [ %.pre4.i18, %.sink.split.i.i17 ]
-  %116 = and i32 %115, 63
-  %.not.i.i.i21 = icmp eq i32 %116, 0
-  br i1 %.not.i.i.i21, label %_ZN4llvm9BitVector6resizeEjb.exit28, label %117
+  %104 = phi i32 [ %85, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6 ], [ %.sink.i.i19, %.sink.split.i.i17 ]
+  %105 = phi i32 [ %69, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i6 ], [ %.pre4.i18, %.sink.split.i.i17 ]
+  %106 = and i32 %105, 63
+  %.not.i.i.i21 = icmp eq i32 %106, 0
+  br i1 %.not.i.i.i21, label %_ZN4llvm9BitVector6resizeEjb.exit28, label %107
 
-117:                                              ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20
-  %118 = zext nneg i32 %116 to i64
-  %119 = shl nsw i64 -1, %118
-  %120 = xor i64 %119, -1
-  %121 = load ptr, ptr %72, align 8, !tbaa !111
-  %122 = zext i32 %114 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %121, i64 %122
-  %124 = getelementptr inbounds i8, ptr %123, i64 -8
-  %125 = load i64, ptr %124, align 8, !tbaa !72
-  %126 = and i64 %125, %120
-  store i64 %126, ptr %124, align 8, !tbaa !72
+107:                                              ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20
+  %108 = zext nneg i32 %106 to i64
+  %109 = shl nsw i64 -1, %108
+  %110 = xor i64 %109, -1
+  %111 = load ptr, ptr %67, align 8, !tbaa !111
+  %112 = zext i32 %104 to i64
+  %113 = getelementptr inbounds nuw i64, ptr %111, i64 %112
+  %114 = getelementptr inbounds i8, ptr %113, i64 -8
+  %115 = load i64, ptr %114, align 8, !tbaa !72
+  %116 = and i64 %115, %110
+  store i64 %116, ptr %114, align 8, !tbaa !72
   br label %_ZN4llvm9BitVector6resizeEjb.exit28
 
-_ZN4llvm9BitVector6resizeEjb.exit28:              ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20, %117
-  %127 = load i32, ptr %4, align 4, !tbaa !272
-  %128 = sub i32 %127, %2
-  store i32 %128, ptr %4, align 4, !tbaa !272
-  %129 = load i64, ptr %13, align 8, !tbaa !252
-  %130 = trunc i64 %129 to i32
-  %131 = xor i32 %130, -1
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %134 = load i32, ptr %133, align 8, !tbaa !137
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  %136 = load i32, ptr %135, align 4, !tbaa !113
-  %.not.i.i.not.i = icmp ult i32 %134, %136
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit, label %137, !prof !306
+_ZN4llvm9BitVector6resizeEjb.exit28:              ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i20, %107
+  %117 = load i32, ptr %4, align 4, !tbaa !272
+  %118 = sub i32 %117, %2
+  store i32 %118, ptr %4, align 4, !tbaa !272
+  %119 = load i64, ptr %13, align 8, !tbaa !252
+  %120 = trunc i64 %119 to i32
+  %121 = xor i32 %120, -1
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %124 = load i32, ptr %123, align 8, !tbaa !137
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %126 = load i32, ptr %125, align 4, !tbaa !113
+  %.not.i.i.not.i = icmp ult i32 %124, %126
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit, label %127, !prof !306
 
-137:                                              ; preds = %_ZN4llvm9BitVector6resizeEjb.exit28
-  %138 = zext i32 %134 to i64
-  %139 = add nuw nsw i64 %138, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull %9, i64 noundef %139, i64 noundef 4) #30
-  %.pre.i29 = load i32, ptr %133, align 8, !tbaa !137
+127:                                              ; preds = %_ZN4llvm9BitVector6resizeEjb.exit28
+  %128 = zext i32 %124 to i64
+  %129 = add nuw nsw i64 %128, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull %9, i64 noundef %129, i64 noundef 4) #30
+  %.pre.i29 = load i32, ptr %123, align 8, !tbaa !137
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit: ; preds = %_ZN4llvm9BitVector6resizeEjb.exit28, %137
-  %140 = phi i32 [ %134, %_ZN4llvm9BitVector6resizeEjb.exit28 ], [ %.pre.i29, %137 ]
-  %141 = load ptr, ptr %132, align 8, !tbaa !111
-  %142 = zext i32 %140 to i64
-  %143 = getelementptr inbounds nuw %"class.clang::FileID", ptr %141, i64 %142
-  store i32 %131, ptr %143, align 1
-  %144 = load i32, ptr %133, align 8, !tbaa !137
-  %145 = add i32 %144, 1
-  store i32 %145, ptr %133, align 8, !tbaa !137
-  %146 = load i32, ptr %4, align 4, !tbaa !45
-  %147 = zext i32 %146 to i64
-  %148 = shl nuw i64 %147, 32
-  %149 = zext i32 %131 to i64
-  br label %150
+_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit: ; preds = %_ZN4llvm9BitVector6resizeEjb.exit28, %127
+  %130 = phi i32 [ %124, %_ZN4llvm9BitVector6resizeEjb.exit28 ], [ %.pre.i29, %127 ]
+  %131 = load ptr, ptr %122, align 8, !tbaa !111
+  %132 = zext i32 %130 to i64
+  %133 = getelementptr inbounds nuw %"class.clang::FileID", ptr %131, i64 %132
+  store i32 %121, ptr %133, align 1
+  %134 = load i32, ptr %123, align 8, !tbaa !137
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %123, align 8, !tbaa !137
+  %136 = load i32, ptr %4, align 4, !tbaa !45
+  %137 = zext i32 %136 to i64
+  %138 = shl nuw i64 %137, 32
+  %139 = zext i32 %121 to i64
+  br label %140
 
-150:                                              ; preds = %3, %7, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit
-  %.sroa.036.0 = phi i64 [ %149, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit ], [ 0, %7 ], [ 0, %3 ]
-  %.sroa.3.0 = phi i64 [ %148, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit ], [ 0, %7 ], [ 0, %3 ]
+140:                                              ; preds = %3, %7, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit
+  %.sroa.036.0 = phi i64 [ %139, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit ], [ 0, %7 ], [ 0, %3 ]
+  %.sroa.3.0 = phi i64 [ %138, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6FileIDELb1EE9push_backES2_.exit ], [ 0, %7 ], [ 0, %3 ]
   %.sroa.036.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.036.0
   ret i64 %.sroa.036.0.insert.insert
 }
@@ -13481,7 +13473,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %157, %159
 
 170:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29
   %.idx.i.i = shl nuw nsw i64 %167, 4
-  %171 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i.i
+  %171 = getelementptr i8, ptr %164, i64 %.idx.i.i
   %.not13.i5.i10.i2.i.i = icmp eq i32 %166, 0
   br i1 %.not13.i5.i10.i2.i.i, label %_ZNK5clang13SourceManager14fileinfo_beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

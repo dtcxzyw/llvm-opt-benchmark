@@ -162,34 +162,34 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; pr
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit.loopexit.i: ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit
   %73 = load ptr, ptr %2, align 8, !tbaa !11
-  %74 = shl i64 %71, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %73, i8 0, i64 %74, i1 false), !tbaa !16
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %71, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %73, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !16
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit: ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit.loopexit.i
-  %75 = load i64, ptr %5, align 8, !tbaa !4
-  %76 = icmp sgt i64 %75, 0
-  br i1 %76, label %.lr.ph, label %.loopexit
+  %74 = load i64, ptr %5, align 8, !tbaa !4
+  %75 = icmp sgt i64 %74, 0
+  br i1 %75, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
-  %77 = load ptr, ptr %0, align 8, !tbaa !11
-  %78 = load ptr, ptr %2, align 8, !tbaa !11
-  br label %79
+  %76 = load ptr, ptr %0, align 8, !tbaa !11
+  %77 = load ptr, ptr %2, align 8, !tbaa !11
+  br label %78
 
-79:                                               ; preds = %.lr.ph, %79
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
-  %81 = load i32, ptr %80, align 4, !tbaa !16
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %78, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !16
-  %85 = add nsw i32 %84, %1
-  store i32 %85, ptr %83, align 4, !tbaa !16
+78:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %79 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
+  %80 = load i32, ptr %79, align 4, !tbaa !16
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i32, ptr %77, i64 %81
+  %83 = load i32, ptr %82, align 4, !tbaa !16
+  %84 = add nsw i32 %83, %1
+  store i32 %84, ptr %82, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %75
-  br i1 %exitcond.not, label %.loopexit, label %79, !llvm.loop !21
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %74
+  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !21
 
-.loopexit:                                        ; preds = %79, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
+.loopexit:                                        ; preds = %78, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
   ret void
 }
 
@@ -403,37 +403,37 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; pr
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit
   %73 = load ptr, ptr %2, align 8, !tbaa !27
-  %74 = shl i64 %71, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %74, i1 false), !tbaa !28
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %71, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit: ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
-  %75 = load i64, ptr %5, align 8, !tbaa !4
-  %76 = icmp sgt i64 %75, 0
-  br i1 %76, label %.lr.ph, label %.loopexit
+  %74 = load i64, ptr %5, align 8, !tbaa !4
+  %75 = icmp sgt i64 %74, 0
+  br i1 %75, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
-  %77 = load ptr, ptr %1, align 8, !tbaa !27
-  %78 = load ptr, ptr %0, align 8, !tbaa !11
-  %79 = load ptr, ptr %2, align 8, !tbaa !27
-  br label %80
+  %76 = load ptr, ptr %1, align 8, !tbaa !27
+  %77 = load ptr, ptr %0, align 8, !tbaa !11
+  %78 = load ptr, ptr %2, align 8, !tbaa !27
+  br label %79
 
-80:                                               ; preds = %.lr.ph, %80
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %81 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv
-  %82 = load double, ptr %81, align 8, !tbaa !28
-  %83 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
-  %84 = load i32, ptr %83, align 4, !tbaa !16
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %79, i64 %85
-  %87 = load double, ptr %86, align 8, !tbaa !28
-  %88 = fadd double %82, %87
-  store double %88, ptr %86, align 8, !tbaa !28
+79:                                               ; preds = %.lr.ph, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %80 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv
+  %81 = load double, ptr %80, align 8, !tbaa !28
+  %82 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
+  %83 = load i32, ptr %82, align 4, !tbaa !16
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds double, ptr %78, i64 %84
+  %86 = load double, ptr %85, align 8, !tbaa !28
+  %87 = fadd double %81, %86
+  store double %87, ptr %85, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %75
-  br i1 %exitcond.not, label %.loopexit, label %80, !llvm.loop !30
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %74
+  br i1 %exitcond.not, label %.loopexit, label %79, !llvm.loop !30
 
-.loopexit:                                        ; preds = %80, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
+.loopexit:                                        ; preds = %79, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
   ret void
 }
 

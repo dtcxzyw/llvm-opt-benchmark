@@ -3173,7 +3173,7 @@ _ZN14sat_smt_solver7get_eufEv.exit.thread:        ; preds = %45, %_ZN14sat_smt_s
   %85 = load i32, ptr %84, align 8, !tbaa !218
   %86 = zext i32 %85 to i64
   %.idx.i.i = shl nuw nsw i64 %86, 4
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i
+  %87 = getelementptr i8, ptr %83, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %85, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -8851,7 +8851,7 @@ define linkonce_odr hidden void @_ZN14sat_smt_solver22dependency2assumptions4cop
   %8 = load i32, ptr %7, align 8, !tbaa !218
   %9 = zext i32 %8 to i64
   %.idx.i.i = shl nuw nsw i64 %9, 4
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -12250,7 +12250,7 @@ define linkonce_odr hidden void @_ZN14sat_smt_solver17check_assumptionsEv(ptr no
   %11 = load i32, ptr %10, align 8, !tbaa !238
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprN3sat7literalEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

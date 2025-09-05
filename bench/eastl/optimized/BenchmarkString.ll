@@ -4164,8 +4164,8 @@ for.body.i1008:                                   ; preds = %.noexc1026, %_ZN2EA
   %i.05.i1009 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1005 ], [ %inc.i1020, %.noexc1026 ]
   %383 = load ptr, ptr %ss16, align 8
   %384 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %add.ptr.i.idx.i = shl nsw i64 %384, 1
-  %add.ptr.i.i1010 = getelementptr inbounds i8, ptr %383, i64 %add.ptr.i.idx.i
+  %add.ptr.i.idx.i = shl i64 %384, 1
+  %add.ptr.i.i1010 = getelementptr i8, ptr %383, i64 %add.ptr.i.idx.i
   %cmp.i.not3.i.i1011 = icmp eq i64 %384, 0
   br i1 %cmp.i.not3.i.i1011, label %_ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEEDsEET_SB_SB_RKT0_.exit.i, label %land.rhs.i.i1012
 

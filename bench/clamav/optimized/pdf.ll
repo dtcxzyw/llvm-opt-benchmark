@@ -9529,10 +9529,10 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr noundef nonnull wr
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %15
 
-15:                                               ; preds = %62, %12
-  %.043 = phi i32 [ 32, %12 ], [ %55, %62 ]
-  %.041 = phi i64 [ 0, %12 ], [ %.142, %62 ]
-  %.040 = phi i32 [ 0, %12 ], [ %63, %62 ]
+15:                                               ; preds = %61, %12
+  %.043 = phi i32 [ 32, %12 ], [ %54, %61 ]
+  %.041 = phi i64 [ 0, %12 ], [ %.142, %61 ]
+  %.040 = phi i32 [ 0, %12 ], [ %62, %61 ]
   %16 = icmp samesign ult i32 %.040, 64
   br i1 %16, label %.critedge, label %17
 
@@ -9544,7 +9544,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr noundef nonnull wr
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 32
   %24 = icmp samesign ult i32 %.040, %23
-  br i1 %24, label %.critedge, label %64
+  br i1 %24, label %.critedge, label %63
 
 .critedge:                                        ; preds = %15, %17
   %25 = zext nneg i32 %.043 to i64
@@ -9590,9 +9590,8 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr noundef nonnull wr
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %.preheader.preheader.i
-  %.01 = phi i64 [ 0, %.preheader.preheader.i ], [ %45, %43 ]
   %.02841.i = phi ptr [ %5, %.preheader.preheader.i ], [ %44, %43 ]
-  %.02940.i = phi i64 [ %34, %.preheader.preheader.i ], [ %46, %43 ]
+  %.02940.i = phi i64 [ %34, %.preheader.preheader.i ], [ %45, %43 ]
   br label %37
 
 37:                                               ; preds = %37, %.preheader.i
@@ -9611,64 +9610,63 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr noundef nonnull wr
   call void @rijndaelEncrypt(ptr noundef nonnull %3, i32 noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %4) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.02841.i, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa !30
   %44 = getelementptr i8, ptr %.02841.i, i64 16
-  %45 = add i64 %.01, 16
-  %46 = add nsw i64 %.02940.i, -16
-  %.not2 = icmp eq i64 %46, 0
+  %45 = add nsw i64 %.02940.i, -16
+  %.not2 = icmp eq i64 %45, 0
   br i1 %.not2, label %._crit_edge.i, label %.preheader.i
 
 ._crit_edge.i:                                    ; preds = %43
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.321, i64 noundef %45) #23
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.321, i64 noundef %34) #23
   br label %aes_128cbc_encrypt.exit
 
 aes_128cbc_encrypt.exit:                          ; preds = %36, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %aes_128cbc_encrypt.exit, %47
-  %indvars.iv8 = phi i64 [ 0, %aes_128cbc_encrypt.exit ], [ %indvars.iv.next9, %47 ]
-  %.05 = phi i32 [ 0, %aes_128cbc_encrypt.exit ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv8
-  %49 = load i8, ptr %48, align 1, !tbaa !30
-  %50 = zext i8 %49 to i32
-  %51 = add nuw nsw i32 %.05, %50
+46:                                               ; preds = %aes_128cbc_encrypt.exit, %46
+  %indvars.iv8 = phi i64 [ 0, %aes_128cbc_encrypt.exit ], [ %indvars.iv.next9, %46 ]
+  %.05 = phi i32 [ 0, %aes_128cbc_encrypt.exit ], [ %50, %46 ]
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv8
+  %48 = load i8, ptr %47, align 1, !tbaa !30
+  %49 = zext i8 %48 to i32
+  %50 = add nuw nsw i32 %.05, %49
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %exitcond11.not = icmp eq i64 %indvars.iv.next9, 16
-  br i1 %exitcond11.not, label %52, label %47
+  br i1 %exitcond11.not, label %51, label %46
 
-52:                                               ; preds = %47
-  %53 = urem i32 %51, 3
-  %54 = shl nuw nsw i32 %53, 4
-  %55 = add nuw nsw i32 %54, 32
-  switch i32 %53, label %default.unreachable [
-    i32 0, label %56
-    i32 1, label %58
-    i32 2, label %60
+51:                                               ; preds = %46
+  %52 = urem i32 %50, 3
+  %53 = shl nuw nsw i32 %52, 4
+  %54 = add nuw nsw i32 %53, 32
+  switch i32 %52, label %default.unreachable [
+    i32 0, label %55
+    i32 1, label %57
+    i32 2, label %59
   ]
 
-56:                                               ; preds = %52
-  %57 = call ptr @cl_sha256(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull %7, ptr noundef null) #23
+55:                                               ; preds = %51
+  %56 = call ptr @cl_sha256(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull %7, ptr noundef null) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
-  br label %62
+  br label %61
 
-58:                                               ; preds = %52
-  %59 = call ptr @cl_sha384(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull %8, ptr noundef null) #23
+57:                                               ; preds = %51
+  %58 = call ptr @cl_sha384(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull %8, ptr noundef null) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, ptr noundef nonnull align 16 dereferenceable(48) %8, i64 48, i1 false)
-  br label %62
+  br label %61
 
-60:                                               ; preds = %52
-  %61 = call ptr @cl_sha512(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull %9, ptr noundef null) #23
+59:                                               ; preds = %51
+  %60 = call ptr @cl_sha512(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull %9, ptr noundef null) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
-  br label %62
+  br label %61
 
-default.unreachable:                              ; preds = %52
+default.unreachable:                              ; preds = %51
   unreachable
 
-62:                                               ; preds = %56, %58, %60
-  %63 = add nuw nsw i32 %.040, 1
+61:                                               ; preds = %55, %57, %59
+  %62 = add nuw nsw i32 %.040, 1
   br label %15
 
-64:                                               ; preds = %17
+63:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

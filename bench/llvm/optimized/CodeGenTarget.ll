@@ -3262,7 +3262,7 @@ _ZNK4llvm13CodeGenTarget15getInstructionsEv.exit: ; preds = %1, %10
 
 31:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %28, 4
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
+  %32 = getelementptr i8, ptr %25, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %27, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordESt10unique_ptrINS_18CodeGenInstructionESt14default_deleteIS6_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

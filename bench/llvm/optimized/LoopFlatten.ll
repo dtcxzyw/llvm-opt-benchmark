@@ -1501,7 +1501,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %370, %362
   %.v.v.i4.i2.i.i.i = select i1 %379, i32 %380, i32 %381
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i.i67.i = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %382 = getelementptr inbounds nuw i8, ptr %377, i64 %.idx.i.i67.i
+  %382 = getelementptr i8, ptr %377, i64 %.idx.i.i67.i
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 
@@ -2194,7 +2194,7 @@ _ZN4llvm7PHINode19removeIncomingValueEPKNS_10BasicBlockEb.exit.i: ; preds = %665
   %.v.v.i4.i2.i.i = select i1 %670, i32 %671, i32 %672
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i59 = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %673 = getelementptr inbounds nuw i8, ptr %668, i64 %.idx.i.i59
+  %673 = getelementptr i8, ptr %668, i64 %.idx.i.i59
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_7PHINodeEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -2458,7 +2458,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit98.i:   ; preds = %777, %770
   %.v.v.i4.i2.i99.i = select i1 %784, i32 %785, i32 %786
   %.v.i5.i3.i100.i = zext i32 %.v.v.i4.i2.i99.i to i64
   %.idx.i101.i = shl nuw nsw i64 %.v.i5.i3.i100.i, 3
-  %787 = getelementptr inbounds nuw i8, ptr %782, i64 %.idx.i101.i
+  %787 = getelementptr i8, ptr %782, i64 %.idx.i101.i
   %.not3.i4.i.i6.i4.i102.i = icmp eq i32 %.v.v.i4.i2.i99.i, 0
   br i1 %.not3.i4.i.i6.i4.i102.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i103.i
 

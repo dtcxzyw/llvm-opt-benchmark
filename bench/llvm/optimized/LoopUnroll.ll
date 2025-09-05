@@ -5237,7 +5237,7 @@ _ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit515:   ; preds = %971, %_ZN4llvm15Val
 
 987:                                              ; preds = %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit515
   %.idx.i.i = shl nuw nsw i64 %984, 6
-  %988 = getelementptr inbounds nuw i8, ptr %982, i64 %.idx.i.i
+  %988 = getelementptr i8, ptr %982, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %983, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

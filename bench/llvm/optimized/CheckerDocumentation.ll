@@ -715,7 +715,7 @@ define linkonce_odr hidden void @_ZN5clang4ento5check18ConstPointerEscape24_chec
 
 24:                                               ; preds = %14
   %.idx.i.i = shl nuw nsw i64 %21, 3
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
+  %25 = getelementptr i8, ptr %18, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %20, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -1817,7 +1817,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 25:                                               ; preds = %15
   %.idx.i.i = shl nuw nsw i64 %22, 3
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  %26 = getelementptr i8, ptr %19, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %21, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

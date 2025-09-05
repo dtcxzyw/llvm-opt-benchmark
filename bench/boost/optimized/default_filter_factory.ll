@@ -35464,8 +35464,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %13 = add nsw i64 %12, 4
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
   %15 = load ptr, ptr %9, align 8, !tbaa !34
-  %.idx.i.i.i = shl nuw nsw i64 %5, 2
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
+  %.idx.i.i.i = shl i64 %5, 2
+  %16 = getelementptr i8, ptr %15, i64 %.idx.i.i.i
   %.not2936.i.i.i = icmp eq i64 %13, 0
   br i1 %.not2936.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %.preheader.lr.ph.i.i.i
 
@@ -35526,8 +35526,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %13 = add nsw i64 %12, 4
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
   %15 = load ptr, ptr %9, align 8, !tbaa !34
-  %.idx.i.i.i = shl nuw nsw i64 %5, 2
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
+  %.idx.i.i.i = shl i64 %5, 2
+  %16 = getelementptr i8, ptr %15, i64 %.idx.i.i.i
   %.not2437.i.i.i = icmp eq i64 %13, 0
   br i1 %.not2437.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %.preheader.lr.ph.i.i.i
 

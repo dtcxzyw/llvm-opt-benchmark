@@ -3743,7 +3743,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %.idx.i.i = and i64 %5, 4294967288
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i
   %7 = mul i64 %5, -8645972361240307355
   %8 = xor i64 %7, 4097310694
   %9 = ptrtoint ptr %2 to i64

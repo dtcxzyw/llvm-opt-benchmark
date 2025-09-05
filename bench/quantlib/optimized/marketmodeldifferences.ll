@@ -652,9 +652,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont103.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %63 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i89, i8 0, i64 %63, i1 false), !tbaa !21
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i89, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i89, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont103.lr.ph
 
@@ -666,27 +665,27 @@ invoke.cont103.lr.ph:                             ; preds = %if.end.i.i.i.i.i.i.
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i89, %if.then.i.i.i.i.i ]
   %_M_finish.i.i7.i159 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i159, align 8, !tbaa !18
-  %64 = load ptr, ptr %call82, align 8, !tbaa !34
-  %65 = load ptr, ptr %call89, align 8, !tbaa !34
+  %63 = load ptr, ptr %call82, align 8, !tbaa !34
+  %64 = load ptr, ptr %call89, align 8, !tbaa !34
   %columns_.i.i93 = getelementptr inbounds nuw i8, ptr %call89, i64 16
-  %66 = load i64, ptr %columns_.i.i93, align 8, !tbaa !25
-  %67 = load ptr, ptr %call90, align 8, !tbaa !20
+  %65 = load i64, ptr %columns_.i.i93, align 8, !tbaa !25
+  %66 = load ptr, ptr %call90, align 8, !tbaa !20
   br label %invoke.cont103
 
 invoke.cont103:                                   ; preds = %invoke.cont103.lr.ph, %invoke.cont103
   %i.0137 = phi i64 [ 0, %invoke.cont103.lr.ph ], [ %inc, %invoke.cont103 ]
   %mul.i.i = mul i64 %62, %i.0137
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %64, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %63, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %i.0137
-  %68 = load double, ptr %arrayidx, align 8, !tbaa !21
-  %mul.i.i94 = mul i64 %66, %i.0137
-  %add.ptr.i.i95 = getelementptr inbounds nuw double, ptr %65, i64 %mul.i.i94
+  %67 = load double, ptr %arrayidx, align 8, !tbaa !21
+  %mul.i.i94 = mul i64 %65, %i.0137
+  %add.ptr.i.i95 = getelementptr inbounds nuw double, ptr %64, i64 %mul.i.i94
   %arrayidx105 = getelementptr inbounds nuw double, ptr %add.ptr.i.i95, i64 %i.0137
-  %69 = load double, ptr %arrayidx105, align 8, !tbaa !21
-  %sub106 = fsub double %68, %69
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %67, i64 %i.0137
-  %70 = load double, ptr %add.ptr.i, align 8, !tbaa !21
-  %div = fdiv double %sub106, %70
+  %68 = load double, ptr %arrayidx105, align 8, !tbaa !21
+  %sub106 = fsub double %67, %68
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %66, i64 %i.0137
+  %69 = load double, ptr %add.ptr.i, align 8, !tbaa !21
+  %div = fdiv double %sub106, %69
   %call108 = tail call double @sqrt(double noundef %div) #19, !tbaa !35
   %add.ptr.i96 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i91, i64 %i.0137
   store double %call108, ptr %add.ptr.i96, align 8, !tbaa !21
@@ -1323,9 +1322,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %81 = add nsw i64 %sub.ptr.sub.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i122, i8 0, i64 %81, i1 false), !tbaa !21
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i122, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i122, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.lr.ph
 
@@ -1340,67 +1338,67 @@ for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont141
-  %82 = phi ptr [ %80, %for.body.lr.ph ], [ %93, %invoke.cont141 ]
+  %81 = phi ptr [ %80, %for.body.lr.ph ], [ %92, %invoke.cont141 ]
   %i.0197 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont141 ]
-  %previousEvolutionTime.0196 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %83, %invoke.cont141 ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %82, i64 %i.0197
-  %83 = load double, ptr %add.ptr.i, align 8, !tbaa !21
-  %sub = fsub double %83, %previousEvolutionTime.0196
+  %previousEvolutionTime.0196 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %82, %invoke.cont141 ]
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %81, i64 %i.0197
+  %82 = load double, ptr %add.ptr.i, align 8, !tbaa !21
+  %sub = fsub double %82, %previousEvolutionTime.0196
   %vtable128 = load ptr, ptr %marketModel1, align 8, !tbaa !14
   %vfn129 = getelementptr inbounds nuw i8, ptr %vtable128, i64 72
-  %84 = load ptr, ptr %vfn129, align 8
-  %call132 = invoke noundef nonnull align 8 dereferenceable(24) ptr %84(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1, i64 noundef %i.0197)
+  %83 = load ptr, ptr %vfn129, align 8
+  %call132 = invoke noundef nonnull align 8 dereferenceable(24) ptr %83(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1, i64 noundef %i.0197)
           to label %invoke.cont131 unwind label %lpad130
 
 invoke.cont131:                                   ; preds = %for.body
   %vtable133 = load ptr, ptr %marketModel2, align 8, !tbaa !14
   %vfn134 = getelementptr inbounds nuw i8, ptr %vtable133, i64 72
-  %85 = load ptr, ptr %vfn134, align 8
-  %call137 = invoke noundef nonnull align 8 dereferenceable(24) ptr %85(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2, i64 noundef %i.0197)
+  %84 = load ptr, ptr %vfn134, align 8
+  %call137 = invoke noundef nonnull align 8 dereferenceable(24) ptr %84(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2, i64 noundef %i.0197)
           to label %invoke.cont141 unwind label %lpad135
 
 invoke.cont141:                                   ; preds = %invoke.cont131
-  %86 = load ptr, ptr %call132, align 8, !tbaa !34
+  %85 = load ptr, ptr %call132, align 8, !tbaa !34
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %call132, i64 16
-  %87 = load i64, ptr %columns_.i.i, align 8, !tbaa !25
-  %mul.i.i = mul i64 %87, %index
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %86, i64 %mul.i.i
+  %86 = load i64, ptr %columns_.i.i, align 8, !tbaa !25
+  %mul.i.i = mul i64 %86, %index
+  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %85, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %index
-  %88 = load double, ptr %arrayidx, align 8, !tbaa !21
-  %89 = load ptr, ptr %call137, align 8, !tbaa !34
+  %87 = load double, ptr %arrayidx, align 8, !tbaa !21
+  %88 = load ptr, ptr %call137, align 8, !tbaa !34
   %columns_.i.i130 = getelementptr inbounds nuw i8, ptr %call137, i64 16
-  %90 = load i64, ptr %columns_.i.i130, align 8, !tbaa !25
-  %mul.i.i131 = mul i64 %90, %index
-  %add.ptr.i.i132 = getelementptr inbounds nuw double, ptr %89, i64 %mul.i.i131
+  %89 = load i64, ptr %columns_.i.i130, align 8, !tbaa !25
+  %mul.i.i131 = mul i64 %89, %index
+  %add.ptr.i.i132 = getelementptr inbounds nuw double, ptr %88, i64 %mul.i.i131
   %arrayidx143 = getelementptr inbounds nuw double, ptr %add.ptr.i.i132, i64 %index
-  %91 = load double, ptr %arrayidx143, align 8, !tbaa !21
-  %sub144 = fsub double %88, %91
+  %90 = load double, ptr %arrayidx143, align 8, !tbaa !21
+  %sub144 = fsub double %87, %90
   %div = fdiv double %sub144, %sub
   %call145 = tail call double @sqrt(double noundef %div) #19, !tbaa !35
   %add.ptr.i133 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i124, i64 %i.0197
   store double %call145, ptr %add.ptr.i133, align 8, !tbaa !21
   %inc = add nuw i64 %i.0197, 1
-  %92 = load ptr, ptr %_M_finish.i, align 8, !tbaa !18
-  %93 = load ptr, ptr %call118, align 8, !tbaa !20
-  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %92 to i64
-  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %93 to i64
+  %91 = load ptr, ptr %_M_finish.i, align 8, !tbaa !18
+  %92 = load ptr, ptr %call118, align 8, !tbaa !20
+  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %91 to i64
+  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %92 to i64
   %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
   %sub.ptr.div.i129 = ashr exact i64 %sub.ptr.sub.i128, 3
   %cmp126 = icmp ult i64 %inc, %sub.ptr.div.i129
   br i1 %cmp126, label %for.body, label %nrvo.skipdtor, !llvm.loop !38
 
 lpad130:                                          ; preds = %for.body
-  %94 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i
 
 lpad135:                                          ; preds = %invoke.cont131
-  %95 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad130, %lpad135
-  %.pn33.pn = phi { ptr, i32 } [ %94, %lpad130 ], [ %95, %lpad135 ]
+  %.pn33.pn = phi { ptr, i32 } [ %93, %lpad130 ], [ %94, %lpad135 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i2.i.i124, i64 noundef %sub.ptr.sub.i) #22
   br label %eh.resume
 

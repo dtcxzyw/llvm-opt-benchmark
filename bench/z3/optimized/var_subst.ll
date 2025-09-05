@@ -3327,7 +3327,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i:    ; preds = %_ZNK6vectorIP4sortL
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i
   %.ph = phi ptr [ %93, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
-  %.ph96 = phi i32 [ %98, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ %97, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
+  %.ph95 = phi i32 [ %98, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ %97, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.ph = phi i32 [ %96, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
@@ -3343,7 +3343,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i:       ; preds = %thread-pre-split.i
   %102 = getelementptr inbounds i8, ptr %100, i64 -8
   %103 = load i32, ptr %102, align 4, !tbaa !91
-  %104 = icmp ugt i32 %.ph96, %103
+  %104 = icmp ugt i32 %.ph95, %103
   br i1 %104, label %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.thread.i, label %105
 
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i, %thread-pre-split.i
@@ -3353,12 +3353,12 @@ _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIP4sort
 
 105:                                              ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i
   %106 = getelementptr inbounds i8, ptr %100, i64 -4
-  store i32 %.ph96, ptr %106, align 4, !tbaa !91
-  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph96
+  store i32 %.ph95, ptr %106, align 4, !tbaa !91
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph95
   br i1 %.not1218.i, label %_ZN6vectorIP4sortLb0EjE6resizeEj.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %105
-  %107 = zext i32 %.ph96 to i64
+  %107 = zext i32 %.ph95 to i64
   %108 = zext i32 %.0.i16.i.ph to i64
   %109 = getelementptr ptr, ptr %100, i64 %108
   %110 = sub nsw i64 %107, %108

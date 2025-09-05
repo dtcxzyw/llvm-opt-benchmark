@@ -110,7 +110,7 @@ define hidden void @_ZN21pb2bv_model_converterC2ER11ast_managerRK7obj_mapI9func_
   %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = zext i32 %12 to i64
   %.idx.i.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i, label %.loopexit61, label %.lr.ph.i.i.i.i
 

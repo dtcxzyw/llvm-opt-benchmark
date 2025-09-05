@@ -7295,7 +7295,7 @@ _ZNK12rewriter_tplI23bvarray2uf_rewriter_cfgE10must_cacheEP4expr.exit.thread88: 
   %97 = load i32, ptr %96, align 8, !tbaa !241
   %98 = zext i32 %97 to i64
   %.idx.i = shl nuw nsw i64 %98, 3
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i
+  %99 = getelementptr i8, ptr %95, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %97, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -10671,7 +10671,7 @@ define linkonce_odr hidden void @_Z22dec_ref_map_key_valuesI11ast_managerS0_7obj
   %6 = load i32, ptr %5, align 8, !tbaa !36
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprP9func_declE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -12614,7 +12614,7 @@ _ZNK12rewriter_tplI23bvarray2uf_rewriter_cfgE10must_cacheEP4expr.exit.thread111:
   %136 = load i32, ptr %135, align 8, !tbaa !241
   %137 = zext i32 %136 to i64
   %.idx.i = shl nuw nsw i64 %137, 3
-  %138 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i
+  %138 = getelementptr i8, ptr %134, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %136, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

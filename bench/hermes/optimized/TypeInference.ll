@@ -204,7 +204,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
   %add.ptr.i4.idx.i.i.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i.i.i.i.i, 3
-  %add.ptr.i4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %add.ptr.i4.idx.i.i.i.i.i.i
+  %add.ptr.i4.i.i.i.i.i.i = getelementptr i8, ptr %15, i64 %add.ptr.i4.idx.i.i.i.i.i.i
   %cmp.not3.i3.i7.i5.i.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes8CallInstENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i.i, label %land.rhs.i4.i9.i6.i.i.i.i.i.i
 
@@ -640,7 +640,7 @@ if.end.i44.i.i.i:                                 ; preds = %sw.bb20.i.i.i
   %cond.v.v.i7.i6.i.i.i.i.i = select i1 %cmp.i.i4.i3.i.i.i.i.i, i32 %43, i32 %44
   %cond.v.i8.i7.i.i.i.i.i = zext i32 %cond.v.v.i7.i6.i.i.i.i.i to i64
   %cond.i9.i8.idx.i.i.i.i.i = shl nuw nsw i64 %cond.v.i8.i7.i.i.i.i.i, 3
-  %cond.i9.i8.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %cond.i9.i8.idx.i.i.i.i.i
+  %cond.i9.i8.i.i.i.i.i = getelementptr i8, ptr %41, i64 %cond.i9.i8.idx.i.i.i.i.i
   %cmp.not2.i3.i.i11.i9.i.i.i.i.i = icmp eq i32 %cond.v.v.i7.i6.i.i.i.i.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i.i.i.i.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5beginEv.exit.i.i.i.i, label %land.rhs.i4.i.i12.i10.i.i.i.i.i
 
@@ -958,7 +958,7 @@ if.then.i.i.i.i85.i.i.i:                          ; preds = %_ZN6hermes17CallGra
 
 if.end8.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes17CallGraphProvider15getKnownCalleesEPNS_8CallInstE.exit.i.i.i.i
   %add.ptr.i4.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i.i.i.i.i.i, 3
-  %add.ptr.i4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 %add.ptr.i4.idx.i.i.i.i.i.i.i
+  %add.ptr.i4.i.i.i.i.i.i.i = getelementptr i8, ptr %74, i64 %add.ptr.i4.idx.i.i.i.i.i.i.i
   %cmp.not3.i3.i7.i5.i.i.i.i.i.i.i = icmp eq i32 %75, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i.i.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i.i.i, label %land.rhs.i4.i9.i6.i.i.i.i.i.i.i
 
@@ -1156,7 +1156,7 @@ if.then.i.i.i.i51.i.i:                            ; preds = %_ZN6hermes17CallGra
 
 if.end8.i.i.i.i26.i.i:                            ; preds = %_ZN6hermes17CallGraphProvider17getKnownReceiversEPNS_16LoadPropertyInstE.exit.i.i.i.i
   %add.ptr.i4.idx.i.i.i.i27.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i23.i.i.i.i, 3
-  %add.ptr.i4.i.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %92, i64 %add.ptr.i4.idx.i.i.i.i27.i.i
+  %add.ptr.i4.i.i.i.i28.i.i = getelementptr i8, ptr %92, i64 %add.ptr.i4.idx.i.i.i.i27.i.i
   %cmp.not3.i3.i7.i5.i.i.i.i29.i.i = icmp eq i32 %93, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i.i29.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i.i, label %land.rhs.i4.i9.i6.i.i.i.i30.i.i
 
@@ -1322,7 +1322,7 @@ if.then.i.i101.i.i.i.i:                           ; preds = %_ZN6hermes17CallGra
 
 if.end8.i.i87.i.i.i.i:                            ; preds = %_ZN6hermes17CallGraphProvider14getKnownStoresEPNS_11InstructionE.exit.i.i.i.i
   %add.ptr.i4.idx.i.i88.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i86.i.i.i.i, 3
-  %add.ptr.i4.i.i89.i.i.i.i = getelementptr inbounds nuw i8, ptr %115, i64 %add.ptr.i4.idx.i.i88.i.i.i.i
+  %add.ptr.i4.i.i89.i.i.i.i = getelementptr i8, ptr %115, i64 %add.ptr.i4.idx.i.i88.i.i.i.i
   %cmp.not3.i3.i7.i5.i.i90.i.i.i.i = icmp eq i32 %116, 0
   br i1 %cmp.not3.i3.i7.i5.i.i90.i.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit103.i.i.i.i, label %land.rhs.i4.i9.i6.i.i91.i.i.i.i
 

@@ -218,7 +218,7 @@ define hidden void @_ZN6spacer28lemma_expand_bnd_generalizerC2ERNS_7contextE(ptr
   %13 = load i32, ptr %12, align 8, !tbaa !81
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 4
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i.i, label %.loopexit41, label %.lr.ph.i.i.i.i
 

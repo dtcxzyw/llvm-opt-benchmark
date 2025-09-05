@@ -1101,7 +1101,7 @@ _ZN13string_bufferILj64EED2Ev.exit:               ; preds = %_ZN6vectorIP4sortLb
   %226 = load i32, ptr %225, align 8, !tbaa !239
   %227 = zext i32 %226 to i64
   %.idx.i = shl nuw nsw i64 %227, 3
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i
+  %228 = getelementptr i8, ptr %224, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %226, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i48
 
@@ -2751,7 +2751,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE3endEv.exit: ; preds = %4
   %25 = load i32, ptr %24, align 8, !tbaa !239
   %26 = zext i32 %25 to i64
   %.idx.i = shl nuw nsw i64 %26, 3
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -5480,7 +5480,7 @@ _ZNK7datalog14mk_synchronize12is_recursiveERNS_4ruleER4expr.exit: ; preds = %61,
   %85 = load i32, ptr %13, align 8, !tbaa !341
   %86 = zext i32 %85 to i64
   %.idx.i = shl nuw nsw i64 %86, 3
-  %87 = getelementptr inbounds nuw i8, ptr %.pre104.pre, i64 %.idx.i
+  %87 = getelementptr i8, ptr %.pre104.pre, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %85, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

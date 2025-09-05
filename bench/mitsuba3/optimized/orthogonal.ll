@@ -1667,50 +1667,50 @@ define weak_odr void @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8Spectru
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %6
   store ptr %11, ptr %7, align 8
+  %12 = getelementptr i8, ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false)
-  %scevgep.i.i = getelementptr i8, ptr %10, i64 %9
-  store ptr %scevgep.i.i, ptr %8, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %.pre = load i32, ptr %12, align 8
-  %.pre30 = load i32, ptr %13, align 4
-  %16 = icmp eq i32 %.pre30, 1
-  %17 = load i32, ptr %14, align 8
-  %18 = zext i32 %17 to i64
-  %19 = load i8, ptr %15, align 4
-  %20 = zext nneg i8 %19 to i32
-  br label %21
+  store ptr %12, ptr %8, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %.pre = load i32, ptr %13, align 8
+  %.pre30 = load i32, ptr %14, align 4
+  %17 = icmp eq i32 %.pre30, 1
+  %18 = load i32, ptr %15, align 8
+  %19 = zext i32 %18 to i64
+  %20 = load i8, ptr %16, align 4
+  %21 = zext nneg i8 %20 to i32
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %34
-  %.029 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
-  %.01828 = phi i32 [ %2, %.lr.ph ], [ %.02627, %34 ]
-  %.02627 = phi i32 [ %2, %.lr.ph ], [ %.019, %34 ]
-  %22 = mul i32 %.pre, %.02627
-  %23 = sub i32 %.01828, %22
-  %24 = getelementptr inbounds nuw i32, ptr %10, i64 %.029
-  store i32 %23, ptr %24, align 4
-  br i1 %16, label %34, label %25
+22:                                               ; preds = %.lr.ph, %35
+  %.029 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
+  %.01828 = phi i32 [ %2, %.lr.ph ], [ %.02627, %35 ]
+  %.02627 = phi i32 [ %2, %.lr.ph ], [ %.019, %35 ]
+  %23 = mul i32 %.pre, %.02627
+  %24 = sub i32 %.01828, %23
+  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %.029
+  store i32 %24, ptr %25, align 4
+  br i1 %17, label %35, label %26
 
-25:                                               ; preds = %21
-  %26 = zext i32 %.02627 to i64
-  %27 = mul nuw i64 %18, %26
-  %28 = lshr i64 %27, 32
-  %29 = trunc nuw i64 %28 to i32
-  %30 = sub i32 %.02627, %29
-  %31 = lshr i32 %30, 1
-  %32 = add i32 %31, %29
-  %33 = lshr i32 %32, %20
-  br label %34
+26:                                               ; preds = %22
+  %27 = zext i32 %.02627 to i64
+  %28 = mul nuw i64 %19, %27
+  %29 = lshr i64 %28, 32
+  %30 = trunc nuw i64 %29 to i32
+  %31 = sub i32 %.02627, %30
+  %32 = lshr i32 %31, 1
+  %33 = add i32 %32, %30
+  %34 = lshr i32 %33, %21
+  br label %35
 
-34:                                               ; preds = %21, %25
-  %.019 = phi i32 [ %33, %25 ], [ %.02627, %21 ]
-  %35 = add nuw nsw i64 %.029, 1
-  %36 = icmp samesign ult i64 %35, %6
-  br i1 %36, label %21, label %._crit_edge, !llvm.loop !11
+35:                                               ; preds = %22, %26
+  %.019 = phi i32 [ %34, %26 ], [ %.02627, %22 ]
+  %36 = add nuw nsw i64 %.029, 1
+  %37 = icmp samesign ult i64 %36, %6
+  br i1 %37, label %22, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %34, %3
+._crit_edge:                                      ; preds = %35, %3
   ret void
 }
 

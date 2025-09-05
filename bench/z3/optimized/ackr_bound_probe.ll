@@ -1238,7 +1238,7 @@ define linkonce_odr hidden void @_ZN16ackr_bound_probe4procD2Ev(ptr noundef nonn
   %5 = load i32, ptr %4, align 8, !tbaa !45
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit39, label %.lr.ph.i.i.i.i
 
@@ -1266,7 +1266,7 @@ define linkonce_odr hidden void @_ZN16ackr_bound_probe4procD2Ev(ptr noundef nonn
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = zext i32 %15 to i64
   %.idx.i.i9 = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i9
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i9
   %.not1.i.i.i.i10 = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i10, label %.loopexit38, label %.lr.ph.i.i.i.i11
 
@@ -3779,7 +3779,7 @@ define linkonce_odr hidden void @_ZN11ackr_helper16prune_non_selectER7obj_mapI3a
   %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = zext i32 %8 to i64
   %.idx.i.i = shl nuw nsw i64 %9, 4
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

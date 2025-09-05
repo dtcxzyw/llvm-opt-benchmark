@@ -3386,7 +3386,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState22WriteObservationTensorEi
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 18:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
@@ -3408,91 +3408,91 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState22WriteObservationTensorEi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 26:                                               ; preds = %18
   %.not6.i.i.i.i = icmp eq i64 %3, 0
   br i1 %.not6.i.i.i.i, label %_ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %26
-  %27 = shl i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %27, i1 false)
+  %.idx.i = shl i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx.i, i1 false)
   br label %_ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit
 
 _ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %72, label %.preheader
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %71, label %.preheader
 
 .preheader:                                       ; preds = %_ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds nuw %"struct.std::array.11", ptr %31, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  br label %35
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %31 = zext nneg i32 %1 to i64
+  %32 = getelementptr inbounds nuw %"struct.std::array.11", ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  br label %34
 
-35:                                               ; preds = %.preheader, %35
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
-  %36 = mul nuw nsw i64 %indvars.iv, 5
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
-  %38 = load i32, ptr %37, align 4
-  %39 = trunc nuw nsw i64 %36 to i32
-  %40 = add nsw i32 %38, %39
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds float, ptr %2, i64 %41
-  store float 1.000000e+00, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4
-  %45 = trunc i64 %36 to i32
-  %46 = add i32 %45, 69
-  %47 = add nsw i32 %46, %44
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds float, ptr %2, i64 %48
-  store float 1.000000e+00, ptr %49, align 4
+34:                                               ; preds = %.preheader, %34
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
+  %35 = mul nuw nsw i64 %indvars.iv, 5
+  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %37 = load i32, ptr %36, align 4
+  %38 = trunc nuw nsw i64 %35 to i32
+  %39 = add nsw i32 %37, %38
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds float, ptr %2, i64 %40
+  store float 1.000000e+00, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %43 = load i32, ptr %42, align 4
+  %44 = trunc i64 %35 to i32
+  %45 = add i32 %44, 69
+  %46 = add nsw i32 %45, %43
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds float, ptr %2, i64 %47
+  store float 1.000000e+00, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %50, label %35, !llvm.loop !51
+  br i1 %exitcond.not, label %49, label %34, !llvm.loop !51
 
-50:                                               ; preds = %35
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %52 = load i32, ptr %51, align 4
-  %.not = icmp eq i32 %52, -3
-  br i1 %.not, label %60, label %53
+49:                                               ; preds = %34
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %51 = load i32, ptr %50, align 4
+  %.not = icmp eq i32 %51, -3
+  br i1 %.not, label %59, label %52
 
-53:                                               ; preds = %50
-  %54 = add nuw i32 %1, 3
-  %55 = sub i32 %54, %52
-  %56 = srem i32 %55, 3
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr float, ptr %2, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 552
-  store float 1.000000e+00, ptr %59, align 4
-  br label %60
+52:                                               ; preds = %49
+  %53 = add nuw i32 %1, 3
+  %54 = sub i32 %53, %51
+  %55 = srem i32 %54, 3
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr float, ptr %2, i64 %56
+  %58 = getelementptr i8, ptr %57, i64 552
+  store float 1.000000e+00, ptr %58, align 4
+  br label %59
 
-60:                                               ; preds = %53, %50
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %62 = load i32, ptr %61, align 8
-  %.not23 = icmp eq i32 %62, -3
-  br i1 %.not23, label %72, label %63
+59:                                               ; preds = %52, %49
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %61 = load i32, ptr %60, align 8
+  %.not23 = icmp eq i32 %61, -3
+  br i1 %.not23, label %71, label %62
 
-63:                                               ; preds = %60
-  %64 = sext i32 %62 to i64
-  %65 = getelementptr float, ptr %2, i64 %64
-  %66 = getelementptr i8, ptr %65, i64 564
-  store float 1.000000e+00, ptr %66, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %68 = load i32, ptr %67, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr float, ptr %2, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 576
-  store float 1.000000e+00, ptr %71, align 4
-  br label %72
+62:                                               ; preds = %59
+  %63 = sext i32 %61 to i64
+  %64 = getelementptr float, ptr %2, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 564
+  store float 1.000000e+00, ptr %65, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %67 = load i32, ptr %66, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr float, ptr %2, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 576
+  store float 1.000000e+00, ptr %70, align 4
+  br label %71
 
-72:                                               ; preds = %_ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit, %63, %60
+71:                                               ; preds = %_ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit, %62, %59
   ret void
 
-73:                                               ; preds = %24, %16
+72:                                               ; preds = %24, %16
   %.sink = phi ptr [ %11, %24 ], [ %7, %16 ]
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27

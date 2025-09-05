@@ -15850,7 +15850,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %35, %37
 
 50:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9
   %.idx.i = shl nuw nsw i64 %47, 5
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
+  %51 = getelementptr i8, ptr %44, i64 %.idx.i
   %.not13.i5.i10.i2.i = icmp eq i32 %46, 0
   br i1 %.not13.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12FileEntryRefENS_11SmallVectorINS2_9ModuleMap11KnownHeaderELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

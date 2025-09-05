@@ -2665,7 +2665,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %734, %688
   %742 = load i32, ptr %741, align 8, !tbaa !252
   %743 = zext i32 %742 to i64
   %.idx.i.i306 = shl nuw nsw i64 %743, 4
-  %744 = getelementptr inbounds nuw i8, ptr %740, i64 %.idx.i.i306
+  %744 = getelementptr i8, ptr %740, i64 %.idx.i.i306
   %.not1.i.i.i.i = icmp eq i32 %742, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

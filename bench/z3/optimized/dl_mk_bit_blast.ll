@@ -620,7 +620,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %15, %21
   %43 = load i32, ptr %42, align 8, !tbaa !326
   %44 = zext i32 %43 to i64
   %.idx.i = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
+  %45 = getelementptr i8, ptr %41, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %43, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -3979,7 +3979,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %134 = load i32, ptr %133, align 8, !tbaa !422
   %135 = zext i32 %134 to i64
   %.idx.i = shl nuw nsw i64 %135, 3
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i
+  %136 = getelementptr i8, ptr %132, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %134, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -11804,7 +11804,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i68: ; preds = %_ZNK6vect
   %95 = load i32, ptr %94, align 8, !tbaa !422
   %96 = zext i32 %95 to i64
   %.idx.i = shl nuw nsw i64 %96, 3
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
+  %97 = getelementptr i8, ptr %93, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %95, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

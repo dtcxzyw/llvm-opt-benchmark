@@ -78,13 +78,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #23
   %45 = getelementptr inbounds nuw i32, ptr %44, i64 %41
   store i32 0, ptr %44, align 4, !tbaa !4
-  %46 = icmp eq i32 %40, 1
-  br i1 %46, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %46 = add nsw i64 %41, -1
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc5208
-  %47 = getelementptr i8, ptr %44, i64 4
-  %48 = add nsw i64 %43, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %47, i8 0, i64 %48, i1 false), !tbaa !4
+  %48 = getelementptr i8, ptr %44, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %46, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %48, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !4
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc5208, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3937,11 +3938,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2575 = add <4 x i32> %2574, %.lcssa7625
   %2576 = load i32, ptr %15, align 4, !tbaa !4
   switch i32 %2576, label %2582 [
-    i32 4, label %.thread10532
+    i32 4, label %.thread10533
     i32 1, label %2579
   ]
 
-.thread10532:                                     ; preds = %._crit_edge8380
+.thread10533:                                     ; preds = %._crit_edge8380
   store <4 x i32> %2571, ptr %.335108396, align 16, !tbaa !37
   %2577 = getelementptr inbounds nuw i8, ptr %.335108396, i64 16
   store <4 x i32> %2575, ptr %2577, align 16, !tbaa !37
@@ -3955,8 +3956,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2581 = getelementptr inbounds nuw i8, ptr %.335108396, i64 8
   br label %2582
 
-2582:                                             ; preds = %._crit_edge8380, %.thread10532, %2579
-  %.53512 = phi ptr [ %2581, %2579 ], [ %2578, %.thread10532 ], [ %.335108396, %._crit_edge8380 ]
+2582:                                             ; preds = %._crit_edge8380, %.thread10533, %2579
+  %.53512 = phi ptr [ %2581, %2579 ], [ %2578, %.thread10533 ], [ %.335108396, %._crit_edge8380 ]
   %2583 = add nuw nsw i32 %.135178395, 2
   %2584 = or disjoint i32 %2583, 1
   %2585 = icmp slt i32 %2584, %1519
@@ -5649,12 +5650,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3658 = add <4 x i32> %3656, %3657
   %shift = shufflevector <4 x i32> %3655, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = add nsw <4 x i32> %3655, %shift
-  %shift10977 = shufflevector <4 x i32> %3655, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %foldExtExtBinop10978 = add nsw <4 x i32> %3655, %shift10977
-  %shift10980 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10981 = add nsw <4 x i32> %3658, %shift10980
-  %shift10983 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %foldExtExtBinop10984 = add nsw <4 x i32> %3658, %shift10983
+  %shift10978 = shufflevector <4 x i32> %3655, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop10979 = add nsw <4 x i32> %3655, %shift10978
+  %shift10981 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10982 = add nsw <4 x i32> %3658, %shift10981
+  %shift10984 = shufflevector <4 x i32> %3658, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop10985 = add nsw <4 x i32> %3658, %shift10984
   %3659 = or disjoint i32 %.03818.lcssa, 7
   %3660 = icmp slt i32 %3659, %3540
   br i1 %3660, label %.noexc4353.lr.ph, label %._crit_edge8771
@@ -5795,16 +5796,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3739 = add <4 x i32> %3737, %3738
   %3740 = shufflevector <4 x i32> %3739, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %3741 = add <4 x i32> %3740, %3739
-  %foldExtExtBinop10986 = add nsw <4 x i32> %foldExtExtBinop, %3741
-  %3742 = extractelement <4 x i32> %foldExtExtBinop10986, i64 0
+  %foldExtExtBinop10987 = add nsw <4 x i32> %foldExtExtBinop, %3741
+  %3742 = extractelement <4 x i32> %foldExtExtBinop10987, i64 0
   %3743 = shufflevector <8 x i32> %3735, <8 x i32> poison, <4 x i32> <i32 6, i32 7, i32 6, i32 7>
   %3744 = shufflevector <8 x i32> %3735, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3745 = add <4 x i32> %3743, %3744
   %3746 = shufflevector <4 x i32> %3745, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %3747 = add <4 x i32> %3746, %3745
-  %shift10988 = shufflevector <4 x i32> %foldExtExtBinop10978, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10989 = add nsw <4 x i32> %shift10988, %3747
-  %3748 = extractelement <4 x i32> %foldExtExtBinop10989, i64 0
+  %shift10989 = shufflevector <4 x i32> %foldExtExtBinop10979, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10990 = add nsw <4 x i32> %shift10989, %3747
+  %3748 = extractelement <4 x i32> %foldExtExtBinop10990, i64 0
   %3749 = shufflevector <8 x i32> %3736, <8 x i32> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
   %3750 = shufflevector <8 x i32> %3736, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %3751 = add <4 x i32> %3749, %3750
@@ -5815,11 +5816,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3756 = add <4 x i32> %3754, %3755
   %3757 = shufflevector <4 x i32> %3756, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %3758 = add <4 x i32> %3757, %3756
-  %foldExtExtBinop10991 = add nsw <4 x i32> %foldExtExtBinop10981, %3753
-  %3759 = extractelement <4 x i32> %foldExtExtBinop10991, i64 0
-  %shift10993 = shufflevector <4 x i32> %foldExtExtBinop10984, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10994 = add nsw <4 x i32> %shift10993, %3758
-  %3760 = extractelement <4 x i32> %foldExtExtBinop10994, i64 0
+  %foldExtExtBinop10992 = add nsw <4 x i32> %foldExtExtBinop10982, %3753
+  %3759 = extractelement <4 x i32> %foldExtExtBinop10992, i64 0
+  %shift10994 = shufflevector <4 x i32> %foldExtExtBinop10985, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10995 = add nsw <4 x i32> %shift10994, %3758
+  %3760 = extractelement <4 x i32> %foldExtExtBinop10995, i64 0
   %3761 = or disjoint i32 %.13819.lcssa, 1
   %3762 = icmp slt i32 %3761, %3540
   br i1 %3762, label %.noexc4357.lr.ph, label %.preheader7546
@@ -6209,10 +6210,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3974 = shufflevector <8 x i32> %3973, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %3975 = shufflevector <8 x i32> %3973, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %3976 = add <4 x i32> %3974, %3975
-  %shift10996 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop10997 = add nsw <4 x i32> %3976, %shift10996
-  %shift10999 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %foldExtExtBinop11000 = add nsw <4 x i32> %3976, %shift10999
+  %shift10997 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10998 = add nsw <4 x i32> %3976, %shift10997
+  %shift11000 = shufflevector <4 x i32> %3976, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop11001 = add nsw <4 x i32> %3976, %shift11000
   %3977 = or disjoint i32 %.03705.lcssa, 7
   %3978 = icmp slt i32 %3977, %3897
   br i1 %3978, label %.noexc4369.lr.ph, label %._crit_edge8924
@@ -6331,11 +6332,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %4040 = add <4 x i32> %4038, %4039
   %4041 = shufflevector <4 x i32> %4040, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %4042 = add <4 x i32> %4041, %4040
-  %foldExtExtBinop11002 = add nsw <4 x i32> %foldExtExtBinop10997, %4037
-  %4043 = extractelement <4 x i32> %foldExtExtBinop11002, i64 0
-  %shift11004 = shufflevector <4 x i32> %foldExtExtBinop11000, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop11005 = add nsw <4 x i32> %shift11004, %4042
-  %4044 = extractelement <4 x i32> %foldExtExtBinop11005, i64 0
+  %foldExtExtBinop11003 = add nsw <4 x i32> %foldExtExtBinop10998, %4037
+  %4043 = extractelement <4 x i32> %foldExtExtBinop11003, i64 0
+  %shift11005 = shufflevector <4 x i32> %foldExtExtBinop11001, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop11006 = add nsw <4 x i32> %shift11005, %4042
+  %4044 = extractelement <4 x i32> %foldExtExtBinop11006, i64 0
   %4045 = or disjoint i32 %.13706.lcssa, 1
   %4046 = icmp slt i32 %4045, %3897
   br i1 %4046, label %.noexc4371.lr.ph, label %.preheader7545
@@ -7703,10 +7704,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge9418, %4
   %4861 = add <4 x i32> %4860, %4855
   %4862 = shufflevector <4 x i32> %4861, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %4863 = add <4 x i32> %4862, %4861
-  %foldExtExtBinop11007 = add nsw <4 x i32> %4859, %4777
-  %4864 = extractelement <4 x i32> %foldExtExtBinop11007, i64 0
-  %foldExtExtBinop11009 = add nsw <4 x i32> %4863, %4781
-  %4865 = extractelement <4 x i32> %foldExtExtBinop11009, i64 0
+  %foldExtExtBinop11008 = add nsw <4 x i32> %4859, %4777
+  %4864 = extractelement <4 x i32> %foldExtExtBinop11008, i64 0
+  %foldExtExtBinop11010 = add nsw <4 x i32> %4863, %4781
+  %4865 = extractelement <4 x i32> %foldExtExtBinop11010, i64 0
   %4866 = or disjoint i32 %.13440.lcssa, 1
   %4867 = icmp slt i32 %4866, %4667
   br i1 %4867, label %.noexc4419.lr.ph, label %.preheader7541
@@ -8163,8 +8164,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge9418, %4
   %5111 = add <4 x i32> %5110, %5109
   %5112 = shufflevector <4 x i32> %5111, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %5113 = add <4 x i32> %5112, %5111
-  %foldExtExtBinop11011 = add nsw <4 x i32> %5113, %5055
-  %5114 = extractelement <4 x i32> %foldExtExtBinop11011, i64 0
+  %foldExtExtBinop11012 = add nsw <4 x i32> %5113, %5055
+  %5114 = extractelement <4 x i32> %foldExtExtBinop11012, i64 0
   %5115 = or disjoint i32 %.13347.lcssa, 1
   %5116 = icmp slt i32 %5115, %4978
   br i1 %5116, label %.noexc4433.lr.ph, label %.preheader

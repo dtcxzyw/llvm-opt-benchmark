@@ -28,7 +28,7 @@ define hidden noundef double @_ZN11ackr_helper21calculate_lemma_boundERK7obj_map
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -56,7 +56,7 @@ _ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph
   %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = zext i32 %14 to i64
   %.idx.i.i19 = shl nuw nsw i64 %15, 4
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i19
+  %16 = getelementptr i8, ptr %12, i64 %.idx.i.i19
   %.not1.i.i.i.i20 = icmp eq i32 %14, 0
   br i1 %.not1.i.i.i.i20, label %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit, label %.lr.ph.i.i.i.i21
 

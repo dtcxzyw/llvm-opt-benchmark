@@ -3249,7 +3249,7 @@ _ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.thread.i: ; preds = %
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.i, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.thread.i
   %.ph = phi ptr [ %5, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.i ]
-  %.ph63 = phi i32 [ %10, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.thread.i ], [ %9, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.i ]
+  %.ph62 = phi i32 [ %10, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.thread.i ], [ %9, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.i ]
   %.0.i16.i.ph = phi i32 [ %8, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
@@ -3265,7 +3265,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 _ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE8capacityEv.exit.i: ; preds = %thread-pre-split.i
   %14 = getelementptr inbounds i8, ptr %12, i64 -8
   %15 = load i32, ptr %14, align 4, !tbaa !23
-  %16 = icmp ugt i32 %.ph63, %15
+  %16 = icmp ugt i32 %.ph62, %15
   br i1 %16, label %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE8capacityEv.exit.thread.i, label %17
 
 _ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE8capacityEv.exit.i, %thread-pre-split.i
@@ -3275,12 +3275,12 @@ _ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE8capacityEv.exit.thread.i: ; preds
 
 17:                                               ; preds = %_ZNK6vectorIPN18elim_unconstrained4nodeELb0EjE8capacityEv.exit.i
   %18 = getelementptr inbounds i8, ptr %12, i64 -4
-  store i32 %.ph63, ptr %18, align 4, !tbaa !23
-  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph63
+  store i32 %.ph62, ptr %18, align 4, !tbaa !23
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph62
   br i1 %.not1218.i, label %_ZN6vectorIPN18elim_unconstrained4nodeELb0EjE6resizeIDnEEvjT_z.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %17
-  %19 = zext i32 %.ph63 to i64
+  %19 = zext i32 %.ph62 to i64
   %20 = zext i32 %.0.i16.i.ph to i64
   %21 = getelementptr ptr, ptr %12, i64 %20
   %22 = sub nsw i64 %19, %20
@@ -5932,7 +5932,7 @@ _ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE9push_backEPS1_.exit
   %45 = load i32, ptr %44, align 8, !tbaa !198
   %46 = zext i32 %45 to i64
   %.idx.i.i = shl nuw nsw i64 %46, 4
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i
+  %47 = getelementptr i8, ptr %43, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %45, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 

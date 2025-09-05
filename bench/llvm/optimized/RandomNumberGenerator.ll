@@ -128,13 +128,14 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %15
   %18 = shl nuw nsw i64 %14, 2
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
   store i32 0, ptr %19, align 4, !tbaa !11
-  %20 = icmp eq i64 %14, 1
-  br i1 %20, label %_ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i
+  %20 = add nsw i64 %2, 1
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %_ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
-  %21 = getelementptr i8, ptr %19, i64 4
-  %22 = add nsw i64 %18, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %22, i1 false), !tbaa !11
+  %22 = getelementptr i8, ptr %19, i64 4
+  %.idx.i.i.i.i.i26.i = shl nuw nsw i64 %20, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 %.idx.i.i.i.i.i26.i, i1 false), !tbaa !11
   br label %_ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i

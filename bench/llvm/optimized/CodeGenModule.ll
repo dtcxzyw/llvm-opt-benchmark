@@ -8562,7 +8562,7 @@ define dso_local void @_ZN5clang7CodeGen13CodeGenModule7ReleaseEv(ptr noundef no
 
 56:                                               ; preds = %44
   %.idx.i = shl nuw nsw i64 %53, 5
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i
+  %57 = getelementptr i8, ptr %50, i64 %.idx.i
   %.not17.i5.i10.i2.i = icmp eq i32 %52, 0
   br i1 %.not17.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEN5clang10GlobalDeclENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i
 
@@ -12068,7 +12068,7 @@ define dso_local void @_ZN5clang7CodeGen13CodeGenModule12EmitDeferredEv(ptr noun
 
 43:                                               ; preds = %27
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %40, 3
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i.i.i
+  %44 = getelementptr i8, ptr %37, i64 %.idx.i.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %39, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i.i, label %_ZN4llvm12append_rangeISt6vectorIN5clang10GlobalDeclESaIS3_EERNS_8DenseSetIPKNS2_7VarDeclENS_12DenseMapInfoIS9_vEEEEEEvRT_OT0_.exit, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i
 

@@ -8898,7 +8898,7 @@ _ZN5clang23LocalInstantiationScopeC2ERNS_4SemaEbb.exit: ; preds = %.lr.ph.i.i.i.
   %55 = select i1 %.not.i.i.i2.i, i32 %54, i32 4
   %56 = zext i32 %55 to i64
   %.idx.i = shl nuw nsw i64 %56, 4
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i
+  %57 = getelementptr i8, ptr %52, i64 %.idx.i
   %.not5.i5.i10.i4.i = icmp eq i32 %55, 0
   br i1 %.not5.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4DeclENS_12PointerUnionIJPS3_PNS_11SmallVectorIPNS2_7VarDeclELj4EEEEEELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -8920,7 +8920,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4DeclENS_12PointerUnionIJPS3_
   %.pre-phi = phi i32 [ %37, %39 ], [ %49, %48 ], [ %49, %.critedge2.i8.i14.i8.i ], [ %49, %.lr.ph.i6.i12.i5.i ]
   %60 = phi i32 [ %44, %39 ], [ %54, %48 ], [ %54, %.critedge2.i8.i14.i8.i ], [ %54, %.lr.ph.i6.i12.i5.i ]
   %61 = phi ptr [ %41, %39 ], [ %51, %48 ], [ %51, %.critedge2.i8.i14.i8.i ], [ %51, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i = phi ptr [ %47, %39 ], [ %52, %48 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %59, %.critedge2.i8.i14.i8.i ]
+  %.pn16.i = phi ptr [ %47, %39 ], [ %52, %48 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %57, %.critedge2.i8.i14.i8.i ]
   %.pn14.i = phi ptr [ %47, %39 ], [ %57, %48 ], [ %57, %.critedge2.i8.i14.i8.i ], [ %57, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -43368,7 +43368,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix9anonymous17pa
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !260
   %.idx = shl i64 %5, 2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %6 = getelementptr i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb0ELb0EE4callIPKwEEbRT_RKS7_Rm.exit.thread, label %.lr.ph.i
 
@@ -43536,7 +43536,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost3log11v2_mt_posix9anonymous17pa
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !260
   %.idx = shl i64 %5, 2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %6 = getelementptr i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintIjLj10ELj1ELin1ELb0ELb0EE4callIPKwEEbRT_RKS7_Rj.exit.thread, label %.lr.ph.i
 

@@ -856,7 +856,7 @@ _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingB
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %205 = zext i24 %.val109 to i64
   %.idx.i.i = shl nuw nsw i64 %205, 5
-  %206 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
+  %206 = getelementptr i8, ptr %.val, i64 %.idx.i.i
   %.not1.i.i.i.i.i.i = icmp eq i24 %.val109, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK4llvm12MachineInstr8all_defsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -7707,7 +7707,7 @@ _ZN4llvm17MachineBasicBlock17insertAfterBundleENS_14ilist_iteratorINS_12ilist_de
   %3202 = select i1 %.not.i.i.i2.i.i371, i32 %3201, i32 4
   %3203 = zext i32 %3202 to i64
   %.idx.i.i372 = shl nuw nsw i64 %3203, 4
-  %3204 = getelementptr inbounds nuw i8, ptr %3200, i64 %.idx.i.i372
+  %3204 = getelementptr i8, ptr %3200, i64 %.idx.i.i372
   %.not5.i5.i10.i4.i.i = icmp eq i32 %3202, 0
   br i1 %.not5.i5.i10.i4.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS7_EELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit.i, label %.lr.ph.i6.i12.i5.i.i
 
@@ -7728,7 +7728,7 @@ _ZN4llvm17MachineBasicBlock17insertAfterBundleENS_14ilist_iteratorINS_12ilist_de
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS7_EELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i8.i.i, %.lr.ph.i6.i12.i5.i.i, %3197, %3190
   %.pre-phi1628 = phi i64 [ 0, %3197 ], [ %3195, %3190 ], [ %3203, %.lr.ph.i6.i12.i5.i.i ], [ %3203, %.critedge2.i8.i14.i8.i.i ]
   %.pre-phi1626 = phi ptr [ %3200, %3197 ], [ %3192, %3190 ], [ %3200, %.lr.ph.i6.i12.i5.i.i ], [ %3200, %.critedge2.i8.i14.i8.i.i ]
-  %.pn16.i.i = phi ptr [ %3200, %3197 ], [ %3196, %3190 ], [ %3206, %.critedge2.i8.i14.i8.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
+  %.pn16.i.i = phi ptr [ %3200, %3197 ], [ %3196, %3190 ], [ %3204, %.critedge2.i8.i14.i8.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
   %.pn14.i.i = phi ptr [ %3204, %3197 ], [ %3196, %3190 ], [ %3204, %.lr.ph.i6.i12.i5.i.i ], [ %3204, %.critedge2.i8.i14.i8.i.i ]
   %3207 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.296", ptr %.pre-phi1626, i64 %.pre-phi1628
   %.not47.i = icmp eq ptr %.pn16.i.i, %3207

@@ -2051,7 +2051,7 @@ define internal fastcc noundef zeroext i1 @_ZL20tryToreplicateChunksmRN4llvm15Sm
 
 18:                                               ; preds = %8
   %.idx.i = shl nuw nsw i64 %15, 4
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
+  %19 = getelementptr i8, ptr %12, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %14, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

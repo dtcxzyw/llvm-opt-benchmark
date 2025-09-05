@@ -3133,9 +3133,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %29 = add nsw i64 %sub.ptr.sub.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %29, i1 false), !tbaa !19
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !19
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.lr.ph
 
@@ -3150,32 +3149,32 @@ for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont48
-  %30 = phi ptr [ %3, %for.body.lr.ph ], [ %35, %invoke.cont48 ]
+  %29 = phi ptr [ %3, %for.body.lr.ph ], [ %34, %invoke.cont48 ]
   %i.093 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont48 ]
-  %31 = load ptr, ptr %blackVols, align 8, !tbaa !52
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %31, i64 %i.093
-  %32 = load double, ptr %add.ptr.i, align 8, !tbaa !19
-  %add.ptr.i68 = getelementptr inbounds nuw double, ptr %30, i64 %i.093
-  %33 = load double, ptr %add.ptr.i68, align 8, !tbaa !19
-  %call49 = invoke noundef double @_ZNK8QuantLib15AbcdCalibration5valueEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %33)
+  %30 = load ptr, ptr %blackVols, align 8, !tbaa !52
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %i.093
+  %31 = load double, ptr %add.ptr.i, align 8, !tbaa !19
+  %add.ptr.i68 = getelementptr inbounds nuw double, ptr %29, i64 %i.093
+  %32 = load double, ptr %add.ptr.i68, align 8, !tbaa !19
+  %call49 = invoke noundef double @_ZNK8QuantLib15AbcdCalibration5valueEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %32)
           to label %invoke.cont48 unwind label %if.then.i.i.i
 
 invoke.cont48:                                    ; preds = %for.body
-  %div = fdiv double %32, %call49
+  %div = fdiv double %31, %call49
   %add.ptr.i69 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i62, i64 %i.093
   store double %div, ptr %add.ptr.i69, align 8, !tbaa !19
   %inc = add nuw i64 %i.093, 1
-  %34 = load ptr, ptr %_M_finish.i17, align 8, !tbaa !51
-  %35 = load ptr, ptr %t, align 8, !tbaa !52
-  %sub.ptr.lhs.cast.i64 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i65 = ptrtoint ptr %35 to i64
+  %33 = load ptr, ptr %_M_finish.i17, align 8, !tbaa !51
+  %34 = load ptr, ptr %t, align 8, !tbaa !52
+  %sub.ptr.lhs.cast.i64 = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast.i65 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i66 = sub i64 %sub.ptr.lhs.cast.i64, %sub.ptr.rhs.cast.i65
   %sub.ptr.div.i67 = ashr exact i64 %sub.ptr.sub.i66, 3
   %cmp44 = icmp ult i64 %inc, %sub.ptr.div.i67
   br i1 %cmp44, label %for.body, label %nrvo.skipdtor, !llvm.loop !87
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i2.i.i62, i64 noundef %sub.ptr.sub.i) #24
   br label %eh.resume
@@ -3184,7 +3183,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont48, %inv
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %ehcleanup35
-  %.pn15 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup35 ], [ %36, %if.then.i.i.i ]
+  %.pn15 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup35 ], [ %35, %if.then.i.i.i ]
   resume { ptr, i32 } %.pn15
 
 unreachable:                                      ; preds = %invoke.cont25

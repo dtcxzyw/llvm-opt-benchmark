@@ -728,7 +728,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit150:   ; preds = %194, %_ZNK7datalog8
   %237 = load i32, ptr %22, align 8, !tbaa !16
   %238 = zext i32 %237 to i64
   %.idx.i = shl nuw nsw i64 %238, 3
-  %239 = getelementptr inbounds nuw i8, ptr %236, i64 %.idx.i
+  %239 = getelementptr i8, ptr %236, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %237, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -2609,7 +2609,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit157:   ; preds = %381, %_ZNK7datalog8
   %418 = load i32, ptr %28, align 8, !tbaa !16
   %419 = zext i32 %418 to i64
   %.idx.i = shl nuw nsw i64 %419, 3
-  %420 = getelementptr inbounds nuw i8, ptr %417, i64 %.idx.i
+  %420 = getelementptr i8, ptr %417, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %418, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -3001,7 +3001,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %5 = load i32, ptr %4, align 8, !tbaa !221
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -4669,7 +4669,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %9 = load i32, ptr %8, align 8, !tbaa !218
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 4
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -6368,7 +6368,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = zext i32 %6 to i64
   %.idx.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -6966,7 +6966,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %9 = load i32, ptr %8, align 8, !tbaa !218
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 4
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 

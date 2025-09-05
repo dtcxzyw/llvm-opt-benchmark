@@ -957,7 +957,7 @@ define dso_local void @_ZN4llvm9sandboxir11BottomUpVec18tryEraseDeadInstrsEv(ptr
 
 15:                                               ; preds = %1
   %.idx.i.i = shl nuw nsw i64 %12, 3
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %11, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_9sandboxir11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -8066,7 +8066,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueEjNS_12DenseMapInfoIS4_v
 
 87:                                               ; preds = %75
   %.idx.i = shl nuw nsw i64 %84, 4
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i
+  %88 = getelementptr i8, ptr %81, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %83, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

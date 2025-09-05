@@ -1272,7 +1272,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendERKS4_.
   %317 = load i32, ptr %316, align 8, !tbaa !242
   %318 = zext i32 %317 to i64
   %.idx.i.i92 = shl nuw nsw i64 %318, 4
-  %319 = getelementptr inbounds nuw i8, ptr %315, i64 %.idx.i.i92
+  %319 = getelementptr i8, ptr %315, i64 %.idx.i.i92
   %.not1.i.i.i.i = icmp eq i32 %317, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

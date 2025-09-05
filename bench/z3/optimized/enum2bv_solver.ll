@@ -3517,7 +3517,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14enum2bv_solver21local_model_conver
   %28 = load i32, ptr %27, align 8, !tbaa !79
   %29 = zext i32 %28 to i64
   %.idx.i.i = shl nuw nsw i64 %29, 4
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i
+  %30 = getelementptr i8, ptr %26, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %28, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3552,7 +3552,7 @@ _ZNK7obj_mapI9func_declPS0_E5beginEv.exit:        ; preds = %.lr.ph.i.i.i.i, %32
   %42 = load i32, ptr %41, align 8, !tbaa !122
   %43 = zext i32 %42 to i64
   %.idx.i.i14 = shl nuw nsw i64 %43, 4
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i14
+  %44 = getelementptr i8, ptr %40, i64 %.idx.i.i14
   %.not1.i.i.i.i15 = icmp eq i32 %42, 0
   br i1 %.not1.i.i.i.i15, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i16
 

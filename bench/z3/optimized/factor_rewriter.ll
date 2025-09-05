@@ -474,7 +474,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %38, %40, %47
   %54 = load i32, ptr %53, align 8, !tbaa !18
   %55 = zext i32 %54 to i64
   %.idx.i.i = shl nuw nsw i64 %55, 4
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i
+  %56 = getelementptr i8, ptr %52, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprjE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3677,7 +3677,7 @@ define hidden void @_ZN15factor_rewriter14mk_is_negativeER7obj_refI4expr11ast_ma
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = zext i32 %15 to i64
   %.idx.i.i = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i, label %.loopexit118, label %.lr.ph.i.i.i.i
 
@@ -5886,7 +5886,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i68: ; preds = %_ZNK6vect
   %95 = load i32, ptr %94, align 8, !tbaa !213
   %96 = zext i32 %95 to i64
   %.idx.i = shl nuw nsw i64 %96, 3
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
+  %97 = getelementptr i8, ptr %93, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %95, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -10726,7 +10726,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %134 = load i32, ptr %133, align 8, !tbaa !213
   %135 = zext i32 %134 to i64
   %.idx.i = shl nuw nsw i64 %135, 3
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i
+  %136 = getelementptr i8, ptr %132, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %134, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

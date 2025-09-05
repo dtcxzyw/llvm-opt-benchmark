@@ -1057,7 +1057,7 @@ define dso_local noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr nounde
 
 37:                                               ; preds = %26
   %.idx.i.i.i = shl nuw nsw i64 %34, 4
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i
+  %38 = getelementptr i8, ptr %31, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %33, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZNK5clang3CFG20synthetic_stmt_beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -1184,7 +1184,7 @@ define dso_local noundef ptr @_ZN5clang19AnalysisDeclContext17getUnoptimizedCFGE
 
 33:                                               ; preds = %22
   %.idx.i.i.i = shl nuw nsw i64 %30, 4
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
+  %34 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %29, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZNK5clang3CFG20synthetic_stmt_beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -1430,7 +1430,7 @@ _ZNSt10unique_ptrIN5clang9ParentMapESt14default_deleteIS1_EE5resetEPS1_.exit: ; 
 
 45:                                               ; preds = %34
   %.idx.i.i.i = shl nuw nsw i64 %42, 4
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i
+  %46 = getelementptr i8, ptr %39, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %41, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZNK5clang3CFG20synthetic_stmt_beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -1514,7 +1514,7 @@ _ZL27addParentsForSyntheticStmtsPKN5clang3CFGERNS_9ParentMapE.exit: ; preds = %_
 
 74:                                               ; preds = %63
   %.idx.i.i.i13 = shl nuw nsw i64 %71, 4
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i13
+  %75 = getelementptr i8, ptr %68, i64 %.idx.i.i.i13
   %.not5.i5.i10.i2.i.i.i14 = icmp eq i32 %70, 0
   br i1 %.not5.i5.i10.i2.i.i.i14, label %_ZNK5clang3CFG20synthetic_stmt_beginEv.exit.i20, label %.lr.ph.i6.i12.i3.i.i.i15
 

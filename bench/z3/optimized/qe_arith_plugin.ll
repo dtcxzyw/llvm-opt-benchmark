@@ -1201,7 +1201,7 @@ define linkonce_odr hidden void @_ZN2qe14nlarith_pluginD2Ev(ptr noundef nonnull 
   %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 5
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit37, label %.lr.ph.i.i.i.i
 
@@ -1229,7 +1229,7 @@ define linkonce_odr hidden void @_ZN2qe14nlarith_pluginD2Ev(ptr noundef nonnull 
   %15 = load i32, ptr %14, align 8, !tbaa !39
   %16 = zext i32 %15 to i64
   %.idx.i.i9 = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i9
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i9
   %.not1.i.i.i.i10 = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i10, label %.loopexit36, label %.lr.ph.i.i.i.i11
 
@@ -1687,7 +1687,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %121 = load i32, ptr %120, align 8, !tbaa !176
   %122 = zext i32 %121 to i64
   %.idx.i.i = shl nuw nsw i64 %122, 3
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i.i
+  %123 = getelementptr i8, ptr %119, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1787,7 +1787,7 @@ _ZN2qe14nlarith_plugin13update_boundsER10ref_vectorI4expr11ast_managerERK13obj_h
   %160 = load i32, ptr %159, align 8, !tbaa !176
   %161 = zext i32 %160 to i64
   %.idx.i.i13 = shl nuw nsw i64 %161, 3
-  %162 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i.i13
+  %162 = getelementptr i8, ptr %158, i64 %.idx.i.i13
   %.not1.i.i.i.i14 = icmp eq i32 %160, 0
   br i1 %.not1.i.i.i.i14, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i18, label %.lr.ph.i.i.i.i15
 
@@ -6364,7 +6364,7 @@ define linkonce_odr hidden void @_ZN2qe12arith_pluginD2Ev(ptr noundef nonnull al
   %5 = load i32, ptr %4, align 8, !tbaa !123
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 5
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -10327,7 +10327,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe12arith_plugin13update_boun
   %13 = load i32, ptr %12, align 8, !tbaa !176
   %14 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %14, 3
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

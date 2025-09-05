@@ -2382,59 +2382,59 @@ if.then:                                          ; preds = %delete.end
 
 if.end.i.i:                                       ; preds = %if.then
   %idx.ext.i.i = zext nneg i32 %3 to i64
-  %4 = shl nuw nsw i64 %idx.ext.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %1, i8 -51, i64 %4, i1 false)
+  %add.ptr.idx.i.i = shl nuw nsw i64 %idx.ext.i.i, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %1, i8 -51, i64 %add.ptr.idx.i.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i, %if.then, %delete.end
   %has_bits_indices = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %5 = load ptr, ptr %has_bits_indices, align 8
-  %cmp.i.i2.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %has_bits_indices, align 8
+  %cmp.i.i2.not = icmp eq ptr %4, null
   br i1 %cmp.i.i2.not, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %type10 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load ptr, ptr %type10, align 8
-  %field_count_.i3 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %7 = load i32, ptr %field_count_.i3, align 4
-  %cmp.i.i4 = icmp slt i32 %7, 1
+  %5 = load ptr, ptr %type10, align 8
+  %field_count_.i3 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %6 = load i32, ptr %field_count_.i3, align 4
+  %cmp.i.i4 = icmp slt i32 %6, 1
   br i1 %cmp.i.i4, label %if.end15, label %if.end.i.i5
 
 if.end.i.i5:                                      ; preds = %if.then7
-  %idx.ext.i.i6 = zext nneg i32 %7 to i64
-  %8 = shl nuw nsw i64 %idx.ext.i.i6, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %5, i8 -51, i64 %8, i1 false)
+  %idx.ext.i.i6 = zext nneg i32 %6 to i64
+  %add.ptr.idx.i.i7 = shl nuw nsw i64 %idx.ext.i.i6, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %4, i8 -51, i64 %add.ptr.idx.i.i7, i1 false)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end.i.i5, %if.then7, %if.end
   %reflection = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %9 = load ptr, ptr %reflection, align 8
-  %cmp.not.i = icmp eq ptr %9, null
+  %7 = load ptr, ptr %reflection, align 8
+  %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i: ; preds = %if.end15
-  tail call void @_ZN6google8protobuf10ReflectionD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
+  tail call void @_ZN6google8protobuf10ReflectionD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
   br label %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end15, %_ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i
   store ptr null, ptr %reflection, align 8
-  %10 = load ptr, ptr %has_bits_indices, align 8
-  %cmp.not.i15 = icmp eq ptr %10, null
+  %8 = load ptr, ptr %has_bits_indices, align 8
+  %cmp.not.i15 = icmp eq ptr %8, null
   br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #23
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   store ptr null, ptr %has_bits_indices, align 8
-  %11 = load ptr, ptr %offsets, align 8
-  %cmp.not.i16 = icmp eq ptr %11, null
+  %9 = load ptr, ptr %offsets, align 8
+  %cmp.not.i16 = icmp eq ptr %9, null
   br i1 %cmp.not.i16, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit18, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #23
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit18
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit18: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17

@@ -1749,7 +1749,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnly
   %179 = load i32, ptr %38, align 8, !tbaa !391
   %180 = zext i32 %179 to i64
   %.idx.i.i.i = shl nuw nsw i64 %180, 3
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx.i.i.i
+  %181 = getelementptr i8, ptr %178, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %179, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit.thread.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -2148,7 +2148,7 @@ _ZZN4llvmL19computeEHOnlyBlocksINS_15MachineFunctionENS_17MachineBasicBlockEEEvR
 
 365:                                              ; preds = %._crit_edge.i
   %.idx.i55.i = shl nuw nsw i64 %362, 4
-  %366 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 %.idx.i55.i
+  %366 = getelementptr i8, ptr %.val7.i.i, i64 %.idx.i55.i
   %.not5.i5.i12.i10.i.i = icmp eq i32 %.val8.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEZNS_L19computeEHOnlyBlocksINS_15MachineFunctionES2_EEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoISA_vEEEEE6StatusNSB_IS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SG_SJ_E5beginEv.exit.i, label %.lr.ph.i6.i14.i11.i.i
 
@@ -2245,7 +2245,7 @@ _ZN4llvmL19computeEHOnlyBlocksINS_15MachineFunctionENS_17MachineBasicBlockEEEvRT
 
 394:                                              ; preds = %_ZN4llvmL19computeEHOnlyBlocksINS_15MachineFunctionENS_17MachineBasicBlockEEEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoIS7_vEEEE.exit
   %.idx.i.i4 = shl nuw nsw i64 %391, 3
-  %395 = getelementptr inbounds nuw i8, ptr %388, i64 %.idx.i.i4
+  %395 = getelementptr i8, ptr %388, i64 %.idx.i.i4
   %.not5.i5.i10.i2.i.i = icmp eq i32 %390, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

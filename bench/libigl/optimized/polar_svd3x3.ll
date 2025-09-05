@@ -596,7 +596,7 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %34
+  br label %33
 
 30:                                               ; preds = %3
   %31 = mul nsw i64 %15, %12
@@ -604,8 +604,8 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12
   br i1 %32, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
 
 _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i: ; preds = %30
-  %33 = shl i64 %31, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 dereferenceable(1) %0, i8 0, i64 %33, i1 false), !tbaa !31
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 dereferenceable(1) %0, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !31
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit: ; preds = %30, %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
@@ -613,9 +613,9 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit: ; pr
   store float 1.000000e+00, ptr %8, align 4, !tbaa !31
   call void @_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li8EE13scaleAndAddToINS3_IfLin1ELin1ELi0ELi12ELi12EEEEEvRT_RKS5_RKS7_RKf(ptr noundef nonnull align 16 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %34
+  br label %33
 
-34:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit
+33:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit
   ret void
 }
 

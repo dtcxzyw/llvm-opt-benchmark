@@ -507,11 +507,11 @@ _ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.thread.i: ; preds = %_ZN6v
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.i, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.thread.i
   %.ph = phi i32 [ %16, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.thread.i ], [ %14, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.i ]
-  %.ph13 = phi ptr [ %.pr, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.i ]
+  %.ph12 = phi ptr [ %.pr, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN3sat15clause_use_listELb1EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %_ZNK6vectorIN3sat15clause_use_listELb1EjE8capacityEv.exit.thread.i
-  %17 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIN3sat15clause_use_listELb1EjE8capacityEv.exit.thread.i ], [ %.ph13, %thread-pre-split.i.preheader ]
+  %17 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIN3sat15clause_use_listELb1EjE8capacityEv.exit.thread.i ], [ %.ph12, %thread-pre-split.i.preheader ]
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK6vectorIN3sat15clause_use_listELb1EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIN3sat15clause_use_listELb1EjE8capacityEv.exit.i
 

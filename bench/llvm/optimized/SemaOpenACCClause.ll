@@ -7838,8 +7838,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
 3049:                                             ; preds = %.critedge73.i, %.critedge.i
   %3050 = load ptr, ptr %2330, align 8, !tbaa !66, !noalias !154
   %3051 = load i64, ptr %.sroa.233.0..sroa_idx.i, align 8, !tbaa !67, !noalias !154
-  %.idx.i.i612 = shl nuw nsw i64 %3051, 3
-  %3052 = getelementptr inbounds nuw i8, ptr %3050, i64 %.idx.i.i612
+  %.idx.i.i612 = shl i64 %3051, 3
+  %3052 = getelementptr i8, ptr %3050, i64 %.idx.i.i612
   %.not1.i.i.i.i.i = icmp eq i64 %3051, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm17make_filter_rangeIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEENS_14iterator_rangeINS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS8_15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_.exit.i, label %.lr.ph.i.i.i.i206.i
 
@@ -8279,8 +8279,8 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNumGangsClauseERN5clang11SemaO
 3245:                                             ; preds = %3242
   %3246 = load ptr, ptr %3240, align 8, !tbaa !66, !noalias !159
   %3247 = load i64, ptr %.sroa.2.0..sroa_idx.i667, align 8, !tbaa !67, !noalias !159
-  %.idx.i.i684 = shl nuw nsw i64 %3247, 3
-  %3248 = getelementptr inbounds nuw i8, ptr %3246, i64 %.idx.i.i684
+  %.idx.i.i684 = shl i64 %3247, 3
+  %3248 = getelementptr i8, ptr %3246, i64 %.idx.i.i684
   %.not1.i.i.i.i.i685 = icmp eq i64 %3247, 0
   br i1 %.not1.i.i.i.i.i685, label %_ZN4llvm17make_filter_rangeIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEENS_14iterator_rangeINS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS8_15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_.exit.i, label %.lr.ph.i.i.i.i.i686
 
@@ -9190,8 +9190,8 @@ thread-pre-split.i:                               ; preds = %_ZN4llvm7find_ifIRN
   %3673 = load ptr, ptr %3672, align 8, !tbaa !66, !noalias !163
   %3674 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3675 = load i64, ptr %3674, align 8, !tbaa !67, !noalias !163
-  %.idx.i.i743 = shl nuw nsw i64 %3675, 3
-  %3676 = getelementptr inbounds nuw i8, ptr %3673, i64 %.idx.i.i743
+  %.idx.i.i743 = shl i64 %3675, 3
+  %3676 = getelementptr i8, ptr %3673, i64 %.idx.i.i743
   %.not1.i.i.i.i.i744 = icmp eq i64 %3675, 0
   br i1 %.not1.i.i.i.i.i744, label %_ZN4llvm17make_filter_rangeIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCNumGangsClauseEEEEEENS_14iterator_rangeINS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS8_15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_.exit.i, label %.lr.ph.i.i.i.i96.i
 
@@ -11140,8 +11140,8 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitVectorClauseERN5clang11SemaOpe
 4550:                                             ; preds = %4547
   %4551 = load ptr, ptr %4545, align 8, !tbaa !66, !noalias !175
   %4552 = load i64, ptr %.sroa.2.0..sroa_idx.i967, align 8, !tbaa !67, !noalias !175
-  %.idx.i.i986 = shl nuw nsw i64 %4552, 3
-  %4553 = getelementptr inbounds nuw i8, ptr %4551, i64 %.idx.i.i986
+  %.idx.i.i986 = shl i64 %4552, 3
+  %4553 = getelementptr i8, ptr %4551, i64 %.idx.i.i986
   %.not1.i.i.i.i.i987 = icmp eq i64 %4552, 0
   br i1 %.not1.i.i.i.i.i987, label %_ZN4llvm17make_filter_rangeIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEENS_14iterator_rangeINS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS8_15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_.exit.i, label %.lr.ph.i.i.i.i.i988
 
@@ -17986,8 +17986,8 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC20CheckReductionClauseEN4llv
   ]
 
 16:                                               ; preds = %9, %9, %9, %9
-  %.idx.i = shl nuw nsw i64 %2, 3
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %.idx.i = shl i64 %2, 3
+  %17 = getelementptr i8, ptr %1, i64 %.idx.i
   %.not1.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not1.i.i.i.i, label %_ZN4llvm17make_filter_rangeIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEENS_14iterator_rangeINS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS8_15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_.exit, label %.lr.ph.i.i.i.i
 

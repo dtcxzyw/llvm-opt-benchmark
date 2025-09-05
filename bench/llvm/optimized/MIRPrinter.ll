@@ -4299,7 +4299,7 @@ _ZN4llvm9MIPrinterD2Ev.exit152:                   ; preds = %_ZN4llvm9MIPrinter2
   %613 = load i32, ptr %612, align 8, !tbaa !26, !noalias !576
   %614 = zext i32 %613 to i64
   %.idx.i.i = shl nuw nsw i64 %614, 5
-  %615 = getelementptr inbounds nuw i8, ptr %611, i64 %.idx.i.i
+  %615 = getelementptr i8, ptr %611, i64 %.idx.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %613, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4576,7 +4576,7 @@ define dso_local void @_ZN4llvm10MIRPrinter24convertEntryValueObjectsERNS_4yaml1
   %19 = load i32, ptr %18, align 8, !tbaa !26, !noalias !602
   %20 = zext i32 %19 to i64
   %.idx.i.i = shl nuw nsw i64 %20, 5
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK4llvm15MachineFunction28getEntryValueVariableDbgInfoEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4848,7 +4848,7 @@ define dso_local void @_ZN4llvm10MIRPrinter22convertCallSiteObjectsERNS_4yaml15M
 
 27:                                               ; preds = %4
   %.idx.i = shl nuw nsw i64 %24, 5
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
+  %28 = getelementptr i8, ptr %21, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %23, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

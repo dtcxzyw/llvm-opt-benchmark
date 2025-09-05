@@ -19806,10 +19806,10 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i120:    ; preds = %.noexc125, %._crit_
 241:                                              ; preds = %264
   %242 = load ptr, ptr %0, align 8, !tbaa !363
   %243 = invoke noundef ptr @_ZN9format_ns10mk_composeER11ast_managerjPKP3app(ptr noundef nonnull align 8 dereferenceable(976) %242, i32 noundef %269, ptr noundef nonnull %266)
-          to label %._crit_edge168 unwind label %273
+          to label %._crit_edge167 unwind label %273
 
-._crit_edge168:                                   ; preds = %241
-  %.pre169 = load ptr, ptr %10, align 8, !tbaa !50
+._crit_edge167:                                   ; preds = %241
+  %.pre168 = load ptr, ptr %10, align 8, !tbaa !50
   br label %._crit_edge163.thread
 
 244:                                              ; preds = %230, %223, %218, %216, %213
@@ -19889,8 +19889,8 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i139:    ; preds = %.noexc144, %._crit_
   %269 = add i32 %265, 1
   store i32 %269, ptr %41, align 8, !tbaa !53
   %270 = add nuw i32 %.0164, 1
-  %exitcond167.not = icmp eq i32 %270, %.140
-  br i1 %exitcond167.not, label %241, label %246, !llvm.loop !562
+  %exitcond166.not = icmp eq i32 %270, %.140
+  br i1 %exitcond166.not, label %241, label %246, !llvm.loop !562
 
 271:                                              ; preds = %259, %252, %246
   %272 = landingpad { ptr, i32 }
@@ -19902,9 +19902,9 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i139:    ; preds = %.noexc144, %._crit_
           cleanup
   br label %297
 
-._crit_edge163.thread:                            ; preds = %._crit_edge168, %._crit_edge163
-  %275 = phi ptr [ %207, %._crit_edge163 ], [ %.pre169, %._crit_edge168 ]
-  %.1 = phi ptr [ %1, %._crit_edge163 ], [ %243, %._crit_edge168 ]
+._crit_edge163.thread:                            ; preds = %._crit_edge167, %._crit_edge163
+  %275 = phi ptr [ %207, %._crit_edge163 ], [ %.pre168, %._crit_edge167 ]
+  %.1 = phi ptr [ %1, %._crit_edge163 ], [ %243, %._crit_edge167 ]
   %.not.i.i.i146 = icmp eq ptr %275, %40
   %276 = icmp eq ptr %275, null
   %or.cond.i.i.i147 = or i1 %.not.i.i.i146, %276
@@ -19922,7 +19922,7 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i139:    ; preds = %.noexc144, %._crit_
   unreachable
 
 _ZN6bufferIP3appLb0ELj16EED2Ev.exit:              ; preds = %._crit_edge, %._crit_edge.thread, %_ZN6vectorI10ptr_vectorI3appELb1EjE3endEv.exit, %._crit_edge163.thread, %277
-  %.1222 = phi ptr [ %.1, %._crit_edge163.thread ], [ %.1, %277 ], [ %1, %_ZN6vectorI10ptr_vectorI3appELb1EjE3endEv.exit ], [ %1, %._crit_edge.thread ], [ %1, %._crit_edge ]
+  %.1221 = phi ptr [ %.1, %._crit_edge163.thread ], [ %.1, %277 ], [ %1, %_ZN6vectorI10ptr_vectorI3appELb1EjE3endEv.exit ], [ %1, %._crit_edge.thread ], [ %1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %281 = load ptr, ptr %4, align 8, !tbaa !555
   %.not.i.i148 = icmp eq ptr %281, null
@@ -19993,7 +19993,7 @@ _ZN6vectorI10ptr_vectorI3appELb1EjED2Ev.exit:     ; preds = %_ZN6bufferIP3appLb0
   resume { ptr, i32 } %.pn53.pn.pn
 
 299:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %_ZN6vectorI10ptr_vectorI3appELb1EjED2Ev.exit
-  %.036 = phi ptr [ %.1222, %_ZN6vectorI10ptr_vectorI3appELb1EjED2Ev.exit ], [ %1, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
+  %.036 = phi ptr [ %.1221, %_ZN6vectorI10ptr_vectorI3appELb1EjED2Ev.exit ], [ %1, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
   ret ptr %.036
 }
 

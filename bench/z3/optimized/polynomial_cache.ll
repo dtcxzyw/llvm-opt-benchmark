@@ -3310,7 +3310,7 @@ define linkonce_odr hidden void @_ZN10polynomial5cache3imp21reset_psc_chain_cach
   %5 = load i32, ptr %4, align 4, !tbaa !40, !noalias !138
   %6 = zext i32 %5 to i64
   %.idx.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %5, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -3453,7 +3453,7 @@ define linkonce_odr hidden void @_ZN10polynomial5cache3imp18reset_factor_cacheEv
   %5 = load i32, ptr %4, align 4, !tbaa !55, !noalias !142
   %6 = zext i32 %5 to i64
   %.idx.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %5, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 

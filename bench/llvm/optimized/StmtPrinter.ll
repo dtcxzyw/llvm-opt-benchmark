@@ -26100,7 +26100,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %_ZN4llvm11raw_
   %38 = load i32, ptr %36, align 8, !tbaa !874, !noalias !878
   %39 = zext i32 %38 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %39, 3
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i
+  %40 = getelementptr i8, ptr %37, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_15OMPDependClauseEEEbv.exit, label %.lr.ph.i.i.i.i.i
 

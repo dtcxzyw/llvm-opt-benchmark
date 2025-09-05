@@ -5385,22 +5385,23 @@ _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i:
   %16 = shl nuw nsw i64 %2, 3
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #26
   store ptr null, ptr %17, align 8, !tbaa !169
-  %18 = icmp eq i64 %2, 1
-  br i1 %18, label %.thread, label %22
+  %18 = add nsw i64 %2, -1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.thread, label %23
 
 .thread:                                          ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr %17, ptr %6, align 8, !tbaa !171
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %2
-  store ptr %19, ptr %13, align 8, !tbaa !175
-  store ptr %19, ptr %14, align 8, !tbaa !176
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %2
+  store ptr %20, ptr %13, align 8, !tbaa !175
+  store ptr %20, ptr %14, align 8, !tbaa !176
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
-22:                                               ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %23 = getelementptr i8, ptr %17, i64 8
-  %24 = add nsw i64 %16, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %24, i1 false), !tbaa !169
+23:                                               ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %24 = getelementptr i8, ptr %17, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %18, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !169
   store ptr %17, ptr %6, align 8, !tbaa !171
   %25 = getelementptr inbounds nuw ptr, ptr %17, i64 %2
   store ptr %25, ptr %13, align 8, !tbaa !175
@@ -5410,17 +5411,17 @@ _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i:
   %28 = icmp samesign ugt i64 %2, 576460752303423487
   br i1 %28, label %29, label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
-29:                                               ; preds = %22
+29:                                               ; preds = %23
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.65) #25
           to label %.noexc27 unwind label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit
 
 .noexc27:                                         ; preds = %29
   unreachable
 
-_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %.thread, %22
-  %30 = phi ptr [ %21, %.thread ], [ %27, %22 ]
-  %31 = phi ptr [ %20, %.thread ], [ %26, %22 ]
-  %32 = phi ptr [ %19, %.thread ], [ %25, %22 ]
+_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %.thread, %23
+  %30 = phi ptr [ %22, %.thread ], [ %27, %23 ]
+  %31 = phi ptr [ %21, %.thread ], [ %26, %23 ]
+  %32 = phi ptr [ %20, %.thread ], [ %25, %23 ]
   %33 = shl nuw nsw i64 %2, 4
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #26
           to label %.lr.ph.i.i.i30.i unwind label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit
@@ -5450,26 +5451,26 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i30.i
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %39
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.idx52 = shl nuw nsw i64 %2, 4
-  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx52) #23
+  %.idx53 = shl nuw nsw i64 %2, 4
+  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx53) #23
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit:   ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i, %29
   %.ph.ph = phi ptr [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %25, %29 ]
-  %lpad.thr_comm.split-lp46 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread
   %40 = phi ptr [ %32, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %.ph.ph, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
-  %lpad.phi4043 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp46, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
+  %lpad.phi4144 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp47, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %17 to i64
   %43 = sub i64 %41, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %43) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %lpad.phi4043
+  resume { ptr, i32 } %lpad.phi4144
 
 44:                                               ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit, %44
   %.029 = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit ], [ %50, %44 ]
@@ -5488,8 +5489,8 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit21: ; preds = %39
   %.idx = shl nuw nsw i64 %2, 4
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.idx35 = shl nuw nsw i64 %2, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx35) #23
+  %.idx36 = shl nuw nsw i64 %2, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx36) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
@@ -6004,22 +6005,23 @@ _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i:
   %16 = shl nuw nsw i64 %2, 3
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #26
   store ptr null, ptr %17, align 8, !tbaa !169
-  %18 = icmp eq i64 %2, 1
-  br i1 %18, label %.thread, label %22
+  %18 = add nsw i64 %2, -1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.thread, label %23
 
 .thread:                                          ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr %17, ptr %6, align 8, !tbaa !171
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %2
-  store ptr %19, ptr %13, align 8, !tbaa !175
-  store ptr %19, ptr %14, align 8, !tbaa !176
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %2
+  store ptr %20, ptr %13, align 8, !tbaa !175
+  store ptr %20, ptr %14, align 8, !tbaa !176
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
-22:                                               ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %23 = getelementptr i8, ptr %17, i64 8
-  %24 = add nsw i64 %16, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %24, i1 false), !tbaa !169
+23:                                               ; preds = %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %24 = getelementptr i8, ptr %17, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %18, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !169
   store ptr %17, ptr %6, align 8, !tbaa !171
   %25 = getelementptr inbounds nuw ptr, ptr %17, i64 %2
   store ptr %25, ptr %13, align 8, !tbaa !175
@@ -6029,17 +6031,17 @@ _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i:
   %28 = icmp samesign ugt i64 %2, 576460752303423487
   br i1 %28, label %29, label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
-29:                                               ; preds = %22
+29:                                               ; preds = %23
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.65) #25
           to label %.noexc26 unwind label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit
 
 .noexc26:                                         ; preds = %29
   unreachable
 
-_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %.thread, %22
-  %30 = phi ptr [ %21, %.thread ], [ %27, %22 ]
-  %31 = phi ptr [ %20, %.thread ], [ %26, %22 ]
-  %32 = phi ptr [ %19, %.thread ], [ %25, %22 ]
+_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %.thread, %23
+  %30 = phi ptr [ %22, %.thread ], [ %27, %23 ]
+  %31 = phi ptr [ %21, %.thread ], [ %26, %23 ]
+  %32 = phi ptr [ %20, %.thread ], [ %25, %23 ]
   %33 = shl nuw nsw i64 %2, 4
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #26
           to label %.lr.ph.i.i.i30.i unwind label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit
@@ -6069,26 +6071,26 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i30.i
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %39
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.idx51 = shl nuw nsw i64 %2, 4
-  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx51) #23
+  %.idx52 = shl nuw nsw i64 %2, 4
+  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx52) #23
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit:   ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i, %29
   %.ph.ph = phi ptr [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %25, %29 ]
-  %lpad.thr_comm.split-lp45 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp46 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread
   %40 = phi ptr [ %32, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %.ph.ph, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
-  %lpad.phi3942 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp45, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
+  %lpad.phi4043 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp46, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %17 to i64
   %43 = sub i64 %41, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %43) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %lpad.phi3942
+  resume { ptr, i32 } %lpad.phi4043
 
 44:                                               ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit, %44
   %.028 = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit ], [ %48, %44 ]
@@ -6105,8 +6107,8 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit20: ; preds = %39
   %.idx = shl nuw nsw i64 %2, 4
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.idx34 = shl nuw nsw i64 %2, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx34) #23
+  %.idx35 = shl nuw nsw i64 %2, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx35) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 

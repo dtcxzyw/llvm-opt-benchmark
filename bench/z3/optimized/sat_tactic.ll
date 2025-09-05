@@ -2406,7 +2406,7 @@ _ZN10sat_tactic3imp17initialize_valuesERK3refI4goalER13atom2bool_var.exit: ; pre
   %183 = load i32, ptr %26, align 8, !tbaa !89
   %184 = zext i32 %183 to i64
   %.idx.i.i.i = shl nuw nsw i64 %184, 4
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 %.idx.i.i.i
+  %185 = getelementptr i8, ptr %182, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %183, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI4exprN3sat7literalEE5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -2674,7 +2674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
   %275 = load i32, ptr %26, align 8, !tbaa !89
   %276 = zext i32 %275 to i64
   %.idx.i.i.i145 = shl nuw nsw i64 %276, 4
-  %277 = getelementptr inbounds nuw i8, ptr %274, i64 %.idx.i.i.i145
+  %277 = getelementptr i8, ptr %274, i64 %.idx.i.i.i145
   %.not1.i.i.i.i.i146 = icmp eq i32 %275, 0
   br i1 %.not1.i.i.i.i.i146, label %_ZNK7obj_mapI4exprN3sat7literalEE5beginEv.exit.i150, label %.lr.ph.i.i.i.i.i147
 

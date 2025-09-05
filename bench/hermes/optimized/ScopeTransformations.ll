@@ -386,8 +386,8 @@ if.end:                                           ; preds = %for.body
 if.then11:                                        ; preds = %if.end
   tail call void @_ZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr poison, ptr noundef nonnull %scopeDesc, ptr noundef nonnull %15)
   %spec.select = select i1 %cmp10, i8 1, i8 %scopeDescHasEscapingVar.056
-  %div.i.i.i.i.i.udiv65 = lshr i64 %i.055, 6
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i.udiv65
+  %div.i.i.i.i.i.udiv64 = lshr i64 %i.055, 6
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i.udiv64
   %conv4.i.i.i.i.i = and i64 %i.055, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
   %18 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
@@ -418,8 +418,8 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   br i1 %cmp26.not, label %lor.rhs, label %if.then30
 
 lor.rhs:                                          ; preds = %for.body24
-  %div.i.i.i.i.i32.udiv66 = lshr i64 %i19.059, 6
-  %add.ptr.i.i.i.i.i33 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i32.udiv66
+  %div.i.i.i.i.i32.udiv65 = lshr i64 %i19.059, 6
+  %add.ptr.i.i.i.i.i33 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i32.udiv65
   %conv4.i.i.i.i.i37 = and i64 %i19.059, 63
   %shl.i.i.i38 = shl nuw i64 1, %conv4.i.i.i.i.i37
   %19 = load i64, ptr %add.ptr.i.i.i.i.i33, align 8
@@ -439,12 +439,12 @@ if.then30:                                        ; preds = %for.body24, %lor.rh
 for.inc35:                                        ; preds = %lor.rhs, %if.then30
   %curr.1 = phi i64 [ %inc32, %if.then30 ], [ %curr.058, %lor.rhs ]
   %inc36 = add nuw nsw i64 %i19.059, 1
-  %exitcond63.not = icmp eq i64 %inc36, %conv.i30
-  br i1 %exitcond63.not, label %for.end37, label %for.body24, !llvm.loop !7
+  %exitcond62.not = icmp eq i64 %inc36, %conv.i30
+  br i1 %exitcond62.not, label %for.end37, label %for.body24, !llvm.loop !7
 
 for.end37:                                        ; preds = %for.inc35
-  %.pre64 = load i32, ptr %Size.i, align 8
-  %22 = zext i32 %.pre64 to i64
+  %.pre63 = load i32, ptr %Size.i, align 8
+  %22 = zext i32 %.pre63 to i64
   %cmp.i = icmp ult i64 %curr.1, %22
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
@@ -489,8 +489,8 @@ if.then.i.i.i:                                    ; preds = %if.end15.sink.split
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, %if.then.i.i.i
-  %scopeDescHasEscapingVar.0.lcssa8491116 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
-  %cond = zext nneg i8 %scopeDescHasEscapingVar.0.lcssa8491116 to i32
+  %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
+  %cond = zext nneg i8 %scopeDescHasEscapingVar.0.lcssa8390115 to i32
   ret i32 %cond
 }
 
@@ -617,7 +617,7 @@ if.then.i:                                        ; preds = %for.end19
 
 if.end8.i:                                        ; preds = %for.end19
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %2, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

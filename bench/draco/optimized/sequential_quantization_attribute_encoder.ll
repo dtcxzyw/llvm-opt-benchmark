@@ -294,13 +294,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
   %88 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #17
   %89 = getelementptr inbounds nuw float, ptr %88, i64 %86
   store float 0.000000e+00, ptr %88, align 4, !tbaa !57
-  %90 = icmp eq i8 %85, 1
-  br i1 %90, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %90 = add nsw i64 %86, -1
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc81
-  %91 = getelementptr i8, ptr %88, i64 4
-  %92 = add nsw i64 %87, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %91, i8 0, i64 %92, i1 false), !tbaa !57
+  %92 = getelementptr i8, ptr %88, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %90, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !57
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc81, %83

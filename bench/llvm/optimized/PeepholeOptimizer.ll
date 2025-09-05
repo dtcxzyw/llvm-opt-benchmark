@@ -1889,7 +1889,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEPNS_12MachineInstrENS_12DenseMa
 
 403:                                              ; preds = %393
   %.idx.i125 = shl nuw nsw i64 %400, 4
-  %404 = getelementptr inbounds nuw i8, ptr %398, i64 %.idx.i125
+  %404 = getelementptr i8, ptr %398, i64 %.idx.i125
   %.not4.i5.i10.i2.i = icmp eq i32 %399, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEPNS_12MachineInstrENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

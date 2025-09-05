@@ -8619,7 +8619,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
 
 109:                                              ; preds = %99
   %.idx.i.i.i.i.i = shl nuw nsw i64 %106, 4
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i.i.i.i.i
+  %110 = getelementptr i8, ptr %103, i64 %.idx.i.i.i.i.i
   %.not17.i5.i10.i2.i.i.i.i.i = icmp eq i32 %105, 0
   br i1 %.not17.i5.i10.i2.i.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i.i.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i.i.i
 
@@ -8783,7 +8783,7 @@ _ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread4.i.i: ; preds = %_ZNK
 
 158:                                              ; preds = %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread4.i.i
   %.idx.i.i.i11.i.i = shl nuw nsw i64 %155, 4
-  %159 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i.i.i11.i.i
+  %159 = getelementptr i8, ptr %152, i64 %.idx.i.i.i11.i.i
   %.not17.i5.i10.i2.i.i.i12.i.i = icmp eq i32 %154, 0
   br i1 %.not17.i5.i10.i2.i.i.i12.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i17.i.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i13.i.i
 
@@ -42499,7 +42499,7 @@ define internal void @_ZNK12_GLOBAL__N_120AAAssumptionInfoImpl8getAsStrB5cxx11EP
 
 23:                                               ; preds = %3
   %.idx.i.i = shl nuw nsw i64 %20, 4
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %24 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not17.i5.i10.i2.i.i = icmp eq i32 %19, 0
   br i1 %.not17.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i
 
@@ -42636,7 +42636,7 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj0EEEEEvOT_.exit: ; preds = %_ZNK
 
 63:                                               ; preds = %52
   %.idx.i.i12 = shl nuw nsw i64 %60, 4
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i12
+  %64 = getelementptr i8, ptr %57, i64 %.idx.i.i12
   %.not17.i5.i10.i2.i.i13 = icmp eq i32 %59, 0
   br i1 %.not17.i5.i10.i2.i.i13, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit24, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i14
 
@@ -43209,7 +43209,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_120AAAssumptionInfoImpl8manifestERN
 
 21:                                               ; preds = %9
   %.idx.i.i = shl nuw nsw i64 %18, 4
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i
+  %22 = getelementptr i8, ptr %15, i64 %.idx.i.i
   %.not17.i5.i10.i2.i.i = icmp eq i32 %17, 0
   br i1 %.not17.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i
 
@@ -44599,7 +44599,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8SetStateINS_9StringRefEE
 
 26:                                               ; preds = %15
   %.idx.i.i.i.i = shl nuw nsw i64 %23, 4
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i
+  %27 = getelementptr i8, ptr %20, i64 %.idx.i.i.i.i
   %.not17.i5.i10.i2.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not17.i5.i10.i2.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i.i
 
@@ -45565,7 +45565,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8SetStateINS_9StringRefEE
 
 43:                                               ; preds = %35
   %.idx.i.i.i = shl nuw nsw i64 %40, 4
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i
+  %44 = getelementptr i8, ptr %37, i64 %.idx.i.i.i
   %.not17.i5.i10.i2.i.i.i = icmp eq i32 %39, 0
   br i1 %.not17.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i.i
 
@@ -120482,7 +120482,7 @@ _ZNK4llvm2AA11PointerInfo5State25forallInterferingAccessesIZNK12_GLOBAL__N_117AA
   %.v.v.i4.i2.i = select i1 %619, i32 %613, i32 %620
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i137 = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %621 = getelementptr inbounds nuw i8, ptr %617, i64 %.idx.i137
+  %621 = getelementptr i8, ptr %617, i64 %.idx.i137
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_13AAPointerInfo6AccessEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -166962,7 +166962,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_123AAUndefinedBehav
   %.v.v.i4.i2.i = select i1 %14, i32 %5, i32 %16
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %17 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -170252,7 +170252,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_129AAIntraFnReachab
 
 16:                                               ; preds = %5
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_8DenseSetISt4pairIPKNS_10BasicBlockES5_ENS_12DenseMapInfoIS6_vEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSB_.exit.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i
 
@@ -170347,7 +170347,7 @@ _ZN4llvm6all_ofIRNS_8DenseSetISt4pairIPKNS_10BasicBlockES5_ENS_12DenseMapInfoIS6
 
 59:                                               ; preds = %_ZN4llvm6all_ofIRNS_8DenseSetISt4pairIPKNS_10BasicBlockES5_ENS_12DenseMapInfoIS6_vEEEEZN12_GLOBAL__N_129AAIntraFnReachabilityFunction10updateImplERNS_10AttributorEEUlRKT_E_EEbOSF_T0_.exit.thread
   %.idx.i.i.i.i.i.i4 = shl nuw nsw i64 %56, 3
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.i.i.i4
+  %60 = getelementptr i8, ptr %53, i64 %.idx.i.i.i.i.i.i4
   %.not5.i5.i10.i2.i.i.i.i.i.i5 = icmp eq i32 %55, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i.i5, label %_ZN4llvm9adl_beginIRNS_8DenseSetIPKNS_10BasicBlockENS_12DenseMapInfoIS4_vEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_.exit.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i6
 
@@ -170918,7 +170918,7 @@ _ZZN12_GLOBAL__N_129AAIntraFnReachabilityFunction15isReachableImplERN4llvm10Attr
   %.v.v.i4.i2.i = select i1 %121, i32 %123, i32 %125
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %126 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx.i
+  %126 = getelementptr i8, ptr %118, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -171389,7 +171389,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit168.thread233: ; pr
 
 318:                                              ; preds = %307
   %.idx.i.i172 = shl nuw nsw i64 %315, 4
-  %319 = getelementptr inbounds nuw i8, ptr %312, i64 %.idx.i.i172
+  %319 = getelementptr i8, ptr %312, i64 %.idx.i.i172
   %.not5.i5.i10.i2.i.i = icmp eq i32 %314, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplISt4pairIPKNS_10BasicBlockES5_ENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -171938,7 +171938,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSet
   %.v.v.i4.i2.i = select i1 %18, i32 %4, i32 %20
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
+  %21 = getelementptr i8, ptr %15, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -172362,7 +172362,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %.v.v.i4.i2.i.i.i = select i1 %13, i32 %15, i32 %17
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %18 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 
@@ -172616,7 +172616,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.v.v.i4.i2.i.i.i = select i1 %14, i32 %16, i32 %18
   %.v.i5.i3.i.i.i = zext i32 %.v.v.i4.i2.i.i.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i, 3
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i
+  %19 = getelementptr i8, ptr %11, i64 %.idx.i.i.i
   %.not3.i4.i.i6.i4.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i
 
@@ -172919,7 +172919,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIP21R
   %.v.v.i4.i2.i.i.i.i.i = select i1 %21, i32 %23, i32 %25
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.i
+  %26 = getelementptr i8, ptr %18, i64 %.idx.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 
@@ -173139,7 +173139,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.v.v.i4.i2.i.i.i.i.i = select i1 %22, i32 %24, i32 %26
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i.i
+  %27 = getelementptr i8, ptr %19, i64 %.idx.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 
@@ -174022,7 +174022,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIP21R
   %.v.v.i4.i2.i.i.i.i.i = select i1 %21, i32 %23, i32 %25
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.i
+  %26 = getelementptr i8, ptr %18, i64 %.idx.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 
@@ -175569,7 +175569,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIP21R
   %.v.v.i4.i2.i.i.i.i.i = select i1 %21, i32 %23, i32 %25
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.i
+  %26 = getelementptr i8, ptr %18, i64 %.idx.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 
@@ -175789,7 +175789,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.v.v.i4.i2.i.i.i.i.i = select i1 %22, i32 %24, i32 %26
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i.i
+  %27 = getelementptr i8, ptr %19, i64 %.idx.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 
@@ -176668,7 +176668,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIP21R
   %.v.v.i4.i2.i.i.i.i.i = select i1 %21, i32 %23, i32 %25
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.i
+  %26 = getelementptr i8, ptr %18, i64 %.idx.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 

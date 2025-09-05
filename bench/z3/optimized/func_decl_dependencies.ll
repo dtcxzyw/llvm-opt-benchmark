@@ -144,7 +144,7 @@ define hidden void @_ZN22func_decl_dependencies5resetEv(ptr noundef nonnull alig
   %5 = load i32, ptr %4, align 8, !tbaa !20
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableIS0_EE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -194,7 +194,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.lr.ph, %16, %21
   %25 = load i32, ptr %24, align 8, !tbaa !37
   %26 = zext i32 %25 to i64
   %.idx.i.i6 = shl nuw nsw i64 %26, 3
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i6
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i.i6
   %.not1.i.i.i.i7 = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i7, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i8
 
@@ -668,7 +668,7 @@ _ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %69, %68
   %75 = load i32, ptr %74, align 8, !tbaa !37
   %76 = zext i32 %75 to i64
   %.idx.i.i = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i.i
+  %77 = getelementptr i8, ptr %73, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %75, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1000,7 +1000,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.loopexit9, %35, %4
   %44 = load i32, ptr %43, align 8, !tbaa !37
   %45 = zext i32 %44 to i64
   %.idx.i.i = shl nuw nsw i64 %45, 3
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i
+  %46 = getelementptr i8, ptr %42, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %44, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1500,7 +1500,7 @@ _ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit: ; preds = %1
   %37 = load i32, ptr %36, align 8, !tbaa !37
   %38 = zext i32 %37 to i64
   %.idx.i = shl nuw nsw i64 %38, 3
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i
+  %39 = getelementptr i8, ptr %35, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %37, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -1639,7 +1639,7 @@ _ZNK22func_decl_dependencies8top_sort10definitionEP9func_decl.exit: ; preds = %1
   %36 = load i32, ptr %35, align 8, !tbaa !37
   %37 = zext i32 %36 to i64
   %.idx.i = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
+  %38 = getelementptr i8, ptr %34, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %36, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 

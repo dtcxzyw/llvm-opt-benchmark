@@ -2771,7 +2771,7 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit.i:           ; preds = %_ZN4llvm12DenseMapB
   %121 = load i32, ptr %52, align 8, !tbaa !232
   %122 = zext i32 %121 to i64
   %.idx.i.i.i = shl nuw nsw i64 %122, 3
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i.i.i
+  %123 = getelementptr i8, ptr %120, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %121, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit.thread.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -3078,7 +3078,7 @@ _ZZN4llvmL19computeEHOnlyBlocksINS_8FunctionENS_10BasicBlockEEEvRT_RNS_8DenseSet
 
 253:                                              ; preds = %._crit_edge.i
   %.idx.i.i = shl nuw nsw i64 %250, 4
-  %254 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 %.idx.i.i
+  %254 = getelementptr i8, ptr %.val7.i.i, i64 %.idx.i.i
   %.not5.i5.i12.i10.i.i = icmp eq i32 %.val8.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEZNS_L19computeEHOnlyBlocksINS_8FunctionES2_EEvRT_RNS_8DenseSetIPT0_NS_12DenseMapInfoISA_vEEEEE6StatusNSB_IS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SG_SJ_E5beginEv.exit.i, label %.lr.ph.i6.i14.i11.i.i
 
@@ -3265,7 +3265,7 @@ _ZN4llvm19SampleProfileProber21findUnreachableBlocksERNS_8DenseSetIPNS_10BasicBl
 
 316:                                              ; preds = %_ZN4llvm19SampleProfileProber21findUnreachableBlocksERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoIS3_vEEEE.exit
   %.idx.i.i15 = shl nuw nsw i64 %313, 3
-  %317 = getelementptr inbounds nuw i8, ptr %310, i64 %.idx.i.i15
+  %317 = getelementptr i8, ptr %310, i64 %.idx.i.i15
   %.not5.i5.i10.i2.i.i = icmp eq i32 %312, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

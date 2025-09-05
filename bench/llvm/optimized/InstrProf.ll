@@ -7869,7 +7869,7 @@ define dso_local void @_ZN4llvm19TemporalProfTraceTy21createBPFunctionNodesENS_8
 
 29:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %26, 4
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
+  %30 = getelementptr i8, ptr %24, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %25, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

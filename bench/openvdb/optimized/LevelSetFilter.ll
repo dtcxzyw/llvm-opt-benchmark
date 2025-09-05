@@ -37657,9 +37657,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %1 = add nsw i64 %mul.i.i.i.i.i.i, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %if.else.i14
 
@@ -37698,11 +37697,11 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %__n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %invoke.cont4 ]
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i ], [ %data, %invoke.cont4 ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i38, %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i10, %invoke.cont4 ]
-  %2 = load i16, ptr %__first.addr.07.i.i.i.i.i, align 2
-  %conv.i.i.i.i.i.i.i = zext i16 %2 to i32
-  %3 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 13
-  %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
-  %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
+  %1 = load i16, ptr %__first.addr.07.i.i.i.i.i, align 2
+  %conv.i.i.i.i.i.i.i = zext i16 %1 to i32
+  %2 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 13
+  %shr.i.i.i.i.i.i.i = and i32 %2, 268427264
+  %h.signext.i.i.i.i.i.i.i = sext i16 %1 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
   %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
@@ -37725,8 +37724,8 @@ if.else9.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i
   br i1 %cmp10.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i, label %if.then11.i.i.i.i.i.i.i
 
 if.then11.i.i.i.i.i.i.i:                          ; preds = %if.else9.i.i.i.i.i.i.i
-  %4 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i.i.i.i.i.i, i1 true)
-  %sub.i.i.i.i.i.i.i = add nsw i32 %4, -8
+  %3 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i.i.i.i.i.i, i1 true)
+  %sub.i.i.i.i.i.i.i = add nsw i32 %3, -8
   %shl13.i.i.i.i.i.i.i = shl i32 %shr.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i
   %or12.i.i.i.i.i.i.i = or i32 %shl3.i.i.i.i.i.i.i, %shl13.i.i.i.i.i.i.i
   %or14.i.i.i.i.i.i.i = or i32 %or12.i.i.i.i.i.i.i, 947912704
@@ -37748,10 +37747,10 @@ _ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit: ; preds = %_Z
   br label %if.end13
 
 _ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit41: ; preds = %if.else24.i, %if.then15.i25, %if.then11.i17
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i10) #23
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 if.end13:                                         ; preds = %if.else18.i, %if.then15.i, %if.then11.i, %if.then7.i, %entry, %_ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit
   ret void
@@ -38394,7 +38393,7 @@ if.else.i.i.i.i11.i.i.i:                          ; preds = %if.then.i.i.i8.i.i.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i12.i.i.i, %if.else.i.i.i.i11.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -38466,9 +38465,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %12 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %12, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont3
 
@@ -38483,7 +38481,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIfSaIfE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i4
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %mAcc) #14
   br label %common.resume
@@ -39720,7 +39718,7 @@ if.else.i.i.i.i11.i.i.i:                          ; preds = %if.then.i.i.i8.i.i.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i12.i.i.i, %if.else.i.i.i.i11.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -39792,9 +39790,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %12 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %12, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont3
 
@@ -39809,7 +39806,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIfSaIfE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i4
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %mAcc) #14
   br label %common.resume
@@ -40200,7 +40197,7 @@ if.else.i.i.i.i11.i.i.i:                          ; preds = %if.then.i.i.i8.i.i.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i12.i.i.i, %if.else.i.i.i.i11.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -40272,9 +40269,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %12 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %12, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont3
 
@@ -40289,7 +40285,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIfSaIfE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i4
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %mAcc) #14
   br label %common.resume
@@ -45591,9 +45587,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %1 = add nsw i64 %mul.i.i.i.i.i.i, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %if.else.i14
 
@@ -45632,11 +45627,11 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont4, %_ZNK
   %__n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %invoke.cont4 ]
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i ], [ %data, %invoke.cont4 ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i38, %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i10, %invoke.cont4 ]
-  %2 = load i16, ptr %__first.addr.07.i.i.i.i.i, align 2
-  %conv.i.i.i.i.i.i.i = zext i16 %2 to i32
-  %3 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 13
-  %shr.i.i.i.i.i.i.i = and i32 %3, 268427264
-  %h.signext.i.i.i.i.i.i.i = sext i16 %2 to i32
+  %1 = load i16, ptr %__first.addr.07.i.i.i.i.i, align 2
+  %conv.i.i.i.i.i.i.i = zext i16 %1 to i32
+  %2 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 13
+  %shr.i.i.i.i.i.i.i = and i32 %2, 268427264
+  %h.signext.i.i.i.i.i.i.i = sext i16 %1 to i32
   %shl3.i.i.i.i.i.i.i = and i32 %h.signext.i.i.i.i.i.i.i, -2147483648
   %cmp.i.i.i.i.i.i.i37 = icmp samesign ugt i32 %shr.i.i.i.i.i.i.i, 8388607
   br i1 %cmp.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i, label %if.else9.i.i.i.i.i.i.i
@@ -45659,8 +45654,8 @@ if.else9.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i
   br i1 %cmp10.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i, label %if.then11.i.i.i.i.i.i.i
 
 if.then11.i.i.i.i.i.i.i:                          ; preds = %if.else9.i.i.i.i.i.i.i
-  %4 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i.i.i.i.i.i, i1 true)
-  %sub.i.i.i.i.i.i.i = add nsw i32 %4, -8
+  %3 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i.i.i.i.i.i, i1 true)
+  %sub.i.i.i.i.i.i.i = add nsw i32 %3, -8
   %shl13.i.i.i.i.i.i.i = shl i32 %shr.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i
   %or12.i.i.i.i.i.i.i = or i32 %shl3.i.i.i.i.i.i.i, %shl13.i.i.i.i.i.i.i
   %or14.i.i.i.i.i.i.i = or i32 %or12.i.i.i.i.i.i.i, 947912704
@@ -45670,8 +45665,8 @@ if.then11.i.i.i.i.i.i.i:                          ; preds = %if.else9.i.i.i.i.i.
 
 _ZNK7openvdb5v11_04math8internal4halfcvfEv.exit.i.i.i.i.i: ; preds = %if.then11.i.i.i.i.i.i.i, %if.else9.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i
   %v.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i ], [ %or8.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %sub16.i.i.i.i.i.i.i, %if.then11.i.i.i.i.i.i.i ], [ %shl3.i.i.i.i.i.i.i, %if.else9.i.i.i.i.i.i.i ]
-  %5 = bitcast i32 %v.sroa.0.0.i.i.i.i.i.i.i to float
-  %conv.i.i.i.i.i = fpext float %5 to double
+  %4 = bitcast i32 %v.sroa.0.0.i.i.i.i.i.i.i to float
+  %conv.i.i.i.i.i = fpext float %4 to double
   store double %conv.i.i.i.i.i, ptr %__result.addr.08.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 2
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 8
@@ -45684,10 +45679,10 @@ _ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit: ; preds = %_Z
   br label %if.end13
 
 _ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit41: ; preds = %if.else24.i, %if.then15.i25, %if.then11.i17
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i10) #23
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 if.end13:                                         ; preds = %if.else18.i, %if.then15.i, %if.then11.i, %if.then7.i, %entry, %_ZNSt6vectorIN7openvdb5v11_04math8internal4halfESaIS4_EED2Ev.exit
   ret void
@@ -46276,7 +46271,7 @@ if.else.i.i.i.i11.i.i.i:                          ; preds = %if.then.i.i.i8.i.i.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i12.i.i.i, %if.else.i.i.i.i11.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -46348,9 +46343,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %12 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %12, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont3
 
@@ -46365,7 +46359,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIdSaIdE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i4
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %mAcc) #14
   br label %common.resume
@@ -47528,7 +47522,7 @@ if.else.i.i.i.i11.i.i.i:                          ; preds = %if.then.i.i.i8.i.i.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i12.i.i.i, %if.else.i.i.i.i11.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -47600,9 +47594,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %12 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %12, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont3
 
@@ -47617,7 +47610,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIdSaIdE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i4
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %mAcc) #14
   br label %common.resume
@@ -48008,7 +48001,7 @@ if.else.i.i.i.i11.i.i.i:                          ; preds = %if.then.i.i.i8.i.i.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i12.i.i.i, %if.else.i.i.i.i11.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %if.else.i.i.i.i11.i.i.i ], [ %5, %if.then.i.i.i.i12.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -48080,9 +48073,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %12 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %12, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont3
 
@@ -48097,7 +48089,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIdSaIdE
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i4
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %mAcc) #14
   br label %common.resume

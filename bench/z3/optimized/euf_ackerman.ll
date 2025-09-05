@@ -204,7 +204,7 @@ define hidden void @_ZN3euf8ackerman5resetEv(ptr noundef nonnull align 8 capture
   %5 = load i32, ptr %4, align 8, !tbaa !21
   %6 = zext i32 %5 to i64
   %.idx.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE5beginEv.exit, label %.lr.ph.i.i.i
 

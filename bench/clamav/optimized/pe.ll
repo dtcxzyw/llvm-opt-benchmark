@@ -9148,7 +9148,7 @@ thread-pre-split:                                 ; preds = %682
   br i1 %.not1030, label %.thread950, label %.lr.ph1026
 
 .lr.ph1026:                                       ; preds = %783, %.thread946
-  %785 = phi i32 [ %914, %.thread946 ], [ %784, %783 ]
+  %785 = phi i32 [ %913, %.thread946 ], [ %784, %783 ]
   %.46881024 = phi i64 [ %788, %.thread946 ], [ 0, %783 ]
   %786 = getelementptr inbounds nuw i32, ptr %13, i64 %.46881024
   %787 = load i32, ptr %786, align 4, !tbaa !10
@@ -9226,10 +9226,10 @@ thread-pre-split:                                 ; preds = %682
   %831 = getelementptr inbounds nuw i8, ptr %814, i64 92
   br label %.lr.ph1009
 
-.lr.ph1009:                                       ; preds = %.lr.ph1009.preheader, %909
-  %832 = phi i1 [ false, %909 ], [ true, %.lr.ph1009.preheader ]
-  %.06811007 = phi i32 [ %912, %909 ], [ %829, %.lr.ph1009.preheader ]
-  %.06891006 = phi ptr [ %911, %909 ], [ %831, %.lr.ph1009.preheader ]
+.lr.ph1009:                                       ; preds = %.lr.ph1009.preheader, %908
+  %832 = phi i1 [ false, %908 ], [ true, %.lr.ph1009.preheader ]
+  %.06811007 = phi i32 [ %911, %908 ], [ %829, %.lr.ph1009.preheader ]
+  %.06891006 = phi ptr [ %910, %908 ], [ %831, %.lr.ph1009.preheader ]
   %833 = load i32, ptr %.06891006, align 1, !tbaa !33
   %834 = and i32 %833, 65535
   %835 = icmp ugt i32 %834, %.06811007
@@ -9244,7 +9244,7 @@ thread-pre-split:                                 ; preds = %682
   %839 = getelementptr inbounds nuw i8, ptr %.06891006, i64 6
   %bcmp793 = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %839, ptr noundef nonnull dereferenceable(24) @.str.317, i64 24)
   %.not794 = icmp eq i32 %bcmp793, 0
-  br i1 %.not794, label %909, label %840
+  br i1 %.not794, label %908, label %840
 
 840:                                              ; preds = %838, %836
   %841 = icmp samesign ult i32 %834, 37
@@ -9288,9 +9288,9 @@ thread-pre-split:                                 ; preds = %682
   %860 = getelementptr inbounds nuw i8, ptr %.26911019, i64 24
   br label %.lr.ph1015
 
-.lr.ph1015:                                       ; preds = %.lr.ph1015.preheader, %906
-  %.06741013 = phi i32 [ %.1675, %906 ], [ %858, %.lr.ph1015.preheader ]
-  %.51012 = phi ptr [ %.6, %906 ], [ %860, %.lr.ph1015.preheader ]
+.lr.ph1015:                                       ; preds = %.lr.ph1015.preheader, %905
+  %.06741013 = phi i32 [ %.1675, %905 ], [ %858, %.lr.ph1015.preheader ]
+  %.51012 = phi ptr [ %.6, %905 ], [ %860, %.lr.ph1015.preheader ]
   %861 = load i32, ptr %.51012, align 1, !tbaa !33
   %862 = and i32 %861, 65535
   %863 = add nuw nsw i32 %862, 3
@@ -9328,97 +9328,93 @@ thread-pre-split:                                 ; preds = %682
   %877 = or disjoint i64 %indvars.iv.next1038, 1
   %878 = icmp samesign ult i64 %877, %867
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  br i1 %878, label %.preheader, label %.loopexit.loopexit
+  br i1 %878, label %.preheader, label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %876
-  %879 = trunc nuw nsw i64 %indvars.iv.next1038 to i32
-  br label %.loopexit
+.loopexit:                                        ; preds = %876, %873
+  %.1671 = phi i32 [ %875, %873 ], [ %864, %876 ]
+  %879 = add i32 %.1671, 3
+  %880 = and i32 %879, -4
+  %.not799 = icmp ult i32 %880, %864
+  br i1 %.not799, label %881, label %905
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %873
-  %.1671 = phi i32 [ %875, %873 ], [ %879, %.loopexit.loopexit ]
-  %880 = add i32 %.1671, 3
-  %881 = and i32 %880, -4
-  %.not799 = icmp ult i32 %881, %864
-  br i1 %.not799, label %882, label %906
+881:                                              ; preds = %.loopexit
+  %882 = sub nuw nsw i32 %864, %880
+  %883 = add nsw i32 %880, -6
+  %884 = ptrtoint ptr %.51012 to i64
+  %885 = sub i64 %884, %848
+  %886 = trunc i64 %885 to i32
+  %887 = add i32 %886, 6
+  %888 = call i32 @cli_hashset_addkey(ptr noundef nonnull %781, i32 noundef %887) #22
+  %.not800 = icmp eq i32 %888, 0
+  br i1 %.not800, label %889, label %.loopexit1135
 
-882:                                              ; preds = %.loopexit
-  %883 = sub nuw nsw i32 %864, %881
-  %884 = add nsw i32 %881, -6
-  %885 = ptrtoint ptr %.51012 to i64
-  %886 = sub i64 %885, %848
-  %887 = trunc i64 %886 to i32
-  %888 = add i32 %887, 6
-  %889 = call i32 @cli_hashset_addkey(ptr noundef nonnull %781, i32 noundef %888) #22
-  %.not800 = icmp eq i32 %889, 0
-  br i1 %.not800, label %890, label %.loopexit1135
+889:                                              ; preds = %881
+  %890 = load i8, ptr @cli_debug_flag, align 1, !tbaa !33
+  %.not801 = icmp eq i8 %890, 0
+  br i1 %.not801, label %905, label %891
 
-890:                                              ; preds = %882
-  %891 = load i8, ptr @cli_debug_flag, align 1, !tbaa !33
-  %.not801 = icmp eq i8 %891, 0
-  br i1 %.not801, label %906, label %892
+891:                                              ; preds = %889
+  %892 = getelementptr inbounds nuw i8, ptr %.51012, i64 6
+  %893 = call ptr @cli_utf16toascii(ptr noundef nonnull %892, i32 noundef %883) #22
+  %.not802 = icmp eq ptr %893, null
+  br i1 %.not802, label %905, label %894
 
-892:                                              ; preds = %890
-  %893 = getelementptr inbounds nuw i8, ptr %.51012, i64 6
-  %894 = call ptr @cli_utf16toascii(ptr noundef nonnull %893, i32 noundef %884) #22
-  %.not802 = icmp eq ptr %894, null
-  br i1 %.not802, label %906, label %895
+894:                                              ; preds = %891
+  %895 = zext i32 %883 to i64
+  %896 = getelementptr inbounds nuw i8, ptr %.51012, i64 %895
+  %897 = getelementptr inbounds nuw i8, ptr %896, i64 6
+  %898 = call ptr @cli_utf16toascii(ptr noundef nonnull %897, i32 noundef %882) #22
+  %.not803 = icmp eq ptr %898, null
+  br i1 %.not803, label %904, label %899
 
-895:                                              ; preds = %892
-  %896 = zext i32 %884 to i64
-  %897 = getelementptr inbounds nuw i8, ptr %.51012, i64 %896
-  %898 = getelementptr inbounds nuw i8, ptr %897, i64 6
-  %899 = call ptr @cli_utf16toascii(ptr noundef nonnull %898, i32 noundef %883) #22
-  %.not803 = icmp eq ptr %899, null
-  br i1 %.not803, label %905, label %900
+899:                                              ; preds = %894
+  %900 = add nsw i32 %864, -6
+  %901 = call ptr @cli_str2hex(ptr noundef nonnull %892, i32 noundef %900) #22
+  %.not804 = icmp eq ptr %901, null
+  br i1 %.not804, label %903, label %902
 
-900:                                              ; preds = %895
-  %901 = add nsw i32 %864, -6
-  %902 = call ptr @cli_str2hex(ptr noundef nonnull %893, i32 noundef %901) #22
-  %.not804 = icmp eq ptr %902, null
-  br i1 %.not804, label %904, label %903
+902:                                              ; preds = %899
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.320, i32 noundef %887, ptr noundef nonnull %893, ptr noundef nonnull %898, ptr noundef nonnull %901) #22
+  call void @free(ptr noundef nonnull %901) #22
+  br label %903
 
-903:                                              ; preds = %900
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.320, i32 noundef %888, ptr noundef nonnull %894, ptr noundef nonnull %899, ptr noundef nonnull %902) #22
-  call void @free(ptr noundef nonnull %902) #22
+903:                                              ; preds = %902, %899
+  call void @free(ptr noundef nonnull %898) #22
   br label %904
 
-904:                                              ; preds = %903, %900
-  call void @free(ptr noundef nonnull %899) #22
+904:                                              ; preds = %903, %894
+  call void @free(ptr noundef nonnull %893) #22
   br label %905
 
-905:                                              ; preds = %904, %895
-  call void @free(ptr noundef nonnull %894) #22
-  br label %906
-
-906:                                              ; preds = %890, %905, %892, %.loopexit
+905:                                              ; preds = %889, %904, %891, %.loopexit
   %.1675 = sub i32 %.06741013, %864
   %.6 = getelementptr inbounds nuw i8, ptr %.51012, i64 %867
-  %907 = icmp ugt i32 %.1675, 6
-  br i1 %907, label %.lr.ph1015, label %.thread921
+  %906 = icmp ugt i32 %.1675, 6
+  br i1 %906, label %.lr.ph1015, label %.thread921
 
-.thread921:                                       ; preds = %906, %857
-  %908 = icmp ugt i32 %854, 6
-  br i1 %908, label %849, label %.thread946
+.thread921:                                       ; preds = %905, %857
+  %907 = icmp ugt i32 %854, 6
+  br i1 %907, label %849, label %.thread946
 
-909:                                              ; preds = %838
-  %910 = zext nneg i32 %834 to i64
-  %911 = getelementptr inbounds nuw i8, ptr %.06891006, i64 %910
-  %912 = sub i32 %.06811007, %834
-  %913 = icmp ugt i32 %912, 6
-  br i1 %913, label %.lr.ph1009, label %.thread946
+908:                                              ; preds = %838
+  %909 = zext nneg i32 %834 to i64
+  %910 = getelementptr inbounds nuw i8, ptr %.06891006, i64 %909
+  %911 = sub i32 %.06811007, %834
+  %912 = icmp ugt i32 %911, 6
+  br i1 %912, label %.lr.ph1009, label %.thread946
 
-.thread946:                                       ; preds = %909, %.lr.ph1009, %.thread921, %849, %.lr.ph1015, %844, %840, %842, %821, %824, %826, %817, %810, %799, %795, %.lr.ph1026
-  %914 = load i32, ptr %778, align 4, !tbaa !118
-  %915 = zext i32 %914 to i64
-  %916 = icmp samesign ult i64 %788, %915
-  br i1 %916, label %.lr.ph1026, label %.thread950
+.thread946:                                       ; preds = %908, %.lr.ph1009, %.thread921, %849, %.lr.ph1015, %844, %840, %842, %821, %824, %826, %817, %810, %799, %795, %.lr.ph1026
+  %913 = load i32, ptr %778, align 4, !tbaa !118
+  %914 = zext i32 %913 to i64
+  %915 = icmp samesign ult i64 %788, %914
+  br i1 %915, label %.lr.ph1026, label %.thread950
 
 .thread950:                                       ; preds = %.thread946, %783, %777
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge14
 
-.loopexit1135:                                    ; preds = %882, %780
-  %.str.319.sink = phi ptr [ @.str.314, %780 ], [ @.str.319, %882 ]
+.loopexit1135:                                    ; preds = %881, %780
+  %.str.319.sink = phi ptr [ @.str.314, %780 ], [ @.str.319, %881 ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull %.str.319.sink) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread960

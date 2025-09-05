@@ -27709,7 +27709,7 @@ _ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit283: ; preds = %789, %792
 
 834:                                              ; preds = %818
   %.idx.i = shl nuw nsw i64 %831, 4
-  %835 = getelementptr inbounds nuw i8, ptr %828, i64 %.idx.i
+  %835 = getelementptr i8, ptr %828, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %830, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9NamedDeclENS2_10SemaOpenMP24DeclareTargetContextInfo7MapInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

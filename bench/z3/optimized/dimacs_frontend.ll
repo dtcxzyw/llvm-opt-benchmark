@@ -2163,12 +2163,12 @@ _ZN6vectorIN3sat7literalELb0EjE6appendEjPKS1_.exit.i: ; preds = %_ZN6vectorIN3sa
   br label %.body.i
 
 _ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE4sizeEv.exit68.thread.i: ; preds = %.preheader.i, %302
-  %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %302 ], [ 0, %.preheader.i ]
+  %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %302 ], [ 0, %.preheader.i ]
   %251 = phi ptr [ %303, %302 ], [ %180, %.preheader.i ]
   %252 = getelementptr inbounds i8, ptr %251, i64 -4
   %253 = load i32, ptr %252, align 4, !tbaa !36
   %254 = zext i32 %253 to i64
-  %255 = icmp samesign ult i64 %indvars.iv100.i, %254
+  %255 = icmp samesign ult i64 %indvars.iv99.i, %254
   br i1 %255, label %269, label %256
 
 256:                                              ; preds = %_ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE4sizeEv.exit68.thread.i
@@ -2212,13 +2212,13 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev.exit.i: ; preds = %302, %256, %.
   br i1 %.not.i70.i, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit71.thread.i, label %272
 
 _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit71.thread.i: ; preds = %269
-  %271 = getelementptr inbounds nuw %"struct.std::pair", ptr %251, i64 %indvars.iv100.i
+  %271 = getelementptr inbounds nuw %"struct.std::pair", ptr %251, i64 %indvars.iv99.i
   br label %278
 
 272:                                              ; preds = %269
   %273 = getelementptr inbounds i8, ptr %270, i64 -4
   store i32 0, ptr %273, align 4, !tbaa !36
-  %274 = getelementptr inbounds nuw %"struct.std::pair", ptr %251, i64 %indvars.iv100.i
+  %274 = getelementptr inbounds nuw %"struct.std::pair", ptr %251, i64 %indvars.iv99.i
   %275 = getelementptr inbounds i8, ptr %270, i64 -8
   %276 = load i32, ptr %275, align 4, !tbaa !36
   %277 = icmp eq i32 %276, 0
@@ -2233,14 +2233,14 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit71.thread.i: ; preds = %269
   %.pre.i72.i = load ptr, ptr %4, align 8, !tbaa !202
   %.phi.trans.insert.i73.i = getelementptr inbounds i8, ptr %.pre.i72.i, i64 -4
   %.pre2.i74.i = load i32, ptr %.phi.trans.insert.i73.i, align 4, !tbaa !36
-  %.pre104.i = load ptr, ptr %5, align 8, !tbaa !209
+  %.pre103.i = load ptr, ptr %5, align 8, !tbaa !209
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.i72.i, i64 -8
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !36
   br label %280
 
 280:                                              ; preds = %.noexc75.i, %272
   %281 = phi i32 [ %.pre, %.noexc75.i ], [ %276, %272 ]
-  %282 = phi ptr [ %.pre104.i, %.noexc75.i ], [ %251, %272 ]
+  %282 = phi ptr [ %.pre103.i, %.noexc75.i ], [ %251, %272 ]
   %283 = phi ptr [ %279, %.noexc75.i ], [ %274, %272 ]
   %284 = phi i32 [ %.pre2.i74.i, %.noexc75.i ], [ 0, %272 ]
   %285 = phi ptr [ %.pre.i72.i, %.noexc75.i ], [ %270, %272 ]
@@ -2251,7 +2251,7 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit71.thread.i: ; preds = %269
   store i32 %289, ptr %288, align 4, !tbaa !36
   %290 = add i32 %284, 1
   store i32 %290, ptr %286, align 4, !tbaa !36
-  %291 = getelementptr inbounds nuw %"struct.std::pair", ptr %282, i64 %indvars.iv100.i, i32 1
+  %291 = getelementptr inbounds nuw %"struct.std::pair", ptr %282, i64 %indvars.iv99.i, i32 1
   %292 = icmp eq i32 %290, %281
   br i1 %292, label %293, label %294
 
@@ -2279,7 +2279,7 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit71.thread.i: ; preds = %269
           to label %302 unwind label %267
 
 302:                                              ; preds = %294
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
+  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %303 = load ptr, ptr %5, align 8, !tbaa !209
   %304 = icmp eq ptr %303, null
   br i1 %304, label %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev.exit.i, label %_ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE4sizeEv.exit68.thread.i, !llvm.loop !221

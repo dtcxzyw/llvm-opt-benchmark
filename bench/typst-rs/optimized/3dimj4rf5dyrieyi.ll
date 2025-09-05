@@ -21596,10 +21596,10 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h82252d4aad949a98E(ptr noali
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #21 personality ptr @rust_eh_personality {
-  %.idx = shl nsw i64 %1, 3
+  %.idx = shl i64 %1, 3
   %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
-  br i1 %5, label %12, label %.lr.ph
+  br i1 %5, label %13, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.promoted = load i64, ptr %2, align 8
@@ -21615,78 +21615,77 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE(ptr noali
   %.promoted12 = load i64, ptr %9, align 8
   %.promoted13 = load i64, ptr %10, align 8
   %.promoted14 = load i64, ptr %11, align 8
-  br label %13
+  br label %14
 
 ._crit_edge:                                      ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit"
-  store i64 %22, ptr %6, align 8, !alias.scope !3901, !noalias !3908
+  %12 = add i64 %.promoted7, %.idx
+  store i64 %12, ptr %6, align 8, !alias.scope !3901, !noalias !3908
   store i64 %.0.i.i.i10, ptr %8, align 8, !alias.scope !3901, !noalias !3908
-  br label %12
+  br label %13
 
-12:                                               ; preds = %._crit_edge, %3
+13:                                               ; preds = %._crit_edge, %3
   ret void
 
-13:                                               ; preds = %.lr.ph, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit"
-  %14 = phi i64 [ %.promoted14, %.lr.ph ], [ %49, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
-  %15 = phi i64 [ %.promoted13, %.lr.ph ], [ %50, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
-  %16 = phi i64 [ %.promoted12, %.lr.ph ], [ %51, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
+14:                                               ; preds = %.lr.ph, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit"
+  %15 = phi i64 [ %.promoted14, %.lr.ph ], [ %48, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
+  %16 = phi i64 [ %.promoted13, %.lr.ph ], [ %49, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
+  %17 = phi i64 [ %.promoted12, %.lr.ph ], [ %50, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
   %.0.i.i.i11 = phi i64 [ %.promoted9, %.lr.ph ], [ %.0.i.i.i10, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
-  %17 = phi i64 [ %.promoted8, %.lr.ph ], [ %52, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
-  %18 = phi i64 [ %.promoted7, %.lr.ph ], [ %22, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
+  %18 = phi i64 [ %.promoted8, %.lr.ph ], [ %51, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
   %.sroa.0.06 = phi ptr [ %0, %.lr.ph ], [ %20, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
-  %19 = phi i64 [ %.promoted, %.lr.ph ], [ %53, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
+  %19 = phi i64 [ %.promoted, %.lr.ph ], [ %52, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit" ]
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3908)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3910)
   %21 = load i64, ptr %.sroa.0.06, align 8, !alias.scope !3908, !noalias !3910, !noundef !4
-  %22 = add i64 %18, 8
-  %23 = shl i64 %17, 3
-  %24 = and i64 %23, 56
-  %25 = shl i64 %21, %24
-  %26 = or i64 %25, %.0.i.i.i11
-  %27 = icmp ugt i64 %17, 8
-  br i1 %27, label %47, label %28
+  %22 = shl i64 %18, 3
+  %23 = and i64 %22, 56
+  %24 = shl i64 %21, %23
+  %25 = or i64 %24, %.0.i.i.i11
+  %26 = icmp ugt i64 %18, 8
+  br i1 %26, label %46, label %27
 
-28:                                               ; preds = %13
-  %29 = xor i64 %16, %26
-  %30 = add i64 %15, %19
-  %31 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 13)
-  %32 = xor i64 %31, %30
-  %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
-  %34 = add i64 %14, %29
-  %35 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 16)
-  %36 = xor i64 %34, %35
-  %37 = add i64 %36, %33
-  %38 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 21)
-  %39 = xor i64 %38, %37
-  store i64 %39, ptr %9, align 8, !alias.scope !3911, !noalias !3908
-  %40 = add i64 %34, %32
-  %41 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 17)
-  %42 = xor i64 %40, %41
-  store i64 %42, ptr %10, align 8, !alias.scope !3911, !noalias !3908
-  %43 = tail call i64 @llvm.fshl.i64(i64 %40, i64 %40, i64 32)
-  store i64 %43, ptr %11, align 8, !alias.scope !3911, !noalias !3908
-  %44 = xor i64 %37, %26
-  store i64 %44, ptr %2, align 8, !alias.scope !3901, !noalias !3908
-  %.not.i.i.i = icmp eq i64 %17, 0
-  %45 = sub nsw i64 64, %23
-  %46 = lshr i64 %21, %45
-  %.0.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %46
+27:                                               ; preds = %14
+  %28 = xor i64 %17, %25
+  %29 = add i64 %16, %19
+  %30 = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 13)
+  %31 = xor i64 %30, %29
+  %32 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 32)
+  %33 = add i64 %15, %28
+  %34 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 16)
+  %35 = xor i64 %33, %34
+  %36 = add i64 %35, %32
+  %37 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 21)
+  %38 = xor i64 %37, %36
+  store i64 %38, ptr %9, align 8, !alias.scope !3911, !noalias !3908
+  %39 = add i64 %33, %31
+  %40 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 17)
+  %41 = xor i64 %39, %40
+  store i64 %41, ptr %10, align 8, !alias.scope !3911, !noalias !3908
+  %42 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 32)
+  store i64 %42, ptr %11, align 8, !alias.scope !3911, !noalias !3908
+  %43 = xor i64 %36, %25
+  store i64 %43, ptr %2, align 8, !alias.scope !3901, !noalias !3908
+  %.not.i.i.i = icmp eq i64 %18, 0
+  %44 = sub nsw i64 64, %22
+  %45 = lshr i64 %21, %44
+  %.0.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %45
   br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit"
 
-47:                                               ; preds = %13
-  %48 = add i64 %17, 8
-  store i64 %48, ptr %7, align 8, !alias.scope !3901, !noalias !3908
+46:                                               ; preds = %14
+  %47 = add i64 %18, 8
+  store i64 %47, ptr %7, align 8, !alias.scope !3901, !noalias !3908
   br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit"
 
-"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit": ; preds = %28, %47
-  %49 = phi i64 [ %43, %28 ], [ %14, %47 ]
-  %50 = phi i64 [ %42, %28 ], [ %15, %47 ]
-  %51 = phi i64 [ %39, %28 ], [ %16, %47 ]
-  %.0.i.i.i10 = phi i64 [ %.0.i.i.i, %28 ], [ %26, %47 ]
-  %52 = phi i64 [ %17, %28 ], [ %48, %47 ]
-  %53 = phi i64 [ %44, %28 ], [ %19, %47 ]
-  %54 = icmp eq ptr %20, %4
-  br i1 %54, label %._crit_edge, label %13
+"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit": ; preds = %27, %46
+  %48 = phi i64 [ %42, %27 ], [ %15, %46 ]
+  %49 = phi i64 [ %41, %27 ], [ %16, %46 ]
+  %50 = phi i64 [ %38, %27 ], [ %17, %46 ]
+  %.0.i.i.i10 = phi i64 [ %.0.i.i.i, %27 ], [ %25, %46 ]
+  %51 = phi i64 [ %18, %27 ], [ %47, %46 ]
+  %52 = phi i64 [ %43, %27 ], [ %19, %46 ]
+  %53 = icmp eq ptr %20, %4
+  br i1 %53, label %._crit_edge, label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -150872,18 +150871,18 @@ define internal fastcc void @"_ZN74_$LT$typst..visualize..stroke..FixedStroke$u2
   %45 = add i64 %10, 8
   store i64 %45, ptr %9, align 8, !alias.scope !31166
   %.pre = shl i64 %45, 3
-  %.pre20 = and i64 %.pre, 56
+  %.pre18 = and i64 %.pre, 56
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit"
 
 "_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit": ; preds = %18, %44
-  %.pre-phi21 = phi i64 [ %12, %18 ], [ %.pre20, %44 ]
+  %.pre-phi19 = phi i64 [ %12, %18 ], [ %.pre18, %44 ]
   %.pre-phi = phi i64 [ %11, %18 ], [ %.pre, %44 ]
   %46 = phi i64 [ %.0.i.i, %18 ], [ %16, %44 ]
   %.pr14 = phi i64 [ %10, %18 ], [ %45, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load i8, ptr %47, align 8, !range !715, !noundef !4
   %49 = zext nneg i8 %48 to i64
-  %50 = shl nuw nsw i64 %49, %.pre-phi21
+  %50 = shl nuw nsw i64 %49, %.pre-phi19
   %51 = or i64 %50, %46
   %52 = icmp ugt i64 %.pr14, 8
   br i1 %52, label %79, label %53
@@ -150925,19 +150924,19 @@ define internal fastcc void @"_ZN74_$LT$typst..visualize..stroke..FixedStroke$u2
 79:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit"
   %80 = add i64 %.pr14, 8
   store i64 %80, ptr %9, align 8, !alias.scope !31174
-  %.pre22 = shl i64 %80, 3
-  %.pre24 = and i64 %.pre22, 56
+  %.pre20 = shl i64 %80, 3
+  %.pre22 = and i64 %.pre20, 56
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit
 
 _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit: ; preds = %53, %79
-  %.pre-phi25 = phi i64 [ %.pre-phi21, %53 ], [ %.pre24, %79 ]
-  %.pre-phi23 = phi i64 [ %.pre-phi, %53 ], [ %.pre22, %79 ]
+  %.pre-phi23 = phi i64 [ %.pre-phi19, %53 ], [ %.pre22, %79 ]
+  %.pre-phi21 = phi i64 [ %.pre-phi, %53 ], [ %.pre20, %79 ]
   %81 = phi i64 [ %.0.i.i.i, %53 ], [ %51, %79 ]
   %.pr15 = phi i64 [ %.pr14, %53 ], [ %80, %79 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %83 = load i8, ptr %82, align 1, !range !715, !noundef !4
   %84 = zext nneg i8 %83 to i64
-  %85 = shl nuw nsw i64 %84, %.pre-phi25
+  %85 = shl nuw nsw i64 %84, %.pre-phi23
   %86 = or i64 %85, %81
   %87 = icmp ugt i64 %.pr15, 8
   br i1 %87, label %114, label %88
@@ -150971,7 +150970,7 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.e
   %111 = xor i64 %104, %86
   store i64 %111, ptr %1, align 8, !alias.scope !31184
   %.not.i.i.i5 = icmp eq i64 %.pr15, 0
-  %112 = sub nsw i64 64, %.pre-phi23
+  %112 = sub nsw i64 64, %.pre-phi21
   %113 = lshr i64 %84, %112
   %.0.i.i.i6 = select i1 %.not.i.i.i5, i64 0, i64 %113
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit7
@@ -150979,13 +150978,13 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.e
 114:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit
   %115 = add i64 %.pr15, 8
   store i64 %115, ptr %9, align 8, !alias.scope !31184
-  %.pre26 = shl i64 %115, 3
-  %.pre28 = and i64 %.pre26, 56
+  %.pre24 = shl i64 %115, 3
+  %.pre26 = and i64 %.pre24, 56
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit7
 
 _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit7: ; preds = %88, %114
-  %.pre-phi29 = phi i64 [ %.pre-phi25, %88 ], [ %.pre28, %114 ]
   %.pre-phi27 = phi i64 [ %.pre-phi23, %88 ], [ %.pre26, %114 ]
+  %.pre-phi25 = phi i64 [ %.pre-phi21, %88 ], [ %.pre24, %114 ]
   %116 = phi i64 [ %.0.i.i.i6, %88 ], [ %86, %114 ]
   %117 = phi i64 [ %.pr15, %88 ], [ %115, %114 ]
   %118 = load i64, ptr %0, align 8, !range !2613, !noundef !4
@@ -150993,7 +150992,7 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.e
   %120 = zext i1 %119 to i64
   %121 = add i64 %7, 32
   store i64 %121, ptr %6, align 8, !alias.scope !31194
-  %122 = shl nuw nsw i64 %120, %.pre-phi29
+  %122 = shl nuw nsw i64 %120, %.pre-phi27
   %123 = or i64 %122, %116
   store i64 %123, ptr %14, align 8, !alias.scope !31194
   %124 = icmp ugt i64 %117, 8
@@ -151028,7 +151027,7 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.e
   %148 = xor i64 %141, %123
   store i64 %148, ptr %1, align 8, !alias.scope !31194
   %.not.i.i.i8 = icmp eq i64 %117, 0
-  %149 = sub nsw i64 64, %.pre-phi27
+  %149 = sub nsw i64 64, %.pre-phi25
   %150 = lshr i64 %120, %149
   %.0.i.i.i9 = select i1 %.not.i.i.i8, i64 0, i64 %150
   store i64 %.0.i.i.i9, ptr %14, align 8, !alias.scope !31194
@@ -151104,7 +151103,7 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961
   %.promoted8.i.i = phi i64 [ %154, %166 ], [ %193, %192 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31219)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31222)
-  %.idx.i.i = shl nsw i64 %159, 3
+  %.idx.i.i = shl i64 %159, 3
   %194 = getelementptr inbounds i8, ptr %157, i64 %.idx.i.i
   %195 = icmp eq i64 %159, 0
   br i1 %195, label %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i, label %.lr.ph.i.i
@@ -151117,183 +151116,185 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961
   %.promoted12.i.i = load i64, ptr %196, align 8, !alias.scope !31224, !noalias !31225
   %.promoted13.i.i = load i64, ptr %197, align 8, !alias.scope !31224, !noalias !31225
   %.promoted14.i.i = load i64, ptr %198, align 8, !alias.scope !31224, !noalias !31225
-  br label %199
+  br label %200
 
-199:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i", %.lr.ph.i.i
-  %200 = phi i64 [ %.promoted14.i.i, %.lr.ph.i.i ], [ %235, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %201 = phi i64 [ %.promoted13.i.i, %.lr.ph.i.i ], [ %236, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %202 = phi i64 [ %.promoted12.i.i, %.lr.ph.i.i ], [ %237, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
+._crit_edge.i.i:                                  ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i"
+  %199 = add i64 %.idx.i.i, %160
+  br label %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i
+
+200:                                              ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i", %.lr.ph.i.i
+  %201 = phi i64 [ %.promoted14.i.i, %.lr.ph.i.i ], [ %234, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
+  %202 = phi i64 [ %.promoted13.i.i, %.lr.ph.i.i ], [ %235, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
+  %203 = phi i64 [ %.promoted12.i.i, %.lr.ph.i.i ], [ %236, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
   %.0.i.i.i11.i.i = phi i64 [ %.promoted9.i.i, %.lr.ph.i.i ], [ %.0.i.i.i10.i.i, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %203 = phi i64 [ %.promoted8.i.i, %.lr.ph.i.i ], [ %238, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %204 = phi i64 [ %160, %.lr.ph.i.i ], [ %208, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
+  %204 = phi i64 [ %.promoted8.i.i, %.lr.ph.i.i ], [ %237, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
   %.sroa.0.06.i.i = phi ptr [ %157, %.lr.ph.i.i ], [ %206, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %205 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %239, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
+  %205 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %238, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
   %206 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31229)
   %207 = load i64, ptr %.sroa.0.06.i.i, align 8, !alias.scope !31231, !noalias !31232, !noundef !4
-  %208 = add i64 %204, 8
-  %209 = shl i64 %203, 3
-  %210 = and i64 %209, 56
-  %211 = shl i64 %207, %210
-  %212 = or i64 %211, %.0.i.i.i11.i.i
-  %213 = icmp ugt i64 %203, 8
-  br i1 %213, label %233, label %214
+  %208 = shl i64 %204, 3
+  %209 = and i64 %208, 56
+  %210 = shl i64 %207, %209
+  %211 = or i64 %210, %.0.i.i.i11.i.i
+  %212 = icmp ugt i64 %204, 8
+  br i1 %212, label %232, label %213
 
-214:                                              ; preds = %199
-  %215 = xor i64 %212, %202
-  %216 = add i64 %205, %201
-  %217 = tail call i64 @llvm.fshl.i64(i64 %201, i64 %201, i64 13)
-  %218 = xor i64 %216, %217
-  %219 = tail call i64 @llvm.fshl.i64(i64 %216, i64 %216, i64 32)
-  %220 = add i64 %215, %200
-  %221 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 16)
-  %222 = xor i64 %220, %221
-  %223 = add i64 %222, %219
-  %224 = tail call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 21)
-  %225 = xor i64 %224, %223
-  store i64 %225, ptr %196, align 8, !alias.scope !31233, !noalias !31240
-  %226 = add i64 %220, %218
-  %227 = tail call i64 @llvm.fshl.i64(i64 %218, i64 %218, i64 17)
-  %228 = xor i64 %226, %227
-  store i64 %228, ptr %197, align 8, !alias.scope !31233, !noalias !31240
-  %229 = tail call i64 @llvm.fshl.i64(i64 %226, i64 %226, i64 32)
-  store i64 %229, ptr %198, align 8, !alias.scope !31233, !noalias !31240
-  %230 = xor i64 %223, %212
-  store i64 %230, ptr %1, align 8, !alias.scope !31241, !noalias !31240
-  %.not.i.i.i.i.i = icmp eq i64 %203, 0
-  %231 = sub nsw i64 64, %209
-  %232 = lshr i64 %207, %231
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 0, i64 %232
+213:                                              ; preds = %200
+  %214 = xor i64 %211, %203
+  %215 = add i64 %205, %202
+  %216 = tail call i64 @llvm.fshl.i64(i64 %202, i64 %202, i64 13)
+  %217 = xor i64 %215, %216
+  %218 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 32)
+  %219 = add i64 %214, %201
+  %220 = tail call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 16)
+  %221 = xor i64 %219, %220
+  %222 = add i64 %221, %218
+  %223 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 21)
+  %224 = xor i64 %223, %222
+  store i64 %224, ptr %196, align 8, !alias.scope !31233, !noalias !31240
+  %225 = add i64 %219, %217
+  %226 = tail call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 17)
+  %227 = xor i64 %225, %226
+  store i64 %227, ptr %197, align 8, !alias.scope !31233, !noalias !31240
+  %228 = tail call i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 32)
+  store i64 %228, ptr %198, align 8, !alias.scope !31233, !noalias !31240
+  %229 = xor i64 %222, %211
+  store i64 %229, ptr %1, align 8, !alias.scope !31241, !noalias !31240
+  %.not.i.i.i.i.i = icmp eq i64 %204, 0
+  %230 = sub nsw i64 64, %208
+  %231 = lshr i64 %207, %230
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 0, i64 %231
   br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i"
 
-233:                                              ; preds = %199
-  %234 = add i64 %203, 8
-  store i64 %234, ptr %9, align 8, !alias.scope !31241, !noalias !31240
+232:                                              ; preds = %200
+  %233 = add i64 %204, 8
+  store i64 %233, ptr %9, align 8, !alias.scope !31241, !noalias !31240
   br label %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i"
 
-"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i": ; preds = %233, %214
-  %235 = phi i64 [ %229, %214 ], [ %200, %233 ]
-  %236 = phi i64 [ %228, %214 ], [ %201, %233 ]
-  %237 = phi i64 [ %225, %214 ], [ %202, %233 ]
-  %.0.i.i.i10.i.i = phi i64 [ %.0.i.i.i.i.i, %214 ], [ %212, %233 ]
-  %238 = phi i64 [ %203, %214 ], [ %234, %233 ]
-  %239 = phi i64 [ %230, %214 ], [ %205, %233 ]
-  %240 = icmp eq ptr %206, %194
-  br i1 %240, label %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i, label %199
+"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i": ; preds = %232, %213
+  %234 = phi i64 [ %228, %213 ], [ %201, %232 ]
+  %235 = phi i64 [ %227, %213 ], [ %202, %232 ]
+  %236 = phi i64 [ %224, %213 ], [ %203, %232 ]
+  %.0.i.i.i10.i.i = phi i64 [ %.0.i.i.i.i.i, %213 ], [ %211, %232 ]
+  %237 = phi i64 [ %204, %213 ], [ %233, %232 ]
+  %238 = phi i64 [ %229, %213 ], [ %205, %232 ]
+  %239 = icmp eq ptr %206, %194
+  br i1 %239, label %._crit_edge.i.i, label %200
 
-_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i: ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i", %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i
-  %241 = phi i64 [ %.promoted9.i.i, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i ], [ %.0.i.i.i10.i.i, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %242 = phi i64 [ %.promoted8.i.i, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i ], [ %238, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %243 = phi i64 [ %160, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i ], [ %208, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h4ed5e0a3876d00efE.llvm.2456044669961016091.exit.i.i" ]
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 24
+_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i: ; preds = %._crit_edge.i.i, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i
+  %240 = phi i64 [ %.promoted9.i.i, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i ], [ %.0.i.i.i10.i.i, %._crit_edge.i.i ]
+  %241 = phi i64 [ %.promoted8.i.i, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i ], [ %237, %._crit_edge.i.i ]
+  %242 = phi i64 [ %160, %_ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.2456044669961016091.exit.i ], [ %199, %._crit_edge.i.i ]
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31245)
-  %245 = load i64, ptr %244, align 8, !alias.scope !31247, !noalias !31248, !noundef !4
-  %246 = add i64 %243, 8
-  %247 = shl i64 %242, 3
-  %248 = and i64 %247, 56
-  %249 = shl i64 %245, %248
-  %250 = or i64 %249, %241
-  %251 = icmp ugt i64 %242, 8
-  br i1 %251, label %278, label %252
+  %244 = load i64, ptr %243, align 8, !alias.scope !31247, !noalias !31248, !noundef !4
+  %245 = add i64 %242, 8
+  %246 = shl i64 %241, 3
+  %247 = and i64 %246, 56
+  %248 = shl i64 %244, %247
+  %249 = or i64 %248, %240
+  %250 = icmp ugt i64 %241, 8
+  br i1 %250, label %277, label %251
 
-252:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i
-  %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %254 = load i64, ptr %253, align 8, !alias.scope !31249, !noalias !31247, !noundef !4
-  %255 = xor i64 %254, %250
-  %256 = load i64, ptr %1, align 8, !alias.scope !31254, !noalias !31247, !noundef !4
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %258 = load i64, ptr %257, align 8, !alias.scope !31254, !noalias !31247, !noundef !4
-  %259 = add i64 %258, %256
-  %260 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 13)
-  %261 = xor i64 %260, %259
-  %262 = tail call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 32)
-  %263 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %264 = load i64, ptr %263, align 8, !alias.scope !31254, !noalias !31247, !noundef !4
-  %265 = add i64 %264, %255
-  %266 = tail call i64 @llvm.fshl.i64(i64 %255, i64 %255, i64 16)
-  %267 = xor i64 %265, %266
-  %268 = add i64 %267, %262
-  %269 = tail call i64 @llvm.fshl.i64(i64 %267, i64 %267, i64 21)
-  %270 = xor i64 %269, %268
-  store i64 %270, ptr %253, align 8, !alias.scope !31254, !noalias !31247
-  %271 = add i64 %265, %261
-  %272 = tail call i64 @llvm.fshl.i64(i64 %261, i64 %261, i64 17)
-  %273 = xor i64 %271, %272
-  store i64 %273, ptr %257, align 8, !alias.scope !31254, !noalias !31247
-  %274 = tail call i64 @llvm.fshl.i64(i64 %271, i64 %271, i64 32)
-  store i64 %274, ptr %263, align 8, !alias.scope !31254, !noalias !31247
-  %275 = xor i64 %268, %250
-  store i64 %275, ptr %1, align 8, !alias.scope !31249, !noalias !31247
-  %.not.i.i.i3.i = icmp eq i64 %242, 0
-  %276 = sub nsw i64 64, %247
-  %277 = lshr i64 %245, %276
-  %.0.i.i.i4.i = select i1 %.not.i.i.i3.i, i64 0, i64 %277
+251:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %253 = load i64, ptr %252, align 8, !alias.scope !31249, !noalias !31247, !noundef !4
+  %254 = xor i64 %253, %249
+  %255 = load i64, ptr %1, align 8, !alias.scope !31254, !noalias !31247, !noundef !4
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %257 = load i64, ptr %256, align 8, !alias.scope !31254, !noalias !31247, !noundef !4
+  %258 = add i64 %257, %255
+  %259 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 13)
+  %260 = xor i64 %259, %258
+  %261 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 32)
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %263 = load i64, ptr %262, align 8, !alias.scope !31254, !noalias !31247, !noundef !4
+  %264 = add i64 %263, %254
+  %265 = tail call i64 @llvm.fshl.i64(i64 %254, i64 %254, i64 16)
+  %266 = xor i64 %264, %265
+  %267 = add i64 %266, %261
+  %268 = tail call i64 @llvm.fshl.i64(i64 %266, i64 %266, i64 21)
+  %269 = xor i64 %268, %267
+  store i64 %269, ptr %252, align 8, !alias.scope !31254, !noalias !31247
+  %270 = add i64 %264, %260
+  %271 = tail call i64 @llvm.fshl.i64(i64 %260, i64 %260, i64 17)
+  %272 = xor i64 %270, %271
+  store i64 %272, ptr %256, align 8, !alias.scope !31254, !noalias !31247
+  %273 = tail call i64 @llvm.fshl.i64(i64 %270, i64 %270, i64 32)
+  store i64 %273, ptr %262, align 8, !alias.scope !31254, !noalias !31247
+  %274 = xor i64 %267, %249
+  store i64 %274, ptr %1, align 8, !alias.scope !31249, !noalias !31247
+  %.not.i.i.i3.i = icmp eq i64 %241, 0
+  %275 = sub nsw i64 64, %246
+  %276 = lshr i64 %244, %275
+  %.0.i.i.i4.i = select i1 %.not.i.i.i3.i, i64 0, i64 %276
   br label %"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit"
 
-278:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i
-  %279 = add i64 %242, 8
-  store i64 %279, ptr %9, align 8, !alias.scope !31249, !noalias !31247
+277:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h8af1a7995b20cd8dE.exit.i
+  %278 = add i64 %241, 8
+  store i64 %278, ptr %9, align 8, !alias.scope !31249, !noalias !31247
   br label %"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit"
 
-"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit": ; preds = %252, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10, %278
-  %280 = phi i64 [ %250, %278 ], [ %153, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10 ], [ %.0.i.i.i4.i, %252 ]
-  %281 = phi i64 [ %246, %278 ], [ %121, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10 ], [ %246, %252 ]
-  %282 = phi i64 [ %279, %278 ], [ %154, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10 ], [ %242, %252 ]
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %284 = load i64, ptr %283, align 8, !noundef !4
-  %285 = add i64 %281, 8
-  store i64 %285, ptr %6, align 8, !alias.scope !31257
-  %286 = shl i64 %282, 3
-  %287 = and i64 %286, 56
-  %288 = shl i64 %284, %287
-  %289 = or i64 %280, %288
-  store i64 %289, ptr %14, align 8, !alias.scope !31257
-  %290 = icmp ugt i64 %282, 8
-  br i1 %290, label %317, label %291
+"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit": ; preds = %251, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10, %277
+  %279 = phi i64 [ %249, %277 ], [ %153, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10 ], [ %.0.i.i.i4.i, %251 ]
+  %280 = phi i64 [ %245, %277 ], [ %121, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10 ], [ %245, %251 ]
+  %281 = phi i64 [ %278, %277 ], [ %154, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.2456044669961016091.exit10 ], [ %241, %251 ]
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %283 = load i64, ptr %282, align 8, !noundef !4
+  %284 = add i64 %280, 8
+  store i64 %284, ptr %6, align 8, !alias.scope !31257
+  %285 = shl i64 %281, 3
+  %286 = and i64 %285, 56
+  %287 = shl i64 %283, %286
+  %288 = or i64 %279, %287
+  store i64 %288, ptr %14, align 8, !alias.scope !31257
+  %289 = icmp ugt i64 %281, 8
+  br i1 %289, label %316, label %290
 
-291:                                              ; preds = %"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit"
-  %292 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %293 = load i64, ptr %292, align 8, !alias.scope !31257, !noundef !4
-  %294 = xor i64 %293, %289
-  %295 = load i64, ptr %1, align 8, !alias.scope !31262, !noundef !4
-  %296 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %297 = load i64, ptr %296, align 8, !alias.scope !31262, !noundef !4
-  %298 = add i64 %297, %295
-  %299 = tail call i64 @llvm.fshl.i64(i64 %297, i64 %297, i64 13)
-  %300 = xor i64 %299, %298
-  %301 = tail call i64 @llvm.fshl.i64(i64 %298, i64 %298, i64 32)
-  %302 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %303 = load i64, ptr %302, align 8, !alias.scope !31262, !noundef !4
-  %304 = add i64 %303, %294
-  %305 = tail call i64 @llvm.fshl.i64(i64 %294, i64 %294, i64 16)
-  %306 = xor i64 %304, %305
-  %307 = add i64 %306, %301
-  %308 = tail call i64 @llvm.fshl.i64(i64 %306, i64 %306, i64 21)
-  %309 = xor i64 %308, %307
-  store i64 %309, ptr %292, align 8, !alias.scope !31262
-  %310 = add i64 %304, %300
-  %311 = tail call i64 @llvm.fshl.i64(i64 %300, i64 %300, i64 17)
-  %312 = xor i64 %310, %311
-  store i64 %312, ptr %296, align 8, !alias.scope !31262
-  %313 = tail call i64 @llvm.fshl.i64(i64 %310, i64 %310, i64 32)
-  store i64 %313, ptr %302, align 8, !alias.scope !31262
-  %314 = xor i64 %307, %289
-  store i64 %314, ptr %1, align 8, !alias.scope !31257
-  %.not.i.i11 = icmp eq i64 %282, 0
-  %315 = sub nsw i64 64, %286
-  %316 = lshr i64 %284, %315
-  %.0.i.i12 = select i1 %.not.i.i11, i64 0, i64 %316
+290:                                              ; preds = %"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit"
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %292 = load i64, ptr %291, align 8, !alias.scope !31257, !noundef !4
+  %293 = xor i64 %292, %288
+  %294 = load i64, ptr %1, align 8, !alias.scope !31262, !noundef !4
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %296 = load i64, ptr %295, align 8, !alias.scope !31262, !noundef !4
+  %297 = add i64 %296, %294
+  %298 = tail call i64 @llvm.fshl.i64(i64 %296, i64 %296, i64 13)
+  %299 = xor i64 %298, %297
+  %300 = tail call i64 @llvm.fshl.i64(i64 %297, i64 %297, i64 32)
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %302 = load i64, ptr %301, align 8, !alias.scope !31262, !noundef !4
+  %303 = add i64 %302, %293
+  %304 = tail call i64 @llvm.fshl.i64(i64 %293, i64 %293, i64 16)
+  %305 = xor i64 %303, %304
+  %306 = add i64 %305, %300
+  %307 = tail call i64 @llvm.fshl.i64(i64 %305, i64 %305, i64 21)
+  %308 = xor i64 %307, %306
+  store i64 %308, ptr %291, align 8, !alias.scope !31262
+  %309 = add i64 %303, %299
+  %310 = tail call i64 @llvm.fshl.i64(i64 %299, i64 %299, i64 17)
+  %311 = xor i64 %309, %310
+  store i64 %311, ptr %295, align 8, !alias.scope !31262
+  %312 = tail call i64 @llvm.fshl.i64(i64 %309, i64 %309, i64 32)
+  store i64 %312, ptr %301, align 8, !alias.scope !31262
+  %313 = xor i64 %306, %288
+  store i64 %313, ptr %1, align 8, !alias.scope !31257
+  %.not.i.i11 = icmp eq i64 %281, 0
+  %314 = sub nsw i64 64, %285
+  %315 = lshr i64 %283, %314
+  %.0.i.i12 = select i1 %.not.i.i11, i64 0, i64 %315
   store i64 %.0.i.i12, ptr %14, align 8, !alias.scope !31257
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit13"
 
-317:                                              ; preds = %"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit"
-  %318 = add i64 %282, 8
-  store i64 %318, ptr %9, align 8, !alias.scope !31257
+316:                                              ; preds = %"_ZN88_$LT$typst..visualize..stroke..DashPattern$LT$T$C$DT$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h23097e19a00d3a8dE.exit"
+  %317 = add i64 %281, 8
+  store i64 %317, ptr %9, align 8, !alias.scope !31257
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit13"
 
-"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit13": ; preds = %291, %317
+"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2456044669961016091.exit13": ; preds = %290, %316
   ret void
 }
 

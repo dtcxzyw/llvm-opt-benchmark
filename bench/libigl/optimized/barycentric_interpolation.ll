@@ -98,25 +98,25 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   %27 = load ptr, ptr %4, align 8, !tbaa !14
-  %28 = shl i64 %25, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 %28, i1 false), !tbaa !15
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %25, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !15
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %4, ptr %8, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %2, ptr %29, align 8, !tbaa !19
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %0, ptr %30, align 8, !tbaa !19
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %1, ptr %31, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %3, ptr %32, align 8, !tbaa !23
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %2, ptr %28, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %0, ptr %29, align 8, !tbaa !19
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %1, ptr %30, align 8, !tbaa !21
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %3, ptr %31, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !25
-  %33 = call noundef zeroext i1 @_ZN3igl12parallel_forIlZNS_12parallel_forIlZNS_25barycentric_interpolationIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_NS4_IiLin1ELi1ELi0ELin1ELi1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERNS3_15PlainObjectBaseIT3_EEEUliE_EEbS9_RKSD_mEUlmE_ZNS1_IlST_EEbS9_SV_mEUllmE_SW_EEbS9_SV_RKSH_RKSL_m(i64 noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1000)
+  %32 = call noundef zeroext i1 @_ZN3igl12parallel_forIlZNS_12parallel_forIlZNS_25barycentric_interpolationIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_NS4_IiLin1ELi1ELi0ELin1ELi1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERNS3_15PlainObjectBaseIT3_EEEUliE_EEbS9_RKSD_mEUlmE_ZNS1_IlST_EEbS9_SV_mEUllmE_SW_EEbS9_SV_RKSH_RKSL_m(i64 noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1000)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

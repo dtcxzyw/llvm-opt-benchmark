@@ -2121,7 +2121,7 @@ define hidden void @_ZN11proto_model7cleanupEv(ptr noundef nonnull align 8 deref
   %19 = load i32, ptr %18, align 8, !tbaa !37
   %20 = zext i32 %19 to i64
   %.idx.i.i = shl nuw nsw i64 %20, 4
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not1.i.i.i.i, label %.loopexit90, label %.lr.ph.i.i.i.i
 
@@ -2391,7 +2391,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %_ZNK6vectorIP9func_
   %122 = load i32, ptr %121, align 8, !tbaa !45
   %123 = zext i32 %122 to i64
   %.idx.i = shl nuw nsw i64 %123, 3
-  %124 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i
+  %124 = getelementptr i8, ptr %120, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %122, 0
   br i1 %.not1.i.i.i, label %.loopexit87, label %.lr.ph.i.i.i
 
@@ -2811,7 +2811,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %2, %5
   %12 = load i32, ptr %11, align 8, !tbaa !172
   %13 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -3509,7 +3509,7 @@ _ZNK7obj_mapI9func_declSt4pairIjP4exprEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i
   %18 = load i32, ptr %17, align 8, !tbaa !37
   %19 = zext i32 %18 to i64
   %.idx.i.i23 = shl nuw nsw i64 %19, 4
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i23
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i.i23
   %.not1.i.i.i.i24 = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i.i24, label %_ZNK7obj_mapI9func_declP11func_interpE5beginEv.exit, label %.lr.ph.i.i.i.i25
 

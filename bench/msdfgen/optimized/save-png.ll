@@ -59,6 +59,7 @@ if.end10:                                         ; preds = %if.end6
 
 if.end14:                                         ; preds = %if.end10
   store ptr %call11, ptr %file.i, align 8
+  %conv = sext i32 %height to i64
   %cmp.i.i = icmp slt i32 %height, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then.i.i.i.i.i
 
@@ -70,35 +71,34 @@ if.then.i.i:                                      ; preds = %if.end14
   unreachable
 
 if.then.i.i.i.i.i:                                ; preds = %if.end14
-  %conv = zext nneg i32 %height to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 3
   %call5.i.i.i.i2.i.i27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad16
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr null, ptr %call5.i.i.i.i2.i.i27, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %height, 1
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i27, i64 8
-  %0 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
   %mul = mul nsw i32 %channels, %width
-  %1 = zext nneg i32 %height to i64
-  %2 = sext i32 %mul to i64
+  %0 = sext i32 %mul to i64
   %wide.trip.count = zext nneg i32 %height to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %3 = xor i64 %indvars.iv, -1
-  %4 = add nsw i64 %1, %3
-  %5 = mul nsw i64 %4, %2
-  %add.ptr = getelementptr inbounds i8, ptr %pixels, i64 %5
+  %1 = xor i64 %indvars.iv, -1
+  %2 = add nsw i64 %conv, %1
+  %3 = mul nsw i64 %2, %0
+  %add.ptr = getelementptr inbounds i8, ptr %pixels, i64 %3
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i27, i64 %indvars.iv
   store ptr %add.ptr, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -106,7 +106,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 lpad16:                                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -120,7 +120,7 @@ invoke.cont23:                                    ; preds = %for.end
   br i1 %tobool26.not, label %if.end28, label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit:                ; preds = %invoke.cont33, %invoke.cont31, %invoke.cont30, %invoke.cont29, %if.end28, %for.end
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i27) #16
   br label %ehcleanup
@@ -155,19 +155,19 @@ cleanup35:                                        ; preds = %if.end10, %if.end6,
           to label %_ZN7msdfgen8PngGuardD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup35
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #17
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #17
   unreachable
 
 _ZN7msdfgen8PngGuardD2Ev.exit:                    ; preds = %cleanup35
-  %10 = load ptr, ptr %file.i, align 8
-  %call.i = call i32 @fclose(ptr noundef %10)
+  %8 = load ptr, ptr %file.i, align 8
+  %call.i = call i32 @fclose(ptr noundef %8)
   br label %return
 
 ehcleanup:                                        ; preds = %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit, %lpad16
-  %.pn = phi { ptr, i32 } [ %7, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ], [ %6, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %5, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ], [ %4, %lpad16 ]
   call void @_ZN7msdfgen8PngGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %guard) #18
   resume { ptr, i32 } %.pn
 

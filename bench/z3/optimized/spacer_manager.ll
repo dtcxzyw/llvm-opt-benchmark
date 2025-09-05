@@ -2241,7 +2241,7 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit105: ; preds = %_ZNK6vectorIPN7data
   %196 = load i32, ptr %21, align 8, !tbaa !106
   %197 = zext i32 %196 to i64
   %.idx.i = shl nuw nsw i64 %197, 3
-  %198 = getelementptr inbounds nuw i8, ptr %195, i64 %.idx.i
+  %198 = getelementptr i8, ptr %195, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %196, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

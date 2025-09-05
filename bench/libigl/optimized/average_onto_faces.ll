@@ -23,90 +23,90 @@ define weak_odr dso_local void @_ZN3igl18average_onto_facesIN5Eigen6MatrixIiLin1
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit.loopexit: ; preds = %3
   %9 = load ptr, ptr %2, align 8, !tbaa !14
-  %10 = shl i64 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %10, i1 false), !tbaa !15
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %7, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !15
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit.loopexit, %3
-  %11 = load i64, ptr %4, align 8, !tbaa !4
-  %12 = icmp sgt i64 %11, 0
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !17
-  br i1 %12, label %.preheader.lr.ph, label %._crit_edge31
+  %10 = load i64, ptr %4, align 8, !tbaa !4
+  %11 = icmp sgt i64 %10, 0
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !17
+  br i1 %11, label %.preheader.lr.ph, label %._crit_edge31
 
 .preheader.lr.ph:                                 ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit
-  %15 = icmp sgt i64 %14, 0
-  %16 = load ptr, ptr %2, align 8
-  br i1 %15, label %.preheader.lr.ph.split.us, label %._crit_edge31
+  %14 = icmp sgt i64 %13, 0
+  %15 = load ptr, ptr %2, align 8
+  br i1 %14, label %.preheader.lr.ph.split.us, label %._crit_edge31
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %17 = load ptr, ptr %0, align 8, !tbaa !18
-  %18 = load ptr, ptr %1, align 8, !tbaa !14, !noalias !19
+  %16 = load ptr, ptr %0, align 8, !tbaa !18
+  %17 = load ptr, ptr %1, align 8, !tbaa !14, !noalias !19
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %19 = getelementptr i32, ptr %17, i64 %indvars.iv35
-  %20 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv35
-  %.promoted.us = load double, ptr %20, align 8, !tbaa !15
-  br label %21
+  %18 = getelementptr i32, ptr %16, i64 %indvars.iv35
+  %19 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv35
+  %.promoted.us = load double, ptr %19, align 8, !tbaa !15
+  br label %20
 
-21:                                               ; preds = %.preheader.us, %21
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %21 ]
-  %22 = phi double [ %.promoted.us, %.preheader.us ], [ %29, %21 ]
-  %23 = mul nuw nsw i64 %indvars.iv, %11
-  %24 = getelementptr i32, ptr %19, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !22
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds double, ptr %18, i64 %26
-  %28 = load double, ptr %27, align 8, !tbaa !15
-  %29 = fadd double %28, %22
-  store double %29, ptr %20, align 8, !tbaa !15
+20:                                               ; preds = %.preheader.us, %20
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %20 ]
+  %21 = phi double [ %.promoted.us, %.preheader.us ], [ %28, %20 ]
+  %22 = mul nuw nsw i64 %indvars.iv, %10
+  %23 = getelementptr i32, ptr %18, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds double, ptr %17, i64 %25
+  %27 = load double, ptr %26, align 8, !tbaa !15
+  %28 = fadd double %27, %21
+  store double %28, ptr %19, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !24
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !24
 
-._crit_edge.us:                                   ; preds = %21
+._crit_edge.us:                                   ; preds = %20
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next36, %11
+  %exitcond38.not = icmp eq i64 %indvars.iv.next36, %10
   br i1 %exitcond38.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !26
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKd.exit, %.preheader.lr.ph
-  %30 = sitofp i64 %14 to double
-  %31 = load ptr, ptr %2, align 8, !tbaa !14
-  %32 = sdiv i64 %7, 2
-  %33 = shl nsw i64 %32, 1
-  %34 = icmp sgt i64 %7, 1
-  br i1 %34, label %.lr.ph.i.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
+  %29 = sitofp i64 %13 to double
+  %30 = load ptr, ptr %2, align 8, !tbaa !14
+  %31 = sdiv i64 %7, 2
+  %32 = shl nsw i64 %31, 1
+  %33 = icmp sgt i64 %7, 1
+  br i1 %33, label %.lr.ph.i.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %._crit_edge31
-  %35 = insertelement <2 x double> poison, double %30, i64 0
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
+  %34 = insertelement <2 x double> poison, double %29, i64 0
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
   br label %.lr.ph.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge31
-  %37 = icmp slt i64 %33, %7
-  br i1 %37, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_12ArrayWrapperINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEEdVERKd.exit
+  %36 = icmp slt i64 %32, %7
+  br i1 %36, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_12ArrayWrapperINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEEdVERKd.exit
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i.i.i ], [ %33, %._crit_edge.i.i.i.i.i.i ]
-  %38 = getelementptr inbounds double, ptr %31, i64 %.05.i.i.i.i.i.i.i
-  %39 = load double, ptr %38, align 8, !tbaa !15
-  %40 = fdiv double %39, %30
-  store double %40, ptr %38, align 8, !tbaa !15
-  %41 = add nsw i64 %.05.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %41, %7
+  %.05.i.i.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i.i.i ], [ %32, %._crit_edge.i.i.i.i.i.i ]
+  %37 = getelementptr inbounds double, ptr %30, i64 %.05.i.i.i.i.i.i.i
+  %38 = load double, ptr %37, align 8, !tbaa !15
+  %39 = fdiv double %38, %29
+  store double %39, ptr %37, align 8, !tbaa !15
+  %40 = add nsw i64 %.05.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %40, %7
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_12ArrayWrapperINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEEdVERKd.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
-  %.011.i.i.i.i.i.i = phi i64 [ %45, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %42 = getelementptr inbounds nuw double, ptr %31, i64 %.011.i.i.i.i.i.i
-  %43 = load <2 x double>, ptr %42, align 16, !tbaa !28
-  %44 = fdiv <2 x double> %43, %36
-  store <2 x double> %44, ptr %42, align 16, !tbaa !28
-  %45 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
-  %46 = icmp slt i64 %45, %33
-  br i1 %46, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !29
+  %.011.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %41 = getelementptr inbounds nuw double, ptr %30, i64 %.011.i.i.i.i.i.i
+  %42 = load <2 x double>, ptr %41, align 16, !tbaa !28
+  %43 = fdiv <2 x double> %42, %35
+  store <2 x double> %43, ptr %41, align 16, !tbaa !28
+  %44 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
+  %45 = icmp slt i64 %44, %32
+  br i1 %45, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !29
 
 _ZN5Eigen9DenseBaseINS_12ArrayWrapperINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEEdVERKd.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   ret void

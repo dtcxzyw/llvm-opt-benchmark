@@ -1997,8 +1997,8 @@ common.resume:                                    ; preds = %21, %27, %41
   br i1 %.not5.i.i.i.i.not, label %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %43
-  %44 = shl nsw i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %44, i1 false)
+  %.idx.i = shl nsw i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx.i, i1 false)
   br label %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit
 
 _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit: ; preds = %43, %.lr.ph.i.i.i.preheader.i
@@ -2006,46 +2006,46 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %45 = icmp sgt i32 %31, 0
-  br i1 %45, label %.preheader.lr.ph, label %._crit_edge53
+  %44 = icmp sgt i32 %31, 0
+  br i1 %44, label %.preheader.lr.ph, label %._crit_edge53
 
 .preheader.lr.ph:                                 ; preds = %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %wide.trip.count58 = zext nneg i32 %31 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  br label %47
+  br label %46
 
-47:                                               ; preds = %.preheader.us, %55
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %55 ]
+46:                                               ; preds = %.preheader.us, %54
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %54 ]
   %.sroa.4.0.insert.shift21.us = shl nuw nsw i64 %indvars.iv, 32
   %.sroa.09.0.insert.insert15.us = or disjoint i64 %.sroa.4.0.insert.shift21.us, %indvars.iv55
-  %48 = load ptr, ptr %46, align 8
-  %49 = getelementptr inbounds nuw %"class.std::vector.75", ptr %48, i64 %indvars.iv55
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %50, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4
-  switch i32 %52, label %55 [
-    i32 0, label %54
-    i32 1, label %53
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds nuw %"class.std::vector.75", ptr %47, i64 %indvars.iv55
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %"class.open_spiel::twixt::Cell", ptr %49, i64 %indvars.iv
+  %51 = load i32, ptr %50, align 4
+  switch i32 %51, label %54 [
+    i32 0, label %53
+    i32 1, label %52
   ]
 
-53:                                               ; preds = %47
-  tail call void @_ZNK10open_spiel5twixt10TwixTState22SetPegAndLinksOnTensorEN4absl7debian24SpanIfEERKNS0_4CellEib8Position(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(80) %51, i32 noundef 6, i1 noundef zeroext true, i64 %.sroa.09.0.insert.insert15.us)
-  br label %55
+52:                                               ; preds = %46
+  tail call void @_ZNK10open_spiel5twixt10TwixTState22SetPegAndLinksOnTensorEN4absl7debian24SpanIfEERKNS0_4CellEib8Position(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(80) %50, i32 noundef 6, i1 noundef zeroext true, i64 %.sroa.09.0.insert.insert15.us)
+  br label %54
 
-54:                                               ; preds = %47
-  tail call void @_ZNK10open_spiel5twixt10TwixTState22SetPegAndLinksOnTensorEN4absl7debian24SpanIfEERKNS0_4CellEib8Position(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(80) %51, i32 noundef 0, i1 noundef zeroext false, i64 %.sroa.09.0.insert.insert15.us)
-  br label %55
+53:                                               ; preds = %46
+  tail call void @_ZNK10open_spiel5twixt10TwixTState22SetPegAndLinksOnTensorEN4absl7debian24SpanIfEERKNS0_4CellEib8Position(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(80) %50, i32 noundef 0, i1 noundef zeroext false, i64 %.sroa.09.0.insert.insert15.us)
+  br label %54
 
-55:                                               ; preds = %54, %53, %47
+54:                                               ; preds = %53, %52, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
-  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %46, !llvm.loop !12
 
-._crit_edge.us:                                   ; preds = %55
+._crit_edge.us:                                   ; preds = %54
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge53, label %.preheader.us, !llvm.loop !13

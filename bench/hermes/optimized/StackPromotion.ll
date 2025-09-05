@@ -1643,7 +1643,7 @@ if.then.i.i40.i:                                  ; preds = %_ZN4llvh12DenseMapB
 
 if.end8.i.i.i:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_8DenseSetIPNS2_8VariableENS_12DenseMapInfoIS7_EEEENS8_IS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SB_SE_EixERKS4_.exit.i
   %add.ptr.i4.idx.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i39.i, 3
-  %add.ptr.i4.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 %add.ptr.i4.idx.i.i.i
+  %add.ptr.i4.i.i.i = getelementptr i8, ptr %70, i64 %add.ptr.i4.idx.i.i.i
   %cmp.not3.i3.i7.i5.i.i.i = icmp eq i32 %71, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i, label %land.rhs.i4.i9.i6.i.i.i
 
@@ -2617,7 +2617,7 @@ if.end8.i.i122.i:                                 ; preds = %while.cond.preheade
   %toPropagate.sroa.66.41660.i = phi i32 [ %toPropagate.sroa.66.5.lcssa.i, %while.cond.loopexit.i ], [ %toPropagate.sroa.66.1.lcssa.i, %while.cond.preheader.i ]
   %idx.ext.i.i.i.i121.i = zext i32 %toPropagate.sroa.66.41660.i to i64
   %add.ptr.i4.idx.i.i123.i = shl nuw nsw i64 %idx.ext.i.i.i.i121.i, 3
-  %add.ptr.i4.i.i124.i = getelementptr inbounds nuw i8, ptr %toPropagate.sroa.0.41663.i, i64 %add.ptr.i4.idx.i.i123.i
+  %add.ptr.i4.i.i124.i = getelementptr i8, ptr %toPropagate.sroa.0.41663.i, i64 %add.ptr.i4.idx.i.i123.i
   %cmp.not3.i3.i7.i5.i.i125.i = icmp eq i32 %toPropagate.sroa.66.41660.i, 0
   br i1 %cmp.not3.i3.i7.i5.i.i125.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.thread.i, label %land.rhs.i4.i9.i6.i.i126.i
 
@@ -2866,7 +2866,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4llvh12DenseMapB
 
 if.end8.i.i.i.i:                                  ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_8DenseSetIPNS2_8VariableENS_12DenseMapInfoIS7_EEEENS8_IS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SB_SE_EixERKS4_.exit248.i
   %add.ptr.i4.idx.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i.i252.i, 3
-  %add.ptr.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %173, i64 %add.ptr.i4.idx.i.i.i.i
+  %add.ptr.i4.i.i.i.i = getelementptr i8, ptr %173, i64 %add.ptr.i4.idx.i.i.i.i
   %cmp.not3.i3.i7.i5.i.i.i.i = icmp eq i32 %174, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i, label %land.rhs.i4.i9.i6.i.i.i.i
 
@@ -3906,7 +3906,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %257 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %257 to i64
   %add.ptr.i.i.idx.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %256, i64 %add.ptr.i.i.idx.i.i.i
+  %add.ptr.i.i.i.i.i31 = getelementptr i8, ptr %256, i64 %add.ptr.i.i.idx.i.i.i
   %cmp.not3.i.i.i.i32 = icmp eq i32 %257, 0
   br i1 %cmp.not3.i.i.i.i32, label %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i, label %land.rhs.i.i.i.i
 
@@ -4062,7 +4062,7 @@ _ZN4llvh8DenseSetIPN6hermes8VariableENS_12DenseMapInfoIS3_EEEC2ERKS6_.exit: ; pr
   %280 = load i32, ptr %Size.i.i.i.i.i, align 8, !noalias !58
   %conv.i.i.i.i.i81 = zext i32 %280 to i64
   %add.ptr.i.i.idx.i.i.i82 = shl nuw nsw i64 %conv.i.i.i.i.i81, 3
-  %add.ptr.i.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %279, i64 %add.ptr.i.i.idx.i.i.i82
+  %add.ptr.i.i.i.i.i83 = getelementptr i8, ptr %279, i64 %add.ptr.i.i.idx.i.i.i82
   %cmp.not3.i.i.i.i84 = icmp eq i32 %280, 0
   br i1 %cmp.not3.i.i.i.i84, label %_ZN6hermes12predecessorsEPNS_10BasicBlockE.exit, label %land.rhs.i.i.i.i85
 
@@ -4110,7 +4110,7 @@ if.then.i.i104:                                   ; preds = %for.body14
 
 if.end8.i.i:                                      ; preds = %for.body14
   %add.ptr.i4.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i103, 3
-  %add.ptr.i4.i.i = getelementptr inbounds nuw i8, ptr %288, i64 %add.ptr.i4.idx.i.i
+  %add.ptr.i4.i.i = getelementptr i8, ptr %288, i64 %add.ptr.i4.idx.i.i
   %cmp.not3.i3.i7.i5.i.i = icmp eq i32 %289, 0
   br i1 %cmp.not3.i3.i7.i5.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %land.rhs.i4.i9.i6.i.i
 

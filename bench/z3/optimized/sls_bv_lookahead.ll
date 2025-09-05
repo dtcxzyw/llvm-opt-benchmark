@@ -9088,21 +9088,21 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; pre
   tail call void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef %60, i1 noundef zeroext false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !89
-  %.pre13 = load ptr, ptr %19, align 8, !tbaa !214
-  %.pre14 = lshr i32 %39, 5
-  %.pre15 = zext nneg i32 %.pre14 to i64
-  %.pre17 = and i32 %39, 31
-  %.pre19 = shl nuw i32 1, %.pre17
+  %.pre12 = load ptr, ptr %19, align 8, !tbaa !214
+  %.pre13 = lshr i32 %39, 5
+  %.pre14 = zext nneg i32 %.pre13 to i64
+  %.pre16 = and i32 %39, 31
+  %.pre18 = shl nuw i32 1, %.pre16
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit: ; preds = %52, %59
-  %.pre-phi20 = phi i32 [ %50, %52 ], [ %.pre19, %59 ]
-  %.pre-phi16 = phi i64 [ %46, %52 ], [ %.pre15, %59 ]
-  %61 = phi ptr [ %38, %52 ], [ %.pre13, %59 ]
+  %.pre-phi19 = phi i32 [ %50, %52 ], [ %.pre18, %59 ]
+  %.pre-phi15 = phi i64 [ %46, %52 ], [ %.pre14, %59 ]
+  %61 = phi ptr [ %38, %52 ], [ %.pre12, %59 ]
   %62 = phi ptr [ %44, %52 ], [ %.pre, %59 ]
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.pre-phi16
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %.pre-phi15
   %64 = load i32, ptr %63, align 4, !tbaa !133
-  %65 = or i32 %64, %.pre-phi20
+  %65 = or i32 %64, %.pre-phi19
   store i32 %65, ptr %63, align 4, !tbaa !133
   %66 = zext i32 %.0.i to i64
   %67 = getelementptr inbounds nuw %class.vector.49, ptr %61, i64 %66

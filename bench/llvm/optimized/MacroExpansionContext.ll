@@ -621,7 +621,7 @@ define dso_local void @_ZNK5clang21MacroExpansionContext27dumpExpansionRangesToS
   %19 = load i32, ptr %18, align 8, !tbaa !275
   %20 = zext i32 %19 to i64
   %.idx.i = shl nuw nsw i64 %20, 3
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i
   %.not8.i5.i10.i2.i = icmp eq i32 %19, 0
   br i1 %.not8.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

@@ -156,7 +156,7 @@ define hidden noundef i32 @_ZNK7counter18get_positive_countEv(ptr noundef nonnul
   %4 = load i32, ptr %3, align 8, !tbaa !14
   %5 = zext i32 %4 to i64
   %.idx.i.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7counter5beginEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -221,7 +221,7 @@ define hidden void @_ZNK7counter16collect_positiveER8uint_set(ptr noundef nonnul
   %7 = load i32, ptr %6, align 8, !tbaa !14
   %8 = zext i32 %7 to i64
   %.idx.i.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7counter5beginEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -462,7 +462,7 @@ define hidden noundef zeroext i1 @_ZNK7counter16get_max_positiveERj(ptr noundef 
   %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = zext i32 %5 to i64
   %.idx.i.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7counter5beginEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -549,7 +549,7 @@ define hidden noundef i32 @_ZNK7counter16get_max_positiveEv(ptr noundef nonnull 
   %4 = load i32, ptr %3, align 8, !tbaa !14
   %5 = zext i32 %4 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK7counter5beginEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -642,7 +642,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK7counter21get_max_count
   %4 = load i32, ptr %3, align 8, !tbaa !14
   %5 = zext i32 %4 to i64
   %.idx.i.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7counter5beginEv.exit, label %.lr.ph.i.i.i.i.i
 

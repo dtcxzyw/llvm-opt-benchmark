@@ -8937,7 +8937,7 @@ _ZN13pdecl_manager7dec_refEP5pdecl.exit:          ; preds = %.noexc7, %_ZNK6vect
   %40 = load i32, ptr %39, align 8, !tbaa !279
   %41 = zext i32 %40 to i64
   %.idx.i.i = shl nuw nsw i64 %41, 4
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i
+  %42 = getelementptr i8, ptr %38, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i.i, label %.loopexit65, label %.lr.ph.i.i.i.i
 
@@ -8970,7 +8970,7 @@ _ZN13pdecl_manager7dec_refEP5pdecl.exit:          ; preds = %.noexc7, %_ZNK6vect
   %52 = load i32, ptr %51, align 8, !tbaa !286
   %53 = zext i32 %52 to i64
   %.idx.i = shl nuw nsw i64 %53, 4
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i
+  %54 = getelementptr i8, ptr %50, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %52, 0
   br i1 %.not1.i.i.i, label %.loopexit61, label %.lr.ph.i.i.i
 
@@ -9587,7 +9587,7 @@ define hidden void @_ZN13pdecl_manager15reset_sort_infoEv(ptr noundef nonnull al
   %5 = load i32, ptr %4, align 8, !tbaa !103
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4sortPN13pdecl_manager9sort_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -10702,7 +10702,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %14, %8, %5
   %19 = load i32, ptr %18, align 8, !tbaa !52
   %20 = zext i32 %19 to i64
   %.idx.i.i = shl nuw nsw i64 %20, 4
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4sortPvE5beginEv.exit, label %.lr.ph.i.i.i.i
 

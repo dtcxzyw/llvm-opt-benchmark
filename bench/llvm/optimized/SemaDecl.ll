@@ -17020,7 +17020,7 @@ define dso_local void @_ZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5Sc
   %.v.v.i4.i2.i.i = select i1 %27, i32 %15, i32 %29
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
+  %30 = getelementptr i8, ptr %24, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK5clang5Scope5declsEv.exit, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -191152,7 +191152,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPN5clang9NamedDeclENS2_14SourceLocationEEE5era
 
 71:                                               ; preds = %59
   %.idx.i = shl nuw nsw i64 %68, 4
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %72 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %67, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9NamedDeclEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

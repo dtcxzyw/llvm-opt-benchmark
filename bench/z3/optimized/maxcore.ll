@@ -1478,7 +1478,7 @@ define linkonce_odr hidden void @_ZN7maxcoreD2Ev(ptr noundef nonnull align 8 der
   %5 = load i32, ptr %4, align 8, !tbaa !108
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -17701,7 +17701,7 @@ _ZN7obj_mapI4exprN7maxcore10bound_infoEE5resetEv.exit: ; preds = %_ZN7obj_mapI4e
   %147 = load i32, ptr %146, align 8, !tbaa !108
   %148 = zext i32 %147 to i64
   %.idx.i.i25 = shl nuw nsw i64 %148, 4
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx.i.i25
+  %149 = getelementptr i8, ptr %145, i64 %.idx.i.i25
   %.not1.i.i.i.i = icmp eq i32 %147, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPN3opt9totalizerEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

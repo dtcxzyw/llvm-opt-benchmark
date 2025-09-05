@@ -3274,7 +3274,7 @@ define dso_local void @_ZN5clang12ast_matchers11MatchFinder8matchASTERNS_10ASTCo
   %.v.v.i4.i2.i.i = select i1 %35, i32 %37, i32 %39
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i
+  %40 = getelementptr i8, ptr %32, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang12ast_matchers11MatchFinder13MatchCallbackEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -3498,7 +3498,7 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor24onStartOfTransl
   %.v.v.i4.i2.i.i3 = select i1 %152, i32 %154, i32 %156
   %.v.i5.i3.i.i4 = zext i32 %.v.v.i4.i2.i.i3 to i64
   %.idx.i.i5 = shl nuw nsw i64 %.v.i5.i3.i.i4, 3
-  %157 = getelementptr inbounds nuw i8, ptr %149, i64 %.idx.i.i5
+  %157 = getelementptr i8, ptr %149, i64 %.idx.i.i5
   %.not3.i4.i.i6.i4.i.i6 = icmp eq i32 %.v.v.i4.i2.i.i3, 0
   br i1 %.not3.i4.i.i6.i4.i.i6, label %_ZNK4llvm15SmallPtrSetImplIPN5clang12ast_matchers11MatchFinder13MatchCallbackEE5beginEv.exit.i10, label %.lr.ph.i5.i.i7.i5.i.i7
 
@@ -5402,7 +5402,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang17ObjCInterfaceDeclENS_11SmallPtrSe
   %.v.v.i4.i2.i.i = select i1 %52, i32 %54, i32 %56
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i
+  %57 = getelementptr i8, ptr %49, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang23ObjCCompatibleAliasDeclEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 

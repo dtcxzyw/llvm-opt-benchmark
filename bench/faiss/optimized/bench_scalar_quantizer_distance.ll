@@ -369,13 +369,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #21
   %13 = getelementptr inbounds nuw float, ptr %12, i64 %9
   store float 0.000000e+00, ptr %12, align 4, !tbaa !39
-  %14 = icmp eq i32 %8, 1
-  br i1 %14, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %14 = add nsw i64 %9, -1
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc58
-  %15 = getelementptr i8, ptr %12, i64 4
-  %16 = add nsw i64 %11, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %15, i8 0, i64 %16, i1 false), !tbaa !39
+  %16 = getelementptr i8, ptr %12, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %14, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !39
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc58, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -492,10 +493,10 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %44, %.noexc63, %_ZN
 
 _ZN9benchmark5State3endEv.exit.preheader.split:   ; preds = %48
   %.not = icmp eq i32 %53, 0
-  %.not.i.not125148 = icmp ne i64 %55, 0
-  %.not.i.not125.not150 = select i1 %.not, i1 %.not.i.not125148, i1 false
+  %.not.i.not125149 = icmp ne i64 %55, 0
+  %.not.i.not125.not151 = select i1 %.not, i1 %.not.i.not125149, i1 false
   %56 = icmp sgt i32 %3, 0
-  %or.cond = and i1 %.not.i.not125.not150, %56
+  %or.cond = and i1 %.not.i.not125.not151, %56
   br i1 %or.cond, label %.lr.ph120.us.preheader, label %_ZN9benchmark5State3endEv.exit._crit_edge, !prof !71
 
 .lr.ph120.us.preheader:                           ; preds = %_ZN9benchmark5State3endEv.exit.preheader.split

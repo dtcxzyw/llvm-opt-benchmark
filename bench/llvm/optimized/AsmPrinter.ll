@@ -6494,7 +6494,7 @@ define dso_local void @_ZN4llvm10AsmPrinter18emitGlobalConstantERKNS_10DataLayou
 
 43:                                               ; preds = %33
   %.idx.i = shl nuw nsw i64 %40, 5
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
+  %44 = getelementptr i8, ptr %37, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %39, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

@@ -655,7 +655,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1) unnamed_addr #12 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %4 = and i64 %3, -8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %5 = getelementptr i8, ptr %0, i64 %4
   %.040.i = mul i64 %3, -4132994306676758123
   %.not41.i = icmp samesign eq i64 %4, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i

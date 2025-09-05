@@ -139,7 +139,7 @@ define linkonce_odr hidden void @_Z18dec_ref_key_valuesI11ast_manager7obj_mapI3a
   %5 = load i32, ptr %4, align 8, !tbaa !20
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3astPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1536,7 +1536,7 @@ define noundef ptr @Z3_ast_map_keys(ptr noundef %0, ptr noundef %1) local_unname
   %22 = load i32, ptr %21, align 8, !tbaa !20
   %23 = zext i32 %22 to i64
   %.idx.i.i = shl nuw nsw i64 %23, 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
+  %24 = getelementptr i8, ptr %20, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -1750,7 +1750,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14
   %21 = load i32, ptr %20, align 8, !tbaa !20
   %22 = zext i32 %21 to i64
   %.idx.i.i = shl nuw nsw i64 %22, 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  %23 = getelementptr i8, ptr %19, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not1.i.i.i.i, label %.loopexit60, label %.lr.ph.i.i.i.i
 

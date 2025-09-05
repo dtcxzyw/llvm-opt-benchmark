@@ -3691,37 +3691,37 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %21
   br i1 %.not.i.i.i, label %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.thread.i.i, label %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.loopexit3.i.i
 
 _ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.loopexit3.i.i: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i
-  %34 = shl nuw nsw i64 %29, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %34, i1 false), !tbaa !168, !noalias !273
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %29, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !168, !noalias !273
   br label %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.thread.i.i
 
 _ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.thread.i.i: ; preds = %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.loopexit3.i.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i
   store i32 %23, ptr %31, align 8, !tbaa !88, !noalias !273
-  %35 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store i32 1, ptr %35, align 8, !tbaa !276, !noalias !273
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  store ptr null, ptr %36, align 8, !tbaa !283, !noalias !273
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store i32 1, ptr %34, align 8, !tbaa !276, !noalias !273
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  store ptr null, ptr %35, align 8, !tbaa !283, !noalias !273
   br label %_ZSt11make_uniqueIN5clang13serialization13ModuleManager10VisitStateEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.i.i:     ; preds = %21
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %30, i64 noundef %29, i64 noundef 4) #16, !noalias !273
-  %37 = load ptr, ptr %28, align 8, !tbaa !202, !noalias !273
-  %38 = shl nuw nsw i64 %29, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %37, i8 0, i64 %38, i1 false), !tbaa !168, !noalias !273
+  %36 = load ptr, ptr %28, align 8, !tbaa !202, !noalias !273
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %29, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !168, !noalias !273
   %.pre.i.i = load i32, ptr %27, align 4, !tbaa !201, !noalias !273
   store i32 %23, ptr %31, align 8, !tbaa !88, !noalias !273
-  %39 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store i32 1, ptr %39, align 8, !tbaa !276, !noalias !273
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  store ptr null, ptr %40, align 8, !tbaa !283, !noalias !273
-  %41 = icmp ugt i32 %23, %.pre.i.i
-  br i1 %41, label %42, label %_ZSt11make_uniqueIN5clang13serialization13ModuleManager10VisitStateEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store i32 1, ptr %37, align 8, !tbaa !276, !noalias !273
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  store ptr null, ptr %38, align 8, !tbaa !283, !noalias !273
+  %39 = icmp ugt i32 %23, %.pre.i.i
+  br i1 %39, label %40, label %_ZSt11make_uniqueIN5clang13serialization13ModuleManager10VisitStateEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
-42:                                               ; preds = %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.i.i
+40:                                               ; preds = %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.i.i
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull %25, i64 noundef %29, i64 noundef 8) #16, !noalias !273
   br label %_ZSt11make_uniqueIN5clang13serialization13ModuleManager10VisitStateEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
-_ZSt11make_uniqueIN5clang13serialization13ModuleManager10VisitStateEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.thread.i.i, %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.i.i, %42
+_ZSt11make_uniqueIN5clang13serialization13ModuleManager10VisitStateEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.thread.i.i, %_ZN4llvm11SmallVectorIjLj4EEC2EmRKj.exit.i.i, %40
   store ptr %24, ptr %0, align 8, !tbaa !272, !alias.scope !273
   br label %_ZNSt10unique_ptrIN5clang13serialization13ModuleManager10VisitStateESt14default_deleteIS3_EEaSEOS6_.exit
 

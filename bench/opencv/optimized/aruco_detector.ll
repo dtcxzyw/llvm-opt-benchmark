@@ -9992,13 +9992,14 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %882
 
 .noexc511:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %885, align 4, !tbaa !33
-  %886 = icmp eq i64 %880, 1
-  br i1 %886, label %.noexc293, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %886 = add nsw i64 %880, -1
+  %887 = icmp eq i64 %886, 0
+  br i1 %887, label %.noexc293, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc511
-  %887 = getelementptr i8, ptr %885, i64 4
-  %888 = add nsw i64 %884, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %887, i8 0, i64 %888, i1 false), !tbaa !33
+  %888 = getelementptr i8, ptr %885, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %886, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %888, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !33
   br label %.noexc293
 
 .noexc293:                                        ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc511
@@ -11250,9 +11251,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not.i.i.i386, label %.body364, label %.body364.sink.split
 
 .body364.sink.split:                              ; preds = %1348, %1290
-  %.sink1275 = phi ptr [ %1292, %1290 ], [ %1350, %1348 ]
+  %.sink1276 = phi ptr [ %1292, %1290 ], [ %1350, %1348 ]
   %.pn195.ph = phi { ptr, i32 } [ %1291, %1290 ], [ %1349, %1348 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink1275) #32
+  call void @_ZdlPv(ptr noundef nonnull %.sink1276) #32
   br label %.body364
 
 .body364:                                         ; preds = %.body364.sink.split, %1348, %1290
@@ -11506,9 +11507,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit408: ; preds = %_ZNSt6vectorIS_IN2c
   br i1 %.not.i.i.i409, label %.body400, label %.body400.sink.split
 
 .body400.sink.split:                              ; preds = %1433, %1415
-  %.sink1276 = phi ptr [ %1417, %1415 ], [ %1435, %1433 ]
+  %.sink1277 = phi ptr [ %1417, %1415 ], [ %1435, %1433 ]
   %.pn182.ph = phi { ptr, i32 } [ %1416, %1415 ], [ %1434, %1433 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink1276) #32
+  call void @_ZdlPv(ptr noundef nonnull %.sink1277) #32
   br label %.body400
 
 .body400:                                         ; preds = %.body400.sink.split, %1433, %1415

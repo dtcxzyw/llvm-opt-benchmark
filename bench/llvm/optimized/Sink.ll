@@ -280,7 +280,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i: ; preds = %._crit_ed
   %.v.v.i4.i2.i.i.i.i = select i1 %86, i32 %87, i32 %88
   %.v.i5.i3.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i, 3
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i.i.i.i
+  %89 = getelementptr i8, ptr %84, i64 %.idx.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i
 
@@ -470,7 +470,7 @@ _ZNK4llvm8CallBase12isConvergentEv.exit.i:        ; preds = %_ZN4llvm8dyn_castIN
   %.v.v.i4.i2.i38.i.i.i = select i1 %134, i32 %135, i32 %136
   %.v.i5.i3.i39.i.i.i = zext i32 %.v.v.i4.i2.i38.i.i.i to i64
   %.idx.i40.i.i.i = shl nuw nsw i64 %.v.i5.i3.i39.i.i.i, 3
-  %137 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i40.i.i.i
+  %137 = getelementptr i8, ptr %132, i64 %.idx.i40.i.i.i
   %.not3.i4.i.i6.i4.i41.i.i.i = icmp eq i32 %.v.v.i4.i2.i38.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i41.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit50.i.i.i, label %.lr.ph.i5.i.i7.i5.i42.i.i.i
 

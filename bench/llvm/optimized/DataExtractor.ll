@@ -429,7 +429,6 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU16EPmPtj(ptr noundef 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us:  ; preds = %.lr.ph.i, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us
   %19 = phi i64 [ %28, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us ], [ %5, %.lr.ph.i ]
   %.02026.us.i.us = phi ptr [ %29, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us ], [ %2, %.lr.ph.i ]
-  %.02125.us.i.us = phi i64 [ %30, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us ], [ %5, %.lr.ph.i ]
   %.not.i.i.us = icmp ult i64 %19, -2
   %20 = add i64 %19, 1
   %21 = load i64, ptr %10, align 8
@@ -449,40 +448,37 @@ _ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us: ; preds = %24, %_
   %.0.i.us.i.us = phi i16 [ %27, %24 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
   store i16 %.0.i.us.i.us, ptr %.02026.us.i.us, align 2, !tbaa !69
   %29 = getelementptr inbounds nuw i8, ptr %.02026.us.i.us, i64 2
-  %30 = add i64 %.02125.us.i.us, 2
   %.not.us.i.us = icmp eq ptr %29, %15
   br i1 %.not.us.i.us, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us, !llvm.loop !71
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %.lr.ph.i, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i
-  %31 = phi i64 [ %40, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
-  %.02026.us.i = phi ptr [ %41, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ], [ %2, %.lr.ph.i ]
-  %.02125.us.i = phi i64 [ %42, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
-  %.not.i.i = icmp ult i64 %31, -2
-  %32 = add i64 %31, 1
-  %33 = load i64, ptr %10, align 8
-  %34 = icmp ugt i64 %33, %32
-  %35 = select i1 %.not.i.i, i1 %34, i1 false
-  br i1 %35, label %36, label %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i
+  %30 = phi i64 [ %39, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
+  %.02026.us.i = phi ptr [ %40, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ], [ %2, %.lr.ph.i ]
+  %.not.i.i = icmp ult i64 %30, -2
+  %31 = add i64 %30, 1
+  %32 = load i64, ptr %10, align 8
+  %33 = icmp ugt i64 %32, %31
+  %34 = select i1 %.not.i.i, i1 %33, i1 false
+  br i1 %34, label %35, label %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i
 
-36:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %37 = add nuw i64 %31, 2
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 %31
-  %39 = load i16, ptr %38, align 1
-  %rev.i.i.i.i.us.i = tail call i16 @llvm.bswap.i16(i16 %39)
-  store i64 %37, ptr %1, align 8, !tbaa !62
+35:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
+  %36 = add nuw i64 %30, 2
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 %30
+  %38 = load i16, ptr %37, align 1
+  %rev.i.i.i.i.us.i = tail call i16 @llvm.bswap.i16(i16 %38)
+  store i64 %36, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i
 
-_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i: ; preds = %36, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %40 = phi i64 [ %37, %36 ], [ %31, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
-  %.0.i.us.i = phi i16 [ %rev.i.i.i.i.us.i, %36 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
+  %39 = phi i64 [ %36, %35 ], [ %30, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+  %.0.i.us.i = phi i16 [ %rev.i.i.i.i.us.i, %35 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i16 %.0.i.us.i, ptr %.02026.us.i, align 2, !tbaa !69
-  %41 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 2
-  %42 = add i64 %.02125.us.i, 2
-  %.not.us.i = icmp eq ptr %41, %15
+  %40 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 2
+  %.not.us.i = icmp eq ptr %40, %15
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us, %14
-  %.021.lcssa.i = phi i64 [ %5, %14 ], [ %30, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us ], [ %42, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ]
+  %.021.lcssa.i = phi i64 [ %5, %14 ], [ %8, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us ], [ %8, %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i ]
   store i64 %.021.lcssa.i, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor5getUsItEEPT_PmS3_jPNS_5ErrorE.exit
 
@@ -602,7 +598,6 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU32EPmPjj(ptr noundef 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us:  ; preds = %.lr.ph.i, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us
   %19 = phi i64 [ %28, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us ], [ %5, %.lr.ph.i ]
   %.02026.us.i.us = phi ptr [ %29, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us ], [ %2, %.lr.ph.i ]
-  %.02125.us.i.us = phi i64 [ %30, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us ], [ %5, %.lr.ph.i ]
   %.not.i.i.us = icmp ult i64 %19, -4
   %20 = add i64 %19, 3
   %21 = load i64, ptr %10, align 8
@@ -622,40 +617,37 @@ _ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us: ; preds = %24, %_
   %.0.i.us.i.us = phi i32 [ %27, %24 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
   store i32 %.0.i.us.i.us, ptr %.02026.us.i.us, align 4, !tbaa !72
   %29 = getelementptr inbounds nuw i8, ptr %.02026.us.i.us, i64 4
-  %30 = add i64 %.02125.us.i.us, 4
   %.not.us.i.us = icmp eq ptr %29, %15
   br i1 %.not.us.i.us, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us, !llvm.loop !74
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %.lr.ph.i, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i
-  %31 = phi i64 [ %41, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
-  %.02026.us.i = phi ptr [ %42, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ], [ %2, %.lr.ph.i ]
-  %.02125.us.i = phi i64 [ %43, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
-  %.not.i.i = icmp ult i64 %31, -4
-  %32 = add i64 %31, 3
-  %33 = load i64, ptr %10, align 8
-  %34 = icmp ugt i64 %33, %32
-  %35 = select i1 %.not.i.i, i1 %34, i1 false
-  br i1 %35, label %36, label %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i
+  %30 = phi i64 [ %40, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
+  %.02026.us.i = phi ptr [ %41, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ], [ %2, %.lr.ph.i ]
+  %.not.i.i = icmp ult i64 %30, -4
+  %31 = add i64 %30, 3
+  %32 = load i64, ptr %10, align 8
+  %33 = icmp ugt i64 %32, %31
+  %34 = select i1 %.not.i.i, i1 %33, i1 false
+  br i1 %34, label %35, label %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i
 
-36:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %37 = add nuw i64 %31, 4
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 %31
-  %39 = load i32, ptr %38, align 1
-  %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  store i64 %37, ptr %1, align 8, !tbaa !62
+35:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
+  %36 = add nuw i64 %30, 4
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 %30
+  %38 = load i32, ptr %37, align 1
+  %39 = tail call i32 @llvm.bswap.i32(i32 %38)
+  store i64 %36, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i
 
-_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i: ; preds = %36, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %41 = phi i64 [ %37, %36 ], [ %31, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
-  %.0.i.us.i = phi i32 [ %40, %36 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
+  %40 = phi i64 [ %36, %35 ], [ %30, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+  %.0.i.us.i = phi i32 [ %39, %35 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i32 %.0.i.us.i, ptr %.02026.us.i, align 4, !tbaa !72
-  %42 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 4
-  %43 = add i64 %.02125.us.i, 4
-  %.not.us.i = icmp eq ptr %42, %15
+  %41 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 4
+  %.not.us.i = icmp eq ptr %41, %15
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us, %14
-  %.021.lcssa.i = phi i64 [ %5, %14 ], [ %30, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us ], [ %43, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ]
+  %.021.lcssa.i = phi i64 [ %5, %14 ], [ %8, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us ], [ %8, %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i ]
   store i64 %.021.lcssa.i, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor5getUsIjEEPT_PmS3_jPNS_5ErrorE.exit
 
@@ -727,7 +719,6 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU64EPmS1_j(ptr noundef
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us:  ; preds = %.lr.ph.i, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us
   %.02026.us.i.us = phi ptr [ %28, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us ], [ %2, %.lr.ph.i ]
-  %.02125.us.i.us = phi i64 [ %29, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us ], [ %5, %.lr.ph.i ]
   %19 = load i64, ptr %1, align 8, !tbaa !62
   %.not.i.i.us = icmp ult i64 %19, -8
   %20 = add i64 %19, 7
@@ -747,39 +738,36 @@ _ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us: ; preds = %24, %_
   %.0.i.us.i.us = phi i64 [ %27, %24 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
   store i64 %.0.i.us.i.us, ptr %.02026.us.i.us, align 8, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %.02026.us.i.us, i64 8
-  %29 = add i64 %.02125.us.i.us, 8
   %.not.us.i.us = icmp eq ptr %28, %15
   br i1 %.not.us.i.us, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us, !llvm.loop !75
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %.lr.ph.i, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i
-  %.02026.us.i = phi ptr [ %40, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i ], [ %2, %.lr.ph.i ]
-  %.02125.us.i = phi i64 [ %41, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i ], [ %5, %.lr.ph.i ]
-  %30 = load i64, ptr %1, align 8, !tbaa !62
-  %.not.i.i = icmp ult i64 %30, -8
-  %31 = add i64 %30, 7
-  %32 = load i64, ptr %10, align 8
-  %33 = icmp ugt i64 %32, %31
-  %34 = select i1 %.not.i.i, i1 %33, i1 false
-  br i1 %34, label %35, label %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i
+  %.02026.us.i = phi ptr [ %39, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i ], [ %2, %.lr.ph.i ]
+  %29 = load i64, ptr %1, align 8, !tbaa !62
+  %.not.i.i = icmp ult i64 %29, -8
+  %30 = add i64 %29, 7
+  %31 = load i64, ptr %10, align 8
+  %32 = icmp ugt i64 %31, %30
+  %33 = select i1 %.not.i.i, i1 %32, i1 false
+  br i1 %33, label %34, label %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i
 
-35:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %36 = add nuw i64 %30, 8
-  %37 = getelementptr inbounds nuw i8, ptr %17, i64 %30
-  %38 = load i64, ptr %37, align 1
-  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
-  store i64 %36, ptr %1, align 8, !tbaa !62
+34:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
+  %35 = add nuw i64 %29, 8
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 %29
+  %37 = load i64, ptr %36, align 1
+  %38 = tail call i64 @llvm.bswap.i64(i64 %37)
+  store i64 %35, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i
 
-_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %.0.i.us.i = phi i64 [ %39, %35 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i: ; preds = %34, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
+  %.0.i.us.i = phi i64 [ %38, %34 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i64 %.0.i.us.i, ptr %.02026.us.i, align 8, !tbaa !62
-  %40 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 8
-  %41 = add i64 %.02125.us.i, 8
-  %.not.us.i = icmp eq ptr %40, %15
+  %39 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 8
+  %.not.us.i = icmp eq ptr %39, %15
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us, %14
-  %.021.lcssa.i = phi i64 [ %5, %14 ], [ %29, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us ], [ %41, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i ]
+  %.021.lcssa.i = phi i64 [ %5, %14 ], [ %8, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us ], [ %8, %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i ]
   store i64 %.021.lcssa.i, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit
 

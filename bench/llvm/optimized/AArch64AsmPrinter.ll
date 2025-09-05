@@ -4216,7 +4216,7 @@ _ZNSt6vectorISt4pairIPN4llvm8MCSymbolEPKNS1_6MCExprEESaIS7_EED2Ev.exit45: ; pred
 
 852:                                              ; preds = %829
   %.idx.i = shl nuw nsw i64 %849, 5
-  %853 = getelementptr inbounds nuw i8, ptr %846, i64 %.idx.i
+  %853 = getelementptr i8, ptr %846, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %848, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt6vectorISt4pairIPNS_8MCSymbolES7_ESaIS8_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SA_EEEES3_SA_SC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

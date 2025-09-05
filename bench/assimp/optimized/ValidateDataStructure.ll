@@ -3127,13 +3127,14 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
   %29 = shl nuw nsw i64 %28, 2
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #26
   store i32 0, ptr %30, align 4
-  %31 = icmp eq i32 %.1, 1
-  br i1 %31, label %.lr.ph164, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
+  %31 = add nsw i64 %28, -1
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %.lr.ph164, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %32 = getelementptr i8, ptr %30, i64 4
-  %33 = add nsw i64 %29, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %32, i8 0, i64 %33, i1 false)
+  %33 = getelementptr i8, ptr %30, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
@@ -3294,7 +3295,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.preheader125, %110
   %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv193
   %109 = load ptr, ptr %108, align 8
   %.not.i.not = icmp eq ptr %109, null
-  br i1 %.not.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit268, label %110
+  br i1 %.not.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269, label %110
 
 110:                                              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
@@ -3306,12 +3307,12 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.preheader125, %110
           cleanup
   br label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit106
 
-_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit268: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
+_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %113 = trunc nuw nsw i64 %indvars.iv193 to i32
   br label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread
 
-_ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit268, %.preheader125
-  %.us-phi = phi i32 [ 0, %.preheader125 ], [ %113, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit268 ], [ 8, %110 ]
+_ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269, %.preheader125
+  %.us-phi = phi i32 [ 0, %.preheader125 ], [ %113, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269 ], [ 8, %110 ]
   %.not98 = icmp slt i32 %92, %.us-phi
   br i1 %.not98, label %116, label %114
 

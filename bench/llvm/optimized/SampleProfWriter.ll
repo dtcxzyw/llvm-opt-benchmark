@@ -1295,118 +1295,118 @@ _ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread: ; preds = %_ZSt6fill_nIPjmjET_
   br label %._crit_edge
 
 _ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i
-  %15 = shl nuw nsw i64 %10, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %11, i8 -1, i64 %15, i1 false), !tbaa !139
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %10, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %11, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !139
   %storemerge.i54 = trunc nuw nsw i64 %10 to i32
   store i32 %storemerge.i54, ptr %12, align 8, !tbaa !127
   br label %.lr.ph
 
 _ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit:        ; preds = %1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 4) #24
-  %16 = load ptr, ptr %2, align 8, !tbaa !3
-  %17 = shl nsw i64 %10, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 -1, i64 %17, i1 false), !tbaa !139
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %10, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %15, i8 -1, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !139
   %.pre = load ptr, ptr %4, align 8, !tbaa !116
   %.pre34 = load ptr, ptr %3, align 8, !tbaa !120
   %.pre35 = ptrtoint ptr %.pre to i64
   %.pre36 = ptrtoint ptr %.pre34 to i64
   %.pre38 = sub i64 %.pre35, %.pre36
   %.pre40 = sdiv exact i64 %.pre38, 40
-  %18 = icmp eq ptr %.pre, %.pre34
+  %16 = icmp eq ptr %.pre, %.pre34
   %storemerge.i = trunc i64 %10 to i32
   store i32 %storemerge.i, ptr %12, align 8, !tbaa !127
-  br i1 %18, label %._crit_edge, label %.lr.ph
+  br i1 %16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit
-  %19 = phi ptr [ %6, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51 ], [ %.pre34, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit ]
-  %20 = phi ptr [ %11, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51 ], [ %16, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit ]
+  %17 = phi ptr [ %6, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51 ], [ %.pre34, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit ]
+  %18 = phi ptr [ %11, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51 ], [ %15, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit ]
   %.pre-phi4155 = phi i64 [ %10, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread51 ], [ %.pre40, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit ]
-  br label %26
+  br label %24
 
-._crit_edge:                                      ; preds = %26, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %24 = load i32, ptr %23, align 8, !tbaa !127
-  %.not32 = icmp eq i32 %24, 0
+._crit_edge:                                      ; preds = %24, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.thread, %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %22 = load i32, ptr %21, align 8, !tbaa !127
+  %.not32 = icmp eq i32 %22, 0
   br i1 %.not32, label %._crit_edge31, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  br label %38
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  br label %36
 
-26:                                               ; preds = %.lr.ph, %26
-  %27 = phi i64 [ 0, %.lr.ph ], [ %32, %26 ]
-  %.027 = phi i32 [ 0, %.lr.ph ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %19, i64 %27, i32 4
-  %29 = load i64, ptr %28, align 8, !tbaa !140
-  %30 = getelementptr inbounds nuw i32, ptr %20, i64 %29
-  store i32 %.027, ptr %30, align 4, !tbaa !139
-  %31 = add i32 %.027, 1
-  %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %.pre-phi4155, %32
-  br i1 %33, label %26, label %._crit_edge, !llvm.loop !141
+24:                                               ; preds = %.lr.ph, %24
+  %25 = phi i64 [ 0, %.lr.ph ], [ %30, %24 ]
+  %.027 = phi i32 [ 0, %.lr.ph ], [ %29, %24 ]
+  %26 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %17, i64 %25, i32 4
+  %27 = load i64, ptr %26, align 8, !tbaa !140
+  %28 = getelementptr inbounds nuw i32, ptr %18, i64 %27
+  store i32 %.027, ptr %28, align 4, !tbaa !139
+  %29 = add i32 %.027, 1
+  %30 = zext i32 %29 to i64
+  %31 = icmp ugt i64 %.pre-phi4155, %30
+  br i1 %31, label %24, label %._crit_edge, !llvm.loop !141
 
-._crit_edge31:                                    ; preds = %38, %._crit_edge
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #24
-  %35 = load ptr, ptr %2, align 8, !tbaa !3
-  %36 = icmp eq ptr %35, %11
-  br i1 %36, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %37
+._crit_edge31:                                    ; preds = %36, %._crit_edge
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #24
+  %33 = load ptr, ptr %2, align 8, !tbaa !3
+  %34 = icmp eq ptr %33, %11
+  br i1 %34, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %35
 
-37:                                               ; preds = %._crit_edge31
-  call void @free(ptr noundef %35) #24
+35:                                               ; preds = %._crit_edge31
+  call void @free(ptr noundef %33) #24
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge31, %37
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %._crit_edge31, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.fca.1.insert = insertvalue { i32, ptr } { i32 0, ptr poison }, ptr %34, 1
+  %.fca.1.insert = insertvalue { i32, ptr } { i32 0, ptr poison }, ptr %32, 1
   ret { i32, ptr } %.fca.1.insert
 
-38:                                               ; preds = %.lr.ph30, %38
-  %.01228 = phi i32 [ 0, %.lr.ph30 ], [ %67, %38 ]
-  %39 = zext i32 %.01228 to i64
-  %40 = load ptr, ptr %2, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %39
-  %42 = load i32, ptr %41, align 4, !tbaa !139
-  %43 = zext i32 %42 to i64
-  %44 = load ptr, ptr %3, align 8, !tbaa !120
-  %45 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %44, i64 %43
-  %.sroa.0.0.copyload = load i32, ptr %45, align 8, !tbaa !118
-  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+36:                                               ; preds = %.lr.ph30, %36
+  %.01228 = phi i32 [ 0, %.lr.ph30 ], [ %65, %36 ]
+  %37 = zext i32 %.01228 to i64
+  %38 = load ptr, ptr %2, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %37
+  %40 = load i32, ptr %39, align 4, !tbaa !139
+  %41 = zext i32 %40 to i64
+  %42 = load ptr, ptr %3, align 8, !tbaa !120
+  %43 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %42, i64 %41
+  %.sroa.0.0.copyload = load i32, ptr %43, align 8, !tbaa !118
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.41.0.copyload = load i64, ptr %.sroa.41.0..sroa_idx, align 8, !tbaa !119
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !119
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 24
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !119
-  %46 = zext i32 %.sroa.0.0.copyload to i64
-  %47 = load i64, ptr %25, align 8, !tbaa !142
-  %48 = shl i32 %.01228, 2
-  %49 = zext i32 %48 to i64
-  %50 = shl nuw nsw i64 %49, 3
-  %51 = add i64 %47, %50
-  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %22, i32 1, i64 noundef %46, i64 noundef %51)
-  %52 = load i64, ptr %25, align 8, !tbaa !142
-  %53 = or disjoint i32 %48, 1
-  %54 = zext i32 %53 to i64
-  %55 = shl nuw nsw i64 %54, 3
-  %56 = add i64 %52, %55
-  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %22, i32 1, i64 noundef %.sroa.41.0.copyload, i64 noundef %56)
-  %57 = load i64, ptr %25, align 8, !tbaa !142
-  %58 = or disjoint i32 %48, 2
-  %59 = zext i32 %58 to i64
-  %60 = shl nuw nsw i64 %59, 3
-  %61 = add i64 %57, %60
-  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %22, i32 1, i64 noundef %.sroa.5.0.copyload, i64 noundef %61)
-  %62 = load i64, ptr %25, align 8, !tbaa !142
-  %63 = or disjoint i32 %48, 3
-  %64 = zext i32 %63 to i64
-  %65 = shl nuw nsw i64 %64, 3
-  %66 = add i64 %62, %65
-  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %22, i32 1, i64 noundef %.sroa.6.0.copyload, i64 noundef %66)
-  %67 = add nuw i32 %.01228, 1
-  %68 = load i32, ptr %23, align 8, !tbaa !127
-  %69 = icmp ugt i32 %68, %67
-  br i1 %69, label %38, label %._crit_edge31, !llvm.loop !143
+  %44 = zext i32 %.sroa.0.0.copyload to i64
+  %45 = load i64, ptr %23, align 8, !tbaa !142
+  %46 = shl i32 %.01228, 2
+  %47 = zext i32 %46 to i64
+  %48 = shl nuw nsw i64 %47, 3
+  %49 = add i64 %45, %48
+  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %20, i32 1, i64 noundef %44, i64 noundef %49)
+  %50 = load i64, ptr %23, align 8, !tbaa !142
+  %51 = or disjoint i32 %46, 1
+  %52 = zext i32 %51 to i64
+  %53 = shl nuw nsw i64 %52, 3
+  %54 = add i64 %50, %53
+  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %20, i32 1, i64 noundef %.sroa.41.0.copyload, i64 noundef %54)
+  %55 = load i64, ptr %23, align 8, !tbaa !142
+  %56 = or disjoint i32 %46, 2
+  %57 = zext i32 %56 to i64
+  %58 = shl nuw nsw i64 %57, 3
+  %59 = add i64 %55, %58
+  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %20, i32 1, i64 noundef %.sroa.5.0.copyload, i64 noundef %59)
+  %60 = load i64, ptr %23, align 8, !tbaa !142
+  %61 = or disjoint i32 %46, 3
+  %62 = zext i32 %61 to i64
+  %63 = shl nuw nsw i64 %62, 3
+  %64 = add i64 %60, %63
+  call fastcc void @_ZN4llvm7support6endian12_GLOBAL__N_114SeekableWriter6pwriteImEEvT_m(ptr %20, i32 1, i64 noundef %.sroa.6.0.copyload, i64 noundef %64)
+  %65 = add nuw i32 %.01228, 1
+  %66 = load i32, ptr %21, align 8, !tbaa !127
+  %67 = icmp ugt i32 %66, %65
+  br i1 %67, label %36, label %._crit_edge31, !llvm.loop !143
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

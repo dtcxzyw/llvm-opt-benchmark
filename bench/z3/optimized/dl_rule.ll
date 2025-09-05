@@ -25348,7 +25348,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %171 = load i32, ptr %170, align 8, !tbaa !223
   %172 = zext i32 %171 to i64
   %.idx.i = shl nuw nsw i64 %172, 3
-  %173 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx.i
+  %173 = getelementptr i8, ptr %169, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %171, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -29476,7 +29476,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %116 = load i32, ptr %115, align 8, !tbaa !223
   %117 = zext i32 %116 to i64
   %.idx.i = shl nuw nsw i64 %117, 3
-  %118 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx.i
+  %118 = getelementptr i8, ptr %114, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %116, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

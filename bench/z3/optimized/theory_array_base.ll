@@ -7218,11 +7218,11 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZN6vectorIPvLb0EjE
   br i1 %.not16.i.not, label %_ZN6vectorIiLb0EjE6resizeIiEEvjT_z.exit, label %thread-pre-split.i.preheader
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i
-  %.ph105 = phi ptr [ %17, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ]
+  %.ph103 = phi ptr [ %17, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i
-  %19 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i ], [ %.ph105, %thread-pre-split.i.preheader ]
+  %19 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i ], [ %.ph103, %thread-pre-split.i.preheader ]
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i
 
@@ -7274,7 +7274,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread.i: ; preds = %_ZN6vectorIiLb0
 
 34:                                               ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread.i, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i
   %.pr.i25 = phi ptr [ %.pr.pre.i27, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i ], [ %30, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread.i ]
-  %.0.i16.ph.i = phi i32 [ %.0.i16.i99, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i ], [ %32, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread.i ]
+  %.0.i16.ph.i = phi i32 [ %.0.i16.i97, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i ], [ %32, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread.i ]
   %35 = icmp eq ptr %.pr.i25, null
   br i1 %35, label %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.i
 
@@ -7285,7 +7285,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.i: ; preds = %34
   br i1 %38, label %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i, label %39
 
 _ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.i, %34
-  %.0.i16.i99 = phi i32 [ %.0.i16.ph.i, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.i ], [ %.0.i16.ph.i, %34 ], [ 0, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i ]
+  %.0.i16.i97 = phi i32 [ %.0.i16.ph.i, %_ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.i ], [ %.0.i16.ph.i, %34 ], [ 0, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i ]
   tail call void @_ZN6vectorIPN3smt5enodeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %.pr.pre.i27 = load ptr, ptr %8, align 8, !tbaa !551
   br label %34, !llvm.loop !742
@@ -8027,7 +8027,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit:        ; preds = %1
   %16 = load i32, ptr %15, align 8, !tbaa !754
   %17 = zext i32 %16 to i64
   %.idx.i.i = shl nuw nsw i64 %17, 4
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
+  %18 = getelementptr i8, ptr %14, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt5enodeEENS1_17theory_array_base8sel_hashENS4_6sel_eqEE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -8934,7 +8934,7 @@ define hidden void @_ZN3smt17theory_array_base34propagate_selects_to_store_paren
   %7 = load i32, ptr %6, align 8, !tbaa !754
   %8 = zext i32 %7 to i64
   %.idx.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt5enodeEENS1_17theory_array_base8sel_hashENS4_6sel_eqEE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -9438,7 +9438,7 @@ _ZNK7obj_mapIN3smt5enodeEP13ptr_hashtableIS1_NS0_17theory_array_base8sel_hashENS
   %194 = load i32, ptr %193, align 8, !tbaa !754
   %195 = zext i32 %194 to i64
   %.idx.i = shl nuw nsw i64 %195, 4
-  %196 = getelementptr inbounds nuw i8, ptr %192, i64 %.idx.i
+  %196 = getelementptr i8, ptr %192, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %194, 0
   br i1 %.not1.i.i.i, label %.loopexit94, label %.lr.ph.i.i.i57
 

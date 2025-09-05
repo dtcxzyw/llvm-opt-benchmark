@@ -1306,7 +1306,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %73, %75
   %.v.v.i4.i2.i = select i1 %85, i32 %87, i32 %89
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i
+  %90 = getelementptr i8, ptr %82, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_4LoopEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

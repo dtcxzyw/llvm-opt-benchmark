@@ -1959,7 +1959,7 @@ define hidden void @_ZN6spacer16pred_transformer13legacy_frames14inherit_framesE
   %6 = load i32, ptr %5, align 8, !tbaa !142
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprjE5beginEv.exit, label %.lr.ph.i.i.i.i
 

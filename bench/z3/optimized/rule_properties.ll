@@ -2635,7 +2635,7 @@ define hidden void @_ZN7datalog15rule_properties21check_quantifier_freeEv(ptr no
   %11 = load i32, ptr %10, align 8, !tbaa !46
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI10quantifierPN7datalog4ruleEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -2814,7 +2814,7 @@ define hidden void @_ZN7datalog15rule_properties21check_quantifier_freeE15quanti
   %9 = load i32, ptr %8, align 8, !tbaa !46
   %10 = zext i32 %9 to i64
   %.idx.i.i = shl nuw nsw i64 %10, 4
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI10quantifierPN7datalog4ruleEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3225,7 +3225,7 @@ define hidden void @_ZN7datalog15rule_properties24check_uninterpreted_freeEv(ptr
   %11 = load i32, ptr %10, align 8, !tbaa !50
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPN7datalog4ruleEE5beginEv.exit.thread, label %.lr.ph.i.i.i.i
 

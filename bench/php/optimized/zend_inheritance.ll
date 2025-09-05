@@ -1892,8 +1892,8 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
 
 113:                                              ; preds = %112, %111
   %114 = load ptr, ptr %96, align 8, !tbaa !107
-  %.pre583 = load i32, ptr %79, align 8, !tbaa !89
-  %.pre588 = sext i32 %.pre583 to i64
+  %.pre582 = load i32, ptr %79, align 8, !tbaa !89
+  %.pre587 = sext i32 %.pre582 to i64
   br label %128
 
 115:                                              ; preds = %81
@@ -1919,12 +1919,12 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
   br label %128
 
 128:                                              ; preds = %122, %113
-  %.pre-phi589 = phi i64 [ %125, %122 ], [ %.pre588, %113 ]
+  %.pre-phi588 = phi i64 [ %125, %122 ], [ %.pre587, %113 ]
   %.0471 = phi ptr [ %123, %122 ], [ %114, %113 ]
   %.1469 = phi ptr [ %126, %122 ], [ %106, %113 ]
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %130 = load ptr, ptr %129, align 8, !tbaa !107
-  %131 = getelementptr inbounds %struct._zval_struct, ptr %130, i64 %.pre-phi589
+  %131 = getelementptr inbounds %struct._zval_struct, ptr %130, i64 %.pre-phi588
   %132 = load i8, ptr %1, align 8, !tbaa !86
   %133 = load i8, ptr %0, align 8, !tbaa !86
   %.not512 = icmp eq i8 %132, %133
@@ -1976,11 +1976,11 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
   %155 = load i32, ptr %149, align 4, !tbaa !84
   %156 = add i32 %155, 1
   store i32 %156, ptr %149, align 4, !tbaa !84
-  %.pre584 = load i32, ptr %152, align 8, !tbaa !21
+  %.pre583 = load i32, ptr %152, align 8, !tbaa !21
   br label %157
 
 157:                                              ; preds = %154, %.preheader
-  %158 = phi i32 [ %.pre584, %154 ], [ %151, %.preheader ]
+  %158 = phi i32 [ %.pre583, %154 ], [ %151, %.preheader ]
   %159 = getelementptr inbounds i8, ptr %.2, i64 -4
   %160 = load i32, ptr %159, align 4, !tbaa !21
   %161 = getelementptr inbounds i8, ptr %.3, i64 -4
@@ -2078,8 +2078,8 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
 
 211:                                              ; preds = %210, %209
   %212 = load ptr, ptr %190, align 8, !tbaa !117
-  %.pre585 = load i32, ptr %173, align 4, !tbaa !116
-  %.pre587 = sext i32 %.pre585 to i64
+  %.pre584 = load i32, ptr %173, align 4, !tbaa !116
+  %.pre586 = sext i32 %.pre584 to i64
   br label %226
 
 213:                                              ; preds = %175
@@ -2105,7 +2105,7 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
   br label %226
 
 226:                                              ; preds = %220, %211
-  %.pre-phi = phi i64 [ %223, %220 ], [ %.pre587, %211 ]
+  %.pre-phi = phi i64 [ %223, %220 ], [ %.pre586, %211 ]
   %.0478 = phi ptr [ %221, %220 ], [ %212, %211 ]
   %.1476 = phi ptr [ %224, %220 ], [ %200, %211 ]
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2232,8 +2232,8 @@ zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %61
   br label %.sink.split
 
 .sink.split:                                      ; preds = %288, %294
-  %.sink622 = phi i32 [ %297, %294 ], [ %291, %288 ]
-  store i32 %.sink622, ptr %280, align 8, !tbaa !103
+  %.sink621 = phi i32 [ %297, %294 ], [ %291, %288 ]
+  store i32 %.sink621, ptr %280, align 8, !tbaa !103
   br label %298
 
 298:                                              ; preds = %.sink.split, %279, %292, %.lr.ph
@@ -2817,7 +2817,7 @@ do_inherit_parent_constructor.exit:               ; preds = %586, %587, %604
   br i1 %606, label %607, label %do_inherit_parent_constructor.exit._crit_edge
 
 do_inherit_parent_constructor.exit._crit_edge:    ; preds = %do_inherit_parent_constructor.exit
-  %.pre586 = load i32, ptr %4, align 4, !tbaa !22
+  %.pre585 = load i32, ptr %4, align 4, !tbaa !22
   br label %616
 
 607:                                              ; preds = %do_inherit_parent_constructor.exit
@@ -2842,7 +2842,7 @@ do_inherit_parent_constructor.exit._crit_edge:    ; preds = %do_inherit_parent_c
   br label %616
 
 616:                                              ; preds = %do_inherit_parent_constructor.exit._crit_edge, %611, %614
-  %617 = phi i32 [ %.pre586, %do_inherit_parent_constructor.exit._crit_edge ], [ %612, %611 ], [ %615, %614 ]
+  %617 = phi i32 [ %.pre585, %do_inherit_parent_constructor.exit._crit_edge ], [ %612, %611 ], [ %615, %614 ]
   %618 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %619 = load i32, ptr %618, align 4, !tbaa !22
   %620 = and i32 %619, 539019520

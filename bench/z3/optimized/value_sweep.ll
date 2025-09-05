@@ -2426,7 +2426,7 @@ _ZNK6vectorI10ptr_vectorI3appELb1EjE8capacityEv.exit.i.i: ; preds = %_ZNK6vector
 
 _ZNK6vectorI10ptr_vectorI3appELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorI10ptr_vectorI3appELb1EjE8capacityEv.exit.i.i, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.i.i43
   invoke void @_ZN6vectorI10ptr_vectorI3appELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc unwind label %.loopexit126
+          to label %.noexc unwind label %.loopexit125
 
 .noexc:                                           ; preds = %_ZNK6vectorI10ptr_vectorI3appELb1EjE8capacityEv.exit.thread.i.i
   %.pr.pre.i.i = load ptr, ptr %11, align 8, !tbaa !85
@@ -2491,7 +2491,7 @@ _ZNK11value_sweep9get_valueEP4expr.exit:          ; preds = %_ZNK15ref_vector_co
   invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %_ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split.sink.split unwind label %.loopexit.split-lp
 
-.loopexit126:                                     ; preds = %_ZNK6vectorI10ptr_vectorI3appELb1EjE8capacityEv.exit.thread.i.i
+.loopexit125:                                     ; preds = %_ZNK6vectorI10ptr_vectorI3appELb1EjE8capacityEv.exit.thread.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %160
@@ -2572,11 +2572,11 @@ _ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split.sink.split: ; pred
   br label %_ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split
 
 _ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split: ; preds = %_ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split.sink.split, %148, %113
-  %.sink125 = phi ptr [ %111, %113 ], [ %146, %148 ], [ %.pre.i52.sink, %_ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split.sink.split ]
+  %.sink124 = phi ptr [ %111, %113 ], [ %146, %148 ], [ %.pre.i52.sink, %_ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split.sink.split ]
   %.sink = phi i32 [ %115, %113 ], [ %150, %148 ], [ %.pre2.i54, %_ZNK11value_sweep12is_reducibleEP4expr.exit.thread.sink.split.sink.split ]
-  %155 = getelementptr inbounds i8, ptr %.sink125, i64 -4
+  %155 = getelementptr inbounds i8, ptr %.sink124, i64 -4
   %156 = zext i32 %.sink to i64
-  %157 = getelementptr inbounds nuw ptr, ptr %.sink125, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr %.sink124, i64 %156
   store ptr %78, ptr %157, align 8, !tbaa !39
   %158 = add i32 %.sink, 1
   store i32 %158, ptr %155, align 4, !tbaa !38
@@ -2586,8 +2586,8 @@ _ZNK11value_sweep12is_reducibleEP4expr.exit.thread: ; preds = %_ZNK11value_sweep
   %159 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %39 unwind label %75
 
-160:                                              ; preds = %.loopexit126, %.loopexit.split-lp, %75
-  %.pn32 = phi { ptr, i32 } [ %76, %75 ], [ %lpad.loopexit, %.loopexit126 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+160:                                              ; preds = %.loopexit125, %.loopexit.split-lp, %75
+  %.pn32 = phi { ptr, i32 } [ %76, %75 ], [ %lpad.loopexit, %.loopexit125 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8subterms8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
   br label %161
 

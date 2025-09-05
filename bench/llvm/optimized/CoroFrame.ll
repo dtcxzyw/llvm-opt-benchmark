@@ -4363,7 +4363,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %236, %_ZNK4llvm12In
   %.v.v.i4.i2.i.i = select i1 %244, i32 %245, i32 %246
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %247 = getelementptr inbounds nuw i8, ptr %242, i64 %.idx.i.i
+  %247 = getelementptr i8, ptr %242, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -5480,7 +5480,7 @@ _ZN4llvm10SwitchInst14setDefaultDestEPNS_10BasicBlockE.exit.i.i: ; preds = %_ZN4
 
 736:                                              ; preds = %._crit_edge96.i.i
   %.idx.i80.i.i = shl nuw nsw i64 %733, 4
-  %737 = getelementptr inbounds nuw i8, ptr %730, i64 %.idx.i80.i.i
+  %737 = getelementptr i8, ptr %730, i64 %.idx.i80.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %732, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10SwitchInstEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -11366,7 +11366,7 @@ _ZN4llvm11SmallVectorIPNS_20DbgVariableIntrinsicELj4EED2Ev.exit.i: ; preds = %33
 
 3344:                                             ; preds = %3333
   %.idx.i.i99 = shl nuw nsw i64 %3341, 5
-  %3345 = getelementptr inbounds nuw i8, ptr %3338, i64 %.idx.i.i99
+  %3345 = getelementptr i8, ptr %3338, i64 %.idx.i.i99
   %.not5.i5.i10.i2.i.i = icmp eq i32 %3340, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 

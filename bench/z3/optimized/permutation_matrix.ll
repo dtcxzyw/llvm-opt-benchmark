@@ -140,7 +140,7 @@ _ZN6vectorIjLb1EjE3endEv.exit.i.i10:              ; preds = %_ZNK6vectorIjLb1EjE
 29:                                               ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18
   %30 = phi ptr [ %35, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %26, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
   %.pr.i12 = phi ptr [ %.pr.pre.i19, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %25, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
-  %.0.i16.ph.i13 = phi i32 [ %.0.i16.i1436, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %28, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
+  %.0.i16.ph.i13 = phi i32 [ %.0.i16.i1434, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %28, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
   %31 = icmp eq ptr %.pr.i12, null
   br i1 %31, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15
 
@@ -151,7 +151,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.i15:          ; preds = %29
   br i1 %34, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18, label %36
 
 _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15, %29
-  %.0.i16.i1436 = phi i32 [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %.0.i16.ph.i13, %29 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
+  %.0.i16.i1434 = phi i32 [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %.0.i16.ph.i13, %29 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
   %35 = phi ptr [ %30, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %30, %29 ], [ %19, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
   tail call void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %.pr.pre.i19 = load ptr, ptr %35, align 8, !tbaa !3
@@ -284,7 +284,7 @@ _ZN6vectorIjLb1EjE3endEv.exit.i.i10:              ; preds = %_ZNK6vectorIjLb1EjE
 29:                                               ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18
   %30 = phi ptr [ %35, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %26, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
   %.pr.i12 = phi ptr [ %.pr.pre.i19, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %25, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
-  %.0.i16.ph.i13 = phi i32 [ %.0.i16.i1436, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %28, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
+  %.0.i16.ph.i13 = phi i32 [ %.0.i16.i1434, %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18 ], [ %28, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i8 ]
   %31 = icmp eq ptr %.pr.i12, null
   br i1 %31, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15
 
@@ -295,7 +295,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.i15:          ; preds = %29
   br i1 %34, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18, label %36
 
 _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15, %29
-  %.0.i16.i1436 = phi i32 [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %.0.i16.ph.i13, %29 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
+  %.0.i16.i1434 = phi i32 [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %.0.i16.ph.i13, %29 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
   %35 = phi ptr [ %30, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %30, %29 ], [ %19, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
   tail call void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %.pr.pre.i19 = load ptr, ptr %35, align 8, !tbaa !3

@@ -2354,7 +2354,7 @@ define hidden void @_ZN7datalog8compiler19get_fresh_registersERK13obj_hashtableI
   %8 = load i32, ptr %7, align 8, !tbaa !263
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -5630,7 +5630,7 @@ _ZN7counterC2Ev.exit.i.i40:                       ; preds = %.lr.ph.i.i.i.i.i.i.
   %53 = load i32, ptr %36, align 8, !tbaa !379
   %54 = zext i32 %53 to i64
   %.idx.i.i.i = shl nuw nsw i64 %54, 4
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i
+  %55 = getelementptr i8, ptr %52, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit67, label %.lr.ph.i.i.i.i.i
 
@@ -7222,17 +7222,17 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %_ZN15ref_vector_cor
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i:  ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i._ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i_crit_edge, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
   %511 = phi i32 [ %.pre946, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i._ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i_crit_edge ], [ %494, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ]
-  %.pr15.i = phi ptr [ %.pr.pre.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i._ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i_crit_edge ], [ %491, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ]
+  %.pr14.i = phi ptr [ %.pr.pre.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i._ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i_crit_edge ], [ %491, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ]
   %.not15.i.i = icmp ugt i32 %.0.i.i359, %511
   br i1 %.not15.i.i, label %thread-pre-split.i.i.preheader, label %512
 
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i
-  %.ph1287 = phi ptr [ %.pr15.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
+  %.ph1287 = phi ptr [ %.pr14.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
   %.0.i16.i.i.ph = phi i32 [ %511, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
   br label %thread-pre-split.i.i
 
 512:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i
-  %513 = getelementptr inbounds i8, ptr %.pr15.i, i64 -4
+  %513 = getelementptr inbounds i8, ptr %.pr14.i, i64 -4
   store i32 %.0.i.i359, ptr %513, align 4, !tbaa !24
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit
 
@@ -12974,7 +12974,7 @@ define hidden void @_ZN7datalog8compiler13detect_chainsERK13obj_hashtableI9func_
   %21 = load i32, ptr %20, align 8, !tbaa !492
   %22 = zext i32 %21 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %22, 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i
+  %23 = getelementptr i8, ptr %19, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK7datalog17rule_dependencies5beginEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -13077,7 +13077,7 @@ _ZN7datalog13cycle_breakerclEv.exit:              ; preds = %._crit_edge.i
   %45 = load i32, ptr %44, align 8, !tbaa !263
   %46 = zext i32 %45 to i64
   %.idx.i = shl nuw nsw i64 %46, 3
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
+  %47 = getelementptr i8, ptr %43, i64 %.idx.i
   %.not1.i.i.i16 = icmp eq i32 %45, 0
   br i1 %.not1.i.i.i16, label %.loopexit, label %.lr.ph.i.i.i17
 
@@ -13746,7 +13746,7 @@ define hidden void @_ZN7datalog8compiler28make_inloop_delta_transitionERK7obj_ma
   %8 = load i32, ptr %7, align 8, !tbaa !11
   %9 = zext i32 %8 to i64
   %.idx.i.i = shl nuw nsw i64 %9, 4
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_decljE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -13906,7 +13906,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dat
   %76 = load i32, ptr %75, align 8, !tbaa !11
   %77 = zext i32 %76 to i64
   %.idx.i.i11 = shl nuw nsw i64 %77, 4
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i11
+  %78 = getelementptr i8, ptr %74, i64 %.idx.i.i11
   %.not1.i.i.i.i12 = icmp eq i32 %76, 0
   br i1 %.not1.i.i.i.i12, label %_ZNK7obj_mapI9func_decljE5beginEv.exit20, label %.lr.ph.i.i.i.i13
 
@@ -14021,7 +14021,7 @@ define hidden void @_ZN7datalog8compiler12compile_loopERK10ptr_vectorI9func_decl
   %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = zext i32 %18 to i64
   %.idx.i.i.i = shl nuw nsw i64 %19, 4
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI9func_decljE5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -14089,7 +14089,7 @@ _ZN7obj_mapI9func_decljEC2ERKS1_.exit:            ; preds = %_Z19unite_disjoint_
   %35 = load i32, ptr %17, align 8, !tbaa !11
   %36 = zext i32 %35 to i64
   %.idx.i.i.i25 = shl nuw nsw i64 %36, 4
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i25
+  %37 = getelementptr i8, ptr %34, i64 %.idx.i.i.i25
   %.not1.i.i.i.i.i26 = icmp eq i32 %35, 0
   br i1 %.not1.i.i.i.i.i26, label %_ZNK7obj_mapI9func_decljE5beginEv.exit.i30, label %.lr.ph.i.i.i.i.i27
 
@@ -14159,7 +14159,7 @@ _Z19unite_disjoint_mapsI7obj_mapI9func_decljEEvRT_RKS3_.exit45: ; preds = %_ZN14
   %54 = load i32, ptr %53, align 8, !tbaa !11
   %55 = zext i32 %54 to i64
   %.idx.i.i.i46 = shl nuw nsw i64 %55, 4
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i46
+  %56 = getelementptr i8, ptr %52, i64 %.idx.i.i.i46
   %.not1.i.i.i.i.i47 = icmp eq i32 %54, 0
   br i1 %.not1.i.i.i.i.i47, label %_ZNK7obj_mapI9func_decljE5beginEv.exit.i51, label %.lr.ph.i.i.i.i.i48
 
@@ -14458,7 +14458,7 @@ define hidden void @_ZN7datalog8compiler23compile_dependent_rulesERK13obj_hashta
   %25 = load i32, ptr %24, align 8, !tbaa !263
   %26 = zext i32 %25 to i64
   %.idx.i = shl nuw nsw i64 %26, 3
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -14702,7 +14702,7 @@ _ZN7obj_mapI9func_decljEC2ERKS1_.exit:            ; preds = %102
   %104 = load i32, ptr %99, align 8, !tbaa !11
   %105 = zext i32 %104 to i64
   %.idx.i.i.i68 = shl nuw nsw i64 %105, 4
-  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i.i.i68
+  %106 = getelementptr i8, ptr %103, i64 %.idx.i.i.i68
   %.not1.i.i.i.i.i = icmp eq i32 %104, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI9func_decljE5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -14770,7 +14770,7 @@ _ZN7obj_mapI9func_decljEC2ERKS1_.exit75:          ; preds = %_Z19unite_disjoint_
   %121 = load i32, ptr %99, align 8, !tbaa !11
   %122 = zext i32 %121 to i64
   %.idx.i.i.i76 = shl nuw nsw i64 %122, 4
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i.i.i76
+  %123 = getelementptr i8, ptr %120, i64 %.idx.i.i.i76
   %.not1.i.i.i.i.i77 = icmp eq i32 %121, 0
   br i1 %.not1.i.i.i.i.i77, label %_ZNK7obj_mapI9func_decljE5beginEv.exit.i81, label %.lr.ph.i.i.i.i.i78
 
@@ -14944,7 +14944,7 @@ _ZNK7datalog8compiler21compile_with_wideningEv.exit: ; preds = %142
   %182 = load i32, ptr %181, align 8, !tbaa !263
   %183 = zext i32 %182 to i64
   %.idx.i100 = shl nuw nsw i64 %183, 3
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i100
+  %184 = getelementptr i8, ptr %180, i64 %.idx.i100
   %.not1.i.i.i101 = icmp eq i32 %182, 0
   br i1 %.not1.i.i.i101, label %.loopexit137, label %.lr.ph.i.i.i102
 
@@ -15354,7 +15354,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog8compiler23is_nonrecursive_stratum
   %9 = load i32, ptr %8, align 8, !tbaa !263
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -15415,7 +15415,7 @@ define hidden void @_ZN7datalog8compiler28compile_nonrecursive_stratumERK13obj_h
   %9 = load i32, ptr %8, align 8, !tbaa !263
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -15586,7 +15586,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog8compiler13all_saturatedERK13obj_h
   %5 = load i32, ptr %4, align 8, !tbaa !263
   %6 = zext i32 %5 to i64
   %.idx.i = shl nuw nsw i64 %6, 3
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -15795,7 +15795,7 @@ _ZN6vectorIP13obj_hashtableI9func_declELb0EjE3endEv.exit: ; preds = %_ZNK6vector
   %43 = load i32, ptr %42, align 8, !tbaa !263
   %44 = zext i32 %43 to i64
   %.idx.i.i = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i
+  %45 = getelementptr i8, ptr %41, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -15998,7 +15998,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %3
   %53 = load i32, ptr %52, align 8, !tbaa !11
   %54 = zext i32 %53 to i64
   %.idx.i.i = shl nuw nsw i64 %54, 4
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i
+  %55 = getelementptr i8, ptr %51, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -17045,7 +17045,7 @@ _ZN6vectorIP9func_declLb0EjE9push_backERKS1_.exit: ; preds = %39, %45
   %57 = load i32, ptr %56, align 8, !tbaa !263
   %58 = zext i32 %57 to i64
   %.idx.i = shl nuw nsw i64 %58, 3
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
+  %59 = getelementptr i8, ptr %55, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %57, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 

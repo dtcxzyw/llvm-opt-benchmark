@@ -39955,7 +39955,7 @@ _ZNK12_GLOBAL__N_113MallocChecker18checkPointerEscapeEN4llvm18IntrusiveRefCntPtr
 
 30:                                               ; preds = %20
   %.idx.i.i = shl nuw nsw i64 %27, 3
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
+  %31 = getelementptr i8, ptr %24, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -40832,7 +40832,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread: ; pr
 
 324:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread
   %.idx.i.i = shl nuw nsw i64 %321, 3
-  %325 = getelementptr inbounds nuw i8, ptr %318, i64 %.idx.i.i
+  %325 = getelementptr i8, ptr %318, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %320, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -41546,7 +41546,7 @@ define internal void @_ZN5clang4ento5check18ConstPointerEscape24_checkConstPoint
 
 25:                                               ; preds = %15
   %.idx.i.i = shl nuw nsw i64 %22, 3
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  %26 = getelementptr i8, ptr %19, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %21, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

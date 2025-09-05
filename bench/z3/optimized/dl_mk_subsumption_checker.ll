@@ -2783,7 +2783,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   %358 = load i32, ptr %357, align 8, !tbaa !19
   %359 = zext i32 %358 to i64
   %.idx.i = shl nuw nsw i64 %359, 3
-  %360 = getelementptr inbounds nuw i8, ptr %356, i64 %.idx.i
+  %360 = getelementptr i8, ptr %356, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %358, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i113
 
@@ -3220,7 +3220,7 @@ define hidden void @_ZN7datalog22mk_subsumption_checker37scan_for_relations_tota
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw %class.obj_hash_entry.151, ptr %13, i64 %16
   %.idx.i = shl nuw nsw i64 %16, 3
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
+  %18 = getelementptr i8, ptr %13, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -4669,7 +4669,7 @@ define linkonce_odr hidden void @_Z20reset_dealloc_valuesI9func_decl13obj_hashta
   %4 = load i32, ptr %3, align 8, !tbaa !297
   %5 = zext i32 %4 to i64
   %.idx.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI3appEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

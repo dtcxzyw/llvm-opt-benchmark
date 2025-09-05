@@ -10780,7 +10780,7 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPKNS_17MachineRegionNodeE
   %26 = load i32, ptr %25, align 8, !tbaa !83
   %27 = zext i32 %26 to i64
   %.idx.i = shl nuw nsw i64 %27, 3
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
+  %28 = getelementptr i8, ptr %24, i64 %.idx.i
   %.not14.i.i = icmp eq i32 %26, 0
   br i1 %.not14.i.i, label %_ZNSt8optionalIN4llvm14RNSuccIteratorIPKNS0_17MachineRegionNodeENS0_17MachineBasicBlockENS0_13MachineRegionEEEE7emplaceIJS7_EEENSt9enable_ifIX18is_constructible_vIS7_DpT_EERS7_E4typeEDpOSB_.exit, label %.lr.ph.i.i
 
@@ -11670,7 +11670,7 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_17MachineRegionNodeEN
   %26 = load i32, ptr %25, align 8, !tbaa !83
   %27 = zext i32 %26 to i64
   %.idx.i = shl nuw nsw i64 %27, 3
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
+  %28 = getelementptr i8, ptr %24, i64 %.idx.i
   %.not14.i.i = icmp eq i32 %26, 0
   br i1 %.not14.i.i, label %_ZNSt8optionalIN4llvm14RNSuccIteratorIPNS0_17MachineRegionNodeENS0_17MachineBasicBlockENS0_13MachineRegionEEEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit, label %.lr.ph.i.i
 

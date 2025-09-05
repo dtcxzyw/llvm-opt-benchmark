@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc6RRInfo5MergeERKS1_(ptr nou
   %.v.v.i4.i2.i = select i1 %27, i32 %29, i32 %31
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
+  %32 = getelementptr i8, ptr %24, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -385,7 +385,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2
   %.v.v.i4.i2.i15 = select i1 %75, i32 %67, i32 %77
   %.v.i5.i3.i16 = zext i32 %.v.v.i4.i2.i15 to i64
   %.idx.i17 = shl nuw nsw i64 %.v.i5.i3.i16, 3
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i17
+  %78 = getelementptr i8, ptr %72, i64 %.idx.i17
   %.not3.i4.i.i6.i4.i18 = icmp eq i32 %.v.v.i4.i2.i15, 0
   br i1 %.not3.i4.i.i6.i4.i18, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit27, label %.lr.ph.i5.i.i7.i5.i19
 

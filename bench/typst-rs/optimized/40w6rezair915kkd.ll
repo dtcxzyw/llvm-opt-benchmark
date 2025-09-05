@@ -88612,7 +88612,7 @@ define void @_ZN5typst11foundations7version7Version9component17h95255298b18464ac
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
   %.idx = shl i64 %9, 2
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
+  %10 = getelementptr i8, ptr %7, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23672)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23675)
   store ptr %7, ptr %6, align 8, !alias.scope !23678, !noalias !23681

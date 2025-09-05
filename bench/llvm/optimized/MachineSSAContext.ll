@@ -44,7 +44,7 @@ define dso_local void @_ZN4llvm17GenericSSAContextINS_15MachineFunctionEE15appen
   %12 = load i24, ptr %11, align 8, !noalias !28
   %13 = zext i24 %12 to i64
   %.idx.i = shl nuw nsw i64 %13, 5
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %12, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i
 

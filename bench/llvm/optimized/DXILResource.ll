@@ -5182,7 +5182,7 @@ define dso_local void @_ZNK4llvm14DXILBindingMap5printERNS_11raw_ostreamERNS_19D
 
 23:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %20, 4
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %24 = getelementptr i8, ptr %17, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %19, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallInstEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

@@ -1930,7 +1930,7 @@ define dso_local void @_ZN4llvm26ControlHeightReductionPass3runERNS_8FunctionERN
 
 54:                                               ; preds = %25
   %.idx.i.i.i = shl nuw nsw i64 %51, 3
-  %55 = getelementptr inbounds nuw i8, ptr %.val5.i.i.i, i64 %.idx.i.i.i
+  %55 = getelementptr i8, ptr %.val5.i.i.i, i64 %.idx.i.i.i
   %.not5.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i, 0
   br i1 %.not5.i.i.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_18CHRScopeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -14674,7 +14674,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %95, %98
 
 119:                                              ; preds = %109
   %.idx.i.i = shl nuw nsw i64 %116, 3
-  %120 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i
+  %120 = getelementptr i8, ptr %113, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %115, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -16750,7 +16750,7 @@ _ZN4llvm8DenseSetIPNS_5ValueENS_12DenseMapInfoIS2_vEEEaSERKS5_.exit102: ; preds 
 
 413:                                              ; preds = %_ZN4llvm8DenseSetIPNS_5ValueENS_12DenseMapInfoIS2_vEEEaSERKS5_.exit102
   %.idx.i.i = shl nuw nsw i64 %410, 3
-  %414 = getelementptr inbounds nuw i8, ptr %408, i64 %.idx.i.i
+  %414 = getelementptr i8, ptr %408, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %409, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -18168,7 +18168,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i170: ; preds = %1018, %_ZN4ll
 
 1027:                                             ; preds = %1019
   %.idx.i.i176 = shl nuw nsw i64 %1024, 3
-  %1028 = getelementptr inbounds nuw i8, ptr %1022, i64 %.idx.i.i176
+  %1028 = getelementptr i8, ptr %1022, i64 %.idx.i.i176
   %.not5.i5.i10.i2.i.i177 = icmp eq i32 %1023, 0
   br i1 %.not5.i5.i10.i2.i.i177, label %_ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit187, label %.lr.ph.i6.i12.i3.i.i178
 
@@ -18792,7 +18792,7 @@ define internal fastcc noundef zeroext i1 @_ZL11shouldSplitPN4llvm11InstructionE
 
 20:                                               ; preds = %5
   %.idx.i.i = shl nuw nsw i64 %17, 3
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
+  %21 = getelementptr i8, ptr %14, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %16, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -18902,7 +18902,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_
   %55 = load i32, ptr %54, align 8, !tbaa !677
   %56 = zext i32 %55 to i64
   %.idx.i.i41 = shl nuw nsw i64 %56, 3
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i41
+  %57 = getelementptr i8, ptr %53, i64 %.idx.i.i41
   %.not5.i5.i10.i2.i.i42 = icmp eq i32 %55, 0
   br i1 %.not5.i5.i10.i2.i.i42, label %_ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit52, label %.lr.ph.i6.i12.i3.i.i43
 
@@ -18944,7 +18944,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_
 
 68:                                               ; preds = %._crit_edge109
   %.idx.i.i55 = shl nuw nsw i64 %65, 3
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i55
+  %69 = getelementptr i8, ptr %63, i64 %.idx.i.i55
   %.not5.i5.i10.i2.i.i56 = icmp eq i32 %64, 0
   br i1 %.not5.i5.i10.i2.i.i56, label %_ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit66, label %.lr.ph.i6.i12.i3.i.i57
 

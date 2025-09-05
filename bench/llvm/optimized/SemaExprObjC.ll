@@ -48726,7 +48726,7 @@ _ZN4llvm15SmallVectorImplISt4pairIN5clang8SelectorENS2_14SourceLocationEEE5erase
 
 65:                                               ; preds = %52
   %.idx.i = shl nuw nsw i64 %62, 4
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i
+  %66 = getelementptr i8, ptr %60, i64 %.idx.i
   %.not8.i5.i10.i2.i = icmp eq i32 %61, 0
   br i1 %.not8.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

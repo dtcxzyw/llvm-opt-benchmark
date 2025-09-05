@@ -1176,10 +1176,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %110, %125, %126, %1
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %108, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %96
-  %.sink92 = phi i64 [ 16, %96 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %108 ]
+  %.sink93 = phi i64 [ 16, %96 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %108 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %148 = load i32, ptr %147, align 8, !tbaa !18
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink92
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
   %150 = load ptr, ptr %149, align 8, !tbaa !66
   invoke void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %51, i32 noundef %59, i32 noundef %67, i32 noundef %148, i64 noundef %22, ptr noundef %150)
           to label %151 unwind label %106
@@ -1257,13 +1257,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %159
 .noexc67:                                         ; preds = %.noexc59.i
   %188 = getelementptr inbounds nuw i32, ptr %187, i64 %184
   store i32 0, ptr %187, align 4, !tbaa !67
-  %189 = icmp eq i32 %183, 1
-  br i1 %189, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  %189 = add nsw i64 %184, -1
+  %190 = icmp eq i64 %189, 0
+  br i1 %190, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc67
-  %190 = getelementptr i8, ptr %187, i64 4
-  %191 = add nsw i64 %186, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %190, i8 0, i64 %191, i1 false), !tbaa !67
+  %191 = getelementptr i8, ptr %187, i64 4
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %189, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %191, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !67
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc67, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -1284,8 +1285,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
   %reass.add.i = sub i32 %197, %196
   %reass.mul.i = mul i32 %reass.add.i, %179
   %199 = icmp sgt i32 %162, 0
-  %or.cond101.i = and i1 %199, %198
-  br i1 %or.cond101.i, label %.preheader66.us.us.i, label %._crit_edge.i
+  %or.cond102.i = and i1 %199, %198
+  br i1 %or.cond102.i, label %.preheader66.us.us.i, label %._crit_edge.i
 
 .preheader66.us.us.i:                             ; preds = %.preheader66.lr.ph.i, %._crit_edge74.split.us.us.us.i
   %.05380.us.us.i = phi i32 [ %208, %._crit_edge74.split.us.us.us.i ], [ 0, %.preheader66.lr.ph.i ]

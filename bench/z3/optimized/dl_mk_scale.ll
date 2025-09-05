@@ -4238,7 +4238,7 @@ _ZN3refI5modelEC2EPS0_.exit:
   %19 = load i32, ptr %18, align 8, !tbaa !255
   %20 = zext i32 %19 to i64
   %.idx.i.i = shl nuw nsw i64 %20, 4
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not1.i.i.i.i, label %.loopexit180, label %.lr.ph.i.i.i.i
 

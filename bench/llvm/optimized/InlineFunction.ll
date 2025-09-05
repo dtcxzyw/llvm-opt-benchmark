@@ -1060,7 +1060,7 @@ define dso_local void @_ZN4llvm19updateProfileCalleeEPNS_8FunctionElPKNS_8ValueM
 
 26:                                               ; preds = %15
   %.idx.i.i = shl nuw nsw i64 %23, 6
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
+  %27 = getelementptr i8, ptr %20, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %22, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -7134,7 +7134,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ArgumentELb1EE9push_backES3_.exit.i: ; p
 
 2125:                                             ; preds = %._crit_edge110.i
   %.idx.i.i.i1106 = shl nuw nsw i64 %2122, 6
-  %2126 = getelementptr inbounds nuw i8, ptr %2120, i64 %.idx.i.i.i1106
+  %2126 = getelementptr i8, ptr %2120, i64 %.idx.i.i.i1106
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %2121, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -7743,7 +7743,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit251.i: ; p
   %2370 = select i1 %2369, i32 %.pre159.i, i32 %.pre160.i
   %.v.i5.i3.i.i = zext i32 %2370 to i64
   %.idx.i.i1120 = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %2371 = getelementptr inbounds nuw i8, ptr %.pre157.i, i64 %.idx.i.i1120
+  %2371 = getelementptr i8, ptr %.pre157.i, i64 %.idx.i.i1120
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %2370, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_5ValueEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -10132,7 +10132,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.i1226: ; preds = %3363, %_ZL28AddPara
 
 3374:                                             ; preds = %3366
   %.idx.i.i.i1230 = shl nuw nsw i64 %3371, 6
-  %3375 = getelementptr inbounds nuw i8, ptr %3369, i64 %.idx.i.i.i1230
+  %3375 = getelementptr i8, ptr %3369, i64 %.idx.i.i.i1230
   %.not5.i5.i10.i2.i.i.i1231 = icmp eq i32 %3370, 0
   br i1 %.not5.i5.i10.i2.i.i.i1231, label %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i1232
 
@@ -15626,7 +15626,7 @@ define internal fastcc void @_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8Value
 
 22:                                               ; preds = %5
   %.idx.i.i = shl nuw nsw i64 %19, 6
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
+  %23 = getelementptr i8, ptr %16, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %18, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -17031,7 +17031,7 @@ _ZN12_GLOBAL__N_122LandingPadInliningInfoC2EPN4llvm10InvokeInstE.exit: ; preds =
   %66 = select i1 %65, i32 %102, i32 %.pre103
   %.v.i5.i3.i = zext i32 %66 to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %67 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx.i
+  %67 = getelementptr i8, ptr %104, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %66, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_14LandingPadInstEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

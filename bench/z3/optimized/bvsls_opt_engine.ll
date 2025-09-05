@@ -1274,7 +1274,7 @@ define hidden void @_ZN16bvsls_opt_engine8optimizeERK7obj_refI4expr11ast_manager
   %24 = load i32, ptr %23, align 8, !tbaa !100
   %25 = zext i32 %24 to i64
   %.idx.i.i.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i
+  %26 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1996,7 +1996,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI4expr11
   %320 = load i32, ptr %319, align 8, !tbaa !100
   %321 = zext i32 %320 to i64
   %.idx.i.i.i70 = shl nuw nsw i64 %321, 3
-  %322 = getelementptr inbounds nuw i8, ptr %318, i64 %.idx.i.i.i70
+  %322 = getelementptr i8, ptr %318, i64 %.idx.i.i.i70
   %.not1.i.i.i.i.i71 = icmp eq i32 %320, 0
   br i1 %.not1.i.i.i.i.i71, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i.i75, label %.lr.ph.i.i.i.i.i72
 
@@ -3442,7 +3442,7 @@ define linkonce_odr hidden void @_ZN13sls_evaluator10update_allEv(ptr noundef no
   %7 = load i32, ptr %6, align 8, !tbaa !119
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3756,7 +3756,7 @@ define linkonce_odr hidden void @_ZN11sls_tracker9randomizeERK10ptr_vectorI4expr
   %7 = load i32, ptr %6, align 8, !tbaa !119
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5554,7 +5554,7 @@ define linkonce_odr hidden void @_ZN16bvsls_opt_engine9top_scoreEv(ptr dead_on_u
   %10 = load i32, ptr %9, align 8, !tbaa !100
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 3
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -6779,7 +6779,7 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit:         ; preds = %171
   %180 = load i32, ptr %179, align 8, !tbaa !100
   %181 = zext i32 %180 to i64
   %.idx.i.i.i = shl nuw nsw i64 %181, 3
-  %182 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx.i.i.i
+  %182 = getelementptr i8, ptr %178, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %180, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i30
 
@@ -7437,7 +7437,7 @@ define hidden noundef zeroext i1 @_ZN16bvsls_opt_engine7what_ifEP9func_declRKjRK
   %18 = load i32, ptr %17, align 8, !tbaa !100
   %19 = zext i32 %18 to i64
   %.idx.i.i.i = shl nuw nsw i64 %19, 3
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i
 

@@ -3755,7 +3755,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.thread: ; preds 
 
 314:                                              ; preds = %._crit_edge531
   %.idx.i = shl nuw nsw i64 %311, 4
-  %315 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i
+  %315 = getelementptr i8, ptr %308, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %310, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -9380,7 +9380,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %602, %609
 
 639:                                              ; preds = %627
   %.idx.i.i154 = shl nuw nsw i64 %636, 4
-  %640 = getelementptr inbounds nuw i8, ptr %633, i64 %.idx.i.i154
+  %640 = getelementptr i8, ptr %633, i64 %.idx.i.i154
   %.not4.i5.i10.i2.i.i = icmp eq i32 %635, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiPNS_11InstructionENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -11233,7 +11233,7 @@ define dso_local void @_ZNK4llvm15InterleaveGroupINS_11InstructionEE11addMetadat
 
 17:                                               ; preds = %2
   %.idx.i = shl nuw nsw i64 %14, 4
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %18 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %13, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiPNS_11InstructionENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

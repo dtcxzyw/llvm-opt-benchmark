@@ -218,7 +218,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %4
   %35 = load i32, ptr %34, align 8, !tbaa !22
   %36 = zext i32 %35 to i64
   %.idx.i = shl nuw nsw i64 %36, 3
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
+  %37 = getelementptr i8, ptr %33, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %35, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -337,7 +337,7 @@ define hidden void @_ZN6spacer9iuc_proof20collect_core_symbolsEv(ptr noundef non
   %9 = load i32, ptr %8, align 8, !tbaa !22
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

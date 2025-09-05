@@ -2867,16 +2867,17 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %124
 .noexc50:                                         ; preds = %127
   %130 = getelementptr inbounds nuw i64, ptr %129, i64 %50
   store i64 0, ptr %129, align 8, !tbaa !67
-  %131 = icmp eq i64 %50, 1
-  br i1 %131, label %.lr.ph.preheader, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %131 = add nsw i64 %50, -1
+  %132 = icmp eq i64 %131, 0
+  br i1 %132, label %.lr.ph.preheader, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50
   br label %.lr.ph
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
-  %132 = getelementptr i8, ptr %129, i64 8
-  %133 = add nsw i64 %128, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %132, i8 0, i64 %133, i1 false), !tbaa !67
+  %133 = getelementptr i8, ptr %129, i64 8
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %131, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !67
   br label %.lr.ph.preheader
 
 .preheader84:                                     ; preds = %.lr.ph
@@ -2888,8 +2889,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   br i1 %135, label %.lr.ph100.preheader, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .lr.ph100.preheader:                              ; preds = %.preheader84.thread, %.preheader84
-  %.sroa.11.2145156 = phi ptr [ null, %.preheader84.thread ], [ %130, %.preheader84 ]
-  %.sroa.054.2147151 = phi ptr [ null, %.preheader84.thread ], [ %129, %.preheader84 ]
+  %.sroa.11.2146157 = phi ptr [ null, %.preheader84.thread ], [ %130, %.preheader84 ]
+  %.sroa.054.2148152 = phi ptr [ null, %.preheader84.thread ], [ %129, %.preheader84 ]
   br label %.lr.ph100
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2901,12 +2902,12 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   br i1 %exitcond.not, label %.preheader84, label %.lr.ph, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %144, %.preheader84
-  %.sroa.11.2145154 = phi ptr [ %130, %.preheader84 ], [ %.sroa.11.2145156, %144 ]
-  %.sroa.054.2147153 = phi ptr [ %129, %.preheader84 ], [ %.sroa.054.2147151, %144 ]
-  %138 = ptrtoint ptr %.sroa.11.2145154 to i64
-  %139 = ptrtoint ptr %.sroa.054.2147153 to i64
+  %.sroa.11.2146155 = phi ptr [ %130, %.preheader84 ], [ %.sroa.11.2146157, %144 ]
+  %.sroa.054.2148154 = phi ptr [ %129, %.preheader84 ], [ %.sroa.054.2148152, %144 ]
+  %138 = ptrtoint ptr %.sroa.11.2146155 to i64
+  %139 = ptrtoint ptr %.sroa.054.2148154 to i64
   %140 = sub i64 %138, %139
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.2147153, i64 noundef %140) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.2148154, i64 noundef %140) #27
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %144
@@ -2917,9 +2918,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
           to label %144 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 144:                                              ; preds = %.lr.ph100
-  %145 = getelementptr inbounds nuw i64, ptr %.sroa.054.2147151, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw i64, ptr %.sroa.054.2148152, i64 %indvars.iv
   %146 = sext i32 %143 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %.sroa.054.2147151, i64 %146
+  %147 = getelementptr inbounds nuw i64, ptr %.sroa.054.2148152, i64 %146
   %148 = load i64, ptr %145, align 8, !tbaa !67
   %149 = load i64, ptr %147, align 8, !tbaa !67
   store i64 %149, ptr %145, align 8, !tbaa !67

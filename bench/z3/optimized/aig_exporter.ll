@@ -257,7 +257,7 @@ define hidden void @_ZN7datalog12aig_exporterC2ERKNS_8rule_setERNS_7contextEPK6v
   %63 = load i32, ptr %62, align 8, !tbaa !269
   %64 = zext i32 %63 to i64
   %.idx.i.i.i = shl nuw nsw i64 %64, 4
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i
+  %65 = getelementptr i8, ptr %61, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %63, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i
 
@@ -1467,7 +1467,7 @@ define hidden void @_ZN7datalog12aig_exporterclERSo(ptr noundef nonnull align 8 
   %56 = load i32, ptr %55, align 8, !tbaa !269
   %57 = zext i32 %56 to i64
   %.idx.i.i.i = shl nuw nsw i64 %57, 4
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i
+  %58 = getelementptr i8, ptr %54, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %56, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit777, label %.lr.ph.i.i.i.i.i
 
@@ -4547,7 +4547,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   %1285 = load i32, ptr %1284, align 8, !tbaa !426
   %1286 = zext i32 %1285 to i64
   %.idx.i = shl nuw nsw i64 %1286, 3
-  %1287 = getelementptr inbounds nuw i8, ptr %1283, i64 %.idx.i
+  %1287 = getelementptr i8, ptr %1283, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %1285, 0
   br i1 %.not1.i.i.i, label %.loopexit744, label %.lr.ph.i.i.i316
 

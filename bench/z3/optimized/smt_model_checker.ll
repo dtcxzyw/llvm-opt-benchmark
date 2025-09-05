@@ -939,7 +939,7 @@ define hidden void @_ZN3smt13model_checker15init_value2exprEv(ptr noundef nonnul
   %12 = load i32, ptr %11, align 8, !tbaa !83
   %13 = zext i32 %12 to i64
   %.idx.i.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapIN3smt5enodeEP3appE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1669,7 +1669,7 @@ define hidden void @_ZN3smt13model_checker20restrict_to_universeEP4exprRK13obj_h
   %11 = load i32, ptr %10, align 8, !tbaa !161
   %12 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

@@ -388,7 +388,7 @@ define linkonce_odr hidden noundef ptr @_ZN14simple_factoryI8rationalE14get_some
   %40 = load i32, ptr %39, align 8, !tbaa !51
   %41 = zext i32 %40 to i64
   %.idx.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
+  %42 = getelementptr i8, ptr %38, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i5
 
@@ -717,7 +717,7 @@ _ZN8rationalD2Ev.exit30:                          ; preds = %.noexc.i29
   %113 = load i32, ptr %112, align 8, !tbaa !51
   %114 = zext i32 %113 to i64
   %.idx.i = shl nuw nsw i64 %114, 3
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx.i
+  %115 = getelementptr i8, ptr %111, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %113, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %.lr.ph.i.i.i31
 
@@ -944,7 +944,7 @@ _ZN8rationalD2Ev.exit50:                          ; preds = %.noexc.i49
   %206 = load i32, ptr %205, align 8, !tbaa !51
   %207 = zext i32 %206 to i64
   %.idx.i51 = shl nuw nsw i64 %207, 3
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx.i51
+  %208 = getelementptr i8, ptr %204, i64 %.idx.i51
   %.not1.i.i.i52 = icmp eq i32 %206, 0
   br i1 %.not1.i.i.i52, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit60thread-pre-split, label %.lr.ph.i.i.i53
 

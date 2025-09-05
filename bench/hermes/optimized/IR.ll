@@ -9528,7 +9528,7 @@ _ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetE
   %cond.v.v.i7.i6.i = select i1 %cmp.i.i4.i3.i, i32 %34, i32 %35
   %cond.v.i8.i7.i = zext i32 %cond.v.v.i7.i6.i to i64
   %cond.i9.i8.idx.i = shl nuw nsw i64 %cond.v.i8.i7.i, 3
-  %cond.i9.i8.i = getelementptr inbounds nuw i8, ptr %32, i64 %cond.i9.i8.idx.i
+  %cond.i9.i8.i = getelementptr i8, ptr %32, i64 %cond.i9.i8.idx.i
   %cmp.not2.i3.i.i11.i9.i = icmp eq i32 %cond.v.v.i7.i6.i, 0
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes8FunctionEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 

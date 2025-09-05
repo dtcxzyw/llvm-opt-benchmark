@@ -98183,7 +98183,7 @@ define linkonce_odr void @_ZN5arrow3ipc25RecordBatchFileReaderImpl17PreBufferMet
   %6 = load ptr, ptr %5, align 8, !tbaa !97
   %7 = load ptr, ptr %2, align 8, !tbaa !99
   %8 = icmp eq ptr %6, %7
-  br i1 %8, label %9, label %46
+  br i1 %8, label %9, label %45
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -98223,73 +98223,72 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
   br i1 %23, label %.lr.ph.i.preheader.i, label %24
 
 24:                                               ; preds = %.noexc4.i
-  %25 = add nsw i64 %17, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %25, i1 false), !tbaa !81, !noalias !3167
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !81, !noalias !3167
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc4.i, %24
-  %storemerge = phi ptr [ %26, %24 ], [ %21, %.noexc4.i ]
+  %storemerge = phi ptr [ %25, %24 ], [ %21, %.noexc4.i ]
   store ptr %storemerge, ptr %16, align 8, !tbaa !97, !alias.scope !3167
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.07.i.i = phi i32 [ %27, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.sroa.02.06.i.i = phi ptr [ %28, %.lr.ph.i.i ], [ %18, %.lr.ph.i.preheader.i ]
+  %.07.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.sroa.02.06.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %18, %.lr.ph.i.preheader.i ]
   store i32 %.07.i.i, ptr %.sroa.02.06.i.i, align 4, !tbaa !81, !noalias !3167
-  %27 = add nuw nsw i32 %.07.i.i, 1
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
-  %.not.i.i = icmp eq ptr %28, %storemerge
+  %26 = add nuw nsw i32 %.07.i.i, 1
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
+  %.not.i.i = icmp eq ptr %27, %storemerge
   br i1 %.not.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %.lr.ph.i.i, !llvm.loop !3170
 
 _ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %.lr.ph.i.i, %.thread.i
   invoke void @_ZN5arrow3ipc25RecordBatchFileReaderImpl19DoPreBufferMetadataERKSt6vectorIiSaIiEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(505) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %29 unwind label %37
+          to label %28 unwind label %36
 
-29:                                               ; preds = %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit
-  %30 = load ptr, ptr %4, align 8, !tbaa !99
-  %.not.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %31
+28:                                               ; preds = %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit
+  %29 = load ptr, ptr %4, align 8, !tbaa !99
+  %.not.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !475
-  %34 = ptrtoint ptr %33 to i64
-  %35 = ptrtoint ptr %30 to i64
-  %36 = sub i64 %34, %35
-  call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %36) #37
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !475
+  %33 = ptrtoint ptr %32 to i64
+  %34 = ptrtoint ptr %29 to i64
+  %35 = sub i64 %33, %34
+  call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %35) #37
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %29, %31
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %28, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %46
 
-37:                                               ; preds = %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %39 = load ptr, ptr %4, align 8, !tbaa !99
-  %.not.i.i.i4 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit5, label %40
+  %38 = load ptr, ptr %4, align 8, !tbaa !99
+  %.not.i.i.i4 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit5, label %39
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !475
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %39 to i64
-  %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #37
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !475
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %38 to i64
+  %44 = sub i64 %42, %43
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #37
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit5
 
-_ZNSt6vectorIiSaIiEED2Ev.exit5:                   ; preds = %37, %40
+_ZNSt6vectorIiSaIiEED2Ev.exit5:                   ; preds = %36, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %38
+  resume { ptr, i32 } %37
 
-46:                                               ; preds = %3
+45:                                               ; preds = %3
   tail call void @_ZN5arrow3ipc25RecordBatchFileReaderImpl19DoPreBufferMetadataERKSt6vectorIiSaIiEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(505) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %46, %_ZNSt6vectorIiSaIiEED2Ev.exit
+46:                                               ; preds = %45, %_ZNSt6vectorIiSaIiEED2Ev.exit
   ret void
 }
 

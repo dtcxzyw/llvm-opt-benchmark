@@ -8545,15 +8545,15 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
 .noexc:                                           ; preds = %.lr.ph.split.us45.i
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 2
-  %25 = add i64 %24, 4
-  %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split.us46.i, label %27
+  %25 = icmp eq i64 %24, -4
+  br i1 %25, label %.split.us46.i, label %26
 
-27:                                               ; preds = %.noexc
-  %28 = icmp ugt i64 %25, %.val3.i.i
+26:                                               ; preds = %.noexc
+  %27 = add nuw i64 %24, 4
+  %28 = icmp ugt i64 %27, %.val3.i.i
   br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %27
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false), !noalias !833
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
@@ -8564,14 +8564,14 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
   br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.split.us45.preheader.i
 
 .split.us46.i:                                    ; preds = %.noexc
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %.split.us46.i
   unreachable
 
-.split48.us.i:                                    ; preds = %27
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+.split48.us.i:                                    ; preds = %26
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %.split48.us.i
@@ -8670,15 +8670,15 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
   %.sroa.0.0.copyload.i.us47.i = load i64, ptr %22, align 2, !noalias !846
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 2
-  %25 = add i64 %24, 4
-  %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split.us49.i, label %27
+  %25 = icmp eq i64 %24, -4
+  br i1 %25, label %.split.us49.i, label %26
 
-27:                                               ; preds = %.noexc
-  %28 = icmp ugt i64 %25, %.val3.i.i
+26:                                               ; preds = %.noexc
+  %27 = add nuw i64 %24, 4
+  %28 = icmp ugt i64 %27, %.val3.i.i
   br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %27
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
   store i64 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 2, !noalias !846
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
@@ -8689,14 +8689,14 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
   br i1 %exitcond73.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
 .split.us49.i:                                    ; preds = %.noexc
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split51.us.i:                                    ; preds = %27
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+.split51.us.i:                                    ; preds = %26
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %.split51.us.i
@@ -8922,15 +8922,15 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E
   %.sroa.0.0.copyload.i.us47.i = load i16, ptr %22, align 1, !noalias !869
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 1
-  %25 = add i64 %24, 2
-  %26 = icmp eq i64 %24, -2
-  br i1 %26, label %.split.us49.i, label %27
+  %25 = icmp eq i64 %24, -2
+  br i1 %25, label %.split.us49.i, label %26
 
-27:                                               ; preds = %.noexc
-  %28 = icmp ugt i64 %25, %.fca.1.extract.i
+26:                                               ; preds = %.noexc
+  %27 = add nuw i64 %24, 2
+  %28 = icmp ugt i64 %27, %.fca.1.extract.i
   br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %27
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
   store i16 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 1, !noalias !869
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
@@ -8941,14 +8941,14 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E
   br i1 %exitcond73.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
 .split.us49.i:                                    ; preds = %.noexc
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split51.us.i:                                    ; preds = %27
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+.split51.us.i:                                    ; preds = %26
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %.split51.us.i
@@ -9049,15 +9049,15 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E
   %.sroa.0.0.copyload.i.us47.i = load i32, ptr %22, align 1, !noalias !882
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 2
-  %25 = add i64 %24, 4
-  %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split.us49.i, label %27
+  %25 = icmp eq i64 %24, -4
+  br i1 %25, label %.split.us49.i, label %26
 
-27:                                               ; preds = %.noexc
-  %28 = icmp ugt i64 %25, %.fca.1.extract.i
+26:                                               ; preds = %.noexc
+  %27 = add nuw i64 %24, 4
+  %28 = icmp ugt i64 %27, %.fca.1.extract.i
   br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %27
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
   store i32 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 1, !noalias !882
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
@@ -9068,14 +9068,14 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E
   br i1 %exitcond73.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
 .split.us49.i:                                    ; preds = %.noexc
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split51.us.i:                                    ; preds = %27
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+.split51.us.i:                                    ; preds = %26
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %.split51.us.i
@@ -9174,15 +9174,15 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
   %.sroa.0.0.copyload.i.us47.i = load i32, ptr %22, align 2, !noalias !898
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 1
-  %25 = add i64 %24, 2
-  %26 = icmp eq i64 %24, -2
-  br i1 %26, label %.split.us49.i, label %27
+  %25 = icmp eq i64 %24, -2
+  br i1 %25, label %.split.us49.i, label %26
 
-27:                                               ; preds = %.noexc
-  %28 = icmp ugt i64 %25, %.val3.i.i
+26:                                               ; preds = %.noexc
+  %27 = add nuw i64 %24, 2
+  %28 = icmp ugt i64 %27, %.val3.i.i
   br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %27
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
   store i32 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 2, !noalias !898
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
@@ -9193,14 +9193,14 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
   br i1 %exitcond73.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
 .split.us49.i:                                    ; preds = %.noexc
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split51.us.i:                                    ; preds = %27
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
+.split51.us.i:                                    ; preds = %26
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %.split51.us.i
@@ -10542,15 +10542,15 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d
   %.sroa.0.0.copyload.i.us47 = load i32, ptr %24, align 2
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 1
-  %27 = add i64 %26, 2
-  %28 = icmp eq i64 %26, -2
-  br i1 %28, label %.split.us49, label %29
+  %27 = icmp eq i64 %26, -2
+  br i1 %27, label %.split.us49, label %28
 
-29:                                               ; preds = %.lr.ph.split.us48
-  %30 = icmp ugt i64 %27, %.val3.i
+28:                                               ; preds = %.lr.ph.split.us48
+  %29 = add i64 %26, 2
+  %30 = icmp ugt i64 %29, %.val3.i
   br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %29
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %28
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
   store i32 %.sroa.0.0.copyload.i.us47, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -10576,11 +10576,11 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d
   ret void
 
 .split.us49:                                      ; preds = %.lr.ph.split.us48
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1027
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1027
   unreachable
 
-.split51.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1027
+.split51.us:                                      ; preds = %28
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1027
   unreachable
 }
 
@@ -10634,15 +10634,15 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b0
   %.sroa.0.0.copyload.i.us47 = load i32, ptr %24, align 1
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 2
-  %27 = add i64 %26, 4
-  %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split.us49, label %29
+  %27 = icmp eq i64 %26, -4
+  br i1 %27, label %.split.us49, label %28
 
-29:                                               ; preds = %.lr.ph.split.us48
-  %30 = icmp ugt i64 %27, %.val3.i
+28:                                               ; preds = %.lr.ph.split.us48
+  %29 = add i64 %26, 4
+  %30 = icmp ugt i64 %29, %.val3.i
   br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %29
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
   store i32 %.sroa.0.0.copyload.i.us47, ptr %31, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -10668,11 +10668,11 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b0
   ret void
 
 .split.us49:                                      ; preds = %.lr.ph.split.us48
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1035
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1035
   unreachable
 
-.split51.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1035
+.split51.us:                                      ; preds = %28
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1035
   unreachable
 }
 
@@ -10809,15 +10809,15 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
   %24 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !1051
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 2
-  %27 = add i64 %26, 4
-  %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split.us46, label %29
+  %27 = icmp eq i64 %26, -4
+  br i1 %27, label %.split.us46, label %28
 
-29:                                               ; preds = %.lr.ph.split.us45
-  %30 = icmp ugt i64 %27, %.val3.i
+28:                                               ; preds = %.lr.ph.split.us45
+  %29 = add i64 %26, 4
+  %30 = icmp ugt i64 %29, %.val3.i
   br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %29
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %28
   %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -10843,11 +10843,11 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
   ret void
 
 .split.us46:                                      ; preds = %.lr.ph.split.us45
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1054
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1054
   unreachable
 
-.split48.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1054
+.split48.us:                                      ; preds = %28
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1054
   unreachable
 }
 
@@ -10901,15 +10901,15 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a
   %.sroa.0.0.copyload.i.us47 = load i64, ptr %24, align 2
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 2
-  %27 = add i64 %26, 4
-  %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split.us49, label %29
+  %27 = icmp eq i64 %26, -4
+  br i1 %27, label %.split.us49, label %28
 
-29:                                               ; preds = %.lr.ph.split.us48
-  %30 = icmp ugt i64 %27, %.val3.i
+28:                                               ; preds = %.lr.ph.split.us48
+  %29 = add i64 %26, 4
+  %30 = icmp ugt i64 %29, %.val3.i
   br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %29
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %28
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
   store i64 %.sroa.0.0.copyload.i.us47, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -10935,11 +10935,11 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a
   ret void
 
 .split.us49:                                      ; preds = %.lr.ph.split.us48
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1062
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1062
   unreachable
 
-.split51.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1062
+.split51.us:                                      ; preds = %28
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1062
   unreachable
 }
 
@@ -11262,15 +11262,15 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb5
   %.sroa.0.0.copyload.i.us47 = load i16, ptr %24, align 1
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 1
-  %27 = add i64 %26, 2
-  %28 = icmp eq i64 %26, -2
-  br i1 %28, label %.split.us49, label %29
+  %27 = icmp eq i64 %26, -2
+  br i1 %27, label %.split.us49, label %28
 
-29:                                               ; preds = %.lr.ph.split.us48
-  %30 = icmp ugt i64 %27, %.val3.i
+28:                                               ; preds = %.lr.ph.split.us48
+  %29 = add i64 %26, 2
+  %30 = icmp ugt i64 %29, %.val3.i
   br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %29
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
   store i16 %.sroa.0.0.copyload.i.us47, ptr %31, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -11296,11 +11296,11 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb5
   ret void
 
 .split.us49:                                      ; preds = %.lr.ph.split.us48
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1097
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1097
   unreachable
 
-.split51.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1097
+.split51.us:                                      ; preds = %28
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1097
   unreachable
 }
 

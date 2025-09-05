@@ -664,7 +664,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit130:    ; preds = %_ZNK5clang13CXXMeth
 
 216:                                              ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit130
   %.idx.i = shl nuw nsw i64 %213, 4
-  %217 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx.i
+  %217 = getelementptr i8, ptr %210, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %212, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

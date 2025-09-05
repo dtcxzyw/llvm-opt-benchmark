@@ -11969,7 +11969,7 @@ _ZN4llvm2at20getAssignmentMarkersEPKNS_11InstructionE.exit: ; preds = %_ZNK4llvm
   %.v.v.i4.i2.i.i = select i1 %816, i32 %818, i32 %820
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %821 = getelementptr inbounds nuw i8, ptr %813, i64 %.idx.i.i
+  %821 = getelementptr i8, ptr %813, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_14DbgDeclareInstEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -12244,7 +12244,7 @@ _ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit: ; preds = %897, %
   %.v.v.i4.i2.i.i102 = select i1 %905, i32 %907, i32 %909
   %.v.i5.i3.i.i103 = zext i32 %.v.v.i4.i2.i.i102 to i64
   %.idx.i.i104 = shl nuw nsw i64 %.v.i5.i3.i.i103, 3
-  %910 = getelementptr inbounds nuw i8, ptr %902, i64 %.idx.i.i104
+  %910 = getelementptr i8, ptr %902, i64 %.idx.i.i104
   %.not3.i4.i.i6.i4.i.i105 = icmp eq i32 %.v.v.i4.i2.i.i102, 0
   br i1 %.not3.i4.i.i6.i4.i.i105, label %_ZNK4llvm15SmallPtrSetImplIPNS_17DbgVariableRecordEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i106
 

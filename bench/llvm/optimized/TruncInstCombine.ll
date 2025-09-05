@@ -5907,7 +5907,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_11InstructionENS_16TruncInstCombine4InfoEE
 
 72:                                               ; preds = %59
   %.idx.i = shl nuw nsw i64 %69, 4
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i
+  %73 = getelementptr i8, ptr %67, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %68, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

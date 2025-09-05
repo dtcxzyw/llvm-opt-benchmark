@@ -1865,7 +1865,7 @@ define dso_local void @_ZNK4llvm21BranchProbabilityInfo7SccInfo17getSccEnterBloc
 
 17:                                               ; preds = %3
   %.idx.i = shl nuw nsw i64 %14, 4
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %18 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %13, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -2141,7 +2141,7 @@ define dso_local void @_ZNK4llvm21BranchProbabilityInfo7SccInfo16getSccExitBlock
 
 17:                                               ; preds = %3
   %.idx.i = shl nuw nsw i64 %14, 4
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %18 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %13, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

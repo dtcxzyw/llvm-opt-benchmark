@@ -16646,6 +16646,7 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %scevgep = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre = load ptr, ptr %10, align 8, !tbaa !49
   br label %22
 
@@ -16660,8 +16661,7 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
   store ptr %24, ptr %7, align 8
   store i64 %27, ptr %11, align 8
   %.not3.i = icmp eq i64 %27, 0
-  %spec.select.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not3.i, i64 16, i64 0
-  %spec.select.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.i.idx.sroa.sel.idx.sroa.sel.idx
+  %spec.select.i.idx.sroa.sel = select i1 %.not3.i, ptr %scevgep, ptr %7
   %28 = icmp sgt i64 %.011, 0
   br i1 %28, label %.preheader.i21, label %41
 
@@ -16669,12 +16669,12 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
   %29 = icmp sgt i64 %27, %.011
   br i1 %29, label %._crit_edge67.i, label %.lr.ph66.i
 
-._crit_edge67.i.loopexit:                         ; preds = %38
-  %.sroa.040.0.copyload42.le = load ptr, ptr %36, align 8, !tbaa !230
+._crit_edge67.i.loopexit:                         ; preds = %37
+  %.sroa.040.0.copyload42.le = load ptr, ptr %38, align 8, !tbaa !230
   br label %._crit_edge67.i
 
 ._crit_edge67.i:                                  ; preds = %._crit_edge67.i.loopexit, %.preheader.i21
-  %.sroa.18.4 = phi ptr [ %spec.select.i.idx.sroa.sel.idx.sroa.sel, %.preheader.i21 ], [ %36, %._crit_edge67.i.loopexit ]
+  %.sroa.18.4 = phi ptr [ %spec.select.i.idx.sroa.sel, %.preheader.i21 ], [ %38, %._crit_edge67.i.loopexit ]
   %.sroa.743.5 = phi i64 [ %27, %.preheader.i21 ], [ %.sroa.743.0.copyload47, %._crit_edge67.i.loopexit ]
   %.sroa.040.5 = phi ptr [ %24, %.preheader.i21 ], [ %.sroa.040.0.copyload42.le, %._crit_edge67.i.loopexit ]
   %30 = phi i64 [ 0, %.preheader.i21 ], [ %35, %._crit_edge67.i.loopexit ]
@@ -16682,17 +16682,17 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
   %31 = add i64 %.0.lcssa.i, %30
   br label %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit
 
-.lr.ph66.i:                                       ; preds = %.preheader.i21, %38
-  %32 = phi ptr [ %36, %38 ], [ %spec.select.i.idx.sroa.sel.idx.sroa.sel, %.preheader.i21 ]
-  %33 = phi i64 [ %35, %38 ], [ 0, %.preheader.i21 ]
-  %34 = phi i64 [ %.sroa.743.0.copyload47, %38 ], [ %27, %.preheader.i21 ]
-  %.065.i = phi i64 [ %39, %38 ], [ %.011, %.preheader.i21 ]
+.lr.ph66.i:                                       ; preds = %.preheader.i21, %37
+  %32 = phi ptr [ %38, %37 ], [ %spec.select.i.idx.sroa.sel, %.preheader.i21 ]
+  %33 = phi i64 [ %35, %37 ], [ 0, %.preheader.i21 ]
+  %34 = phi i64 [ %.sroa.743.0.copyload47, %37 ], [ %27, %.preheader.i21 ]
+  %.065.i = phi i64 [ %39, %37 ], [ %.011, %.preheader.i21 ]
   %35 = add i64 %34, %33
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %37 = icmp eq ptr %32, %7
-  br i1 %37, label %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit, label %38
+  %36 = icmp eq ptr %32, %7
+  br i1 %36, label %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit, label %37
 
-38:                                               ; preds = %.lr.ph66.i
+37:                                               ; preds = %.lr.ph66.i
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %39 = sub nsw i64 %.065.i, %34
   %.sroa.743.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %.sroa.743.0.copyload47 = load i64, ptr %.sroa.743.0..sroa_idx46, align 8, !tbaa !286
@@ -16713,10 +16713,10 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
   br label %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit
 
 46:                                               ; preds = %.loopexit.i19, %.lr.ph.i
-  %.sroa.18.2 = phi ptr [ %spec.select.i.idx.sroa.sel.idx.sroa.sel, %.lr.ph.i ], [ %.sroa.18.3, %.loopexit.i19 ]
+  %.sroa.18.2 = phi ptr [ %spec.select.i.idx.sroa.sel, %.lr.ph.i ], [ %.sroa.18.3, %.loopexit.i19 ]
   %.sroa.743.2 = phi i64 [ %27, %.lr.ph.i ], [ %.sroa.743.3, %.loopexit.i19 ]
   %.sroa.040.2 = phi ptr [ %24, %.lr.ph.i ], [ %.sroa.040.3, %.loopexit.i19 ]
-  %47 = phi ptr [ %spec.select.i.idx.sroa.sel.idx.sroa.sel, %.lr.ph.i ], [ %55, %.loopexit.i19 ]
+  %47 = phi ptr [ %spec.select.i.idx.sroa.sel, %.lr.ph.i ], [ %55, %.loopexit.i19 ]
   %48 = phi i64 [ 0, %.lr.ph.i ], [ %51, %.loopexit.i19 ]
   %.02359.i = phi i64 [ %43, %.lr.ph.i ], [ %50, %.loopexit.i19 ]
   %49 = phi i64 [ 0, %.lr.ph.i ], [ %56, %.loopexit.i19 ]
@@ -16752,7 +16752,7 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
 
 _ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit: ; preds = %46, %.lr.ph66.i, %._crit_edge.i, %._crit_edge67.i, %41
   %.sroa.10.0 = phi i64 [ %.0.lcssa.i, %._crit_edge67.i ], [ 0, %41 ], [ %45, %._crit_edge.i ], [ 0, %.lr.ph66.i ], [ 0, %46 ]
-  %.sroa.18.5 = phi ptr [ %.sroa.18.4, %._crit_edge67.i ], [ %spec.select.i.idx.sroa.sel.idx.sroa.sel, %41 ], [ %.sroa.18.3, %._crit_edge.i ], [ %36, %.lr.ph66.i ], [ %.sroa.18.2, %46 ]
+  %.sroa.18.5 = phi ptr [ %.sroa.18.4, %._crit_edge67.i ], [ %spec.select.i.idx.sroa.sel, %41 ], [ %.sroa.18.3, %._crit_edge.i ], [ %scevgep, %.lr.ph66.i ], [ %.sroa.18.2, %46 ]
   %.sroa.23.1 = phi i64 [ %31, %._crit_edge67.i ], [ 0, %41 ], [ %44, %._crit_edge.i ], [ %35, %.lr.ph66.i ], [ %51, %46 ]
   %.sroa.743.6 = phi i64 [ %.sroa.743.5, %._crit_edge67.i ], [ %27, %41 ], [ %.sroa.743.3, %._crit_edge.i ], [ 0, %.lr.ph66.i ], [ %.sroa.743.2, %46 ]
   %.sroa.040.6 = phi ptr [ %.sroa.040.5, %._crit_edge67.i ], [ %24, %41 ], [ %.sroa.040.3, %._crit_edge.i ], [ null, %.lr.ph66.i ], [ %.sroa.040.2, %46 ]

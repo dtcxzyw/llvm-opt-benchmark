@@ -9555,7 +9555,7 @@ _ZN12_GLOBAL__N_113InferPedanticC2ERNS_18DiagGroupParentMapEN4llvm8ArrayRefIPKNS
 
 244:                                              ; preds = %_ZN12_GLOBAL__N_113InferPedanticC2ERNS_18DiagGroupParentMapEN4llvm8ArrayRefIPKNS3_6RecordEEES8_RSt3mapINS3_9StringRefENS_9GroupInfoESt4lessISA_ESaISt4pairIKSA_SB_EEE.exit
   %.idx.i.i111 = shl nuw nsw i64 %241, 3
-  %245 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx.i.i111
+  %245 = getelementptr i8, ptr %238, i64 %.idx.i.i111
   %.not5.i5.i10.i2.i.i = icmp eq i32 %240, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPKNS_6RecordENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -9673,7 +9673,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EEC2INS0_6detail12DenseSetImplIS3_NS0_8DenseM
 
 273:                                              ; preds = %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EEC2INS0_6detail12DenseSetImplIS3_NS0_8DenseMapIS3_NS7_13DenseSetEmptyENS0_12DenseMapInfoIS3_vEENS7_12DenseSetPairIS3_EEEESC_E8IteratorEvEET_SI_RKS4_.exit
   %.idx.i.i114 = shl nuw nsw i64 %270, 3
-  %274 = getelementptr inbounds nuw i8, ptr %267, i64 %.idx.i.i114
+  %274 = getelementptr i8, ptr %267, i64 %.idx.i.i114
   %.not5.i5.i10.i2.i.i115 = icmp eq i32 %269, 0
   br i1 %.not5.i5.i10.i2.i.i115, label %_ZN4llvm6detail12DenseSetImplIPKNS_6RecordENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit125, label %.lr.ph.i6.i12.i3.i.i116
 

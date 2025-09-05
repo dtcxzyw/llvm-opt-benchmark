@@ -1403,7 +1403,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit1
   %48 = load i32, ptr %47, align 8, !tbaa !518
   %49 = zext i32 %48 to i64
   %.idx.i.i = shl nuw nsw i64 %49, 4
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
+  %50 = getelementptr i8, ptr %46, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %48, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprP10ref_vectorIS0_11ast_managerEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

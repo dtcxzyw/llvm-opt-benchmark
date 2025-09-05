@@ -3867,13 +3867,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %17
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #25
   %29 = getelementptr inbounds nuw float, ptr %28, i64 %25
   store float 0.000000e+00, ptr %28, align 4, !tbaa !43
-  %30 = icmp eq i32 %24, 1
-  br i1 %30, label %.lr.ph.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  %30 = add nsw i64 %25, -1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.lr.ph.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc64.i
-  %31 = getelementptr i8, ptr %28, i64 4
-  %32 = add nsw i64 %27, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %32, i1 false), !tbaa !43
+  %32 = getelementptr i8, ptr %28, i64 4
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %32, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !43
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc64.i
@@ -3889,8 +3890,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc64.i
   br label %.preheader80.i
 
 .preheader80.i:                                   ; preds = %.preheader80.i.loopexit, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.067.0146.i = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %28, %.preheader80.i.loopexit ]
-  %.sroa.13.0144.i = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %38, %.preheader80.i.loopexit ]
+  %.sroa.067.0147.i = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %28, %.preheader80.i.loopexit ]
+  %.sroa.13.0145.i = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %38, %.preheader80.i.loopexit ]
   %39 = icmp sgt i32 %10, 0
   br i1 %39, label %.lr.ph84.i, label %._crit_edge.i
 
@@ -3903,7 +3904,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc64.i
   br label %.lr.ph84.split.i
 
 .lr.ph84.split.us.i:                              ; preds = %.lr.ph84.i
-  %41 = load float, ptr %.sroa.067.0146.i, align 4, !tbaa !43
+  %41 = load float, ptr %.sroa.067.0147.i, align 4, !tbaa !43
   %wide.trip.count111.i = zext nneg i32 %10 to i64
   br label %42
 
@@ -3976,7 +3977,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %61, %5
   %71 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv100.i
   %72 = load i16, ptr %71, align 2, !tbaa !291
   %73 = zext i16 %72 to i64
-  %74 = getelementptr inbounds nuw float, ptr %.sroa.067.0146.i, i64 %73
+  %74 = getelementptr inbounds nuw float, ptr %.sroa.067.0147.i, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !43
   %76 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv100.i
   br label %78
@@ -4038,7 +4039,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %61, %5
 
 .preheader78.us.i:                                ; preds = %._crit_edge87.us.i, %.preheader78.lr.ph.split.us.i
   %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %._crit_edge87.us.i ], [ 0, %.preheader78.lr.ph.split.us.i ]
-  %98 = getelementptr inbounds nuw float, ptr %.sroa.067.0146.i, i64 %indvars.iv118.i
+  %98 = getelementptr inbounds nuw float, ptr %.sroa.067.0147.i, i64 %indvars.iv118.i
   %99 = load float, ptr %98, align 4, !tbaa !43
   %100 = fpext float %99 to double
   %invariant.gep.i = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv118.i
@@ -4079,18 +4080,18 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %61, %5
 
 .preheader.us.i:                                  ; preds = %._crit_edge91.us.i, %.preheader.lr.ph.split.us.i
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %._crit_edge91.us.i ], [ 0, %.preheader.lr.ph.split.us.i ]
-  %111 = getelementptr inbounds nuw float, ptr %.sroa.067.0146.i, i64 %indvars.iv128.i
+  %111 = getelementptr inbounds nuw float, ptr %.sroa.067.0147.i, i64 %indvars.iv128.i
   %112 = load float, ptr %111, align 4, !tbaa !43
   %113 = fpext float %112 to double
-  %invariant.gep149.i = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv128.i
+  %invariant.gep150.i = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv128.i
   br label %114
 
 114:                                              ; preds = %114, %.preheader.us.i
   %indvars.iv123.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next124.i, %114 ]
-  %gep150.i = getelementptr inbounds nuw double, ptr %invariant.gep149.i, i64 %indvars.iv123.i
-  %115 = load double, ptr %gep150.i, align 8, !tbaa !56
+  %gep151.i = getelementptr inbounds nuw double, ptr %invariant.gep150.i, i64 %indvars.iv123.i
+  %115 = load double, ptr %gep151.i, align 8, !tbaa !56
   %116 = fmul double %115, %113
-  store double %116, ptr %gep150.i, align 8, !tbaa !56
+  store double %116, ptr %gep151.i, align 8, !tbaa !56
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %exitcond127.not.i = icmp eq i64 %indvars.iv.next124.i, %wide.trip.count126.i
   br i1 %exitcond127.not.i, label %._crit_edge91.us.i, label %114, !llvm.loop !321
@@ -4103,23 +4104,23 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %61, %5
 117:                                              ; preds = %89, %86, %83, %._crit_edge.i
   %118 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i.i = icmp eq ptr %.sroa.067.0146.i, null
+  %.not.i.i.i.i = icmp eq ptr %.sroa.067.0147.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %119
 
 119:                                              ; preds = %117
-  %120 = ptrtoint ptr %.sroa.067.0146.i to i64
-  %121 = sub i64 %.sroa.13.0144.i, %120
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.0146.i, i64 noundef %121) #24
+  %120 = ptrtoint ptr %.sroa.067.0147.i to i64
+  %121 = sub i64 %.sroa.13.0145.i, %120
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.0147.i, i64 noundef %121) #24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 .loopexit.i:                                      ; preds = %.preheader.lr.ph.i, %.preheader77.i, %88
-  %.not.i.i.i65.i = icmp eq ptr %.sroa.067.0146.i, null
+  %.not.i.i.i65.i = icmp eq ptr %.sroa.067.0147.i, null
   br i1 %.not.i.i.i65.i, label %_ZL35simulatedTemperingUpdateTemperatureRK10t_inputrecP14gmx_ekindata_tP7t_stateP9t_extmassPA3_fiN3gmx8ArrayRefIKtEEi.exit, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %._crit_edge91.us.i, %.loopexit.i
-  %122 = ptrtoint ptr %.sroa.067.0146.i to i64
-  %123 = sub i64 %.sroa.13.0144.i, %122
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.0146.i, i64 noundef %123) #24
+  %122 = ptrtoint ptr %.sroa.067.0147.i to i64
+  %123 = sub i64 %.sroa.13.0145.i, %122
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.0147.i, i64 noundef %123) #24
   br label %_ZL35simulatedTemperingUpdateTemperatureRK10t_inputrecP14gmx_ekindata_tP7t_stateP9t_extmassPA3_fiN3gmx8ArrayRefIKtEEi.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %119, %117

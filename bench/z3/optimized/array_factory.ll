@@ -627,7 +627,7 @@ define hidden noundef ptr @_ZN13array_factory14get_some_valueEP4sort(ptr noundef
   %40 = load i32, ptr %39, align 8, !tbaa !88
   %41 = zext i32 %40 to i64
   %.idx.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
+  %42 = getelementptr i8, ptr %38, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i6
 
@@ -1149,7 +1149,7 @@ _ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit23: ; preds = %.lr.
   %65 = load i32, ptr %64, align 8, !tbaa !88
   %66 = zext i32 %65 to i64
   %.idx.i = shl nuw nsw i64 %66, 3
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i
+  %67 = getelementptr i8, ptr %63, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %65, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %.lr.ph.i.i.i24
 

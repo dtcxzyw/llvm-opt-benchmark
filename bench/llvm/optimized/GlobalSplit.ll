@@ -888,13 +888,14 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit180.i.i: ; preds =
   %373 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %372) #15
   %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %371
   store ptr null, ptr %373, align 8, !tbaa !47
-  %375 = icmp eq i32 %369, 1
-  br i1 %375, label %.lr.ph265.i.i, label %_ZSt6fill_nIPPN4llvm14GlobalVariableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
+  %375 = add nsw i64 %371, -1
+  %376 = icmp eq i64 %375, 0
+  br i1 %376, label %.lr.ph265.i.i, label %_ZSt6fill_nIPPN4llvm14GlobalVariableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
 
 _ZSt6fill_nIPPN4llvm14GlobalVariableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %370
-  %376 = getelementptr i8, ptr %373, i64 8
-  %377 = add nsw i64 %372, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %376, i8 0, i64 %377, i1 false), !tbaa !47
+  %377 = getelementptr i8, ptr %373, i64 8
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %375, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %377, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !47
   br label %.lr.ph265.i.i
 
 .lr.ph265.i.i:                                    ; preds = %_ZSt6fill_nIPPN4llvm14GlobalVariableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %370
@@ -908,8 +909,8 @@ _ZSt6fill_nIPPN4llvm14GlobalVariableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.
   br label %._crit_edge266.i.i
 
 ._crit_edge266.i.i:                               ; preds = %._crit_edge266.i.loopexit.i, %.critedge127.i.i
-  %.sroa.0214.0323.i.i = phi ptr [ null, %.critedge127.i.i ], [ %373, %._crit_edge266.i.loopexit.i ]
-  %.sroa.9.0321.i.i = phi i64 [ 0, %.critedge127.i.i ], [ %381, %._crit_edge266.i.loopexit.i ]
+  %.sroa.0214.0324.i.i = phi ptr [ null, %.critedge127.i.i ], [ %373, %._crit_edge266.i.loopexit.i ]
+  %.sroa.9.0322.i.i = phi i64 [ 0, %.critedge127.i.i ], [ %381, %._crit_edge266.i.loopexit.i ]
   %.val.i.i = load ptr, ptr %7, align 8, !tbaa !22
   %.val137.i.i = load i32, ptr %51, align 8, !tbaa !24
   %382 = zext i32 %.val137.i.i to i64
@@ -1034,9 +1035,9 @@ _ZN4llvm6utostrB5cxx11Emb.exit.i.i:               ; preds = %417, %415, %._crit_
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i.i:              ; preds = %423, %422, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i
-  %.sink324.i.i = phi i8 [ 4, %422 ], [ %.014.i.i.i.i, %423 ], [ %421, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
+  %.sink325.i.i = phi i8 [ 4, %422 ], [ %.014.i.i.i.i, %423 ], [ %421, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
   %.sink.i.i = phi i8 [ 1, %422 ], [ 4, %423 ], [ 1, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
-  store i8 %.sink324.i.i, ptr %82, align 8, !tbaa !81
+  store i8 %.sink325.i.i, ptr %82, align 8, !tbaa !81
   store i8 %.sink.i.i, ptr %83, align 1, !tbaa !81
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %385, ptr noundef nonnull align 8 dereferenceable(841) %386, ptr noundef %396, i1 noundef zeroext %398, i32 noundef 8, ptr noundef nonnull %394, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #12
   %426 = load ptr, ptr %24, align 8, !tbaa !73
@@ -1078,11 +1079,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %439 = add i32 %.0115264.i.i, 1
   %440 = zext i32 %439 to i64
   %441 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %108, i64 %440
-  %storemerge317.in.i.i = select i1 %438, ptr %107, ptr %441
-  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %storemerge317.in.i.i, i64 8
+  %storemerge318.in.i.i = select i1 %438, ptr %107, ptr %441
+  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %storemerge318.in.i.i, i64 8
   %storemerge.i.i = load i8, ptr %storemerge.in.i.i, align 8
-  %storemerge317.i.i = load i64, ptr %storemerge317.in.i.i, align 8
-  store i64 %storemerge317.i.i, ptr %26, align 8
+  %storemerge318.i.i = load i64, ptr %storemerge318.in.i.i, align 8
+  store i64 %storemerge318.i.i, ptr %26, align 8
   store i8 %storemerge.i.i, ptr %.sroa.229.0..sroa_idx.i.i, align 8
   %442 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %26) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -1211,7 +1212,7 @@ _ZNK4llvm5Value11hasMetadataEj.exit.thread.i.i:   ; preds = %495, %_ZNK4llvm5Val
   %503 = getelementptr inbounds nuw i8, ptr %.0116268.i.i, i64 8
   %504 = load i32, ptr %503, align 8, !tbaa !46
   %505 = zext i32 %504 to i64
-  %506 = getelementptr inbounds nuw ptr, ptr %.sroa.0214.0323.i.i, i64 %505
+  %506 = getelementptr inbounds nuw ptr, ptr %.sroa.0214.0324.i.i, i64 %505
   %507 = load ptr, ptr %506, align 8, !tbaa !47
   %508 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(81) %93) #12
   %509 = getelementptr inbounds nuw i8, ptr %.0116268.i.i, i64 16
@@ -1272,13 +1273,13 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit206.i.i: ; preds =
 
 537:                                              ; preds = %534, %._crit_edge271.i.i
   call void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(81) %93) #12
-  %.not.i.i.i.i.i = icmp eq ptr %.sroa.0214.0323.i.i, null
+  %.not.i.i.i.i.i = icmp eq ptr %.sroa.0214.0324.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EED2Ev.exit.i.i, label %538
 
 538:                                              ; preds = %537
-  %539 = ptrtoint ptr %.sroa.0214.0323.i.i to i64
-  %540 = sub i64 %.sroa.9.0321.i.i, %539
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0214.0323.i.i, i64 noundef %540) #13
+  %539 = ptrtoint ptr %.sroa.0214.0324.i.i to i64
+  %540 = sub i64 %.sroa.9.0322.i.i, %539
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0214.0324.i.i, i64 noundef %540) #13
   br label %_ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EED2Ev.exit.i.i
 
 _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EED2Ev.exit.i.i: ; preds = %538, %537

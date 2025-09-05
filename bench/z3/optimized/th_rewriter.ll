@@ -9620,7 +9620,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE5resetEv.exit.i: ; preds = %
   %337 = load i32, ptr %336, align 8, !tbaa !377
   %338 = zext i32 %337 to i64
   %.idx.i.i.i = shl nuw nsw i64 %338, 4
-  %339 = getelementptr inbounds nuw i8, ptr %335, i64 %.idx.i.i.i
+  %339 = getelementptr i8, ptr %335, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %337, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -10493,7 +10493,7 @@ _Z19quick_for_each_exprIZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bu
   %666 = load i32, ptr %665, align 8, !tbaa !377
   %667 = zext i32 %666 to i64
   %.idx.i.i33.i = shl nuw nsw i64 %667, 4
-  %668 = getelementptr inbounds nuw i8, ptr %664, i64 %.idx.i.i33.i
+  %668 = getelementptr i8, ptr %664, i64 %.idx.i.i33.i
   %.not1.i.i.i.i34.i = icmp eq i32 %666, 0
   br i1 %.not1.i.i.i.i34.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit42.i, label %.lr.ph.i.i.i.i35.i
 
@@ -20206,7 +20206,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb1EEEbP3app
   %375 = load i32, ptr %374, align 8, !tbaa !525
   %376 = zext i32 %375 to i64
   %.idx.i = shl nuw nsw i64 %376, 3
-  %377 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i
+  %377 = getelementptr i8, ptr %373, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %375, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -22525,7 +22525,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13process_constILb0EEEbP3app
   %252 = load i32, ptr %251, align 8, !tbaa !525
   %253 = zext i32 %252 to i64
   %.idx.i = shl nuw nsw i64 %253, 3
-  %254 = getelementptr inbounds nuw i8, ptr %250, i64 %.idx.i
+  %254 = getelementptr i8, ptr %250, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %252, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

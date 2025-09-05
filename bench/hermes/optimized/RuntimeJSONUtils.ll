@@ -3741,11 +3741,11 @@ if.then.i.i:                                      ; preds = %if.then.i4
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %output_, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #12
   %.pre.i.i = load i32, ptr %Size.i.i, align 8
-  %.pre229 = zext i32 %.pre.i.i to i64
+  %.pre226 = zext i32 %.pre.i.i to i64
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i
 
 _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i: ; preds = %if.then.i.i, %if.then.i4
-  %conv.i3.i.i.pre-phi = phi i64 [ %.pre229, %if.then.i.i ], [ %conv.i, %if.then.i4 ]
+  %conv.i3.i.i.pre-phi = phi i64 [ %.pre226, %if.then.i.i ], [ %conv.i, %if.then.i4 ]
   %12 = load ptr, ptr %output_, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i3.i.i.pre-phi
   store i16 10, ptr %add.ptr.i.i.i, align 1
@@ -3855,8 +3855,8 @@ if.end71:                                         ; preds = %_ZN6hermes2vm12_GLO
   %39 = inttoptr i64 %and.i.i.i.i.i25 to ptr
   %endIndex_.i = getelementptr inbounds nuw i8, ptr %39, i64 24
   %40 = load i32, ptr %endIndex_.i, align 4
-  %cmp75221.not = icmp eq i32 %40, 0
-  br i1 %cmp75221.not, label %for.end.thread, label %for.body.lr.ph
+  %cmp75220.not = icmp eq i32 %40, 0
+  br i1 %cmp75220.not, label %for.end.thread, label %for.body.lr.ph
 
 for.end.thread:                                   ; preds = %if.end71
   store i32 %4, ptr %depthCount_, align 8
@@ -3872,11 +3872,11 @@ for.body.lr.ph:                                   ; preds = %if.end71
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasElement.0223 = phi i8 [ 0, %for.body.lr.ph ], [ %hasElement.1, %for.inc ]
-  %index.0222 = phi i32 [ 0, %for.body.lr.ph ], [ %inc188, %for.inc ]
+  %hasElement.0222 = phi i8 [ 0, %for.body.lr.ph ], [ %hasElement.1, %for.inc ]
+  %index.0221 = phi i32 [ 0, %for.body.lr.ph ], [ %inc188, %for.inc ]
   %41 = load i32, ptr %Size.i.i, align 8
   %conv.i27 = zext i32 %41 to i64
-  %tobool = trunc nuw i8 %hasElement.0223 to i1
+  %tobool = trunc nuw i8 %hasElement.0222 to i1
   br i1 %tobool, label %if.then78, label %if.end81
 
 if.then78:                                        ; preds = %for.body
@@ -3887,11 +3887,11 @@ if.then78:                                        ; preds = %for.body
 if.then.i31:                                      ; preds = %if.then78
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %output_, ptr noundef nonnull %add.ptr.i.i.i.i32, i64 noundef 0, i64 noundef 2) #12
   %.pre.i33 = load i32, ptr %Size.i.i, align 8
-  %.pre228 = zext i32 %.pre.i33 to i64
+  %.pre225 = zext i32 %.pre.i33 to i64
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit37
 
 _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit37: ; preds = %if.then78, %if.then.i31
-  %conv.i3.i34.pre-phi = phi i64 [ %conv.i27, %if.then78 ], [ %.pre228, %if.then.i31 ]
+  %conv.i3.i34.pre-phi = phi i64 [ %conv.i27, %if.then78 ], [ %.pre225, %if.then.i31 ]
   %43 = load ptr, ptr %output_, align 8
   %add.ptr.i.i35 = getelementptr inbounds nuw i16, ptr %43, i64 %conv.i3.i34.pre-phi
   store i16 44, ptr %add.ptr.i.i35, align 1
@@ -3946,10 +3946,10 @@ if.end81:                                         ; preds = %for.body.i56, %_ZN4
   %55 = inttoptr i64 %and.i.i.i.i.i64 to ptr
   %beginIndex_.i = getelementptr inbounds nuw i8, ptr %55, i64 20
   %56 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i65 = icmp uge i32 %index.0222, %56
+  %cmp.not.i65 = icmp uge i32 %index.0221, %56
   %endIndex_.i66 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load i32, ptr %endIndex_.i66, align 4
-  %cmp2.i = icmp ult i32 %index.0222, %57
+  %cmp2.i = icmp ult i32 %index.0221, %57
   %or.cond.i = select i1 %cmp.not.i65, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %sw.bb36.i
 
@@ -3961,7 +3961,7 @@ cond.true.i:                                      ; preds = %if.end81
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %59
   %60 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
-  %sub.i = sub nuw i32 %index.0222, %56
+  %sub.i = sub nuw i32 %index.0221, %56
   %cmp.i.i67 = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i67, label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, label %if.else.i.i
 
@@ -4269,8 +4269,8 @@ if.end15.sink.split.i:                            ; preds = %for.body.preheader.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end15.sink.split.i, %if.else.i, %if.end181
-  %hasElement.1 = phi i8 [ 1, %if.end181 ], [ %hasElement.0223, %if.else.i ], [ %hasElement.0223, %if.end15.sink.split.i ]
-  %inc188 = add nuw i32 %index.0222, 1
+  %hasElement.1 = phi i8 [ 1, %if.end181 ], [ %hasElement.0222, %if.else.i ], [ %hasElement.0222, %if.end15.sink.split.i ]
+  %inc188 = add nuw i32 %index.0221, 1
   %exitcond.not = icmp eq i32 %inc188, %40
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
@@ -4284,12 +4284,12 @@ if.then191:                                       ; preds = %for.end
   %retval.sroa.0.0.copyload.i.i.i152 = load i64, ptr %122, align 8
   %and.i.i.i.i.i153 = and i64 %retval.sroa.0.0.copyload.i.i.i152, 281474976710655
   %tobool.not.i154 = icmp eq i64 %and.i.i.i.i.i153, 0
-  %.pre227 = load i32, ptr %Size.i.i, align 8
+  %.pre224 = load i32, ptr %Size.i.i, align 8
   br i1 %tobool.not.i154, label %if.end194, label %if.then.i155
 
 if.then.i155:                                     ; preds = %if.then191
   %123 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.not.i.i159 = icmp ult i32 %.pre227, %123
+  %cmp.not.i.i159 = icmp ult i32 %.pre224, %123
   br i1 %cmp.not.i.i159, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163, label %if.then.i.i160
 
 if.then.i.i160:                                   ; preds = %if.then.i155
@@ -4299,7 +4299,7 @@ if.then.i.i160:                                   ; preds = %if.then.i155
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163
 
 _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163: ; preds = %if.then.i.i160, %if.then.i155
-  %124 = phi i32 [ %.pre.i.i162, %if.then.i.i160 ], [ %.pre227, %if.then.i155 ]
+  %124 = phi i32 [ %.pre.i.i162, %if.then.i.i160 ], [ %.pre224, %if.then.i155 ]
   %125 = load ptr, ptr %output_, align 8
   %conv.i3.i.i164 = zext i32 %124 to i64
   %add.ptr.i.i.i165 = getelementptr inbounds nuw i16, ptr %125, i64 %conv.i3.i.i164
@@ -4362,11 +4362,11 @@ if.end15.sink.split.i191:                         ; preds = %for.body.preheader.
   br label %if.end194
 
 if.end194.loopexit:                               ; preds = %for.body.i169
-  %.pre226 = load i32, ptr %Size.i.i, align 8
+  %.pre223 = load i32, ptr %Size.i.i, align 8
   br label %if.end194
 
 if.end194:                                        ; preds = %if.end194.loopexit, %if.end15.sink.split.i191, %if.else.i180, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163, %if.then191
-  %136 = phi i32 [ %.pre226, %if.end194.loopexit ], [ %add.i, %if.end15.sink.split.i191 ], [ %131, %if.else.i180 ], [ %add.i.i166, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163 ], [ %.pre227, %if.then191 ]
+  %136 = phi i32 [ %.pre223, %if.end194.loopexit ], [ %add.i, %if.end15.sink.split.i191 ], [ %131, %if.else.i180 ], [ %add.i.i166, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163 ], [ %.pre224, %if.then191 ]
   %137 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i199 = icmp ult i32 %136, %137
   br i1 %cmp.not.i199, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit207, label %if.then.i200

@@ -976,7 +976,7 @@ if.then.i:                                        ; preds = %if.end22
 
 if.end8.i:                                        ; preds = %if.end22
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %8, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %8, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %9, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -4271,7 +4271,7 @@ entry:
   %1 = load i32, ptr %Size.i.i.i.i.i.i, align 8, !noalias !37
   %conv.i.i.i.i.i.i = zext i32 %1 to i64
   %add.ptr.i.i.idx.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.i.idx.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %add.ptr.i.i.idx.i.i.i.i
   %cmp.not3.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not3.i.i.i.i.i, label %_ZN4llvh8childrenINS_7InverseIPN6hermes10BasicBlockEEEEENS_14iterator_rangeINS_11GraphTraitsIT_E17ChildIteratorTypeEEERKNS9_7NodeRefE.exit, label %land.rhs.i.i.i.i.i
 
@@ -4394,7 +4394,7 @@ for.end:                                          ; preds = %_ZN6hermes12PredIte
   %14 = load i32, ptr %Size.i.i.i.i.i.i24, align 8, !noalias !41
   %conv.i.i.i.i.i.i25 = zext i32 %14 to i64
   %add.ptr.i.i.idx.i.i.i.i26 = shl nuw nsw i64 %conv.i.i.i.i.i.i25, 3
-  %add.ptr.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %13, i64 %add.ptr.i.i.idx.i.i.i.i26
+  %add.ptr.i.i.i.i.i.i27 = getelementptr i8, ptr %13, i64 %add.ptr.i.i.idx.i.i.i.i26
   %cmp.not3.i.i.i.i.i28 = icmp eq i32 %14, 0
   br i1 %cmp.not3.i.i.i.i.i28, label %_ZN4llvh8childrenINS_7InverseIPN6hermes10BasicBlockEEEEENS_14iterator_rangeINS_11GraphTraitsIT_E17ChildIteratorTypeEEERKNS9_7NodeRefE.exit42, label %land.rhs.i.i.i.i.i29
 
@@ -17633,7 +17633,7 @@ entry:
   %1 = load i32, ptr %Size.i.i.i.i.i.i, align 8, !noalias !147
   %conv.i.i.i.i.i.i = zext i32 %1 to i64
   %add.ptr.i.i.idx.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.i.idx.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %add.ptr.i.i.idx.i.i.i.i
   %cmp.not3.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not3.i.i.i.i.i, label %_ZN4llvh16inverse_childrenIPN6hermes10BasicBlockEEENS_14iterator_rangeINS_11GraphTraitsINS_7InverseIT_EEE17ChildIteratorTypeEEERKNS5_IS7_E7NodeRefE.exit, label %land.rhs.i.i.i.i.i
 
@@ -22220,7 +22220,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end8.i:                                        ; preds = %entry
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %3, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %3, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %.fr, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -22567,7 +22567,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end8.i:                                        ; preds = %entry
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %1, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %2, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -23034,7 +23034,7 @@ if.end11:                                         ; preds = %_ZNK4llvh12DenseMap
 
 if.end8.i:                                        ; preds = %if.end11
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i2.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %4, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %4, i64 %add.ptr.i4.idx.i
   br i1 %cmp.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
 land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.body.i6.i12.i9.i
@@ -23304,7 +23304,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end8.i:                                        ; preds = %entry
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %1, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %2, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -23567,7 +23567,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end8.i:                                        ; preds = %entry
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %1, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %2, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

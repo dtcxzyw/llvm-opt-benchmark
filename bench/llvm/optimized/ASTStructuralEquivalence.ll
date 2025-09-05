@@ -3818,11 +3818,15 @@ _ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread: ; pred
   %.idx = shl nuw nsw i64 %82, 3
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx
   %.not51154 = icmp eq i32 %81, 0
-  br i1 %.not51154, label %.critedge, label %.lr.ph
+  br i1 %.not51154, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread
-  %.047156 = phi ptr [ %118, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread ], [ %79, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread ]
-  %.048155 = phi ptr [ %119, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread ], [ %73, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread ]
+.lr.ph.preheader:                                 ; preds = %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread
+  %scevgep = getelementptr i8, ptr %73, i64 %.idx
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread
+  %.047156 = phi ptr [ %118, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread ], [ %79, %.lr.ph.preheader ]
+  %.048155 = phi ptr [ %119, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread ], [ %73, %.lr.ph.preheader ]
   %84 = icmp eq ptr %.048155, %77
   br i1 %84, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread136, label %85
 
@@ -3882,7 +3886,7 @@ _ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread: ; pred
   br i1 %.not51, label %.critedge, label %.lr.ph, !llvm.loop !271
 
 .critedge:                                        ; preds = %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread
-  %.048.lcssa = phi ptr [ %73, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread ], [ %119, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread ]
+  %.048.lcssa = phi ptr [ %73, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread ], [ %scevgep, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread ]
   %.not52.old = icmp eq ptr %.048.lcssa, %77
   br i1 %.not52.old, label %120, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread136
 

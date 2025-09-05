@@ -33765,13 +33765,14 @@ _ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds
 
 .noexc300:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr null, ptr %154, align 8, !tbaa !1750
-  %155 = icmp eq i64 %149, 1
-  br i1 %155, label %.lr.ph11.i, label %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %155 = add nsw i64 %2, -33
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %.lr.ph11.i, label %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc300
-  %156 = getelementptr i8, ptr %154, i64 8
-  %157 = add nsw i64 %153, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %156, i8 0, i64 %157, i1 false), !tbaa !1750
+  %157 = getelementptr i8, ptr %154, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %155, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %157, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !1750
   br label %.lr.ph11.i
 
 .lr.ph11.i:                                       ; preds = %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc300
@@ -35353,7 +35354,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i244: ; preds = %_ZNKSt1
   br i1 %827, label %.lr.ph.split, label %.loopexit364, !llvm.loop !1863
 
 .loopexit366:                                     ; preds = %750, %.critedge, %.loopexit364, %690, %.preheader365
-  %.sroa.69559.3687 = phi ptr [ %736, %.preheader365 ], [ %.sroa.69559.8, %690 ], [ %736, %.loopexit364 ], [ %.sroa.69559.2, %.critedge ], [ %736, %750 ]
+  %.sroa.69559.3688 = phi ptr [ %736, %.preheader365 ], [ %.sroa.69559.8, %690 ], [ %736, %.loopexit364 ], [ %.sroa.69559.2, %.critedge ], [ %736, %750 ]
   %828 = load i64, ptr %29, align 8, !tbaa !1767, !noalias !1864
   %829 = load ptr, ptr %245, align 8, !tbaa !1815, !noalias !1864
   %830 = load ptr, ptr %238, align 8, !tbaa !1833, !noalias !1864
@@ -35412,7 +35413,7 @@ _ZN7rocksdb6DBImpl28ReturnAndCleanupSuperVersionEPNS_16ColumnFamilyDataEPNS_12Su
   br i1 %.not363, label %._crit_edge, label %.lr.ph468
 
 .loopexit368:                                     ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %._crit_edge
-  %.sroa.69559.0 = phi ptr [ %.sroa.69559.3687, %._crit_edge ], [ %.sroa.69559.8, %_ZN7rocksdb6StatusaSERKS0_.exit ]
+  %.sroa.69559.0 = phi ptr [ %.sroa.69559.3688, %._crit_edge ], [ %.sroa.69559.8, %_ZN7rocksdb6StatusaSERKS0_.exit ]
   %.not.i.i250 = icmp eq ptr %.sroa.69559.0, null
   br i1 %.not.i.i250, label %_ZN7rocksdb6StatusD2Ev.exit253, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i251
 
@@ -35594,7 +35595,7 @@ _ZN7rocksdb10autovectorINS_10KeyContextELm32EED2Ev.exit: ; preds = %_ZSt8_Destro
   br label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i274
 
 903:                                              ; preds = %748, %849
-  %.sroa.69559.1 = phi ptr [ %.sroa.69559.3687, %849 ], [ %.sroa.69559.2, %748 ]
+  %.sroa.69559.1 = phi ptr [ %.sroa.69559.3688, %849 ], [ %.sroa.69559.2, %748 ]
   %.pn128.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %850, %849 ], [ %749, %748 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %.not.i.i273 = icmp eq ptr %.sroa.69559.1, null
@@ -42043,13 +42044,14 @@ _ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds
 
 .noexc61:                                         ; preds = %_ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr null, ptr %51, align 8, !tbaa !1750
-  %52 = icmp eq i64 %46, 1
-  br i1 %52, label %.lr.ph11.i, label %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %52 = add nsw i64 %3, -33
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %.lr.ph11.i, label %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc61
-  %53 = getelementptr i8, ptr %51, i64 8
-  %54 = add nsw i64 %50, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %53, i8 0, i64 %54, i1 false), !tbaa !1750
+  %54 = getelementptr i8, ptr %51, i64 8
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %52, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !1750
   br label %.lr.ph11.i
 
 .lr.ph11.i:                                       ; preds = %_ZSt6fill_nIPPN7rocksdb10KeyContextEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc61

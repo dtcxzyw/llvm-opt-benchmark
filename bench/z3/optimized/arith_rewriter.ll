@@ -55133,7 +55133,7 @@ _ZNK13poly_rewriterI19arith_rewriter_coreE17is_nontrivial_gcdERK8rational.exit10
   %338 = load i32, ptr %13, align 8, !tbaa !514
   %339 = zext i32 %338 to i64
   %.idx.i122 = shl nuw nsw i64 %339, 3
-  %340 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx.i122
+  %340 = getelementptr i8, ptr %337, i64 %.idx.i122
   %.not1.i.i.i = icmp eq i32 %338, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -56851,7 +56851,7 @@ define linkonce_odr hidden void @_Z16set_intersectionI13obj_hashtableI4exprES2_E
   %6 = load i32, ptr %5, align 8, !tbaa !514
   %7 = zext i32 %6 to i64
   %.idx.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i, label %.loopexit24, label %.lr.ph.i.i.i
 

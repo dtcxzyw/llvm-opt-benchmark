@@ -599,7 +599,7 @@ if.then.i.i73.i:                                  ; preds = %for.end132.i, %for.
 
 if.end8.i.i.i:                                    ; preds = %for.end132.i
   %add.ptr.i4.idx.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i71.i, 3
-  %add.ptr.i4.i.i72.i = getelementptr inbounds nuw i8, ptr %.pre137.i, i64 %add.ptr.i4.idx.i.i.i
+  %add.ptr.i4.i.i72.i = getelementptr i8, ptr %.pre137.i, i64 %add.ptr.i4.idx.i.i.i
   %cmp.not3.i3.i7.i5.i.i.i = icmp eq i32 %.pre138.i, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i, label %land.rhs.i4.i9.i6.i.i.i
 

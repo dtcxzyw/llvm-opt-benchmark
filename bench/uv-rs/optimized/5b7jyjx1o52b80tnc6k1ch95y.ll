@@ -12438,7 +12438,7 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %156
   %330 = icmp ult i64 %.sroa.5367.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %330)
   %.idx = shl nuw nsw i64 %.sroa.5367.0.copyload, 6
-  %331 = getelementptr inbounds nuw i8, ptr %.sroa.4366.0.copyload, i64 %.idx
+  %331 = getelementptr i8, ptr %.sroa.4366.0.copyload, i64 %.idx
   %332 = icmp sgt i64 %.sroa.0365.0.copyload, -1
   call void @llvm.assume(i1 %332)
   store ptr %.sroa.4366.0.copyload, ptr %40, align 8

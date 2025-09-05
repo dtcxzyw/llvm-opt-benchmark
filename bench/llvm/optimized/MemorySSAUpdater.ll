@@ -5527,7 +5527,7 @@ _ZN4llvm19SmallPtrSetImplBase7reserveEj.exit29:   ; preds = %58, %53, %48, %_ZN4
   %.v.v.i4.i2.i = select i1 %70, i32 %72, i32 %74
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i
+  %75 = getelementptr i8, ptr %67, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -11000,7 +11000,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEZNS_16MemorySSAUpdate
   %136 = select i1 %135, i32 %.pre1313, i32 %.pre1314
   %.v.i5.i3.i = zext i32 %136 to i64
   %.idx.i245 = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %137 = getelementptr inbounds nuw i8, ptr %.pre1311, i64 %.idx.i245
+  %137 = getelementptr i8, ptr %.pre1311, i64 %.idx.i245
   %.not3.i4.i.i6.i4.i = icmp eq i32 %136, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -12939,7 +12939,7 @@ _ZN4llvm9MemoryPhi11addIncomingEPNS_12MemoryAccessEPNS_10BasicBlockE.exit: ; pre
   %1112 = select i1 %.not.i.i.i2.i382, i32 %1111, i32 4
   %1113 = zext i32 %1112 to i64
   %.idx.i383 = shl nuw nsw i64 %1113, 4
-  %1114 = getelementptr inbounds nuw i8, ptr %1110, i64 %.idx.i383
+  %1114 = getelementptr i8, ptr %1110, i64 %.idx.i383
   %.not5.i5.i10.i4.i = icmp eq i32 %1112, 0
   br i1 %.not5.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -12961,7 +12961,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_12MemoryAccessELj
   %.pre-phi1330 = phi i32 [ %1098, %1100 ], [ %1108, %1107 ], [ %1108, %.critedge2.i8.i14.i8.i ], [ %1108, %.lr.ph.i6.i12.i5.i ]
   %1117 = phi i32 [ %1103, %1100 ], [ %1111, %1107 ], [ %1111, %.critedge2.i8.i14.i8.i ], [ %1111, %.lr.ph.i6.i12.i5.i ]
   %1118 = phi ptr [ %1101, %1100 ], [ %1109, %1107 ], [ %1109, %.critedge2.i8.i14.i8.i ], [ %1109, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i385 = phi ptr [ %1106, %1100 ], [ %1110, %1107 ], [ %.sroa.0.3.i6.i384, %.lr.ph.i6.i12.i5.i ], [ %1116, %.critedge2.i8.i14.i8.i ]
+  %.pn16.i385 = phi ptr [ %1106, %1100 ], [ %1110, %1107 ], [ %.sroa.0.3.i6.i384, %.lr.ph.i6.i12.i5.i ], [ %1114, %.critedge2.i8.i14.i8.i ]
   %.pn14.i = phi ptr [ %1106, %1100 ], [ %1114, %1107 ], [ %1114, %.critedge2.i8.i14.i8.i ], [ %1114, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i389 = icmp eq i32 %.pre-phi1330, 0
   %1119 = select i1 %.not.i.i.i.i.i389, ptr %1118, ptr %.phi.trans.insert.i.i300.ptr

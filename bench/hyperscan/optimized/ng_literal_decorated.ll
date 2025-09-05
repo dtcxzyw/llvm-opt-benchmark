@@ -161,18 +161,19 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc
 
 .noexc115.i:                                      ; preds = %34
   store i64 0, ptr %36, align 8
-  %37 = icmp eq i64 %31, 1
-  br i1 %37, label %_ZNSt6vectorIS_IS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i, label %38
+  %37 = add nsw i64 %31, -1
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %_ZNSt6vectorIS_IS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i, label %39
 
-38:                                               ; preds = %.noexc115.i
-  %39 = getelementptr i8, ptr %36, i64 8
-  %40 = add nsw i64 %35, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 %40, i1 false)
+39:                                               ; preds = %.noexc115.i
+  %40 = getelementptr i8, ptr %36, i64 8
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %37, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = icmp samesign ugt i64 %31, 384307168202282325
   br i1 %41, label %42, label %.lr.ph.preheader.i.i.i.i.i.i
 
-42:                                               ; preds = %38
+42:                                               ; preds = %39
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
           to label %.noexc117.i unwind label %.thread242.i
 
@@ -188,7 +189,7 @@ _ZNSt12_Vector_baseISt6vectorIS0_IN3ue212graph_detail17vertex_descriptorINS1_9ue
   store i64 0, ptr %5, align 8
   br label %46
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i, %38
+.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i, %39
   %43 = mul nuw nsw i64 %31, 24
   %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #19
           to label %.noexc118.i unwind label %.thread242.i

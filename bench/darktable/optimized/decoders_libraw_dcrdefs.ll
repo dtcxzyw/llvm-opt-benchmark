@@ -74,13 +74,14 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i:  ; preds = %31
 
 .noexc43:                                         ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i
   store i16 0, ptr %37, align 2, !tbaa !77
-  %38 = icmp eq i32 %34, 1
-  br i1 %38, label %.noexc, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %38 = add nsw i64 %35, -1
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %.noexc, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc43
-  %39 = getelementptr i8, ptr %37, i64 2
-  %40 = add nsw i64 %36, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %39, i8 0, i64 %40, i1 false), !tbaa !77
+  %40 = getelementptr i8, ptr %37, i64 2
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %38, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %40, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !77
   br label %.noexc
 
 .noexc:                                           ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc43

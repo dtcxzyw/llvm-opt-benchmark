@@ -1124,7 +1124,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %35, %31, %27, %3
   %47 = load i32, ptr %46, align 8, !tbaa !20
   %48 = zext i32 %47 to i64
   %.idx.i = shl nuw nsw i64 %48, 3
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i
+  %49 = getelementptr i8, ptr %45, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %47, 0
   br i1 %.not1.i.i.i, label %.loopexit202, label %.lr.ph.i.i.i
 
@@ -1717,7 +1717,7 @@ _ZN4goal11assert_exprEP4expr.exit:                ; preds = %.lr.ph234
   %286 = load i32, ptr %285, align 8, !tbaa !109
   %287 = zext i32 %286 to i64
   %.idx.i.i = shl nuw nsw i64 %287, 4
-  %288 = getelementptr inbounds nuw i8, ptr %284, i64 %.idx.i.i
+  %288 = getelementptr i8, ptr %284, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %286, 0
   br i1 %.not1.i.i.i.i, label %.loopexit201, label %.lr.ph.i.i.i.i
 
@@ -1849,7 +1849,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_
   %336 = load i32, ptr %335, align 8, !tbaa !127
   %337 = zext i32 %336 to i64
   %.idx.i.i142 = shl nuw nsw i64 %337, 4
-  %338 = getelementptr inbounds nuw i8, ptr %334, i64 %.idx.i.i142
+  %338 = getelementptr i8, ptr %334, i64 %.idx.i.i142
   %.not1.i.i.i.i143 = icmp eq i32 %336, 0
   br i1 %.not1.i.i.i.i143, label %.loopexit, label %.lr.ph.i.i.i.i144
 

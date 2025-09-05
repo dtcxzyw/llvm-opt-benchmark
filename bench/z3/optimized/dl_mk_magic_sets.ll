@@ -3804,8 +3804,8 @@ _ZN6vectorIjLb0EjE6resizeEj.exit.i:               ; preds = %.lr.ph.preheader.i.
   %348 = phi ptr [ %286, %.lr.ph.preheader.i.i114 ], [ %286, %341 ], [ %182, %_ZNK6vectorIjLb0EjE4sizeEv.exit11.thread.i ]
   %349 = phi ptr [ %287, %.lr.ph.preheader.i.i114 ], [ %287, %341 ], [ %183, %_ZNK6vectorIjLb0EjE4sizeEv.exit11.thread.i ]
   %350 = phi ptr [ %288, %.lr.ph.preheader.i.i114 ], [ %288, %341 ], [ %184, %_ZNK6vectorIjLb0EjE4sizeEv.exit11.thread.i ]
-  %.not24.i = icmp eq i32 %278, 0
-  br i1 %.not24.i, label %_ZN8uint_setoRERKS_.exit, label %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge
+  %.not23.i = icmp eq i32 %278, 0
+  br i1 %.not23.i, label %_ZN8uint_setoRERKS_.exit, label %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge
 
 _ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge: ; preds = %_ZN6vectorIjLb0EjE6resizeEj.exit.i
   %.pre222 = load ptr, ptr %273, align 8, !tbaa !282
@@ -3814,8 +3814,8 @@ _ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge: ; preds = %_ZN6vectorIjLb
 .lr.ph.i:                                         ; preds = %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge, %285, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i118
   %351 = phi ptr [ %348, %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge ], [ %182, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i118 ], [ %182, %285 ]
   %352 = phi ptr [ %.pre222, %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge ], [ %275, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i118 ], [ %275, %285 ]
-  %.0.i1740.i = phi i32 [ %278, %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge ], [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i118 ], [ %278, %285 ]
-  %wide.trip.count.i = zext i32 %.0.i1740.i to i64
+  %.0.i1739.i = phi i32 [ %278, %_ZN6vectorIjLb0EjE6resizeEj.exit.i..lr.ph.i_crit_edge ], [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i118 ], [ %278, %285 ]
+  %wide.trip.count.i = zext i32 %.0.i1739.i to i64
   br label %353
 
 353:                                              ; preds = %353, %.lr.ph.i
@@ -4623,7 +4623,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %14, %25
   %56 = load i32, ptr %55, align 8, !tbaa !356
   %57 = zext i32 %56 to i64
   %.idx.i.i.i = shl nuw nsw i64 %57, 4
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i
+  %58 = getelementptr i8, ptr %54, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %56, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit89, label %.lr.ph.i.i.i.i.i
 

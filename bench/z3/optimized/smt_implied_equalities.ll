@@ -447,7 +447,7 @@ _ZN16check_sat_result9get_modelER3refI5modelE.exit.i: ; preds = %101, %98, %.noe
 
 .loopexit170.thread.i:                            ; preds = %_ZN16check_sat_result9get_modelER3refI5modelE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %105 = getelementptr inbounds nuw i8, ptr %43, i64 128
+  %105 = getelementptr i8, ptr %43, i64 128
   br label %.lr.ph.i.i.i.i.preheader.i
 
 _ZN7obj_mapI4sort6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjEE8key_dataC2EPS0_RKS5_.exit.i.lr.ph.i.i: ; preds = %_ZN16check_sat_result9get_modelER3refI5modelE.exit.i
@@ -1284,7 +1284,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i:     ; preds = %369, %363, %_ZN12_G
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %375 = zext i32 %.val42.pre.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %375, 4
-  %376 = getelementptr inbounds nuw i8, ptr %.val41.pre.i, i64 %.idx.i.i.i
+  %376 = getelementptr i8, ptr %.val41.pre.i, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %.val42.pre.i, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.preheader.i
 

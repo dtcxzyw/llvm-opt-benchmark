@@ -312,13 +312,14 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %86
 
 .noexc225:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
   store float 0.000000e+00, ptr %90, align 4, !tbaa !57
-  %91 = icmp eq i64 %85, 1
-  br i1 %91, label %.noexc, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %91 = add nsw i64 %85, -1
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %.noexc, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc225
-  %92 = getelementptr i8, ptr %90, i64 4
-  %93 = add nsw i64 %89, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %93, i1 false), !tbaa !57
+  %93 = getelementptr i8, ptr %90, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %91, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %93, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !57
   br label %.noexc
 
 .noexc:                                           ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc225
@@ -715,13 +716,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %225
 .noexc146:                                        ; preds = %246
   %249 = getelementptr inbounds nuw i32, ptr %248, i64 %243
   store i32 0, ptr %248, align 4, !tbaa !73
-  %250 = icmp eq i64 %243, 1
-  br i1 %250, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %250 = add nsw i64 %243, -1
+  %251 = icmp eq i64 %250, 0
+  br i1 %251, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc146
-  %251 = getelementptr i8, ptr %248, i64 4
-  %252 = add nsw i64 %247, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %251, i8 0, i64 %252, i1 false), !tbaa !73
+  %252 = getelementptr i8, ptr %248, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %250, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %252, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !73
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc146, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -757,74 +759,72 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   br i1 %263, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc151
-  %264 = add nsw i64 %258, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %261, i8 0, i64 %264, i1 false), !tbaa !57
   %.idx.i.i.i.i.i.i.i148 = shl nuw nsw i64 %262, 2
-  %265 = getelementptr inbounds nuw i8, ptr %261, i64 %.idx.i.i.i.i.i.i.i148
+  call void @llvm.memset.p0.i64(ptr align 4 %261, i8 0, i64 %.idx.i.i.i.i.i.i.i148, i1 false), !tbaa !57
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 %.idx.i.i.i.i.i.i.i148
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc151, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0253.3 = phi ptr [ %259, %.noexc151 ], [ %259, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.14258.3 = phi ptr [ %260, %.noexc151 ], [ %260, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i149 = phi ptr [ %261, %.noexc151 ], [ %265, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %266 = icmp ugt i64 %242, 2305843009213693951
-  br i1 %266, label %267, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152
+  %.0.i.i.i.i.i149 = phi ptr [ %261, %.noexc151 ], [ %264, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %265 = icmp ugt i64 %242, 2305843009213693951
+  br i1 %265, label %266, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152
 
-267:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
+266:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
           to label %.noexc158 unwind label %.loopexit.split-lp439
 
-.noexc158:                                        ; preds = %267
+.noexc158:                                        ; preds = %266
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152: ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %.not.i.i.i.i153 = icmp eq i64 %242, 0
-  br i1 %.not.i.i.i.i153, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160, label %268
+  br i1 %.not.i.i.i.i153, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160, label %267
 
-268:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152
-  %269 = shl nuw nsw i64 %242, 2
-  %270 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %269) #16
+267:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152
+  %268 = shl nuw nsw i64 %242, 2
+  %269 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %268) #16
           to label %.noexc159 unwind label %.loopexit438
 
-.noexc159:                                        ; preds = %268
-  %271 = getelementptr inbounds nuw float, ptr %270, i64 %242
-  store float 0.000000e+00, ptr %270, align 4, !tbaa !57
-  %272 = getelementptr i8, ptr %270, i64 4
-  %273 = add nsw i64 %242, -1
-  %274 = icmp eq i64 %273, 0
-  br i1 %274, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154
+.noexc159:                                        ; preds = %267
+  %270 = getelementptr inbounds nuw float, ptr %269, i64 %242
+  store float 0.000000e+00, ptr %269, align 4, !tbaa !57
+  %271 = getelementptr i8, ptr %269, i64 4
+  %272 = add nsw i64 %242, -1
+  %273 = icmp eq i64 %272, 0
+  br i1 %273, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154: ; preds = %.noexc159
-  %275 = add nsw i64 %269, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %272, i8 0, i64 %275, i1 false), !tbaa !57
-  %.idx.i.i.i.i.i.i.i155 = shl nuw nsw i64 %273, 2
-  %276 = getelementptr inbounds nuw i8, ptr %272, i64 %.idx.i.i.i.i.i.i.i155
+  %.idx.i.i.i.i.i.i.i155 = shl nuw nsw i64 %272, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %271, i8 0, i64 %.idx.i.i.i.i.i.i.i155, i1 false), !tbaa !57
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 %.idx.i.i.i.i.i.i.i155
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160:            ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154, %.noexc159, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152
-  %.sroa.0242.2 = phi ptr [ %270, %.noexc159 ], [ %270, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152 ]
-  %.sroa.14.2 = phi ptr [ %271, %.noexc159 ], [ %271, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152 ]
-  %.0.i.i.i.i.i156 = phi ptr [ %272, %.noexc159 ], [ %276, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152 ]
-  %277 = sext i32 %240 to i64
-  %278 = shl nsw i64 %277, 3
-  %279 = mul i64 %278, %253
-  %280 = mul nsw i32 %240, %240
-  %281 = zext nneg i32 %280 to i64
-  %282 = mul nuw nsw i64 %281, 12
-  %283 = add i64 %279, %282
-  br i1 %63, label %284, label %291
+  %.sroa.0242.2 = phi ptr [ %269, %.noexc159 ], [ %269, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152 ]
+  %.sroa.14.2 = phi ptr [ %270, %.noexc159 ], [ %270, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152 ]
+  %.0.i.i.i.i.i156 = phi ptr [ %271, %.noexc159 ], [ %274, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i154 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i152 ]
+  %275 = sext i32 %240 to i64
+  %276 = shl nsw i64 %275, 3
+  %277 = mul i64 %276, %253
+  %278 = mul nsw i32 %240, %240
+  %279 = zext nneg i32 %278 to i64
+  %280 = mul nuw nsw i64 %279, 12
+  %281 = add i64 %277, %280
+  br i1 %63, label %282, label %289
 
-284:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160
-  %285 = mul i64 %283, %1
-  %286 = load i64, ptr %64, align 8, !tbaa !74
-  %287 = icmp ugt i64 %285, %286
-  br i1 %287, label %288, label %291
+282:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160
+  %283 = mul i64 %281, %1
+  %284 = load i64, ptr %64, align 8, !tbaa !74
+  %285 = icmp ugt i64 %283, %284
+  br i1 %285, label %286, label %289
 
-288:                                              ; preds = %284
-  %289 = udiv i64 %286, %283
-  %290 = icmp ugt i64 %283, %286
-  %.sroa.speculated236 = select i1 %290, i64 1, i64 %289
-  br label %291
+286:                                              ; preds = %282
+  %287 = udiv i64 %284, %281
+  %288 = icmp ugt i64 %281, %284
+  %.sroa.speculated236 = select i1 %288, i64 1, i64 %287
+  br label %289
 
 .loopexit428:                                     ; preds = %246
   %lpad.loopexit430 = landingpad { ptr, i32 }
@@ -846,502 +846,503 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160:            ; preds = %_ZSt6fill_nIPfmfET_
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit180
 
-.loopexit438:                                     ; preds = %268
+.loopexit438:                                     ; preds = %267
   %lpad.loopexit440 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit177
 
-.loopexit.split-lp439:                            ; preds = %267
+.loopexit.split-lp439:                            ; preds = %266
   %lpad.loopexit.split-lp441 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit177
 
-291:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160, %284, %288
-  %.084 = phi i64 [ %.sroa.speculated236, %288 ], [ %1, %284 ], [ %1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160 ]
-  %292 = sext i32 %80 to i64
-  %293 = sext i32 %.081770 to i64
-  br label %294
+289:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160, %282, %286
+  %.084 = phi i64 [ %.sroa.speculated236, %286 ], [ %1, %282 ], [ %1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit160 ]
+  %290 = sext i32 %80 to i64
+  %291 = sext i32 %.081770 to i64
+  br label %292
 
-294:                                              ; preds = %300, %291
-  %.082 = phi i64 [ 0, %291 ], [ %301, %300 ]
-  %295 = icmp ult i64 %.082, %1
-  br i1 %295, label %300, label %.preheader423
+292:                                              ; preds = %298, %289
+  %.082 = phi i64 [ 0, %289 ], [ %299, %298 ]
+  %293 = icmp ult i64 %.082, %1
+  br i1 %293, label %298, label %.preheader423
 
-.preheader423:                                    ; preds = %294
+.preheader423:                                    ; preds = %292
   %.not787 = icmp eq ptr %.0.i.i.i.i.i156, %.sroa.0242.2
   br i1 %.not787, label %._crit_edge760, label %.lr.ph759.preheader
 
 .lr.ph759.preheader:                              ; preds = %.preheader423
-  %296 = ptrtoint ptr %.0.i.i.i.i.i156 to i64
-  %297 = ptrtoint ptr %.sroa.0242.2 to i64
-  %298 = sub i64 %296, %297
-  %299 = ashr exact i64 %298, 2
+  %294 = ptrtoint ptr %.0.i.i.i.i.i156 to i64
+  %295 = ptrtoint ptr %.sroa.0242.2 to i64
+  %296 = sub i64 %294, %295
+  %297 = ashr exact i64 %296, 2
   br label %.lr.ph759
 
-300:                                              ; preds = %294
-  %301 = add i64 %.082, %.084
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %1, i64 %301)
-  %302 = load i64, ptr %8, align 8, !tbaa !4
-  %303 = sub i64 %.sroa.speculated, %.082
-  %304 = mul i64 %.082, %293
-  %305 = mul i64 %302, %304
-  %306 = getelementptr inbounds nuw float, ptr %.sroa.0327.2, i64 %305
-  %307 = mul i64 %304, %indvars.iv1063
-  %308 = getelementptr inbounds nuw i32, ptr %.sroa.0319.0764, i64 %307
-  %309 = mul i64 %.082, %241
-  %310 = mul i64 %309, %indvars.iv.next1064
-  %311 = getelementptr inbounds nuw i32, ptr %.sroa.0265.4, i64 %310
-  %312 = mul i64 %302, %309
-  %313 = getelementptr inbounds nuw float, ptr %.sroa.0253.3, i64 %312
-  %314 = getelementptr inbounds nuw float, ptr %.sroa.0242.2, i64 %309
-  %315 = load i32, ptr %65, align 4, !tbaa !75
-  invoke void @_ZN5faiss23beam_search_encode_stepEmmPKfmmS1_mPKimPiPfS5_PNS_5IndexE17ApproxTopK_mode_t(i64 noundef %302, i64 noundef %292, ptr noundef %.sroa.0287.4, i64 noundef %303, i64 noundef %293, ptr noundef %306, i64 noundef %indvars.iv1063, ptr noundef %308, i64 noundef %241, ptr noundef %311, ptr noundef %313, ptr noundef %314, ptr noundef %.sroa.0280.0, i32 noundef %315)
-          to label %294 unwind label %316, !llvm.loop !76
+298:                                              ; preds = %292
+  %299 = add i64 %.082, %.084
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %1, i64 %299)
+  %300 = load i64, ptr %8, align 8, !tbaa !4
+  %301 = sub i64 %.sroa.speculated, %.082
+  %302 = mul i64 %.082, %291
+  %303 = mul i64 %300, %302
+  %304 = getelementptr inbounds nuw float, ptr %.sroa.0327.2, i64 %303
+  %305 = mul i64 %302, %indvars.iv1063
+  %306 = getelementptr inbounds nuw i32, ptr %.sroa.0319.0764, i64 %305
+  %307 = mul i64 %.082, %241
+  %308 = mul i64 %307, %indvars.iv.next1064
+  %309 = getelementptr inbounds nuw i32, ptr %.sroa.0265.4, i64 %308
+  %310 = mul i64 %300, %307
+  %311 = getelementptr inbounds nuw float, ptr %.sroa.0253.3, i64 %310
+  %312 = getelementptr inbounds nuw float, ptr %.sroa.0242.2, i64 %307
+  %313 = load i32, ptr %65, align 4, !tbaa !75
+  invoke void @_ZN5faiss23beam_search_encode_stepEmmPKfmmS1_mPKimPiPfS5_PNS_5IndexE17ApproxTopK_mode_t(i64 noundef %300, i64 noundef %290, ptr noundef %.sroa.0287.4, i64 noundef %301, i64 noundef %291, ptr noundef %304, i64 noundef %indvars.iv1063, ptr noundef %306, i64 noundef %241, ptr noundef %309, ptr noundef %311, ptr noundef %312, ptr noundef %.sroa.0280.0, i32 noundef %313)
+          to label %292 unwind label %314, !llvm.loop !76
 
-316:                                              ; preds = %300
-  %317 = landingpad { ptr, i32 }
+314:                                              ; preds = %298
+  %315 = landingpad { ptr, i32 }
           cleanup
-  br label %363
+  br label %361
 
 ._crit_edge760.loopexit:                          ; preds = %.lr.ph759
-  %318 = fpext float %323 to double
+  %316 = fpext float %321 to double
   br label %._crit_edge760
 
 ._crit_edge760:                                   ; preds = %._crit_edge760.loopexit, %.preheader423
-  %.080.lcssa = phi double [ 0.000000e+00, %.preheader423 ], [ %318, %._crit_edge760.loopexit ]
-  %319 = load i8, ptr %31, align 1, !tbaa !17, !range !45, !noundef !46
-  %320 = trunc nuw i8 %319 to i1
-  br i1 %320, label %324, label %338
+  %.080.lcssa = phi double [ 0.000000e+00, %.preheader423 ], [ %316, %._crit_edge760.loopexit ]
+  %317 = load i8, ptr %31, align 1, !tbaa !17, !range !45, !noundef !46
+  %318 = trunc nuw i8 %317 to i1
+  br i1 %318, label %322, label %336
 
 .lr.ph759:                                        ; preds = %.lr.ph759.preheader, %.lr.ph759
   %indvars.iv = phi i64 [ 0, %.lr.ph759.preheader ], [ %indvars.iv.next, %.lr.ph759 ]
-  %.080757 = phi float [ 0.000000e+00, %.lr.ph759.preheader ], [ %323, %.lr.ph759 ]
-  %321 = getelementptr inbounds nuw float, ptr %.sroa.0242.2, i64 %indvars.iv
-  %322 = load float, ptr %321, align 4, !tbaa !57
-  %323 = fadd float %.080757, %322
+  %.080757 = phi float [ 0.000000e+00, %.lr.ph759.preheader ], [ %321, %.lr.ph759 ]
+  %319 = getelementptr inbounds nuw float, ptr %.sroa.0242.2, i64 %indvars.iv
+  %320 = load float, ptr %319, align 4, !tbaa !57
+  %321 = fadd float %.080757, %320
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond1062.not = icmp eq i64 %indvars.iv.next, %299
+  %exitcond1062.not = icmp eq i64 %indvars.iv.next, %297
   br i1 %exitcond1062.not, label %._crit_edge760.loopexit, label %.lr.ph759, !llvm.loop !77
 
-324:                                              ; preds = %._crit_edge760
-  %325 = invoke noundef double @_ZN5faiss12getmillisecsEv()
-          to label %326 unwind label %336
+322:                                              ; preds = %._crit_edge760
+  %323 = invoke noundef double @_ZN5faiss12getmillisecsEv()
+          to label %324 unwind label %334
 
-326:                                              ; preds = %324
-  %327 = fsub double %325, %43
-  %328 = fdiv double %327, 1.000000e+03
-  %329 = load ptr, ptr %46, align 8, !tbaa !56
-  %330 = getelementptr inbounds nuw i64, ptr %329, i64 %indvars.iv1063
-  %331 = load i64, ptr %330, align 8, !tbaa !12
-  %332 = trunc i64 %331 to i32
-  %333 = fpext float %.0100 to double
-  %334 = trunc nuw nsw i64 %indvars.iv1063 to i32
-  %335 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %328, double noundef %228, i32 noundef %334, i32 noundef %332, double noundef %333, double noundef %.080.lcssa, i32 noundef %.081770, i32 noundef %.sroa.speculated277, i64 noundef %.084)
-  br label %338
+324:                                              ; preds = %322
+  %325 = fsub double %323, %43
+  %326 = fdiv double %325, 1.000000e+03
+  %327 = load ptr, ptr %46, align 8, !tbaa !56
+  %328 = getelementptr inbounds nuw i64, ptr %327, i64 %indvars.iv1063
+  %329 = load i64, ptr %328, align 8, !tbaa !12
+  %330 = trunc i64 %329 to i32
+  %331 = fpext float %.0100 to double
+  %332 = trunc nuw nsw i64 %indvars.iv1063 to i32
+  %333 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %326, double noundef %228, i32 noundef %332, i32 noundef %330, double noundef %331, double noundef %.080.lcssa, i32 noundef %.081770, i32 noundef %.sroa.speculated277, i64 noundef %.084)
+  br label %336
 
-336:                                              ; preds = %324
-  %337 = landingpad { ptr, i32 }
+334:                                              ; preds = %322
+  %335 = landingpad { ptr, i32 }
           cleanup
-  br label %363
+  br label %361
 
-338:                                              ; preds = %326, %._crit_edge760
+336:                                              ; preds = %324, %._crit_edge760
   %.not.i.i.i163 = icmp eq ptr %.sroa.0309.0762, null
-  br i1 %.not.i.i.i163, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %339
+  br i1 %.not.i.i.i163, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %337
 
-339:                                              ; preds = %338
-  %340 = ptrtoint ptr %.sroa.13316.0761 to i64
-  %341 = ptrtoint ptr %.sroa.0309.0762 to i64
-  %342 = sub i64 %340, %341
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0309.0762, i64 noundef %342) #18
+337:                                              ; preds = %336
+  %338 = ptrtoint ptr %.sroa.13316.0761 to i64
+  %339 = ptrtoint ptr %.sroa.0309.0762 to i64
+  %340 = sub i64 %338, %339
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0309.0762, i64 noundef %340) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %338, %339
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %336, %337
   %.not.i.i.i165 = icmp eq ptr %.sroa.0327.2, null
-  br i1 %.not.i.i.i165, label %_ZNSt6vectorIfSaIfEED2Ev.exit167, label %343
+  br i1 %.not.i.i.i165, label %_ZNSt6vectorIfSaIfEED2Ev.exit167, label %341
 
-343:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %344 = ptrtoint ptr %.sroa.29.2 to i64
-  %345 = ptrtoint ptr %.sroa.0327.2 to i64
-  %346 = sub i64 %344, %345
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0327.2, i64 noundef %346) #18
+341:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+  %342 = ptrtoint ptr %.sroa.29.2 to i64
+  %343 = ptrtoint ptr %.sroa.0327.2 to i64
+  %344 = sub i64 %342, %343
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0327.2, i64 noundef %344) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit167
 
-_ZNSt6vectorIfSaIfEED2Ev.exit167:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %343
+_ZNSt6vectorIfSaIfEED2Ev.exit167:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %341
   %.not.i.i.i168 = icmp eq ptr %.sroa.0319.0764, null
-  br i1 %.not.i.i.i168, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %347
+  br i1 %.not.i.i.i168, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %345
 
-347:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit167
-  %348 = ptrtoint ptr %.sroa.11323.0763 to i64
-  %349 = ptrtoint ptr %.sroa.0319.0764 to i64
-  %350 = sub i64 %348, %349
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0319.0764, i64 noundef %350) #18
+345:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit167
+  %346 = ptrtoint ptr %.sroa.11323.0763 to i64
+  %347 = ptrtoint ptr %.sroa.0319.0764 to i64
+  %348 = sub i64 %346, %347
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0319.0764, i64 noundef %348) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit167, %347
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit167, %345
   %.not.i = icmp eq ptr %.sroa.0280.0, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %351 = load ptr, ptr %.sroa.0280.0, align 8, !tbaa !62
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
-  %353 = load ptr, ptr %352, align 8
-  call void %353(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0280.0) #19
+  %349 = load ptr, ptr %.sroa.0280.0, align 8, !tbaa !62
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  %351 = load ptr, ptr %350, align 8
+  call void %351(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0280.0) #19
   br label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i
   %.not.i.i.i169 = icmp eq ptr %.sroa.0287.4, null
-  br i1 %.not.i.i.i169, label %_ZNSt6vectorIfSaIfEED2Ev.exit171, label %354
+  br i1 %.not.i.i.i169, label %_ZNSt6vectorIfSaIfEED2Ev.exit171, label %352
 
-354:                                              ; preds = %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit
-  %355 = ptrtoint ptr %.sroa.18.4 to i64
-  %356 = sub i64 %355, %237
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0287.4, i64 noundef %356) #18
+352:                                              ; preds = %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit
+  %353 = ptrtoint ptr %.sroa.18.4 to i64
+  %354 = sub i64 %353, %237
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0287.4, i64 noundef %354) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit171
 
-_ZNSt6vectorIfSaIfEED2Ev.exit171:                 ; preds = %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit, %354
+_ZNSt6vectorIfSaIfEED2Ev.exit171:                 ; preds = %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit, %352
   %.not.i.i.i172 = icmp eq ptr %.sroa.0299.1, null
-  br i1 %.not.i.i.i172, label %_ZNSt6vectorIfSaIfEED2Ev.exit174, label %357
+  br i1 %.not.i.i.i172, label %_ZNSt6vectorIfSaIfEED2Ev.exit174, label %355
 
-357:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit171
-  %358 = ptrtoint ptr %.sroa.12.1 to i64
-  %359 = ptrtoint ptr %.sroa.0299.1 to i64
-  %360 = sub i64 %358, %359
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0299.1, i64 noundef %360) #18
+355:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit171
+  %356 = ptrtoint ptr %.sroa.12.1 to i64
+  %357 = ptrtoint ptr %.sroa.0299.1 to i64
+  %358 = sub i64 %356, %357
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0299.1, i64 noundef %358) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit174
 
-_ZNSt6vectorIfSaIfEED2Ev.exit174:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit171, %357
-  %361 = load i64, ptr %44, align 8, !tbaa !47
-  %362 = icmp ugt i64 %361, %indvars.iv.next1064
-  br i1 %362, label %75, label %._crit_edge772.loopexit, !llvm.loop !78
+_ZNSt6vectorIfSaIfEED2Ev.exit174:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit171, %355
+  %359 = load i64, ptr %44, align 8, !tbaa !47
+  %360 = icmp ugt i64 %359, %indvars.iv.next1064
+  br i1 %360, label %75, label %._crit_edge772.loopexit, !llvm.loop !78
 
-363:                                              ; preds = %336, %316
-  %.sroa.13316.7 = phi ptr [ %.sroa.13316.0761, %316 ], [ %.sroa.14.2, %336 ]
-  %.sroa.0265.3 = phi ptr [ %.sroa.0265.4, %316 ], [ %.sroa.0319.0764, %336 ]
-  %.sroa.14270.3 = phi ptr [ %.sroa.14270.4, %316 ], [ %.sroa.11323.0763, %336 ]
-  %.sroa.0309.7 = phi ptr [ %.sroa.0309.0762, %316 ], [ %.sroa.0242.2, %336 ]
-  %.sroa.0253.2 = phi ptr [ %.sroa.0253.3, %316 ], [ %.sroa.0327.2, %336 ]
-  %.sroa.14258.2 = phi ptr [ %.sroa.14258.3, %316 ], [ %.sroa.29.2, %336 ]
-  %.sroa.11323.7 = phi ptr [ %.sroa.11323.0763, %316 ], [ %.sroa.14270.4, %336 ]
-  %.sroa.0242.1 = phi ptr [ %.sroa.0242.2, %316 ], [ %.sroa.0309.0762, %336 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.2, %316 ], [ %.sroa.13316.0761, %336 ]
-  %.sroa.0319.7 = phi ptr [ %.sroa.0319.0764, %316 ], [ %.sroa.0265.4, %336 ]
-  %.sroa.29.8 = phi ptr [ %.sroa.29.2, %316 ], [ %.sroa.14258.3, %336 ]
-  %.sroa.0327.8 = phi ptr [ %.sroa.0327.2, %316 ], [ %.sroa.0253.3, %336 ]
-  %.pn120 = phi { ptr, i32 } [ %317, %316 ], [ %337, %336 ]
+361:                                              ; preds = %334, %314
+  %.sroa.13316.7 = phi ptr [ %.sroa.13316.0761, %314 ], [ %.sroa.14.2, %334 ]
+  %.sroa.0265.3 = phi ptr [ %.sroa.0265.4, %314 ], [ %.sroa.0319.0764, %334 ]
+  %.sroa.14270.3 = phi ptr [ %.sroa.14270.4, %314 ], [ %.sroa.11323.0763, %334 ]
+  %.sroa.0309.7 = phi ptr [ %.sroa.0309.0762, %314 ], [ %.sroa.0242.2, %334 ]
+  %.sroa.0253.2 = phi ptr [ %.sroa.0253.3, %314 ], [ %.sroa.0327.2, %334 ]
+  %.sroa.14258.2 = phi ptr [ %.sroa.14258.3, %314 ], [ %.sroa.29.2, %334 ]
+  %.sroa.11323.7 = phi ptr [ %.sroa.11323.0763, %314 ], [ %.sroa.14270.4, %334 ]
+  %.sroa.0242.1 = phi ptr [ %.sroa.0242.2, %314 ], [ %.sroa.0309.0762, %334 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.2, %314 ], [ %.sroa.13316.0761, %334 ]
+  %.sroa.0319.7 = phi ptr [ %.sroa.0319.0764, %314 ], [ %.sroa.0265.4, %334 ]
+  %.sroa.29.8 = phi ptr [ %.sroa.29.2, %314 ], [ %.sroa.14258.3, %334 ]
+  %.sroa.0327.8 = phi ptr [ %.sroa.0327.2, %314 ], [ %.sroa.0253.3, %334 ]
+  %.pn120 = phi { ptr, i32 } [ %315, %314 ], [ %335, %334 ]
   %.not.i.i.i175 = icmp eq ptr %.sroa.0242.1, null
-  br i1 %.not.i.i.i175, label %_ZNSt6vectorIfSaIfEED2Ev.exit177, label %364
+  br i1 %.not.i.i.i175, label %_ZNSt6vectorIfSaIfEED2Ev.exit177, label %362
 
-364:                                              ; preds = %363
-  %365 = ptrtoint ptr %.sroa.14.1 to i64
-  %366 = ptrtoint ptr %.sroa.0242.1 to i64
-  %367 = sub i64 %365, %366
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0242.1, i64 noundef %367) #18
+362:                                              ; preds = %361
+  %363 = ptrtoint ptr %.sroa.14.1 to i64
+  %364 = ptrtoint ptr %.sroa.0242.1 to i64
+  %365 = sub i64 %363, %364
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0242.1, i64 noundef %365) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit177
 
-_ZNSt6vectorIfSaIfEED2Ev.exit177:                 ; preds = %.loopexit438, %.loopexit.split-lp439, %364, %363
-  %.sroa.13316.6 = phi ptr [ %.sroa.13316.7, %363 ], [ %.sroa.13316.7, %364 ], [ %.sroa.13316.0761, %.loopexit438 ], [ %.sroa.13316.0761, %.loopexit.split-lp439 ]
-  %.sroa.0265.2 = phi ptr [ %.sroa.0265.3, %363 ], [ %.sroa.0265.3, %364 ], [ %.sroa.0265.4, %.loopexit438 ], [ %.sroa.0265.4, %.loopexit.split-lp439 ]
-  %.sroa.14270.2 = phi ptr [ %.sroa.14270.3, %363 ], [ %.sroa.14270.3, %364 ], [ %.sroa.14270.4, %.loopexit438 ], [ %.sroa.14270.4, %.loopexit.split-lp439 ]
-  %.sroa.0309.6 = phi ptr [ %.sroa.0309.7, %363 ], [ %.sroa.0309.7, %364 ], [ %.sroa.0309.0762, %.loopexit438 ], [ %.sroa.0309.0762, %.loopexit.split-lp439 ]
-  %.sroa.0253.1 = phi ptr [ %.sroa.0253.2, %363 ], [ %.sroa.0253.2, %364 ], [ %.sroa.0253.3, %.loopexit438 ], [ %.sroa.0253.3, %.loopexit.split-lp439 ]
-  %.sroa.14258.1 = phi ptr [ %.sroa.14258.2, %363 ], [ %.sroa.14258.2, %364 ], [ %.sroa.14258.3, %.loopexit438 ], [ %.sroa.14258.3, %.loopexit.split-lp439 ]
-  %.sroa.11323.6 = phi ptr [ %.sroa.11323.7, %363 ], [ %.sroa.11323.7, %364 ], [ %.sroa.11323.0763, %.loopexit438 ], [ %.sroa.11323.0763, %.loopexit.split-lp439 ]
-  %.sroa.0319.6 = phi ptr [ %.sroa.0319.7, %363 ], [ %.sroa.0319.7, %364 ], [ %.sroa.0319.0764, %.loopexit438 ], [ %.sroa.0319.0764, %.loopexit.split-lp439 ]
-  %.sroa.29.7 = phi ptr [ %.sroa.29.8, %363 ], [ %.sroa.29.8, %364 ], [ %.sroa.29.2, %.loopexit438 ], [ %.sroa.29.2, %.loopexit.split-lp439 ]
-  %.sroa.0327.7 = phi ptr [ %.sroa.0327.8, %363 ], [ %.sroa.0327.8, %364 ], [ %.sroa.0327.2, %.loopexit438 ], [ %.sroa.0327.2, %.loopexit.split-lp439 ]
-  %.pn120.pn = phi { ptr, i32 } [ %.pn120, %363 ], [ %.pn120, %364 ], [ %lpad.loopexit440, %.loopexit438 ], [ %lpad.loopexit.split-lp441, %.loopexit.split-lp439 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit177:                 ; preds = %.loopexit438, %.loopexit.split-lp439, %362, %361
+  %.sroa.13316.6 = phi ptr [ %.sroa.13316.7, %361 ], [ %.sroa.13316.7, %362 ], [ %.sroa.13316.0761, %.loopexit438 ], [ %.sroa.13316.0761, %.loopexit.split-lp439 ]
+  %.sroa.0265.2 = phi ptr [ %.sroa.0265.3, %361 ], [ %.sroa.0265.3, %362 ], [ %.sroa.0265.4, %.loopexit438 ], [ %.sroa.0265.4, %.loopexit.split-lp439 ]
+  %.sroa.14270.2 = phi ptr [ %.sroa.14270.3, %361 ], [ %.sroa.14270.3, %362 ], [ %.sroa.14270.4, %.loopexit438 ], [ %.sroa.14270.4, %.loopexit.split-lp439 ]
+  %.sroa.0309.6 = phi ptr [ %.sroa.0309.7, %361 ], [ %.sroa.0309.7, %362 ], [ %.sroa.0309.0762, %.loopexit438 ], [ %.sroa.0309.0762, %.loopexit.split-lp439 ]
+  %.sroa.0253.1 = phi ptr [ %.sroa.0253.2, %361 ], [ %.sroa.0253.2, %362 ], [ %.sroa.0253.3, %.loopexit438 ], [ %.sroa.0253.3, %.loopexit.split-lp439 ]
+  %.sroa.14258.1 = phi ptr [ %.sroa.14258.2, %361 ], [ %.sroa.14258.2, %362 ], [ %.sroa.14258.3, %.loopexit438 ], [ %.sroa.14258.3, %.loopexit.split-lp439 ]
+  %.sroa.11323.6 = phi ptr [ %.sroa.11323.7, %361 ], [ %.sroa.11323.7, %362 ], [ %.sroa.11323.0763, %.loopexit438 ], [ %.sroa.11323.0763, %.loopexit.split-lp439 ]
+  %.sroa.0319.6 = phi ptr [ %.sroa.0319.7, %361 ], [ %.sroa.0319.7, %362 ], [ %.sroa.0319.0764, %.loopexit438 ], [ %.sroa.0319.0764, %.loopexit.split-lp439 ]
+  %.sroa.29.7 = phi ptr [ %.sroa.29.8, %361 ], [ %.sroa.29.8, %362 ], [ %.sroa.29.2, %.loopexit438 ], [ %.sroa.29.2, %.loopexit.split-lp439 ]
+  %.sroa.0327.7 = phi ptr [ %.sroa.0327.8, %361 ], [ %.sroa.0327.8, %362 ], [ %.sroa.0327.2, %.loopexit438 ], [ %.sroa.0327.2, %.loopexit.split-lp439 ]
+  %.pn120.pn = phi { ptr, i32 } [ %.pn120, %361 ], [ %.pn120, %362 ], [ %lpad.loopexit440, %.loopexit438 ], [ %lpad.loopexit.split-lp441, %.loopexit.split-lp439 ]
   %.not.i.i.i178 = icmp eq ptr %.sroa.0253.1, null
-  br i1 %.not.i.i.i178, label %_ZNSt6vectorIfSaIfEED2Ev.exit180, label %368
+  br i1 %.not.i.i.i178, label %_ZNSt6vectorIfSaIfEED2Ev.exit180, label %366
 
-368:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit177
-  %369 = ptrtoint ptr %.sroa.14258.1 to i64
-  %370 = ptrtoint ptr %.sroa.0253.1 to i64
-  %371 = sub i64 %369, %370
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0253.1, i64 noundef %371) #18
+366:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit177
+  %367 = ptrtoint ptr %.sroa.14258.1 to i64
+  %368 = ptrtoint ptr %.sroa.0253.1 to i64
+  %369 = sub i64 %367, %368
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0253.1, i64 noundef %369) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit180
 
-_ZNSt6vectorIfSaIfEED2Ev.exit180:                 ; preds = %.loopexit433, %.loopexit.split-lp434, %368, %_ZNSt6vectorIfSaIfEED2Ev.exit177
-  %.sroa.13316.5 = phi ptr [ %.sroa.13316.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.13316.6, %368 ], [ %.sroa.13316.0761, %.loopexit433 ], [ %.sroa.13316.0761, %.loopexit.split-lp434 ]
-  %.sroa.0265.1 = phi ptr [ %.sroa.0265.2, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0265.2, %368 ], [ %.sroa.0265.4, %.loopexit433 ], [ %.sroa.0265.4, %.loopexit.split-lp434 ]
-  %.sroa.14270.1 = phi ptr [ %.sroa.14270.2, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.14270.2, %368 ], [ %.sroa.14270.4, %.loopexit433 ], [ %.sroa.14270.4, %.loopexit.split-lp434 ]
-  %.sroa.0309.5 = phi ptr [ %.sroa.0309.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0309.6, %368 ], [ %.sroa.0309.0762, %.loopexit433 ], [ %.sroa.0309.0762, %.loopexit.split-lp434 ]
-  %.sroa.11323.5 = phi ptr [ %.sroa.11323.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.11323.6, %368 ], [ %.sroa.11323.0763, %.loopexit433 ], [ %.sroa.11323.0763, %.loopexit.split-lp434 ]
-  %.sroa.0319.5 = phi ptr [ %.sroa.0319.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0319.6, %368 ], [ %.sroa.0319.0764, %.loopexit433 ], [ %.sroa.0319.0764, %.loopexit.split-lp434 ]
-  %.sroa.29.6 = phi ptr [ %.sroa.29.7, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.29.7, %368 ], [ %.sroa.29.2, %.loopexit433 ], [ %.sroa.29.2, %.loopexit.split-lp434 ]
-  %.sroa.0327.6 = phi ptr [ %.sroa.0327.7, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0327.7, %368 ], [ %.sroa.0327.2, %.loopexit433 ], [ %.sroa.0327.2, %.loopexit.split-lp434 ]
-  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.pn120.pn, %368 ], [ %lpad.loopexit435, %.loopexit433 ], [ %lpad.loopexit.split-lp436, %.loopexit.split-lp434 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit180:                 ; preds = %.loopexit433, %.loopexit.split-lp434, %366, %_ZNSt6vectorIfSaIfEED2Ev.exit177
+  %.sroa.13316.5 = phi ptr [ %.sroa.13316.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.13316.6, %366 ], [ %.sroa.13316.0761, %.loopexit433 ], [ %.sroa.13316.0761, %.loopexit.split-lp434 ]
+  %.sroa.0265.1 = phi ptr [ %.sroa.0265.2, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0265.2, %366 ], [ %.sroa.0265.4, %.loopexit433 ], [ %.sroa.0265.4, %.loopexit.split-lp434 ]
+  %.sroa.14270.1 = phi ptr [ %.sroa.14270.2, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.14270.2, %366 ], [ %.sroa.14270.4, %.loopexit433 ], [ %.sroa.14270.4, %.loopexit.split-lp434 ]
+  %.sroa.0309.5 = phi ptr [ %.sroa.0309.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0309.6, %366 ], [ %.sroa.0309.0762, %.loopexit433 ], [ %.sroa.0309.0762, %.loopexit.split-lp434 ]
+  %.sroa.11323.5 = phi ptr [ %.sroa.11323.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.11323.6, %366 ], [ %.sroa.11323.0763, %.loopexit433 ], [ %.sroa.11323.0763, %.loopexit.split-lp434 ]
+  %.sroa.0319.5 = phi ptr [ %.sroa.0319.6, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0319.6, %366 ], [ %.sroa.0319.0764, %.loopexit433 ], [ %.sroa.0319.0764, %.loopexit.split-lp434 ]
+  %.sroa.29.6 = phi ptr [ %.sroa.29.7, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.29.7, %366 ], [ %.sroa.29.2, %.loopexit433 ], [ %.sroa.29.2, %.loopexit.split-lp434 ]
+  %.sroa.0327.6 = phi ptr [ %.sroa.0327.7, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.sroa.0327.7, %366 ], [ %.sroa.0327.2, %.loopexit433 ], [ %.sroa.0327.2, %.loopexit.split-lp434 ]
+  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit177 ], [ %.pn120.pn, %366 ], [ %lpad.loopexit435, %.loopexit433 ], [ %lpad.loopexit.split-lp436, %.loopexit.split-lp434 ]
   %.not.i.i.i181 = icmp eq ptr %.sroa.0265.1, null
-  br i1 %.not.i.i.i181, label %_ZNSt6vectorIiSaIiEED2Ev.exit182, label %372
+  br i1 %.not.i.i.i181, label %_ZNSt6vectorIiSaIiEED2Ev.exit182, label %370
 
-372:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit180
-  %373 = ptrtoint ptr %.sroa.14270.1 to i64
-  %374 = ptrtoint ptr %.sroa.0265.1 to i64
-  %375 = sub i64 %373, %374
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0265.1, i64 noundef %375) #18
+370:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit180
+  %371 = ptrtoint ptr %.sroa.14270.1 to i64
+  %372 = ptrtoint ptr %.sroa.0265.1 to i64
+  %373 = sub i64 %371, %372
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0265.1, i64 noundef %373) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit182
 
-_ZNSt6vectorIiSaIiEED2Ev.exit182:                 ; preds = %.loopexit428, %.loopexit.split-lp429, %_ZNSt6vectorIfSaIfEED2Ev.exit180, %372, %183, %189, %222
-  %.sroa.13316.3 = phi ptr [ %.sroa.13316.0761, %183 ], [ %.sroa.13316.0761, %189 ], [ %.sroa.13316.0761, %222 ], [ %.sroa.13316.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.13316.5, %372 ], [ %.sroa.13316.0761, %.loopexit428 ], [ %.sroa.13316.0761, %.loopexit.split-lp429 ]
-  %.sroa.0287.1 = phi ptr [ %.sroa.0287.2, %183 ], [ %.sroa.0287.5, %189 ], [ null, %222 ], [ %.sroa.0287.4, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0287.4, %372 ], [ %.sroa.0287.4, %.loopexit428 ], [ %.sroa.0287.4, %.loopexit.split-lp429 ]
-  %.sroa.18.1 = phi ptr [ %.sroa.18.2, %183 ], [ %.sroa.18.5, %189 ], [ null, %222 ], [ %.sroa.18.4, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.18.4, %372 ], [ %.sroa.18.4, %.loopexit428 ], [ %.sroa.18.4, %.loopexit.split-lp429 ]
-  %.sroa.0309.3 = phi ptr [ %.sroa.0309.0762, %183 ], [ %.sroa.0309.0762, %189 ], [ %.sroa.0309.0762, %222 ], [ %.sroa.0309.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0309.5, %372 ], [ %.sroa.0309.0762, %.loopexit428 ], [ %.sroa.0309.0762, %.loopexit.split-lp429 ]
-  %.sroa.11323.3 = phi ptr [ %.sroa.11323.0763, %183 ], [ %.sroa.11323.0763, %189 ], [ %.sroa.11323.0763, %222 ], [ %.sroa.11323.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.11323.5, %372 ], [ %.sroa.11323.0763, %.loopexit428 ], [ %.sroa.11323.0763, %.loopexit.split-lp429 ]
-  %.sroa.0319.3 = phi ptr [ %.sroa.0319.0764, %183 ], [ %.sroa.0319.0764, %189 ], [ %.sroa.0319.0764, %222 ], [ %.sroa.0319.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0319.5, %372 ], [ %.sroa.0319.0764, %.loopexit428 ], [ %.sroa.0319.0764, %.loopexit.split-lp429 ]
-  %.sroa.29.4 = phi ptr [ %.sroa.29.2, %183 ], [ %.sroa.29.2, %189 ], [ %.sroa.29.2, %222 ], [ %.sroa.29.6, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.29.6, %372 ], [ %.sroa.29.2, %.loopexit428 ], [ %.sroa.29.2, %.loopexit.split-lp429 ]
-  %.sroa.0327.4 = phi ptr [ %.sroa.0327.2, %183 ], [ %.sroa.0327.2, %189 ], [ %.sroa.0327.2, %222 ], [ %.sroa.0327.6, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0327.6, %372 ], [ %.sroa.0327.2, %.loopexit428 ], [ %.sroa.0327.2, %.loopexit.split-lp429 ]
-  %.pn120.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn115, %189 ], [ %.pn118, %222 ], [ %.pn120.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.pn120.pn.pn, %372 ], [ %lpad.loopexit430, %.loopexit428 ], [ %lpad.loopexit.split-lp431, %.loopexit.split-lp429 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit182:                 ; preds = %.loopexit428, %.loopexit.split-lp429, %_ZNSt6vectorIfSaIfEED2Ev.exit180, %370, %183, %189, %222
+  %.sroa.13316.3 = phi ptr [ %.sroa.13316.0761, %183 ], [ %.sroa.13316.0761, %189 ], [ %.sroa.13316.0761, %222 ], [ %.sroa.13316.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.13316.5, %370 ], [ %.sroa.13316.0761, %.loopexit428 ], [ %.sroa.13316.0761, %.loopexit.split-lp429 ]
+  %.sroa.0287.1 = phi ptr [ %.sroa.0287.2, %183 ], [ %.sroa.0287.5, %189 ], [ null, %222 ], [ %.sroa.0287.4, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0287.4, %370 ], [ %.sroa.0287.4, %.loopexit428 ], [ %.sroa.0287.4, %.loopexit.split-lp429 ]
+  %.sroa.18.1 = phi ptr [ %.sroa.18.2, %183 ], [ %.sroa.18.5, %189 ], [ null, %222 ], [ %.sroa.18.4, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.18.4, %370 ], [ %.sroa.18.4, %.loopexit428 ], [ %.sroa.18.4, %.loopexit.split-lp429 ]
+  %.sroa.0309.3 = phi ptr [ %.sroa.0309.0762, %183 ], [ %.sroa.0309.0762, %189 ], [ %.sroa.0309.0762, %222 ], [ %.sroa.0309.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0309.5, %370 ], [ %.sroa.0309.0762, %.loopexit428 ], [ %.sroa.0309.0762, %.loopexit.split-lp429 ]
+  %.sroa.11323.3 = phi ptr [ %.sroa.11323.0763, %183 ], [ %.sroa.11323.0763, %189 ], [ %.sroa.11323.0763, %222 ], [ %.sroa.11323.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.11323.5, %370 ], [ %.sroa.11323.0763, %.loopexit428 ], [ %.sroa.11323.0763, %.loopexit.split-lp429 ]
+  %.sroa.0319.3 = phi ptr [ %.sroa.0319.0764, %183 ], [ %.sroa.0319.0764, %189 ], [ %.sroa.0319.0764, %222 ], [ %.sroa.0319.5, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0319.5, %370 ], [ %.sroa.0319.0764, %.loopexit428 ], [ %.sroa.0319.0764, %.loopexit.split-lp429 ]
+  %.sroa.29.4 = phi ptr [ %.sroa.29.2, %183 ], [ %.sroa.29.2, %189 ], [ %.sroa.29.2, %222 ], [ %.sroa.29.6, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.29.6, %370 ], [ %.sroa.29.2, %.loopexit428 ], [ %.sroa.29.2, %.loopexit.split-lp429 ]
+  %.sroa.0327.4 = phi ptr [ %.sroa.0327.2, %183 ], [ %.sroa.0327.2, %189 ], [ %.sroa.0327.2, %222 ], [ %.sroa.0327.6, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.sroa.0327.6, %370 ], [ %.sroa.0327.2, %.loopexit428 ], [ %.sroa.0327.2, %.loopexit.split-lp429 ]
+  %.pn120.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn115, %189 ], [ %.pn118, %222 ], [ %.pn120.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.pn120.pn.pn, %370 ], [ %lpad.loopexit430, %.loopexit428 ], [ %lpad.loopexit.split-lp431, %.loopexit.split-lp429 ]
   %.not.i183 = icmp eq ptr %.sroa.0280.0, null
   br i1 %.not.i183, label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185, label %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i184
 
 _ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i184: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit182
-  %376 = load ptr, ptr %.sroa.0280.0, align 8, !tbaa !62
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
-  %378 = load ptr, ptr %377, align 8
-  call void %378(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0280.0) #19
+  %374 = load ptr, ptr %.sroa.0280.0, align 8, !tbaa !62
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
+  %376 = load ptr, ptr %375, align 8
+  call void %376(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0280.0) #19
   br label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185
 
 _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit182, %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i184
   %.not.i.i.i186 = icmp eq ptr %.sroa.0287.1, null
-  br i1 %.not.i.i.i186, label %_ZNSt6vectorIfSaIfEED2Ev.exit188, label %379
+  br i1 %.not.i.i.i186, label %_ZNSt6vectorIfSaIfEED2Ev.exit188, label %377
 
-379:                                              ; preds = %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185
-  %380 = ptrtoint ptr %.sroa.18.1 to i64
-  %381 = ptrtoint ptr %.sroa.0287.1 to i64
-  %382 = sub i64 %380, %381
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0287.1, i64 noundef %382) #18
+377:                                              ; preds = %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185
+  %378 = ptrtoint ptr %.sroa.18.1 to i64
+  %379 = ptrtoint ptr %.sroa.0287.1 to i64
+  %380 = sub i64 %378, %379
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0287.1, i64 noundef %380) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit188
 
-_ZNSt6vectorIfSaIfEED2Ev.exit188:                 ; preds = %.loopexit425, %.loopexit.split-lp, %144, %137, %379, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185
-  %.sroa.13316.2 = phi ptr [ %.sroa.13316.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.13316.3, %379 ], [ %.sroa.13316.0761, %137 ], [ %.sroa.13316.0761, %144 ], [ %.sroa.13316.0761, %.loopexit425 ], [ %.sroa.13316.0761, %.loopexit.split-lp ]
-  %.sroa.0299.3 = phi ptr [ %.sroa.0299.1, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0299.1, %379 ], [ %.sroa.0299.1, %137 ], [ %.sroa.0299.1, %144 ], [ %.sroa.0299.2.ph, %.loopexit425 ], [ %.sroa.0299.2.ph426, %.loopexit.split-lp ]
-  %.sroa.19.3 = phi ptr [ %.sroa.12.1, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.12.1, %379 ], [ %.sroa.12.1, %137 ], [ %.sroa.12.1, %144 ], [ %.sroa.19.2.ph, %.loopexit425 ], [ %.sroa.19.2.ph427, %.loopexit.split-lp ]
-  %.sroa.0309.2 = phi ptr [ %.sroa.0309.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0309.3, %379 ], [ %.sroa.0309.0762, %137 ], [ %.sroa.0309.0762, %144 ], [ %.sroa.0309.0762, %.loopexit425 ], [ %.sroa.0309.0762, %.loopexit.split-lp ]
-  %.sroa.11323.2 = phi ptr [ %.sroa.11323.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.11323.3, %379 ], [ %.sroa.11323.0763, %137 ], [ %.sroa.11323.0763, %144 ], [ %.sroa.11323.0763, %.loopexit425 ], [ %.sroa.11323.0763, %.loopexit.split-lp ]
-  %.sroa.0319.2 = phi ptr [ %.sroa.0319.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0319.3, %379 ], [ %.sroa.0319.0764, %137 ], [ %.sroa.0319.0764, %144 ], [ %.sroa.0319.0764, %.loopexit425 ], [ %.sroa.0319.0764, %.loopexit.split-lp ]
-  %.sroa.29.3 = phi ptr [ %.sroa.29.4, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.29.4, %379 ], [ %.sroa.29.2, %137 ], [ %.sroa.29.2, %144 ], [ %.sroa.29.0765, %.loopexit425 ], [ %.sroa.29.0765, %.loopexit.split-lp ]
-  %.sroa.0327.3 = phi ptr [ %.sroa.0327.4, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0327.4, %379 ], [ %.sroa.0327.2, %137 ], [ %.sroa.0327.2, %144 ], [ %.sroa.0327.0767, %.loopexit425 ], [ %.sroa.0327.0767, %.loopexit.split-lp ]
-  %.pn120.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.pn120.pn.pn.pn.pn.pn, %379 ], [ %138, %137 ], [ %145, %144 ], [ %lpad.loopexit, %.loopexit425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZNSt6vectorIfSaIfEED2Ev.exit188:                 ; preds = %.loopexit425, %.loopexit.split-lp, %144, %137, %377, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185
+  %.sroa.13316.2 = phi ptr [ %.sroa.13316.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.13316.3, %377 ], [ %.sroa.13316.0761, %137 ], [ %.sroa.13316.0761, %144 ], [ %.sroa.13316.0761, %.loopexit425 ], [ %.sroa.13316.0761, %.loopexit.split-lp ]
+  %.sroa.0299.3 = phi ptr [ %.sroa.0299.1, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0299.1, %377 ], [ %.sroa.0299.1, %137 ], [ %.sroa.0299.1, %144 ], [ %.sroa.0299.2.ph, %.loopexit425 ], [ %.sroa.0299.2.ph426, %.loopexit.split-lp ]
+  %.sroa.19.3 = phi ptr [ %.sroa.12.1, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.12.1, %377 ], [ %.sroa.12.1, %137 ], [ %.sroa.12.1, %144 ], [ %.sroa.19.2.ph, %.loopexit425 ], [ %.sroa.19.2.ph427, %.loopexit.split-lp ]
+  %.sroa.0309.2 = phi ptr [ %.sroa.0309.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0309.3, %377 ], [ %.sroa.0309.0762, %137 ], [ %.sroa.0309.0762, %144 ], [ %.sroa.0309.0762, %.loopexit425 ], [ %.sroa.0309.0762, %.loopexit.split-lp ]
+  %.sroa.11323.2 = phi ptr [ %.sroa.11323.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.11323.3, %377 ], [ %.sroa.11323.0763, %137 ], [ %.sroa.11323.0763, %144 ], [ %.sroa.11323.0763, %.loopexit425 ], [ %.sroa.11323.0763, %.loopexit.split-lp ]
+  %.sroa.0319.2 = phi ptr [ %.sroa.0319.3, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0319.3, %377 ], [ %.sroa.0319.0764, %137 ], [ %.sroa.0319.0764, %144 ], [ %.sroa.0319.0764, %.loopexit425 ], [ %.sroa.0319.0764, %.loopexit.split-lp ]
+  %.sroa.29.3 = phi ptr [ %.sroa.29.4, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.29.4, %377 ], [ %.sroa.29.2, %137 ], [ %.sroa.29.2, %144 ], [ %.sroa.29.0765, %.loopexit425 ], [ %.sroa.29.0765, %.loopexit.split-lp ]
+  %.sroa.0327.3 = phi ptr [ %.sroa.0327.4, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.sroa.0327.4, %377 ], [ %.sroa.0327.2, %137 ], [ %.sroa.0327.2, %144 ], [ %.sroa.0327.0767, %.loopexit425 ], [ %.sroa.0327.0767, %.loopexit.split-lp ]
+  %.pn120.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit185 ], [ %.pn120.pn.pn.pn.pn.pn, %377 ], [ %138, %137 ], [ %145, %144 ], [ %lpad.loopexit, %.loopexit425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i189 = icmp eq ptr %.sroa.0299.3, null
-  br i1 %.not.i.i.i189, label %_ZNSt6vectorIfSaIfEED2Ev.exit191, label %383
+  br i1 %.not.i.i.i189, label %_ZNSt6vectorIfSaIfEED2Ev.exit191, label %381
 
-383:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit188
-  %384 = ptrtoint ptr %.sroa.19.3 to i64
-  %385 = ptrtoint ptr %.sroa.0299.3 to i64
-  %386 = sub i64 %384, %385
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0299.3, i64 noundef %386) #18
+381:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit188
+  %382 = ptrtoint ptr %.sroa.19.3 to i64
+  %383 = ptrtoint ptr %.sroa.0299.3 to i64
+  %384 = sub i64 %382, %383
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0299.3, i64 noundef %384) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit191
 
-.lr.ph781:                                        ; preds = %.preheader, %395
-  %.078780 = phi i32 [ %396, %395 ], [ 0, %.preheader ]
-  %387 = load i8, ptr %31, align 1, !tbaa !17, !range !45, !noundef !46
-  %388 = trunc nuw i8 %387 to i1
-  br i1 %388, label %389, label %393
+.lr.ph781:                                        ; preds = %.preheader, %393
+  %.078780 = phi i32 [ %394, %393 ], [ 0, %.preheader ]
+  %385 = load i8, ptr %31, align 1, !tbaa !17, !range !45, !noundef !46
+  %386 = trunc nuw i8 %385 to i1
+  br i1 %386, label %387, label %391
 
-389:                                              ; preds = %.lr.ph781
-  %390 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.078780)
-  br label %393
+387:                                              ; preds = %.lr.ph781
+  %388 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.078780)
+  br label %391
 
-391:                                              ; preds = %393
-  %392 = landingpad { ptr, i32 }
+389:                                              ; preds = %391
+  %390 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit191
 
-393:                                              ; preds = %389, %.lr.ph781
-  %394 = invoke noundef float @_ZN5faiss17ResidualQuantizer19retrain_AQ_codebookEmPKf(ptr noundef nonnull align 8 dereferenceable(440) %0, i64 noundef %1, ptr noundef %2)
-          to label %395 unwind label %391
+391:                                              ; preds = %387, %.lr.ph781
+  %392 = invoke noundef float @_ZN5faiss17ResidualQuantizer19retrain_AQ_codebookEmPKf(ptr noundef nonnull align 8 dereferenceable(440) %0, i64 noundef %1, ptr noundef %2)
+          to label %393 unwind label %389
 
-395:                                              ; preds = %393
-  %396 = add nuw nsw i32 %.078780, 1
-  %397 = load i32, ptr %71, align 8, !tbaa !55
-  %398 = icmp slt i32 %396, %397
-  br i1 %398, label %.lr.ph781, label %.loopexit, !llvm.loop !79
+393:                                              ; preds = %391
+  %394 = add nuw nsw i32 %.078780, 1
+  %395 = load i32, ptr %71, align 8, !tbaa !55
+  %396 = icmp slt i32 %394, %395
+  br i1 %396, label %.lr.ph781, label %.loopexit, !llvm.loop !79
 
-.loopexit:                                        ; preds = %395, %.preheader, %._crit_edge772
-  %399 = icmp ugt i64 %1, 2305843009213693951
-  br i1 %399, label %400, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192
+.loopexit:                                        ; preds = %393, %.preheader, %._crit_edge772
+  %397 = icmp ugt i64 %1, 2305843009213693951
+  br i1 %397, label %398, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192
 
-400:                                              ; preds = %.loopexit
+398:                                              ; preds = %.loopexit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
-          to label %.noexc198 unwind label %408
+          to label %.noexc198 unwind label %406
 
-.noexc198:                                        ; preds = %400
+.noexc198:                                        ; preds = %398
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192: ; preds = %.loopexit
   %.not.i.i.i.i193 = icmp eq i64 %1, 0
-  br i1 %.not.i.i.i.i193, label %._crit_edge784, label %401
+  br i1 %.not.i.i.i.i193, label %._crit_edge784, label %399
 
-401:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192
-  %402 = shl nuw nsw i64 %1, 2
-  %403 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %402) #16
-          to label %.noexc199 unwind label %408
+399:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192
+  %400 = shl nuw nsw i64 %1, 2
+  %401 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %400) #16
+          to label %.noexc199 unwind label %406
 
-.noexc199:                                        ; preds = %401
-  %404 = getelementptr inbounds nuw float, ptr %403, i64 %1
-  store float 0.000000e+00, ptr %403, align 4, !tbaa !57
-  %405 = icmp eq i64 %1, 1
-  br i1 %405, label %.lr.ph783.preheader, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i194
+.noexc199:                                        ; preds = %399
+  %402 = getelementptr inbounds nuw float, ptr %401, i64 %1
+  store float 0.000000e+00, ptr %401, align 4, !tbaa !57
+  %403 = add nsw i64 %1, -1
+  %404 = icmp eq i64 %403, 0
+  br i1 %404, label %.lr.ph783.preheader, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i194
 
 .lr.ph783.preheader:                              ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i194, %.noexc199
   br label %.lr.ph783
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i194: ; preds = %.noexc199
-  %406 = getelementptr i8, ptr %403, i64 4
-  %407 = add nsw i64 %402, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %406, i8 0, i64 %407, i1 false), !tbaa !57
+  %405 = getelementptr i8, ptr %401, i64 4
+  %.idx.i.i.i.i.i.i.i195 = shl nuw nsw i64 %403, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %405, i8 0, i64 %.idx.i.i.i.i.i.i.i195, i1 false), !tbaa !57
   br label %.lr.ph783.preheader
 
-._crit_edge784:                                   ; preds = %417, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192
-  %.sroa.11.01102 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192 ], [ %404, %417 ]
-  %.sroa.0226.01099 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192 ], [ %403, %417 ]
-  invoke void @_ZN5faiss17AdditiveQuantizer10train_normEmPKf(ptr noundef nonnull align 8 dereferenceable(356) %0, i64 noundef %1, ptr noundef %.sroa.0226.01099)
-          to label %421 unwind label %442
+._crit_edge784:                                   ; preds = %415, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192
+  %.sroa.11.01105 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192 ], [ %402, %415 ]
+  %.sroa.0226.01102 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i192 ], [ %401, %415 ]
+  invoke void @_ZN5faiss17AdditiveQuantizer10train_normEmPKf(ptr noundef nonnull align 8 dereferenceable(356) %0, i64 noundef %1, ptr noundef %.sroa.0226.01102)
+          to label %419 unwind label %440
 
-408:                                              ; preds = %401, %400
-  %409 = landingpad { ptr, i32 }
+406:                                              ; preds = %399, %398
+  %407 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit191
 
-.lr.ph783:                                        ; preds = %.lr.ph783.preheader, %417
-  %.0782 = phi i64 [ %419, %417 ], [ 0, %.lr.ph783.preheader ]
-  %410 = load i64, ptr %8, align 8, !tbaa !4
-  %411 = mul i64 %410, %.0782
-  %412 = getelementptr inbounds nuw float, ptr %2, i64 %411
-  %413 = mul i64 %.0782, %.081.lcssa
-  %414 = mul i64 %413, %410
-  %415 = getelementptr inbounds nuw float, ptr %.sroa.0327.0.lcssa, i64 %414
-  %416 = invoke noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef %412, ptr noundef %415, i64 noundef %410)
-          to label %417 unwind label %.thread
+.lr.ph783:                                        ; preds = %.lr.ph783.preheader, %415
+  %.0782 = phi i64 [ %417, %415 ], [ 0, %.lr.ph783.preheader ]
+  %408 = load i64, ptr %8, align 8, !tbaa !4
+  %409 = mul i64 %408, %.0782
+  %410 = getelementptr inbounds nuw float, ptr %2, i64 %409
+  %411 = mul i64 %.0782, %.081.lcssa
+  %412 = mul i64 %411, %408
+  %413 = getelementptr inbounds nuw float, ptr %.sroa.0327.0.lcssa, i64 %412
+  %414 = invoke noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef %410, ptr noundef %413, i64 noundef %408)
+          to label %415 unwind label %.thread
 
-417:                                              ; preds = %.lr.ph783
-  %418 = getelementptr inbounds nuw float, ptr %403, i64 %.0782
-  store float %416, ptr %418, align 4, !tbaa !57
-  %419 = add nuw i64 %.0782, 1
-  %exitcond1066.not = icmp eq i64 %419, %1
+415:                                              ; preds = %.lr.ph783
+  %416 = getelementptr inbounds nuw float, ptr %401, i64 %.0782
+  store float %414, ptr %416, align 4, !tbaa !57
+  %417 = add nuw i64 %.0782, 1
+  %exitcond1066.not = icmp eq i64 %417, %1
   br i1 %exitcond1066.not, label %._crit_edge784, label %.lr.ph783, !llvm.loop !80
 
 .thread:                                          ; preds = %.lr.ph783
-  %420 = landingpad { ptr, i32 }
+  %418 = landingpad { ptr, i32 }
           cleanup
-  br label %444
+  br label %442
 
-421:                                              ; preds = %._crit_edge784
-  %422 = load i32, ptr %68, align 4, !tbaa !49
-  %423 = and i32 %422, 2048
-  %.not109 = icmp eq i32 %423, 0
-  br i1 %.not109, label %424, label %425
+419:                                              ; preds = %._crit_edge784
+  %420 = load i32, ptr %68, align 4, !tbaa !49
+  %421 = and i32 %420, 2048
+  %.not109 = icmp eq i32 %421, 0
+  br i1 %.not109, label %422, label %423
 
-424:                                              ; preds = %421
+422:                                              ; preds = %419
   invoke void @_ZN5faiss17AdditiveQuantizer23compute_codebook_tablesEv(ptr noundef nonnull align 8 dereferenceable(356) %0)
-          to label %425 unwind label %442
+          to label %423 unwind label %440
 
-425:                                              ; preds = %424, %421
-  %.not.i.i.i201 = icmp eq ptr %.sroa.0226.01099, null
-  br i1 %.not.i.i.i201, label %_ZNSt6vectorIfSaIfEED2Ev.exit203, label %426
+423:                                              ; preds = %422, %419
+  %.not.i.i.i201 = icmp eq ptr %.sroa.0226.01102, null
+  br i1 %.not.i.i.i201, label %_ZNSt6vectorIfSaIfEED2Ev.exit203, label %424
 
-426:                                              ; preds = %425
-  %427 = ptrtoint ptr %.sroa.11.01102 to i64
-  %428 = ptrtoint ptr %.sroa.0226.01099 to i64
-  %429 = sub i64 %427, %428
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0226.01099, i64 noundef %429) #18
+424:                                              ; preds = %423
+  %425 = ptrtoint ptr %.sroa.11.01105 to i64
+  %426 = ptrtoint ptr %.sroa.0226.01102 to i64
+  %427 = sub i64 %425, %426
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0226.01102, i64 noundef %427) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit203
 
-_ZNSt6vectorIfSaIfEED2Ev.exit203:                 ; preds = %425, %426
+_ZNSt6vectorIfSaIfEED2Ev.exit203:                 ; preds = %423, %424
   %.not.i.i.i204 = icmp eq ptr %.sroa.0309.0.lcssa, null
-  br i1 %.not.i.i.i204, label %_ZNSt6vectorIfSaIfEED2Ev.exit206, label %430
+  br i1 %.not.i.i.i204, label %_ZNSt6vectorIfSaIfEED2Ev.exit206, label %428
 
-430:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit203
-  %431 = ptrtoint ptr %.sroa.13316.0.lcssa to i64
-  %432 = ptrtoint ptr %.sroa.0309.0.lcssa to i64
-  %433 = sub i64 %431, %432
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0309.0.lcssa, i64 noundef %433) #18
+428:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit203
+  %429 = ptrtoint ptr %.sroa.13316.0.lcssa to i64
+  %430 = ptrtoint ptr %.sroa.0309.0.lcssa to i64
+  %431 = sub i64 %429, %430
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0309.0.lcssa, i64 noundef %431) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit206
 
-_ZNSt6vectorIfSaIfEED2Ev.exit206:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit203, %430
+_ZNSt6vectorIfSaIfEED2Ev.exit206:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit203, %428
   %.not.i.i.i207 = icmp eq ptr %.sroa.0319.0.lcssa, null
-  br i1 %.not.i.i.i207, label %_ZNSt6vectorIiSaIiEED2Ev.exit208, label %434
+  br i1 %.not.i.i.i207, label %_ZNSt6vectorIiSaIiEED2Ev.exit208, label %432
 
-434:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit206
-  %435 = ptrtoint ptr %.sroa.11323.0.lcssa to i64
-  %436 = ptrtoint ptr %.sroa.0319.0.lcssa to i64
-  %437 = sub i64 %435, %436
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0319.0.lcssa, i64 noundef %437) #18
+432:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit206
+  %433 = ptrtoint ptr %.sroa.11323.0.lcssa to i64
+  %434 = ptrtoint ptr %.sroa.0319.0.lcssa to i64
+  %435 = sub i64 %433, %434
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0319.0.lcssa, i64 noundef %435) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit208
 
-_ZNSt6vectorIiSaIiEED2Ev.exit208:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit206, %434
+_ZNSt6vectorIiSaIiEED2Ev.exit208:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit206, %432
   %.not.i.i.i209 = icmp eq ptr %.sroa.0327.0.lcssa, null
-  br i1 %.not.i.i.i209, label %_ZNSt6vectorIfSaIfEED2Ev.exit211, label %438
+  br i1 %.not.i.i.i209, label %_ZNSt6vectorIfSaIfEED2Ev.exit211, label %436
 
-438:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit208
-  %439 = ptrtoint ptr %.sroa.29.0.lcssa to i64
-  %440 = ptrtoint ptr %.sroa.0327.0.lcssa to i64
-  %441 = sub i64 %439, %440
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0327.0.lcssa, i64 noundef %441) #18
+436:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit208
+  %437 = ptrtoint ptr %.sroa.29.0.lcssa to i64
+  %438 = ptrtoint ptr %.sroa.0327.0.lcssa to i64
+  %439 = sub i64 %437, %438
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0327.0.lcssa, i64 noundef %439) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit211
 
-_ZNSt6vectorIfSaIfEED2Ev.exit211:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit208, %438
+_ZNSt6vectorIfSaIfEED2Ev.exit211:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit208, %436
   ret void
 
-442:                                              ; preds = %._crit_edge784, %424
-  %443 = landingpad { ptr, i32 }
+440:                                              ; preds = %._crit_edge784, %422
+  %441 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i212 = icmp eq ptr %.sroa.0226.01099, null
-  br i1 %.not.i.i.i212, label %_ZNSt6vectorIfSaIfEED2Ev.exit191, label %444
+  %.not.i.i.i212 = icmp eq ptr %.sroa.0226.01102, null
+  br i1 %.not.i.i.i212, label %_ZNSt6vectorIfSaIfEED2Ev.exit191, label %442
 
-444:                                              ; preds = %.thread, %442
-  %.pn1109 = phi { ptr, i32 } [ %420, %.thread ], [ %443, %442 ]
-  %.sroa.0226.010981108 = phi ptr [ %403, %.thread ], [ %.sroa.0226.01099, %442 ]
-  %.sroa.11.011001107 = phi ptr [ %404, %.thread ], [ %.sroa.11.01102, %442 ]
-  %445 = ptrtoint ptr %.sroa.11.011001107 to i64
-  %446 = ptrtoint ptr %.sroa.0226.010981108 to i64
-  %447 = sub i64 %445, %446
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0226.010981108, i64 noundef %447) #18
+442:                                              ; preds = %.thread, %440
+  %.pn1112 = phi { ptr, i32 } [ %418, %.thread ], [ %441, %440 ]
+  %.sroa.0226.011011111 = phi ptr [ %401, %.thread ], [ %.sroa.0226.01102, %440 ]
+  %.sroa.11.011031110 = phi ptr [ %402, %.thread ], [ %.sroa.11.01105, %440 ]
+  %443 = ptrtoint ptr %.sroa.11.011031110 to i64
+  %444 = ptrtoint ptr %.sroa.0226.011011111 to i64
+  %445 = sub i64 %443, %444
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0226.011011111, i64 noundef %445) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit191
 
-_ZNSt6vectorIfSaIfEED2Ev.exit191:                 ; preds = %408, %442, %444, %383, %_ZNSt6vectorIfSaIfEED2Ev.exit188, %391
-  %.sroa.13316.1 = phi ptr [ %.sroa.13316.0.lcssa, %391 ], [ %.sroa.13316.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.13316.2, %383 ], [ %.sroa.13316.0.lcssa, %444 ], [ %.sroa.13316.0.lcssa, %442 ], [ %.sroa.13316.0.lcssa, %408 ]
-  %.sroa.0309.1 = phi ptr [ %.sroa.0309.0.lcssa, %391 ], [ %.sroa.0309.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.0309.2, %383 ], [ %.sroa.0309.0.lcssa, %444 ], [ %.sroa.0309.0.lcssa, %442 ], [ %.sroa.0309.0.lcssa, %408 ]
-  %.sroa.11323.1 = phi ptr [ %.sroa.11323.0.lcssa, %391 ], [ %.sroa.11323.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.11323.2, %383 ], [ %.sroa.11323.0.lcssa, %444 ], [ %.sroa.11323.0.lcssa, %442 ], [ %.sroa.11323.0.lcssa, %408 ]
-  %.sroa.0319.1 = phi ptr [ %.sroa.0319.0.lcssa, %391 ], [ %.sroa.0319.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.0319.2, %383 ], [ %.sroa.0319.0.lcssa, %444 ], [ %.sroa.0319.0.lcssa, %442 ], [ %.sroa.0319.0.lcssa, %408 ]
-  %.sroa.29.1 = phi ptr [ %.sroa.29.0.lcssa, %391 ], [ %.sroa.29.3, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.29.3, %383 ], [ %.sroa.29.0.lcssa, %444 ], [ %.sroa.29.0.lcssa, %442 ], [ %.sroa.29.0.lcssa, %408 ]
-  %.sroa.0327.1 = phi ptr [ %.sroa.0327.0.lcssa, %391 ], [ %.sroa.0327.3, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.0327.3, %383 ], [ %.sroa.0327.0.lcssa, %444 ], [ %.sroa.0327.0.lcssa, %442 ], [ %.sroa.0327.0.lcssa, %408 ]
-  %.pn120.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %392, %391 ], [ %.pn120.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.pn120.pn.pn.pn.pn.pn.pn, %383 ], [ %.pn1109, %444 ], [ %443, %442 ], [ %409, %408 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit191:                 ; preds = %406, %440, %442, %381, %_ZNSt6vectorIfSaIfEED2Ev.exit188, %389
+  %.sroa.13316.1 = phi ptr [ %.sroa.13316.0.lcssa, %389 ], [ %.sroa.13316.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.13316.2, %381 ], [ %.sroa.13316.0.lcssa, %442 ], [ %.sroa.13316.0.lcssa, %440 ], [ %.sroa.13316.0.lcssa, %406 ]
+  %.sroa.0309.1 = phi ptr [ %.sroa.0309.0.lcssa, %389 ], [ %.sroa.0309.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.0309.2, %381 ], [ %.sroa.0309.0.lcssa, %442 ], [ %.sroa.0309.0.lcssa, %440 ], [ %.sroa.0309.0.lcssa, %406 ]
+  %.sroa.11323.1 = phi ptr [ %.sroa.11323.0.lcssa, %389 ], [ %.sroa.11323.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.11323.2, %381 ], [ %.sroa.11323.0.lcssa, %442 ], [ %.sroa.11323.0.lcssa, %440 ], [ %.sroa.11323.0.lcssa, %406 ]
+  %.sroa.0319.1 = phi ptr [ %.sroa.0319.0.lcssa, %389 ], [ %.sroa.0319.2, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.0319.2, %381 ], [ %.sroa.0319.0.lcssa, %442 ], [ %.sroa.0319.0.lcssa, %440 ], [ %.sroa.0319.0.lcssa, %406 ]
+  %.sroa.29.1 = phi ptr [ %.sroa.29.0.lcssa, %389 ], [ %.sroa.29.3, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.29.3, %381 ], [ %.sroa.29.0.lcssa, %442 ], [ %.sroa.29.0.lcssa, %440 ], [ %.sroa.29.0.lcssa, %406 ]
+  %.sroa.0327.1 = phi ptr [ %.sroa.0327.0.lcssa, %389 ], [ %.sroa.0327.3, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.sroa.0327.3, %381 ], [ %.sroa.0327.0.lcssa, %442 ], [ %.sroa.0327.0.lcssa, %440 ], [ %.sroa.0327.0.lcssa, %406 ]
+  %.pn120.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %390, %389 ], [ %.pn120.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.pn120.pn.pn.pn.pn.pn.pn, %381 ], [ %.pn1112, %442 ], [ %441, %440 ], [ %407, %406 ]
   %.not.i.i.i215 = icmp eq ptr %.sroa.0309.1, null
-  br i1 %.not.i.i.i215, label %_ZNSt6vectorIfSaIfEED2Ev.exit217, label %448
+  br i1 %.not.i.i.i215, label %_ZNSt6vectorIfSaIfEED2Ev.exit217, label %446
 
-448:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit191
-  %449 = ptrtoint ptr %.sroa.13316.1 to i64
-  %450 = ptrtoint ptr %.sroa.0309.1 to i64
-  %451 = sub i64 %449, %450
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0309.1, i64 noundef %451) #18
+446:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit191
+  %447 = ptrtoint ptr %.sroa.13316.1 to i64
+  %448 = ptrtoint ptr %.sroa.0309.1 to i64
+  %449 = sub i64 %447, %448
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0309.1, i64 noundef %449) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit217
 
-_ZNSt6vectorIfSaIfEED2Ev.exit217:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit191, %448
+_ZNSt6vectorIfSaIfEED2Ev.exit217:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit191, %446
   %.not.i.i.i218 = icmp eq ptr %.sroa.0319.1, null
-  br i1 %.not.i.i.i218, label %_ZNSt6vectorIiSaIiEED2Ev.exit219, label %452
+  br i1 %.not.i.i.i218, label %_ZNSt6vectorIiSaIiEED2Ev.exit219, label %450
 
-452:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit217
-  %453 = ptrtoint ptr %.sroa.11323.1 to i64
-  %454 = ptrtoint ptr %.sroa.0319.1 to i64
-  %455 = sub i64 %453, %454
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0319.1, i64 noundef %455) #18
+450:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit217
+  %451 = ptrtoint ptr %.sroa.11323.1 to i64
+  %452 = ptrtoint ptr %.sroa.0319.1 to i64
+  %453 = sub i64 %451, %452
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0319.1, i64 noundef %453) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit219
 
-_ZNSt6vectorIiSaIiEED2Ev.exit219:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread, %_ZNSt6vectorIfSaIfEED2Ev.exit217, %452
-  %.sroa.29.1409420 = phi ptr [ %.sroa.29.9, %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread ], [ %.sroa.29.1, %_ZNSt6vectorIfSaIfEED2Ev.exit217 ], [ %.sroa.29.1, %452 ]
-  %.sroa.0327.1410419 = phi ptr [ %.sroa.0327.9, %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread ], [ %.sroa.0327.1, %_ZNSt6vectorIfSaIfEED2Ev.exit217 ], [ %.sroa.0327.1, %452 ]
-  %.pn120.pn.pn.pn.pn.pn.pn.pn.pn411418 = phi { ptr, i32 } [ %74, %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread ], [ %.pn120.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit217 ], [ %.pn120.pn.pn.pn.pn.pn.pn.pn.pn, %452 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit219:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread, %_ZNSt6vectorIfSaIfEED2Ev.exit217, %450
+  %.sroa.29.1409420 = phi ptr [ %.sroa.29.9, %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread ], [ %.sroa.29.1, %_ZNSt6vectorIfSaIfEED2Ev.exit217 ], [ %.sroa.29.1, %450 ]
+  %.sroa.0327.1410419 = phi ptr [ %.sroa.0327.9, %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread ], [ %.sroa.0327.1, %_ZNSt6vectorIfSaIfEED2Ev.exit217 ], [ %.sroa.0327.1, %450 ]
+  %.pn120.pn.pn.pn.pn.pn.pn.pn.pn411418 = phi { ptr, i32 } [ %74, %_ZNSt6vectorIfSaIfEED2Ev.exit217.thread ], [ %.pn120.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit217 ], [ %.pn120.pn.pn.pn.pn.pn.pn.pn.pn, %450 ]
   %.not.i.i.i220 = icmp eq ptr %.sroa.0327.1410419, null
-  br i1 %.not.i.i.i220, label %.body, label %456
+  br i1 %.not.i.i.i220, label %.body, label %454
 
-456:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit219
-  %457 = ptrtoint ptr %.sroa.29.1409420 to i64
-  %458 = ptrtoint ptr %.sroa.0327.1410419 to i64
-  %459 = sub i64 %457, %458
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0327.1410419, i64 noundef %459) #18
+454:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit219
+  %455 = ptrtoint ptr %.sroa.29.1409420 to i64
+  %456 = ptrtoint ptr %.sroa.0327.1410419 to i64
+  %457 = sub i64 %455, %456
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0327.1410419, i64 noundef %457) #18
   br label %.body
 
-.body:                                            ; preds = %456, %_ZNSt6vectorIiSaIiEED2Ev.exit219
+.body:                                            ; preds = %454, %_ZNSt6vectorIiSaIiEED2Ev.exit219
   resume { ptr, i32 } %.pn120.pn.pn.pn.pn.pn.pn.pn.pn411418
 }
 
@@ -2693,7 +2694,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %44, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2714,7 +2715,7 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1
-  br i1 %.not28, label %26, label %19
+  br i1 %.not28, label %24, label %19
 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !12
@@ -2724,77 +2725,75 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl nuw nsw i64 %1, 3
-  %24 = add nsw i64 %23, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !12
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !12
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %25, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !92
-  br label %44
+  br label %41
 
-26:                                               ; preds = %3
-  %27 = icmp ult i64 %17, %1
-  br i1 %27, label %28, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
+24:                                               ; preds = %3
+  %25 = icmp ult i64 %17, %1
+  br i1 %25, label %26, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
 
-28:                                               ; preds = %26
+26:                                               ; preds = %24
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #17
   unreachable
 
-_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %26
+_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %24
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %29 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 1152921504606846975)
-  %31 = shl nuw nsw i64 %30, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #16
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
-  store i64 0, ptr %33, align 8, !tbaa !12
-  %34 = icmp eq i64 %1, 1
-  br i1 %34, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30
+  %27 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 1152921504606846975)
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %9
+  store i64 0, ptr %31, align 8, !tbaa !12
+  %32 = add nsw i64 %1, -1
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
-  %35 = getelementptr i8, ptr %33, i64 8
-  %36 = shl nuw nsw i64 %1, 3
-  %37 = add nsw i64 %36, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %37, i1 false), !tbaa !12
+  %34 = getelementptr i8, ptr %31, i64 8
+  %.idx.i.i.i.i.i31 = shl nuw nsw i64 %32, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %.idx.i.i.i.i.i31, i1 false), !tbaa !12
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
-  %38 = icmp sgt i64 %9, 0
-  br i1 %38, label %39, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
+  %35 = icmp sgt i64 %9, 0
+  br i1 %35, label %36, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
 
-39:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %6, i64 %9, i1 false)
+36:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
 
-_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33, %39
+_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit33, %36
   %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36, label %40
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36, label %37
 
-40:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
-  %41 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #18
+37:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
+  %38 = sub i64 %13, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #18
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36
 
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %40
-  store ptr %32, ptr %0, align 8, !tbaa !56
-  %42 = getelementptr inbounds nuw i64, ptr %33, i64 %1
-  store ptr %42, ptr %4, align 8, !tbaa !92
-  %43 = getelementptr inbounds nuw i64, ptr %32, i64 %30
-  store ptr %43, ptr %11, align 8, !tbaa !93
-  br label %44
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
+  store ptr %30, ptr %0, align 8, !tbaa !56
+  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  store ptr %39, ptr %4, align 8, !tbaa !92
+  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  store ptr %40, ptr %11, align 8, !tbaa !93
+  br label %41
 
-44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36, %2
+41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %44, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2815,7 +2814,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1
-  br i1 %.not28, label %26, label %19
+  br i1 %.not28, label %24, label %19
 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !57
@@ -2825,70 +2824,68 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl nuw nsw i64 %1, 2
-  %24 = add nsw i64 %23, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !57
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !57
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %25, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !13
-  br label %44
+  br label %41
 
-26:                                               ; preds = %3
-  %27 = icmp ult i64 %17, %1
-  br i1 %27, label %28, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+24:                                               ; preds = %3
+  %25 = icmp ult i64 %17, %1
+  br i1 %25, label %26, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
 
-28:                                               ; preds = %26
+26:                                               ; preds = %24
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #17
   unreachable
 
-_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %26
+_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %24
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %29 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 2305843009213693951)
-  %31 = shl nuw nsw i64 %30, 2
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #16
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
-  store float 0.000000e+00, ptr %33, align 4, !tbaa !57
-  %34 = icmp eq i64 %1, 1
-  br i1 %34, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30
+  %27 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 2305843009213693951)
+  %29 = shl nuw nsw i64 %28, 2
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %9
+  store float 0.000000e+00, ptr %31, align 4, !tbaa !57
+  %32 = add nsw i64 %1, -1
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %35 = getelementptr i8, ptr %33, i64 4
-  %36 = shl nuw nsw i64 %1, 2
-  %37 = add nsw i64 %36, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !57
+  %34 = getelementptr i8, ptr %31, i64 4
+  %.idx.i.i.i.i.i31 = shl nuw nsw i64 %32, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %.idx.i.i.i.i.i31, i1 false), !tbaa !57
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %38 = icmp sgt i64 %9, 0
-  br i1 %38, label %39, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
+  %35 = icmp sgt i64 %9, 0
+  br i1 %35, label %36, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
-39:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %32, ptr align 4 %6, i64 %9, i1 false)
+36:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %30, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
-_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33, %39
+_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33, %36
   %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36, label %40
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36, label %37
 
-40:                                               ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
-  %41 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #18
+37:                                               ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
+  %38 = sub i64 %13, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #18
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36
 
-_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %40
-  store ptr %32, ptr %0, align 8, !tbaa !16
-  %42 = getelementptr inbounds nuw float, ptr %33, i64 %1
-  store ptr %42, ptr %4, align 8, !tbaa !13
-  %43 = getelementptr inbounds nuw float, ptr %32, i64 %30
-  store ptr %43, ptr %11, align 8, !tbaa !64
-  br label %44
+_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
+  store ptr %30, ptr %0, align 8, !tbaa !16
+  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  store ptr %39, ptr %4, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  store ptr %40, ptr %11, align 8, !tbaa !64
+  br label %41
 
-44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36, %2
+41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36, %2
   ret void
 }
 
@@ -3147,13 +3144,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %60
 .noexc114:                                        ; preds = %66
   %69 = getelementptr inbounds nuw float, ptr %68, i64 %63
   store float 0.000000e+00, ptr %68, align 4, !tbaa !57
-  %70 = icmp eq i64 %63, 1
-  br i1 %70, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %70 = add nsw i64 %63, -1
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc114
-  %71 = getelementptr i8, ptr %68, i64 4
-  %72 = add nsw i64 %67, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %71, i8 0, i64 %72, i1 false), !tbaa !57
+  %72 = getelementptr i8, ptr %68, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %70, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %72, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !57
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc114, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3240,13 +3238,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i117: ; preds = %_ZNSt6vecto
 .noexc124:                                        ; preds = %105
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %102
   store float 0.000000e+00, ptr %107, align 4, !tbaa !57
-  %109 = icmp eq i64 %102, 1
-  br i1 %109, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit125, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i119
+  %109 = add nsw i64 %102, -1
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit125, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i119
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i119: ; preds = %.noexc124
-  %110 = getelementptr i8, ptr %107, i64 4
-  %111 = add nsw i64 %106, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %110, i8 0, i64 %111, i1 false), !tbaa !57
+  %111 = getelementptr i8, ptr %107, i64 4
+  %.idx.i.i.i.i.i.i.i120 = shl nuw nsw i64 %109, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %111, i8 0, i64 %.idx.i.i.i.i.i.i.i120, i1 false), !tbaa !57
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit125
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit125:            ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i119, %.noexc124, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i117
@@ -3377,7 +3376,7 @@ _ZN5faiss15BitstringReader4readEi.exit.us:        ; preds = %._crit_edge.i.us, %
 
 172:                                              ; preds = %._crit_edge292
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
-          to label %.noexc132 unwind label %200
+          to label %.noexc132 unwind label %201
 
 .noexc132:                                        ; preds = %172
   unreachable
@@ -3389,18 +3388,19 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i126: ; preds = %._crit_edge
 173:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i126
   %174 = shl nuw nsw i64 %170, 2
   %175 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %174) #16
-          to label %.noexc133 unwind label %200
+          to label %.noexc133 unwind label %201
 
 .noexc133:                                        ; preds = %173
   %176 = getelementptr inbounds nuw float, ptr %175, i64 %170
   store float 0.000000e+00, ptr %175, align 4, !tbaa !57
-  %177 = icmp eq i64 %170, 1
-  br i1 %177, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit134, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i128
+  %177 = add nsw i64 %170, -1
+  %178 = icmp eq i64 %177, 0
+  br i1 %178, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit134, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i128
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i128: ; preds = %.noexc133
-  %178 = getelementptr i8, ptr %175, i64 4
-  %179 = add nsw i64 %174, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %178, i8 0, i64 %179, i1 false), !tbaa !57
+  %179 = getelementptr i8, ptr %175, i64 4
+  %.idx.i.i.i.i.i.i.i129 = shl nuw nsw i64 %177, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %179, i8 0, i64 %.idx.i.i.i.i.i.i.i129, i1 false), !tbaa !57
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit134
 
 180:                                              ; preds = %105, %104
@@ -3479,24 +3479,25 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135: ; preds = %._crit_edge
 .noexc142:                                        ; preds = %195
   %198 = getelementptr inbounds nuw float, ptr %197, i64 %101
   store float 0.000000e+00, ptr %197, align 4, !tbaa !57
-  %199 = icmp eq i64 %101, 1
-  br i1 %199, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143
+  %199 = add nsw i64 %101, -1
+  %200 = icmp eq i64 %199, 0
+  br i1 %200, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143
 
-200:                                              ; preds = %173, %172
-  %201 = landingpad { ptr, i32 }
+201:                                              ; preds = %173, %172
+  %202 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit190
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread:     ; preds = %.noexc142, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135
   %.sroa.0213.0.ph = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135 ], [ %197, %.noexc142 ]
   %.sroa.11218.0.ph = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135 ], [ %198, %.noexc142 ]
-  %202 = mul nuw nsw i64 %101, 3011
+  %203 = mul nuw nsw i64 %101, 3011
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143:            ; preds = %.noexc142
-  %203 = getelementptr i8, ptr %197, i64 4
-  %204 = add nsw i64 %196, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %203, i8 0, i64 %204, i1 false), !tbaa !57
+  %204 = getelementptr i8, ptr %197, i64 4
+  %.idx.i.i.i.i.i.i.i138 = shl nuw nsw i64 %199, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %204, i8 0, i64 %.idx.i.i.i.i.i.i.i138, i1 false), !tbaa !57
   %205 = mul i64 %101, 3011
   %206 = icmp ugt i64 %205, 2305843009213693951
   br i1 %206, label %207, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3509,7 +3510,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143:            ; preds = %.noexc142
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143
-  %208 = phi i64 [ %202, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread ], [ %205, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143 ]
+  %208 = phi i64 [ %203, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread ], [ %205, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143 ]
   %.sroa.11218.0277 = phi ptr [ %.sroa.11218.0.ph, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread ], [ %198, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143 ]
   %.sroa.0213.0274 = phi ptr [ %.sroa.0213.0.ph, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143.thread ], [ %197, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit143 ]
   %.not.i.i.i.i144 = icmp eq i64 %208, 0
@@ -3523,13 +3524,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIf
 .noexc148:                                        ; preds = %209
   %212 = getelementptr inbounds nuw i32, ptr %211, i64 %208
   store i32 0, ptr %211, align 4, !tbaa !73
-  %213 = icmp eq i64 %208, 1
-  br i1 %213, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %213 = add nsw i64 %208, -1
+  %214 = icmp eq i64 %213, 0
+  br i1 %214, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc148
-  %214 = getelementptr i8, ptr %211, i64 4
-  %215 = add nsw i64 %210, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %214, i8 0, i64 %215, i1 false), !tbaa !73
+  %215 = getelementptr i8, ptr %211, i64 4
+  %.idx.i.i.i.i.i.i.i145 = shl nuw nsw i64 %213, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %215, i8 0, i64 %.idx.i.i.i.i.i.i.i145, i1 false), !tbaa !73
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc148, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3645,13 +3647,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i154: ; preds = %248
 .noexc161:                                        ; preds = %254
   %257 = getelementptr inbounds nuw float, ptr %256, i64 %251
   store float 0.000000e+00, ptr %256, align 4, !tbaa !57
-  %258 = icmp eq i32 %250, 1
-  br i1 %258, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit162, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i156
+  %258 = add nsw i64 %251, -1
+  %259 = icmp eq i64 %258, 0
+  br i1 %259, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit162, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i156
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i156: ; preds = %.noexc161
-  %259 = getelementptr i8, ptr %256, i64 4
-  %260 = add nsw i64 %255, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %259, i8 0, i64 %260, i1 false), !tbaa !57
+  %260 = getelementptr i8, ptr %256, i64 4
+  %.idx.i.i.i.i.i.i.i157 = shl nuw nsw i64 %258, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %260, i8 0, i64 %.idx.i.i.i.i.i.i.i157, i1 false), !tbaa !57
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit162
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit162:            ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i156, %.noexc161, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i154
@@ -4024,8 +4027,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0224.0, i64 noundef %396) #18
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit190
 
-_ZNSt6vectorIfSaIfEED2Ev.exit190:                 ; preds = %393, %392, %200
-  %.pn101.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %.pn101.pn, %392 ], [ %.pn101.pn280, %393 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit190:                 ; preds = %393, %392, %201
+  %.pn101.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %.pn101.pn, %392 ], [ %.pn101.pn280, %393 ]
   %.not.i.i.i191 = icmp eq ptr %.sroa.0237.0, null
   br i1 %.not.i.i.i191, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %397
 

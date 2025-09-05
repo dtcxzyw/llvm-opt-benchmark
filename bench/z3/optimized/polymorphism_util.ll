@@ -5478,7 +5478,7 @@ define hidden noundef zeroext i1 @_ZN12polymorphism4util5unifyERKNS_12substituti
   %12 = load i32, ptr %11, align 8, !tbaa !40
   %13 = zext i32 %12 to i64
   %.idx.i.i.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -5512,7 +5512,7 @@ _ZNK12polymorphism12substitution5beginEv.exit:    ; preds = %.lr.ph.i.i.i.i.i, %
   %25 = load i32, ptr %24, align 8, !tbaa !40
   %26 = zext i32 %25 to i64
   %.idx.i.i.i32 = shl nuw nsw i64 %26, 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i32
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i.i.i32
   %.not1.i.i.i.i.i33 = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i.i33, label %_ZNK12polymorphism12substitution5beginEv.exit41, label %.lr.ph.i.i.i.i.i34
 

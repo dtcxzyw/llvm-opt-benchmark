@@ -5500,13 +5500,14 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %588
 
 .noexc349:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %592, align 4, !tbaa !22
-  %593 = icmp eq i32 %133, 0
-  br i1 %593, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %593 = add nsw i64 %587, -1
+  %594 = icmp eq i64 %593, 0
+  br i1 %594, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc349
-  %594 = getelementptr i8, ptr %592, i64 4
-  %595 = add nsw i64 %591, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %594, i8 0, i64 %595, i1 false), !tbaa !22
+  %595 = getelementptr i8, ptr %592, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %593, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %595, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !22
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 596:                                              ; preds = %.preheader416, %614

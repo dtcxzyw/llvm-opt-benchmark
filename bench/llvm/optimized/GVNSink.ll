@@ -2242,7 +2242,7 @@ _ZN12_GLOBAL__N_17GVNSink18analyzeInitialPHIsEPN4llvm10BasicBlockERNS1_8DenseSet
 
 634:                                              ; preds = %.critedge.i
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %629, 3
-  %635 = getelementptr inbounds nuw i8, ptr %.pre406.i, i64 %.idx.i.i.i.i.i.i
+  %635 = getelementptr i8, ptr %.pre406.i, i64 %.idx.i.i.i.i.i.i
   %.not4.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %.pre408.i, 0
   br i1 %.not4.i5.i10.i2.i.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i
 

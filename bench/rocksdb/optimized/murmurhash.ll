@@ -12,7 +12,7 @@ define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address
   %8 = sdiv i32 %1, 8
   %9 = sext i32 %8 to i64
   %.idx = shl nsw i64 %9, 3
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %10 = getelementptr i8, ptr %0, i64 %.idx
   %.off = add i32 %1, 7
   %.not38 = icmp ult i32 %.off, 15
   br i1 %.not38, label %._crit_edge, label %.lr.ph

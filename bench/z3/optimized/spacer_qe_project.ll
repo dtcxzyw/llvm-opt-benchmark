@@ -6379,7 +6379,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit18
   %45 = load i32, ptr %44, align 8, !tbaa !248
   %46 = zext i32 %45 to i64
   %.idx.i.i.i = shl nuw nsw i64 %46, 4
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i
+  %47 = getelementptr i8, ptr %43, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %45, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI3appP10ptr_vectorIS0_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -6563,7 +6563,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: 
   %117 = load i32, ptr %44, align 8, !tbaa !248
   %118 = zext i32 %117 to i64
   %.idx.i.i = shl nuw nsw i64 %118, 4
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx.i.i
+  %119 = getelementptr i8, ptr %116, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %117, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appP10ptr_vectorIS0_EE5beginEv.exit, label %.lr.ph.i.i.i.i
 

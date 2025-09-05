@@ -3105,43 +3105,43 @@ define noundef i32 @_ZNK6casadi16GetNonzerosParam10sp_reverseEPPyS2_PxS1_(ptr no
   br i1 %.not5.i.i.i, label %_ZSt4fillIPyyEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %5
-  %20 = shl i64 %19, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %20, i1 false), !tbaa !64
+  %.idx = shl i64 %19, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %.idx, i1 false), !tbaa !64
   br label %_ZSt4fillIPyyEvT_S1_RKT0_.exit
 
 _ZSt4fillIPyyEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %5
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !39
-  %24 = load ptr, ptr %21, align 8, !tbaa !42
-  %.not.i.i.i9.not10 = icmp eq ptr %23, %24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !39
+  %23 = load ptr, ptr %20, align 8, !tbaa !42
+  %.not.i.i.i9.not10 = icmp eq ptr %22, %23
   br i1 %.not.i.i.i9.not10, label %._crit_edge, label %_ZNK6casadi6MXNode3depEx.exit
 
-._crit_edge:                                      ; preds = %30, %_ZSt4fillIPyyEvT_S1_RKT0_.exit
+._crit_edge:                                      ; preds = %29, %_ZSt4fillIPyyEvT_S1_RKT0_.exit
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.68, i64 noundef 0, i64 noundef 0) #27
   unreachable
 
-_ZNK6casadi6MXNode3depEx.exit:                    ; preds = %_ZSt4fillIPyyEvT_S1_RKT0_.exit, %30
-  %25 = phi ptr [ %36, %30 ], [ %24, %_ZSt4fillIPyyEvT_S1_RKT0_.exit ]
-  %.012 = phi i64 [ %34, %30 ], [ 0, %_ZSt4fillIPyyEvT_S1_RKT0_.exit ]
-  %.0811 = phi ptr [ %31, %30 ], [ %6, %_ZSt4fillIPyyEvT_S1_RKT0_.exit ]
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
-  %27 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %28 = icmp slt i64 %.012, %27
-  br i1 %28, label %30, label %29
+_ZNK6casadi6MXNode3depEx.exit:                    ; preds = %_ZSt4fillIPyyEvT_S1_RKT0_.exit, %29
+  %24 = phi ptr [ %35, %29 ], [ %23, %_ZSt4fillIPyyEvT_S1_RKT0_.exit ]
+  %.012 = phi i64 [ %33, %29 ], [ 0, %_ZSt4fillIPyyEvT_S1_RKT0_.exit ]
+  %.0811 = phi ptr [ %30, %29 ], [ %6, %_ZSt4fillIPyyEvT_S1_RKT0_.exit ]
+  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+  %26 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
+  %27 = icmp slt i64 %.012, %26
+  br i1 %27, label %29, label %28
 
-29:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
+28:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
   ret i32 0
 
-30:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
-  %31 = getelementptr inbounds nuw i8, ptr %.0811, i64 8
-  %32 = load i64, ptr %.0811, align 8, !tbaa !64
-  %33 = or i64 %32, %13
-  store i64 %33, ptr %.0811, align 8, !tbaa !64
-  %34 = add nuw nsw i64 %.012, 1
-  %35 = load ptr, ptr %22, align 8, !tbaa !39
-  %36 = load ptr, ptr %21, align 8, !tbaa !42
-  %.not.i.i.i9.not = icmp eq ptr %35, %36
+29:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
+  %30 = getelementptr inbounds nuw i8, ptr %.0811, i64 8
+  %31 = load i64, ptr %.0811, align 8, !tbaa !64
+  %32 = or i64 %31, %13
+  store i64 %32, ptr %.0811, align 8, !tbaa !64
+  %33 = add nuw nsw i64 %.012, 1
+  %34 = load ptr, ptr %21, align 8, !tbaa !39
+  %35 = load ptr, ptr %20, align 8, !tbaa !42
+  %.not.i.i.i9.not = icmp eq ptr %34, %35
   br i1 %.not.i.i.i9.not, label %._crit_edge, label %_ZNK6casadi6MXNode3depEx.exit, !llvm.loop !79
 }
 

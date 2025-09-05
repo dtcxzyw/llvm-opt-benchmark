@@ -2915,7 +2915,7 @@ _ZNSt6vectorIPKN5clang16ObjCProtocolDeclESaIS3_EE9push_backERKS3_.exit: ; preds 
   %61 = load i32, ptr %60, align 8, !tbaa !787
   %62 = zext i32 %61 to i64
   %.idx.i.i = shl nuw nsw i64 %62, 3
-  %63 = getelementptr inbounds nuw i8, ptr %.pre96.pre, i64 %.idx.i.i
+  %63 = getelementptr i8, ptr %.pre96.pre, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %61, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPKN5clang16ObjCProtocolDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

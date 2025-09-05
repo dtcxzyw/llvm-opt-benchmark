@@ -391,7 +391,7 @@ define hidden void @_ZN9bv_bounds5resetEv(ptr noundef nonnull readonly align 8 c
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appP6vectorISt4pairI8rationalS3_ELb1EjEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -8878,7 +8878,7 @@ _ZN14core_hashtableIN7obj_mapI3app8rationalE13obj_map_entryE8obj_hashINS3_8key_d
   %68 = load i32, ptr %67, align 8, !tbaa !18
   %69 = zext i32 %68 to i64
   %.idx.i.i56 = shl nuw nsw i64 %69, 4
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i56
+  %70 = getelementptr i8, ptr %66, i64 %.idx.i.i56
   %.not1.i.i.i.i57 = icmp eq i32 %68, 0
   br i1 %.not1.i.i.i.i57, label %.loopexit103, label %.lr.ph.i.i.i.i58
 

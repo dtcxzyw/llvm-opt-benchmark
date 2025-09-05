@@ -2881,7 +2881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %72
   %98 = load i32, ptr %18, align 8, !tbaa !20, !noalias !121
   %99 = zext i32 %98 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %99, 5
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i
+  %100 = getelementptr i8, ptr %97, i64 %.idx.i.i.i.i
   %.not6.i.i.i.i = icmp eq i32 %98, 0
   br i1 %.not6.i.i.i.i, label %.loopexit90, label %.lr.ph.i.i.i.i
 
@@ -4957,7 +4957,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9rapidjson12GenericValueINS_4UTF8IcE
   %18 = load i32, ptr %0, align 8, !tbaa !20, !noalias !193
   %19 = zext i32 %18 to i64
   %.idx.i.i.i = shl nuw nsw i64 %19, 5
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i
+  %20 = getelementptr i8, ptr %17, i64 %.idx.i.i.i
   %.not6.i.i.i = icmp eq i32 %18, 0
   br i1 %.not6.i.i.i, label %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit, label %.lr.ph.i.i.i
 
@@ -5044,7 +5044,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjs
   %18 = load i32, ptr %0, align 8, !tbaa !20, !noalias !205
   %19 = zext i32 %18 to i64
   %.idx.i.i = shl nuw nsw i64 %19, 5
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %20 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %18, 0
   br i1 %.not6.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EENS_21GenericMemberIteratorILb0ES2_S5_EERKNS0_IS2_T_EE.exit.i, label %.lr.ph.i.i
 

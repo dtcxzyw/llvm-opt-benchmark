@@ -4984,7 +4984,7 @@ define linkonce_odr hidden void @_Z20reset_dealloc_valuesI9func_decl13obj_hashta
   %4 = load i32, ptr %3, align 8, !tbaa !209
   %5 = zext i32 %4 to i64
   %.idx.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5158,7 +5158,7 @@ define linkonce_odr hidden void @_Z20reset_dealloc_valuesI9func_decl13obj_hashta
   %4 = load i32, ptr %3, align 8, !tbaa !215
   %5 = zext i32 %4 to i64
   %.idx.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI4exprEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5673,7 +5673,7 @@ define hidden noundef zeroext i1 @_ZN20demodulator_rewriter25check_fwd_idx_consi
   %5 = load i32, ptr %4, align 8, !tbaa !209
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5713,7 +5713,7 @@ _ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit: ; preds = %
   %24 = load i32, ptr %23, align 8, !tbaa !299
   %25 = zext i32 %24 to i64
   %.idx.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
+  %26 = getelementptr i8, ptr %22, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %24, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -5849,7 +5849,7 @@ define hidden void @_ZN20demodulator_rewriter12show_fwd_idxERSo(ptr noundef nonn
   %6 = load i32, ptr %5, align 8, !tbaa !209
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6014,7 +6014,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit44: ; preds = %68
   %83 = load i32, ptr %82, align 8, !tbaa !299
   %84 = zext i32 %83 to i64
   %.idx.i = shl nuw nsw i64 %84, 3
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i
+  %85 = getelementptr i8, ptr %81, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %83, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -6270,7 +6270,7 @@ define hidden noundef zeroext i1 @_ZN20demodulator_rewriter8rewrite1EP9func_decl
   %41 = load i32, ptr %40, align 8, !tbaa !299
   %42 = zext i32 %41 to i64
   %.idx.i = shl nuw nsw i64 %42, 3
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
+  %43 = getelementptr i8, ptr %39, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %41, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i20
 
@@ -8853,7 +8853,7 @@ define hidden void @_ZN20demodulator_rewriter20reschedule_processedEP9func_decl(
   %44 = load i32, ptr %43, align 8, !tbaa !229
   %45 = zext i32 %44 to i64
   %.idx.i = shl nuw nsw i64 %45, 3
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
+  %46 = getelementptr i8, ptr %42, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %44, 0
   br i1 %.not1.i.i.i, label %.loopexit61, label %.lr.ph.i.i.i18
 
@@ -8875,7 +8875,7 @@ define hidden void @_ZN20demodulator_rewriter20reschedule_processedEP9func_decl(
   br i1 %.not68, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.loopexit61
-  %51 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %51 = getelementptr i8, ptr %38, i64 64
   br label %.lr.ph.i.i.i24.preheader
 
 .lr.ph:                                           ; preds = %.loopexit61
@@ -8888,7 +8888,7 @@ define hidden void @_ZN20demodulator_rewriter20reschedule_processedEP9func_decl(
   %.pre82 = load i32, ptr %39, align 8, !tbaa !229
   %54 = zext i32 %.pre82 to i64
   %.idx.i22 = shl nuw nsw i64 %54, 3
-  %55 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i22
+  %55 = getelementptr i8, ptr %.pre, i64 %.idx.i22
   %.not1.i.i.i23 = icmp eq i32 %.pre82, 0
   br i1 %.not1.i.i.i23, label %.loopexit, label %.lr.ph.i.i.i24.preheader
 
@@ -9418,7 +9418,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %49 = load i32, ptr %48, align 8, !tbaa !229
   %50 = zext i32 %49 to i64
   %.idx.i = shl nuw nsw i64 %50, 3
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i
+  %51 = getelementptr i8, ptr %47, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %49, 0
   br i1 %.not1.i.i.i, label %.loopexit99, label %.lr.ph.i.i.i32
 
@@ -9440,7 +9440,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   br i1 %.not109, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.loopexit99
-  %56 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %56 = getelementptr i8, ptr %41, i64 64
   br label %.lr.ph.i.i.i38.preheader
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
@@ -9448,7 +9448,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %.pre126 = load i32, ptr %42, align 8, !tbaa !229
   %57 = zext i32 %.pre126 to i64
   %.idx.i36 = shl nuw nsw i64 %57, 3
-  %58 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i36
+  %58 = getelementptr i8, ptr %.pre, i64 %.idx.i36
   %.not1.i.i.i37 = icmp eq i32 %.pre126, 0
   br i1 %.not1.i.i.i37, label %.loopexit98, label %.lr.ph.i.i.i38.preheader
 
@@ -10932,7 +10932,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit50:       ; preds = %_ZN7obj_refI4expr11
   %237 = load i32, ptr %236, align 8, !tbaa !229
   %238 = zext i32 %237 to i64
   %.idx.i = shl nuw nsw i64 %238, 3
-  %239 = getelementptr inbounds nuw i8, ptr %235, i64 %.idx.i
+  %239 = getelementptr i8, ptr %235, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %237, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i51
 
@@ -10964,7 +10964,7 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beg
   %248 = load i32, ptr %247, align 8, !tbaa !209
   %249 = zext i32 %248 to i64
   %.idx.i.i = shl nuw nsw i64 %249, 4
-  %250 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx.i.i
+  %250 = getelementptr i8, ptr %246, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %248, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -11067,7 +11067,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iter
   %287 = load i32, ptr %286, align 8, !tbaa !299
   %288 = zext i32 %287 to i64
   %.idx.i65 = shl nuw nsw i64 %288, 3
-  %289 = getelementptr inbounds nuw i8, ptr %285, i64 %.idx.i65
+  %289 = getelementptr i8, ptr %285, i64 %.idx.i65
   %.not1.i.i.i66 = icmp eq i32 %287, 0
   br i1 %.not1.i.i.i66, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i67
 

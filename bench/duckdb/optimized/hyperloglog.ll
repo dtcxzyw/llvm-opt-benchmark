@@ -12,7 +12,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   %8 = and i32 %1, 7
   %9 = and i32 %1, -8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr i8, ptr %0, i64 %10
   %.not39 = icmp eq i32 %9, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
@@ -128,7 +128,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   %8 = and i32 %4, 7
   %9 = and i32 %4, -8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr i8, ptr %0, i64 %10
   %.not39.i = icmp eq i32 %9, 0
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 

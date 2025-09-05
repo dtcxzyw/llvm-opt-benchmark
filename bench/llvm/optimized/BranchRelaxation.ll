@@ -551,11 +551,11 @@ _ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDens
 ._crit_edge.loopexit.i:                           ; preds = %178
   %.pre.i = load ptr, ptr %29, align 8, !tbaa !90
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 328
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !211
+  %.pre30.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !211
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit.i
-  %.sroa.0172.0209.i108 = phi ptr [ %.pre31.i, %._crit_edge.loopexit.i ], [ %.sroa.019.026.i, %_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit.i ]
+  %.sroa.0172.0209.i108 = phi ptr [ %.pre30.i, %._crit_edge.loopexit.i ], [ %.sroa.019.026.i, %_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit.i ]
   %124 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %121, %_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit.i ]
   %.val7.i = load ptr, ptr %73, align 8
   %125 = getelementptr i8, ptr %.sroa.0172.0209.i108, i64 8

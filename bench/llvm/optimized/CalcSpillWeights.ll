@@ -1674,7 +1674,7 @@ _ZN4llvm19MachineRegisterInfo15clearSimpleHintENS_8RegisterE.exit: ; preds = %50
   %536 = select i1 %.not.i.i.i2.i, i32 %535, i32 8
   %537 = zext i32 %536 to i64
   %.idx.i198 = shl nuw nsw i64 %537, 3
-  %538 = getelementptr inbounds nuw i8, ptr %534, i64 %.idx.i198
+  %538 = getelementptr i8, ptr %534, i64 %.idx.i198
   %.not4.i5.i10.i4.i = icmp eq i32 %536, 0
   br i1 %.not4.i5.i10.i4.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterEfLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_fEEEES2_fS4_S7_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i
 
@@ -1697,7 +1697,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterEfLj8ENS_12DenseMapInfoIS2
   %.pre-phi = phi i32 [ %.pre306, %520 ], [ %532, %527 ], [ %532, %.critedge2.i8.i14.i11.i ], [ %532, %.lr.ph.i6.i12.i5.i ]
   %544 = phi i32 [ %523, %520 ], [ %535, %527 ], [ %535, %.critedge2.i8.i14.i11.i ], [ %535, %.lr.ph.i6.i12.i5.i ]
   %545 = phi ptr [ %521, %520 ], [ %533, %527 ], [ %533, %.critedge2.i8.i14.i11.i ], [ %533, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i = phi ptr [ %526, %520 ], [ %534, %527 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %540, %.critedge2.i8.i14.i11.i ]
+  %.pn16.i = phi ptr [ %526, %520 ], [ %534, %527 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %538, %.critedge2.i8.i14.i11.i ]
   %.pn14.i = phi ptr [ %526, %520 ], [ %538, %527 ], [ %538, %.critedge2.i8.i14.i11.i ], [ %538, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %546 = select i1 %.not.i.i.i.i.i, ptr %545, ptr %.phi.trans.insert.i.i.ptr

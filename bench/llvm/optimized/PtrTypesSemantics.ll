@@ -4100,7 +4100,7 @@ _ZZN5clang30TrivialFunctionAnalysisVisitor17IsFunctionTrivialEPKNS_4DeclEENKUlvE
 
 81:                                               ; preds = %_ZZN5clang30TrivialFunctionAnalysisVisitor17IsFunctionTrivialEPKNS_4DeclEENKUlvE_clEv.exit.thread
   %.idx.i = shl nuw nsw i64 %78, 4
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i
+  %82 = getelementptr i8, ptr %75, i64 %.idx.i
   %.not6.i5.i10.i2.i = icmp eq i32 %77, 0
   br i1 %.not6.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4StmtEEEEbNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_bEEEESA_bSC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -5604,7 +5604,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4Stm
 
 58:                                               ; preds = %49
   %.idx.i = shl nuw nsw i64 %55, 4
-  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
+  %59 = getelementptr i8, ptr %.pre, i64 %.idx.i
   %.not6.i5.i10.i2.i = icmp eq i32 %54, 0
   br i1 %.not6.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4StmtEEEEbNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_bEEEESA_bSC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -5940,7 +5940,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4Stm
 
 58:                                               ; preds = %49
   %.idx.i = shl nuw nsw i64 %55, 4
-  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
+  %59 = getelementptr i8, ptr %.pre, i64 %.idx.i
   %.not6.i5.i10.i2.i = icmp eq i32 %54, 0
   br i1 %.not6.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4StmtEEEEbNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_bEEEESA_bSC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -6175,7 +6175,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4Stm
 
 58:                                               ; preds = %49
   %.idx.i = shl nuw nsw i64 %55, 4
-  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
+  %59 = getelementptr i8, ptr %.pre, i64 %.idx.i
   %.not6.i5.i10.i2.i = icmp eq i32 %54, 0
   br i1 %.not6.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4StmtEEEEbNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_bEEEESA_bSC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -6410,7 +6410,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4Stm
 
 58:                                               ; preds = %49
   %.idx.i = shl nuw nsw i64 %55, 4
-  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
+  %59 = getelementptr i8, ptr %.pre, i64 %.idx.i
   %.not6.i5.i10.i2.i = icmp eq i32 %54, 0
   br i1 %.not6.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4StmtEEEEbNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_bEEEESA_bSC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -6645,7 +6645,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4Stm
 
 58:                                               ; preds = %49
   %.idx.i = shl nuw nsw i64 %55, 4
-  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
+  %59 = getelementptr i8, ptr %.pre, i64 %.idx.i
   %.not6.i5.i10.i2.i = icmp eq i32 %54, 0
   br i1 %.not6.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKN5clang4DeclEPKNS3_4StmtEEEEbNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_bEEEESA_bSC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

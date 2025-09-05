@@ -399,7 +399,7 @@ if.then.i:                                        ; preds = %while.body
 
 if.end8.i:                                        ; preds = %while.body
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %2, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

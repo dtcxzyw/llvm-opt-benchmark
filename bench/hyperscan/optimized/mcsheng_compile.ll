@@ -5817,13 +5817,14 @@ define linkonce_odr hidden noundef i64 @_ZN5boost6detail21strong_comp_dispatch1I
 
 .noexc19:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store i64 0, ptr %11, align 8
-  %12 = icmp samesign ult i64 %4, 2
-  br i1 %12, label %15, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
+  %12 = add nsw i64 %spec.select, -1
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %15, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc19
-  %13 = getelementptr i8, ptr %11, i64 8
-  %14 = add nsw i64 %10, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %14, i1 false)
+  %14 = getelementptr i8, ptr %11, i64 8
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false)
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc19
@@ -11656,13 +11657,14 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i:  ; preds = %13
 
 .noexc80:                                         ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i
   store i16 0, ptr %17, align 2
-  %18 = icmp eq i32 %11, 1
-  br i1 %18, label %.noexc71, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %18 = add nsw i64 %12, -1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.noexc71, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc80
-  %19 = getelementptr i8, ptr %17, i64 2
-  %20 = add nsw i64 %16, -2
-  call void @llvm.memset.p0.i64(ptr align 2 %19, i8 0, i64 %20, i1 false)
+  %20 = getelementptr i8, ptr %17, i64 2
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %18, 1
+  call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.noexc71
 
 .noexc71:                                         ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc80
@@ -13107,13 +13109,14 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i:  ; preds = %13
 
 .noexc80:                                         ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i
   store i16 0, ptr %17, align 2
-  %18 = icmp eq i32 %11, 1
-  br i1 %18, label %.noexc71, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %18 = add nsw i64 %12, -1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.noexc71, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc80
-  %19 = getelementptr i8, ptr %17, i64 2
-  %20 = add nsw i64 %16, -2
-  call void @llvm.memset.p0.i64(ptr align 2 %19, i8 0, i64 %20, i1 false)
+  %20 = getelementptr i8, ptr %17, i64 2
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %18, 1
+  call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.noexc71
 
 .noexc71:                                         ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc80

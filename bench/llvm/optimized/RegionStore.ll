@@ -2837,7 +2837,7 @@ _ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE16GenerateClus
 
 275:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE16GenerateClustersEv.exit
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %272, 3
-  %276 = getelementptr inbounds nuw i8, ptr %269, i64 %.idx.i.i.i.i.i.i.i
+  %276 = getelementptr i8, ptr %269, i64 %.idx.i.i.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i.i.i = icmp eq i32 %271, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i.i.i, label %_ZNK5clang4ento12SymbolReaper7regionsEv.exit, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i.i
 

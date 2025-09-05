@@ -1435,7 +1435,7 @@ if.then.i:                                        ; preds = %for.end27
 
 if.end8.i:                                        ; preds = %for.end27
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 5
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %27, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %27, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %28, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes15AllocObjectInstENS1_IPNS2_10BasicBlockENS_11SmallVectorIPNS2_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoIS6_EENS_6detail12DenseMapPairIS6_SA_EEEENSB_IS4_EENSE_IS4_SG_EEEES4_SG_SH_SI_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -3173,7 +3173,7 @@ if.then.i:                                        ; preds = %for.body, %for.end
 
 if.end8.i:                                        ; preds = %for.end
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %.pre254, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %.pre254, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %.pre255, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes14CondBranchInstEPNS2_17CompareBranchInstENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

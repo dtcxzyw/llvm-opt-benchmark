@@ -577,7 +577,7 @@ define linkonce_odr hidden noundef i32 @_ZN3smt17theory_array_bapa3imp11final_ch
   %12 = load i32, ptr %11, align 8, !tbaa !64
   %13 = zext i32 %12 to i64
   %.idx.i.i.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -717,7 +717,7 @@ define linkonce_odr hidden void @_ZN3smt17theory_array_bapa3imp10init_modelEv(pt
   %6 = load i32, ptr %5, align 8, !tbaa !64
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1100,7 +1100,7 @@ define linkonce_odr hidden void @_ZN3smt17theory_array_bapa3imp22add_theory_assu
   %7 = load i32, ptr %6, align 8, !tbaa !64
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -4879,7 +4879,7 @@ define linkonce_odr hidden noundef i32 @_ZN3smt17theory_array_bapa3imp17ensure_f
   %12 = load i32, ptr %11, align 8, !tbaa !64
   %13 = zext i32 %12 to i64
   %.idx.i.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i, label %.loopexit55, label %.lr.ph.i.i.i.i
 
@@ -5175,7 +5175,7 @@ define linkonce_odr hidden void @_ZN3smt17theory_array_bapa3imp14update_indicesE
   %6 = load i32, ptr %5, align 8, !tbaa !64
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5479,7 +5479,7 @@ define linkonce_odr hidden noundef i32 @_ZN3smt17theory_array_bapa3imp22ensure_v
   %7 = load i32, ptr %6, align 8, !tbaa !64
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -5757,7 +5757,7 @@ define linkonce_odr hidden noundef i32 @_ZN3smt17theory_array_bapa3imp16ensure_n
   %11 = load i32, ptr %10, align 8, !tbaa !64
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6222,7 +6222,7 @@ define linkonce_odr hidden noundef i32 @_ZN3smt17theory_array_bapa3imp18ensure_n
   %5 = load i32, ptr %4, align 8, !tbaa !64
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -7060,7 +7060,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
   %11 = load i32, ptr %10, align 8, !tbaa !221
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapIN3smt5enodeEP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -9538,7 +9538,7 @@ define linkonce_odr hidden noundef i32 @_ZN3smt17theory_array_bapa3imp18ensure_n
   %16 = load i32, ptr %15, align 8, !tbaa !221
   %17 = zext i32 %16 to i64
   %.idx.i.i = shl nuw nsw i64 %17, 4
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
+  %18 = getelementptr i8, ptr %14, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapIN3smt5enodeEP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -9662,7 +9662,7 @@ _ZN14core_hashtableIN7obj_mapIN3smt5enodeEP4exprE13obj_map_entryE8obj_hashINS5_8
   %61 = load i32, ptr %15, align 8, !tbaa !221
   %62 = zext i32 %61 to i64
   %.idx.i.i58 = shl nuw nsw i64 %62, 4
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i58
+  %63 = getelementptr i8, ptr %60, i64 %.idx.i.i58
   %.not1.i.i.i.i59 = icmp eq i32 %61, 0
   br i1 %.not1.i.i.i.i59, label %.loopexit159, label %.lr.ph.i.i.i.i60
 
@@ -9765,7 +9765,7 @@ _ZN14core_hashtableIN7obj_mapIN3smt5enodeEP4exprE13obj_map_entryE8obj_hashINS5_8
   %101 = load i32, ptr %15, align 8, !tbaa !221
   %102 = zext i32 %101 to i64
   %.idx.i.i80 = shl nuw nsw i64 %102, 4
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i80
+  %103 = getelementptr i8, ptr %100, i64 %.idx.i.i80
   %.not1.i.i.i.i81 = icmp eq i32 %101, 0
   br i1 %.not1.i.i.i.i81, label %.loopexit, label %.lr.ph.i.i.i.i82
 
@@ -10958,7 +10958,7 @@ define linkonce_odr hidden void @_ZN3smt17theory_array_bapa3imp5resetEv(ptr noun
   %5 = load i32, ptr %4, align 8, !tbaa !64
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

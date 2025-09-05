@@ -4425,7 +4425,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof17ProfileSymbolList5writeERNS
 
 16:                                               ; preds = %2
   %.idx.i.i = shl nuw nsw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not17.i5.i10.i2.i.i = icmp eq i32 %12, 0
   br i1 %.not17.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i
 
@@ -4719,7 +4719,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 
 26:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.idx.i.i = shl nuw nsw i64 %23, 4
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
+  %27 = getelementptr i8, ptr %20, i64 %.idx.i.i
   %.not17.i5.i10.i2.i.i = icmp eq i32 %22, 0
   br i1 %.not17.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i6.i12.i3.i.i
 

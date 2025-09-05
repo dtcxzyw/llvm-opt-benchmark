@@ -3607,7 +3607,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread207: ; preds = %_ZNK5clang4ento7
 
 95:                                               ; preds = %.critedge
   %.idx.i = shl nuw nsw i64 %92, 4
-  %96 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i
+  %96 = getelementptr i8, ptr %89, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %91, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ento22PathDiagnosticConsumerESt10unique_ptrINS3_14PathDiagnosticESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -9390,7 +9390,7 @@ define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnos
 
 40:                                               ; preds = %25
   %.idx.i = shl nuw nsw i64 %37, 4
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
+  %41 = getelementptr i8, ptr %34, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %36, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ento22PathDiagnosticConsumerESt10unique_ptrINS3_14PathDiagnosticESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

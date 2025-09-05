@@ -128,7 +128,7 @@ define hidden void @_ZN9act_cache8dec_refsEv(ptr noundef nonnull readonly align 
   %5 = load i32, ptr %4, align 4, !tbaa !32, !noalias !27
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 5
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not2.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not2.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i.i
 

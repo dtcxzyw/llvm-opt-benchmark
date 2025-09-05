@@ -438,7 +438,7 @@ _ZN6vectorIPvLb0EjE5resetEv.exit:                 ; preds = %1, %._crit_edge, %.
   %15 = load i32, ptr %14, align 8, !tbaa !45
   %16 = zext i32 %15 to i64
   %.idx.i.i = shl nuw nsw i64 %16, 5
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i, label %_ZNK9table2mapI17default_map_entryISt4pairIP9func_decljEjEN3euf6etable9decl_hashENS7_7decl_eqEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1086,7 +1086,7 @@ define hidden void @_ZNK3euf6etable7displayERSo(ptr noundef nonnull readonly ali
   %7 = load i32, ptr %6, align 8, !tbaa !45
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 5
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK9table2mapI17default_map_entryISt4pairIP9func_decljEjEN3euf6etable9decl_hashENS7_7decl_eqEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1207,7 +1207,7 @@ define hidden void @_ZNK3euf6etable13display_unaryERSoPv(ptr nonnull readnone al
   %10 = load i32, ptr %9, align 4, !tbaa !81, !noalias !136
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %10, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -1289,7 +1289,7 @@ define hidden void @_ZNK3euf6etable14display_binaryERSoPv(ptr nonnull readnone a
   %10 = load i32, ptr %9, align 4, !tbaa !109, !noalias !140
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %10, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -1372,7 +1372,7 @@ define hidden void @_ZNK3euf6etable19display_binary_commERSoPv(ptr nonnull readn
   %11 = load i32, ptr %10, align 4, !tbaa !98, !noalias !144
   %12 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %11, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 
@@ -1454,7 +1454,7 @@ define hidden void @_ZNK3euf6etable12display_naryERSoPv(ptr nonnull readnone ali
   %10 = load i32, ptr %9, align 4, !tbaa !120, !noalias !148
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not2.i.i.i = icmp eq i32 %10, 0
   br i1 %.not2.i.i.i, label %._crit_edge, label %.lr.ph.i.i.preheader.i
 

@@ -2470,7 +2470,7 @@ if.then.i:                                        ; preds = %_ZN4llvh9StringRefC
 
 if.end8.i:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit85
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 5
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %13, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %13, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %14, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIjSaIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

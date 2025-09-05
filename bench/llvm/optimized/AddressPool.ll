@@ -259,7 +259,7 @@ _ZN4llvm11SmallVectorIPKNS_6MCExprELj64EEC2Em.exit: ; preds = %_ZN4llvm15SmallVe
 
 50:                                               ; preds = %_ZN4llvm11SmallVectorIPKNS_6MCExprELj64EEC2Em.exit
   %.idx.i = shl nuw nsw i64 %45, 4
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
+  %51 = getelementptr i8, ptr %42, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %44, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11AddressPool16AddressPoolEntryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

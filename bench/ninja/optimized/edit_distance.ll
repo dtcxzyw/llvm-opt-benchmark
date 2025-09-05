@@ -32,13 +32,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #7
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   store i32 0, ptr %15, align 4, !tbaa !11
-  %17 = icmp eq i64 %11, 0
-  br i1 %17, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %17 = add nsw i64 %12, -1
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
-  %18 = getelementptr i8, ptr %15, i64 4
-  %19 = add nsw i64 %14, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %19, i1 false), !tbaa !11
+  %19 = getelementptr i8, ptr %15, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %17, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !11
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc60, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -57,8 +58,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not5499, label %.thread, label %.lr.ph103.split.us
 
 .preheader.thread:                                ; preds = %.lr.ph
-  %.not5499186 = icmp slt i32 %7, 1
-  br i1 %.not5499186, label %.thread, label %.lr.ph103.split
+  %.not5499187 = icmp slt i32 %7, 1
+  br i1 %.not5499187, label %.thread, label %.lr.ph103.split
 
 .lr.ph103.split.us:                               ; preds = %.preheader
   %.not56 = icmp eq i32 %3, 0
@@ -91,7 +92,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 .lr.ph103.split:                                  ; preds = %.preheader.thread
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %1, align 8
-  %.not56187 = icmp eq i32 %3, 0
+  %.not56188 = icmp eq i32 %3, 0
   %27 = add nsw i32 %3, 1
   %28 = add nuw nsw i64 %9, 1
   %29 = add nuw nsw i64 %6, 1
@@ -100,7 +101,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %2, label %.lr.ph103.split.split.us, label %.lr.ph103.split.split
 
 .lr.ph103.split.split.us:                         ; preds = %.lr.ph103.split
-  br i1 %.not56187, label %.lr.ph98.us.us, label %.lr.ph98.us
+  br i1 %.not56188, label %.lr.ph98.us.us, label %.lr.ph98.us
 
 .lr.ph98.us.us:                                   ; preds = %.lr.ph103.split.split.us, %._crit_edge.split.us.us.us
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %._crit_edge.split.us.us.us ], [ 1, %.lr.ph103.split.split.us ]
@@ -179,7 +180,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not121, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %50
 
 .lr.ph103.split.split:                            ; preds = %.lr.ph103.split
-  br i1 %.not56187, label %.lr.ph98.us112, label %.lr.ph98
+  br i1 %.not56188, label %.lr.ph98.us112, label %.lr.ph98
 
 .lr.ph98.us112:                                   ; preds = %.lr.ph103.split.split, %._crit_edge.split.us
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %._crit_edge.split.us ], [ 1, %.lr.ph103.split.split ]

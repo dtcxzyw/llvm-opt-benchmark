@@ -4067,7 +4067,7 @@ _ZNSt10unique_ptrIN5clang5LexerESt14default_deleteIS1_EE5resetEPS1_.exit225.thre
   %641 = select i1 %.not.i.i.i2.i.i, i32 %640, i32 32
   %642 = zext i32 %641 to i64
   %.idx.i.i = shl nuw nsw i64 %642, 2
-  %643 = getelementptr inbounds nuw i8, ptr %638, i64 %.idx.i.i
+  %643 = getelementptr i8, ptr %638, i64 %.idx.i.i
   %.not8.i5.i10.i4.i.i = icmp eq i32 %641, 0
   br i1 %.not8.i5.i10.i4.i.i, label %_ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i.i
 
@@ -4086,7 +4086,7 @@ _ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_
   %.pre-phi = phi i32 [ %623, %625 ], [ %635, %634 ], [ %635, %.critedge2.i9.i15.i12.i.i ], [ %635, %.lr.ph.i6.i12.i5.i.i ]
   %645 = phi i32 [ %630, %625 ], [ %640, %634 ], [ %640, %.critedge2.i9.i15.i12.i.i ], [ %640, %.lr.ph.i6.i12.i5.i.i ]
   %646 = phi ptr [ %627, %625 ], [ %637, %634 ], [ %637, %.critedge2.i9.i15.i12.i.i ], [ %637, %.lr.ph.i6.i12.i5.i.i ]
-  %.pn17.i.i = phi ptr [ %633, %625 ], [ %638, %634 ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ], [ %644, %.critedge2.i9.i15.i12.i.i ]
+  %.pn17.i.i = phi ptr [ %633, %625 ], [ %638, %634 ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ], [ %643, %.critedge2.i9.i15.i12.i.i ]
   %.pn15.i.i = phi ptr [ %633, %625 ], [ %643, %634 ], [ %643, %.critedge2.i9.i15.i12.i.i ], [ %643, %.lr.ph.i6.i12.i5.i.i ]
   %.not.i.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %647 = getelementptr inbounds nuw i8, ptr %0, i64 2096
@@ -5406,7 +5406,7 @@ _ZN5clang12Preprocessor14SubmoduleStateD2Ev.exit: ; preds = %_ZN5clang16VisibleM
 
 111:                                              ; preds = %100
   %.idx.i = shl nuw nsw i64 %108, 4
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i
+  %112 = getelementptr i8, ptr %105, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %107, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS2_12Preprocessor10MacroStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

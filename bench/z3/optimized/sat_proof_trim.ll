@@ -760,7 +760,7 @@ _ZN3satlsERSoRK7svectorINS_7literalEjE.exit:      ; preds = %_ZN3satlsERSoNS_7li
   %263 = load i32, ptr %110, align 8, !tbaa !58
   %264 = zext i32 %263 to i64
   %.idx.i.i = shl nuw nsw i64 %264, 5
-  %265 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx.i.i
+  %265 = getelementptr i8, ptr %262, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %263, 0
   br i1 %.not1.i.i.i.i, label %_ZNK9table2mapI17default_map_entryI7svectorIN3sat7literalEjENS2_10proof_trim11clause_infoEENS5_4hashENS5_2eqEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -879,7 +879,7 @@ _ZN3satlsERSoRK7svectorINS_7literalEjE.exit69:    ; preds = %_ZN3satlsERSoNS_7li
   %315 = load i32, ptr %110, align 8, !tbaa !58
   %316 = zext i32 %315 to i64
   %.idx.i.i70 = shl nuw nsw i64 %316, 5
-  %317 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx.i.i70
+  %317 = getelementptr i8, ptr %314, i64 %.idx.i.i70
   %.not1.i.i.i.i71 = icmp eq i32 %315, 0
   br i1 %.not1.i.i.i.i71, label %_ZNK9table2mapI17default_map_entryI7svectorIN3sat7literalEjENS2_10proof_trim11clause_infoEENS5_4hashENS5_2eqEE5beginEv.exit78, label %.lr.ph.i.i.i.i72
 

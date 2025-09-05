@@ -862,7 +862,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_references..
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !noundef !4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %15
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -871,16 +871,16 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_references..
   br i1 %12, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
+  %.idx = shl i64 %11, 1
   %13 = load ptr, ptr %0, align 8, !alias.scope !89, !nonnull !4, !align !43, !noundef !4
-  %14 = shl i64 %11, 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %13, i8 0, i64 %14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %13, i8 0, i64 %.idx, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %9
   store i32 1, ptr %6, align 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %5, %._crit_edge
+14:                                               ; preds = %5, %._crit_edge
   ret i1 %8
 }
 
@@ -2310,7 +2310,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !noundef !4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %5
   %11 = icmp ult i64 %2, 32769
@@ -2325,7 +2325,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !33
-  br label %21
+  br label %20
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2334,64 +2334,64 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   br i1 %18, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
+  %.idx = shl i64 %17, 2
   %19 = load ptr, ptr %0, align 8, !alias.scope !301, !nonnull !4, !align !33, !noundef !4
-  %20 = shl i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %.idx, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit", %.lr.ph.preheader, %15, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit23.thread.preheader"
   store i32 1, ptr %7, align 8
-  br label %24
+  br label %23
 
-21:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
-  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
-  %22 = add nuw i64 %.sroa.01.040, 1
-  %23 = icmp ugt i64 %.sroa.01.040, %4
-  br i1 %23, label %39, label %25
+20:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
+  %21 = add nuw i64 %.sroa.01.040, 1
+  %22 = icmp ugt i64 %.sroa.01.040, %4
+  br i1 %22, label %38, label %24
 
-24:                                               ; preds = %5, %.thread
+23:                                               ; preds = %5, %.thread
   ret i1 %9
 
-25:                                               ; preds = %21
-  %26 = sub nuw i64 %4, %.sroa.01.040
+24:                                               ; preds = %20
+  %25 = sub nuw i64 %4, %.sroa.01.040
   tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
-  %.not.i.i.i = icmp ult i64 %26, 8
-  br i1 %.not.i.i.i, label %27, label %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
+  %.not.i.i.i = icmp ult i64 %25, 8
+  br i1 %.not.i.i.i, label %26, label %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !309
   store ptr @anon.51838d820bef2e7c66f7646d11d2f552.143, ptr %6, align 8, !noalias !309
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %28, align 8, !noalias !309
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %29, align 8, !noalias !309
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %30, align 8, !noalias !309
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %31, align 8, !noalias !309
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %27, align 8, !noalias !309
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %28, align 8, !noalias !309
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %29, align 8, !noalias !309
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %30, align 8, !noalias !309
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.147.llvm.6642645476840219850) #16, !noalias !314
   unreachable
 
-"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
-  %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !315, !noalias !319
-  %33 = mul i64 %.sroa.0.0.copyload.i, 3866266742567714048
-  %34 = lshr i64 %33, 44
-  %35 = add nuw nsw i64 %34, 4
-  %36 = icmp ugt i64 %35, %13
-  br i1 %36, label %37, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit": ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
+  %.sroa.0.0.copyload.i = load i64, ptr %31, align 1, !alias.scope !315, !noalias !319
+  %32 = mul i64 %.sroa.0.0.copyload.i, 3866266742567714048
+  %33 = lshr i64 %32, 44
+  %34 = add nuw nsw i64 %33, 4
+  %35 = icmp ugt i64 %34, %13
+  br i1 %35, label %36, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
 
-37:                                               ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %35, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !321
+36:                                               ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %34, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !321
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %34
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %exitcond.not = icmp eq i64 %22, %2
-  br i1 %exitcond.not, label %.thread, label %21
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  %exitcond.not = icmp eq i64 %21, %2
+  br i1 %exitcond.not, label %.thread, label %20
 
-39:                                               ; preds = %21
+38:                                               ; preds = %20
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.01.040, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.58) #16
   unreachable
 }
@@ -2402,7 +2402,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !noundef !4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %5
   %11 = icmp ult i64 %2, 2049
@@ -2417,7 +2417,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !33
-  br label %21
+  br label %20
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2426,64 +2426,64 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   br i1 %18, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
+  %.idx = shl i64 %17, 2
   %19 = load ptr, ptr %0, align 8, !alias.scope !324, !nonnull !4, !align !33, !noundef !4
-  %20 = shl i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %.idx, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit", %.lr.ph.preheader, %15, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit23.thread.preheader"
   store i32 1, ptr %7, align 8
-  br label %24
+  br label %23
 
-21:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
-  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
-  %22 = add nuw i64 %.sroa.01.040, 1
-  %23 = icmp ugt i64 %.sroa.01.040, %4
-  br i1 %23, label %39, label %25
+20:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
+  %21 = add nuw i64 %.sroa.01.040, 1
+  %22 = icmp ugt i64 %.sroa.01.040, %4
+  br i1 %22, label %38, label %24
 
-24:                                               ; preds = %5, %.thread
+23:                                               ; preds = %5, %.thread
   ret i1 %9
 
-25:                                               ; preds = %21
-  %26 = sub nuw i64 %4, %.sroa.01.040
+24:                                               ; preds = %20
+  %25 = sub nuw i64 %4, %.sroa.01.040
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
-  %.not.i.i.i = icmp ult i64 %26, 8
-  br i1 %.not.i.i.i, label %27, label %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
+  %.not.i.i.i = icmp ult i64 %25, 8
+  br i1 %.not.i.i.i, label %26, label %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !332
   store ptr @anon.51838d820bef2e7c66f7646d11d2f552.143, ptr %6, align 8, !noalias !332
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %28, align 8, !noalias !332
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %29, align 8, !noalias !332
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %30, align 8, !noalias !332
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %31, align 8, !noalias !332
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %27, align 8, !noalias !332
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %28, align 8, !noalias !332
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %29, align 8, !noalias !332
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %30, align 8, !noalias !332
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.147.llvm.6642645476840219850) #16, !noalias !337
   unreachable
 
-"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
-  %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !338, !noalias !342
-  %33 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
-  %34 = lshr i64 %33, 48
-  %35 = add nuw nsw i64 %34, 2
-  %36 = icmp ugt i64 %35, %13
-  br i1 %36, label %37, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit": ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
+  %.sroa.0.0.copyload.i = load i64, ptr %31, align 1, !alias.scope !338, !noalias !342
+  %32 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
+  %33 = lshr i64 %32, 48
+  %34 = add nuw nsw i64 %33, 2
+  %35 = icmp ugt i64 %34, %13
+  br i1 %35, label %36, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
 
-37:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %35, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !344
+36:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %34, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !344
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %34
-  store i64 0, ptr %38, align 4
-  %exitcond.not = icmp eq i64 %22, %2
-  br i1 %exitcond.not, label %.thread, label %21
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  store i64 0, ptr %37, align 4
+  %exitcond.not = icmp eq i64 %21, %2
+  br i1 %exitcond.not, label %.thread, label %20
 
-39:                                               ; preds = %21
+38:                                               ; preds = %20
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.01.040, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.58) #16
   unreachable
 }
@@ -2494,7 +2494,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !noundef !4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %5
   %11 = icmp ult i64 %2, 2049
@@ -2509,7 +2509,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !33
-  br label %21
+  br label %20
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2518,64 +2518,64 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   br i1 %18, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
+  %.idx = shl i64 %17, 2
   %19 = load ptr, ptr %0, align 8, !alias.scope !347, !nonnull !4, !align !33, !noundef !4
-  %20 = shl i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %.idx, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit", %.lr.ph.preheader, %15, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit23.thread.preheader"
   store i32 1, ptr %7, align 8
-  br label %24
+  br label %23
 
-21:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
-  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
-  %22 = add nuw i64 %.sroa.01.040, 1
-  %23 = icmp ugt i64 %.sroa.01.040, %4
-  br i1 %23, label %38, label %25
+20:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
+  %21 = add nuw i64 %.sroa.01.040, 1
+  %22 = icmp ugt i64 %.sroa.01.040, %4
+  br i1 %22, label %37, label %24
 
-24:                                               ; preds = %5, %.thread
+23:                                               ; preds = %5, %.thread
   ret i1 %9
 
-25:                                               ; preds = %21
-  %26 = sub nuw i64 %4, %.sroa.01.040
+24:                                               ; preds = %20
+  %25 = sub nuw i64 %4, %.sroa.01.040
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  %.not.i.i.i = icmp ult i64 %26, 8
-  br i1 %.not.i.i.i, label %27, label %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
+  %.not.i.i.i = icmp ult i64 %25, 8
+  br i1 %.not.i.i.i, label %26, label %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !355
   store ptr @anon.51838d820bef2e7c66f7646d11d2f552.143, ptr %6, align 8, !noalias !355
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %28, align 8, !noalias !355
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %29, align 8, !noalias !355
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %30, align 8, !noalias !355
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %31, align 8, !noalias !355
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %27, align 8, !noalias !355
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %28, align 8, !noalias !355
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %29, align 8, !noalias !355
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %30, align 8, !noalias !355
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.147.llvm.6642645476840219850) #16, !noalias !360
   unreachable
 
-"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
-  %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !361, !noalias !365
-  %33 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
-  %34 = lshr i64 %33, 48
-  %.not = icmp ult i64 %34, %13
-  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit", label %35
+"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit": ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
+  %.sroa.0.0.copyload.i = load i64, ptr %31, align 1, !alias.scope !361, !noalias !365
+  %32 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
+  %33 = lshr i64 %32, 48
+  %.not = icmp ult i64 %33, %13
+  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit", label %34
 
-35:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
-  %36 = add nuw nsw i64 %34, 1
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %36, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !367
+34:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
+  %35 = add nuw nsw i64 %33, 1
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %35, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !367
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %34
-  store i32 0, ptr %37, align 4
-  %exitcond.not = icmp eq i64 %22, %2
-  br i1 %exitcond.not, label %.thread, label %21
+  %36 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  store i32 0, ptr %36, align 4
+  %exitcond.not = icmp eq i64 %21, %2
+  br i1 %exitcond.not, label %.thread, label %20
 
-38:                                               ; preds = %21
+37:                                               ; preds = %20
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.01.040, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.58) #16
   unreachable
 }
@@ -2586,7 +2586,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !noundef !4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %5
   %11 = icmp ult i64 %2, 4097
@@ -2601,7 +2601,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !33
-  br label %21
+  br label %20
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2610,64 +2610,64 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   br i1 %18, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
+  %.idx = shl i64 %17, 2
   %19 = load ptr, ptr %0, align 8, !alias.scope !370, !nonnull !4, !align !33, !noundef !4
-  %20 = shl i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %.idx, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit", %.lr.ph.preheader, %15, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit23.thread.preheader"
   store i32 1, ptr %7, align 8
-  br label %24
+  br label %23
 
-21:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
-  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
-  %22 = add nuw i64 %.sroa.01.040, 1
-  %23 = icmp ugt i64 %.sroa.01.040, %4
-  br i1 %23, label %39, label %25
+20:                                               ; preds = %.lr.ph41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+  %.sroa.01.040 = phi i64 [ 0, %.lr.ph41 ], [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit" ]
+  %21 = add nuw i64 %.sroa.01.040, 1
+  %22 = icmp ugt i64 %.sroa.01.040, %4
+  br i1 %22, label %38, label %24
 
-24:                                               ; preds = %5, %.thread
+23:                                               ; preds = %5, %.thread
   ret i1 %9
 
-25:                                               ; preds = %21
-  %26 = sub nuw i64 %4, %.sroa.01.040
+24:                                               ; preds = %20
+  %25 = sub nuw i64 %4, %.sroa.01.040
   tail call void @llvm.experimental.noalias.scope.decl(metadata !375)
-  %.not.i.i.i = icmp ult i64 %26, 8
-  br i1 %.not.i.i.i, label %27, label %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
+  %.not.i.i.i = icmp ult i64 %25, 8
+  br i1 %.not.i.i.i, label %26, label %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !378
   store ptr @anon.51838d820bef2e7c66f7646d11d2f552.143, ptr %6, align 8, !noalias !378
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %28, align 8, !noalias !378
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %29, align 8, !noalias !378
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %30, align 8, !noalias !378
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %31, align 8, !noalias !378
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %27, align 8, !noalias !378
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %28, align 8, !noalias !378
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %29, align 8, !noalias !378
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %30, align 8, !noalias !378
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.147.llvm.6642645476840219850) #16, !noalias !383
   unreachable
 
-"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
-  %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !384, !noalias !388
-  %33 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
-  %34 = lshr i64 %33, 47
-  %35 = add nuw nsw i64 %34, 4
-  %36 = icmp ugt i64 %35, %13
-  br i1 %36, label %37, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
+"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit": ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
+  %.sroa.0.0.copyload.i = load i64, ptr %31, align 1, !alias.scope !384, !noalias !388
+  %32 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
+  %33 = lshr i64 %32, 47
+  %34 = add nuw nsw i64 %33, 4
+  %35 = icmp ugt i64 %34, %13
+  br i1 %35, label %36, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit"
 
-37:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %35, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !390
+36:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 1048580) %34, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.57) #16, !noalias !390
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %34
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %exitcond.not = icmp eq i64 %22, %2
-  br i1 %exitcond.not, label %.thread, label %21
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  %exitcond.not = icmp eq i64 %21, %2
+  br i1 %exitcond.not, label %.thread, label %20
 
-39:                                               ; preds = %21
+38:                                               ; preds = %20
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.01.040, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.58) #16
   unreachable
 }
@@ -2893,7 +2893,7 @@ _ZN6brotli3enc19backward_references29StitchToPreviousBlockInternal17h3ac16e462ca
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hb1eb6b1a2c480d60E"(ptr noalias noundef align 8 dereferenceable(120) %0, i1 noundef zeroext %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 {
   %6 = load i64, ptr %0, align 8, !range !393, !noundef !4
-  switch i64 %6, label %default.unreachable2 [
+  switch i64 %6, label %default.unreachable3 [
     i64 0, label %7
     i64 1, label %8
     i64 2, label %11
@@ -2904,10 +2904,10 @@ define hidden noundef zeroext i1 @"_ZN122_$LT$brotli..enc..backward_references..
     i64 7, label %26
     i64 8, label %29
     i64 9, label %32
-    i64 10, label %43
+    i64 10, label %42
   ]
 
-default.unreachable2:                             ; preds = %5
+default.unreachable3:                             ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -2969,47 +2969,47 @@ default.unreachable2:                             ; preds = %5
   br i1 %40, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
+  %.idx.i = shl i64 %39, 1
   %41 = load ptr, ptr %33, align 8, !alias.scope !403, !nonnull !4, !align !43, !noundef !4
-  %42 = shl i64 %39, 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %41, i8 0, i64 %42, i1 false), !noalias !400
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %41, i8 0, i64 %.idx.i, i1 false), !noalias !400
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %37
   store i32 1, ptr %34, align 8, !alias.scope !400
   br label %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit"
 
-43:                                               ; preds = %5
+42:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %45 = load i32, ptr %44, align 8, !alias.scope !406, !noundef !4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit"
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %44 = load i32, ptr %43, align 8, !alias.scope !406, !noundef !4
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit"
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %50 = load i32, ptr %49, align 8, !alias.scope !406, !noundef !4
-  %51 = load ptr, ptr %48, align 8, !alias.scope !409, !nonnull !4, !align !33, !noundef !4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i64, ptr %52, align 8, !alias.scope !409, !noundef !4
-  %.idx.i = shl nsw i64 %53, 2
-  %54 = getelementptr inbounds i8, ptr %51, i64 %.idx.i
-  %55 = icmp eq i64 %53, 0
-  br i1 %55, label %._crit_edge.i1, label %.lr.ph.i
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %49 = load i32, ptr %48, align 8, !alias.scope !406, !noundef !4
+  %50 = load ptr, ptr %47, align 8, !alias.scope !409, !nonnull !4, !align !33, !noundef !4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load i64, ptr %51, align 8, !alias.scope !409, !noundef !4
+  %.idx.i1 = shl nsw i64 %52, 2
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i1
+  %54 = icmp eq i64 %52, 0
+  br i1 %54, label %._crit_edge.i2, label %.lr.ph.i
 
-._crit_edge.i1:                                   ; preds = %.lr.ph.i, %47
-  store i32 1, ptr %44, align 8, !alias.scope !406
+._crit_edge.i2:                                   ; preds = %.lr.ph.i, %46
+  store i32 1, ptr %43, align 8, !alias.scope !406
   br label %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit"
 
-.lr.ph.i:                                         ; preds = %47, %.lr.ph.i
-  %.sroa.0.05.i = phi ptr [ %56, %.lr.ph.i ], [ %51, %47 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 4
-  store i32 %50, ptr %.sroa.0.05.i, align 4, !noalias !406
-  %57 = icmp eq ptr %56, %54
-  br i1 %57, label %._crit_edge.i1, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %46, %.lr.ph.i
+  %.sroa.0.05.i = phi ptr [ %55, %.lr.ph.i ], [ %50, %46 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 4
+  store i32 %49, ptr %.sroa.0.05.i, align 4, !noalias !406
+  %56 = icmp eq ptr %55, %53
+  br i1 %56, label %._crit_edge.i2, label %.lr.ph.i
 
-"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit": ; preds = %._crit_edge.i1, %43, %._crit_edge.i, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ false, %32 ], [ true, %._crit_edge.i ], [ false, %43 ], [ true, %._crit_edge.i1 ]
+"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit": ; preds = %._crit_edge.i2, %42, %._crit_edge.i, %32, %29, %26, %23, %20, %17, %14, %11, %8
+  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ false, %32 ], [ true, %._crit_edge.i ], [ false, %42 ], [ true, %._crit_edge.i2 ]
   ret i1 %.0.in
 }
 
@@ -5691,7 +5691,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !noundef !4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %28
+  br i1 %8, label %9, label %27
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5709,7 +5709,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
 
 .lr.ph31:                                         ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %25
+  br label %24
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5727,50 +5727,50 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   br i1 %22, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e364012f643efd1E.exit"
+  %.idx = shl nuw nsw i64 %19, 1
   %23 = load ptr, ptr %0, align 8, !alias.scope !838, !nonnull !4, !align !43, !noundef !4
-  %24 = shl nuw nsw i64 %19, 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %23, i8 0, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %23, i8 0, i64 %.idx, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %41, %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e364012f643efd1E.exit", %.preheader
+.thread:                                          ; preds = %40, %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e364012f643efd1E.exit", %.preheader
   store i32 1, ptr %6, align 8
-  br label %28
+  br label %27
 
-25:                                               ; preds = %.lr.ph31, %41
-  %.sroa.01.030 = phi i64 [ 0, %.lr.ph31 ], [ %26, %41 ]
-  %26 = add nuw i64 %.sroa.01.030, 1
-  %27 = icmp ugt i64 %.sroa.01.030, %4
-  br i1 %27, label %40, label %29
+24:                                               ; preds = %.lr.ph31, %40
+  %.sroa.01.030 = phi i64 [ 0, %.lr.ph31 ], [ %25, %40 ]
+  %25 = add nuw i64 %.sroa.01.030, 1
+  %26 = icmp ugt i64 %.sroa.01.030, %4
+  br i1 %26, label %39, label %28
 
-28:                                               ; preds = %5, %.thread
+27:                                               ; preds = %5, %.thread
   ret i1 %8
 
-29:                                               ; preds = %25
-  %30 = sub nuw i64 %4, %.sroa.01.030
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.030
-  %32 = load i32, ptr %10, align 8, !alias.scope !844, !noalias !849, !noundef !4
-  %33 = tail call noundef i64 @"_ZN115_$LT$brotli..enc..backward_references..H5Sub$u20$as$u20$brotli..enc..backward_references..AdvHashSpecialization$GT$17load_and_mix_word17heae5f99664a0af67E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %30)
-  %34 = and i32 %32, 63
-  %35 = zext nneg i32 %34 to i64
-  %36 = lshr i64 %33, %35
-  %37 = and i64 %36, 4294967295
-  %38 = load i64, ptr %15, align 8, !alias.scope !851, !noundef !4
-  %39 = icmp ult i64 %37, %38
-  br i1 %39, label %41, label %44, !prof !5
+28:                                               ; preds = %24
+  %29 = sub nuw i64 %4, %.sroa.01.030
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.030
+  %31 = load i32, ptr %10, align 8, !alias.scope !844, !noalias !849, !noundef !4
+  %32 = tail call noundef i64 @"_ZN115_$LT$brotli..enc..backward_references..H5Sub$u20$as$u20$brotli..enc..backward_references..AdvHashSpecialization$GT$17load_and_mix_word17heae5f99664a0af67E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %29)
+  %33 = and i32 %31, 63
+  %34 = zext nneg i32 %33 to i64
+  %35 = lshr i64 %32, %34
+  %36 = and i64 %35, 4294967295
+  %37 = load i64, ptr %15, align 8, !alias.scope !851, !noundef !4
+  %38 = icmp ult i64 %36, %37
+  br i1 %38, label %40, label %43, !prof !5
 
-40:                                               ; preds = %25
+39:                                               ; preds = %24
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.01.030, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.136) #16
   unreachable
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %0, align 8, !alias.scope !851, !nonnull !4, !align !43, !noundef !4
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %37
-  store i16 0, ptr %43, align 2
-  %exitcond.not = icmp eq i64 %26, %2
-  br i1 %exitcond.not, label %.thread, label %25
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %0, align 8, !alias.scope !851, !nonnull !4, !align !43, !noundef !4
+  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %36
+  store i16 0, ptr %42, align 2
+  %exitcond.not = icmp eq i64 %25, %2
+  br i1 %exitcond.not, label %.thread, label %24
 
-44:                                               ; preds = %29
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef %38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.135) #16
+43:                                               ; preds = %28
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %36, i64 noundef %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.135) #16
   unreachable
 }
 
@@ -5780,7 +5780,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !noundef !4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %35
+  br i1 %9, label %10, label %34
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5805,7 +5805,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load ptr, ptr %0, align 8, !nonnull !4, !align !43
-  br label %32
+  br label %31
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5823,66 +5823,66 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   br i1 %29, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e364012f643efd1E.exit"
+  %.idx = shl nuw nsw i64 %26, 1
   %30 = load ptr, ptr %0, align 8, !alias.scope !857, !nonnull !4, !align !43, !noundef !4
-  %31 = shl nuw nsw i64 %26, 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %30, i8 0, i64 %31, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %30, i8 0, i64 %.idx, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %50, %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e364012f643efd1E.exit", %.preheader
+.thread:                                          ; preds = %49, %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e364012f643efd1E.exit", %.preheader
   store i32 1, ptr %7, align 8
-  br label %35
+  br label %34
 
-32:                                               ; preds = %.lr.ph32, %50
-  %.sroa.01.031 = phi i64 [ 0, %.lr.ph32 ], [ %33, %50 ]
-  %33 = add nuw i64 %.sroa.01.031, 1
-  %34 = icmp ugt i64 %.sroa.01.031, %4
-  br i1 %34, label %49, label %36
+31:                                               ; preds = %.lr.ph32, %49
+  %.sroa.01.031 = phi i64 [ 0, %.lr.ph32 ], [ %32, %49 ]
+  %32 = add nuw i64 %.sroa.01.031, 1
+  %33 = icmp ugt i64 %.sroa.01.031, %4
+  br i1 %33, label %48, label %35
 
-35:                                               ; preds = %5, %.thread
+34:                                               ; preds = %5, %.thread
   ret i1 %9
 
-36:                                               ; preds = %32
-  %37 = sub nuw i64 %4, %.sroa.01.031
+35:                                               ; preds = %31
+  %36 = sub nuw i64 %4, %.sroa.01.031
   tail call void @llvm.experimental.noalias.scope.decl(metadata !863)
-  %.not.i.i.i = icmp ult i64 %37, 8
-  br i1 %.not.i.i.i, label %38, label %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
+  %.not.i.i.i = icmp ult i64 %36, 8
+  br i1 %.not.i.i.i, label %37, label %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !866
   store ptr @anon.51838d820bef2e7c66f7646d11d2f552.143, ptr %6, align 8, !noalias !866
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %39, align 8, !noalias !866
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %40, align 8, !noalias !866
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %41, align 8, !noalias !866
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %42, align 8, !noalias !866
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %38, align 8, !noalias !866
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %39, align 8, !noalias !866
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.51838d820bef2e7c66f7646d11d2f552.137, ptr %40, align 8, !noalias !866
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %41, align 8, !noalias !866
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.147.llvm.6642645476840219850) #16, !noalias !873
   unreachable
 
-"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit": ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.031
-  %.sroa.0.0.copyload.i = load i64, ptr %43, align 1, !alias.scope !874, !noalias !878
-  %44 = and i64 %.sroa.0.0.copyload.i, %.val
-  %45 = mul i64 %44, 2297779722762296275
-  %46 = lshr i64 %45, %19
-  %47 = and i64 %46, 4294967295
-  %48 = icmp ult i64 %47, %21
-  br i1 %48, label %50, label %52, !prof !5
+"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit": ; preds = %35
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.031
+  %.sroa.0.0.copyload.i = load i64, ptr %42, align 1, !alias.scope !874, !noalias !878
+  %43 = and i64 %.sroa.0.0.copyload.i, %.val
+  %44 = mul i64 %43, 2297779722762296275
+  %45 = lshr i64 %44, %19
+  %46 = and i64 %45, 4294967295
+  %47 = icmp ult i64 %46, %21
+  br i1 %47, label %49, label %51, !prof !5
 
-49:                                               ; preds = %32
+48:                                               ; preds = %31
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.01.031, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.136) #16
   unreachable
 
-50:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
-  %51 = getelementptr inbounds nuw i16, ptr %22, i64 %47
-  store i16 0, ptr %51, align 2
-  %exitcond.not = icmp eq i64 %33, %2
-  br i1 %exitcond.not, label %.thread, label %32
+49:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
+  %50 = getelementptr inbounds nuw i16, ptr %22, i64 %46
+  store i16 0, ptr %50, align 2
+  %exitcond.not = icmp eq i64 %32, %2
+  br i1 %exitcond.not, label %.thread, label %31
 
-52:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %47, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.135) #16
+51:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %46, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.135) #16
   unreachable
 }
 

@@ -6929,36 +6929,35 @@ define void @Kit_TruthCountMintermsPrecomp() local_unnamed_addr #4 {
   %24 = load ptr, ptr @stdout, align 8, !tbaa !171
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %5
-  %.013.in.i = phi i32 [ %.013.i, %34 ], [ 8, %5 ]
+.lr.ph.i:                                         ; preds = %33, %5
+  %.013.in.i = phi i32 [ %.013.i, %33 ], [ 8, %5 ]
   %.013.i = add nsw i32 %.013.in.i, -1
   %25 = shl i32 %.013.i, 2
-  %26 = and i32 %25, 28
-  %27 = lshr i32 %22, %26
-  %28 = and i32 %27, 15
-  %29 = icmp samesign ult i32 %28, 10
-  br i1 %29, label %30, label %32
+  %26 = lshr i32 %22, %25
+  %27 = and i32 %26, 15
+  %28 = icmp samesign ult i32 %27, 10
+  br i1 %28, label %29, label %31
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef %28) #13
-  br label %34
+29:                                               ; preds = %.lr.ph.i
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef %27) #13
+  br label %33
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = add nuw nsw i32 %28, 87
-  %fputc.i = tail call i32 @fputc(i32 %33, ptr %24)
-  br label %34
+31:                                               ; preds = %.lr.ph.i
+  %32 = add nuw nsw i32 %27, 87
+  %fputc.i = tail call i32 @fputc(i32 %32, ptr %24)
+  br label %33
 
-34:                                               ; preds = %32, %30
-  %35 = icmp samesign ugt i32 %.013.in.i, 1
-  br i1 %35, label %.lr.ph.i, label %Kit_PrintHexadecimal.exit, !llvm.loop !170
+33:                                               ; preds = %31, %29
+  %34 = icmp samesign ugt i32 %.013.in.i, 1
+  br i1 %34, label %.lr.ph.i, label %Kit_PrintHexadecimal.exit, !llvm.loop !170
 
-Kit_PrintHexadecimal.exit:                        ; preds = %34
-  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+Kit_PrintHexadecimal.exit:                        ; preds = %33
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %37, label %1, !llvm.loop !174
+  br i1 %exitcond.not, label %36, label %1, !llvm.loop !174
 
-37:                                               ; preds = %Kit_PrintHexadecimal.exit
+36:                                               ; preds = %Kit_PrintHexadecimal.exit
   ret void
 }
 

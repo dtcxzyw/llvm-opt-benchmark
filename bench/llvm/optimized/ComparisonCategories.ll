@@ -970,7 +970,7 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories17lookupInfoForTyp
 
 26:                                               ; preds = %11
   %.idx.i = shl nuw nsw i64 %23, 7
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
+  %27 = getelementptr i8, ptr %20, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %22, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

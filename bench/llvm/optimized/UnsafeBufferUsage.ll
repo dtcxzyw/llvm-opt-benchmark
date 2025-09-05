@@ -27030,7 +27030,7 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread853: ; preds = %506, %506, %506,
   %.v.v.i4.i2.i.i.i.i.i.i = select i1 %533, i32 %535, i32 %537
   %.v.i5.i3.i.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i.i to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i.i, 3
-  %538 = getelementptr inbounds nuw i8, ptr %530, i64 %.idx.i.i.i.i.i.i
+  %538 = getelementptr i8, ptr %530, i64 %.idx.i.i.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_8SmallSetIPKN5clang11DeclRefExprELj16ESt4lessIS5_EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_.exit.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i.i
 

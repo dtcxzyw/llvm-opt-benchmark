@@ -12660,7 +12660,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
 
 _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %25
+  br label %24
 
 .noexc40:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %16 = shl nuw nsw i64 %14, 2
@@ -12673,262 +12673,261 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %20 = getelementptr i8, ptr %17, i64 4
   %21 = add nsw i64 %14, -1
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %25, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  br i1 %22, label %24, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc40
-  %23 = add nsw i64 %16, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %23, i1 false), !tbaa !25
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i.i.i
-  br label %25
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !25
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i.i.i
+  br label %24
 
-25:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc40, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %26 = phi ptr [ %18, %.noexc40 ], [ %18, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
-  %27 = phi ptr [ %17, %.noexc40 ], [ %17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %20, %.noexc40 ], [ %24, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %28, align 8, !tbaa !249
-  %29 = lshr exact i64 %13, 2
-  %30 = trunc i64 %29 to i32
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %._crit_edge
+24:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc40, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
+  %25 = phi ptr [ %18, %.noexc40 ], [ %18, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
+  %26 = phi ptr [ %17, %.noexc40 ], [ %17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
+  %.0.i.i.i.i.i = phi ptr [ %20, %.noexc40 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i, ptr %27, align 8, !tbaa !249
+  %28 = lshr exact i64 %13, 2
+  %29 = trunc i64 %28 to i32
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %25
+.lr.ph:                                           ; preds = %24
   %.not = icmp eq ptr %5, null
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not38 = icmp eq ptr %6, null
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %39
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %38
 
 .thread:                                          ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %34
 
-.thread98:                                        ; preds = %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc64, %.noexc63, %83, %.noexc60, %.noexc59, %79, %.noexc57, %.noexc56, %68, %_ZN5Yosys8AigMaker7or_gateEii.exit, %_ZN5Yosys8AigMaker8xor_gateEii.exit55
+.thread98:                                        ; preds = %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc64, %.noexc63, %82, %.noexc60, %.noexc59, %78, %.noexc57, %.noexc56, %67, %_ZN5Yosys8AigMaker7or_gateEii.exit, %_ZN5Yosys8AigMaker8xor_gateEii.exit55
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %34
 
-34:                                               ; preds = %.noexc53, %.noexc52, %.noexc51, %.noexc50, %.noexc49, %.noexc48, %_ZN5Yosys8AigMaker8xor_gateEii.exit, %.noexc46, %.noexc45, %.noexc44, %.noexc43, %.noexc42, %.noexc41, %39
+33:                                               ; preds = %.noexc53, %.noexc52, %.noexc51, %.noexc50, %.noexc49, %.noexc48, %_ZN5Yosys8AigMaker8xor_gateEii.exit, %.noexc46, %.noexc45, %.noexc44, %.noexc43, %.noexc42, %.noexc41, %38
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %35
+  %.not.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %34
 
-35:                                               ; preds = %.thread98, %.thread, %34
-  %lpad.phi96 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread ], [ %lpad.thr_comm.split-lp, %34 ], [ %lpad.thr_comm, %.thread98 ]
+34:                                               ; preds = %.thread98, %.thread, %33
+  %lpad.phi96 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread ], [ %lpad.thr_comm.split-lp, %33 ], [ %lpad.thr_comm, %.thread98 ]
+  %35 = ptrtoint ptr %25 to i64
   %36 = ptrtoint ptr %26 to i64
-  %37 = ptrtoint ptr %27 to i64
-  %38 = sub i64 %36, %37
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %38) #34
+  %37 = sub i64 %35, %36
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %37) #34
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-39:                                               ; preds = %.lr.ph, %116
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
-  %40 = phi ptr [ %10, %.lr.ph ], [ %118, %116 ]
-  %.03579 = phi i32 [ %4, %.lr.ph ], [ %82, %116 ]
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
-  %42 = load i32, ptr %41, align 4, !tbaa !25
-  %43 = load ptr, ptr %3, align 8, !tbaa !26
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4, !tbaa !25
-  %46 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %42, i32 noundef %45, i1 noundef zeroext false)
-          to label %.noexc41 unwind label %34
+38:                                               ; preds = %.lr.ph, %115
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
+  %39 = phi ptr [ %10, %.lr.ph ], [ %117, %115 ]
+  %.03579 = phi i32 [ %4, %.lr.ph ], [ %81, %115 ]
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %41 = load i32, ptr %40, align 4, !tbaa !25
+  %42 = load ptr, ptr %3, align 8, !tbaa !26
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %44 = load i32, ptr %43, align 4, !tbaa !25
+  %45 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %41, i32 noundef %44, i1 noundef zeroext false)
+          to label %.noexc41 unwind label %33
 
-.noexc41:                                         ; preds = %39
-  %47 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %42)
-          to label %.noexc42 unwind label %34
+.noexc41:                                         ; preds = %38
+  %46 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %41)
+          to label %.noexc42 unwind label %33
 
 .noexc42:                                         ; preds = %.noexc41
-  %48 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %45)
-          to label %.noexc43 unwind label %34
+  %47 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %44)
+          to label %.noexc43 unwind label %33
 
 .noexc43:                                         ; preds = %.noexc42
-  %49 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %47, i32 noundef %48, i1 noundef zeroext false)
-          to label %.noexc44 unwind label %34
+  %48 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %46, i32 noundef %47, i1 noundef zeroext false)
+          to label %.noexc44 unwind label %33
 
 .noexc44:                                         ; preds = %.noexc43
-  %50 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %46)
-          to label %.noexc45 unwind label %34
+  %49 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %45)
+          to label %.noexc45 unwind label %33
 
 .noexc45:                                         ; preds = %.noexc44
-  %51 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %49)
-          to label %.noexc46 unwind label %34
+  %50 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %48)
+          to label %.noexc46 unwind label %33
 
 .noexc46:                                         ; preds = %.noexc45
-  %52 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %50, i32 noundef %51, i1 noundef zeroext false)
-          to label %_ZN5Yosys8AigMaker8xor_gateEii.exit unwind label %34
+  %51 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %49, i32 noundef %50, i1 noundef zeroext false)
+          to label %_ZN5Yosys8AigMaker8xor_gateEii.exit unwind label %33
 
 _ZN5Yosys8AigMaker8xor_gateEii.exit:              ; preds = %.noexc46
-  %53 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %52, i32 noundef %.03579, i1 noundef zeroext false)
-          to label %.noexc48 unwind label %34
+  %52 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %51, i32 noundef %.03579, i1 noundef zeroext false)
+          to label %.noexc48 unwind label %33
 
 .noexc48:                                         ; preds = %_ZN5Yosys8AigMaker8xor_gateEii.exit
-  %54 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %52)
-          to label %.noexc49 unwind label %34
+  %53 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %51)
+          to label %.noexc49 unwind label %33
 
 .noexc49:                                         ; preds = %.noexc48
-  %55 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %.03579)
-          to label %.noexc50 unwind label %34
+  %54 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %.03579)
+          to label %.noexc50 unwind label %33
 
 .noexc50:                                         ; preds = %.noexc49
-  %56 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %54, i32 noundef %55, i1 noundef zeroext false)
-          to label %.noexc51 unwind label %34
+  %55 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %53, i32 noundef %54, i1 noundef zeroext false)
+          to label %.noexc51 unwind label %33
 
 .noexc51:                                         ; preds = %.noexc50
-  %57 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %53)
-          to label %.noexc52 unwind label %34
+  %56 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %52)
+          to label %.noexc52 unwind label %33
 
 .noexc52:                                         ; preds = %.noexc51
-  %58 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %56)
-          to label %.noexc53 unwind label %34
+  %57 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %55)
+          to label %.noexc53 unwind label %33
 
 .noexc53:                                         ; preds = %.noexc52
-  %59 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %57, i32 noundef %58, i1 noundef zeroext false)
-          to label %_ZN5Yosys8AigMaker8xor_gateEii.exit55 unwind label %34
+  %58 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %56, i32 noundef %57, i1 noundef zeroext false)
+          to label %_ZN5Yosys8AigMaker8xor_gateEii.exit55 unwind label %33
 
 _ZN5Yosys8AigMaker8xor_gateEii.exit55:            ; preds = %.noexc53
-  %60 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
-  store i32 %59, ptr %60, align 4, !tbaa !25
-  %61 = load ptr, ptr %2, align 8, !tbaa !26
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 4, !tbaa !25
-  %64 = load ptr, ptr %3, align 8, !tbaa !26
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4, !tbaa !25
-  %67 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %63, i32 noundef %66, i1 noundef zeroext false)
-          to label %68 unwind label %.thread98
+  %59 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  store i32 %58, ptr %59, align 4, !tbaa !25
+  %60 = load ptr, ptr %2, align 8, !tbaa !26
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %62 = load i32, ptr %61, align 4, !tbaa !25
+  %63 = load ptr, ptr %3, align 8, !tbaa !26
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %65 = load i32, ptr %64, align 4, !tbaa !25
+  %66 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %62, i32 noundef %65, i1 noundef zeroext false)
+          to label %67 unwind label %.thread98
 
-68:                                               ; preds = %_ZN5Yosys8AigMaker8xor_gateEii.exit55
-  %69 = load ptr, ptr %2, align 8, !tbaa !26
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
-  %71 = load i32, ptr %70, align 4, !tbaa !25
-  %72 = load ptr, ptr %3, align 8, !tbaa !26
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
-  %74 = load i32, ptr %73, align 4, !tbaa !25
-  %75 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %71)
+67:                                               ; preds = %_ZN5Yosys8AigMaker8xor_gateEii.exit55
+  %68 = load ptr, ptr %2, align 8, !tbaa !26
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
+  %70 = load i32, ptr %69, align 4, !tbaa !25
+  %71 = load ptr, ptr %3, align 8, !tbaa !26
+  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
+  %73 = load i32, ptr %72, align 4, !tbaa !25
+  %74 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %70)
           to label %.noexc56 unwind label %.thread98
 
-.noexc56:                                         ; preds = %68
-  %76 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %74)
+.noexc56:                                         ; preds = %67
+  %75 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %73)
           to label %.noexc57 unwind label %.thread98
 
 .noexc57:                                         ; preds = %.noexc56
-  %77 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %75, i32 noundef %76, i1 noundef zeroext true)
+  %76 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %74, i32 noundef %75, i1 noundef zeroext true)
           to label %_ZN5Yosys8AigMaker7or_gateEii.exit unwind label %.thread98
 
 _ZN5Yosys8AigMaker7or_gateEii.exit:               ; preds = %.noexc57
-  %78 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %77, i32 noundef %.03579, i1 noundef zeroext false)
-          to label %79 unwind label %.thread98
+  %77 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %76, i32 noundef %.03579, i1 noundef zeroext false)
+          to label %78 unwind label %.thread98
 
-79:                                               ; preds = %_ZN5Yosys8AigMaker7or_gateEii.exit
-  %80 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %67)
+78:                                               ; preds = %_ZN5Yosys8AigMaker7or_gateEii.exit
+  %79 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %66)
           to label %.noexc59 unwind label %.thread98
 
-.noexc59:                                         ; preds = %79
-  %81 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %78)
+.noexc59:                                         ; preds = %78
+  %80 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %77)
           to label %.noexc60 unwind label %.thread98
 
 .noexc60:                                         ; preds = %.noexc59
-  %82 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %80, i32 noundef %81, i1 noundef zeroext true)
+  %81 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %79, i32 noundef %80, i1 noundef zeroext true)
           to label %_ZN5Yosys8AigMaker7or_gateEii.exit62 unwind label %.thread98
 
 _ZN5Yosys8AigMaker7or_gateEii.exit62:             ; preds = %.noexc60
-  br i1 %.not, label %105, label %83
+  br i1 %.not, label %104, label %82
 
-83:                                               ; preds = %_ZN5Yosys8AigMaker7or_gateEii.exit62
-  %84 = load ptr, ptr %2, align 8, !tbaa !26
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
-  %86 = load i32, ptr %85, align 4, !tbaa !25
-  %87 = load ptr, ptr %3, align 8, !tbaa !26
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
-  %89 = load i32, ptr %88, align 4, !tbaa !25
-  %90 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %86, i32 noundef %89, i1 noundef zeroext false)
+82:                                               ; preds = %_ZN5Yosys8AigMaker7or_gateEii.exit62
+  %83 = load ptr, ptr %2, align 8, !tbaa !26
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %85 = load i32, ptr %84, align 4, !tbaa !25
+  %86 = load ptr, ptr %3, align 8, !tbaa !26
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
+  %88 = load i32, ptr %87, align 4, !tbaa !25
+  %89 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %85, i32 noundef %88, i1 noundef zeroext false)
           to label %.noexc63 unwind label %.thread98
 
-.noexc63:                                         ; preds = %83
-  %91 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %86)
+.noexc63:                                         ; preds = %82
+  %90 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %85)
           to label %.noexc64 unwind label %.thread98
 
 .noexc64:                                         ; preds = %.noexc63
-  %92 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %89)
+  %91 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %88)
           to label %.noexc65 unwind label %.thread98
 
 .noexc65:                                         ; preds = %.noexc64
-  %93 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %91, i32 noundef %92, i1 noundef zeroext false)
+  %92 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %90, i32 noundef %91, i1 noundef zeroext false)
           to label %.noexc66 unwind label %.thread98
 
 .noexc66:                                         ; preds = %.noexc65
-  %94 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %90)
+  %93 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %89)
           to label %.noexc67 unwind label %.thread98
 
 .noexc67:                                         ; preds = %.noexc66
-  %95 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %93)
+  %94 = invoke noundef i32 @_ZN5Yosys8AigMaker8not_gateEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %92)
           to label %.noexc68 unwind label %.thread98
 
 .noexc68:                                         ; preds = %.noexc67
-  %96 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %94, i32 noundef %95, i1 noundef zeroext false)
+  %95 = invoke noundef i32 @_ZN5Yosys8AigMaker8and_gateEiib(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %93, i32 noundef %94, i1 noundef zeroext false)
           to label %_ZN5Yosys8AigMaker8xor_gateEii.exit70 unwind label %.thread98
 
 _ZN5Yosys8AigMaker8xor_gateEii.exit70:            ; preds = %.noexc68
-  %97 = load ptr, ptr %32, align 8, !tbaa !249
-  %98 = load ptr, ptr %5, align 8, !tbaa !26
+  %96 = load ptr, ptr %31, align 8, !tbaa !249
+  %97 = load ptr, ptr %5, align 8, !tbaa !26
+  %98 = ptrtoint ptr %96 to i64
   %99 = ptrtoint ptr %97 to i64
-  %100 = ptrtoint ptr %98 to i64
-  %101 = sub i64 %99, %100
-  %102 = ashr exact i64 %101, 2
-  %.not.i.i = icmp ugt i64 %102, %indvars.iv
-  br i1 %.not.i.i, label %103, label %.invoke
+  %100 = sub i64 %98, %99
+  %101 = ashr exact i64 %100, 2
+  %.not.i.i = icmp ugt i64 %101, %indvars.iv
+  br i1 %.not.i.i, label %102, label %.invoke
 
-103:                                              ; preds = %_ZN5Yosys8AigMaker8xor_gateEii.exit70
-  %104 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
-  store i32 %96, ptr %104, align 4, !tbaa !25
-  br label %105
+102:                                              ; preds = %_ZN5Yosys8AigMaker8xor_gateEii.exit70
+  %103 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv
+  store i32 %95, ptr %103, align 4, !tbaa !25
+  br label %104
 
-105:                                              ; preds = %103, %_ZN5Yosys8AigMaker7or_gateEii.exit62
-  br i1 %.not38, label %116, label %106
+104:                                              ; preds = %102, %_ZN5Yosys8AigMaker7or_gateEii.exit62
+  br i1 %.not38, label %115, label %105
 
-106:                                              ; preds = %105
-  %107 = load ptr, ptr %33, align 8, !tbaa !249
-  %108 = load ptr, ptr %6, align 8, !tbaa !26
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %32, align 8, !tbaa !249
+  %107 = load ptr, ptr %6, align 8, !tbaa !26
+  %108 = ptrtoint ptr %106 to i64
   %109 = ptrtoint ptr %107 to i64
-  %110 = ptrtoint ptr %108 to i64
-  %111 = sub i64 %109, %110
-  %112 = ashr exact i64 %111, 2
-  %.not.i.i72 = icmp ugt i64 %112, %indvars.iv
-  br i1 %.not.i.i72, label %114, label %.invoke
+  %110 = sub i64 %108, %109
+  %111 = ashr exact i64 %110, 2
+  %.not.i.i72 = icmp ugt i64 %111, %indvars.iv
+  br i1 %.not.i.i72, label %113, label %.invoke
 
-.invoke:                                          ; preds = %106, %_ZN5Yosys8AigMaker8xor_gateEii.exit70
-  %113 = phi i64 [ %102, %_ZN5Yosys8AigMaker8xor_gateEii.exit70 ], [ %112, %106 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %indvars.iv, i64 noundef %113) #32
+.invoke:                                          ; preds = %105, %_ZN5Yosys8AigMaker8xor_gateEii.exit70
+  %112 = phi i64 [ %101, %_ZN5Yosys8AigMaker8xor_gateEii.exit70 ], [ %111, %105 ]
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %indvars.iv, i64 noundef %112) #32
           to label %.cont unwind label %.thread
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-114:                                              ; preds = %106
-  %115 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv
-  store i32 %82, ptr %115, align 4, !tbaa !25
-  br label %116
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv
+  store i32 %81, ptr %114, align 4, !tbaa !25
+  br label %115
 
-116:                                              ; preds = %105, %114
+115:                                              ; preds = %104, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %117 = load ptr, ptr %8, align 8, !tbaa !249
-  %118 = load ptr, ptr %2, align 8, !tbaa !26
+  %116 = load ptr, ptr %8, align 8, !tbaa !249
+  %117 = load ptr, ptr %2, align 8, !tbaa !26
+  %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
-  %120 = ptrtoint ptr %118 to i64
-  %121 = sub i64 %119, %120
-  %sext93 = shl i64 %121, 30
-  %122 = ashr i64 %sext93, 32
-  %123 = icmp slt i64 %indvars.iv.next, %122
-  br i1 %123, label %39, label %._crit_edge, !llvm.loop !293
+  %120 = sub i64 %118, %119
+  %sext93 = shl i64 %120, 30
+  %121 = ashr i64 %sext93, 32
+  %122 = icmp slt i64 %indvars.iv.next, %121
+  br i1 %122, label %38, label %._crit_edge, !llvm.loop !293
 
-._crit_edge:                                      ; preds = %116, %25
+._crit_edge:                                      ; preds = %115, %24
   ret void
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %35, %34
-  %lpad.phi97 = phi { ptr, i32 } [ %lpad.phi96, %35 ], [ %lpad.thr_comm.split-lp, %34 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %34, %33
+  %lpad.phi97 = phi { ptr, i32 } [ %lpad.phi96, %34 ], [ %lpad.thr_comm.split-lp, %33 ]
   resume { ptr, i32 } %lpad.phi97
 }
 
@@ -13461,7 +13460,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
 
 _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %16
+  br label %15
 
 6:                                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
   %7 = shl nuw nsw i64 %1, 2
@@ -13474,19 +13473,18 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIiSaIiE
   %11 = getelementptr i8, ptr %8, i64 4
   %12 = add nsw i64 %1, -1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %16, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
+  br i1 %13, label %15, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
-  %14 = add nsw i64 %7, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %14, i1 false), !tbaa !25
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %12, 2
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i
-  br label %16
+  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !25
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i
+  br label %15
 
-16:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %15, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i, ptr %17, align 8, !tbaa !249
+15:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread
+  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i, ptr %16, align 8, !tbaa !249
   ret void
 }
 

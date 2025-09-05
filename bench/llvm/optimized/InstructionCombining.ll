@@ -32341,7 +32341,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_11InstructionENS_13DebugV
   %.v.v.i4.i2.i = select i1 %215, i32 %212, i32 %211
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i103 = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %216 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i103
+  %216 = getelementptr i8, ptr %214, i64 %.idx.i103
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

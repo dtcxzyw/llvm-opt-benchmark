@@ -78,7 +78,7 @@ define dso_local void @_ZN4llvm6object8TapiFileC2ENS_15MemoryBufferRefERKNS_5Mac
 
 23:                                               ; preds = %4
   %.idx.i.i.i = shl nuw nsw i64 %20, 5
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i
+  %24 = getelementptr i8, ptr %17, i64 %.idx.i.i.i
   %.not19.i5.i10.i2.i.i.i = icmp eq i32 %19, 0
   br i1 %.not19.i5.i10.i2.i.i.i, label %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit, label %.lr.ph.i6.i12.i3.i.i.i
 

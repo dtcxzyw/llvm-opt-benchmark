@@ -107,7 +107,7 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %25 = ptrtoint ptr %4 to i64
   %26 = sub i64 %25, %.lcssa
   %27 = and i64 %26, -8
-  %28 = getelementptr inbounds i8, ptr %.035.lcssa, i64 %27
+  %28 = getelementptr i8, ptr %.035.lcssa, i64 %27
   %.not43 = icmp eq i64 %27, 0
   br i1 %.not43, label %.preheader, label %.lr.ph47
 

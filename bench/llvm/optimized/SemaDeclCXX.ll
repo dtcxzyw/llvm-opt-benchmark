@@ -140520,7 +140520,7 @@ _ZNK5clang10LazyVectorIPNS_18CXXConstructorDeclENS_18ExternalSemaSourceEXadL_ZNS
   %.v.v.i4.i2.i = select i1 %36, i32 %37, i32 %38
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
+  %39 = getelementptr i8, ptr %34, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang18CXXConstructorDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -140779,7 +140779,7 @@ _ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit.thread: ; preds =
   %.v.v.i4.i2.i = select i1 %81, i32 %83, i32 %85
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
+  %86 = getelementptr i8, ptr %79, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang18CXXConstructorDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -140981,7 +140981,7 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang18CXXConstructorDeclEE5countEPKS2_.exit.threa
   %.v.v.i4.i2.i66 = select i1 %155, i32 %157, i32 %159
   %.v.i5.i3.i67 = zext i32 %.v.v.i4.i2.i66 to i64
   %.idx.i68 = shl nuw nsw i64 %.v.i5.i3.i67, 3
-  %160 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx.i68
+  %160 = getelementptr i8, ptr %153, i64 %.idx.i68
   %.not3.i4.i.i6.i4.i69 = icmp eq i32 %.v.v.i4.i2.i66, 0
   br i1 %.not3.i4.i.i6.i4.i69, label %_ZNK4llvm15SmallPtrSetImplIPN5clang18CXXConstructorDeclEE5beginEv.exit78, label %.lr.ph.i5.i.i7.i5.i70
 

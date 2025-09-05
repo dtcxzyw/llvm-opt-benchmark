@@ -253,43 +253,43 @@ define weak_odr dso_local void @_ZN3igl5histcIN5Eigen6MatrixIdLin1ELi1ELi0ELin1E
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit: ; preds = %4
   %23 = load ptr, ptr %2, align 8, !tbaa !16
-  %24 = shl i64 %21, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %24, i1 false), !tbaa !17
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !17
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit, %4
-  %25 = icmp sgt i32 %18, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  %24 = icmp sgt i32 %18, 0
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit
-  %26 = load ptr, ptr %3, align 8, !tbaa !16
-  %27 = load ptr, ptr %2, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !16
+  %26 = load ptr, ptr %2, align 8
   %wide.trip.count = and i64 %17, 2147483647
-  br label %28
+  br label %27
 
-._crit_edge:                                      ; preds = %38, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit
+._crit_edge:                                      ; preds = %37, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit
   ret void
 
-28:                                               ; preds = %.lr.ph, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %29 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
-  %30 = load double, ptr %29, align 8, !tbaa !17
-  %31 = fcmp ult double %30, 0.000000e+00
-  br i1 %31, label %38, label %32
+27:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %28 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %29 = load double, ptr %28, align 8, !tbaa !17
+  %30 = fcmp ult double %29, 0.000000e+00
+  br i1 %30, label %37, label %31
 
-32:                                               ; preds = %28
-  %33 = fptosi double %30 to i32
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds double, ptr %27, i64 %34
-  %36 = load double, ptr %35, align 8, !tbaa !17
-  %37 = fadd double %36, 1.000000e+00
-  store double %37, ptr %35, align 8, !tbaa !17
-  br label %38
+31:                                               ; preds = %27
+  %32 = fptosi double %29 to i32
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds double, ptr %26, i64 %33
+  %35 = load double, ptr %34, align 8, !tbaa !17
+  %36 = fadd double %35, 1.000000e+00
+  store double %36, ptr %34, align 8, !tbaa !17
+  br label %37
 
-38:                                               ; preds = %28, %32
+37:                                               ; preds = %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !19
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -535,42 +535,42 @@ define weak_odr dso_local void @_ZN3igl5histcIN5Eigen6MatrixIdLin1ELi1ELi0ELin1E
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit.loopexit: ; preds = %4
   %23 = load ptr, ptr %2, align 8, !tbaa !32
-  %24 = shl i64 %21, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false), !tbaa !33
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !33
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit.loopexit, %4
-  %25 = icmp sgt i32 %18, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  %24 = icmp sgt i32 %18, 0
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
-  %26 = load ptr, ptr %3, align 8, !tbaa !35
-  %27 = load ptr, ptr %2, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !35
+  %26 = load ptr, ptr %2, align 8
   %wide.trip.count = and i64 %17, 2147483647
-  br label %28
+  br label %27
 
-._crit_edge:                                      ; preds = %37, %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
+._crit_edge:                                      ; preds = %36, %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
   ret void
 
-28:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !33
-  %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %32, label %37
+27:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %29 = load i32, ptr %28, align 4, !tbaa !33
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %31, label %36
 
-32:                                               ; preds = %28
-  %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %27, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !33
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !33
-  br label %37
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %33, align 4, !tbaa !33
+  br label %36
 
-37:                                               ; preds = %28, %32
+36:                                               ; preds = %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -611,42 +611,42 @@ define weak_odr dso_local void @_ZN3igl5histcIN5Eigen6MatrixIdLin1ELi1ELi0ELin1E
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit.loopexit: ; preds = %4
   %23 = load ptr, ptr %2, align 8, !tbaa !32
-  %24 = shl i64 %21, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false), !tbaa !33
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !33
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit.loopexit, %4
-  %25 = icmp sgt i32 %18, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  %24 = icmp sgt i32 %18, 0
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
-  %26 = load ptr, ptr %3, align 8, !tbaa !32
-  %27 = load ptr, ptr %2, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !32
+  %26 = load ptr, ptr %2, align 8
   %wide.trip.count = and i64 %17, 2147483647
-  br label %28
+  br label %27
 
-._crit_edge:                                      ; preds = %37, %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
+._crit_edge:                                      ; preds = %36, %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit
   ret void
 
-28:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !33
-  %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %32, label %37
+27:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %29 = load i32, ptr %28, align 4, !tbaa !33
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %31, label %36
 
-32:                                               ; preds = %28
-  %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %27, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !33
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !33
-  br label %37
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %33, align 4, !tbaa !33
+  br label %36
 
-37:                                               ; preds = %28, %32
+36:                                               ; preds = %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -9101,17 +9101,18 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %568
 
 .noexc148:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
   store float 0.000000e+00, ptr %572, align 4, !tbaa !27
-  %573 = icmp eq i64 %566, 24
-  br i1 %573, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.thread, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i
+  %573 = add nsw i64 %567, -1
+  %574 = icmp eq i64 %573, 0
+  br i1 %574, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.thread, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.thread:    ; preds = %.noexc148
-  %574 = getelementptr inbounds nuw float, ptr %572, i64 %567
+  %575 = getelementptr inbounds nuw float, ptr %572, i64 %567
   br label %.lr.ph.i.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i:           ; preds = %.noexc148
-  %575 = getelementptr i8, ptr %572, i64 4
-  %576 = add nsw i64 %571, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %575, i8 0, i64 %576, i1 false), !tbaa !27
+  %576 = getelementptr i8, ptr %572, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %573, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %576, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !27
   %577 = getelementptr inbounds nuw float, ptr %572, i64 %567
   %578 = trunc i64 %567 to i32
   %579 = icmp sgt i32 %578, 0
@@ -9124,7 +9125,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i:           ; preds = %.noexc148
   br label %733
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.thread, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i
-  %580 = phi ptr [ %574, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.thread ], [ %577, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i ]
+  %580 = phi ptr [ %575, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.thread ], [ %577, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i ]
   %581 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %582 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %583 = getelementptr inbounds nuw i8, ptr %101, i64 12

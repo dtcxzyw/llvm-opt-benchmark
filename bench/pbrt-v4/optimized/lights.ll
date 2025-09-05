@@ -1296,7 +1296,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %1
   %45 = load i64, ptr %44, align 8, !tbaa !70
   %46 = mul i64 %45, -4132994306676758123
   %47 = and i64 %45, -8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
+  %48 = getelementptr i8, ptr %43, i64 %47
   %.not37.i.i.i.i = icmp samesign eq i64 %47, 0
   br i1 %.not37.i.i.i.i, label %._crit_edge.i.i.i.i4, label %.lr.ph.i.i.i.i3
 
@@ -1450,7 +1450,7 @@ _ZNSt12shared_mutex4lockEv.exit.i:                ; preds = %_ZNSt12shared_mutex
   %125 = load i64, ptr %44, align 8, !tbaa !70
   %126 = mul i64 %125, -4132994306676758123
   %127 = and i64 %125, -8
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 %127
+  %128 = getelementptr i8, ptr %124, i64 %127
   %.not37.i.i.i46.i = icmp samesign eq i64 %127, 0
   br i1 %.not37.i.i.i46.i, label %._crit_edge.i.i.i52.i, label %.lr.ph.i.i.i47.i
 
@@ -72880,7 +72880,7 @@ define linkonce_odr dso_local void @_ZN4pbrt11InternCacheINS_22DenselySampledSpe
   %7 = load i64, ptr %6, align 8, !tbaa !70
   %8 = mul i64 %7, -4132994306676758123
   %9 = and i64 %7, -8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %10 = getelementptr i8, ptr %5, i64 %9
   %.not37.i.i.i = icmp samesign eq i64 %9, 0
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

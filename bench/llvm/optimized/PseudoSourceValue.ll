@@ -1713,7 +1713,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt10unique_ptrINS_27F
   %5 = load i32, ptr %4, align 8, !tbaa !80
   %6 = zext i32 %5 to i64
   %7 = icmp eq i64 %1, %6
-  br i1 %7, label %51, label %8
+  br i1 %7, label %48, label %8
 
 8:                                                ; preds = %2
   %9 = icmp ult i64 %1, %6
@@ -1828,20 +1828,17 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_27FixedStackPseudoSourceValueESt14de
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_27FixedStackPseudoSourceValueESt14default_deleteIS2_EEE7reserveEm.exit
   %44 = getelementptr %"class.std::unique_ptr.93", ptr %43, i64 %.pre-phi
-  %45 = shl i64 %1, 3
-  %46 = add i64 %45, -8
-  %47 = shl nuw nsw i64 %.pre-phi, 3
-  %48 = sub i64 %46, %47
-  %49 = add i64 %48, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %49, i1 false), !tbaa !166
+  %45 = sub i64 %1, %.pre-phi
+  %46 = shl i64 %45, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %46, i1 false), !tbaa !166
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt10unique_ptrIN4llvm27FixedStackPseudoSourceValueESt14default_deleteIS1_EED2Ev.exit.i.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_27FixedStackPseudoSourceValueESt14default_deleteIS2_EEE7reserveEm.exit, %.lr.ph.preheader
-  %50 = trunc i64 %1 to i32
-  store i32 %50, ptr %4, align 8, !tbaa !80
-  br label %51
+  %47 = trunc i64 %1 to i32
+  store i32 %47, ptr %4, align 8, !tbaa !80
+  br label %48
 
-51:                                               ; preds = %.sink.split, %2
+48:                                               ; preds = %.sink.split, %2
   ret void
 }
 

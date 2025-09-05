@@ -19930,8 +19930,8 @@ define hidden noundef i32 @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMateria
 51:                                               ; preds = %48, %._crit_edge
   %52 = zext i32 %.0189.lcssa to i64
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.not802 = icmp eq i32 %.0189.lcssa, 0
-  br i1 %.not802, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
+  %.not803 = icmp eq i32 %.0189.lcssa, 0
+  br i1 %.not803, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -19941,13 +19941,14 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %51
 
 .noexc341:                                        ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %56, align 4
-  %57 = icmp eq i32 %.0189.lcssa, 1
-  br i1 %57, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %57 = add nsw i64 %52, -1
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc341
-  %58 = getelementptr i8, ptr %56, i64 4
-  %59 = add nsw i64 %55, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 %59, i1 false)
+  %59 = getelementptr i8, ptr %56, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %57, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %59, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc341
@@ -21035,11 +21036,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.body319
 
 .lr.ph624.splitthread-pre-split:                  ; preds = %_ZN10aiVector3tIfE13NormalizeSafeEv.exit
-  %.pr810 = load ptr, ptr %34, align 8
+  %.pr811 = load ptr, ptr %34, align 8
   br label %.lr.ph624.split
 
 .lr.ph624.split:                                  ; preds = %.preheader, %.lr.ph624.splitthread-pre-split
-  %486 = phi ptr [ %.pr810, %.lr.ph624.splitthread-pre-split ], [ %470, %.preheader ]
+  %486 = phi ptr [ %.pr811, %.lr.ph624.splitthread-pre-split ], [ %470, %.preheader ]
   %indvars.iv744 = phi i64 [ %indvars.iv.next745, %.lr.ph624.splitthread-pre-split ], [ 0, %.preheader ]
   %487 = getelementptr inbounds nuw i32, ptr %468, i64 %indvars.iv744
   %488 = load i32, ptr %487, align 4

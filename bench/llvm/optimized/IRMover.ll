@@ -937,7 +937,7 @@ define dso_local void @_ZN4llvm7IRMoverC2ERNS_6ModuleE(ptr noundef nonnull align
 
 30:                                               ; preds = %._crit_edge
   %.idx.i.i = shl nuw nsw i64 %27, 3
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
+  %31 = getelementptr i8, ptr %24, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPKNS_6MDNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -4595,7 +4595,7 @@ _ZN12_GLOBAL__N_18IRLinker16linkNamedMDNodesEv.exit: ; preds = %_ZN4llvmeqENS_9S
 
 1264:                                             ; preds = %_ZN12_GLOBAL__N_18IRLinker16linkNamedMDNodesEv.exit
   %.idx.i.i192 = shl nuw nsw i64 %1261, 3
-  %1265 = getelementptr inbounds nuw i8, ptr %1258, i64 %.idx.i.i192
+  %1265 = getelementptr i8, ptr %1258, i64 %.idx.i.i192
   %.not5.i5.i10.i2.i.i = icmp eq i32 %1260, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_12GlobalObjectENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

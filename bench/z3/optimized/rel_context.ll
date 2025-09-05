@@ -2707,7 +2707,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit: ; preds = %1, %._cri
   %18 = load i32, ptr %17, align 8, !tbaa !317
   %19 = zext i32 %18 to i64
   %.idx.i = shl nuw nsw i64 %19, 3
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -2785,7 +2785,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %44, label %.critedge272.thread, label %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit83
 
 .critedge272.thread:                              ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  %45 = getelementptr i8, ptr %42, i64 64
   br label %.lr.ph.i.i.i86.preheader
 
 _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit83: ; preds = %41, %.loopexit285.thread
@@ -2806,7 +2806,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit83: ; preds = %41, %.l
   %.sroa.20.0.lcssa = phi i32 [ %.sroa.20.0444, %_ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit83 ], [ %.sroa.20.2.lcssa565, %.loopexit285.thread ]
   %51 = zext i32 %.sroa.20.0.lcssa to i64
   %.idx.i84 = shl nuw nsw i64 %51, 3
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0.lcssa, i64 %.idx.i84
+  %52 = getelementptr i8, ptr %.sroa.0223.0.lcssa, i64 %.idx.i84
   %.not1.i.i.i85 = icmp eq i32 %.sroa.20.0.lcssa, 0
   br i1 %.not1.i.i.i85, label %.loopexit, label %.lr.ph.i.i.i86.preheader
 
@@ -2843,7 +2843,7 @@ _ZNK6vectorIP13obj_hashtableI9func_declELb0EjE4sizeEv.exit83: ; preds = %41, %.l
   %63 = load i32, ptr %62, align 8, !tbaa !317
   %64 = zext i32 %63 to i64
   %.idx.i94 = shl nuw nsw i64 %64, 3
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i94
+  %65 = getelementptr i8, ptr %61, i64 %.idx.i94
   %.not1.i.i.i95 = icmp eq i32 %63, 0
   br i1 %.not1.i.i.i95, label %.loopexit286, label %.lr.ph.i.i.i96
 
@@ -3738,7 +3738,7 @@ _ZN3refI5modelEC2EPS0_.exit:
   %20 = load i32, ptr %19, align 8, !tbaa !317
   %21 = zext i32 %20 to i64
   %.idx.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
+  %22 = getelementptr i8, ptr %18, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %20, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

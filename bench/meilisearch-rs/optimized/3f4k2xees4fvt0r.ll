@@ -99756,8 +99756,8 @@ _ZN11meilisearch6option16default_dump_dir17h67f0b893dd3d17e5E.exit: ; preds = %1
   %.sroa.01373.0.copyload = load i64, ptr %244, align 8
   %.sroa.41374.0.copyload = load ptr, ptr %260, align 8, !nonnull !8, !noundef !8
   %.sroa.51375.0.copyload = load i64, ptr %261, align 8
-  %.idx = shl nsw i64 %.sroa.51375.0.copyload, 6
-  %1585 = getelementptr inbounds i8, ptr %.sroa.41374.0.copyload, i64 %.idx
+  %.idx = shl i64 %.sroa.51375.0.copyload, 6
+  %1585 = getelementptr i8, ptr %.sroa.41374.0.copyload, i64 %.idx
   store ptr %.sroa.41374.0.copyload, ptr %160, align 8
   %.sroa.41371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %.sroa.41374.0.copyload, ptr %.sroa.41371.0..sroa_idx, align 8
@@ -105441,8 +105441,8 @@ _ZN11meilisearch6option16default_dump_dir17h67f0b893dd3d17e5E.exit: ; preds = %1
   %.sroa.01446.0.copyload = load i64, ptr %193, align 8
   %.sroa.41447.0.copyload = load ptr, ptr %209, align 8, !nonnull !8, !noundef !8
   %.sroa.51448.0.copyload = load i64, ptr %210, align 8
-  %.idx = shl nsw i64 %.sroa.51448.0.copyload, 6
-  %1124 = getelementptr inbounds i8, ptr %.sroa.41447.0.copyload, i64 %.idx
+  %.idx = shl i64 %.sroa.51448.0.copyload, 6
+  %1124 = getelementptr i8, ptr %.sroa.41447.0.copyload, i64 %.idx
   store ptr %.sroa.41447.0.copyload, ptr %104, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %.sroa.41447.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8

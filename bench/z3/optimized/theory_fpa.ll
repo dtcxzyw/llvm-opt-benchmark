@@ -1111,7 +1111,7 @@ define linkonce_odr hidden void @_Z25dec_ref_collection_valuesI11ast_manager13ob
   %5 = load i32, ptr %4, align 8, !tbaa !587
   %6 = zext i32 %5 to i64
   %.idx.i = shl nuw nsw i64 %6, 3
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -7678,7 +7678,7 @@ define hidden void @_ZN3smt10theory_fpa14finalize_modelERNS_15model_generatorE(p
   %23 = load i32, ptr %17, align 8, !tbaa !587
   %24 = zext i32 %23 to i64
   %.idx.i = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
+  %25 = getelementptr i8, ptr %22, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -10963,7 +10963,7 @@ define linkonce_odr hidden void @_Z22dec_ref_map_key_valuesI11ast_managerS0_7obj
   %6 = load i32, ptr %5, align 8, !tbaa !555
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 

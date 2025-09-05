@@ -879,7 +879,7 @@ land.lhs.true.i:                                  ; preds = %if.end66.i
   %109 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = zext i32 %109 to i64
   %add.ptr.i.i.idx.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %108, i64 %add.ptr.i.i.idx.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %108, i64 %add.ptr.i.i.idx.i.i.i.i
   %cmp.not3.i.i.i.i.i = icmp eq i32 %109, 0
   br i1 %cmp.not3.i.i.i.i.i, label %_ZN6hermes10pred_emptyEPKNS_10BasicBlockE.exit.i, label %land.rhs.i.i.i.i.i
 
@@ -918,7 +918,7 @@ if.end77.i:                                       ; preds = %_ZN6hermes10pred_em
   %115 = load i32, ptr %Size.i.i.i.i.i85.i, align 8
   %conv.i.i.i.i.i86.i = zext i32 %115 to i64
   %add.ptr.i.i.idx.i.i.i87.i = shl nuw nsw i64 %conv.i.i.i.i.i86.i, 3
-  %add.ptr.i.i.i.i.i88.i = getelementptr inbounds nuw i8, ptr %114, i64 %add.ptr.i.i.idx.i.i.i87.i
+  %add.ptr.i.i.i.i.i88.i = getelementptr i8, ptr %114, i64 %add.ptr.i.i.idx.i.i.i87.i
   %cmp.not3.i.i.i.i89.i = icmp eq i32 %115, 0
   br i1 %cmp.not3.i.i.i.i89.i, label %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i, label %land.rhs.i.i.i.i90.i
 

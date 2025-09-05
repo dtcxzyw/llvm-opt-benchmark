@@ -735,7 +735,7 @@ _ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE9find_coreEPS0_.exit.i: ; pre
   %65 = load i32, ptr %64, align 8, !tbaa !114
   %66 = zext i32 %65 to i64
   %.idx.i = shl nuw nsw i64 %66, 3
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i
+  %67 = getelementptr i8, ptr %63, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %65, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i29
 
@@ -885,7 +885,7 @@ define linkonce_odr hidden noundef ptr @_ZN14simple_factoryIjE14get_some_valueEP
   %40 = load i32, ptr %39, align 8, !tbaa !114
   %41 = zext i32 %40 to i64
   %.idx.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
+  %42 = getelementptr i8, ptr %38, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i4
 
@@ -1064,7 +1064,7 @@ _ZNK17user_sort_factory9is_finiteEP4sort.exit:    ; preds = %18, %26
   %67 = load i32, ptr %66, align 8, !tbaa !114
   %68 = zext i32 %67 to i64
   %.idx.i = shl nuw nsw i64 %68, 3
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i
+  %69 = getelementptr i8, ptr %65, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %67, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %.lr.ph.i.i.i24
 
@@ -1349,7 +1349,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit23:    ; preds = %68, %70, %77
   %81 = load i32, ptr %80, align 8, !tbaa !114
   %82 = zext i32 %81 to i64
   %.idx.i = shl nuw nsw i64 %82, 3
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
+  %83 = getelementptr i8, ptr %79, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %81, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %.lr.ph.i.i.i24
 
@@ -1491,7 +1491,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit37:    ; preds = %128, %130, %137
   %141 = load i32, ptr %140, align 8, !tbaa !114
   %142 = zext i32 %141 to i64
   %.idx.i38 = shl nuw nsw i64 %142, 3
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 %.idx.i38
+  %143 = getelementptr i8, ptr %139, i64 %.idx.i38
   %.not1.i.i.i39 = icmp eq i32 %141, 0
   br i1 %.not1.i.i.i39, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit47thread-pre-split, label %.lr.ph.i.i.i40
 

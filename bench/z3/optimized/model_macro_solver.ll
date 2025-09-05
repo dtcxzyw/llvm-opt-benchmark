@@ -1850,7 +1850,7 @@ define hidden void @_ZN17hint_macro_solver27register_decls_as_forbiddenEP10quant
   %13 = load i32, ptr %12, align 8, !tbaa !47
   %14 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %14, 3
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -2259,7 +2259,7 @@ _ZNK17hint_macro_solver12is_candidateEP10quantifier.exit: ; preds = %.critedge18
   %158 = load i32, ptr %157, align 8, !tbaa !47
   %159 = zext i32 %158 to i64
   %.idx.i.i = shl nuw nsw i64 %159, 3
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i.i
+  %160 = getelementptr i8, ptr %156, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %158, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -2781,7 +2781,7 @@ _ZNK6vectorIP10quantifierLb0EjE3endEv.exit:       ; preds = %2
   %34 = load i32, ptr %33, align 8, !tbaa !47
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
+  %36 = getelementptr i8, ptr %32, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %34, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -4076,7 +4076,7 @@ define hidden void @_ZN17hint_macro_solver22display_quantifier_setERSoPK13obj_ha
   %5 = load i32, ptr %4, align 8, !tbaa !89
   %6 = zext i32 %5 to i64
   %.idx.i = shl nuw nsw i64 %6, 3
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -4188,7 +4188,7 @@ _ZNK6vectorIP10quantifierLb0EjE3endEv.exit:       ; preds = %3
   %20 = load i32, ptr %19, align 8, !tbaa !73
   %21 = zext i32 %20 to i64
   %.idx.i.i = shl nuw nsw i64 %21, 4
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
+  %22 = getelementptr i8, ptr %18, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -4283,7 +4283,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %46
   %65 = load i32, ptr %64, align 8, !tbaa !122
   %66 = zext i32 %65 to i64
   %.idx.i.i43 = shl nuw nsw i64 %66, 5
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i43
+  %67 = getelementptr i8, ptr %63, i64 %.idx.i.i43
   %.not1.i.i.i.i44 = icmp eq i32 %65, 0
   br i1 %.not1.i.i.i.i44, label %_ZNK12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE5beginEv.exit, label %.lr.ph.i.i.i.i45
 
@@ -4460,7 +4460,7 @@ define hidden void @_ZNK17hint_macro_solver20display_search_stateERSo(ptr nounde
   %7 = load i32, ptr %6, align 8, !tbaa !182
   %8 = zext i32 %7 to i64
   %.idx.i.i = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -4489,7 +4489,7 @@ _ZNK7obj_mapI9func_declP4exprE5beginEv.exit:      ; preds = %.lr.ph.i.i.i.i, %11
   %18 = load i32, ptr %17, align 8, !tbaa !89
   %19 = zext i32 %18 to i64
   %.idx.i.i21 = shl nuw nsw i64 %19, 3
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i21
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i.i21
   %.not1.i.i.i.i22 = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i.i22, label %_ZNK17backtrackable_setI13obj_hashtableI10quantifierEPS1_N17hint_macro_solver10ev_handlerEE5beginEv.exit, label %.lr.ph.i.i.i.i23
 
@@ -4570,7 +4570,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   %49 = load i32, ptr %48, align 8, !tbaa !89
   %50 = zext i32 %49 to i64
   %.idx.i.i32 = shl nuw nsw i64 %50, 3
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i32
+  %51 = getelementptr i8, ptr %47, i64 %.idx.i.i32
   %.not1.i.i.i.i33 = icmp eq i32 %49, 0
   br i1 %.not1.i.i.i.i33, label %_ZNK17backtrackable_setI13obj_hashtableI10quantifierEPS1_10default_ehIS3_EE5beginEv.exit, label %.lr.ph.i.i.i.i34
 
@@ -4863,7 +4863,7 @@ _ZNK12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE9find_coreEPS0_
   %87 = load i32, ptr %86, align 8, !tbaa !89
   %88 = zext i32 %87 to i64
   %.idx.i = shl nuw nsw i64 %88, 3
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i
+  %89 = getelementptr i8, ptr %85, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %87, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -5035,7 +5035,7 @@ _ZN14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_
   %154 = load i32, ptr %153, align 8, !tbaa !89
   %155 = zext i32 %154 to i64
   %.idx.i19 = shl nuw nsw i64 %155, 3
-  %156 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i19
+  %156 = getelementptr i8, ptr %152, i64 %.idx.i19
   %.not1.i.i.i20 = icmp eq i32 %154, 0
   br i1 %.not1.i.i.i20, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit28, label %.lr.ph.i.i.i21
 
@@ -5565,7 +5565,7 @@ define hidden void @_ZN17hint_macro_solver27get_candidates_from_residueER13obj_h
   %6 = load i32, ptr %5, align 8, !tbaa !89
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK17backtrackable_setI13obj_hashtableI10quantifierEPS1_10default_ehIS3_EE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6093,7 +6093,7 @@ _ZN17hint_macro_solver10get_f_defsEP9func_decl.exit: ; preds = %21, %29
   %40 = load i32, ptr %39, align 8, !tbaa !113
   %41 = zext i32 %40 to i64
   %.idx.i = shl nuw nsw i64 %41, 3
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
+  %42 = getelementptr i8, ptr %38, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %40, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -6675,7 +6675,7 @@ define hidden void @_ZN17hint_macro_solver6greedyEj(ptr noundef nonnull align 8 
   %18 = load i32, ptr %13, align 8, !tbaa !47
   %19 = zext i32 %18 to i64
   %.idx.i = shl nuw nsw i64 %19, 3
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %20 = getelementptr i8, ptr %17, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -6991,7 +6991,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %48 = load i32, ptr %37, align 8, !tbaa !182
   %49 = zext i32 %48 to i64
   %.idx.i.i = shl nuw nsw i64 %49, 4
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i
+  %50 = getelementptr i8, ptr %47, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %48, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -7507,7 +7507,7 @@ define hidden void @_ZN17hint_macro_solver10set_interpEv(ptr noundef nonnull rea
   %5 = load i32, ptr %4, align 8, !tbaa !182
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -8077,7 +8077,7 @@ _ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit:     ; preds = %6
   %17 = load i32, ptr %16, align 8, !tbaa !47
   %18 = zext i32 %17 to i64
   %.idx.i = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
+  %19 = getelementptr i8, ptr %15, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i, label %.loopexit41, label %.lr.ph.i.i.i
 
@@ -9749,7 +9749,7 @@ define hidden void @_ZN20non_auf_macro_solver19process_cond_macrosERK13obj_hasht
   %7 = load i32, ptr %6, align 8, !tbaa !47
   %8 = zext i32 %7 to i64
   %.idx.i = shl nuw nsw i64 %8, 3
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %9 = getelementptr i8, ptr %5, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %7, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -9851,7 +9851,7 @@ define hidden noundef zeroext i1 @_ZN20non_auf_macro_solver7processERK10ptr_vect
   %25 = load i32, ptr %14, align 8, !tbaa !47
   %26 = zext i32 %25 to i64
   %.idx.i.i = shl nuw nsw i64 %26, 3
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
+  %27 = getelementptr i8, ptr %24, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 

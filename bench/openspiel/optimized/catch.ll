@@ -2347,8 +2347,8 @@ common.resume:                                    ; preds = %21, %29, %42
   br i1 %.not5.i.i.i.i.not, label %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %44
-  %45 = shl nsw i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %45, i1 false)
+  %.idx.i = shl nsw i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx.i, i1 false)
   br label %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
 
 _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit: ; preds = %44, %.lr.ph.i.i.i.preheader.i
@@ -2356,73 +2356,73 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %47 = load i8, ptr %46, align 4
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %78
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %46 = load i8, ptr %45, align 4
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %77
 
-49:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %53 = load i32, ptr %52, align 4
-  br label %54
+48:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %52 = load i32, ptr %51, align 4
+  br label %53
 
-54:                                               ; preds = %54, %49
-  %55 = phi i1 [ true, %49 ], [ false, %54 ]
-  %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %51, %49 ], [ %53, %54 ]
-  %indvars.iv.i.i = phi i64 [ 0, %49 ], [ 1, %54 ]
-  %.078.i.i = phi i32 [ 0, %49 ], [ %59, %54 ]
-  %56 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i
-  %57 = load i32, ptr %56, align 4
-  %58 = mul nsw i32 %57, %.078.i.i
-  %59 = add nsw i32 %58, %indvars.iv.i.i.sroa.phi.sroa.speculated
-  br i1 %55, label %54, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i, !llvm.loop !18
+53:                                               ; preds = %53, %48
+  %54 = phi i1 [ true, %48 ], [ false, %53 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %50, %48 ], [ %52, %53 ]
+  %indvars.iv.i.i = phi i64 [ 0, %48 ], [ 1, %53 ]
+  %.078.i.i = phi i32 [ 0, %48 ], [ %58, %53 ]
+  %55 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i
+  %56 = load i32, ptr %55, align 4
+  %57 = mul nsw i32 %56, %.078.i.i
+  %58 = add nsw i32 %57, %indvars.iv.i.i.sroa.phi.sroa.speculated
+  br i1 %54, label %53, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i, !llvm.loop !18
 
-_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %54
-  %60 = sext i32 %59 to i64
-  %61 = icmp ugt i64 %3, %60
-  br i1 %61, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %62
+_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %53
+  %59 = sext i32 %58 to i64
+  %60 = icmp ugt i64 %3, %59
+  br i1 %60, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %61
 
-62:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
+61:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
   tail call void @llvm.trap()
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
-  %63 = getelementptr inbounds float, ptr %2, i64 %60
-  store float 1.000000e+00, ptr %63, align 4
-  %64 = load i32, ptr %32, align 4
-  %65 = add nsw i32 %64, -1
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %67 = load i32, ptr %66, align 8
-  br label %68
+  %62 = getelementptr inbounds float, ptr %2, i64 %59
+  store float 1.000000e+00, ptr %62, align 4
+  %63 = load i32, ptr %32, align 4
+  %64 = add nsw i32 %63, -1
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %66 = load i32, ptr %65, align 8
+  br label %67
 
-68:                                               ; preds = %68, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
-  %69 = phi i1 [ true, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ false, %68 ]
-  %indvars.iv.i.i8.sroa.phi.sroa.speculated = phi i32 [ %65, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ %67, %68 ]
-  %indvars.iv.i.i8 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ 1, %68 ]
-  %.078.i.i9 = phi i32 [ 0, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ %73, %68 ]
-  %70 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i8
-  %71 = load i32, ptr %70, align 4
-  %72 = mul nsw i32 %71, %.078.i.i9
-  %73 = add nsw i32 %72, %indvars.iv.i.i8.sroa.phi.sroa.speculated
-  br i1 %69, label %68, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10, !llvm.loop !18
+67:                                               ; preds = %67, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
+  %68 = phi i1 [ true, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ false, %67 ]
+  %indvars.iv.i.i8.sroa.phi.sroa.speculated = phi i32 [ %64, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ %66, %67 ]
+  %indvars.iv.i.i8 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ 1, %67 ]
+  %.078.i.i9 = phi i32 [ 0, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ %72, %67 ]
+  %69 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i8
+  %70 = load i32, ptr %69, align 4
+  %71 = mul nsw i32 %70, %.078.i.i9
+  %72 = add nsw i32 %71, %indvars.iv.i.i8.sroa.phi.sroa.speculated
+  br i1 %68, label %67, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10, !llvm.loop !18
 
-_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10: ; preds = %68
-  %74 = sext i32 %73 to i64
-  %75 = icmp ugt i64 %3, %74
-  br i1 %75, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit11, label %76
+_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10: ; preds = %67
+  %73 = sext i32 %72 to i64
+  %74 = icmp ugt i64 %3, %73
+  br i1 %74, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit11, label %75
 
-76:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10
+75:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10
   tail call void @llvm.trap()
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit11: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i10
-  %77 = getelementptr inbounds float, ptr %2, i64 %74
-  store float 1.000000e+00, ptr %77, align 4
-  br label %78
+  %76 = getelementptr inbounds float, ptr %2, i64 %73
+  store float 1.000000e+00, ptr %76, align 4
+  br label %77
 
-78:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit11, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
+77:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit11, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
   ret void
 }
 

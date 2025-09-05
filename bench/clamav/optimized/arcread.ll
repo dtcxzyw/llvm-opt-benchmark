@@ -4190,7 +4190,7 @@ define void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonn
 78:                                               ; preds = %72
   %79 = load i32, ptr %20, align 4, !tbaa !78
   %80 = icmp eq i32 %79, 1
-  br i1 %80, label %81, label %155
+  br i1 %80, label %81, label %154
 
 81:                                               ; preds = %78
   switch i64 %74, label %.thread295 [
@@ -4238,13 +4238,13 @@ define void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonn
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 1
   %.not = icmp eq i32 %101, 0
-  br i1 %.not, label %142, label %102
+  br i1 %.not, label %141, label %102
 
 102:                                              ; preds = %98
   %103 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %104 = add i64 %103, -1
   %or.cond = icmp ult i64 %104, 65535
-  br i1 %or.cond, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i, label %142
+  br i1 %or.cond, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i, label %141
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %102
   %105 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #23
@@ -4261,7 +4261,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %102
 _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %109, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   %.0.i.i.i.i.i = phi ptr [ %107, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ], [ %106, %109 ]
   %110 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %105, i64 noundef %103)
-          to label %111 unwind label %139
+          to label %111 unwind label %138
 
 111:                                              ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
   %112 = load i8, ptr %105, align 1, !tbaa !82
@@ -4318,33 +4318,33 @@ _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIc
 .noexc242:                                        ; preds = %124
   store i32 0, ptr %126, align 4, !tbaa !112
   %127 = getelementptr i8, ptr %126, i64 4
-  %128 = add nsw i64 %125, -4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %127, i8 0, i64 %128, i1 false), !tbaa !112
-  %129 = getelementptr i8, ptr %126, i64 %125
-  %130 = ptrtoint ptr %129 to i64
+  %.idx.i.i.i.i.i.i.i = add i64 %125, -4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %127, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !112
+  %128 = getelementptr i8, ptr %126, i64 %125
+  %129 = ptrtoint ptr %128 to i64
   br label %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
 
 _ZNSt6vectorIwSaIwEEC2EmRKS0_.exit:               ; preds = %.noexc242, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0250.5 = phi ptr [ %126, %.noexc242 ], [ null, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i240 = phi i64 [ %130, %.noexc242 ], [ 0, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %131 = ptrtoint ptr %.sroa.0250.5 to i64
-  %132 = sub i64 %.0.i.i.i.i.i240, %131
-  %133 = ashr exact i64 %132, 2
-  %134 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %.sroa.0260.7, ptr noundef nonnull %.sroa.0250.5, i64 noundef %133)
-          to label %135 unwind label %_ZNSt6vectorIwSaIwEED2Ev.exit245
+  %.0.i.i.i.i.i240 = phi i64 [ %129, %.noexc242 ], [ 0, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %130 = ptrtoint ptr %.sroa.0250.5 to i64
+  %131 = sub i64 %.0.i.i.i.i.i240, %130
+  %132 = ashr exact i64 %131, 2
+  %133 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %.sroa.0260.7, ptr noundef nonnull %.sroa.0250.5, i64 noundef %132)
+          to label %134 unwind label %_ZNSt6vectorIwSaIwEED2Ev.exit245
 
-135:                                              ; preds = %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
-  %136 = load i64, ptr %22, align 8, !tbaa !223
-  %137 = call noundef i64 @wcslen(ptr noundef nonnull %.sroa.0250.5) #22
-  %138 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, i64 noundef %136, ptr noundef nonnull %.sroa.0250.5, i64 noundef %137)
+134:                                              ; preds = %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
+  %135 = load i64, ptr %22, align 8, !tbaa !223
+  %136 = call noundef i64 @wcslen(ptr noundef nonnull %.sroa.0250.5) #22
+  %137 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, i64 noundef %135, ptr noundef nonnull %.sroa.0250.5, i64 noundef %136)
           to label %_ZNSt6vectorIwSaIwEED2Ev.exit unwind label %_ZNSt6vectorIwSaIwEED2Ev.exit245
 
-_ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %135
+_ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %134
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0250.5) #24
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-139:                                              ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
-  %140 = landingpad { ptr, i32 }
+138:                                              ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
+  %139 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit248
 
@@ -4363,8 +4363,8 @@ _ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %135
           cleanup
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit248
 
-_ZNSt6vectorIwSaIwEED2Ev.exit245:                 ; preds = %135, %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
-  %141 = landingpad { ptr, i32 }
+_ZNSt6vectorIwSaIwEED2Ev.exit245:                 ; preds = %134, %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
+  %140 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0250.5) #24
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit248
@@ -4372,87 +4372,87 @@ _ZNSt6vectorIwSaIwEED2Ev.exit245:                 ; preds = %135, %_ZNSt6vectorI
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIwSaIwEED2Ev.exit, %111
   %.sroa.0260.4 = phi ptr [ %105, %111 ], [ %.sroa.0260.7, %_ZNSt6vectorIwSaIwEED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0260.4) #24
-  br label %142
+  br label %141
 
-_ZNSt6vectorIcSaIcEED2Ev.exit248:                 ; preds = %.loopexit311, %.loopexit.split-lp312, %.loopexit, %_ZNSt6vectorIwSaIwEED2Ev.exit245, %139
-  %.sroa.0260.5 = phi ptr [ %105, %139 ], [ %.sroa.0260.7, %_ZNSt6vectorIwSaIwEED2Ev.exit245 ], [ %105, %.loopexit ], [ %.sroa.0260.7, %.loopexit311 ], [ %.sroa.0260.7, %.loopexit.split-lp312 ]
-  %.pn.pn = phi { ptr, i32 } [ %140, %139 ], [ %141, %_ZNSt6vectorIwSaIwEED2Ev.exit245 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit313, %.loopexit311 ], [ %lpad.loopexit.split-lp314, %.loopexit.split-lp312 ]
+_ZNSt6vectorIcSaIcEED2Ev.exit248:                 ; preds = %.loopexit311, %.loopexit.split-lp312, %.loopexit, %_ZNSt6vectorIwSaIwEED2Ev.exit245, %138
+  %.sroa.0260.5 = phi ptr [ %105, %138 ], [ %.sroa.0260.7, %_ZNSt6vectorIwSaIwEED2Ev.exit245 ], [ %105, %.loopexit ], [ %.sroa.0260.7, %.loopexit311 ], [ %.sroa.0260.7, %.loopexit.split-lp312 ]
+  %.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %140, %_ZNSt6vectorIwSaIwEED2Ev.exit245 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit313, %.loopexit311 ], [ %lpad.loopexit.split-lp314, %.loopexit.split-lp312 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0260.5) #24
   resume { ptr, i32 } %.pn.pn
 
-142:                                              ; preds = %102, %_ZNSt6vectorIcSaIcEED2Ev.exit, %98
-  %143 = and i32 %100, 2
-  %.not215 = icmp eq i32 %143, 0
-  br i1 %.not215, label %thread-pre-split, label %144
+141:                                              ; preds = %102, %_ZNSt6vectorIcSaIcEED2Ev.exit, %98
+  %142 = and i32 %100, 2
+  %.not215 = icmp eq i32 %142, 0
+  br i1 %.not215, label %thread-pre-split, label %143
 
-144:                                              ; preds = %142
-  %145 = and i32 %100, 4
-  %.not216 = icmp eq i32 %145, 0
-  br i1 %.not216, label %153, label %146
+143:                                              ; preds = %141
+  %144 = and i32 %100, 4
+  %.not216 = icmp eq i32 %144, 0
+  br i1 %.not216, label %152, label %145
 
-146:                                              ; preds = %144
-  %147 = and i32 %100, 8
-  %.not217 = icmp eq i32 %147, 0
-  br i1 %.not217, label %150, label %148
+145:                                              ; preds = %143
+  %146 = and i32 %100, 8
+  %.not217 = icmp eq i32 %146, 0
+  br i1 %.not217, label %149, label %147
 
-148:                                              ; preds = %146
-  %149 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %149)
+147:                                              ; preds = %145
+  %148 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %148)
   br label %thread-pre-split
 
-150:                                              ; preds = %146
-  %151 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %152 = zext i32 %151 to i64
-  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %152)
+149:                                              ; preds = %145
+  %150 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %151 = zext i32 %150 to i64
+  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %151)
   br label %thread-pre-split
 
-153:                                              ; preds = %144
-  %154 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %154)
+152:                                              ; preds = %143
+  %153 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %153)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %142, %148, %150, %153, %91, %95, %93
+thread-pre-split:                                 ; preds = %141, %147, %149, %152, %91, %95, %93
   %.pr = load i32, ptr %20, align 4, !tbaa !78
-  br label %155
+  br label %154
 
-155:                                              ; preds = %thread-pre-split, %78
-  %156 = phi i32 [ %.pr, %thread-pre-split ], [ %79, %78 ]
-  %157 = and i32 %156, -2
-  %switch234 = icmp eq i32 %157, 2
-  br i1 %switch234, label %158, label %.thread295
+154:                                              ; preds = %thread-pre-split, %78
+  %155 = phi i32 [ %.pr, %thread-pre-split ], [ %79, %78 ]
+  %156 = and i32 %155, -2
+  %switch234 = icmp eq i32 %156, 2
+  br i1 %switch234, label %157, label %.thread295
 
-158:                                              ; preds = %155
+157:                                              ; preds = %154
   switch i64 %74, label %.thread295 [
-    i64 1, label %159
-    i64 2, label %194
-    i64 3, label %200
-    i64 4, label %249
-    i64 5, label %256
-    i64 6, label %269
-    i64 7, label %303
+    i64 1, label %158
+    i64 2, label %193
+    i64 3, label %199
+    i64 4, label %248
+    i64 5, label %255
+    i64 6, label %268
+    i64 7, label %302
   ]
 
-159:                                              ; preds = %158
-  %160 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %161 = trunc i64 %160 to i32
-  %.not231 = icmp eq i32 %161, 0
-  br i1 %.not231, label %166, label %162
+158:                                              ; preds = %157
+  %159 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %160 = trunc i64 %159 to i32
+  %.not231 = icmp eq i32 %160, 0
+  br i1 %.not231, label %165, label %161
 
-162:                                              ; preds = %159
+161:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %163 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 20, ptr noundef nonnull @.str.4, i32 noundef %161) #21
+  %162 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 20, ptr noundef nonnull @.str.4, i32 noundef %160) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %164
+  br label %163
 
-164:                                              ; preds = %164, %162
-  %indvars.iv.i.i.i = phi i64 [ 0, %162 ], [ %indvars.iv.next.i.i.i, %164 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
-  store ptr @.str.8, ptr %165, align 8, !tbaa !63
+163:                                              ; preds = %163, %161
+  %indvars.iv.i.i.i = phi i64 [ 0, %161 ], [ %indvars.iv.next.i.i.i, %163 ]
+  %164 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
+  store ptr @.str.8, ptr %164, align 8, !tbaa !63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %_ZN7Archive12UnkEncVerMsgEPKwS1_.exit, label %164, !llvm.loop !64
+  br i1 %exitcond.not.i.i.i, label %_ZN7Archive12UnkEncVerMsgEPKwS1_.exit, label %163, !llvm.loop !64
 
-_ZN7Archive12UnkEncVerMsgEPKwS1_.exit:            ; preds = %164
+_ZN7Archive12UnkEncVerMsgEPKwS1_.exit:            ; preds = %163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, i8 0, i64 40, i1 false)
   store i32 34, ptr %51, align 8, !tbaa !66
   store ptr %49, ptr %5, align 8, !tbaa !63
@@ -4465,376 +4465,376 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit:            ; preds = %164
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread295
 
-166:                                              ; preds = %159
-  %167 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %168 = trunc i64 %167 to i8
-  %169 = and i8 %168, 1
-  store i8 %169, ptr %55, align 1, !tbaa !224
-  %170 = lshr i8 %168, 1
-  %171 = and i8 %170, 1
-  store i8 %171, ptr %56, align 2, !tbaa !225
-  %172 = call noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %173 = zext i8 %172 to i32
-  store i32 %173, ptr %57, align 4, !tbaa !226
-  %174 = icmp ugt i8 %172, 24
-  br i1 %174, label %175, label %177
+165:                                              ; preds = %158
+  %166 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %167 = trunc i64 %166 to i8
+  %168 = and i8 %167, 1
+  store i8 %168, ptr %55, align 1, !tbaa !224
+  %169 = lshr i8 %167, 1
+  %170 = and i8 %169, 1
+  store i8 %170, ptr %56, align 2, !tbaa !225
+  %171 = call noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %172 = zext i8 %171 to i32
+  store i32 %172, ptr %57, align 4, !tbaa !226
+  %173 = icmp ugt i8 %171, 24
+  br i1 %173, label %174, label %176
 
-175:                                              ; preds = %166
+174:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %176 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 20, ptr noundef nonnull @.str.5, i32 noundef %173) #21
+  %175 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 20, ptr noundef nonnull @.str.5, i32 noundef %172) #21
   call void @_ZN7Archive12UnkEncVerMsgEPKwS1_(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %43, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %177
+  br label %176
 
-177:                                              ; preds = %175, %166
-  %178 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %58, i64 noundef 16)
-  %179 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %59, i64 noundef 16)
-  %180 = load i8, ptr %55, align 1, !tbaa !224, !range !56, !noundef !57
-  %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %182, label %193
+176:                                              ; preds = %174, %165
+  %177 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %58, i64 noundef 16)
+  %178 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %59, i64 noundef 16)
+  %179 = load i8, ptr %55, align 1, !tbaa !224, !range !56, !noundef !57
+  %180 = trunc nuw i8 %179 to i1
+  br i1 %180, label %181, label %192
 
-182:                                              ; preds = %177
-  %183 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %60, i64 noundef 8)
+181:                                              ; preds = %176
+  %182 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %60, i64 noundef 8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %184 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %8, i64 noundef 4)
+  %183 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %8, i64 noundef 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_Z11sha256_initP14sha256_context(ptr noundef nonnull %9)
   call void @_Z14sha256_processP14sha256_contextPKvm(ptr noundef nonnull %9, ptr noundef nonnull %60, i64 noundef 8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_Z11sha256_doneP14sha256_contextPh(ptr noundef nonnull %9, ptr noundef nonnull %10)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull dereferenceable(4) %10, i64 4)
-  %185 = icmp eq i32 %bcmp, 0
-  %186 = zext i1 %185 to i8
-  store i8 %186, ptr %55, align 1, !tbaa !224
-  %187 = load i32, ptr %20, align 4, !tbaa !78
-  %188 = icmp eq i32 %187, 3
-  br i1 %188, label %189, label %192
+  %184 = icmp eq i32 %bcmp, 0
+  %185 = zext i1 %184 to i8
+  store i8 %185, ptr %55, align 1, !tbaa !224
+  %186 = load i32, ptr %20, align 4, !tbaa !78
+  %187 = icmp eq i32 %186, 3
+  br i1 %187, label %188, label %191
 
-189:                                              ; preds = %182
+188:                                              ; preds = %181
   %bcmp232 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %60, ptr noundef nonnull dereferenceable(8) @.str.6, i64 8)
-  %190 = icmp eq i32 %bcmp232, 0
-  br i1 %190, label %191, label %192
+  %189 = icmp eq i32 %bcmp232, 0
+  br i1 %189, label %190, label %191
 
-191:                                              ; preds = %189
+190:                                              ; preds = %188
   store i8 0, ptr %55, align 1, !tbaa !224
-  br label %192
+  br label %191
 
-192:                                              ; preds = %191, %189, %182
+191:                                              ; preds = %190, %188, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %193
+  br label %192
 
-193:                                              ; preds = %192, %177
+192:                                              ; preds = %191, %176
   store i8 1, ptr %61, align 8, !tbaa !138
   store i32 5, ptr %62, align 4, !tbaa !148
   store i8 1, ptr %63, align 1, !tbaa !137
   br label %.thread295
 
-194:                                              ; preds = %158
-  %195 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %196 = and i64 %195, 4294967295
-  %197 = icmp eq i64 %196, 0
-  br i1 %197, label %198, label %.thread295
+193:                                              ; preds = %157
+  %194 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %195 = and i64 %194, 4294967295
+  %196 = icmp eq i64 %195, 0
+  br i1 %196, label %197, label %.thread295
 
-198:                                              ; preds = %194
+197:                                              ; preds = %193
   store i32 3, ptr %47, align 8, !tbaa !145
-  %199 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %48, i64 noundef 32)
+  %198 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %48, i64 noundef 32)
   br label %.thread295
 
-200:                                              ; preds = %158
-  %201 = icmp samesign ugt i64 %76, 4
-  br i1 %201, label %202, label %.thread295
+199:                                              ; preds = %157
+  %200 = icmp samesign ugt i64 %76, 4
+  br i1 %200, label %201, label %.thread295
 
-202:                                              ; preds = %200
-  %203 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %204 = trunc i64 %203 to i32
-  %205 = and i32 %204, 1
-  %.not226 = icmp eq i32 %205, 0
-  %206 = and i32 %204, 2
-  %.not227 = icmp eq i32 %206, 0
-  br i1 %.not227, label %208, label %207
+201:                                              ; preds = %199
+  %202 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %203 = trunc i64 %202 to i32
+  %204 = and i32 %203, 1
+  %.not226 = icmp eq i32 %204, 0
+  %205 = and i32 %203, 2
+  %.not227 = icmp eq i32 %205, 0
+  br i1 %.not227, label %207, label %206
 
-207:                                              ; preds = %202
+206:                                              ; preds = %201
   br i1 %.not226, label %.thread278, label %.thread
 
-208:                                              ; preds = %202
-  %209 = and i32 %204, 4
-  %.not228 = icmp eq i32 %209, 0
-  br i1 %.not228, label %219, label %215
+207:                                              ; preds = %201
+  %208 = and i32 %203, 4
+  %.not228 = icmp eq i32 %208, 0
+  br i1 %.not228, label %218, label %214
 
-.thread278:                                       ; preds = %207
-  %210 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %210)
-  %211 = and i32 %204, 4
-  %.not228279 = icmp eq i32 %211, 0
-  br i1 %.not228279, label %219, label %.thread280
+.thread278:                                       ; preds = %206
+  %209 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %209)
+  %210 = and i32 %203, 4
+  %.not228279 = icmp eq i32 %210, 0
+  br i1 %.not228279, label %218, label %.thread280
 
-.thread:                                          ; preds = %207
-  %212 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %213 = zext i32 %212 to i64
-  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %213)
-  %214 = and i32 %204, 4
-  %.not228272 = icmp eq i32 %214, 0
-  br i1 %.not228272, label %219, label %.thread275
+.thread:                                          ; preds = %206
+  %211 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %212 = zext i32 %211 to i64
+  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %212)
+  %213 = and i32 %203, 4
+  %.not228272 = icmp eq i32 %213, 0
+  br i1 %.not228272, label %218, label %.thread275
 
-215:                                              ; preds = %208
+214:                                              ; preds = %207
   br i1 %.not226, label %.thread280, label %.thread275
 
-.thread275:                                       ; preds = %.thread, %215
-  %216 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %217 = zext i32 %216 to i64
-  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %217)
-  br label %219
+.thread275:                                       ; preds = %.thread, %214
+  %215 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %216 = zext i32 %215 to i64
+  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %216)
+  br label %218
 
-.thread280:                                       ; preds = %.thread278, %215
-  %218 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %218)
-  br label %219
+.thread280:                                       ; preds = %.thread278, %214
+  %217 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %217)
+  br label %218
 
-219:                                              ; preds = %.thread278, %.thread, %.thread275, %.thread280, %208
-  %.not228274 = phi i1 [ true, %.thread ], [ false, %.thread275 ], [ false, %.thread280 ], [ true, %208 ], [ true, %.thread278 ]
-  %220 = and i32 %204, 8
-  %.not229 = icmp eq i32 %220, 0
-  br i1 %.not229, label %226, label %221
+218:                                              ; preds = %.thread278, %.thread, %.thread275, %.thread280, %207
+  %.not228274 = phi i1 [ true, %.thread ], [ false, %.thread275 ], [ false, %.thread280 ], [ true, %207 ], [ true, %.thread278 ]
+  %219 = and i32 %203, 8
+  %.not229 = icmp eq i32 %219, 0
+  br i1 %.not229, label %225, label %220
 
-221:                                              ; preds = %219
-  br i1 %.not226, label %.thread283, label %222
+220:                                              ; preds = %218
+  br i1 %.not226, label %.thread283, label %221
 
-222:                                              ; preds = %221
-  %223 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %224 = zext i32 %223 to i64
-  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %224)
-  br label %226
+221:                                              ; preds = %220
+  %222 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %223 = zext i32 %222 to i64
+  call void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %223)
+  br label %225
 
-.thread283:                                       ; preds = %221
-  %225 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %225)
+.thread283:                                       ; preds = %220
+  %224 = call noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call void @_ZN7RarTime6SetWinEm(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %224)
   br label %.thread295
 
-226:                                              ; preds = %222, %219
-  %227 = and i32 %204, 17
-  %or.cond233.not = icmp eq i32 %227, 17
-  br i1 %or.cond233.not, label %228, label %.thread295
+225:                                              ; preds = %221, %218
+  %226 = and i32 %203, 17
+  %or.cond233.not = icmp eq i32 %226, 17
+  br i1 %or.cond233.not, label %227, label %.thread295
 
-228:                                              ; preds = %226
-  br i1 %.not227, label %235, label %229
+227:                                              ; preds = %225
+  br i1 %.not227, label %234, label %228
 
-229:                                              ; preds = %228
-  %230 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %231 = and i32 %230, 1073741823
-  %232 = icmp samesign ult i32 %231, 1000000000
-  br i1 %232, label %233, label %235
+228:                                              ; preds = %227
+  %229 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %230 = and i32 %229, 1073741823
+  %231 = icmp samesign ult i32 %230, 1000000000
+  br i1 %231, label %232, label %234
 
-233:                                              ; preds = %229
-  %234 = zext nneg i32 %231 to i64
-  call void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %234)
-  br label %235
+232:                                              ; preds = %228
+  %233 = zext nneg i32 %230 to i64
+  call void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %233)
+  br label %234
 
-235:                                              ; preds = %233, %229, %228
-  br i1 %.not228274, label %242, label %236
+234:                                              ; preds = %232, %228, %227
+  br i1 %.not228274, label %241, label %235
 
-236:                                              ; preds = %235
-  %237 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %238 = and i32 %237, 1073741823
-  %239 = icmp samesign ult i32 %238, 1000000000
-  br i1 %239, label %240, label %242
+235:                                              ; preds = %234
+  %236 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %237 = and i32 %236, 1073741823
+  %238 = icmp samesign ult i32 %237, 1000000000
+  br i1 %238, label %239, label %241
 
-240:                                              ; preds = %236
-  %241 = zext nneg i32 %238 to i64
-  call void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %241)
-  br label %242
+239:                                              ; preds = %235
+  %240 = zext nneg i32 %237 to i64
+  call void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %240)
+  br label %241
 
-242:                                              ; preds = %240, %236, %235
-  br i1 %.not229, label %.thread295, label %243
+241:                                              ; preds = %239, %235, %234
+  br i1 %.not229, label %.thread295, label %242
 
-243:                                              ; preds = %242
-  %244 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %245 = and i32 %244, 1073741823
-  %246 = icmp samesign ult i32 %245, 1000000000
-  br i1 %246, label %247, label %.thread295
+242:                                              ; preds = %241
+  %243 = call noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %244 = and i32 %243, 1073741823
+  %245 = icmp samesign ult i32 %244, 1000000000
+  br i1 %245, label %246, label %.thread295
 
-247:                                              ; preds = %243
-  %248 = zext nneg i32 %245 to i64
-  call void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %248)
+246:                                              ; preds = %242
+  %247 = zext nneg i32 %244 to i64
+  call void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef %247)
   br label %.thread295
 
-249:                                              ; preds = %158
+248:                                              ; preds = %157
   %.not224 = icmp eq i64 %76, 0
-  br i1 %.not224, label %.thread295, label %250
+  br i1 %.not224, label %.thread295, label %249
 
-250:                                              ; preds = %249
+249:                                              ; preds = %248
+  %250 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %251 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %252 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %253 = trunc i64 %252 to i32
-  %.not225 = icmp eq i32 %253, 0
-  br i1 %.not225, label %.thread295, label %254
+  %252 = trunc i64 %251 to i32
+  %.not225 = icmp eq i32 %252, 0
+  br i1 %.not225, label %.thread295, label %253
 
-254:                                              ; preds = %250
+253:                                              ; preds = %249
   store i8 1, ptr %42, align 1, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %255 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %11, i64 noundef 20, ptr noundef nonnull @.str.7, i32 noundef %253) #21
+  %254 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %11, i64 noundef 20, ptr noundef nonnull @.str.7, i32 noundef %252) #21
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %43, ptr noundef nonnull %11, i64 noundef 2048)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread295
 
-256:                                              ; preds = %158
-  %257 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %258 = trunc i64 %257 to i32
-  store i32 %258, ptr %39, align 8, !tbaa !149
-  %259 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %260 = trunc i64 %259 to i8
-  %261 = and i8 %260, 1
-  store i8 %261, ptr %40, align 4, !tbaa !227
-  %262 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+255:                                              ; preds = %157
+  %256 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %257 = trunc i64 %256 to i32
+  store i32 %257, ptr %39, align 8, !tbaa !149
+  %258 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %259 = trunc i64 %258 to i8
+  %260 = and i8 %259, 1
+  store i8 %260, ptr %40, align 4, !tbaa !227
+  %261 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 16, !tbaa !82
-  %263 = icmp ult i64 %262, 8191
-  br i1 %263, label %264, label %267
+  %262 = icmp ult i64 %261, 8191
+  br i1 %262, label %263, label %266
 
-264:                                              ; preds = %256
-  %265 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %12, i64 noundef %262)
-  %266 = getelementptr inbounds nuw i8, ptr %12, i64 %262
-  store i8 0, ptr %266, align 1, !tbaa !82
-  br label %267
+263:                                              ; preds = %255
+  %264 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %12, i64 noundef %261)
+  %265 = getelementptr inbounds nuw i8, ptr %12, i64 %261
+  store i8 0, ptr %265, align 1, !tbaa !82
+  br label %266
 
-267:                                              ; preds = %264, %256
-  %268 = call noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %12, ptr noundef nonnull %41, i64 noundef 2048)
+266:                                              ; preds = %263, %255
+  %267 = call noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %12, ptr noundef nonnull %41, i64 noundef 2048)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread295
 
-269:                                              ; preds = %158
-  %270 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %271 = trunc i64 %270 to i32
-  %272 = trunc i64 %270 to i8
-  %273 = lshr i8 %272, 2
-  %274 = and i8 %273, 1
-  store i8 %274, ptr %32, align 2, !tbaa !228
-  %275 = lshr i8 %272, 3
-  %276 = and i8 %275, 1
-  store i8 %276, ptr %33, align 1, !tbaa !229
+268:                                              ; preds = %157
+  %269 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %270 = trunc i64 %269 to i32
+  %271 = trunc i64 %269 to i8
+  %272 = lshr i8 %271, 2
+  %273 = and i8 %272, 1
+  store i8 %273, ptr %32, align 2, !tbaa !228
+  %274 = lshr i8 %271, 3
+  %275 = and i8 %274, 1
+  store i8 %275, ptr %33, align 1, !tbaa !229
   store i8 0, ptr %34, align 8, !tbaa !82
   store i8 0, ptr %35, align 8, !tbaa !82
-  %277 = and i32 %271, 1
-  %.not222 = icmp eq i32 %277, 0
-  br i1 %.not222, label %283, label %278
+  %276 = and i32 %270, 1
+  %.not222 = icmp eq i32 %276, 0
+  br i1 %.not222, label %282, label %277
 
-278:                                              ; preds = %269
-  %279 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %280 = call i64 @llvm.umin.i64(i64 %279, i64 255)
-  %281 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %35, i64 noundef %280)
-  %282 = getelementptr inbounds nuw i8, ptr %35, i64 %280
-  store i8 0, ptr %282, align 1, !tbaa !82
-  br label %283
+277:                                              ; preds = %268
+  %278 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %279 = call i64 @llvm.umin.i64(i64 %278, i64 255)
+  %280 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %35, i64 noundef %279)
+  %281 = getelementptr inbounds nuw i8, ptr %35, i64 %279
+  store i8 0, ptr %281, align 1, !tbaa !82
+  br label %282
 
-283:                                              ; preds = %278, %269
-  %284 = and i32 %271, 2
-  %.not223 = icmp eq i32 %284, 0
-  br i1 %.not223, label %290, label %285
+282:                                              ; preds = %277, %268
+  %283 = and i32 %270, 2
+  %.not223 = icmp eq i32 %283, 0
+  br i1 %.not223, label %289, label %284
 
-285:                                              ; preds = %283
-  %286 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %287 = call i64 @llvm.umin.i64(i64 %286, i64 255)
-  %288 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %34, i64 noundef %287)
-  %289 = getelementptr inbounds nuw i8, ptr %34, i64 %287
-  store i8 0, ptr %289, align 1, !tbaa !82
-  br label %290
+284:                                              ; preds = %282
+  %285 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %286 = call i64 @llvm.umin.i64(i64 %285, i64 255)
+  %287 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %34, i64 noundef %286)
+  %288 = getelementptr inbounds nuw i8, ptr %34, i64 %286
+  store i8 0, ptr %288, align 1, !tbaa !82
+  br label %289
 
-290:                                              ; preds = %285, %283
-  %291 = load i8, ptr %32, align 2, !tbaa !228, !range !56, !noundef !57
-  %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %293, label %296
+289:                                              ; preds = %284, %282
+  %290 = load i8, ptr %32, align 2, !tbaa !228, !range !56, !noundef !57
+  %291 = trunc nuw i8 %290 to i1
+  br i1 %291, label %292, label %295
 
-293:                                              ; preds = %290
-  %294 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %295 = trunc i64 %294 to i32
-  store i32 %295, ptr %36, align 8, !tbaa !230
-  br label %296
+292:                                              ; preds = %289
+  %293 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %294 = trunc i64 %293 to i32
+  store i32 %294, ptr %36, align 8, !tbaa !230
+  br label %295
 
-296:                                              ; preds = %293, %290
-  %297 = load i8, ptr %33, align 1, !tbaa !229, !range !56, !noundef !57
-  %298 = trunc nuw i8 %297 to i1
-  br i1 %298, label %299, label %302
+295:                                              ; preds = %292, %289
+  %296 = load i8, ptr %33, align 1, !tbaa !229, !range !56, !noundef !57
+  %297 = trunc nuw i8 %296 to i1
+  br i1 %297, label %298, label %301
 
-299:                                              ; preds = %296
-  %300 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %301 = trunc i64 %300 to i32
-  store i32 %301, ptr %37, align 4, !tbaa !231
-  br label %302
+298:                                              ; preds = %295
+  %299 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %300 = trunc i64 %299 to i32
+  store i32 %300, ptr %37, align 4, !tbaa !231
+  br label %301
 
-302:                                              ; preds = %299, %296
+301:                                              ; preds = %298, %295
   store i8 1, ptr %38, align 1, !tbaa !232
   br label %.thread295
 
-303:                                              ; preds = %158
-  %304 = icmp eq i32 %156, 3
-  br i1 %304, label %305, label %310
+302:                                              ; preds = %157
+  %303 = icmp eq i32 %155, 3
+  br i1 %303, label %304, label %309
 
-305:                                              ; preds = %303
-  %306 = load i64, ptr %13, align 8, !tbaa !114
-  %307 = sub i64 %306, %73
-  %308 = icmp eq i64 %307, 1
-  %309 = zext i1 %308 to i64
-  %spec.select = add nuw nsw i64 %76, %309
-  br label %310
+304:                                              ; preds = %302
+  %305 = load i64, ptr %13, align 8, !tbaa !114
+  %306 = sub i64 %305, %73
+  %307 = icmp eq i64 %306, 1
+  %308 = zext i1 %307 to i64
+  %spec.select = add nuw nsw i64 %76, %308
+  br label %309
 
-310:                                              ; preds = %305, %303
-  %.0192 = phi i64 [ %76, %303 ], [ %spec.select, %305 ]
-  %311 = load i64, ptr %29, align 8, !tbaa !216
-  %312 = icmp ugt i64 %.0192, %311
+309:                                              ; preds = %304, %302
+  %.0192 = phi i64 [ %76, %302 ], [ %spec.select, %304 ]
+  %310 = load i64, ptr %29, align 8, !tbaa !216
+  %311 = icmp ugt i64 %.0192, %310
   store i64 %.0192, ptr %30, align 8, !tbaa !217
-  br i1 %312, label %313, label %._ZN5ArrayIhE5AllocEm.exit_crit_edge
+  br i1 %311, label %312, label %._ZN5ArrayIhE5AllocEm.exit_crit_edge
 
-._ZN5ArrayIhE5AllocEm.exit_crit_edge:             ; preds = %310
+._ZN5ArrayIhE5AllocEm.exit_crit_edge:             ; preds = %309
   %.pre = load ptr, ptr %28, align 8, !tbaa !116
   br label %_ZN5ArrayIhE5AllocEm.exit
 
-313:                                              ; preds = %310
-  %314 = load i64, ptr %31, align 8, !tbaa !218
-  %.not.i.i249 = icmp ne i64 %314, 0
-  %315 = icmp ugt i64 %.0192, %314
-  %or.cond.i.i = and i1 %.not.i.i249, %315
-  br i1 %or.cond.i.i, label %316, label %317
+312:                                              ; preds = %309
+  %313 = load i64, ptr %31, align 8, !tbaa !218
+  %.not.i.i249 = icmp ne i64 %313, 0
+  %314 = icmp ugt i64 %.0192, %313
+  %or.cond.i.i = and i1 %.not.i.i249, %314
+  br i1 %or.cond.i.i, label %315, label %316
 
-316:                                              ; preds = %313
-  call void (ptr, ptr, ...) @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull @.str.9, i64 noundef %314)
+315:                                              ; preds = %312
+  call void (ptr, ptr, ...) @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull @.str.9, i64 noundef %313)
   call void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
   %.pre.i.i = load i64, ptr %29, align 8, !tbaa !216
   %.pre10.i.i = load i64, ptr %30, align 8, !tbaa !217
-  br label %317
+  br label %316
 
-317:                                              ; preds = %316, %313
-  %318 = phi i64 [ %.pre10.i.i, %316 ], [ %.0192, %313 ]
-  %319 = phi i64 [ %.pre.i.i, %316 ], [ %311, %313 ]
-  %320 = lshr i64 %319, 2
-  %321 = add i64 %319, 32
-  %322 = add i64 %321, %320
-  %..i.i = call i64 @llvm.umax.i64(i64 %318, i64 %322)
-  %323 = load ptr, ptr %28, align 8, !tbaa !116
-  %324 = call ptr @realloc(ptr noundef %323, i64 noundef %..i.i) #25
-  %325 = icmp eq ptr %324, null
-  br i1 %325, label %326, label %_ZN5ArrayIhE3AddEm.exit.i
+316:                                              ; preds = %315, %312
+  %317 = phi i64 [ %.pre10.i.i, %315 ], [ %.0192, %312 ]
+  %318 = phi i64 [ %.pre.i.i, %315 ], [ %310, %312 ]
+  %319 = lshr i64 %318, 2
+  %320 = add i64 %318, 32
+  %321 = add i64 %320, %319
+  %..i.i = call i64 @llvm.umax.i64(i64 %317, i64 %321)
+  %322 = load ptr, ptr %28, align 8, !tbaa !116
+  %323 = call ptr @realloc(ptr noundef %322, i64 noundef %..i.i) #25
+  %324 = icmp eq ptr %323, null
+  br i1 %324, label %325, label %_ZN5ArrayIhE3AddEm.exit.i
 
-326:                                              ; preds = %317
+325:                                              ; preds = %316
   call void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
   br label %_ZN5ArrayIhE3AddEm.exit.i
 
-_ZN5ArrayIhE3AddEm.exit.i:                        ; preds = %326, %317
-  store ptr %324, ptr %28, align 8, !tbaa !116
+_ZN5ArrayIhE3AddEm.exit.i:                        ; preds = %325, %316
+  store ptr %323, ptr %28, align 8, !tbaa !116
   store i64 %..i.i, ptr %29, align 8, !tbaa !216
   br label %_ZN5ArrayIhE5AllocEm.exit
 
 _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5AllocEm.exit_crit_edge, %_ZN5ArrayIhE3AddEm.exit.i
-  %327 = phi ptr [ %.pre, %._ZN5ArrayIhE5AllocEm.exit_crit_edge ], [ %324, %_ZN5ArrayIhE3AddEm.exit.i ]
-  %328 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %327, i64 noundef %.0192)
+  %326 = phi ptr [ %.pre, %._ZN5ArrayIhE5AllocEm.exit_crit_edge ], [ %323, %_ZN5ArrayIhE3AddEm.exit.i ]
+  %327 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %326, i64 noundef %.0192)
   br label %.thread295
 
-.thread295:                                       ; preds = %81, %250, %254, %226, %247, %243, %242, %194, %198, %_ZN7Archive12UnkEncVerMsgEPKwS1_.exit, %193, %249, %200, %_ZN5ArrayIhE5AllocEm.exit, %302, %267, %158, %155, %.thread283
+.thread295:                                       ; preds = %81, %249, %253, %225, %246, %242, %241, %193, %197, %_ZN7Archive12UnkEncVerMsgEPKwS1_.exit, %192, %248, %199, %_ZN5ArrayIhE5AllocEm.exit, %301, %266, %157, %154, %.thread283
   store i64 %73, ptr %16, align 8, !tbaa !219
-  %329 = load i64, ptr %13, align 8, !tbaa !114
-  %330 = sub i64 %329, %73
-  %331 = icmp ugt i64 %330, 1
-  br i1 %331, label %64, label %.thread286
+  %328 = load i64, ptr %13, align 8, !tbaa !114
+  %329 = sub i64 %328, %73
+  %330 = icmp ugt i64 %329, 1
+  br i1 %330, label %64, label %.thread286
 
 .thread286:                                       ; preds = %.thread295, %67, %64, %72, %.preheader, %4
   ret void

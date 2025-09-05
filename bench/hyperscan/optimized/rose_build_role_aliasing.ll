@@ -35097,18 +35097,22 @@ define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_111Dupe
   %3 = load ptr, ptr %0, align 8, !noalias !1104
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !1107
-  %.idx.i.i.i = shl nuw nsw i64 %5, 2
+  %.idx.i.i.i = shl i64 %5, 2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %7 = load ptr, ptr %1, align 8, !noalias !1112
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !1115
   %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
   %.not1.i.i.i.i.i = icmp eq i64 %5, 0
-  br i1 %.not1.i.i.i.i.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %2, %19
-  %.sroa.02.0.i.i.i.i = phi ptr [ %21, %19 ], [ %7, %2 ]
-  %11 = phi ptr [ %20, %19 ], [ %3, %2 ]
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %2
+  %scevgep.i.i.i = getelementptr i8, ptr %7, i64 %.idx.i.i.i
+  br label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.preheader.i.i.i
+  %.sroa.02.0.i.i.i.i = phi ptr [ %21, %19 ], [ %7, %.lr.ph.i.i.preheader.i.i.i ]
+  %11 = phi ptr [ %20, %19 ], [ %3, %.lr.ph.i.i.preheader.i.i.i ]
   %12 = icmp eq ptr %.sroa.02.0.i.i.i.i, %10
   br i1 %12, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i, label %13
 
@@ -35129,28 +35133,32 @@ define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_111Dupe
   br i1 %.not.i.i.i.i.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1120
 
 _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i: ; preds = %19, %2
-  %22 = phi ptr [ %7, %2 ], [ %21, %19 ]
+  %22 = phi ptr [ %7, %2 ], [ %scevgep.i.i.i, %19 ]
   %.not.i = icmp eq ptr %22, %10
   br i1 %.not.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit
 
 _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i: ; preds = %13, %.lr.ph.i.i.i.i.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i
-  %.idx.i.i34.i = shl nuw nsw i64 %9, 2
+  %.idx.i.i34.i = shl i64 %9, 2
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i34.i
   %24 = getelementptr inbounds nuw i32, ptr %3, i64 %5
   %.not1.i.i.i.i35.i = icmp eq i64 %9, 0
-  br i1 %.not1.i.i.i.i35.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.i, label %.lr.ph.i.i.i.i36.i
+  br i1 %.not1.i.i.i.i35.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.i, label %.lr.ph.i.i.preheader.i.i36.i
 
-.lr.ph.i.i.i.i36.i:                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i, %33
-  %.sroa.02.0.i.i.i37.i = phi ptr [ %35, %33 ], [ %3, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ]
-  %25 = phi ptr [ %34, %33 ], [ %7, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ]
-  %26 = icmp eq ptr %.sroa.02.0.i.i.i37.i, %24
-  br i1 %26, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i, label %27
+.lr.ph.i.i.preheader.i.i36.i:                     ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i
+  %scevgep.i.i37.i = getelementptr i8, ptr %3, i64 %.idx.i.i34.i
+  br label %.lr.ph.i.i.i.i38.i
 
-27:                                               ; preds = %.lr.ph.i.i.i.i36.i
-  %28 = load i32, ptr %.sroa.02.0.i.i.i37.i, align 4
+.lr.ph.i.i.i.i38.i:                               ; preds = %33, %.lr.ph.i.i.preheader.i.i36.i
+  %.sroa.02.0.i.i.i39.i = phi ptr [ %35, %33 ], [ %3, %.lr.ph.i.i.preheader.i.i36.i ]
+  %25 = phi ptr [ %34, %33 ], [ %7, %.lr.ph.i.i.preheader.i.i36.i ]
+  %26 = icmp eq ptr %.sroa.02.0.i.i.i39.i, %24
+  br i1 %26, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i, label %27
+
+27:                                               ; preds = %.lr.ph.i.i.i.i38.i
+  %28 = load i32, ptr %.sroa.02.0.i.i.i39.i, align 4
   %29 = load i32, ptr %25, align 4
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i, label %31
+  br i1 %30, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i, label %31
 
 31:                                               ; preds = %27
   %32 = icmp ult i32 %29, %28
@@ -35158,16 +35166,16 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i: ; preds = %13, %.lr.p
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i.i37.i, i64 4
-  %.not.i.i.i.i38.i = icmp eq ptr %34, %23
-  br i1 %.not.i.i.i.i38.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.i, label %.lr.ph.i.i.i.i36.i, !llvm.loop !1120
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i.i39.i, i64 4
+  %.not.i.i.i.i40.i = icmp eq ptr %34, %23
+  br i1 %.not.i.i.i.i40.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.i, label %.lr.ph.i.i.i.i38.i, !llvm.loop !1120
 
-_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.i: ; preds = %33, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i
-  %36 = phi ptr [ %3, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ], [ %35, %33 ]
-  %.not58.i = icmp eq ptr %36, %24
-  br i1 %.not58.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit
+_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.i: ; preds = %33, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i
+  %36 = phi ptr [ %3, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ], [ %scevgep.i.i37.i, %33 ]
+  %.not60.i = icmp eq ptr %36, %24
+  br i1 %.not60.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit
 
-_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i: ; preds = %27, %.lr.ph.i.i.i.i36.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.i
+_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i: ; preds = %27, %.lr.ph.i.i.i.i38.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -35175,7 +35183,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i: ; preds = %27, %.lr
   %41 = icmp samesign ult i8 %38, %40
   br i1 %41, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %42
 
-42:                                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i
+42:                                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i
   %43 = icmp samesign ult i8 %40, %38
   br i1 %43, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %44
 
@@ -35245,23 +35253,23 @@ _ZNK3ue29suffix_idltERKS0_.exit.i:                ; preds = %74
 
 87:                                               ; preds = %81
   %88 = icmp ult ptr %85, %83
-  br i1 %88, label %_ZNK3ue29suffix_idltERKS0_.exit43.thread56.i, label %_ZNK3ue29suffix_idltERKS0_.exit43.i
+  br i1 %88, label %_ZNK3ue29suffix_idltERKS0_.exit45.thread58.i, label %_ZNK3ue29suffix_idltERKS0_.exit45.i
 
-_ZNK3ue29suffix_idltERKS0_.exit43.i:              ; preds = %87
+_ZNK3ue29suffix_idltERKS0_.exit45.i:              ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %92 = load ptr, ptr %91, align 8
   %93 = icmp ult ptr %90, %92
-  br i1 %93, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %_ZNK3ue29suffix_idltERKS0_.exit43.thread56.i
+  br i1 %93, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %_ZNK3ue29suffix_idltERKS0_.exit45.thread58.i
 
-_ZNK3ue29suffix_idltERKS0_.exit43.thread56.i:     ; preds = %_ZNK3ue29suffix_idltERKS0_.exit43.i, %87
+_ZNK3ue29suffix_idltERKS0_.exit45.thread58.i:     ; preds = %_ZNK3ue29suffix_idltERKS0_.exit45.i, %87
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %96 = tail call noundef zeroext i1 @_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %95)
   br i1 %96, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %97
 
-97:                                               ; preds = %_ZNK3ue29suffix_idltERKS0_.exit43.thread56.i
+97:                                               ; preds = %_ZNK3ue29suffix_idltERKS0_.exit45.thread58.i
   %98 = tail call noundef zeroext i1 @_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %94)
   br i1 %98, label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit, label %99
 
@@ -35297,8 +35305,8 @@ _ZNK3ue29suffix_idltERKS0_.exit43.thread56.i:     ; preds = %_ZNK3ue29suffix_idl
   %120 = icmp ult i32 %117, %119
   br label %_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit
 
-_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit: ; preds = %17, %31, %66, %58, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i, %42, %44, %50, %52, %60, %68, %_ZNK3ue29suffix_idltERKS0_.exit.i, %81, %_ZNK3ue29suffix_idltERKS0_.exit43.i, %_ZNK3ue29suffix_idltERKS0_.exit43.thread56.i, %97, %99, %105, %107, %113, %115
-  %.0.i = phi i1 [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i ], [ false, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.i ], [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit41.thread.i ], [ false, %42 ], [ true, %_ZNK3ue29suffix_idltERKS0_.exit.i ], [ false, %_ZNK3ue29suffix_idltERKS0_.exit43.i ], [ true, %_ZNK3ue29suffix_idltERKS0_.exit43.thread56.i ], [ false, %97 ], [ true, %99 ], [ false, %105 ], [ true, %107 ], [ false, %113 ], [ %120, %115 ], [ true, %44 ], [ true, %52 ], [ true, %60 ], [ true, %68 ], [ false, %81 ], [ false, %50 ], [ false, %58 ], [ false, %66 ], [ false, %31 ], [ true, %17 ]
+_ZNK3ue212_GLOBAL__N_111DupeLeafKeyltERKS1_.exit: ; preds = %17, %31, %66, %58, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i, %42, %44, %50, %52, %60, %68, %_ZNK3ue29suffix_idltERKS0_.exit.i, %81, %_ZNK3ue29suffix_idltERKS0_.exit45.i, %_ZNK3ue29suffix_idltERKS0_.exit45.thread58.i, %97, %99, %105, %107, %113, %115
+  %.0.i = phi i1 [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i ], [ false, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.i ], [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit43.thread.i ], [ false, %42 ], [ true, %_ZNK3ue29suffix_idltERKS0_.exit.i ], [ false, %_ZNK3ue29suffix_idltERKS0_.exit45.i ], [ true, %_ZNK3ue29suffix_idltERKS0_.exit45.thread58.i ], [ false, %97 ], [ true, %99 ], [ false, %105 ], [ true, %107 ], [ false, %113 ], [ %120, %115 ], [ true, %44 ], [ true, %52 ], [ true, %60 ], [ true, %68 ], [ false, %81 ], [ false, %50 ], [ false, %58 ], [ false, %66 ], [ false, %31 ], [ true, %17 ]
   ret i1 %.0.i
 }
 
@@ -35307,18 +35315,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue28flat_setIjSt4lessIjESaIj
   %3 = load ptr, ptr %0, align 8, !noalias !1121
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !1124
-  %.idx.i = shl nuw nsw i64 %5, 2
+  %.idx.i = shl i64 %5, 2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %7 = load ptr, ptr %1, align 8, !noalias !1129
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !1132
   %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
   %.not1.i.i.i = icmp eq i64 %5, 0
-  br i1 %.not1.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not1.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i.i:                                     ; preds = %2, %19
-  %.sroa.02.0.i.i = phi ptr [ %21, %19 ], [ %7, %2 ]
-  %11 = phi ptr [ %20, %19 ], [ %3, %2 ]
+.lr.ph.i.i.preheader.i:                           ; preds = %2
+  %scevgep.i = getelementptr i8, ptr %7, i64 %.idx.i
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %19, %.lr.ph.i.i.preheader.i
+  %.sroa.02.0.i.i = phi ptr [ %21, %19 ], [ %7, %.lr.ph.i.i.preheader.i ]
+  %11 = phi ptr [ %20, %19 ], [ %3, %.lr.ph.i.i.preheader.i ]
   %12 = icmp eq ptr %.sroa.02.0.i.i, %10
   br i1 %12, label %_ZN5boost9containerltERKNS0_6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvEES7_.exit, label %13
 
@@ -35339,7 +35351,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue28flat_setIjSt4lessIjESaIj
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1120
 
 ._crit_edge.i.i.i:                                ; preds = %19, %2
-  %22 = phi ptr [ %7, %2 ], [ %21, %19 ]
+  %22 = phi ptr [ %7, %2 ], [ %scevgep.i, %19 ]
   %23 = icmp ne ptr %22, %10
   br label %_ZN5boost9containerltERKNS0_6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvEES7_.exit
 
@@ -35731,18 +35743,22 @@ define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_113Unca
   %11 = load ptr, ptr %0, align 8, !noalias !1141
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !1144
-  %.idx.i.i.i = shl nuw nsw i64 %13, 2
+  %.idx.i.i.i = shl i64 %13, 2
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i
   %15 = load ptr, ptr %1, align 8, !noalias !1149
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !1152
   %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
   %.not1.i.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not1.i.i.i.i.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %2, %27
-  %.sroa.02.0.i.i.i.i = phi ptr [ %29, %27 ], [ %15, %2 ]
-  %19 = phi ptr [ %28, %27 ], [ %11, %2 ]
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %2
+  %scevgep.i.i.i = getelementptr i8, ptr %15, i64 %.idx.i.i.i
+  br label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %27, %.lr.ph.i.i.preheader.i.i.i
+  %.sroa.02.0.i.i.i.i = phi ptr [ %29, %27 ], [ %15, %.lr.ph.i.i.preheader.i.i.i ]
+  %19 = phi ptr [ %28, %27 ], [ %11, %.lr.ph.i.i.preheader.i.i.i ]
   %20 = icmp eq ptr %.sroa.02.0.i.i.i.i, %18
   br i1 %20, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i, label %21
 
@@ -35763,28 +35779,32 @@ define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_113Unca
   br i1 %.not.i.i.i.i.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1120
 
 _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i: ; preds = %27, %2
-  %30 = phi ptr [ %15, %2 ], [ %29, %27 ]
+  %30 = phi ptr [ %15, %2 ], [ %scevgep.i.i.i, %27 ]
   %.not.i = icmp eq ptr %30, %18
   br i1 %.not.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit
 
 _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i: ; preds = %21, %.lr.ph.i.i.i.i.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i
-  %.idx.i.i14.i = shl nuw nsw i64 %17, 2
+  %.idx.i.i14.i = shl i64 %17, 2
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i14.i
   %32 = getelementptr inbounds nuw i32, ptr %11, i64 %13
   %.not1.i.i.i.i15.i = icmp eq i64 %17, 0
-  br i1 %.not1.i.i.i.i15.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.i, label %.lr.ph.i.i.i.i16.i
+  br i1 %.not1.i.i.i.i15.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.i, label %.lr.ph.i.i.preheader.i.i16.i
 
-.lr.ph.i.i.i.i16.i:                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i, %41
-  %.sroa.02.0.i.i.i17.i = phi ptr [ %43, %41 ], [ %11, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ]
-  %33 = phi ptr [ %42, %41 ], [ %15, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ]
-  %34 = icmp eq ptr %.sroa.02.0.i.i.i17.i, %32
-  br i1 %34, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i, label %35
+.lr.ph.i.i.preheader.i.i16.i:                     ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i
+  %scevgep.i.i17.i = getelementptr i8, ptr %11, i64 %.idx.i.i14.i
+  br label %.lr.ph.i.i.i.i18.i
 
-35:                                               ; preds = %.lr.ph.i.i.i.i16.i
-  %36 = load i32, ptr %.sroa.02.0.i.i.i17.i, align 4
+.lr.ph.i.i.i.i18.i:                               ; preds = %41, %.lr.ph.i.i.preheader.i.i16.i
+  %.sroa.02.0.i.i.i19.i = phi ptr [ %43, %41 ], [ %11, %.lr.ph.i.i.preheader.i.i16.i ]
+  %33 = phi ptr [ %42, %41 ], [ %15, %.lr.ph.i.i.preheader.i.i16.i ]
+  %34 = icmp eq ptr %.sroa.02.0.i.i.i19.i, %32
+  br i1 %34, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i, label %35
+
+35:                                               ; preds = %.lr.ph.i.i.i.i18.i
+  %36 = load i32, ptr %.sroa.02.0.i.i.i19.i, align 4
   %37 = load i32, ptr %33, align 4
   %38 = icmp ult i32 %36, %37
-  br i1 %38, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i, label %39
+  br i1 %38, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i, label %39
 
 39:                                               ; preds = %35
   %40 = icmp ult i32 %37, %36
@@ -35792,16 +35812,16 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i: ; preds = %21, %.lr.p
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i.i17.i, i64 4
-  %.not.i.i.i.i18.i = icmp eq ptr %42, %31
-  br i1 %.not.i.i.i.i18.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !1120
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i.i19.i, i64 4
+  %.not.i.i.i.i20.i = icmp eq ptr %42, %31
+  br i1 %.not.i.i.i.i20.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.i, label %.lr.ph.i.i.i.i18.i, !llvm.loop !1120
 
-_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.i: ; preds = %41, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i
-  %44 = phi ptr [ %11, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ], [ %43, %41 ]
-  %.not38.i = icmp eq ptr %44, %32
-  br i1 %.not38.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit
+_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.i: ; preds = %41, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i
+  %44 = phi ptr [ %11, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.thread.i ], [ %scevgep.i.i17.i, %41 ]
+  %.not40.i = icmp eq ptr %44, %32
+  br i1 %.not40.i, label %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit
 
-_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr.ph.i.i.i.i16.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.i
+_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i: ; preds = %35, %.lr.ph.i.i.i.i18.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load ptr, ptr %45, align 8, !noalias !1157
@@ -35827,7 +35847,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %55, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit, label %56
 
-56:                                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i
+56:                                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i
   %57 = load ptr, ptr %46, align 8, !noalias !1173
   %58 = load i64, ptr %52, align 8, !noalias !1176
   %59 = getelementptr inbounds nuw %"struct.std::pair.880", ptr %57, i64 %58
@@ -35859,7 +35879,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
 
 70:                                               ; preds = %64
   %71 = icmp ult ptr %68, %67
-  br i1 %71, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i, label %72
+  br i1 %71, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -35871,7 +35891,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
 
 78:                                               ; preds = %72
   %79 = icmp ult ptr %76, %75
-  br i1 %79, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i, label %80
+  br i1 %79, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -35883,7 +35903,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
 
 86:                                               ; preds = %80
   %87 = icmp ult ptr %84, %83
-  br i1 %87, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i, label %88
+  br i1 %87, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -35895,7 +35915,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
 
 94:                                               ; preds = %88
   %95 = icmp ult ptr %92, %91
-  br i1 %95, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i, label %96
+  br i1 %95, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i, label %96
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -35907,7 +35927,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
 
 102:                                              ; preds = %96
   %103 = icmp ult ptr %100, %99
-  br i1 %103, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i, label %104
+  br i1 %103, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i, label %104
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -35919,7 +35939,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
 
 110:                                              ; preds = %104
   %111 = icmp ult i32 %108, %106
-  br i1 %111, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.i
+  br i1 %111, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.i
 
 _ZNK3ue211LeftEngInfoltERKS0_.exit.i:             ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -35927,13 +35947,13 @@ _ZNK3ue211LeftEngInfoltERKS0_.exit.i:             ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %115 = load i32, ptr %114, align 4
   %116 = icmp ult i32 %113, %115
-  br i1 %116, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i
+  br i1 %116, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit, label %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i
 
-_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i:    ; preds = %_ZNK3ue211LeftEngInfoltERKS0_.exit.i, %110, %102, %94, %86, %78, %70
+_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i:    ; preds = %_ZNK3ue211LeftEngInfoltERKS0_.exit.i, %110, %102, %94, %86, %78, %70
   br label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit
 
-_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit: ; preds = %25, %39, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i, %56, %64, %72, %80, %88, %96, %104, %_ZNK3ue211LeftEngInfoltERKS0_.exit.i, %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i
-  %.0.i = phi i1 [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i ], [ false, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.i ], [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i ], [ false, %56 ], [ true, %_ZNK3ue211LeftEngInfoltERKS0_.exit.i ], [ true, %64 ], [ true, %72 ], [ true, %80 ], [ true, %88 ], [ true, %96 ], [ true, %104 ], [ false, %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread32.i ], [ false, %39 ], [ true, %25 ]
+_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit: ; preds = %25, %39, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.i, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i, %56, %64, %72, %80, %88, %96, %104, %_ZNK3ue211LeftEngInfoltERKS0_.exit.i, %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i
+  %.0.i = phi i1 [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i ], [ false, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.i ], [ true, %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit23.thread.i ], [ false, %56 ], [ true, %_ZNK3ue211LeftEngInfoltERKS0_.exit.i ], [ true, %64 ], [ true, %72 ], [ true, %80 ], [ true, %88 ], [ true, %96 ], [ true, %104 ], [ false, %_ZNK3ue211LeftEngInfoltERKS0_.exit.thread34.i ], [ false, %39 ], [ true, %25 ]
   ret i1 %.0.i
 }
 

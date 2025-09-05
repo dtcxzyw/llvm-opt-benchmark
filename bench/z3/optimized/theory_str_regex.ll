@@ -382,7 +382,7 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_str20solve_regex_automataEv(pt
   %96 = load i32, ptr %95, align 8, !tbaa !10
   %97 = zext i32 %96 to i64
   %.idx.i = shl nuw nsw i64 %97, 3
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i
+  %98 = getelementptr i8, ptr %94, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %96, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -8420,7 +8420,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iter
   %3292 = load i32, ptr %3291, align 8, !tbaa !260
   %3293 = zext i32 %3292 to i64
   %.idx.i.i1742 = shl nuw nsw i64 %3293, 4
-  %3294 = getelementptr inbounds nuw i8, ptr %3290, i64 %.idx.i.i1742
+  %3294 = getelementptr i8, ptr %3290, i64 %.idx.i.i1742
   %.not1.i.i.i.i = icmp eq i32 %3292, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI4expr10ptr_vectorIS0_EE5beginEv.exit, label %.lr.ph.i.i.i.i1743
 
@@ -13403,7 +13403,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i243:       ; preds = %_ZNK10arith_util5mk
   %522 = load i32, ptr %493, align 8, !tbaa !308
   %523 = zext i32 %522 to i64
   %.idx.i = shl nuw nsw i64 %523, 3
-  %524 = getelementptr inbounds nuw i8, ptr %521, i64 %.idx.i
+  %524 = getelementptr i8, ptr %521, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %522, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -25807,7 +25807,7 @@ _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10def
   %147 = load i32, ptr %88, align 8, !tbaa !308
   %148 = zext i32 %147 to i64
   %.idx.i85 = shl nuw nsw i64 %148, 3
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i85
+  %149 = getelementptr i8, ptr %146, i64 %.idx.i85
   %.not1.i.i.i = icmp eq i32 %147, 0
   br i1 %.not1.i.i.i, label %.loopexit306, label %.lr.ph.i.i.i
 
@@ -25840,7 +25840,7 @@ _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10def
   %.sroa.0260.0310 = phi ptr [ %.sroa.0260.2, %_ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIiEE8iteratorppEv.exit ], [ %.sroa.0.1.i, %.lr.ph312.preheader ]
   %157 = zext i32 %155 to i64
   %.idx.i88 = shl nuw nsw i64 %157, 3
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i88
+  %158 = getelementptr i8, ptr %156, i64 %.idx.i88
   %.not1.i.i.i89 = icmp eq i32 %155, 0
   br i1 %.not1.i.i.i89, label %.loopexit305, label %.lr.ph.i.i.i90
 
@@ -26176,7 +26176,7 @@ _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10def
   %285 = load i32, ptr %226, align 8, !tbaa !308
   %286 = zext i32 %285 to i64
   %.idx.i141 = shl nuw nsw i64 %286, 3
-  %287 = getelementptr inbounds nuw i8, ptr %284, i64 %.idx.i141
+  %287 = getelementptr i8, ptr %284, i64 %.idx.i141
   %.not1.i.i.i142 = icmp eq i32 %285, 0
   br i1 %.not1.i.i.i142, label %.loopexit304, label %.lr.ph.i.i.i143
 
@@ -26203,7 +26203,7 @@ _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10def
   %294 = load i32, ptr %234, align 8, !tbaa !308
   %295 = zext i32 %294 to i64
   %.idx.i153 = shl nuw nsw i64 %295, 3
-  %296 = getelementptr inbounds nuw i8, ptr %293, i64 %.idx.i153
+  %296 = getelementptr i8, ptr %293, i64 %.idx.i153
   %.not1.i.i.i154 = icmp eq i32 %294, 0
   br i1 %.not1.i.i.i154, label %.loopexit303, label %.lr.ph.i.i.i155
 
@@ -26768,7 +26768,7 @@ _ZN13int_hashtableI8int_hash10default_eqIiEEC2EjRKS0_RKS2_.exit213: ; preds = %.
   %513 = load i32, ptr %502, align 8, !tbaa !308
   %514 = zext i32 %513 to i64
   %.idx.i214 = shl nuw nsw i64 %514, 3
-  %515 = getelementptr inbounds nuw i8, ptr %512, i64 %.idx.i214
+  %515 = getelementptr i8, ptr %512, i64 %.idx.i214
   %.not1.i.i.i215 = icmp eq i32 %513, 0
   br i1 %.not1.i.i.i215, label %.loopexit, label %.lr.ph.i.i.i216
 

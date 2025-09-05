@@ -216,7 +216,7 @@ define hidden void @_ZN17demodulator_index5resetEv(ptr noundef nonnull align 8 c
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP8uint_setE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -244,7 +244,7 @@ _ZNK7obj_mapI9func_declP8uint_setE5beginEv.exit:  ; preds = %.lr.ph.i.i.i.i, %9,
   %15 = load i32, ptr %14, align 8, !tbaa !10
   %16 = zext i32 %15 to i64
   %.idx.i.i9 = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i9
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i9
   %.not1.i.i.i.i10 = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i10, label %_ZNK7obj_mapI9func_declP8uint_setE5beginEv.exit18, label %.lr.ph.i.i.i.i11
 
@@ -2108,7 +2108,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17demodulator_
   %9 = load i32, ptr %8, align 8, !tbaa !10
   %10 = zext i32 %9 to i64
   %.idx.i.i = shl nuw nsw i64 %10, 4
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP8uint_setE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -2141,7 +2141,7 @@ _ZNK7obj_mapI9func_declP8uint_setE5beginEv.exit:  ; preds = %.lr.ph.i.i.i.i, %13
   %21 = load i32, ptr %20, align 8, !tbaa !10
   %22 = zext i32 %21 to i64
   %.idx.i.i19 = shl nuw nsw i64 %22, 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i19
+  %23 = getelementptr i8, ptr %19, i64 %.idx.i.i19
   %.not1.i.i.i.i20 = icmp eq i32 %21, 0
   br i1 %.not1.i.i.i.i20, label %_ZNK7obj_mapI9func_declP8uint_setE5beginEv.exit28, label %.lr.ph.i.i.i.i21
 

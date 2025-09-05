@@ -3103,7 +3103,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2gi12OperandTable10addPatternEPNS0_
   %8 = load i32, ptr %7, align 8, !tbaa !148, !noalias !397
   %9 = zext i32 %8 to i64
   %.idx.i.i = shl nuw nsw i64 %9, 6
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not2.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not2.i.i.i.i.i, label %_ZN4llvm2gi18InstructionPattern14named_operandsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -5039,7 +5039,7 @@ define dso_local void @_ZN4llvm2gi18OperandTypeChecker14propagateTypesEv(ptr nou
   %16 = load i32, ptr %15, align 8, !tbaa !148, !noalias !554
   %17 = zext i32 %16 to i64
   %.idx.i.i = shl nuw nsw i64 %17, 6
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
+  %18 = getelementptr i8, ptr %14, i64 %.idx.i.i
   %.not2.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not2.i.i.i.i.i, label %_ZN4llvm2gi18InstructionPattern14named_operandsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -6645,7 +6645,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2gi7PatFrag19buildOperandsTablesEv(
   %29 = load i32, ptr %28, align 8, !tbaa !148, !noalias !715
   %30 = zext i32 %29 to i64
   %.idx.i.i.i = shl nuw nsw i64 %30, 6
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
+  %31 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
   %.not2.i.i.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not2.i.i.i.i.i.i, label %_ZN4llvm2gi18InstructionPattern14named_operandsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 

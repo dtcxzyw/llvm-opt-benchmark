@@ -1782,22 +1782,21 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont43, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %24 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %24, i1 false), !tbaa !27
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !27
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %25 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
-  %26 = phi ptr [ %call5.i.i.i.i2.i.i43, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i43, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
+  %24 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
+  %25 = phi ptr [ %call5.i.i.i.i2.i.i43, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i43, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !49
   %vtable46 = load ptr, ptr %this, align 8, !tbaa !7
   %vfn47 = getelementptr inbounds nuw i8, ptr %vtable46, i64 32
-  %27 = load ptr, ptr %vfn47, align 8
-  %call50 = invoke noundef nonnull align 8 dereferenceable(128) ptr %27(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %26 = load ptr, ptr %vfn47, align 8
+  %call50 = invoke noundef nonnull align 8 dereferenceable(128) ptr %26(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont43
@@ -1805,12 +1804,12 @@ invoke.cont49:                                    ; preds = %invoke.cont43
           to label %for.cond unwind label %lpad48
 
 for.cond:                                         ; preds = %invoke.cont49, %invoke.cont63
-  %lastTime.0 = phi double [ %38, %invoke.cont63 ], [ 0.000000e+00, %invoke.cont49 ]
+  %lastTime.0 = phi double [ %37, %invoke.cont63 ], [ 0.000000e+00, %invoke.cont49 ]
   %j.0 = phi i64 [ %inc, %invoke.cont63 ], [ 0, %invoke.cont49 ]
   %vtable53 = load ptr, ptr %this, align 8, !tbaa !7
   %vfn54 = getelementptr inbounds nuw i8, ptr %vtable53, i64 56
-  %28 = load ptr, ptr %vfn54, align 8
-  %call57 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %27 = load ptr, ptr %vfn54, align 8
+  %call57 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %for.cond
@@ -1818,59 +1817,59 @@ invoke.cont56:                                    ; preds = %for.cond
   br i1 %cmp58, label %for.body, label %nrvo.skipdtor
 
 lpad48:                                           ; preds = %invoke.cont49, %invoke.cont43
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup74
 
 lpad55:                                           ; preds = %for.cond
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup74
 
 for.body:                                         ; preds = %invoke.cont56
-  %31 = load ptr, ptr %call52, align 8, !tbaa !46
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %31, i64 %j.0
-  %32 = load double, ptr %add.ptr.i, align 8, !tbaa !27
+  %30 = load ptr, ptr %call52, align 8, !tbaa !46
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %j.0
+  %31 = load double, ptr %add.ptr.i, align 8, !tbaa !27
   %vtable60 = load ptr, ptr %this, align 8, !tbaa !7
   %vfn61 = getelementptr inbounds nuw i8, ptr %vtable60, i64 72
-  %33 = load ptr, ptr %vfn61, align 8
-  %call64 = invoke noundef nonnull align 8 dereferenceable(24) ptr %33(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %j.0)
+  %32 = load ptr, ptr %vfn61, align 8
+  %call64 = invoke noundef nonnull align 8 dereferenceable(24) ptr %32(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %j.0)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %for.body
-  %sub = fsub double %32, %lastTime.0
-  %34 = load ptr, ptr %call64, align 8, !tbaa !3
+  %sub = fsub double %31, %lastTime.0
+  %33 = load ptr, ptr %call64, align 8, !tbaa !3
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %call64, i64 16
-  %35 = load i64, ptr %columns_.i.i, align 8, !tbaa !17
-  %mul.i.i = mul i64 %35, %i
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %34, i64 %mul.i.i
+  %34 = load i64, ptr %columns_.i.i, align 8, !tbaa !17
+  %mul.i.i = mul i64 %34, %i
+  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %33, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %i
-  %36 = load double, ptr %arrayidx, align 8, !tbaa !27
-  %div = fdiv double %36, %sub
+  %35 = load double, ptr %arrayidx, align 8, !tbaa !27
+  %div = fdiv double %35, %sub
   %call67 = tail call double @sqrt(double noundef %div) #22, !tbaa !50
-  %add.ptr.i44 = getelementptr inbounds nuw double, ptr %26, i64 %j.0
+  %add.ptr.i44 = getelementptr inbounds nuw double, ptr %25, i64 %j.0
   store double %call67, ptr %add.ptr.i44, align 8, !tbaa !27
-  %37 = load ptr, ptr %call52, align 8, !tbaa !46
-  %add.ptr.i45 = getelementptr inbounds nuw double, ptr %37, i64 %j.0
-  %38 = load double, ptr %add.ptr.i45, align 8, !tbaa !27
+  %36 = load ptr, ptr %call52, align 8, !tbaa !46
+  %add.ptr.i45 = getelementptr inbounds nuw double, ptr %36, i64 %j.0
+  %37 = load double, ptr %add.ptr.i45, align 8, !tbaa !27
   %inc = add nuw i64 %j.0, 1
   br label %for.cond, !llvm.loop !52
 
 lpad62:                                           ; preds = %for.body
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup74
 
 ehcleanup74:                                      ; preds = %lpad55, %lpad62, %lpad48
-  %.pn14.pn = phi { ptr, i32 } [ %29, %lpad48 ], [ %39, %lpad62 ], [ %30, %lpad55 ]
-  %tobool.not.i.i.i = icmp eq ptr %26, null
+  %.pn14.pn = phi { ptr, i32 } [ %28, %lpad48 ], [ %38, %lpad62 ], [ %29, %lpad55 ]
+  %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup74
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %26 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %sub.ptr.sub.i.i) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %sub.ptr.sub.i.i) #24
   br label %eh.resume
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont56

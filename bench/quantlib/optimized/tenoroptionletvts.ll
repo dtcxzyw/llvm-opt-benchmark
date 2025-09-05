@@ -5764,17 +5764,16 @@ if.then.i.i.i.i.i:                                ; preds = %for.cond.cleanup.th
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %2 = add nsw i64 %sub.ptr.sub.i110, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false), !tbaa !111
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !111
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont
 
 for.body:                                         ; preds = %entry, %for.body
   %sum_v.086 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
   %__begin1.sroa.0.085 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
-  %3 = load double, ptr %__begin1.sroa.0.085, align 8, !tbaa !111
-  %add = fadd double %sum_v.086, %3
+  %2 = load double, ptr %__begin1.sroa.0.085, align 8, !tbaa !111
+  %add = fadd double %sum_v.086, %2
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.085, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.cond.cleanup.thread, label %for.body
@@ -5786,9 +5785,9 @@ invoke.cont:                                      ; preds = %for.cond.cleanup, %
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
   %fraRateBase_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %_M_finish.i27 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %4 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !109
-  %5 = load ptr, ptr %fraRateBase_, align 8, !tbaa !112
-  %cmp91.not = icmp eq ptr %4, %5
+  %3 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !109
+  %4 = load ptr, ptr %fraRateBase_, align 8, !tbaa !112
+  %cmp91.not = icmp eq ptr %3, %4
   br i1 %cmp91.not, label %for.cond25.preheader, label %for.body13.lr.ph
 
 for.body13.lr.ph:                                 ; preds = %invoke.cont
@@ -5812,15 +5811,15 @@ for.body29.lr.ph:                                 ; preds = %for.cond25.preheade
   br label %for.body29
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %invoke.cont20
-  %6 = phi ptr [ %5, %for.body13.lr.ph ], [ %14, %invoke.cont20 ]
+  %5 = phi ptr [ %4, %for.body13.lr.ph ], [ %13, %invoke.cont20 ]
   %k9.092 = phi i64 [ 0, %for.body13.lr.ph ], [ %inc, %invoke.cont20 ]
-  %7 = load double, ptr %fraRateTarg_, align 8, !tbaa !80
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %6, i64 %k9.092
-  %8 = load double, ptr %add.ptr.i, align 8, !tbaa !111
-  %9 = load ptr, ptr %baseSmileSection_, align 8, !tbaa !118
-  %add.ptr.i32 = getelementptr inbounds nuw %"class.boost::shared_ptr.68", ptr %9, i64 %k9.092
-  %10 = load ptr, ptr %add.ptr.i32, align 8, !tbaa !107
-  %cmp.not.i = icmp eq ptr %10, null
+  %6 = load double, ptr %fraRateTarg_, align 8, !tbaa !80
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %k9.092
+  %7 = load double, ptr %add.ptr.i, align 8, !tbaa !111
+  %8 = load ptr, ptr %baseSmileSection_, align 8, !tbaa !118
+  %add.ptr.i32 = getelementptr inbounds nuw %"class.boost::shared_ptr.68", ptr %8, i64 %k9.092
+  %9 = load ptr, ptr %add.ptr.i32, align 8, !tbaa !107
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont18, !prof !53
 
 cond.false.i:                                     ; preds = %for.body13
@@ -5832,34 +5831,34 @@ cond.false.i:                                     ; preds = %for.body13
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %.noexc33, %for.body13
-  %11 = phi ptr [ %10, %for.body13 ], [ %.pre.i, %.noexc33 ]
-  %12 = tail call double @llvm.fmuladd.f64(double %neg, double %8, double %7)
-  %sub = fsub double %strike, %12
+  %10 = phi ptr [ %9, %for.body13 ], [ %.pre.i, %.noexc33 ]
+  %11 = tail call double @llvm.fmuladd.f64(double %neg, double %7, double %6)
+  %sub = fsub double %strike, %11
   %div = fdiv double %sub, %sum_v.0.lcssa113122
-  %call21 = invoke noundef double @_ZNK8QuantLib12SmileSection10volatilityEdNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(72) %11, double noundef %div, i32 noundef 1, double noundef 0.000000e+00)
+  %call21 = invoke noundef double @_ZNK8QuantLib12SmileSection10volatilityEdNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(72) %10, double noundef %div, i32 noundef 1, double noundef 0.000000e+00)
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont18
   %add.ptr.i34 = getelementptr inbounds nuw double, ptr %volBase.sroa.0.0, i64 %k9.092
   store double %call21, ptr %add.ptr.i34, align 8, !tbaa !111
   %inc = add nuw i64 %k9.092, 1
-  %13 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !109
-  %14 = load ptr, ptr %fraRateBase_, align 8, !tbaa !112
-  %sub.ptr.lhs.cast.i28 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i29 = ptrtoint ptr %14 to i64
+  %12 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !109
+  %13 = load ptr, ptr %fraRateBase_, align 8, !tbaa !112
+  %sub.ptr.lhs.cast.i28 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i29 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i30 = sub i64 %sub.ptr.lhs.cast.i28, %sub.ptr.rhs.cast.i29
   %sub.ptr.div.i31 = ashr exact i64 %sub.ptr.sub.i30, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i31
   br i1 %cmp, label %for.body13, label %for.cond25.preheader, !llvm.loop !124
 
 lpad17:                                           ; preds = %cond.false.i, %invoke.cont18
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 for.cond25.loopexit:                              ; preds = %invoke.cont50, %for.body29
-  %16 = phi ptr [ %17, %for.body29 ], [ %25, %invoke.cont50 ]
-  %var.1.lcssa = phi double [ %20, %for.body29 ], [ %30, %invoke.cont50 ]
+  %15 = phi ptr [ %16, %for.body29 ], [ %24, %invoke.cont50 ]
+  %var.1.lcssa = phi double [ %19, %for.body29 ], [ %29, %invoke.cont50 ]
   %exitcond102.not = icmp eq i64 %add38, %sub.ptr.div.i39
   br i1 %exitcond102.not, label %for.cond.cleanup28.thread, label %for.body29, !llvm.loop !125
 
@@ -5883,25 +5882,25 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup28,
   ret double %call69127
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond25.loopexit
-  %17 = phi ptr [ %.pre, %for.body29.lr.ph ], [ %16, %for.cond25.loopexit ]
+  %16 = phi ptr [ %.pre, %for.body29.lr.ph ], [ %15, %for.cond25.loopexit ]
   %i.099 = phi i64 [ 0, %for.body29.lr.ph ], [ %add38, %for.cond25.loopexit ]
   %var.098 = phi double [ 0.000000e+00, %for.body29.lr.ph ], [ %var.1.lcssa, %for.cond25.loopexit ]
-  %add.ptr.i40 = getelementptr inbounds nuw double, ptr %17, i64 %i.099
-  %18 = load double, ptr %add.ptr.i40, align 8, !tbaa !111
-  %mul = fmul double %18, %18
+  %add.ptr.i40 = getelementptr inbounds nuw double, ptr %16, i64 %i.099
+  %17 = load double, ptr %add.ptr.i40, align 8, !tbaa !111
+  %mul = fmul double %17, %17
   %add.ptr.i42 = getelementptr inbounds nuw double, ptr %volBase.sroa.0.0, i64 %i.099
-  %19 = load double, ptr %add.ptr.i42, align 8, !tbaa !111
-  %mul35 = fmul double %mul, %19
-  %20 = tail call double @llvm.fmuladd.f64(double %mul35, double %19, double %var.098)
+  %18 = load double, ptr %add.ptr.i42, align 8, !tbaa !111
+  %mul35 = fmul double %mul, %18
+  %19 = tail call double @llvm.fmuladd.f64(double %mul35, double %18, double %var.098)
   %add38 = add nuw i64 %i.099, 1
   %cmp4193 = icmp ult i64 %add38, %sub.ptr.div.i39
   br i1 %cmp4193, label %for.body43, label %for.cond25.loopexit
 
 for.body43:                                       ; preds = %for.body29, %invoke.cont50
   %j.095 = phi i64 [ %inc64, %invoke.cont50 ], [ %add38, %for.body29 ]
-  %var.194 = phi double [ %30, %invoke.cont50 ], [ %20, %for.body29 ]
-  %21 = load ptr, ptr %correlation_, align 8, !tbaa !58
-  %cmp.not.i49 = icmp eq ptr %21, null
+  %var.194 = phi double [ %29, %invoke.cont50 ], [ %19, %for.body29 ]
+  %20 = load ptr, ptr %correlation_, align 8, !tbaa !58
+  %cmp.not.i49 = icmp eq ptr %20, null
   br i1 %cmp.not.i49, label %cond.false.i50, label %invoke.cont45, !prof !53
 
 cond.false.i50:                                   ; preds = %for.body43
@@ -5913,40 +5912,40 @@ cond.false.i50:                                   ; preds = %for.body43
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %.noexc52, %for.body43
-  %22 = phi ptr [ %21, %for.body43 ], [ %.pre.i51, %.noexc52 ]
-  %23 = load ptr, ptr %startTimeBase_, align 8, !tbaa !112
-  %add.ptr.i53 = getelementptr inbounds nuw double, ptr %23, i64 %i.099
-  %add.ptr.i54 = getelementptr inbounds nuw double, ptr %23, i64 %j.095
-  %vtable = load ptr, ptr %22, align 8, !tbaa !35
-  %24 = load ptr, ptr %vtable, align 8
-  %call51 = invoke noundef double %24(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i53, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i54)
+  %21 = phi ptr [ %20, %for.body43 ], [ %.pre.i51, %.noexc52 ]
+  %22 = load ptr, ptr %startTimeBase_, align 8, !tbaa !112
+  %add.ptr.i53 = getelementptr inbounds nuw double, ptr %22, i64 %i.099
+  %add.ptr.i54 = getelementptr inbounds nuw double, ptr %22, i64 %j.095
+  %vtable = load ptr, ptr %21, align 8, !tbaa !35
+  %23 = load ptr, ptr %vtable, align 8
+  %call51 = invoke noundef double %23(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i53, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i54)
           to label %invoke.cont50 unwind label %lpad44
 
 invoke.cont50:                                    ; preds = %invoke.cont45
   %mul52 = fmul double %call51, 2.000000e+00
-  %25 = load ptr, ptr %v_, align 8, !tbaa !112
-  %add.ptr.i55 = getelementptr inbounds nuw double, ptr %25, i64 %i.099
-  %26 = load double, ptr %add.ptr.i55, align 8, !tbaa !111
-  %mul55 = fmul double %mul52, %26
-  %add.ptr.i56 = getelementptr inbounds nuw double, ptr %25, i64 %j.095
-  %27 = load double, ptr %add.ptr.i56, align 8, !tbaa !111
-  %mul58 = fmul double %mul55, %27
-  %28 = load double, ptr %add.ptr.i42, align 8, !tbaa !111
-  %mul60 = fmul double %mul58, %28
+  %24 = load ptr, ptr %v_, align 8, !tbaa !112
+  %add.ptr.i55 = getelementptr inbounds nuw double, ptr %24, i64 %i.099
+  %25 = load double, ptr %add.ptr.i55, align 8, !tbaa !111
+  %mul55 = fmul double %mul52, %25
+  %add.ptr.i56 = getelementptr inbounds nuw double, ptr %24, i64 %j.095
+  %26 = load double, ptr %add.ptr.i56, align 8, !tbaa !111
+  %mul58 = fmul double %mul55, %26
+  %27 = load double, ptr %add.ptr.i42, align 8, !tbaa !111
+  %mul60 = fmul double %mul58, %27
   %add.ptr.i58 = getelementptr inbounds nuw double, ptr %volBase.sroa.0.0, i64 %j.095
-  %29 = load double, ptr %add.ptr.i58, align 8, !tbaa !111
-  %30 = tail call double @llvm.fmuladd.f64(double %mul60, double %29, double %var.194)
+  %28 = load double, ptr %add.ptr.i58, align 8, !tbaa !111
+  %29 = tail call double @llvm.fmuladd.f64(double %mul60, double %28, double %var.194)
   %inc64 = add i64 %j.095, 1
   %exitcond.not = icmp eq i64 %inc64, %sub.ptr.div.i39
   br i1 %exitcond.not, label %for.cond25.loopexit, label %for.body43, !llvm.loop !127
 
 lpad44:                                           ; preds = %cond.false.i50, %invoke.cont45
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad44, %lpad17
-  %.pn = phi { ptr, i32 } [ %15, %lpad17 ], [ %31, %lpad44 ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad17 ], [ %30, %lpad44 ]
   %tobool.not.i.i.i59 = icmp eq ptr %volBase.sroa.0.0, null
   br i1 %tobool.not.i.i.i59, label %ehcleanup70, label %if.then.i.i.i60
 

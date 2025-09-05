@@ -1042,7 +1042,7 @@ define internal void @_ZN12_GLOBAL__N_110smt_solverD2Ev(ptr noundef nonnull alig
   %9 = load i32, ptr %8, align 8, !tbaa !77
   %10 = zext i32 %9 to i64
   %.idx.i.i = shl nuw nsw i64 %10, 4
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
+  %11 = getelementptr i8, ptr %7, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not1.i.i.i.i, label %.loopexit19, label %.lr.ph.i.i.i.i
 
@@ -2127,7 +2127,7 @@ _ZNK6vectorI13obj_hashtableI9func_declELb1EjE5emptyEv.exit.thread.i: ; preds = %
   %341 = load i32, ptr %234, align 8, !tbaa !77
   %342 = zext i32 %341 to i64
   %.idx.i.i.i56.i = shl nuw nsw i64 %342, 4
-  %343 = getelementptr inbounds nuw i8, ptr %340, i64 %.idx.i.i.i56.i
+  %343 = getelementptr i8, ptr %340, i64 %.idx.i.i.i56.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %341, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -2272,7 +2272,7 @@ _ZN12_GLOBAL__N_110smt_solver18compute_assrtn_fdsER10ref_vectorI4expr11ast_manag
   %386 = load i32, ptr %234, align 8, !tbaa !77
   %387 = zext i32 %386 to i64
   %.idx.i.i.i = shl nuw nsw i64 %387, 4
-  %388 = getelementptr inbounds nuw i8, ptr %385, i64 %.idx.i.i.i
+  %388 = getelementptr i8, ptr %385, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %386, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit141.i, label %.lr.ph.i.i.i.i.i
 
@@ -2334,7 +2334,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %.val48.i = load i32, ptr %405, align 8
   %406 = zext i32 %.val46.i to i64
   %.idx.i.i66.i = shl nuw nsw i64 %406, 3
-  %407 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i66.i
+  %407 = getelementptr i8, ptr %.val.i, i64 %.idx.i.i66.i
   %.not1.i.i.i.i67.i = icmp eq i32 %.val46.i, 0
   br i1 %.not1.i.i.i.i67.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i.i, label %.lr.ph.i.i.i.i68.i
 
@@ -2873,7 +2873,7 @@ _ZN12_GLOBAL__N_110smt_solver28add_pattern_literals_to_coreER10ref_vectorI4expr1
   %599 = load i32, ptr %598, align 8, !tbaa !77
   %600 = zext i32 %599 to i64
   %.idx.i.i.i75 = shl nuw nsw i64 %600, 4
-  %601 = getelementptr inbounds nuw i8, ptr %597, i64 %.idx.i.i.i75
+  %601 = getelementptr i8, ptr %597, i64 %.idx.i.i.i75
   %.not1.i.i.i.i.i76 = icmp eq i32 %599, 0
   br i1 %.not1.i.i.i.i.i76, label %_ZNK7obj_mapI4exprPS0_E5beginEv.exit.i, label %.lr.ph.i.i.i.i.i77
 
@@ -3597,7 +3597,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i.i: ; preds = %842, %839
   %856 = load i32, ptr %609, align 8, !tbaa !284
   %857 = zext i32 %856 to i64
   %.idx.i.i = shl nuw nsw i64 %857, 3
-  %858 = getelementptr inbounds nuw i8, ptr %855, i64 %.idx.i.i
+  %858 = getelementptr i8, ptr %855, i64 %.idx.i.i
   %.not1.i.i.i.i100 = icmp eq i32 %856, 0
   br i1 %.not1.i.i.i.i100, label %.loopexit81.i, label %.lr.ph.i.i.i33.i
 
@@ -4151,7 +4151,7 @@ _ZN16check_sat_result19set_model_converterEP15model_converter.exit: ; preds = %3
   %45 = load i32, ptr %44, align 8, !tbaa !77
   %46 = zext i32 %45 to i64
   %.idx.i.i = shl nuw nsw i64 %46, 4
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i
+  %47 = getelementptr i8, ptr %43, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %45, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

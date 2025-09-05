@@ -536,7 +536,7 @@ _ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit.i: ; preds = %_ZN4llvm8D
   %.val22.i = load i24, ptr %131, align 8, !noalias !290
   %132 = zext i24 %.val22.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %132, 5
-  %133 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i.i
+  %133 = getelementptr i8, ptr %.val.i, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i24 %.val22.i, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

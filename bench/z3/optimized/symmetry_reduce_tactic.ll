@@ -1437,7 +1437,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i68: ; preds = %_ZNK6vect
   %95 = load i32, ptr %94, align 8, !tbaa !149
   %96 = zext i32 %95 to i64
   %.idx.i = shl nuw nsw i64 %96, 3
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
+  %97 = getelementptr i8, ptr %93, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %95, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -11719,7 +11719,7 @@ _ZN3mapIN22symmetry_reduce_tactic3imp6u_pairEjNS2_4hashENS2_2eqEEC2ERKS3_RKS4_.e
   %15 = load i32, ptr %14, align 8, !tbaa !228
   %16 = zext i32 %15 to i64
   %.idx.i.i = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %13, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i.i.i, label %.loopexit58, label %.lr.ph.i.i.i.i
 
@@ -11947,7 +11947,7 @@ define linkonce_odr hidden void @_ZN22symmetry_reduce_tactic3imp15compute_inv_ap
   %8 = load i32, ptr %7, align 8, !tbaa !228
   %9 = zext i32 %8 to i64
   %.idx.i.i = shl nuw nsw i64 %9, 4
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI3appjE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -15925,7 +15925,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i:     ; preds = %_ZN22symmetry_reduc
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i
   %.ph = phi i32 [ %36, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ %33, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ]
-  %.ph25 = phi ptr [ %31, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ]
+  %.ph24 = phi ptr [ %31, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.ph = phi i32 [ %35, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
@@ -15934,7 +15934,7 @@ thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIP3appLb
   br label %_ZN6vectorIP3appLb0EjE6resizeEj.exit
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i
-  %38 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i ], [ %.ph25, %thread-pre-split.i.preheader ]
+  %38 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i ], [ %.ph24, %thread-pre-split.i.preheader ]
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i
 
@@ -18748,7 +18748,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %134 = load i32, ptr %133, align 8, !tbaa !149
   %135 = zext i32 %134 to i64
   %.idx.i = shl nuw nsw i64 %135, 3
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i
+  %136 = getelementptr i8, ptr %132, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %134, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

@@ -4406,7 +4406,7 @@ define internal fastcc void @"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..Bit
 
 18:                                               ; preds = %2
   %19 = icmp samesign ult i64 %1, %16
-  br i1 %19, label %118, label %122
+  br i1 %19, label %117, label %121
 
 20:                                               ; preds = %2
   %21 = sub nuw i64 %1, %16
@@ -4632,8 +4632,8 @@ define internal fastcc void @"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..Bit
   br i1 %116, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.thread.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.preheader.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.preheader.i": ; preds = %115
-  %117 = shl i64 %104, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %100, i8 0, i64 %117, i1 false), !alias.scope !624
+  %.idx.i = shl i64 %104, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %100, i8 0, i64 %.idx.i, i1 false), !alias.scope !624
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.thread.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.thread.i": ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.preheader.i", %115
@@ -4642,16 +4642,16 @@ define internal fastcc void @"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..Bit
 
 "_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h87d424193e943bc9E.exit": ; preds = %.sink.split.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6455bca895469fdE.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !618
-  br label %122
+  br label %121
 
-118:                                              ; preds = %18
-  %119 = and i64 %15, 7
-  %120 = shl nuw i64 %1, 3
-  %121 = or disjoint i64 %119, %120
-  store i64 %121, ptr %14, align 8
-  br label %122
+117:                                              ; preds = %18
+  %118 = and i64 %15, 7
+  %119 = shl nuw i64 %1, 3
+  %120 = or disjoint i64 %118, %119
+  store i64 %120, ptr %14, align 8
+  br label %121
 
-122:                                              ; preds = %118, %18, %"_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h87d424193e943bc9E.exit"
+121:                                              ; preds = %117, %18, %"_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h87d424193e943bc9E.exit"
   ret void
 }
 

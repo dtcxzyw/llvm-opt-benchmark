@@ -1414,8 +1414,8 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %3
   store i32 0, ptr %16, align 8, !tbaa !206
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 8) #22
   %19 = load ptr, ptr %0, align 8, !tbaa !205
-  %20 = shl nuw nsw i64 %14, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %20, i1 false), !tbaa !37
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %14, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !37
   %.pre = load i32, ptr %10, align 8, !tbaa !53
   br label %_ZN4llvm9BitVectorC2Ejb.exit
 
@@ -1424,103 +1424,103 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %3
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.thread
 
 _ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
-  %21 = shl nuw nsw i64 %14, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %21, i1 false), !tbaa !37
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %14, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !37
   store i32 %13, ptr %16, align 8, !tbaa !206
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %11, ptr %22, align 8, !tbaa !347
-  %23 = load ptr, ptr %4, align 8, !tbaa !80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %11, ptr %20, align 8, !tbaa !347
+  %21 = load ptr, ptr %4, align 8, !tbaa !80
   br label %.lr.ph.preheader
 
 _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC2Ejb.exit.loopexit, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
-  %24 = phi i32 [ %.pre, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %11, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
+  %22 = phi i32 [ %.pre, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %11, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
   store i32 %13, ptr %16, align 8, !tbaa !206
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %11, ptr %25, align 8, !tbaa !347
-  %26 = load ptr, ptr %4, align 8, !tbaa !80
-  %.not = icmp eq i32 %24, 0
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %11, ptr %23, align 8, !tbaa !347
+  %24 = load ptr, ptr %4, align 8, !tbaa !80
+  %.not = icmp eq i32 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm9BitVectorC2Ejb.exit.thread, %_ZN4llvm9BitVectorC2Ejb.exit
-  %27 = phi ptr [ %23, %_ZN4llvm9BitVectorC2Ejb.exit.thread ], [ %26, %_ZN4llvm9BitVectorC2Ejb.exit ]
+  %25 = phi ptr [ %21, %_ZN4llvm9BitVectorC2Ejb.exit.thread ], [ %24, %_ZN4llvm9BitVectorC2Ejb.exit ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit, %_ZN4llvm9BitVectorC2Ejb.exit
-  %28 = phi ptr [ %26, %_ZN4llvm9BitVectorC2Ejb.exit ], [ %27, %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit ]
+  %26 = phi ptr [ %24, %_ZN4llvm9BitVectorC2Ejb.exit ], [ %25, %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit ]
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 173) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 174) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 175) #22
-  %29 = load ptr, ptr %2, align 8, !tbaa !234
-  %30 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 20) #22
-  br i1 %30, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit
+  %27 = load ptr, ptr %2, align 8, !tbaa !234
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 20) #22
+  br i1 %28, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit
 
 _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit: ; preds = %._crit_edge
-  %31 = load ptr, ptr %9, align 8, !tbaa !50
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 384
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 8 dereferenceable(1065) %2) #22
-  br i1 %34, label %47, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
+  %29 = load ptr, ptr %9, align 8, !tbaa !50
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 384
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 8 dereferenceable(1065) %2) #22
+  br i1 %32, label %45, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit
-  %.02042 = phi i64 [ %43, %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit ], [ 0, %.lr.ph.preheader ]
-  %35 = trunc nuw i64 %.02042 to i32
-  %36 = load ptr, ptr %27, align 8, !tbaa !50
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 496
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(413544) %27, i32 %35) #22
-  br i1 %39, label %40, label %41
+  %.02042 = phi i64 [ %41, %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit ], [ 0, %.lr.ph.preheader ]
+  %33 = trunc nuw i64 %.02042 to i32
+  %34 = load ptr, ptr %25, align 8, !tbaa !50
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 496
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(413544) %25, i32 %33) #22
+  br i1 %37, label %38, label %39
 
-40:                                               ; preds = %.lr.ph
-  tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %35) #22
-  br label %41
+38:                                               ; preds = %.lr.ph
+  tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %33) #22
+  br label %39
 
-41:                                               ; preds = %40, %.lr.ph
-  switch i32 %35, label %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit [
-    i32 6, label %42
-    i32 43, label %42
-    i32 171, label %42
-    i32 204, label %42
+39:                                               ; preds = %38, %.lr.ph
+  switch i32 %33, label %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit [
+    i32 6, label %40
+    i32 43, label %40
+    i32 171, label %40
+    i32 204, label %40
   ]
 
-42:                                               ; preds = %41, %41, %41, %41
-  tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %35) #22
+40:                                               ; preds = %39, %39, %39, %39
+  tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %33) #22
   br label %_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit: ; preds = %41, %42
-  %43 = add nuw nsw i64 %.02042, 1
-  %44 = load i32, ptr %10, align 8, !tbaa !53
-  %45 = zext i32 %44 to i64
-  %46 = icmp samesign ult i64 %43, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !354
+_ZNK4llvm20RISCVGenRegisterInfo17isConstantPhysRegENS_10MCRegisterE.exit: ; preds = %39, %40
+  %41 = add nuw nsw i64 %.02042, 1
+  %42 = load i32, ptr %10, align 8, !tbaa !53
+  %43 = zext i32 %42 to i64
+  %44 = icmp samesign ult i64 %41, %43
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !354
 
-47:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit
+45:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 179) #22
   br label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
 
-_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; preds = %._crit_edge, %47, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit
-  %48 = tail call noundef zeroext i1 @_ZNK4llvm18RISCVFrameLowering5hasBPERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(1065) %2) #22
-  br i1 %48, label %49, label %51
+_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; preds = %._crit_edge, %45, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit
+  %46 = tail call noundef zeroext i1 @_ZNK4llvm18RISCVFrameLowering5hasBPERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(1065) %2) #22
+  br i1 %46, label %47, label %49
 
-49:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
-  %50 = tail call i32 @_ZN4llvm8RISCVABI8getBPRegEv() #22
-  tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %50) #22
-  br label %51
+47:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
+  %48 = tail call i32 @_ZN4llvm8RISCVABI8getBPRegEv() #22
+  tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %48) #22
+  br label %49
 
-51:                                               ; preds = %49, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
+49:                                               ; preds = %47, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 10) #22
-  %52 = getelementptr inbounds nuw i8, ptr %28, i64 335
-  %53 = load i8, ptr %52, align 1, !tbaa !344, !range !228, !noundef !229
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %.preheader, label %.loopexit
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 335
+  %51 = load i8, ptr %50, align 1, !tbaa !344, !range !228, !noundef !229
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %51, %.preheader
-  %indvars.iv = phi i32 [ %indvars.iv.next, %.preheader ], [ 187, %51 ]
+.preheader:                                       ; preds = %49, %.preheader
+  %indvars.iv = phi i32 [ %indvars.iv.next, %.preheader ], [ 187, %49 ]
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 %indvars.iv) #22
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 203
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !355
 
-.loopexit:                                        ; preds = %.preheader, %51
+.loopexit:                                        ; preds = %.preheader, %49
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 5) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 7) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 9) #22
@@ -1528,28 +1528,28 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; pred
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 2) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 1) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 3) #22
-  %55 = load ptr, ptr %2, align 8, !tbaa !234
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
-  %57 = load i16, ptr %56, align 2, !tbaa !235
-  %58 = and i16 %57, 16368
-  %59 = icmp eq i16 %58, 1712
-  br i1 %59, label %60, label %65
+  %53 = load ptr, ptr %2, align 8, !tbaa !234
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  %55 = load i16, ptr %54, align 2, !tbaa !235
+  %56 = and i16 %55, 16368
+  %57 = icmp eq i16 %56, 1712
+  br i1 %57, label %58, label %63
 
-60:                                               ; preds = %.loopexit
-  %61 = load i8, ptr %52, align 1, !tbaa !344, !range !228, !noundef !229
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %64
+58:                                               ; preds = %.loopexit
+  %59 = load i8, ptr %50, align 1, !tbaa !344, !range !228, !noundef !229
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %61, label %62
 
-63:                                               ; preds = %60
+61:                                               ; preds = %58
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.34, i1 noundef zeroext true) #24
   unreachable
 
-64:                                               ; preds = %60
+62:                                               ; preds = %58
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 194) #22
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 198) #22
-  br label %65
+  br label %63
 
-65:                                               ; preds = %64, %.loopexit
+63:                                               ; preds = %62, %.loopexit
   tail call void @_ZNK4llvm18TargetRegisterInfo13markSuperRegsERNS_9BitVectorENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull align 8 dereferenceable(68) %0, i32 4) #22
   ret void
 }

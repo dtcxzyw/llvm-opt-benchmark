@@ -4273,7 +4273,7 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit150.thread: ; preds = %.critedg
   %331 = load i32, ptr %24, align 8, !tbaa !18
   %332 = zext i32 %331 to i64
   %.idx.i.i = shl nuw nsw i64 %332, 4
-  %333 = getelementptr inbounds nuw i8, ptr %330, i64 %.idx.i.i
+  %333 = getelementptr i8, ptr %330, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %331, 0
   br i1 %.not1.i.i.i.i, label %.loopexit223, label %.lr.ph.i.i.i.i151
 

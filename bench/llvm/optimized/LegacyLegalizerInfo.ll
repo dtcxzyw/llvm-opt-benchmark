@@ -1585,7 +1585,7 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr nounde
 
 109:                                              ; preds = %96
   %.idx.i = shl nuw nsw i64 %106, 4
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i
+  %110 = getelementptr i8, ptr %103, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %105, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

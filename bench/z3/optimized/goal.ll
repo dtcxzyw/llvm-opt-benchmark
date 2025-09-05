@@ -4326,7 +4326,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %._cri
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71: ; preds = %241
   %243 = zext i32 %89 to i64
   %.idx.i = shl nuw nsw i64 %243, 3
-  %244 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i
+  %244 = getelementptr i8, ptr %87, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %89, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

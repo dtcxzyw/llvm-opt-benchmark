@@ -544,7 +544,7 @@ define dso_local void @_ZNK4llvm25PhysicalRegisterUsageInfo5printERNS_11raw_ostr
 
 18:                                               ; preds = %3
   %.idx.i = shl nuw nsw i64 %15, 5
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
+  %19 = getelementptr i8, ptr %12, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %14, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionESt6vectorIjSaIjEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

@@ -6157,7 +6157,7 @@ strbuf_addch.exit122:                             ; preds = %strbuf_avail.exit.i
   %sext6 = shl i64 %43, 29
   %62 = ashr exact i64 %sext6, 29
   %.idx33 = and i64 %62, -8
-  %63 = getelementptr inbounds i8, ptr %.08727, i64 %.idx33
+  %63 = getelementptr i8, ptr %.08727, i64 %.idx33
   %.not.i17 = icmp eq i64 %.idx33, 0
   br i1 %.not.i17, label %._crit_edge, label %.lr.ph
 

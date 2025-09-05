@@ -24761,7 +24761,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %52 = phi i32 [ %41, %._crit_edge.thread ], [ %46, %._crit_edge ]
   %53 = phi ptr [ %39, %._crit_edge.thread ], [ %44, %._crit_edge ]
   %.idx.i.i = shl nuw nsw i64 %51, 3
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i
+  %54 = getelementptr i8, ptr %53, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %52, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

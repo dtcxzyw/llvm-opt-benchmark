@@ -4623,13 +4623,14 @@ define linkonce_odr hidden noundef i64 @_ZN5boost6detail21strong_comp_dispatch1I
 
 .noexc19:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store i64 0, ptr %12, align 8
-  %13 = icmp samesign ult i64 %5, 2
-  br i1 %13, label %16, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
+  %13 = add nsw i64 %spec.select, -1
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %16, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc19
-  %14 = getelementptr i8, ptr %12, i64 8
-  %15 = add nsw i64 %11, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %15, i1 false)
+  %15 = getelementptr i8, ptr %12, i64 8
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false)
   br label %16
 
 16:                                               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc19

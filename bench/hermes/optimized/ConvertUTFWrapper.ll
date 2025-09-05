@@ -427,8 +427,8 @@ if.end.i27:                                       ; preds = %if.then9.i34, %if.t
 for.body.preheader.i30:                           ; preds = %if.end.i27
   %14 = load ptr, ptr %DstUTF16, align 8
   %add.ptr.i.i31 = getelementptr i16, ptr %14, i64 %conv.i17.pre-phi.i28
-  %15 = shl nuw nsw i64 %conv.i17.pre-phi.i28, 1
-  %16 = sub i64 %sub.ptr.sub, %15
+  %15 = sub nsw i64 %sub.ptr.div, %conv.i17.pre-phi.i28
+  %16 = shl i64 %15, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i31, i8 0, i64 %16, i1 false)
   br label %if.end15.sink.split.i32
 

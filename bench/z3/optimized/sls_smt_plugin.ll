@@ -7106,7 +7106,7 @@ _ZN6vectorISt4pairI7obj_refI4expr11ast_managerES4_ELb1EjE5resetEv.exit: ; preds 
   %17 = load i32, ptr %16, align 8, !tbaa !149
   %18 = zext i32 %17 to i64
   %.idx.i.i = shl nuw nsw i64 %18, 4
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i
+  %19 = getelementptr i8, ptr %15, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -7788,7 +7788,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %15
   %22 = load i32, ptr %21, align 8, !tbaa !149
   %23 = zext i32 %22 to i64
   %.idx.i.i = shl nuw nsw i64 %23, 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
+  %24 = getelementptr i8, ptr %20, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -8249,7 +8249,7 @@ define hidden void @_ZN3sls10smt_plugin17sls_values_to_smtEv(ptr noundef nonnull
   %25 = load i32, ptr %24, align 8, !tbaa !149
   %26 = zext i32 %25 to i64
   %.idx.i.i = shl nuw nsw i64 %26, 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

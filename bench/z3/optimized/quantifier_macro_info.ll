@@ -923,7 +923,7 @@ define hidden noundef zeroext i1 @_ZNK21quantifier_macro_info23unary_function_fr
   %11 = load i32, ptr %10, align 8, !tbaa !33
   %12 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %12, 3
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 
@@ -1000,7 +1000,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   %34 = load i32, ptr %33, align 8, !tbaa !33
   %35 = zext i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i
+  %36 = getelementptr i8, ptr %32, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1033,7 +1033,7 @@ _ZNK21quantifier_macro_info23unary_function_fragmentEv.exit: ; preds = %_ZStlsIS
   %49 = load i32, ptr %48, align 8, !tbaa !33
   %50 = zext i32 %49 to i64
   %.idx.i = shl nuw nsw i64 %50, 3
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i
+  %51 = getelementptr i8, ptr %47, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %49, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 

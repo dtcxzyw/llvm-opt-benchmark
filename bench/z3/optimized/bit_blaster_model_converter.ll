@@ -204,7 +204,7 @@ define linkonce_odr hidden void @_ZN27bit_blaster_model_converterILb1EEC2ER11ast
   %17 = load i32, ptr %16, align 8, !tbaa !29
   %18 = zext i32 %17 to i64
   %.idx.i.i = shl nuw nsw i64 %18, 4
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i
+  %19 = getelementptr i8, ptr %15, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -462,7 +462,7 @@ define linkonce_odr hidden void @_ZN27bit_blaster_model_converterILb0EEC2ER11ast
   %17 = load i32, ptr %16, align 8, !tbaa !29
   %18 = zext i32 %17 to i64
   %.idx.i.i = shl nuw nsw i64 %18, 4
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i
+  %19 = getelementptr i8, ptr %15, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

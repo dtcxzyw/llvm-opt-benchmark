@@ -1171,10 +1171,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %108, %123, %124, %1
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %106, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %94
-  %.sink92 = phi i64 [ 16, %94 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %106 ]
+  %.sink93 = phi i64 [ 16, %94 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %106 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %146 = load i32, ptr %145, align 8, !tbaa !18
-  %147 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink92
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
   %148 = load ptr, ptr %147, align 8, !tbaa !65
   invoke void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef %49, i32 noundef %57, i32 noundef %65, i32 noundef %146, i64 noundef %20, ptr noundef %148)
           to label %149 unwind label %104
@@ -1248,13 +1248,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %157
 .noexc67:                                         ; preds = %.noexc47.i
   %182 = getelementptr inbounds nuw i32, ptr %181, i64 %178
   store i32 0, ptr %181, align 4, !tbaa !66
-  %183 = icmp eq i32 %177, 1
-  br i1 %183, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  %183 = add nsw i64 %178, -1
+  %184 = icmp eq i64 %183, 0
+  br i1 %184, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc67
-  %184 = getelementptr i8, ptr %181, i64 4
-  %185 = add nsw i64 %180, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %184, i8 0, i64 %185, i1 false), !tbaa !66
+  %185 = getelementptr i8, ptr %181, i64 4
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %183, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %185, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !66
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc67, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i

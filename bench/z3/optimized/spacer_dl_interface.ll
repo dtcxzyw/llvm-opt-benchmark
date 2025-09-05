@@ -861,7 +861,7 @@ _ZNK9fp_params11xform_sliceEv.exit:               ; preds = %78
   %98 = load i32, ptr %97, align 8, !tbaa !219
   %99 = zext i32 %98 to i64
   %.idx.i.i53 = shl nuw nsw i64 %99, 4
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i.i53
+  %100 = getelementptr i8, ptr %96, i64 %.idx.i.i53
   %.not1.i.i.i.i = icmp eq i32 %98, 0
   br i1 %.not1.i.i.i.i, label %.loopexit109, label %.lr.ph.i.i.i.i
 
@@ -1205,7 +1205,7 @@ _ZNK9fp_params20xform_coalesce_rulesEv.exit:      ; preds = %190
   %228 = load i32, ptr %227, align 8, !tbaa !299
   %229 = zext i32 %228 to i64
   %.idx.i.i73 = shl nuw nsw i64 %229, 3
-  %230 = getelementptr inbounds nuw i8, ptr %226, i64 %.idx.i.i73
+  %230 = getelementptr i8, ptr %226, i64 %.idx.i.i73
   %.not1.i.i.i.i74 = icmp eq i32 %228, 0
   br i1 %.not1.i.i.i.i74, label %thread-pre-split, label %.lr.ph.i.i.i.i75
 
@@ -2000,7 +2000,7 @@ _ZNK9fp_params11xform_sliceEv.exit:               ; preds = %82
   %102 = load i32, ptr %101, align 8, !tbaa !219
   %103 = zext i32 %102 to i64
   %.idx.i.i59 = shl nuw nsw i64 %103, 4
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i59
+  %104 = getelementptr i8, ptr %100, i64 %.idx.i.i59
   %.not1.i.i.i.i = icmp eq i32 %102, 0
   br i1 %.not1.i.i.i.i, label %.loopexit115, label %.lr.ph.i.i.i.i
 
@@ -2354,7 +2354,7 @@ _ZNK9fp_params20xform_coalesce_rulesEv.exit:      ; preds = %198
   %237 = load i32, ptr %236, align 8, !tbaa !299
   %238 = zext i32 %237 to i64
   %.idx.i.i79 = shl nuw nsw i64 %238, 3
-  %239 = getelementptr inbounds nuw i8, ptr %235, i64 %.idx.i.i79
+  %239 = getelementptr i8, ptr %235, i64 %.idx.i.i79
   %.not1.i.i.i.i80 = icmp eq i32 %237, 0
   br i1 %.not1.i.i.i.i80, label %thread-pre-split, label %.lr.ph.i.i.i.i81
 

@@ -6639,7 +6639,7 @@ _ZN4llvm14WeakTrackingVHaSERKS0_.exit.i:          ; preds = %_ZN4llvm8ValueMapIP
 
 1689:                                             ; preds = %._crit_edge82.i
   %.idx.i.i.i178 = shl nuw nsw i64 %1686, 6
-  %1690 = getelementptr inbounds nuw i8, ptr %1684, i64 %.idx.i.i.i178
+  %1690 = getelementptr i8, ptr %1684, i64 %.idx.i.i.i178
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %1685, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -7626,7 +7626,7 @@ _ZL15cloneLoopBlocksPN4llvm4LoopEjPNS_10BasicBlockES3_RNS_15SmallVectorImplISt4p
 
 2103:                                             ; preds = %2095
   %.idx.i187 = shl nuw nsw i64 %2100, 4
-  %2104 = getelementptr inbounds nuw i8, ptr %2098, i64 %.idx.i187
+  %2104 = getelementptr i8, ptr %2098, i64 %.idx.i187
   %.not5.i5.i10.i2.i = icmp eq i32 %2099, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

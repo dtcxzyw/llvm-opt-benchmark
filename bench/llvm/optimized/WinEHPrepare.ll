@@ -7780,7 +7780,7 @@ _ZN4llvm7PHINode19removeIncomingValueEPKNS_10BasicBlockEb.exit.i254.i: ; preds =
 
 1351:                                             ; preds = %._crit_edge813.i
   %.idx.i.i.i20 = shl nuw nsw i64 %1348, 6
-  %1352 = getelementptr inbounds nuw i8, ptr %1346, i64 %.idx.i.i.i20
+  %1352 = getelementptr i8, ptr %1346, i64 %.idx.i.i.i20
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %1347, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 

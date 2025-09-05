@@ -121132,7 +121132,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$image..codecs..farbfeld..FarbfeldReader$L
   %36 = add i64 %24, 2
   %storemerge.i.i.i = select i1 %35, i64 %36, i64 %27
   store i64 %storemerge.i.i.i, ptr %23, align 8, !alias.scope !26311, !noalias !26302
-  br i1 %35, label %46, label %52
+  br i1 %35, label %47, label %53
 
 37:                                               ; preds = %13
   %38 = and i64 %.sroa.6.0, -2
@@ -121148,90 +121148,89 @@ define hidden { i64, ptr } @"_ZN82_$LT$image..codecs..farbfeld..FarbfeldReader$L
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load i64, ptr %40, align 8, !alias.scope !26324, !noalias !26321
   %.promoted55 = load i64, ptr %45, align 8
+  %46 = or disjoint i64 %.sroa.021.0, %38
   br label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit"
 
-46:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i.i"
+47:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i.i"
   %.sroa.07.0.copyload.i.i = load i16, ptr %7, align 2, !noalias !26290
-  %47 = call i16 @llvm.bswap.i16(i16 %.sroa.07.0.copyload.i.i)
-  %.sroa.016.i.sroa.0.0.extract.trunc.i = trunc i16 %47 to i8
-  %.sroa.016.i.sroa.4.0.extract.shift.i = lshr i16 %47, 8
+  %48 = call i16 @llvm.bswap.i16(i16 %.sroa.07.0.copyload.i.i)
+  %.sroa.016.i.sroa.0.0.extract.trunc.i = trunc i16 %48 to i8
+  %.sroa.016.i.sroa.4.0.extract.shift.i = lshr i16 %48, 8
   %.sroa.016.i.sroa.4.0.extract.trunc.i = trunc nuw i16 %.sroa.016.i.sroa.4.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !26290
   store i8 1, ptr %8, align 8, !alias.scope !26285, !noalias !26325
   store i8 %.sroa.016.i.sroa.4.0.extract.trunc.i, ptr %10, align 1, !alias.scope !26285, !noalias !26325
   store i8 %.sroa.016.i.sroa.0.0.extract.trunc.i, ptr %.sroa.0.0, align 1
-  %48 = add nuw nsw i64 %.sroa.021.0, 1
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load i64, ptr %49, align 8, !noundef !22
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %49, align 8
+  %49 = add nuw nsw i64 %.sroa.021.0, 1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8, !noundef !22
+  %52 = add i64 %51, 1
+  store i64 %52, ptr %50, align 8
   br label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread"
 
-52:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i.i"
+53:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !26290
-  br label %65
+  br label %66
 
-"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread": ; preds = %68, %37, %46
-  %.sroa.021.2 = phi i64 [ %48, %46 ], [ %.sroa.021.0, %37 ], [ %70, %68 ]
-  %53 = inttoptr i64 %.sroa.021.2 to ptr
-  br label %65
+"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread": ; preds = %69, %37, %47
+  %.sroa.021.2 = phi i64 [ %49, %47 ], [ %.sroa.021.0, %37 ], [ %46, %69 ]
+  %54 = inttoptr i64 %.sroa.021.2 to ptr
+  br label %66
 
-"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit": ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph", %68
-  %54 = phi i64 [ %.promoted55, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %71, %68 ]
-  %storemerge.i.i54 = phi i64 [ %.promoted, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %64, %68 ]
-  %.sroa.021.153 = phi i64 [ %.sroa.021.0, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %70, %68 ]
-  %.sroa.8.052 = phi i64 [ %38, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %56, %68 ]
-  %.sroa.535.051 = phi ptr [ %.sroa.0.0, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %55, %68 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.535.051, i64 2
-  %56 = add i64 %.sroa.8.052, -2
+"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit": ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph", %69
+  %55 = phi i64 [ %.promoted55, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %71, %69 ]
+  %storemerge.i.i54 = phi i64 [ %.promoted, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %65, %69 ]
+  %.sroa.8.052 = phi i64 [ %38, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %57, %69 ]
+  %.sroa.535.051 = phi ptr [ %.sroa.0.0, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.lr.ph" ], [ %56, %69 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.535.051, i64 2
+  %57 = add i64 %.sroa.8.052, -2
   call void @llvm.experimental.noalias.scope.decl(metadata !26326)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !26327
   store i16 0, ptr %5, align 2, !noalias !26327
   call void @llvm.experimental.noalias.scope.decl(metadata !26328)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !26329
   call void @llvm.experimental.noalias.scope.decl(metadata !26330)
-  %57 = call noundef i64 @_ZN4core3cmp6min_by17hc200cb174ae6de94E.llvm.6689388785225190856(i64 noundef %storemerge.i.i54, i64 noundef %43), !noalias !26331
-  %58 = icmp ugt i64 %57, %43
-  br i1 %58, label %59, label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i"
+  %58 = call noundef i64 @_ZN4core3cmp6min_by17hc200cb174ae6de94E.llvm.6689388785225190856(i64 noundef %storemerge.i.i54, i64 noundef %43), !noalias !26331
+  %59 = icmp ugt i64 %58, %43
+  br i1 %59, label %60, label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i"
 
-59:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit"
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %57, i64 noundef %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.266.llvm.6689388785225190856) #51, !noalias !26332
+60:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit"
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %58, i64 noundef %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.266.llvm.6689388785225190856) #51, !noalias !26332
   unreachable
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i": ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit"
-  %60 = sub nuw i64 %43, %57
-  %61 = getelementptr inbounds i8, ptr %41, i64 %57
-  store ptr %61, ptr %4, align 8, !noalias !26329
-  store i64 %60, ptr %44, align 8, !noalias !26329
-  %62 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h6d118d125acd1831E.llvm.6689388785225190856"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %5, i64 noundef 2), !noalias !26335
+  %61 = sub nuw i64 %43, %58
+  %62 = getelementptr inbounds i8, ptr %41, i64 %58
+  store ptr %62, ptr %4, align 8, !noalias !26329
+  store i64 %61, ptr %44, align 8, !noalias !26329
+  %63 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h6d118d125acd1831E.llvm.6689388785225190856"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %5, i64 noundef 2), !noalias !26335
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26329
-  %63 = icmp eq ptr %62, null
-  %64 = add i64 %storemerge.i.i54, 2
-  %storemerge.i.i = select i1 %63, i64 %64, i64 %43
+  %64 = icmp eq ptr %63, null
+  %65 = add i64 %storemerge.i.i54, 2
+  %storemerge.i.i = select i1 %64, i64 %65, i64 %43
   store i64 %storemerge.i.i, ptr %40, align 8, !alias.scope !26324, !noalias !26321
-  br i1 %63, label %68, label %73
+  br i1 %64, label %69, label %73
 
-65:                                               ; preds = %52, %73, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread"
-  %.sroa.4.0 = phi ptr [ %53, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread" ], [ %34, %52 ], [ %62, %73 ]
-  %.sroa.08.0 = phi i64 [ 0, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread" ], [ 1, %52 ], [ 1, %73 ]
-  %66 = insertvalue { i64, ptr } poison, i64 %.sroa.08.0, 0
-  %67 = insertvalue { i64, ptr } %66, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %67
+66:                                               ; preds = %53, %73, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread"
+  %.sroa.4.0 = phi ptr [ %54, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread" ], [ %34, %53 ], [ %63, %73 ]
+  %.sroa.08.0 = phi i64 [ 0, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread" ], [ 1, %53 ], [ 1, %73 ]
+  %67 = insertvalue { i64, ptr } poison, i64 %.sroa.08.0, 0
+  %68 = insertvalue { i64, ptr } %67, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %68
 
-68:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i"
+69:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i"
   %.sroa.07.0.copyload.i = load i16, ptr %5, align 2, !noalias !26327
-  %69 = call i16 @llvm.bswap.i16(i16 %.sroa.07.0.copyload.i)
-  store i16 %69, ptr %.sroa.535.051, align 1, !alias.scope !26336, !noalias !26340
+  %70 = call i16 @llvm.bswap.i16(i16 %.sroa.07.0.copyload.i)
+  store i16 %70, ptr %.sroa.535.051, align 1, !alias.scope !26336, !noalias !26340
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26327
-  %70 = add i64 %.sroa.021.153, 2
-  %71 = add i64 %54, 2
+  %71 = add i64 %55, 2
   store i64 %71, ptr %45, align 8
-  %72 = icmp eq i64 %56, 0
+  %72 = icmp eq i64 %57, 0
   br i1 %72, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit.thread", label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9ff26ceddf0721cE.exit"
 
 73:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hc6a40b397d73c1d9E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26327
-  br label %65
+  br label %66
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

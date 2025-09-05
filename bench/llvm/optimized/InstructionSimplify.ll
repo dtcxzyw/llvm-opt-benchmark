@@ -33605,7 +33605,7 @@ define internal fastcc noundef ptr @_ZL32simplifyICmpUsingMonotonicValuesN4llvm1
   %.v.v.i4.i2.i = select i1 %19, i32 %20, i32 %21
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %22 = getelementptr i8, ptr %17, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

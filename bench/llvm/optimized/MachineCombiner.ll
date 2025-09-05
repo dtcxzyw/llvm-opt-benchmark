@@ -3393,7 +3393,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_115MachineCombiner29getLatenciesForI
   %20 = load i24, ptr %19, align 8, !noalias !457
   %21 = zext i24 %20 to i64
   %.idx.i.i = shl nuw nsw i64 %21, 5
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
+  %22 = getelementptr i8, ptr %18, i64 %.idx.i.i
   %.not1.i.i.i.i.i.i = icmp eq i24 %20, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 

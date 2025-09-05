@@ -390,7 +390,7 @@ if.end8.i:                                        ; preds = %if.then29
   %this.val8.i = load i32, ptr %4, align 8
   %idx.ext.i.i.i46 = zext i32 %this.val8.i to i64
   %add.ptr.i11.idx.i = shl nuw nsw i64 %idx.ext.i.i.i46, 4
-  %add.ptr.i11.i = getelementptr inbounds nuw i8, ptr %this.val7.i, i64 %add.ptr.i11.idx.i
+  %add.ptr.i11.i = getelementptr i8, ptr %this.val7.i, i64 %add.ptr.i11.idx.i
   %cmp.not3.i3.i9.i12.i = icmp eq i32 %this.val8.i, 0
   br i1 %cmp.not3.i3.i9.i12.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit, label %land.rhs.i4.i11.i13.i
 

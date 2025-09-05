@@ -30316,7 +30316,7 @@ _ZN15ra_ap_rustc_abi16TargetDataLayout14obj_size_bound17h455cefb7565b4c71E.exit:
 
 359:                                              ; preds = %337
   %.idx569 = shl i64 %4, 3
-  %360 = getelementptr inbounds i8, ptr %3, i64 %.idx569
+  %360 = getelementptr i8, ptr %3, i64 %.idx569
   %361 = icmp eq i64 %4, 0
   br i1 %361, label %..loopexit_crit_edge.i, label %.lr.ph.i419
 

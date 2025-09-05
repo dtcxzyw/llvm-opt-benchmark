@@ -445,7 +445,7 @@ _ZN5nlsat14simple_checker3imp10Var_DomainD2Ev.exit: ; preds = %_ZN5nlsat14simple
 .body:                                            ; preds = %90, %113
   %.pn = phi { ptr, i32 } [ %114, %113 ], [ %91, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %158
+  br label %155
 
 _ZN6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE6resizeEj.exit: ; preds = %.lr.ph.i, %_ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.thread, %69, %._crit_edge.i.i, %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit.i
   %115 = load ptr, ptr %10, align 8, !tbaa !31
@@ -561,12 +561,9 @@ _ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE8capac
   %150 = zext i32 %119 to i64
   %151 = zext i32 %.0.i16.i29.ph to i64
   %152 = getelementptr %class.vector.16, ptr %143, i64 %151
-  %153 = shl nuw nsw i64 %150, 3
-  %154 = add nsw i64 %153, -8
-  %155 = shl nuw nsw i64 %151, 3
-  %156 = sub nsw i64 %154, %155
-  %157 = add nsw i64 %156, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %152, i8 0, i64 %157, i1 false), !tbaa !53
+  %153 = sub nsw i64 %150, %151
+  %154 = shl nsw i64 %153, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %152, i8 0, i64 %154, i1 false), !tbaa !53
   br label %_ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE6resizeEj.exit
 
 _ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE6resizeEj.exit: ; preds = %.lr.ph.preheader.i31, %_ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit16.thread, %148, %._crit_edge.i.i25, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.i
@@ -575,14 +572,14 @@ _ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE6resize
 .loopexit:                                        ; preds = %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE8capacityEv.exit.thread.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %155
 
 .loopexit.split-lp:                               ; preds = %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE8capacityEv.exit.thread.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %155
 
-158:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body
+155:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #20
   call void @_ZN6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
@@ -2025,12 +2022,9 @@ _ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE8capacityEv.exi
   %51 = zext i32 %10 to i64
   %52 = zext i32 %.0.i17.ph.i41 to i64
   %53 = getelementptr i32, ptr %.pr.i40, i64 %52
-  %54 = shl nuw nsw i64 %51, 2
-  %55 = add nsw i64 %54, -4
-  %56 = shl nuw nsw i64 %52, 2
-  %57 = sub nsw i64 %55, %56
-  %58 = add nsw i64 %57, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %53, i8 0, i64 %58, i1 false), !tbaa !93
+  %54 = sub nsw i64 %51, %52
+  %55 = shl nsw i64 %54, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %53, i8 0, i64 %55, i1 false), !tbaa !93
   br label %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
 
 _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit: ; preds = %.lr.ph.preheader.i44, %49, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE3endEv.exit.i.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit
@@ -2038,134 +2032,134 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
   br i1 %.not54.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i32 %10 to i64
-  br label %61
+  br label %58
 
-61:                                               ; preds = %.lr.ph, %123
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %.03255 = phi i32 [ %10, %.lr.ph ], [ %.1, %123 ]
-  %62 = load ptr, ptr %11, align 8, !tbaa !36
-  %63 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %62, i64 %6
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !37
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv
-  %67 = load i8, ptr %66, align 1, !tbaa !91, !range !58, !noundef !59
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %123, label %69
+58:                                               ; preds = %.lr.ph, %120
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
+  %.03255 = phi i32 [ %10, %.lr.ph ], [ %.1, %120 ]
+  %59 = load ptr, ptr %11, align 8, !tbaa !36
+  %60 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %59, i64 %6
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !37
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv
+  %64 = load i8, ptr %63, align 1, !tbaa !91, !range !58, !noundef !59
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %120, label %66
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %3, align 8, !tbaa !31
-  %71 = load ptr, ptr %70, align 8, !tbaa !32
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %6
-  %73 = load ptr, ptr %72, align 8, !tbaa !86
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %75 = getelementptr inbounds nuw %"class.sat::literal", ptr %74, i64 %indvars.iv
-  %76 = load i32, ptr %75, align 4, !tbaa !19
-  %77 = lshr i32 %76, 1
-  %78 = load ptr, ptr %59, align 8, !tbaa !95
-  %79 = load ptr, ptr %78, align 8, !tbaa !96
-  %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !99
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %85
+66:                                               ; preds = %58
+  %67 = load ptr, ptr %3, align 8, !tbaa !31
+  %68 = load ptr, ptr %67, align 8, !tbaa !32
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %6
+  %70 = load ptr, ptr %69, align 8, !tbaa !86
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %72 = getelementptr inbounds nuw %"class.sat::literal", ptr %71, i64 %indvars.iv
+  %73 = load i32, ptr %72, align 4, !tbaa !19
+  %74 = lshr i32 %73, 1
+  %75 = load ptr, ptr %56, align 8, !tbaa !95
+  %76 = load ptr, ptr %75, align 8, !tbaa !96
+  %77 = zext nneg i32 %74 to i64
+  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !99
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %81, label %82
 
-84:                                               ; preds = %69
-  store i8 1, ptr %63, align 8, !tbaa !43
+81:                                               ; preds = %66
+  store i8 1, ptr %60, align 8, !tbaa !43
   br label %.loopexit
 
-85:                                               ; preds = %69
-  %86 = load i32, ptr %82, align 4, !tbaa !101
-  %87 = icmp slt i32 %86, 3
-  br i1 %87, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit, label %88
+82:                                               ; preds = %66
+  %83 = load i32, ptr %79, align 4, !tbaa !101
+  %84 = icmp slt i32 %83, 3
+  br i1 %84, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit, label %85
 
-88:                                               ; preds = %85
-  store i8 1, ptr %63, align 8, !tbaa !43
+85:                                               ; preds = %82
+  store i8 1, ptr %60, align 8, !tbaa !43
   br label %.loopexit
 
-_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit: ; preds = %85
-  %89 = and i32 %76, 1
-  %90 = icmp ne i32 %89, 0
-  %91 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %82, i1 noundef zeroext %90)
+_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit: ; preds = %82
+  %86 = and i32 %73, 1
+  %87 = icmp ne i32 %86, 0
+  %88 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %79, i1 noundef zeroext %87)
   %.pre = load ptr, ptr %11, align 8, !tbaa !36
-  br i1 %91, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, label %95
+  br i1 %88, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, label %92
 
 _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread: ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
   %.phi.trans.insert = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %.pre, i64 %6
   %.pre58 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !43, !range !58
-  %92 = trunc nuw i8 %.pre58 to i1
-  %93 = icmp ne i32 %.03255, %10
-  %or.cond.not = select i1 %92, i1 true, i1 %93
-  %94 = trunc nuw i64 %indvars.iv to i32
-  br i1 %or.cond.not, label %.loopexit, label %123
+  %89 = trunc nuw i8 %.pre58 to i1
+  %90 = icmp ne i32 %.03255, %10
+  %or.cond.not = select i1 %89, i1 true, i1 %90
+  %91 = trunc nuw i64 %indvars.iv to i32
+  br i1 %or.cond.not, label %.loopexit, label %120
 
-95:                                               ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
-  %96 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %.pre, i64 %6, i32 1
-  %97 = load ptr, ptr %96, align 8, !tbaa !37
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %indvars.iv
-  store i8 1, ptr %98, align 1, !tbaa !91
-  %99 = load ptr, ptr %3, align 8, !tbaa !31
-  %100 = load ptr, ptr %99, align 8, !tbaa !32
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %6
-  %102 = load ptr, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %104 = getelementptr inbounds nuw %"class.sat::literal", ptr %103, i64 %indvars.iv
-  %105 = load i32, ptr %104, align 4, !tbaa !19
-  %106 = xor i32 %105, 1
-  %107 = load ptr, ptr %60, align 8, !tbaa !104
-  %108 = load ptr, ptr %107, align 8, !tbaa !105
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %116, label %110
+92:                                               ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
+  %93 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %.pre, i64 %6, i32 1
+  %94 = load ptr, ptr %93, align 8, !tbaa !37
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv
+  store i8 1, ptr %95, align 1, !tbaa !91
+  %96 = load ptr, ptr %3, align 8, !tbaa !31
+  %97 = load ptr, ptr %96, align 8, !tbaa !32
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %6
+  %99 = load ptr, ptr %98, align 8, !tbaa !86
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw %"class.sat::literal", ptr %100, i64 %indvars.iv
+  %102 = load i32, ptr %101, align 4, !tbaa !19
+  %103 = xor i32 %102, 1
+  %104 = load ptr, ptr %57, align 8, !tbaa !104
+  %105 = load ptr, ptr %104, align 8, !tbaa !105
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %113, label %107
 
-110:                                              ; preds = %95
-  %111 = getelementptr inbounds i8, ptr %108, i64 -4
-  %112 = load i32, ptr %111, align 4, !tbaa !19
-  %113 = getelementptr inbounds i8, ptr %108, i64 -8
-  %114 = load i32, ptr %113, align 4, !tbaa !19
-  %115 = icmp eq i32 %112, %114
-  br i1 %115, label %116, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
+107:                                              ; preds = %92
+  %108 = getelementptr inbounds i8, ptr %105, i64 -4
+  %109 = load i32, ptr %108, align 4, !tbaa !19
+  %110 = getelementptr inbounds i8, ptr %105, i64 -8
+  %111 = load i32, ptr %110, align 4, !tbaa !19
+  %112 = icmp eq i32 %109, %111
+  br i1 %112, label %113, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
-116:                                              ; preds = %110, %95
-  tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %107)
-  %.pre.i = load ptr, ptr %107, align 8, !tbaa !105
+113:                                              ; preds = %107, %92
+  tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %104)
+  %.pre.i = load ptr, ptr %104, align 8, !tbaa !105
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !19
   br label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
-_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %110, %116
-  %117 = phi i32 [ %.pre2.i, %116 ], [ %112, %110 ]
-  %118 = phi ptr [ %.pre.i, %116 ], [ %108, %110 ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 -4
-  %120 = zext i32 %117 to i64
-  %121 = getelementptr inbounds nuw %"class.sat::literal", ptr %118, i64 %120
-  store i32 %106, ptr %121, align 4, !tbaa !19
-  %122 = add i32 %117, 1
-  store i32 %122, ptr %119, align 4, !tbaa !19
-  br label %123
+_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %107, %113
+  %114 = phi i32 [ %.pre2.i, %113 ], [ %109, %107 ]
+  %115 = phi ptr [ %.pre.i, %113 ], [ %105, %107 ]
+  %116 = getelementptr inbounds i8, ptr %115, i64 -4
+  %117 = zext i32 %114 to i64
+  %118 = getelementptr inbounds nuw %"class.sat::literal", ptr %115, i64 %117
+  store i32 %103, ptr %118, align 4, !tbaa !19
+  %119 = add i32 %114, 1
+  store i32 %119, ptr %116, align 4, !tbaa !19
+  br label %120
 
-123:                                              ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %61
-  %.1 = phi i32 [ %.03255, %61 ], [ %.03255, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %94, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
+120:                                              ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %58
+  %.1 = phi i32 [ %.03255, %58 ], [ %.03255, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %91, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %61, !llvm.loop !108
+  br i1 %exitcond.not, label %.critedge, label %58, !llvm.loop !108
 
-.critedge:                                        ; preds = %123, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
-  %.032.lcssa = phi i32 [ 0, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit ], [ 0, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread ], [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i ], [ %.1, %123 ]
+.critedge:                                        ; preds = %120, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
+  %.032.lcssa = phi i32 [ 0, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit ], [ 0, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread ], [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i ], [ %.1, %120 ]
   %.not36 = icmp eq i32 %.032.lcssa, %10
-  br i1 %.not36, label %.loopexit, label %124
+  br i1 %.not36, label %.loopexit, label %121
 
-124:                                              ; preds = %.critedge
-  %125 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24collect_domain_axbc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
-  br i1 %125, label %126, label %.loopexit
+121:                                              ; preds = %.critedge
+  %122 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24collect_domain_axbc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
+  br i1 %122, label %123, label %.loopexit
 
-126:                                              ; preds = %124
-  %127 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25collect_domain_axbsc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
+123:                                              ; preds = %121
+  %124 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25collect_domain_axbsc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %84, %88, %.critedge, %126, %124
-  %.134 = phi i1 [ false, %124 ], [ %127, %126 ], [ false, %.critedge ], [ true, %88 ], [ true, %84 ], [ true, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
+.loopexit:                                        ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %81, %85, %.critedge, %123, %121
+  %.134 = phi i1 [ false, %121 ], [ %124, %123 ], [ false, %.critedge ], [ true, %85 ], [ true, %81 ], [ true, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
   ret i1 %.134
 }
 

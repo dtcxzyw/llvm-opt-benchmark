@@ -1558,7 +1558,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %60, %58, %3
 
 93:                                               ; preds = %._crit_edge268.i
   %.idx.i.i = shl nuw nsw i64 %87, 4
-  %94 = getelementptr inbounds nuw i8, ptr %.val8.i.pre.i, i64 %.idx.i.i
+  %94 = getelementptr i8, ptr %.val8.i.pre.i, i64 %.idx.i.i
   %.not5.i5.i12.i10.i.i = icmp eq i32 %.val9.i.pre.i, 0
   br i1 %.not5.i5.i12.i10.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPN12_GLOBAL__N_115BasicBlockStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit.i, label %.lr.ph.i6.i14.i11.i.i
 
@@ -2062,7 +2062,7 @@ _ZNK12_GLOBAL__N_111CFGDeadness11isDeadBlockEPKN4llvm10BasicBlockE.exit.thread.i
 
 314:                                              ; preds = %._crit_edge272.i
   %.idx.i.i.i = shl nuw nsw i64 %.pre-phi.i, 4
-  %315 = getelementptr inbounds nuw i8, ptr %.val8.i.i.i, i64 %.idx.i.i.i
+  %315 = getelementptr i8, ptr %.val8.i.i.i, i64 %.idx.i.i.i
   %.not5.i5.i12.i10.i.i.i = icmp eq i32 %.val9.i.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPN12_GLOBAL__N_115BasicBlockStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit.i.i, label %.lr.ph.i6.i14.i11.i.i.i
 
@@ -3425,7 +3425,7 @@ _ZNK12_GLOBAL__N_111CFGDeadness10isDeadEdgeEPKN4llvm3UseE.exit.i.i: ; preds = %.
 
 989:                                              ; preds = %_ZNK12_GLOBAL__N_111CFGDeadness10isDeadEdgeEPKN4llvm3UseE.exit.i.i
   %.idx.i.i.i.i.i = shl nuw nsw i64 %986, 3
-  %990 = getelementptr inbounds nuw i8, ptr %984, i64 %.idx.i.i.i.i.i
+  %990 = getelementptr i8, ptr %984, i64 %.idx.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i = icmp eq i32 %985, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i
 
@@ -3894,7 +3894,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPN12_GLOBAL__N_115BasicBl
 
 1209:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPN12_GLOBAL__N_115BasicBlockStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i.i.i.i
   %.idx.i.i.i67.i = shl nuw nsw i64 %1206, 3
-  %1210 = getelementptr inbounds nuw i8, ptr %1203, i64 %.idx.i.i.i67.i
+  %1210 = getelementptr i8, ptr %1203, i64 %.idx.i.i.i67.i
   %.not5.i5.i10.i2.i.i.i.i = icmp eq i32 %1205, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i
 
@@ -8190,7 +8190,7 @@ _ZN4llvm8DenseSetIPKNS_5ValueENS_12DenseMapInfoIS3_vEEEC2ERKS6_.exit: ; preds = 
 
 61:                                               ; preds = %_ZN4llvm8DenseSetIPKNS_5ValueENS_12DenseMapInfoIS3_vEEEC2ERKS6_.exit
   %.idx.i.i.i = shl nuw nsw i64 %58, 3
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i
+  %62 = getelementptr i8, ptr %55, i64 %.idx.i.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %57, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 

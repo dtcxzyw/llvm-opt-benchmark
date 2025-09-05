@@ -8775,7 +8775,7 @@ _ZN14macro_replacerC2ER11ast_manager.exit:        ; preds = %12
   %30 = load i32, ptr %29, align 8, !tbaa !44
   %31 = zext i32 %30 to i64
   %.idx.i.i = shl nuw nsw i64 %31, 4
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i
+  %32 = getelementptr i8, ptr %28, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not1.i.i.i.i, label %.loopexit85, label %.lr.ph.i.i.i.i
 
@@ -9395,7 +9395,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %_ZN6vectorIP9func_d
   %18 = load i32, ptr %17, align 8, !tbaa !44
   %19 = zext i32 %18 to i64
   %.idx.i.i = shl nuw nsw i64 %19, 4
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPN20eliminate_predicates9macro_defEE5beginEv.exit, label %.lr.ph.i.i.i.i
 

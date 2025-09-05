@@ -15211,7 +15211,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
   %92 = select i1 %.not.i.i.i2.i.i, i32 %91, i32 4
   %93 = zext i32 %92 to i64
   %.idx.i.i = shl nuw nsw i64 %93, 4
-  %94 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i
+  %94 = getelementptr i8, ptr %89, i64 %.idx.i.i
   %.not8.i5.i10.i4.i.i = icmp eq i32 %92, 0
   br i1 %.not8.i5.i10.i4.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i, label %.lr.ph.i6.i12.i5.i.i
 
@@ -15229,7 +15229,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i: ; preds = %.critedge2.i9.i15.i12.i.i, %.lr.ph.i6.i12.i5.i.i, %85, %76
   %.pre-phi105 = phi i64 [ 0, %85 ], [ %83, %76 ], [ %93, %.lr.ph.i6.i12.i5.i.i ], [ %93, %.critedge2.i9.i15.i12.i.i ]
   %.pre-phi = phi ptr [ %89, %85 ], [ %79, %76 ], [ %89, %.lr.ph.i6.i12.i5.i.i ], [ %89, %.critedge2.i9.i15.i12.i.i ]
-  %.pn17.i.i = phi ptr [ %89, %85 ], [ %84, %76 ], [ %95, %.critedge2.i9.i15.i12.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
+  %.pn17.i.i = phi ptr [ %89, %85 ], [ %84, %76 ], [ %94, %.critedge2.i9.i15.i12.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
   %.pn15.i.i = phi ptr [ %94, %85 ], [ %84, %76 ], [ %94, %.lr.ph.i6.i12.i5.i.i ], [ %94, %.critedge2.i9.i15.i12.i.i ]
   %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre-phi, i64 %.pre-phi105
   br label %_ZNK5clang11DeclContext7lookupsEv.exit
@@ -15267,7 +15267,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
   %118 = select i1 %.not.i.i.i2.i.i12, i32 %117, i32 4
   %119 = zext i32 %118 to i64
   %.idx.i.i13 = shl nuw nsw i64 %119, 4
-  %120 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i.i13
+  %120 = getelementptr i8, ptr %115, i64 %.idx.i.i13
   %.not8.i5.i10.i4.i.i14 = icmp eq i32 %118, 0
   br i1 %.not8.i5.i10.i4.i.i14, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19, label %.lr.ph.i6.i12.i5.i.i15
 
@@ -15285,7 +15285,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19: ; preds = %.critedge2.i9.i15.i12.i.i30, %.lr.ph.i6.i12.i5.i.i15, %111, %102
   %.pre-phi108 = phi i64 [ 0, %111 ], [ %109, %102 ], [ %119, %.lr.ph.i6.i12.i5.i.i15 ], [ %119, %.critedge2.i9.i15.i12.i.i30 ]
   %.pre-phi106 = phi ptr [ %115, %111 ], [ %105, %102 ], [ %115, %.lr.ph.i6.i12.i5.i.i15 ], [ %115, %.critedge2.i9.i15.i12.i.i30 ]
-  %.pn17.i.i21 = phi ptr [ %115, %111 ], [ %110, %102 ], [ %121, %.critedge2.i9.i15.i12.i.i30 ], [ %.sroa.0.3.i6.i.i16, %.lr.ph.i6.i12.i5.i.i15 ]
+  %.pn17.i.i21 = phi ptr [ %115, %111 ], [ %110, %102 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ], [ %.sroa.0.3.i6.i.i16, %.lr.ph.i6.i12.i5.i.i15 ]
   %.pn15.i.i22 = phi ptr [ %120, %111 ], [ %110, %102 ], [ %120, %.lr.ph.i6.i12.i5.i.i15 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ]
   %122 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre-phi106, i64 %.pre-phi108
   br label %_ZNK5clang11DeclContext7lookupsEv.exit

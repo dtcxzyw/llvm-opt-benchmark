@@ -2219,13 +2219,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 
 .noexc146:                                        ; preds = %183
   store ptr null, ptr %185, align 8
-  %186 = icmp eq i64 %182, 1
-  br i1 %186, label %_ZNSt6vectorIPKcSaIS1_EEC2EmRKS2_.exit, label %_ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %186 = add nsw i64 %182, -1
+  %187 = icmp eq i64 %186, 0
+  br i1 %187, label %_ZNSt6vectorIPKcSaIS1_EEC2EmRKS2_.exit, label %_ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc146
-  %187 = getelementptr i8, ptr %185, i64 8
-  %188 = add nsw i64 %184, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %187, i8 0, i64 %188, i1 false)
+  %188 = getelementptr i8, ptr %185, i64 8
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %186, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %188, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPKcSaIS1_EEC2EmRKS2_.exit
 
 _ZNSt6vectorIPKcSaIS1_EEC2EmRKS2_.exit:           ; preds = %_ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc146, %.critedge
@@ -2248,13 +2249,14 @@ _ZNSt6vectorIPKcSaIS1_EEC2EmRKS2_.exit:           ; preds = %_ZSt6fill_nIPPKcmS1
 
 .noexc150:                                        ; preds = %190
   store ptr null, ptr %192, align 8
-  %193 = icmp eq i64 %182, 1
-  br i1 %193, label %_ZNSt6vectorIPK11hs_expr_extSaIS2_EEC2EmRKS3_.exit, label %_ZSt6fill_nIPPK11hs_expr_extmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %193 = add nsw i64 %182, -1
+  %194 = icmp eq i64 %193, 0
+  br i1 %194, label %_ZNSt6vectorIPK11hs_expr_extSaIS2_EEC2EmRKS3_.exit, label %_ZSt6fill_nIPPK11hs_expr_extmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPK11hs_expr_extmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc150
-  %194 = getelementptr i8, ptr %192, i64 8
-  %195 = add nsw i64 %191, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %194, i8 0, i64 %195, i1 false)
+  %195 = getelementptr i8, ptr %192, i64 8
+  %.idx.i.i.i.i.i.i.i148 = shl nuw nsw i64 %193, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %195, i8 0, i64 %.idx.i.i.i.i.i.i.i148, i1 false)
   br label %_ZNSt6vectorIPK11hs_expr_extSaIS2_EEC2EmRKS3_.exit
 
 196:                                              ; preds = %183
@@ -2310,13 +2312,14 @@ _ZNSt6vectorIPK11hs_expr_extSaIS2_EEC2EmRKS3_.exit: ; preds = %_ZSt6fill_nIPPK11
 
 .noexc154:                                        ; preds = %209
   store i64 0, ptr %211, align 8
-  %212 = icmp eq i64 %182, 1
-  br i1 %212, label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %212 = add nsw i64 %182, -1
+  %213 = icmp eq i64 %212, 0
+  br i1 %213, label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc154
-  %213 = getelementptr i8, ptr %211, i64 8
-  %214 = add nsw i64 %210, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %213, i8 0, i64 %214, i1 false)
+  %214 = getelementptr i8, ptr %211, i64 8
+  %.idx.i.i.i.i.i.i.i152 = shl nuw nsw i64 %212, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %214, i8 0, i64 %.idx.i.i.i.i.i.i.i152, i1 false)
   br label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc154, %208

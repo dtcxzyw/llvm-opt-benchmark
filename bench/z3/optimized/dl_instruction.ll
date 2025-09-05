@@ -5832,7 +5832,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread: ; preds = %3
 thread-pre-split.i.preheader:                     ; preds = %.thread, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread
   %.ph = phi ptr [ null, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread ], [ %5, %.thread ]
   %.0.i16.i.ph = phi i32 [ 0, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread ], [ %8, %.thread ]
-  %.ph16 = add nuw i32 %1, 1
+  %.ph15 = add nuw i32 %1, 1
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i
@@ -5843,8 +5843,8 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i: ; preds = %thread-pre-split.i
   %18 = getelementptr inbounds i8, ptr %16, i64 -8
   %19 = load i32, ptr %18, align 4, !tbaa !33
-  %.not17 = icmp ult i32 %1, %19
-  br i1 %.not17, label %20, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i
+  %.not16 = icmp ult i32 %1, %19
+  br i1 %.not16, label %20, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i
 
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i, %thread-pre-split.i
   tail call void @_ZN6vectorIPN7datalog13relation_baseELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -5853,12 +5853,12 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i: ; preds =
 
 20:                                               ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
   %21 = getelementptr inbounds i8, ptr %16, i64 -4
-  store i32 %.ph16, ptr %21, align 4, !tbaa !33
-  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph16
+  store i32 %.ph15, ptr %21, align 4, !tbaa !33
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph15
   br i1 %.not1218.i, label %_ZN6vectorIPN7datalog13relation_baseELb1EjE6resizeEj.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %20
-  %22 = zext i32 %.ph16 to i64
+  %22 = zext i32 %.ph15 to i64
   %23 = zext i32 %.0.i16.i.ph to i64
   %24 = getelementptr ptr, ptr %16, i64 %23
   %25 = sub nsw i64 %22, %23

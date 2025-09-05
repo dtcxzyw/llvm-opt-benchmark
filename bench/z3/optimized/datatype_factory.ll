@@ -262,7 +262,7 @@ _ZNK8datatype4util11is_datatypeEPK4sort.exit.thread: ; preds = %2, %_ZNK4decl13g
   %57 = load i32, ptr %56, align 8, !tbaa !67
   %58 = zext i32 %57 to i64
   %.idx.i = shl nuw nsw i64 %58, 3
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
+  %59 = getelementptr i8, ptr %55, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %57, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i20
 
@@ -523,7 +523,7 @@ _ZNK7obj_mapI4sortP4exprE4findEPS0_RS2_.exit:     ; preds = %17, %25
   %46 = load i32, ptr %45, align 8, !tbaa !67
   %47 = zext i32 %46 to i64
   %.idx.i = shl nuw nsw i64 %47, 3
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
+  %48 = getelementptr i8, ptr %44, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %46, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i9
 

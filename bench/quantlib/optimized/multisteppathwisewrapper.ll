@@ -343,10 +343,8 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  %28 = shl nuw nsw i64 %sub.i, 3
-  %29 = add nsw i64 %28, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i45, i8 0, i64 %29, i1 false), !tbaa !37
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i45, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i, i1 false), !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i45, i64 %add.ptr.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i
 
@@ -369,22 +367,22 @@ if.then.i.i49:                                    ; preds = %if.else.i46
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i46
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.i)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i
-  %30 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
-  %mul.i.i.i.i = shl nuw nsw i64 %30, 3
+  %28 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %mul.i.i.i.i = shl nuw nsw i64 %28, 3
   %call5.i.i.i.i51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #16
           to label %call5.i.i.i.i.noexc unwind label %lpad39.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
   %add.ptr.i48 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i51, i64 %sub.ptr.sub.i.i33
   store double 0.000000e+00, ptr %add.ptr.i48, align 8, !tbaa !37
-  %cmp.i.i.i.i.i25.i = icmp eq i64 %sub.i, 1
+  %sub.i.i.i24.i = add nsw i64 %sub.i, -1
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %sub.i.i.i24.i, 0
   br i1 %cmp.i.i.i.i.i25.i, label %try.cont.i, label %if.end.i.i.i.i.i26.i
 
 if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %add.ptr.i48, i64 8
-  %31 = shl nuw nsw i64 %sub.i, 3
-  %32 = add nsw i64 %31, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23.i, i8 0, i64 %32, i1 false), !tbaa !37
+  %add.ptr.idx.i.i.i.i.i27.i = shl nuw nsw i64 %sub.i.i.i24.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i27.i, i1 false), !tbaa !37
   br label %try.cont.i
 
 try.cont.i:                                       ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc
@@ -408,7 +406,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37.i: ; preds = %if.then.i35.
   store ptr %call5.i.i.i.i51, ptr %amount, align 8, !tbaa !17
   %add.ptr37.i = getelementptr inbounds nuw double, ptr %add.ptr.i48, i64 %sub.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8, !tbaa !36
-  %add.ptr40.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i51, i64 %30
+  %add.ptr40.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i51, i64 %28
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !19
   br label %invoke.cont44
 
@@ -447,15 +445,15 @@ ehcleanup57:                                      ; preds = %lpad39.loopexit, %l
 
 ehcleanup58:                                      ; preds = %ehcleanup57, %ehcleanup16, %lpad2
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup57 ], [ %.pn.pn, %ehcleanup16 ], [ %17, %lpad2 ]
-  %33 = load ptr, ptr %innerProduct_, align 8, !tbaa !6
-  %cmp.not.i.i = icmp eq ptr %33, null
+  %29 = load ptr, ptr %innerProduct_, align 8, !tbaa !6
+  %cmp.not.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5CloneINS_31MarketModelPathwiseMultiProductEED2Ev.exit, label %_ZNKSt14default_deleteIN8QuantLib31MarketModelPathwiseMultiProductEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN8QuantLib31MarketModelPathwiseMultiProductEEclEPS1_.exit.i.i: ; preds = %ehcleanup58
-  %vtable.i.i.i = load ptr, ptr %33, align 8, !tbaa !3
+  %vtable.i.i.i = load ptr, ptr %29, align 8, !tbaa !3
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %34 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %33) #18
+  %30 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29) #18
   br label %_ZN8QuantLib5CloneINS_31MarketModelPathwiseMultiProductEED2Ev.exit
 
 _ZN8QuantLib5CloneINS_31MarketModelPathwiseMultiProductEED2Ev.exit: ; preds = %ehcleanup58, %_ZNKSt14default_deleteIN8QuantLib31MarketModelPathwiseMultiProductEEclEPS1_.exit.i.i

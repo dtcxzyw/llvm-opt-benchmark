@@ -160868,7 +160868,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9get_tur
   %73 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %49, i64 %69
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %75 = load i64, ptr %74, align 8, !tbaa !2690
-  %76 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %49, i64 %75
+  %76 = getelementptr %"class.boost::geometry::model::point", ptr %49, i64 %75
   %.not27.i = icmp eq i64 %69, %75
   br i1 %.not27.i, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model13multi_polygonINS4_7polygonINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSB_SaSaEESB_SaEESD_Lb0ELb0ENS0_7sectionINS4_3boxISA_EELm2EEESH_NS1_7overlay13get_turn_infoINSI_18assign_null_policyEEEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringISA_Lb1ELb1ESB_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESH_SG_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit, label %.lr.ph.i
 
@@ -161029,7 +161029,7 @@ _ZN5boost8geometry6detail7section9exceedingILm0ENS0_5model5pointIdLm2ENS0_2cs9ca
   %139 = load i64, ptr %111, align 8, !tbaa !2689
   %140 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %63, i64 %138
   %141 = load i64, ptr %112, align 8, !tbaa !2690
-  %142 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %63, i64 %141
+  %142 = getelementptr %"class.boost::geometry::model::point", ptr %63, i64 %141
   %.not27.i93 = icmp eq i64 %138, %141
   br i1 %.not27.i93, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model13multi_polygonINS4_7polygonINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSB_SaSaEESB_SaEESD_Lb0ELb0ENS0_7sectionINS4_3boxISA_EELm2EEESH_NS1_7overlay13get_turn_infoINSI_18assign_null_policyEEEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringISA_Lb1ELb1ESB_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESH_SG_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit101, label %.lr.ph.i94
 

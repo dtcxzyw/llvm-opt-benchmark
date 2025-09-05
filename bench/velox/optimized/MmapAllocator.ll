@@ -4467,11 +4467,10 @@ entry:
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i2.i.i8, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 8
-  %0 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
   %sub.i.i.i.i.i = shl nuw nsw i64 %div75, 3
-  %1 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %add.ptr.idx.i.i.i.i.i.i.i = add nuw nsw i64 %sub.i.i.i.i.i, 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %pageAllocated_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4510,9 +4509,8 @@ call5.i.i.i.i2.i.i.noexc24:                       ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i16, label %if.then.i.i.i.i.i30, label %if.end.i.i.i.i.i.i.i17
 
 if.end.i.i.i.i.i.i.i17:                           ; preds = %call5.i.i.i.i2.i.i.noexc24
-  %2 = add nsw i64 %mul.i.i.i.i.i.i11, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i14, i8 0, i64 %2, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i18 = shl nuw nsw i64 %sub.i.i.i.i.i15, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i14, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i18, i1 false)
   %add.ptr.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i14, i64 %add.ptr.idx.i.i.i.i.i.i.i18
   br label %if.then.i.i.i.i.i30
 
@@ -4539,9 +4537,8 @@ call5.i.i.i.i2.i.i.noexc45:                       ; preds = %if.then.i.i.i.i.i30
   br i1 %cmp.i.i.i.i.i.i.i16, label %invoke.cont19, label %if.end.i.i.i.i.i.i.i37
 
 if.end.i.i.i.i.i.i.i37:                           ; preds = %call5.i.i.i.i2.i.i.noexc45
-  %3 = add nsw i64 %mul.i.i.i.i.i.i11, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i34, i8 0, i64 %3, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i38 = shl nuw nsw i64 %sub.i.i.i.i.i15, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i34, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i38, i1 false)
   %add.ptr.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i34, i64 %add.ptr.idx.i.i.i.i.i.i.i38
   br label %invoke.cont19
 
@@ -4560,12 +4557,12 @@ if.then:                                          ; preds = %invoke.cont19
   unreachable
 
 lpad12:                                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i22
-  %4 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup33
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i30
-  %5 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i25) #30
   br label %ehcleanup33
@@ -4588,13 +4585,13 @@ if.end32:                                         ; preds = %if.end
   ret void
 
 ehcleanup33:                                      ; preds = %if.then.i.i.i, %lpad12
-  %.pn = phi { ptr, i32 } [ %4, %lpad12 ], [ %5, %if.then.i.i.i ]
-  %6 = load ptr, ptr %mappedFreeLookup_, align 8
-  %tobool.not.i.i.i48 = icmp eq ptr %6, null
+  %.pn = phi { ptr, i32 } [ %0, %lpad12 ], [ %1, %if.then.i.i.i ]
+  %2 = load ptr, ptr %mappedFreeLookup_, align 8
+  %tobool.not.i.i.i48 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i48, label %eh.resume, label %if.then.i.i.i49
 
 if.then.i.i.i49:                                  ; preds = %ehcleanup33
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i49, %ehcleanup33

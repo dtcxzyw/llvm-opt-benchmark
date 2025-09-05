@@ -1884,7 +1884,7 @@ define linkonce_odr hidden void @_ZN18injectivity_tactic9InjHelperD2Ev(ptr nound
   %4 = load i32, ptr %3, align 8, !tbaa !17
   %5 = zext i32 %4 to i64
   %.idx.i.i = shl nuw nsw i64 %5, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %6 = getelementptr i8, ptr %2, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not1.i.i.i.i, label %.loopexit32, label %.lr.ph.i.i.i.i
 
@@ -1943,7 +1943,7 @@ _ZN7obj_mapI9func_declP13obj_hashtableIS0_EED2Ev.exit: ; preds = %._crit_edge39,
   %21 = load i32, ptr %20, align 8, !tbaa !164
   %22 = zext i32 %21 to i64
   %.idx.i = shl nuw nsw i64 %22, 3
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
+  %23 = getelementptr i8, ptr %19, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %21, 0
   br i1 %.not1.i.i.i, label %.loopexit31, label %.lr.ph.i.i.i
 
@@ -5225,7 +5225,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %134 = load i32, ptr %133, align 8, !tbaa !282
   %135 = zext i32 %134 to i64
   %.idx.i = shl nuw nsw i64 %135, 3
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i
+  %136 = getelementptr i8, ptr %132, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %134, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -10927,7 +10927,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i68: ; preds = %_ZNK6vect
   %95 = load i32, ptr %94, align 8, !tbaa !282
   %96 = zext i32 %95 to i64
   %.idx.i = shl nuw nsw i64 %96, 3
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
+  %97 = getelementptr i8, ptr %93, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %95, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

@@ -4285,7 +4285,7 @@ _ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter11emitAbbrevsEv.exit: ; preds = %._cri
 
 436:                                              ; preds = %_ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter11emitAbbrevsEv.exit
   %.idx.i.i.i = shl nuw nsw i64 %433, 4
-  %437 = getelementptr inbounds nuw i8, ptr %430, i64 %.idx.i.i.i
+  %437 = getelementptr i8, ptr %430, i64 %.idx.i.i.i
   %.not12.i5.i10.i2.i.i.i = icmp eq i32 %432, 0
   br i1 %.not12.i5.i10.i2.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i
 

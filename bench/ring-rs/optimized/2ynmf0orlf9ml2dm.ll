@@ -1082,17 +1082,17 @@ define hidden noundef zeroext i1 @_ZN4ring4limb43parse_big_endian_in_range_and_p
   br i1 %23, label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit.i", label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %22
-  %24 = shl i64 %6, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %24, i1 false), !alias.scope !183, !noalias !186
+  %.idx.i.i = shl i64 %6, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %.idx.i.i, i1 false), !alias.scope !183, !noalias !186
   br label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit.i"
 
 "_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit.i": ; preds = %.lr.ph.i.preheader.i, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !187
   store ptr %0, ptr %12, align 8, !noalias !187
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %1, ptr %25, align 8, !noalias !187
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 0, ptr %26, align 8, !noalias !187
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %1, ptr %24, align 8, !noalias !187
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 0, ptr %25, align 8, !noalias !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !187
   store ptr %13, ptr %11, align 8, !noalias !191
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1101,12 +1101,12 @@ define hidden noundef zeroext i1 @_ZN4ring4limb43parse_big_endian_in_range_and_p
   store ptr %5, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !191
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %6, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !191
-  %27 = call noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %12), !noalias !192
+  %26 = call noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %12), !noalias !192
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !187
-  %28 = load i64, ptr %26, align 8, !noalias !187
-  %29 = load i64, ptr %25, align 8, !noalias !187
+  %27 = load i64, ptr %25, align 8, !noalias !187
+  %28 = load i64, ptr %24, align 8, !noalias !187
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !187
-  br i1 %27, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit
+  br i1 %26, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit
 
 _ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11: ; preds = %16, %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !181
@@ -1114,40 +1114,40 @@ _ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.threa
   br label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread
 
 _ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit: ; preds = %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit.i"
-  %.not14 = icmp eq i64 %28, %29
+  %.not14 = icmp eq i64 %27, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !181
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !181
-  br i1 %.not14, label %30, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread
+  br i1 %.not14, label %29, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread
 
-30:                                               ; preds = %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit
+29:                                               ; preds = %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !193
   store i64 %6, ptr %10, align 8, !noalias !193
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !193
   store i64 %4, ptr %9, align 8, !noalias !193
-  %31 = icmp eq i64 %6, %4
-  br i1 %31, label %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit, label %32
+  %30 = icmp eq i64 %6, %4
+  br i1 %30, label %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit, label %31
 
-32:                                               ; preds = %30
+31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !193
   store ptr null, ptr %8, align 8, !noalias !193
   call void @_ZN4core9panicking13assert_failed17hc35df8c8c6fe17beE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.459a524322d1240f21a5a0b37f1bf450.15.llvm.9292951165861561203) #24, !noalias !193
   unreachable
 
-_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit: ; preds = %30
+_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !193
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !193
-  %33 = call noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly align 8 %3, i64 noundef %6)
-  %.not = icmp ne i64 %33, -1
+  %32 = call noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly align 8 %3, i64 noundef %6)
+  %.not = icmp ne i64 %32, -1
   %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread, label %34
+  br i1 %brmerge, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread, label %33
 
-34:                                               ; preds = %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit
-  %35 = call noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull %5, i64 noundef %6)
-  %.not7 = icmp ne i64 %35, 0
+33:                                               ; preds = %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit
+  %34 = call noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull %5, i64 noundef %6)
+  %.not7 = icmp ne i64 %34, 0
   br label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread
 
-_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread: ; preds = %7, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11, %34, %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit
-  %.06 = phi i1 [ true, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit ], [ %.not, %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit ], [ %.not7, %34 ], [ true, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11 ], [ true, %7 ]
+_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread: ; preds = %7, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11, %33, %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit
+  %.06 = phi i1 [ true, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit ], [ %.not, %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit ], [ %.not7, %33 ], [ true, %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread11 ], [ true, %7 ]
   ret i1 %.06
 }
 
@@ -1189,17 +1189,17 @@ define hidden noundef zeroext i1 @_ZN4ring4limb34parse_big_endian_and_pad_constt
   br i1 %18, label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %17
-  %19 = shl i64 %3, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %19, i1 false), !alias.scope !197
+  %.idx.i = shl i64 %3, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %.idx.i, i1 false), !alias.scope !197
   br label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit"
 
 "_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h4e46b5d621a3658dE.exit": ; preds = %.lr.ph.i.preheader, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !200
   store ptr %0, ptr %6, align 8, !noalias !200
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %1, ptr %20, align 8, !noalias !200
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %21, align 8, !noalias !200
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %1, ptr %19, align 8, !noalias !200
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %20, align 8, !noalias !200
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !200
   store ptr %7, ptr %5, align 8, !noalias !204
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1208,12 +1208,12 @@ define hidden noundef zeroext i1 @_ZN4ring4limb34parse_big_endian_and_pad_constt
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !204
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %3, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !204
-  %22 = call noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %6), !noalias !200
+  %21 = call noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %6), !noalias !200
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !200
-  %23 = load i64, ptr %21, align 8, !noalias !200
-  %24 = load i64, ptr %20, align 8, !noalias !200
-  %25 = icmp ne i64 %23, %24
-  %.0.i = select i1 %22, i1 true, i1 %25
+  %22 = load i64, ptr %20, align 8, !noalias !200
+  %23 = load i64, ptr %19, align 8, !noalias !200
+  %24 = icmp ne i64 %22, %23
+  %.0.i = select i1 %21, i1 true, i1 %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !200
   br label %.sink.split
 }

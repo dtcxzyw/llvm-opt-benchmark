@@ -13996,13 +13996,14 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_S_check_init_lenEmRKS5_
   %70 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %69) #28
   %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %67
   store ptr null, ptr %70, align 8, !tbaa !76
-  %72 = icmp eq i64 %sext, 4294967296
-  br i1 %72, label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit, label %_ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %72 = add nsw i64 %67, -1
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit, label %_ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc246
-  %73 = getelementptr i8, ptr %70, i64 8
-  %74 = add nsw i64 %69, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %74, i1 false), !tbaa !76
+  %74 = getelementptr i8, ptr %70, i64 8
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %72, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %74, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !76
   br label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit
 
 _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit: ; preds = %_ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc246, %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
@@ -14031,13 +14032,14 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_S_check_init_lenEmRKS5_
 .noexc254:                                        ; preds = %81
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %67
   store ptr null, ptr %83, align 8, !tbaa !76
-  %85 = icmp eq i64 %sext, 4294967296
-  br i1 %85, label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit255, label %_ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i249
+  %85 = add nsw i64 %67, -1
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit255, label %_ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i249
 
 _ZSt6fill_nIPPKN7jsonnet8internal10IdentifierEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i249: ; preds = %.noexc254
-  %86 = getelementptr i8, ptr %83, i64 8
-  %87 = add nsw i64 %82, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 %87, i1 false), !tbaa !76
+  %87 = getelementptr i8, ptr %83, i64 8
+  %.idx.i.i.i.i.i.i.i250 = shl nuw nsw i64 %85, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %87, i8 0, i64 %.idx.i.i.i.i.i.i.i250, i1 false), !tbaa !76
   br label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2EmRKS5_.exit255
 
 88:                                               ; preds = %._crit_edge.i.i
@@ -15010,7 +15012,7 @@ _ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorI
   store i64 %437, ptr %435, align 8, !tbaa !81
   %438 = load ptr, ptr %0, align 8, !tbaa !47
   %439 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #28
-          to label %.noexc356 unwind label %.body351.thread2212
+          to label %.noexc356 unwind label %.body351.thread2214
 
 .noexc356:                                        ; preds = %432
   invoke void @_ZN7jsonnet8internal6BinaryC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_NS0_8BinaryOpESC_(ptr noundef nonnull align 8 dereferenceable(176) %439, ptr noundef nonnull align 8 dereferenceable(64) @_ZN7jsonnet8internalL1EE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE, ptr noundef nonnull %427, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE, i32 noundef 3, ptr noundef %42)
@@ -15024,7 +15026,7 @@ _ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorI
 
 _ZN7jsonnet8internal9Allocator4makeINS0_6BinaryEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EEPNS0_3VarESC_NS0_8BinaryOpERPNS0_3ASTEEEEPT_DpOT0_.exit.i355: ; preds = %.noexc356
   %442 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %443 unwind label %.body351.thread2212
+          to label %443 unwind label %.body351.thread2214
 
 443:                                              ; preds = %_ZN7jsonnet8internal9Allocator4makeINS0_6BinaryEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EEPNS0_3VarESC_NS0_8BinaryOpERPNS0_3ASTEEEEPT_DpOT0_.exit.i355
   %444 = getelementptr inbounds nuw i8, ptr %438, i64 48
@@ -15036,7 +15038,7 @@ _ZN7jsonnet8internal9Allocator4makeINS0_6BinaryEJRKNS0_13LocationRangeERKSt6vect
   %448 = add i64 %447, 1
   store i64 %448, ptr %446, align 8, !tbaa !81
   invoke void @_ZN7jsonnet8internal8ArgParamC2EPNS0_3ASTERKSt6vectorINS0_13FodderElementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull %439, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE)
-          to label %449 unwind label %.body351.thread2212
+          to label %449 unwind label %.body351.thread2214
 
 449:                                              ; preds = %443
   %450 = load ptr, ptr %0, align 8, !tbaa !47
@@ -15045,9 +15047,9 @@ _ZN7jsonnet8internal9Allocator4makeINS0_6BinaryEJRKNS0_13LocationRangeERKSt6vect
 
 .noexc362:                                        ; preds = %449
   invoke void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(136) %451, ptr noundef nonnull align 8 dereferenceable(64) @_ZN7jsonnet8internalL1EE, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE)
-          to label %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i361 unwind label %.body351.thread2206
+          to label %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i361 unwind label %.body351.thread2208
 
-.body351.thread2206:                              ; preds = %.noexc362
+.body351.thread2208:                              ; preds = %.noexc362
   %452 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %451, i64 noundef 136) #27
@@ -15253,8 +15255,8 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit386: ; preds = %_ZNSt6
   %516 = icmp eq ptr %515, %18
   br i1 %516, label %.body351.thread, label %513
 
-.body351.thread2212:                              ; preds = %443, %432, %_ZN7jsonnet8internal9Allocator4makeINS0_6BinaryEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EEPNS0_3VarESC_NS0_8BinaryOpERPNS0_3ASTEEEEPT_DpOT0_.exit.i355
-  %lpad.thr_comm2211 = landingpad { ptr, i32 }
+.body351.thread2214:                              ; preds = %443, %432, %_ZN7jsonnet8internal9Allocator4makeINS0_6BinaryEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EEPNS0_3VarESC_NS0_8BinaryOpERPNS0_3ASTEEEEPT_DpOT0_.exit.i355
+  %lpad.thr_comm2213 = landingpad { ptr, i32 }
           cleanup
   br label %.body351.thread
 
@@ -15263,13 +15265,13 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit386: ; preds = %_ZNSt6
           cleanup
   br label %.preheader763
 
-.preheader763:                                    ; preds = %.body351.thread2206, %.body351
-  %.pn186.pn.pn2210 = phi { ptr, i32 } [ %452, %.body351.thread2206 ], [ %lpad.thr_comm.split-lp, %.body351 ]
+.preheader763:                                    ; preds = %.body351.thread2208, %.body351
+  %.pn186.pn.pn2212 = phi { ptr, i32 } [ %452, %.body351.thread2208 ], [ %lpad.thr_comm.split-lp, %.body351 ]
   call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #30
   br label %.body351.thread
 
-.body351.thread:                                  ; preds = %513, %.preheader763, %.body351.thread2212, %440, %509, %428
-  %.pn186.pn.pn727 = phi { ptr, i32 } [ %441, %440 ], [ %429, %428 ], [ %510, %509 ], [ %lpad.thr_comm2211, %.body351.thread2212 ], [ %.pn186.pn.pn2210, %.preheader763 ], [ %.pn186, %513 ]
+.body351.thread:                                  ; preds = %513, %.preheader763, %.body351.thread2214, %440, %509, %428
+  %.pn186.pn.pn727 = phi { ptr, i32 } [ %441, %440 ], [ %429, %428 ], [ %510, %509 ], [ %lpad.thr_comm2213, %.body351.thread2214 ], [ %.pn186.pn.pn2212, %.preheader763 ], [ %.pn186, %513 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.body
@@ -15415,7 +15417,7 @@ _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds 
 .thread:                                          ; preds = %564
   %569 = landingpad { ptr, i32 }
           cleanup
-  br label %.body398.thread2229
+  br label %.body398.thread2231
 
 570:                                              ; preds = %564
   invoke void @_ZN7jsonnet8internal8ArgParamC2ERKSt6vectorINS0_13FodderElementESaIS3_EEPKNS0_10IdentifierES7_(ptr noundef nonnull align 8 dereferenceable(88) %352, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE)
@@ -16142,7 +16144,7 @@ _ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorI
   %822 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %821, i64 noundef 184) #27
-  br label %.critedge228.thread2226
+  br label %.critedge228.thread2228
 
 _ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i: ; preds = %.noexc503
   %823 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -16171,18 +16173,18 @@ _ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorI
           to label %_ZN7jsonnet8internal9Desugarer4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit unwind label %.thread758
 
 _ZN7jsonnet8internal9Desugarer4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit: ; preds = %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i
-  %.sink2709 = phi ptr [ %820, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i ], [ %825, %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507 ]
-  %.sink2708 = phi ptr [ %823, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i ], [ %829, %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507 ]
-  %.sink2706 = phi ptr [ %821, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i ], [ %826, %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507 ]
-  %830 = getelementptr inbounds nuw i8, ptr %.sink2709, i64 48
-  %831 = getelementptr inbounds nuw i8, ptr %.sink2708, i64 16
-  store ptr %.sink2706, ptr %831, align 8, !tbaa !54
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sink2708, ptr noundef nonnull align 8 dereferenceable(24) %830) #30
-  %832 = getelementptr inbounds nuw i8, ptr %.sink2709, i64 64
+  %.sink2711 = phi ptr [ %820, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i ], [ %825, %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507 ]
+  %.sink2710 = phi ptr [ %823, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i ], [ %829, %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507 ]
+  %.sink2708 = phi ptr [ %821, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i ], [ %826, %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507 ]
+  %830 = getelementptr inbounds nuw i8, ptr %.sink2711, i64 48
+  %831 = getelementptr inbounds nuw i8, ptr %.sink2710, i64 16
+  store ptr %.sink2708, ptr %831, align 8, !tbaa !54
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sink2710, ptr noundef nonnull align 8 dereferenceable(24) %830) #30
+  %832 = getelementptr inbounds nuw i8, ptr %.sink2711, i64 64
   %833 = load i64, ptr %832, align 8, !tbaa !81
   %834 = add i64 %833, 1
   store i64 %834, ptr %832, align 8, !tbaa !81
-  invoke void @_ZN7jsonnet8internal8ArgParamC2EPNS0_3ASTERKSt6vectorINS0_13FodderElementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(88) %369, ptr noundef nonnull %.sink2706, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE)
+  invoke void @_ZN7jsonnet8internal8ArgParamC2EPNS0_3ASTERKSt6vectorINS0_13FodderElementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(88) %369, ptr noundef nonnull %.sink2708, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE)
           to label %835 unwind label %970
 
 835:                                              ; preds = %_ZN7jsonnet8internal9Desugarer4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit
@@ -16550,7 +16552,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit581: ; preds = %_ZNSt6
   %947 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #30
-  br label %.body398.thread2229
+  br label %.body398.thread2231
 
 948:                                              ; preds = %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i405, %592
   %949 = landingpad { ptr, i32 }
@@ -16610,7 +16612,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit581: ; preds = %_ZNSt6
 .thread751:                                       ; preds = %819, %_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.critedge228.thread2226
+  br label %.critedge228.thread2228
 
 .thread758:                                       ; preds = %_ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EERPKNS0_10IdentifierEEEEPT_DpOT0_.exit.i507, %824
   %lpad.thr_comm756 = landingpad { ptr, i32 }
@@ -16620,7 +16622,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit581: ; preds = %_ZNSt6
 970:                                              ; preds = %_ZN7jsonnet8internal9Desugarer4makeINS0_5ArrayEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EES7_INS3_7ElementESaISD_EEbSC_EEEPT_DpOT0_.exit
   %lpad.thr_comm.split-lp757 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not, label %.critedge228.thread2226, label %.preheader761.preheader
+  br i1 %.not, label %.critedge228.thread2228, label %.preheader761.preheader
 
 971:                                              ; preds = %_ZN7jsonnet8internal9Allocator4makeINS0_5ApplyEJRKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS8_EEPNS0_3VarESC_S7_INS0_8ArgParamESaISF_EEbSC_SC_bEEEPT_DpOT0_.exit.i519, %856
   %972 = landingpad { ptr, i32 }
@@ -16680,7 +16682,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit584: ; preds = 
 .body504:                                         ; preds = %984
   br i1 %.not, label %.critedge228, label %.critedge228.thread
 
-.critedge228.thread2226:                          ; preds = %.body504.thread, %970, %.thread751
+.critedge228.thread2228:                          ; preds = %.body504.thread, %970, %.thread751
   %.pn191.pn.pn.pn735.ph = phi { ptr, i32 } [ %lpad.thr_comm, %.thread751 ], [ %lpad.thr_comm.split-lp757, %970 ], [ %822, %.body504.thread ]
   call void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -16691,13 +16693,13 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit584: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge228.thread
 
-.preheader761.preheader:                          ; preds = %.thread758, %970, %.body504.thread737, %.critedge228.thread2226
-  %.pn191.pn.pn.pn.pn2224 = phi { ptr, i32 } [ %.pn191.pn.pn.pn735.ph, %.critedge228.thread2226 ], [ %lpad.thr_comm756, %.thread758 ], [ %lpad.thr_comm.split-lp757, %970 ], [ %827, %.body504.thread737 ]
+.preheader761.preheader:                          ; preds = %.thread758, %970, %.body504.thread737, %.critedge228.thread2228
+  %.pn191.pn.pn.pn.pn2226 = phi { ptr, i32 } [ %.pn191.pn.pn.pn735.ph, %.critedge228.thread2228 ], [ %lpad.thr_comm756, %.thread758 ], [ %lpad.thr_comm.split-lp757, %970 ], [ %827, %.body504.thread737 ]
   call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %27) #30
   br label %.critedge228.thread
 
 .critedge228.thread:                              ; preds = %.critedge228, %.preheader761.preheader, %968, %.body504
-  %.pn191.pn.pn.pn.pn745 = phi { ptr, i32 } [ %.pn191.pn.pn, %.critedge228 ], [ %.pn191.pn.pn, %.body504 ], [ %969, %968 ], [ %.pn191.pn.pn.pn.pn2224, %.preheader761.preheader ]
+  %.pn191.pn.pn.pn.pn745 = phi { ptr, i32 } [ %.pn191.pn.pn, %.critedge228 ], [ %.pn191.pn.pn, %.body504 ], [ %969, %968 ], [ %.pn191.pn.pn.pn.pn2226, %.preheader761.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.body495
@@ -16773,7 +16775,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit587: ; preds = 
   %1002 = icmp eq ptr %1001, %22
   br i1 %1002, label %.body398, label %999
 
-.body398.thread2229:                              ; preds = %.thread, %.body398.loopexit1624
+.body398.thread2231:                              ; preds = %.thread, %.body398.loopexit1624
   %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %947, %.body398.loopexit1624 ], [ %569, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -16784,13 +16786,13 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit587: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.2148, label %.preheader.preheader, label %.body398.thread
 
-.preheader.preheader:                             ; preds = %.body398.thread2229, %.body398
-  %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2232 = phi { ptr, i32 } [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body398.thread2229 ], [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body398 ]
+.preheader.preheader:                             ; preds = %.body398.thread2231, %.body398
+  %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2234 = phi { ptr, i32 } [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body398.thread2231 ], [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body398 ]
   call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %20) #30
   br label %.body398.thread
 
 .body398.thread:                                  ; preds = %.preheader.preheader, %562, %.body398
-  %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn750 = phi { ptr, i32 } [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body398 ], [ %563, %562 ], [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2232, %.preheader.preheader ]
+  %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn750 = phi { ptr, i32 } [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body398 ], [ %563, %562 ], [ %.pn191.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2234, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.body

@@ -88,26 +88,26 @@ define weak_odr dso_local void @_ZN3igl10in_elementIN5Eigen6MatrixIdLin1ELin1ELi
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKi.exit.loopexit: ; preds = %5
   %15 = load ptr, ptr %4, align 8, !tbaa !14
-  %16 = shl i64 %13, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %15, i8 -1, i64 %16, i1 false), !tbaa !15
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %15, i8 -1, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !15
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKi.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKi.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantEllRKi.exit.loopexit, %5
-  %17 = trunc i64 %10 to i32
+  %16 = trunc i64 %10 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %3, ptr %8, align 8, !tbaa !17
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %0, ptr %18, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %1, ptr %19, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %2, ptr %20, align 8, !tbaa !19
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %4, ptr %21, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %0, ptr %17, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %1, ptr %18, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %2, ptr %19, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %4, ptr %20, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !25
-  %22 = call noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12parallel_forIiZNS_10in_elementIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_Li3ENS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS_4AABBIS9_XT2_EEERNS3_15PlainObjectBaseIT3_EEEUliE_EEbS9_RKSD_mEUlmE_ZNS1_IiST_EEbS9_SV_mEUlimE_SW_EEbS9_SV_RKSH_RKT2_m(i32 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 10000)
+  %21 = call noundef zeroext i1 @_ZN3igl12parallel_forIiZNS_12parallel_forIiZNS_10in_elementIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_Li3ENS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS_4AABBIS9_XT2_EEERNS3_15PlainObjectBaseIT3_EEEUliE_EEbS9_RKSD_mEUlmE_ZNS1_IiST_EEbS9_SV_mEUlimE_SW_EEbS9_SV_RKSH_RKT2_m(i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 10000)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

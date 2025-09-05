@@ -2168,7 +2168,7 @@ define void @_ZNK10open_spiel13cliff_walking17CliffWalkingState17ObservationTens
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
 22:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
@@ -2190,7 +2190,7 @@ define void @_ZNK10open_spiel13cliff_walking17CliffWalkingState17ObservationTens
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
 30:                                               ; preds = %22
   store i64 %3, ptr %13, align 8
@@ -2216,40 +2216,40 @@ define void @_ZNK10open_spiel13cliff_walking17CliffWalkingState17ObservationTens
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
 42:                                               ; preds = %30
   %.not6.i.i.i = icmp eq i64 %3, 0
   br i1 %.not6.i.i.i, label %_ZSt4fillIPfdEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %42
-  %43 = shl nsw i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %43, i1 false)
+  %.idx = shl nsw i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx, i1 false)
   %.pre = load i32, ptr %33, align 8
   br label %_ZSt4fillIPfdEvT_S1_RKT0_.exit
 
 _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %42
-  %44 = phi i32 [ %.pre, %.lr.ph.i.i.i.preheader ], [ %34, %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %46 = load i32, ptr %45, align 8
-  %47 = mul nsw i32 %44, %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %49 = load i32, ptr %48, align 4
-  %50 = add nsw i32 %47, %49
-  %51 = sext i32 %50 to i64
-  %52 = icmp ugt i64 %3, %51
-  br i1 %52, label %_ZNK4absl7debian24SpanIfEixEm.exit, label %53
+  %43 = phi i32 [ %.pre, %.lr.ph.i.i.i.preheader ], [ %34, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %45 = load i32, ptr %44, align 8
+  %46 = mul nsw i32 %43, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %48 = load i32, ptr %47, align 4
+  %49 = add nsw i32 %46, %48
+  %50 = sext i32 %49 to i64
+  %51 = icmp ugt i64 %3, %50
+  br i1 %51, label %_ZNK4absl7debian24SpanIfEixEm.exit, label %52
 
-53:                                               ; preds = %_ZSt4fillIPfdEvT_S1_RKT0_.exit
+52:                                               ; preds = %_ZSt4fillIPfdEvT_S1_RKT0_.exit
   tail call void @llvm.trap()
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %_ZSt4fillIPfdEvT_S1_RKT0_.exit
-  %54 = getelementptr inbounds float, ptr %2, i64 %51
-  store float 1.000000e+00, ptr %54, align 4
+  %53 = getelementptr inbounds float, ptr %2, i64 %50
+  store float 1.000000e+00, ptr %53, align 4
   ret void
 
-55:                                               ; preds = %40, %28, %20
+54:                                               ; preds = %40, %28, %20
   %.sink = phi ptr [ %15, %40 ], [ %11, %28 ], [ %7, %20 ]
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %29, %28 ], [ %21, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24

@@ -16536,7 +16536,7 @@ _ZL21getFSqrtDivOptPatternPN4llvm11InstructionERNS_15SmallPtrSetImplIS1_EES4_.ex
   %.v.v.i4.i2.i = select i1 %132, i32 %116, i32 %134
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %135 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx.i
+  %135 = getelementptr i8, ptr %129, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -16565,7 +16565,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit: ; preds = %.lr.ph.i
   %.v.v.i4.i2.i26 = select i1 %144, i32 %121, i32 %146
   %.v.i5.i3.i27 = zext i32 %.v.v.i4.i2.i26 to i64
   %.idx.i28 = shl nuw nsw i64 %.v.i5.i3.i27, 3
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx.i28
+  %147 = getelementptr i8, ptr %141, i64 %.idx.i28
   %.not3.i4.i.i6.i4.i29 = icmp eq i32 %.v.v.i4.i2.i26, 0
   br i1 %.not3.i4.i.i6.i4.i29, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit38, label %.lr.ph.i5.i.i7.i5.i30
 
@@ -16720,7 +16720,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   %.v.v.i4.i2.i = select i1 %39, i32 %41, i32 %43
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
+  %44 = getelementptr i8, ptr %36, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -16762,7 +16762,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %_ZNK4llvm15SmallPtr
   %.v.v.i4.i2.i70.pre-phi = phi i32 [ %.v.v.i4.i2.i, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit ], [ %.pre216, %51 ]
   %53 = phi ptr [ %36, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit ], [ %.pre, %51 ]
   %.0.i = phi ptr [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit ], [ %52, %51 ]
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i72.pre-phi
+  %54 = getelementptr i8, ptr %53, i64 %.idx.i72.pre-phi
   %.not3.i4.i.i6.i4.i73 = icmp eq i32 %.v.v.i4.i2.i70.pre-phi, 0
   br i1 %.not3.i4.i.i6.i4.i73, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit82.thread, label %.lr.ph.i5.i.i7.i5.i74
 
@@ -16825,7 +16825,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit95: ; preds = %.lr.ph
   %.v.v.i4.i2.i96 = select i1 %70, i32 %72, i32 %74
   %.v.i5.i3.i97 = zext i32 %.v.v.i4.i2.i96 to i64
   %.idx.i98 = shl nuw nsw i64 %.v.i5.i3.i97, 3
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i98
+  %75 = getelementptr i8, ptr %67, i64 %.idx.i98
   %.not3.i4.i.i6.i4.i99 = icmp eq i32 %.v.v.i4.i2.i96, 0
   br i1 %.not3.i4.i.i6.i4.i99, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit108, label %.lr.ph.i5.i.i7.i5.i100
 
@@ -16867,7 +16867,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit111:    ; preds = %_ZNK4llvm15SmallPtr
   %.v.v.i4.i2.i112.pre-phi = phi i32 [ %.v.v.i4.i2.i96, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit108 ], [ %.pre221, %82 ]
   %84 = phi ptr [ %67, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit108 ], [ %.pre211, %82 ]
   %.0.i110 = phi ptr [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit108 ], [ %83, %82 ]
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i114.pre-phi
+  %85 = getelementptr i8, ptr %84, i64 %.idx.i114.pre-phi
   %.not3.i4.i.i6.i4.i115 = icmp eq i32 %.v.v.i4.i2.i112.pre-phi, 0
   br i1 %.not3.i4.i.i6.i4.i115, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit124.thread, label %.lr.ph.i5.i.i7.i5.i116
 
@@ -21781,7 +21781,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_15SmallPtrSetImp
   %.v.v.i4.i2.i.i.i.i = select i1 %6, i32 %8, i32 %10
   %.v.i5.i3.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i, 3
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i.i
+  %11 = getelementptr i8, ptr %3, i64 %.idx.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit, label %.lr.ph.i5.i.i7.i5.i.i.i.i
 
@@ -21858,7 +21858,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_15SmallPtrSetImp
   %.v.v.i4.i2.i.i.i.i = select i1 %6, i32 %8, i32 %10
   %.v.i5.i3.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i, 3
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i.i
+  %11 = getelementptr i8, ptr %3, i64 %.idx.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit, label %.lr.ph.i5.i.i7.i5.i.i.i.i
 

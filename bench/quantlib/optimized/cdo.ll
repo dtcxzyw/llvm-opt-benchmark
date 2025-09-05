@@ -5360,9 +5360,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %7 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %7, i1 false), !tbaa !131
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !131
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.preheader
 
@@ -5379,14 +5378,14 @@ for.body.preheader:                               ; preds = %if.end.i.i.i.i.i.i.
 for.cond.cleanup:                                 ; preds = %invoke.cont17, %invoke.cont
   call void @llvm.lifetime.start.p0(ptr nonnull %op)
   %nBuckets_ = getelementptr inbounds nuw i8, ptr %this, i64 384
-  %8 = load i64, ptr %nBuckets_, align 8, !tbaa !112
+  %7 = load i64, ptr %nBuckets_, align 8, !tbaa !112
   %xMax_ = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %9 = load double, ptr %xMax_, align 8, !tbaa !134
+  %8 = load double, ptr %xMax_, align 8, !tbaa !134
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib17LossDistBucketingE, i64 16), ptr %op, align 8, !tbaa !32
   %nBuckets_.i = getelementptr inbounds nuw i8, ptr %op, i64 8
-  store i64 %8, ptr %nBuckets_.i, align 8, !tbaa !159
+  store i64 %7, ptr %nBuckets_.i, align 8, !tbaa !159
   %maximum_.i = getelementptr inbounds nuw i8, ptr %op, i64 16
-  store double %9, ptr %maximum_.i, align 8, !tbaa !162
+  store double %8, ptr %maximum_.i, align 8, !tbaa !162
   %epsilon_.i = getelementptr inbounds nuw i8, ptr %op, i64 24
   store double 0x3EB0C6F7A0B5ED8D, ptr %epsilon_.i, align 8, !tbaa !163
   call void @llvm.lifetime.start.p0(ptr nonnull %dist)
@@ -5395,15 +5394,15 @@ for.cond.cleanup:                                 ; preds = %invoke.cont17, %inv
           to label %invoke.cont23 unwind label %lpad22
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont17
-  %10 = phi ptr [ %15, %invoke.cont17 ], [ %6, %for.body.preheader ]
+  %9 = phi ptr [ %14, %invoke.cont17 ], [ %6, %for.body.preheader ]
   %j.038 = phi i64 [ %inc, %invoke.cont17 ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.48", ptr %10, i64 %j.038
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.48", ptr %9, i64 %j.038
   %call14 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_31DefaultProbabilityTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %for.body
-  %11 = load ptr, ptr %call14, align 8, !tbaa !156
-  %cmp.not.i14 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %call14, align 8, !tbaa !156
+  %cmp.not.i14 = icmp eq ptr %10, null
   br i1 %cmp.not.i14, label %cond.false.i15, label %invoke.cont15, !prof !93
 
 cond.false.i15:                                   ; preds = %invoke.cont13
@@ -5415,37 +5414,37 @@ cond.false.i15:                                   ; preds = %invoke.cont13
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %.noexc17, %invoke.cont13
-  %12 = phi ptr [ %11, %invoke.cont13 ], [ %.pre.i16, %.noexc17 ]
-  %call.i.i19 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(8) %d)
+  %11 = phi ptr [ %10, %invoke.cont13 ], [ %.pre.i16, %.noexc17 ]
+  %call.i.i19 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %11, ptr noundef nonnull align 8 dereferenceable(8) %d)
           to label %call.i.i.noexc unwind label %lpad12
 
 call.i.i.noexc:                                   ; preds = %invoke.cont15
-  %call2.i.i20 = invoke noundef double @_ZNK8QuantLib31DefaultProbabilityTermStructure19survivalProbabilityEdb(ptr noundef nonnull align 8 dereferenceable(152) %12, double noundef %call.i.i19, i1 noundef zeroext false)
+  %call2.i.i20 = invoke noundef double @_ZNK8QuantLib31DefaultProbabilityTermStructure19survivalProbabilityEdb(ptr noundef nonnull align 8 dereferenceable(152) %11, double noundef %call.i.i19, i1 noundef zeroext false)
           to label %invoke.cont17 unwind label %lpad12
 
 invoke.cont17:                                    ; preds = %call.i.i.noexc
   %sub.i = fsub double 1.000000e+00, %call2.i.i20
-  %13 = load ptr, ptr %defProb, align 8, !tbaa !88
-  %add.ptr.i21 = getelementptr inbounds nuw double, ptr %13, i64 %j.038
+  %12 = load ptr, ptr %defProb, align 8, !tbaa !88
+  %add.ptr.i21 = getelementptr inbounds nuw double, ptr %12, i64 %j.038
   store double %sub.i, ptr %add.ptr.i21, align 8, !tbaa !131
   %inc = add nuw i64 %j.038, 1
-  %14 = load ptr, ptr %_M_finish.i, align 8, !tbaa !91
-  %15 = load ptr, ptr %basket_, align 8, !tbaa !92
-  %sub.ptr.lhs.cast.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i11 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i, align 8, !tbaa !91
+  %14 = load ptr, ptr %basket_, align 8, !tbaa !92
+  %sub.ptr.lhs.cast.i10 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
   %sub.ptr.div.i13 = ashr exact i64 %sub.ptr.sub.i12, 4
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i13
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !164
 
 lpad12:                                           ; preds = %call.i.i.noexc, %invoke.cont15, %cond.false.i15, %for.body
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup34
 
 invoke.cont23:                                    ; preds = %for.cond.cleanup
-  %17 = load ptr, ptr %call24, align 8, !tbaa !165
-  %cmp.not.i22 = icmp eq ptr %17, null
+  %16 = load ptr, ptr %call24, align 8, !tbaa !165
+  %cmp.not.i22 = icmp eq ptr %16, null
   br i1 %cmp.not.i22, label %cond.false.i23, label %invoke.cont25, !prof !93
 
 cond.false.i23:                                   ; preds = %invoke.cont23
@@ -5457,33 +5456,33 @@ cond.false.i23:                                   ; preds = %invoke.cont23
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %.noexc25, %invoke.cont23
-  %18 = phi ptr [ %17, %invoke.cont23 ], [ %.pre.i24, %.noexc25 ]
+  %17 = phi ptr [ %16, %invoke.cont23 ], [ %.pre.i24, %.noexc25 ]
   %lgds_ = getelementptr inbounds nuw i8, ptr %this, i64 400
-  invoke void @_ZNK8QuantLib15OneFactorCopula8integralINS_17LossDistBucketingEEENS_12DistributionERKT_RKSt6vectorIdSaIdEESB_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Distribution") align 8 %dist, ptr noundef nonnull align 8 dereferenceable(104) %18, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr noundef nonnull align 8 dereferenceable(24) %lgds_, ptr noundef nonnull align 8 dereferenceable(24) %defProb)
+  invoke void @_ZNK8QuantLib15OneFactorCopula8integralINS_17LossDistBucketingEEENS_12DistributionERKT_RKSt6vectorIdSaIdEESB_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Distribution") align 8 %dist, ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr noundef nonnull align 8 dereferenceable(24) %lgds_, ptr noundef nonnull align 8 dereferenceable(24) %defProb)
           to label %invoke.cont27 unwind label %lpad22
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %xMin_ = getelementptr inbounds nuw i8, ptr %this, i64 448
-  %19 = load double, ptr %xMin_, align 8, !tbaa !135
-  %20 = load double, ptr %xMax_, align 8, !tbaa !134
-  %call31 = invoke noundef double @_ZN8QuantLib12Distribution20trancheExpectedValueEdd(ptr noundef nonnull align 8 dereferenceable(225) %dist, double noundef %19, double noundef %20)
+  %18 = load double, ptr %xMin_, align 8, !tbaa !135
+  %19 = load double, ptr %xMax_, align 8, !tbaa !134
+  %call31 = invoke noundef double @_ZN8QuantLib12Distribution20trancheExpectedValueEdd(ptr noundef nonnull align 8 dereferenceable(225) %dist, double noundef %18, double noundef %19)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
   call void @_ZN8QuantLib12DistributionD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %dist) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %dist)
   call void @llvm.lifetime.end.p0(ptr nonnull %op)
-  %21 = load ptr, ptr %defProb, align 8, !tbaa !88
-  %tobool.not.i.i.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %defProb, align 8, !tbaa !88
+  %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont30
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %defProb, i64 16
-  %22 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !90
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %21 to i64
+  %21 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !90
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %sub.ptr.sub.i.i) #31
+  call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %sub.ptr.sub.i.i) #31
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont30, %if.then.i.i.i
@@ -5491,35 +5490,35 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont30, %if.
   br label %return
 
 lpad22:                                           ; preds = %cond.false.i23, %invoke.cont25, %for.cond.cleanup
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad29:                                           ; preds = %invoke.cont27
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QuantLib12DistributionD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %dist) #27
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad29, %lpad22
-  %.pn = phi { ptr, i32 } [ %24, %lpad29 ], [ %23, %lpad22 ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad29 ], [ %22, %lpad22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %dist)
   call void @llvm.lifetime.end.p0(ptr nonnull %op)
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup, %lpad12
-  %.pn5 = phi { ptr, i32 } [ %16, %lpad12 ], [ %.pn, %ehcleanup ]
-  %25 = load ptr, ptr %defProb, align 8, !tbaa !88
-  %tobool.not.i.i.i26 = icmp eq ptr %25, null
+  %.pn5 = phi { ptr, i32 } [ %15, %lpad12 ], [ %.pn, %ehcleanup ]
+  %24 = load ptr, ptr %defProb, align 8, !tbaa !88
+  %tobool.not.i.i.i26 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup35, label %if.then.i.i.i27
 
 if.then.i.i.i27:                                  ; preds = %ehcleanup34
   %_M_end_of_storage.i.i28 = getelementptr inbounds nuw i8, ptr %defProb, i64 16
-  %26 = load ptr, ptr %_M_end_of_storage.i.i28, align 8, !tbaa !90
-  %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %25 to i64
+  %25 = load ptr, ptr %_M_end_of_storage.i.i28, align 8, !tbaa !90
+  %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %sub.ptr.sub.i.i31) #31
+  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %sub.ptr.sub.i.i31) #31
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %if.then.i.i.i27, %ehcleanup34

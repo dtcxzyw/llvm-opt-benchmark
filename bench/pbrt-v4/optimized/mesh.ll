@@ -1082,7 +1082,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAdd
   store i64 %2, ptr %11, align 8, !tbaa !69
   %12 = mul i64 %2, -4132994306676758123
   %13 = and i64 %2, -8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %14 = getelementptr i8, ptr %1, i64 %13
   %.not37.i.i.i = icmp samesign eq i64 %13, 0
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -1294,7 +1294,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKiPiET0_
   store ptr %.0.i.i.i, ptr %7, align 8, !tbaa !67
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %120, align 8, !tbaa !69
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %13
+  %121 = getelementptr i8, ptr %.0.i.i.i, i64 %13
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i30, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %119, %.lr.ph.i.i.i25
@@ -1427,7 +1427,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE
   store i64 %2, ptr %11, align 8, !tbaa !79
   %12 = mul i64 %2, -4132994306676758123
   %13 = and i64 %2, -8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %14 = getelementptr i8, ptr %1, i64 %13
   %.not37.i.i.i = icmp samesign eq i64 %13, 0
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -1639,7 +1639,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   store ptr %.0.i.i.i, ptr %7, align 8, !tbaa !77
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %120, align 8, !tbaa !79
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %13
+  %121 = getelementptr i8, ptr %.0.i.i.i, i64 %13
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i30, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %119, %.lr.ph.i.i.i25
@@ -1838,7 +1838,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE
   store i64 %2, ptr %11, align 8, !tbaa !88
   %12 = mul i64 %2, -4132994306676758123
   %13 = and i64 %2, -8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %14 = getelementptr i8, ptr %1, i64 %13
   %.not37.i.i.i = icmp samesign eq i64 %13, 0
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -2050,7 +2050,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt6
   store ptr %.0.i.i.i, ptr %7, align 8, !tbaa !86
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %120, align 8, !tbaa !88
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %13
+  %121 = getelementptr i8, ptr %.0.i.i.i, i64 %13
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i30, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %119, %.lr.ph.i.i.i25
@@ -2247,7 +2247,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEE
   store i64 %2, ptr %11, align 8, !tbaa !97
   %12 = mul i64 %2, -4132994306676758123
   %13 = and i64 %2, -8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %14 = getelementptr i8, ptr %1, i64 %13
   %.not37.i.i.i = icmp samesign eq i64 %13, 0
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -2459,7 +2459,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   store ptr %.0.i.i.i, ptr %7, align 8, !tbaa !95
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %120, align 8, !tbaa !97
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %13
+  %121 = getelementptr i8, ptr %.0.i.i.i, i64 %13
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i30, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %119, %.lr.ph.i.i.i25
@@ -2589,7 +2589,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEE
   store i64 %2, ptr %11, align 8, !tbaa !103
   %12 = mul i64 %2, -4132994306676758123
   %13 = and i64 %2, -8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %14 = getelementptr i8, ptr %1, i64 %13
   %.not37.i.i.i = icmp samesign eq i64 %13, 0
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -2801,7 +2801,7 @@ _ZNSt12shared_mutex4lockEv.exit:                  ; preds = %_ZSt4copyIPKN4pbrt7
   store ptr %.0.i.i.i, ptr %7, align 8, !tbaa !101
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %120, align 8, !tbaa !103
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %13
+  %121 = getelementptr i8, ptr %.0.i.i.i, i64 %13
   br i1 %.not37.i.i.i, label %._crit_edge.i.i.i30, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %119, %.lr.ph.i.i.i25

@@ -8277,7 +8277,7 @@ define dso_local void @_ZNK5clang4ento18retaincountchecker18RetainCountChecker18
 
 30:                                               ; preds = %._crit_edge
   %.idx.i.i = shl nuw nsw i64 %27, 3
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
+  %31 = getelementptr i8, ptr %24, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

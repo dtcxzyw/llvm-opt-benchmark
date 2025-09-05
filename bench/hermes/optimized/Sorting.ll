@@ -50,9 +50,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end
-  %1 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
@@ -65,8 +64,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i
 for.body:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
-  %2 = trunc nuw i64 %indvars.iv to i32
-  store i32 %2, ptr %add.ptr.i, align 4
+  %1 = trunc nuw i64 %indvars.iv to i32
+  store i32 %1, ptr %add.ptr.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -90,10 +89,10 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %sub.i = add i32 %j.027.i, -1
   %vtable.i.i = load ptr, ptr %sm, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.027.i, i32 noundef %sub.i) #10
-  %4 = and i64 %call.i.i, 4294967295
-  %cmp.i.i.i = icmp eq i64 %4, 0
+  %2 = load ptr, ptr %vfn.i.i, align 8
+  %call.i.i = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.027.i, i32 noundef %sub.i) #10
+  %3 = and i64 %call.i.i, 4294967295
+  %cmp.i.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body4.i
@@ -107,17 +106,17 @@ cond.true.i.i:                                    ; preds = %if.end.i.i
 _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i: ; preds = %if.end.i.i
   %conv.i.i = zext i32 %j.027.i to i64
   %add.ptr.i.i.i14 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv.i.i
-  %5 = load i32, ptr %add.ptr.i.i.i14, align 4
+  %4 = load i32, ptr %add.ptr.i.i.i14, align 4
   %conv6.i.i = zext i32 %sub.i to i64
   %add.ptr.i5.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv6.i.i
-  %6 = load i32, ptr %add.ptr.i5.i.i, align 4
-  %cmp8.i.i = icmp ult i32 %5, %6
+  %5 = load i32, ptr %add.ptr.i5.i.i, align 4
+  %cmp8.i.i = icmp ult i32 %4, %5
   br i1 %cmp8.i.i, label %if.end10.i, label %for.inc16.i
 
 if.end10.i:                                       ; preds = %cond.true.i.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i
   %vtable.i15.i = load ptr, ptr %sm, align 8
-  %7 = load ptr, ptr %vtable.i15.i, align 8
-  %call.i16.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.027.i, i32 noundef %sub.i) #10
+  %6 = load ptr, ptr %vtable.i15.i, align 8
+  %call.i16.i = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.027.i, i32 noundef %sub.i) #10
   %cmp.i17.i = icmp eq i32 %call.i16.i, 0
   br i1 %cmp.i17.i, label %if.then.i.i.i, label %for.inc.i
 
@@ -126,10 +125,10 @@ for.inc.i:                                        ; preds = %if.end10.i
   %add.ptr.i.i20.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv.i19.i
   %conv2.i.i = zext i32 %sub.i to i64
   %add.ptr.i4.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i, i64 %conv2.i.i
-  %8 = load i32, ptr %add.ptr.i.i20.i, align 4
-  %9 = load i32, ptr %add.ptr.i4.i.i, align 4
-  store i32 %9, ptr %add.ptr.i.i20.i, align 4
-  store i32 %8, ptr %add.ptr.i4.i.i, align 4
+  %7 = load i32, ptr %add.ptr.i.i20.i, align 4
+  %8 = load i32, ptr %add.ptr.i4.i.i, align 4
+  store i32 %8, ptr %add.ptr.i.i20.i, align 4
+  store i32 %7, ptr %add.ptr.i4.i.i, align 4
   %cmp3.not.i = icmp eq i32 %sub.i, %begin
   br i1 %cmp3.not.i, label %for.inc16.i, label %for.body4.i, !llvm.loop !6
 
@@ -139,8 +138,8 @@ for.inc16.i:                                      ; preds = %cond.true.i.i, %for
   br i1 %cmp1.not.i, label %if.then.i.i.i, label %for.cond2.preheader.i, !llvm.loop !7
 
 cleanup:                                          ; preds = %for.end
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
-  %conv.i = shl nuw nsw i32 %10, 1
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
+  %conv.i = shl nuw nsw i32 %9, 1
   %mul = xor i32 %conv.i, 62
   %sub6 = add i32 %end, -1
   %call7 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %mul, i32 noundef %begin, i32 noundef %sub6)
@@ -150,8 +149,8 @@ cleanup:                                          ; preds = %for.end
 
 if.then.i.i.i:                                    ; preds = %for.inc16.i, %if.end10.i, %for.body4.i, %if.else, %cleanup
   %retval.123 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
-  %11 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
-  call void @_ZdlPv(ptr noundef nonnull %11) #11
+  %10 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
+  call void @_ZdlPv(ptr noundef nonnull %10) #11
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %entry

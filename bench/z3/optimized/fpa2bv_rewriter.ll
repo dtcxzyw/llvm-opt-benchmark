@@ -4530,7 +4530,7 @@ _ZNK12rewriter_tplI19fpa2bv_rewriter_cfgE10must_cacheEP4expr.exit.thread88: ; pr
   %97 = load i32, ptr %96, align 8, !tbaa !249
   %98 = zext i32 %97 to i64
   %.idx.i = shl nuw nsw i64 %98, 3
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i
+  %99 = getelementptr i8, ptr %95, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %97, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -9792,7 +9792,7 @@ _ZNK12rewriter_tplI19fpa2bv_rewriter_cfgE10must_cacheEP4expr.exit.thread111: ; p
   %136 = load i32, ptr %135, align 8, !tbaa !249
   %137 = zext i32 %136 to i64
   %.idx.i = shl nuw nsw i64 %137, 3
-  %138 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i
+  %138 = getelementptr i8, ptr %134, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %136, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

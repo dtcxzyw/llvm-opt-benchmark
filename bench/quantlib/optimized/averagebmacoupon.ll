@@ -3372,9 +3372,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
-  %3 = add nsw i64 %sub.ptr.sub.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false), !tbaa !128
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !128
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.lr.ph
 
@@ -3391,8 +3390,8 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, 
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont9
   %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont9 ]
-  %4 = load ptr, ptr %index_, align 8, !tbaa !71
-  %cmp.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %index_, align 8, !tbaa !71
+  %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont4, !prof !51
 
 cond.false.i:                                     ; preds = %for.body
@@ -3404,11 +3403,11 @@ cond.false.i:                                     ; preds = %for.body
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %.noexc6, %for.body
-  %5 = phi ptr [ %4, %for.body ], [ %.pre.i, %.noexc6 ]
-  %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !105
-  %7 = load ptr, ptr %dates_.i, align 8, !tbaa !94
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %4 = phi ptr [ %3, %for.body ], [ %.pre.i, %.noexc6 ]
+  %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !105
+  %6 = load ptr, ptr %dates_.i, align 8, !tbaa !94
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp.not.i.i.i = icmp ult i64 %i.022, %sub.ptr.div.i.i.i.i
@@ -3422,11 +3421,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   unreachable
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %add.ptr.i.i.i8 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %7, i64 %i.022
-  %vtable = load ptr, ptr %5, align 8, !tbaa !32
+  %add.ptr.i.i.i8 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %6, i64 %i.022
+  %vtable = load ptr, ptr %4, align 8, !tbaa !32
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
-  %8 = load ptr, ptr %vfn, align 8
-  %call10 = invoke noundef double %8(ptr noundef nonnull align 8 dereferenceable(240) %5, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i8, i1 noundef zeroext false)
+  %7 = load ptr, ptr %vfn, align 8
+  %call10 = invoke noundef double %7(ptr noundef nonnull align 8 dereferenceable(240) %4, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i8, i1 noundef zeroext false)
           to label %invoke.cont9 unwind label %lpad3.loopexit
 
 invoke.cont9:                                     ; preds = %invoke.cont7

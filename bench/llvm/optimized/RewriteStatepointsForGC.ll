@@ -8421,7 +8421,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_5ValueEN12_GLOBAL__N_132RematerizlizationC
 
 2553:                                             ; preds = %2541
   %.idx.i.i.i.i = shl nuw nsw i64 %2550, 4
-  %2554 = getelementptr inbounds nuw i8, ptr %2548, i64 %.idx.i.i.i.i
+  %2554 = getelementptr i8, ptr %2548, i64 %.idx.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i = icmp eq i32 %2549, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit.i.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i
 
@@ -12884,7 +12884,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10AllocaInstENS_12DenseMapIn
 
 4557:                                             ; preds = %._crit_edge441.i
   %.idx.i.i421 = shl nuw nsw i64 %4554, 4
-  %4558 = getelementptr inbounds nuw i8, ptr %4551, i64 %.idx.i.i421
+  %4558 = getelementptr i8, ptr %4551, i64 %.idx.i.i421
   %.not5.i5.i10.i2.i.i = icmp eq i32 %4553, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10AllocaInstENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -13132,7 +13132,7 @@ _ZL29insertRematerializationStoresRKN4llvm9MapVectorINS_11AssertingVHINS_11Instr
 
 4675:                                             ; preds = %4667
   %.idx.i216.i = shl nuw nsw i64 %4672, 4
-  %4676 = getelementptr inbounds nuw i8, ptr %4670, i64 %.idx.i216.i
+  %4676 = getelementptr i8, ptr %4670, i64 %.idx.i216.i
   %.not5.i5.i10.i2.i217.i = icmp eq i32 %4671, 0
   br i1 %.not5.i5.i10.i2.i217.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10AllocaInstENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit227.i, label %.lr.ph.i6.i12.i3.i218.i
 
@@ -14869,7 +14869,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_5ValueEN12_GLOBAL__N_18BDVStateEEE5eraseEP
 
 260:                                              ; preds = %_ZN4llvm15SmallVectorImplISt4pairIPNS_5ValueEN12_GLOBAL__N_18BDVStateEEE5eraseEPKS6_.exit.i.i
   %.idx.i.i.i = shl nuw nsw i64 %206, 4
-  %261 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i.i.i
+  %261 = getelementptr i8, ptr %181, i64 %.idx.i.i.i
   br i1 %183, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 
 .lr.ph.i6.i12.i3.i.i.i:                           ; preds = %260, %.critedge2.i8.i14.i6.i.i.i

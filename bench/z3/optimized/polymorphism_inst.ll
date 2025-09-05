@@ -1428,7 +1428,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPN12po
   %22 = load i32, ptr %21, align 8, !tbaa !183
   %23 = zext i32 %22 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %23, 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %24 = getelementptr i8, ptr %20, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2457,7 +2457,7 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit:         ; preds = %_ZN7obj_mapI4exprN1
   %119 = load i32, ptr %118, align 8, !tbaa !177
   %120 = zext i32 %119 to i64
   %.idx.i = shl nuw nsw i64 %120, 4
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i
+  %121 = getelementptr i8, ptr %117, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %119, 0
   br i1 %.not1.i.i.i, label %.loopexit267, label %.lr.ph.i.i.i
 
@@ -2480,7 +2480,7 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit:         ; preds = %_ZN7obj_mapI4exprN1
   br i1 %.not250292, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.loopexit267
-  %128 = getelementptr inbounds nuw i8, ptr %111, i64 128
+  %128 = getelementptr i8, ptr %111, i64 128
   br label %.lr.ph.i.i.i66.preheader
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableI18default_hash_entryIPN12polymorphism12substitutionEENS2_4hashENS2_2eqEE8iteratorppEv.exit
@@ -2488,7 +2488,7 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit:         ; preds = %_ZN7obj_mapI4exprN1
   %.pre340 = load i32, ptr %74, align 8, !tbaa !177
   %129 = zext i32 %.pre340 to i64
   %.idx.i64 = shl nuw nsw i64 %129, 4
-  %130 = getelementptr inbounds nuw i8, ptr %.pre339, i64 %.idx.i64
+  %130 = getelementptr i8, ptr %.pre339, i64 %.idx.i64
   %.not1.i.i.i65 = icmp eq i32 %.pre340, 0
   br i1 %.not1.i.i.i65, label %.loopexit266, label %.lr.ph.i.i.i66.preheader
 
@@ -2538,7 +2538,7 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit:         ; preds = %_ZN7obj_mapI4exprN1
   %152 = load i32, ptr %67, align 8, !tbaa !183
   %153 = zext i32 %152 to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %153, 4
-  %154 = getelementptr inbounds nuw i8, ptr %151, i64 %.idx.i.i.i.i.i.i
+  %154 = getelementptr i8, ptr %151, i64 %.idx.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %152, 0
   br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -2640,7 +2640,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN12polymorphism12substitutionEENS2_4h
   %197 = load i32, ptr %196, align 8, !tbaa !183
   %198 = zext i32 %197 to i64
   %.idx.i.i.i.i185 = shl nuw nsw i64 %198, 4
-  %199 = getelementptr inbounds nuw i8, ptr %195, i64 %.idx.i.i.i.i185
+  %199 = getelementptr i8, ptr %195, i64 %.idx.i.i.i.i185
   %.not1.i.i.i.i.i.i186 = icmp eq i32 %197, 0
   br i1 %.not1.i.i.i.i.i.i186, label %_ZNK12polymorphism12substitution5beginEv.exit.i190, label %.lr.ph.i.i.i.i.i.i187
 
@@ -2793,7 +2793,7 @@ _ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %251 = load i32, ptr %250, align 8, !tbaa !183
   %252 = zext i32 %251 to i64
   %.idx.i.i.i.i175 = shl nuw nsw i64 %252, 4
-  %253 = getelementptr inbounds nuw i8, ptr %249, i64 %.idx.i.i.i.i175
+  %253 = getelementptr i8, ptr %249, i64 %.idx.i.i.i.i175
   %.not1.i.i.i.i.i.i = icmp eq i32 %251, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -6471,7 +6471,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12polymorphism12substitution2
   %12 = load i32, ptr %11, align 8, !tbaa !183
   %13 = zext i32 %12 to i64
   %.idx.i.i.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
+  %14 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -7794,7 +7794,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   %10 = load i32, ptr %9, align 8, !tbaa !183
   %11 = zext i32 %10 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i.i.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -8397,7 +8397,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPN12po
   %10 = load i32, ptr %9, align 8, !tbaa !183
   %11 = zext i32 %10 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i.i.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

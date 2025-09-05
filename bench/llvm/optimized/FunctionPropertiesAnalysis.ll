@@ -4570,7 +4570,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
 
 190:                                              ; preds = %_ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5eraseERKS4_.exit
   %.idx.i.i127 = shl nuw nsw i64 %183, 3
-  %191 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx.i.i127
+  %191 = getelementptr i8, ptr %150, i64 %.idx.i.i127
   br label %.lr.ph.i6.i12.i3.i.i
 
 .lr.ph.i6.i12.i3.i.i:                             ; preds = %190, %.critedge2.i8.i14.i6.i.i
@@ -4609,7 +4609,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
   %.v.v.i4.i2.i = select i1 %199, i32 %196, i32 %200
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %201 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx.i
+  %201 = getelementptr i8, ptr %197, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -5054,7 +5054,7 @@ _ZN4llvm9SetVectorIPKNS_10BasicBlockENS_11SmallVectorIS3_Lj0EEENS_8DenseSetIS3_N
 
 61:                                               ; preds = %50
   %.idx.i.i = shl nuw nsw i64 %58, 3
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i
+  %62 = getelementptr i8, ptr %55, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %57, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

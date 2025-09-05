@@ -2585,7 +2585,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit.i.i.i: ; preds = %909, %_
   %.v.v.i4.i2.i.i.i.i.i = select i1 %922, i32 %923, i32 %924
   %.v.i5.i3.i.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i.i to i64
   %.idx.i.i.i27.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i.i, 3
-  %925 = getelementptr inbounds nuw i8, ptr %920, i64 %.idx.i.i.i27.i.i
+  %925 = getelementptr i8, ptr %920, i64 %.idx.i.i.i27.i.i
   %.not3.i4.i.i6.i4.i.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i.i
 
@@ -3692,7 +3692,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit.i.i.i: ; preds = %.lr.ph
   %.v.v.i4.i2.i.i.i.i = select i1 %1382, i32 %1383, i32 %1384
   %.v.i5.i3.i.i.i.i = zext i32 %.v.v.i4.i2.i.i.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %.v.i5.i3.i.i.i.i, 3
-  %1385 = getelementptr inbounds nuw i8, ptr %1380, i64 %.idx.i.i.i.i
+  %1385 = getelementptr i8, ptr %1380, i64 %.idx.i.i.i.i
   %.not3.i4.i.i6.i4.i.i.i.i = icmp eq i32 %.v.v.i4.i2.i.i.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i.i, label %.lr.ph.i5.i.i7.i5.i.i.i.i
 

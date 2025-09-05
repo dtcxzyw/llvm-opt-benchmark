@@ -944,11 +944,11 @@ if.then9.if.end14_crit_edge.i.i:                  ; preds = %if.end.i.i
   store ptr %call.i.i.i, ptr %arrayidx.i30.i.i, align 8
   %.pre.i.i = load ptr, ptr %5, align 8
   %arrayidx.i.phi.trans.insert.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.312", ptr %.pre.i.i, i64 %conv6.i.i
-  %.pre9.i.i = load ptr, ptr %arrayidx.i.phi.trans.insert.i.i, align 8
+  %.pre8.i.i = load ptr, ptr %arrayidx.i.phi.trans.insert.i.i, align 8
   br label %_ZN6hermes7Context22getPreParsedBufferInfoEj.exit
 
 _ZN6hermes7Context22getPreParsedBufferInfoEj.exit: ; preds = %if.end.i.i, %if.then9.if.end14_crit_edge.i.i
-  %12 = phi ptr [ %.pre9.i.i, %if.then9.if.end14_crit_edge.i.i ], [ %11, %if.end.i.i ]
+  %12 = phi ptr [ %.pre8.i.i, %if.then9.if.end14_crit_edge.i.i ], [ %11, %if.end.i.i ]
   store ptr %12, ptr %preParsed_, align 8
   tail call void @_ZN6hermes6parser6detail12JSParserImpl21initializeIdentifiersEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   ret void

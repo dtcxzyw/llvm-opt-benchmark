@@ -10,7 +10,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   %4 = mul i64 %0, -4132994306676758123
   %5 = xor i64 %2, %4
   %.idx.i = and i64 %0, -8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %6 = getelementptr i8, ptr %1, i64 %.idx.i
   %.not38.i = icmp samesign eq i64 %.idx.i, 0
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 

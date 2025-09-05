@@ -2028,7 +2028,7 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks19insertFaultingInstrEPN4llvm12MachineInstr
   %603 = load i24, ptr %602, align 8, !noalias !411
   %604 = zext i24 %603 to i64
   %.idx.i.i = shl nuw nsw i64 %604, 5
-  %605 = getelementptr inbounds nuw i8, ptr %601, i64 %.idx.i.i
+  %605 = getelementptr i8, ptr %601, i64 %.idx.i.i
   %.not1.i.i.i.i.i.i = icmp eq i24 %603, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -2170,7 +2170,7 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
   %655 = load i24, ptr %654, align 8, !noalias !427
   %656 = zext i24 %655 to i64
   %.idx.i76.i = shl nuw nsw i64 %656, 5
-  %657 = getelementptr inbounds nuw i8, ptr %653, i64 %.idx.i76.i
+  %657 = getelementptr i8, ptr %653, i64 %.idx.i76.i
   %.not1.i.i.i.i.i77.i = icmp eq i24 %655, 0
   br i1 %.not1.i.i.i.i.i77.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit86.i, label %.lr.ph.i.i.i.i.i78.i
 

@@ -2681,7 +2681,7 @@ _ZNKSt8functionIFRN4llvm18BlockFrequencyInfoERNS0_8FunctionEEEclES4_.exit: ; pre
 
 21:                                               ; preds = %_ZNKSt8functionIFRN4llvm18BlockFrequencyInfoERNS0_8FunctionEEEclES4_.exit
   %.idx.i = shl nuw nsw i64 %18, 4
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
+  %22 = getelementptr i8, ptr %15, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %17, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_8ConstantENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -5679,7 +5679,7 @@ define dso_local void @_ZN4llvm19FunctionSpecializer10cleanUpSSAEv(ptr noundef n
   %.v.v.i4.i2.i = select i1 %6, i32 %8, i32 %10
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %11 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -5949,7 +5949,7 @@ define dso_local void @_ZN4llvm19FunctionSpecializer19removeDeadFunctionsEv(ptr 
   %.v.v.i4.i2.i = select i1 %6, i32 %8, i32 %10
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %11 = getelementptr i8, ptr %3, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -6669,7 +6669,7 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit.thread:              ; preds = %_ZN4llvm11SmallVect
   %.v.v.i4.i2.i = select i1 %287, i32 %288, i32 %289
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %290 = getelementptr inbounds nuw i8, ptr %285, i64 %.idx.i
+  %290 = getelementptr i8, ptr %285, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -6893,7 +6893,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_8FunctionEEppEv.exit: ; preds = %.lr.ph.i4.i, 
   %.v.v.i4.i2.i139 = select i1 %383, i32 %384, i32 %385
   %.v.i5.i3.i140 = zext i32 %.v.v.i4.i2.i139 to i64
   %.idx.i141 = shl nuw nsw i64 %.v.i5.i3.i140, 3
-  %386 = getelementptr inbounds nuw i8, ptr %381, i64 %.idx.i141
+  %386 = getelementptr i8, ptr %381, i64 %.idx.i141
   %.not3.i4.i.i6.i4.i142 = icmp eq i32 %.v.v.i4.i2.i139, 0
   br i1 %.not3.i4.i.i6.i4.i142, label %_ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5beginEv.exit151, label %.lr.ph.i5.i.i7.i5.i143
 

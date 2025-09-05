@@ -4319,7 +4319,7 @@ define dso_local { ptr, ptr } @_ZNK5clang12Preprocessor11macro_beginEb(ptr nound
 
 43:                                               ; preds = %._crit_edge
   %.idx.i = shl nuw nsw i64 %40, 4
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
+  %44 = getelementptr i8, ptr %37, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %39, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS2_12Preprocessor10MacroStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

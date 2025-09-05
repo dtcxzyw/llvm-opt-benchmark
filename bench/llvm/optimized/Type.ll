@@ -30933,11 +30933,11 @@ switch.lookup:
 _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us.us: ; preds = %.lr.ph.split.us, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us.us
   %.02986.us.us = phi i32 [ %.332.us.us, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us.us ], [ %9, %.lr.ph.split.us ]
   %.sroa.5.084.us.us = phi i64 [ %17, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %indvars115 = trunc i64 %.sroa.5.084.us.us to i32
+  %indvars114 = trunc i64 %.sroa.5.084.us.us to i32
   %14 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %10, i64 %.sroa.5.084.us.us
   %.sroa.0.0.copyload.i.us.us = load i8, ptr %14, align 1, !tbaa !617
   %15 = icmp ult i8 %4, %.sroa.0.0.copyload.i.us.us
-  %16 = tail call i32 @llvm.umin.i32(i32 %.02986.us.us, i32 %indvars115)
+  %16 = tail call i32 @llvm.umin.i32(i32 %.02986.us.us, i32 %indvars114)
   %.332.us.us = select i1 %15, i32 %16, i32 %.02986.us.us
   %17 = add nuw i64 %.sroa.5.084.us.us, 1
   %.not77.us.us = icmp eq i64 %17, %8
@@ -30946,11 +30946,11 @@ _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us.us: ; pr
 _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us: ; preds = %.lr.ph.split.us, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us
   %.02986.us = phi i32 [ %.332.us, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us ], [ %9, %.lr.ph.split.us ]
   %.sroa.5.084.us = phi i64 [ %21, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us ], [ 0, %.lr.ph.split.us ]
-  %indvars114 = trunc i64 %.sroa.5.084.us to i32
+  %indvars113 = trunc i64 %.sroa.5.084.us to i32
   %18 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %10, i64 %.sroa.5.084.us
   %.sroa.0.0.copyload.i.us = load i8, ptr %18, align 1, !tbaa !617
   %19 = icmp ult i8 %4, %.sroa.0.0.copyload.i.us
-  %20 = tail call i32 @llvm.umin.i32(i32 %.02986.us, i32 %indvars114)
+  %20 = tail call i32 @llvm.umin.i32(i32 %.02986.us, i32 %indvars113)
   %.332.us = select i1 %19, i32 %20, i32 %.02986.us
   %21 = add nuw i64 %.sroa.5.084.us, 1
   %.not77.us = icmp eq i64 %21, %8
@@ -30962,7 +30962,7 @@ _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us: ; preds
 _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us91: ; preds = %.lr.ph.split, %26
   %.02986.us87 = phi i32 [ %.332.us92, %26 ], [ %9, %.lr.ph.split ]
   %.sroa.5.084.us89 = phi i64 [ %29, %26 ], [ 0, %.lr.ph.split ]
-  %indvars117 = trunc i64 %.sroa.5.084.us89 to i32
+  %indvars116 = trunc i64 %.sroa.5.084.us89 to i32
   %22 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %10, i64 %.sroa.5.084.us89
   %.sroa.0.0.copyload.i.us90 = load i8, ptr %22, align 1, !tbaa !617
   %23 = icmp eq i8 %.sroa.0.0.copyload.i.us90, %4
@@ -30974,7 +30974,7 @@ _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us91: ; pre
 
 26:                                               ; preds = %24
   %27 = icmp ult i8 %4, %.sroa.0.0.copyload.i.us90
-  %28 = tail call i32 @llvm.umin.i32(i32 %.02986.us87, i32 %indvars117)
+  %28 = tail call i32 @llvm.umin.i32(i32 %.02986.us87, i32 %indvars116)
   %.332.us92 = select i1 %27, i32 %28, i32 %.02986.us87
   %29 = add nuw i64 %.sroa.5.084.us89, 1
   %.not77.us93 = icmp eq i64 %29, %8
@@ -30983,7 +30983,7 @@ _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit.us91: ; pre
 _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit: ; preds = %.lr.ph.split, %64
   %.02986 = phi i32 [ %.332, %64 ], [ %9, %.lr.ph.split ]
   %.sroa.5.084 = phi i64 [ %67, %64 ], [ 0, %.lr.ph.split ]
-  %indvars116 = trunc i64 %.sroa.5.084 to i32
+  %indvars115 = trunc i64 %.sroa.5.084 to i32
   %30 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %10, i64 %.sroa.5.084
   %.sroa.0.0.copyload.i = load i8, ptr %30, align 1, !tbaa !617
   %31 = getelementptr inbounds nuw %"class.clang::EffectConditionExpr", ptr %12, i64 %.sroa.5.084
@@ -30997,14 +30997,14 @@ _ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit: ; preds = 
 
 36:                                               ; preds = %34
   %37 = icmp eq i8 %.sroa.0.0.copyload.i, %switch.masked
-  br i1 %37, label %.split.us.loopexit151, label %64
+  br i1 %37, label %.split.us.loopexit150, label %64
 
-.split.us.loopexit151:                            ; preds = %36
+.split.us.loopexit150:                            ; preds = %36
   %38 = inttoptr i64 %32 to ptr
   br label %.split.us
 
-.split.us:                                        ; preds = %24, %.split.us.loopexit151
-  %.us-phi96 = phi ptr [ %38, %.split.us.loopexit151 ], [ null, %24 ]
+.split.us:                                        ; preds = %24, %.split.us.loopexit150
+  %.us-phi96 = phi ptr [ %38, %.split.us.loopexit150 ], [ null, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %switch.masked, ptr %3, align 8, !tbaa !617
   %.sroa.763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -31059,7 +31059,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang17FunctionEffectSet8ConflictELb1EE9push
 
 64:                                               ; preds = %36, %_ZNK5clang22FunctionEffectIteratorINS_17FunctionEffectSetEEdeEv.exit
   %65 = icmp ult i8 %4, %.sroa.0.0.copyload.i
-  %66 = tail call i32 @llvm.umin.i32(i32 %.02986, i32 %indvars116)
+  %66 = tail call i32 @llvm.umin.i32(i32 %.02986, i32 %indvars115)
   %.332 = select i1 %65, i32 %66, i32 %.02986
   %67 = add nuw i64 %.sroa.5.084, 1
   %.not77 = icmp eq i64 %67, %8
@@ -31093,7 +31093,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang17FunctionEffectSet8ConflictELb1EE9push
 
 77:                                               ; preds = %.thread, %76
   %78 = phi ptr [ %70, %.thread ], [ %73, %76 ]
-  %.029.lcssa136140142 = phi i32 [ %.332.us.us, %.thread ], [ %.029.lcssa, %76 ]
+  %.029.lcssa135139141 = phi i32 [ %.332.us.us, %.thread ], [ %.029.lcssa, %76 ]
   %79 = phi ptr [ %71, %.thread ], [ %75, %76 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %81 = load i32, ptr %80, align 4, !tbaa !459
@@ -31110,34 +31110,34 @@ _ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE7reserveEm.exit.i.i: ; p
   br i1 %.not11.i.i, label %.sink.split.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %77, %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE7reserveEm.exit.i.i
-  %.pre-phi.i.i145 = phi i64 [ %.pre13.i.i, %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE7reserveEm.exit.i.i ], [ 0, %77 ]
+  %.pre-phi.i.i144 = phi i64 [ %.pre13.i.i, %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE7reserveEm.exit.i.i ], [ 0, %77 ]
   %85 = load ptr, ptr %79, align 8, !tbaa !460
-  %86 = getelementptr %"class.clang::EffectConditionExpr", ptr %85, i64 %.pre-phi.i.i145
-  %87 = sub i64 %8, %.pre-phi.i.i145
+  %86 = getelementptr %"class.clang::EffectConditionExpr", ptr %85, i64 %.pre-phi.i.i144
+  %87 = sub i64 %8, %.pre-phi.i.i144
   %88 = shl i64 %87, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 %88, i1 false), !tbaa !635
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE7reserveEm.exit.i.i
   store i32 %9, ptr %78, align 8, !tbaa !458
-  %.pre118 = load ptr, ptr %5, align 8, !tbaa !635
+  %.pre117 = load ptr, ptr %5, align 8, !tbaa !635
   br label %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6resizeEm.exit
 
 _ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6resizeEm.exit: ; preds = %._crit_edge.thread, %.sink.split.i.i, %76, %74
   %89 = phi ptr [ %79, %.sink.split.i.i ], [ %75, %76 ], [ %75, %74 ], [ %69, %._crit_edge.thread ]
-  %.029.lcssa136139 = phi i32 [ %.029.lcssa136140142, %.sink.split.i.i ], [ %.029.lcssa, %76 ], [ %.029.lcssa, %74 ], [ %.332.us, %._crit_edge.thread ]
+  %.029.lcssa135138 = phi i32 [ %.029.lcssa135139141, %.sink.split.i.i ], [ %.029.lcssa, %76 ], [ %.029.lcssa, %74 ], [ %.332.us, %._crit_edge.thread ]
   %90 = phi ptr [ %78, %.sink.split.i.i ], [ %73, %76 ], [ %73, %74 ], [ %68, %._crit_edge.thread ]
   %91 = phi i32 [ %9, %.sink.split.i.i ], [ 0, %76 ], [ %72, %74 ], [ %.pre, %._crit_edge.thread ]
-  %92 = phi ptr [ %.pre118, %.sink.split.i.i ], [ %.fr101, %76 ], [ %.fr101, %74 ], [ %.fr101, %._crit_edge.thread ]
+  %92 = phi ptr [ %.pre117, %.sink.split.i.i ], [ %.fr101, %76 ], [ %.fr101, %74 ], [ %.fr101, %._crit_edge.thread ]
   %93 = load ptr, ptr %89, align 8, !tbaa !460
   %94 = zext i32 %91 to i64
-  %95 = icmp eq i32 %.029.lcssa136139, %91
+  %95 = icmp eq i32 %.029.lcssa135138, %91
   br i1 %95, label %96, label %107
 
 96:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6resizeEm.exit
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %98 = load i32, ptr %97, align 4, !tbaa !459
-  %.not.i.i.not.i.i.i = icmp ult i32 %.029.lcssa136139, %98
+  %.not.i.i.not.i.i.i = icmp ult i32 %.029.lcssa135138, %98
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang19EffectConditionExprELb1EE9push_backES2_.exit.i.i, label %99, !prof !445
 
 99:                                               ; preds = %96
@@ -31161,7 +31161,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang19EffectConditionExprELb1EE9push_backES
   br label %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6insertEPS2_OS2_.exit
 
 107:                                              ; preds = %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6resizeEm.exit
-  %108 = zext i32 %.029.lcssa136139 to i64
+  %108 = zext i32 %.029.lcssa135138 to i64
   %.idx = shl nuw nsw i64 %108, 3
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %110 = load i32, ptr %109, align 4, !tbaa !459
@@ -31210,9 +31210,9 @@ _ZSt13move_backwardIPN5clang19EffectConditionExprES2_ET0_T_S4_S3_.exit.i.i: ; pr
   br label %_ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6insertEPS2_OS2_.exit
 
 _ZN4llvm15SmallVectorImplIN5clang19EffectConditionExprEE6insertEPS2_OS2_.exit: ; preds = %._crit_edge, %_ZSt13move_backwardIPN5clang19EffectConditionExprES2_ET0_T_S4_S3_.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang19EffectConditionExprELb1EE9push_backES2_.exit.i.i
-  %.029.lcssa137 = phi i32 [ %.029.lcssa, %._crit_edge ], [ %.029.lcssa136139, %_ZSt13move_backwardIPN5clang19EffectConditionExprES2_ET0_T_S4_S3_.exit.i.i ], [ %.029.lcssa136139, %_ZN4llvm23SmallVectorTemplateBaseIN5clang19EffectConditionExprELb1EE9push_backES2_.exit.i.i ]
+  %.029.lcssa136 = phi i32 [ %.029.lcssa, %._crit_edge ], [ %.029.lcssa135138, %_ZSt13move_backwardIPN5clang19EffectConditionExprES2_ET0_T_S4_S3_.exit.i.i ], [ %.029.lcssa135138, %_ZN4llvm23SmallVectorTemplateBaseIN5clang19EffectConditionExprELb1EE9push_backES2_.exit.i.i ]
   %128 = load ptr, ptr %0, align 8, !tbaa !741
-  %129 = zext i32 %.029.lcssa137 to i64
+  %129 = zext i32 %.029.lcssa136 to i64
   %.sroa.0.0.copyload.i51 = load i8, ptr %1, align 8, !tbaa !617
   %130 = load i64, ptr %7, align 8, !tbaa !739
   %131 = icmp samesign eq i64 %130, %129

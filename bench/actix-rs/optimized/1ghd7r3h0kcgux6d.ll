@@ -10719,16 +10719,16 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
 .lr.ph.preheader:                                 ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit"
   %.sroa.4.0416 = phi i64 [ 1024, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ], [ %.val26, %34 ]
   %.sroa.0.0514 = phi ptr [ %0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ], [ %.val25, %34 ]
-  %38 = shl i64 %.1, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0.0514, i8 0, i64 %38, i1 false)
+  %.idx = shl i64 %.1, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0.0514, i8 0, i64 %.idx, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit"
   %.sroa.4.0417 = phi i64 [ %.sroa.4.0416, %.lr.ph.preheader ], [ 1024, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ]
   %.sroa.0.0515 = phi ptr [ %.sroa.0.0514, %.lr.ph.preheader ], [ %0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ]
-  %39 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0515, 0
-  %40 = insertvalue { ptr, i64 } %39, i64 %.sroa.4.0417, 1
-  ret { ptr, i64 } %40
+  %38 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0515, 0
+  %39 = insertvalue { ptr, i64 } %38, i64 %.sroa.4.0417, 1
+  ret { ptr, i64 } %39
 }
 
 ; Function Attrs: nonlazybind uwtable

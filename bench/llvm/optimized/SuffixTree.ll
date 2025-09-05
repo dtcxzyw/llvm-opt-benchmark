@@ -631,7 +631,7 @@ define dso_local void @_ZN4llvm10SuffixTree16setSuffixIndicesEv(ptr noundef nonn
 
 31:                                               ; preds = %20
   %.idx.i = shl nuw nsw i64 %28, 4
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
+  %32 = getelementptr i8, ptr %25, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %27, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -868,7 +868,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
 
 65:                                               ; preds = %54
   %.idx.i = shl nuw nsw i64 %62, 4
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i
+  %66 = getelementptr i8, ptr %59, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %61, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -1515,7 +1515,7 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i:
 
 35:                                               ; preds = %16
   %.idx.i = shl nuw nsw i64 %32, 4
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
+  %36 = getelementptr i8, ptr %29, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %31, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -1662,7 +1662,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph98, 
 
 99:                                               ; preds = %91
   %.idx.i40 = shl nuw nsw i64 %96, 4
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i40
+  %100 = getelementptr i8, ptr %94, i64 %.idx.i40
   %.not4.i5.i10.i2.i41 = icmp eq i32 %95, 0
   br i1 %.not4.i5.i10.i2.i41, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit51, label %.lr.ph.i6.i12.i3.i42
 

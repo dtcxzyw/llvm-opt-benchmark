@@ -310,7 +310,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %125, %127
 
 140:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30
   %.idx.i = shl nuw nsw i64 %137, 4
-  %141 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i
+  %141 = getelementptr i8, ptr %134, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %136, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

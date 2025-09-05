@@ -3528,9 +3528,9 @@ _ZNK10open_spiel10TensorViewILi2EE4sizeEv.exit.i: ; preds = %.lr.ph.i.i.i
 42:                                               ; preds = %41
   unreachable
 
-common.resume:                                    ; preds = %24, %32, %73, %43
-  %.sink = phi ptr [ %14, %24 ], [ %18, %32 ], [ %5, %73 ], [ %10, %43 ]
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %33, %32 ], [ %74, %73 ], [ %44, %43 ]
+common.resume:                                    ; preds = %24, %32, %72, %43
+  %.sink = phi ptr [ %14, %24 ], [ %18, %32 ], [ %5, %72 ], [ %10, %43 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %33, %32 ], [ %73, %72 ], [ %44, %43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -3544,8 +3544,8 @@ common.resume:                                    ; preds = %24, %32, %73, %43
   br i1 %.not5.i.i.i.i.not, label %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %45
-  %46 = shl nsw i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %46, i1 false)
+  %.idx.i = shl nsw i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %.idx.i, i1 false)
   br label %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
 
 _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit: ; preds = %45, %.lr.ph.i.i.i.preheader.i
@@ -3553,142 +3553,142 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  br label %48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  br label %47
 
-48:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
+47:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   %indvars.iv = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ]
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.preheader.preheader, label %61
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.preheader.preheader, label %60
 
-.preheader.preheader:                             ; preds = %48
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
+.preheader.preheader:                             ; preds = %47
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %53 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
-  %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %52, %.preheader ], [ 0, %.preheader.preheader ]
+  %52 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %51, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
-  %.078.i.i = phi i32 [ %57, %.preheader ], [ 0, %.preheader.preheader ]
-  %54 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i
-  %55 = load i32, ptr %54, align 4
-  %56 = mul nsw i32 %55, %.078.i.i
-  %57 = add nsw i32 %56, %indvars.iv.i.i.sroa.phi.sroa.speculated
-  br i1 %53, label %.preheader, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i, !llvm.loop !54
+  %.078.i.i = phi i32 [ %56, %.preheader ], [ 0, %.preheader.preheader ]
+  %53 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i
+  %54 = load i32, ptr %53, align 4
+  %55 = mul nsw i32 %54, %.078.i.i
+  %56 = add nsw i32 %55, %indvars.iv.i.i.sroa.phi.sroa.speculated
+  br i1 %52, label %.preheader, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i, !llvm.loop !54
 
 _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %.preheader
-  %58 = sext i32 %57 to i64
-  %59 = icmp ugt i64 %3, %58
-  br i1 %59, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %60
+  %57 = sext i32 %56 to i64
+  %58 = icmp ugt i64 %3, %57
+  br i1 %58, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %59
 
-60:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
+59:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
   tail call void @llvm.trap()
   unreachable
 
-61:                                               ; preds = %48
+60:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %1, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i [
     i32 0, label %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit
-    i32 1, label %62
+    i32 1, label %61
   ]
 
-62:                                               ; preds = %61
+61:                                               ; preds = %60
   br label %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit
 
-_ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %61
+_ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %60
   store ptr @.str.30, ptr %6, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 18, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %65 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %64)
-  %66 = ptrtoint ptr %65 to i64
-  %67 = ptrtoint ptr %64 to i64
-  %68 = sub i64 %66, %67
-  store ptr %64, ptr %7, align 8
-  %69 = icmp sgt i64 %68, -1
-  br i1 %69, label %_ZN4absl7debian28AlphaNumC2Ei.exit.i, label %70
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 18, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %64 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %63)
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %63 to i64
+  %67 = sub i64 %65, %66
+  store ptr %63, ptr %7, align 8
+  %68 = icmp sgt i64 %67, -1
+  br i1 %68, label %_ZN4absl7debian28AlphaNumC2Ei.exit.i, label %69
 
-70:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
+69:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
   call void @llvm.trap()
   unreachable
 
 _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
-  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %68, ptr %71, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %67, ptr %70, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-          to label %72 unwind label %73
+          to label %71 unwind label %72
 
-72:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit.i
+71:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit.i
   unreachable
 
-73:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit.i
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit.i
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit: ; preds = %61, %62
-  %.0.i = phi i32 [ 2, %62 ], [ 1, %61 ]
+_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit: ; preds = %60, %61
+  %.0.i = phi i32 [ 2, %61 ], [ 1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %75 = icmp eq i32 %50, %.0.i
-  %76 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %75, label %.preheader37, label %.preheader38
+  %74 = icmp eq i32 %49, %.0.i
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %74, label %.preheader37, label %.preheader38
 
 .preheader37:                                     ; preds = %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit, %.preheader37
-  %77 = phi i1 [ false, %.preheader37 ], [ true, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
-  %indvars.iv.i.i17.sroa.phi.sroa.speculated = phi i32 [ %76, %.preheader37 ], [ 1, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
+  %76 = phi i1 [ false, %.preheader37 ], [ true, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
+  %indvars.iv.i.i17.sroa.phi.sroa.speculated = phi i32 [ %75, %.preheader37 ], [ 1, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
   %indvars.iv.i.i17 = phi i64 [ 1, %.preheader37 ], [ 0, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
-  %.078.i.i18 = phi i32 [ %81, %.preheader37 ], [ 0, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
-  %78 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i17
-  %79 = load i32, ptr %78, align 4
-  %80 = mul nsw i32 %79, %.078.i.i18
-  %81 = add nsw i32 %80, %indvars.iv.i.i17.sroa.phi.sroa.speculated
-  br i1 %77, label %.preheader37, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19, !llvm.loop !54
+  %.078.i.i18 = phi i32 [ %80, %.preheader37 ], [ 0, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
+  %77 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i17
+  %78 = load i32, ptr %77, align 4
+  %79 = mul nsw i32 %78, %.078.i.i18
+  %80 = add nsw i32 %79, %indvars.iv.i.i17.sroa.phi.sroa.speculated
+  br i1 %76, label %.preheader37, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19, !llvm.loop !54
 
 _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19: ; preds = %.preheader37
-  %82 = sext i32 %81 to i64
-  %83 = icmp ugt i64 %3, %82
-  br i1 %83, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %84
+  %81 = sext i32 %80 to i64
+  %82 = icmp ugt i64 %3, %81
+  br i1 %82, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %83
 
-84:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19
+83:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19
   tail call void @llvm.trap()
   unreachable
 
 .preheader38:                                     ; preds = %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit, %.preheader38
-  %85 = phi i1 [ false, %.preheader38 ], [ true, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
-  %indvars.iv.i.i21.sroa.phi.sroa.speculated = phi i32 [ %76, %.preheader38 ], [ 2, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
+  %84 = phi i1 [ false, %.preheader38 ], [ true, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
+  %indvars.iv.i.i21.sroa.phi.sroa.speculated = phi i32 [ %75, %.preheader38 ], [ 2, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
   %indvars.iv.i.i21 = phi i64 [ 1, %.preheader38 ], [ 0, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
-  %.078.i.i22 = phi i32 [ %89, %.preheader38 ], [ 0, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
-  %86 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i21
-  %87 = load i32, ptr %86, align 4
-  %88 = mul nsw i32 %87, %.078.i.i22
-  %89 = add nsw i32 %88, %indvars.iv.i.i21.sroa.phi.sroa.speculated
-  br i1 %85, label %.preheader38, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23, !llvm.loop !54
+  %.078.i.i22 = phi i32 [ %88, %.preheader38 ], [ 0, %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit ]
+  %85 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i21
+  %86 = load i32, ptr %85, align 4
+  %87 = mul nsw i32 %86, %.078.i.i22
+  %88 = add nsw i32 %87, %indvars.iv.i.i21.sroa.phi.sroa.speculated
+  br i1 %84, label %.preheader38, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23, !llvm.loop !54
 
 _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23: ; preds = %.preheader38
-  %90 = sext i32 %89 to i64
-  %91 = icmp ugt i64 %3, %90
-  br i1 %91, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %92
+  %89 = sext i32 %88 to i64
+  %90 = icmp ugt i64 %3, %89
+  br i1 %90, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit, label %91
 
-92:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23
+91:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23
   tail call void @llvm.trap()
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
-  %.sink57 = phi i64 [ %58, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i ], [ %82, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19 ], [ %90, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23 ]
-  %93 = getelementptr inbounds float, ptr %2, i64 %.sink57
-  store float 1.000000e+00, ptr %93, align 4
+  %.sink57 = phi i64 [ %57, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i ], [ %81, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i19 ], [ %89, %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23 ]
+  %92 = getelementptr inbounds float, ptr %2, i64 %.sink57
+  store float 1.000000e+00, ptr %92, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %94, label %48, !llvm.loop !55
+  br i1 %exitcond.not, label %93, label %47, !llvm.loop !55
 
-94:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
+93:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   ret void
 }
 

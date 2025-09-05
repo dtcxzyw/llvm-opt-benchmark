@@ -1277,7 +1277,7 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %8
 16:                                               ; preds = %14
   %17 = shl nuw i32 %3, 1
   %.idx = zext i32 %17 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %18 = getelementptr i8, ptr %1, i64 %.idx
   %.not27 = icmp eq i32 %3, 0
   br i1 %.not27, label %.critedge, label %.lr.ph
 
@@ -5543,7 +5543,7 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %25, %27, %33
 40:                                               ; preds = %38
   %41 = shl nuw i32 %3, 1
   %.idx = zext i32 %41 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %42 = getelementptr i8, ptr %1, i64 %.idx
   %.not2429 = icmp eq i32 %3, 0
   br i1 %.not2429, label %.critedge, label %.lr.ph
 

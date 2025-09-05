@@ -6510,7 +6510,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_5ValueENS_12DenseMapInf
 
 2027:                                             ; preds = %.critedge36.i.i
   %.idx.i.i151.i = shl nuw nsw i64 %2024, 4
-  %2028 = getelementptr inbounds nuw i8, ptr %2021, i64 %.idx.i.i151.i
+  %2028 = getelementptr i8, ptr %2021, i64 %.idx.i.i151.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %2020, 0
   br i1 %.not5.i5.i10.i2.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_5ValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -7841,7 +7841,7 @@ _ZN12_GLOBAL__N_114StructurizeCFG12setPhiValuesEv.exit: ; preds = %_ZN4llvm8Dens
 
 2577:                                             ; preds = %_ZN12_GLOBAL__N_114StructurizeCFG12setPhiValuesEv.exit
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %2574, 5
-  %2578 = getelementptr inbounds nuw i8, ptr %.val8.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i
+  %2578 = getelementptr i8, ptr %.val8.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not5.i5.i12.i10.i.i.i.i.i.i = icmp eq i32 %.val9.i.i.i.i.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i.i.i.i.i, label %_ZSt5beginIN4llvm8DenseMapIPNS0_10BasicBlockENS1_IS3_N12_GLOBAL__N_18PredInfoENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_S5_EEEES7_NS9_IS3_SB_EEEEEDTcldtfp_5beginEERT_.exit.i.i.i.i, label %.lr.ph.i6.i14.i11.i.i.i.i.i.i
 
@@ -7877,7 +7877,7 @@ _ZSt5beginIN4llvm8DenseMapIPNS0_10BasicBlockENS1_IS3_N12_GLOBAL__N_18PredInfoENS
 
 2587:                                             ; preds = %_ZSt5beginIN4llvm8DenseMapIPNS0_10BasicBlockENS1_IS3_N12_GLOBAL__N_18PredInfoENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_S5_EEEES7_NS9_IS3_SB_EEEEEDTcldtfp_5beginEERT_.exit.i.i.i.i
   %.idx.i.i11.i.i.i.i = shl nuw nsw i64 %2584, 5
-  %2588 = getelementptr inbounds nuw i8, ptr %.val8.i.i9.i.i.i.i, i64 %.idx.i.i11.i.i.i.i
+  %2588 = getelementptr i8, ptr %.val8.i.i9.i.i.i.i, i64 %.idx.i.i11.i.i.i.i
   %.not5.i5.i12.i10.i.i12.i.i.i.i = icmp eq i32 %.val9.i.i10.i.i.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i12.i.i.i.i, label %_ZN4llvm6detail12concat_rangeINS0_12DenseMapPairIPNS_10BasicBlockENS_8DenseMapIS4_N12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS4_vEENS2_IS4_S7_EEEEEEJRNS5_IS4_SB_S9_SC_EESE_EE5beginEv.exit.i, label %.lr.ph.i6.i14.i11.i.i13.i.i.i.i
 
@@ -7994,7 +7994,7 @@ _ZNK4llvm15concat_iteratorINS_6detail12DenseMapPairIPNS_10BasicBlockENS_8DenseMa
 
 2625:                                             ; preds = %_ZNK4llvm15concat_iteratorINS_6detail12DenseMapPairIPNS_10BasicBlockENS_8DenseMapIS4_N12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS4_vEENS2_IS4_S7_EEEEEEJNS_16DenseMapIteratorIS4_SB_S9_SC_Lb0EEESE_EEdeEv.exit.i
   %.idx.i.i123 = shl nuw nsw i64 %2622, 5
-  %2626 = getelementptr inbounds nuw i8, ptr %.val8.i.i, i64 %.idx.i.i123
+  %2626 = getelementptr i8, ptr %.val8.i.i, i64 %.idx.i.i123
   %.not5.i5.i12.i10.i.i = icmp eq i32 %.val9.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i14.i11.i.i
 
@@ -10648,7 +10648,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114StructurizeCFG16insertConditions
   %.val9.i = load i32, ptr %33, align 8, !tbaa !353
   %34 = zext i32 %.val9.i to i64
   %.idx.i = shl nuw nsw i64 %34, 5
-  %35 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 %.idx.i
+  %35 = getelementptr i8, ptr %.val8.i, i64 %.idx.i
   %.not5.i5.i12.i10.i = icmp eq i32 %.val9.i, 0
   br i1 %.not5.i5.i12.i10.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.thread, label %.lr.ph.i6.i14.i11.i
 
@@ -10779,7 +10779,7 @@ _ZN12_GLOBAL__N_122NearestCommonDominator8addBlockEPN4llvm10BasicBlockE.exit: ; 
 
 77:                                               ; preds = %_ZN12_GLOBAL__N_122NearestCommonDominator8addBlockEPN4llvm10BasicBlockE.exit
   %.idx.i62 = shl nuw nsw i64 %74, 5
-  %78 = getelementptr inbounds nuw i8, ptr %.val8.i60, i64 %.idx.i62
+  %78 = getelementptr i8, ptr %.val8.i60, i64 %.idx.i62
   %.not5.i5.i12.i10.i63 = icmp eq i32 %.val9.i61, 0
   br i1 %.not5.i5.i12.i10.i63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit73, label %.lr.ph.i6.i14.i11.i64
 
@@ -16368,7 +16368,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread: ; preds =
 
 182:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %179, 5
-  %183 = getelementptr inbounds nuw i8, ptr %.val8.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i
+  %183 = getelementptr i8, ptr %.val8.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not5.i5.i12.i10.i.i.i.i.i.i = icmp eq i32 %.val9.i.i.i.i.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i.i.i.i.i, label %_ZN4llvm9adl_beginIRNS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSD_.exit.i.i, label %.lr.ph.i6.i14.i11.i.i.i.i.i.i
 
@@ -16484,7 +16484,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG17is
 
 15:                                               ; preds = %8
   %.idx.i = shl nuw nsw i64 %12, 5
-  %16 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 %.idx.i
+  %16 = getelementptr i8, ptr %.val8.i, i64 %.idx.i
   %.not5.i5.i12.i10.i = icmp eq i32 %.val9.i, 0
   br i1 %.not5.i5.i12.i10.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i14.i11.i
 

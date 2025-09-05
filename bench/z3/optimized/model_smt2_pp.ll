@@ -441,7 +441,7 @@ _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %.lr.ph.i.i.i.i, %
   %135 = load i32, ptr %21, align 8, !tbaa !13
   %136 = zext i32 %135 to i64
   %.idx.i = shl nuw nsw i64 %136, 3
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i
+  %137 = getelementptr i8, ptr %134, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %135, 0
   br i1 %.not1.i.i.i, label %.loopexit138, label %.lr.ph.i.i.i
 

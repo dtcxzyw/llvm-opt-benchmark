@@ -35941,7 +35941,7 @@ default.unreachable9:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5image8dynimage12DynamicImage6invert17h5a06b8d91e9ca859E(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  switch i64 %2, label %default.unreachable42 [
+  switch i64 %2, label %default.unreachable40 [
     i64 0, label %3
     i64 1, label %5
     i64 2, label %7
@@ -35954,7 +35954,7 @@ define void @_ZN5image8dynimage12DynamicImage6invert17h5a06b8d91e9ca859E(ptr noa
     i64 9, label %41
   ]
 
-default.unreachable42:                            ; preds = %1
+default.unreachable40:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -36091,9 +36091,8 @@ default.unreachable42:                            ; preds = %1
   br label %.split.us.i5
 
 .split.us.i5:                                     ; preds = %..loopexit_crit_edge.us.i15, %.split.us.preheader.i4
-  %indvars.iv = phi i64 [ %indvars.iv.next, %..loopexit_crit_edge.us.i15 ], [ 4, %.split.us.preheader.i4 ]
-  %indvars.iv59.i6 = phi i64 [ %indvars.iv.next60.i7, %..loopexit_crit_edge.us.i15 ], [ 0, %.split.us.preheader.i4 ]
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %..loopexit_crit_edge.us.i15 ], [ -4, %.split.us.preheader.i4 ]
+  %indvars.iv59.i6 = phi i64 [ 0, %.split.us.preheader.i4 ], [ %indvars.iv.next60.i7, %..loopexit_crit_edge.us.i15 ]
+  %indvars.iv56.i = phi i64 [ -4, %.split.us.preheader.i4 ], [ %indvars.iv.next57.i, %..loopexit_crit_edge.us.i15 ]
   %52 = lshr exact i64 %indvars.iv56.i, 2
   %indvars.iv.next60.i7 = add nuw nsw i64 %indvars.iv59.i6, 1
   %53 = mul nuw i64 %indvars.iv59.i6, %46
@@ -36131,12 +36130,10 @@ default.unreachable42:                            ; preds = %1
 ..loopexit_crit_edge.us.i15:                      ; preds = %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i"
   %indvars.iv.next57.i = sub i64 %indvars.iv56.i, %51
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i7, %wide.trip.count62.i
-  %indvars.iv.next = add i64 %indvars.iv, %51
   br i1 %exitcond63.not.i, label %_ZN5image8imageops8colorops6invert17h5fe412a235b41212E.exit, label %.split.us.i5
 
 .split46.us.i:                                    ; preds = %54
-  %64 = add i64 %indvars.iv, %indvars.iv56.i
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949) #22, !noalias !6051
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949) #22, !noalias !6051
   unreachable
 
 .split48.us.i16:                                  ; preds = %57

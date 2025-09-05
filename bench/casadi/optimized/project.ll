@@ -1832,8 +1832,8 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
   br i1 %.not5.i.i.i, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZNK6casadi6MXNode3depEx.exit
-  %21 = shl i64 %20, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %21, i1 false), !tbaa !35
+  %.idx = shl i64 %20, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %.idx, i1 false), !tbaa !35
   br label %_ZSt4fillIPyiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPyiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %_ZNK6casadi6MXNode3depEx.exit

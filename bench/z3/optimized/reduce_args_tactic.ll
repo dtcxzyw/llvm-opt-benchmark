@@ -3863,7 +3863,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i:       ; preds = %924, %918, %917
   %.val78.i.i = load i32, ptr %829, align 8, !tbaa !217
   %955 = zext i32 %.val78.i.i to i64
   %.idx.i.i.i228.i = shl nuw nsw i64 %955, 4
-  %956 = getelementptr inbounds nuw i8, ptr %.val.i227.i, i64 %.idx.i.i.i228.i
+  %956 = getelementptr i8, ptr %.val.i227.i, i64 %.idx.i.i.i228.i
   %.not1.i.i.i.i.i229.i = icmp eq i32 %.val78.i.i, 0
   br i1 %.not1.i.i.i.i.i229.i, label %.loopexit268.i.i, label %.lr.ph.i.i.i.i.i230.i
 
@@ -3903,7 +3903,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i:       ; preds = %924, %918, %917
   %.pre-phi.i.i = phi i64 [ %.pre346.i.i, %._crit_edge293.loopexit.i.i ], [ %955, %.loopexit268.i.i ]
   %.val80.i.i = phi i32 [ %.val80.pre.i.i, %._crit_edge293.loopexit.i.i ], [ %.val78.i.i, %.loopexit268.i.i ]
   %.val79.i.i = phi ptr [ %.val79.pre.i.i, %._crit_edge293.loopexit.i.i ], [ %.val.i227.i, %.loopexit268.i.i ]
-  %964 = getelementptr inbounds nuw i8, ptr %.val79.i.i, i64 %.idx.i.i109.pre-phi.i.i
+  %964 = getelementptr i8, ptr %.val79.i.i, i64 %.idx.i.i109.pre-phi.i.i
   %.not1.i.i.i.i110.i.i = icmp eq i32 %.val80.i.i, 0
   br i1 %.not1.i.i.i.i110.i.i, label %.loopexit266.i.i, label %.lr.ph.i.i.i.i111.i.i
 
@@ -5676,7 +5676,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118reduce_args_tactic15reduce_args_
   %.val9 = load i32, ptr %3, align 8, !tbaa !217
   %4 = zext i32 %.val9 to i64
   %.idx.i.i = shl nuw nsw i64 %4, 4
-  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
+  %5 = getelementptr i8, ptr %.val, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %.val9, 0
   br i1 %.not1.i.i.i.i, label %.loopexit48, label %.lr.ph.i.i.i.i
 

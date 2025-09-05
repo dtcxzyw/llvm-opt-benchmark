@@ -7974,18 +7974,15 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   %41 = zext i32 %.ph29 to i64
   %42 = zext i32 %.0.i17.i.i7.ph to i64
   %43 = getelementptr i32, ptr %34, i64 %42
-  %44 = shl nuw nsw i64 %41, 2
-  %45 = add nsw i64 %44, -4
-  %46 = shl nuw nsw i64 %42, 2
-  %47 = sub nsw i64 %45, %46
-  %48 = add nsw i64 %47, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %43, i8 -1, i64 %48, i1 false), !tbaa !34
+  %44 = sub nsw i64 %41, %42
+  %45 = shl nsw i64 %44, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %43, i8 -1, i64 %45, i1 false), !tbaa !34
   br label %_ZN6vectorIiLb0EjE4setxEjRKiS2_.exit
 
 _ZN6vectorIiLb0EjE4setxEjRKiS2_.exit:             ; preds = %.lr.ph.preheader.i.i9, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %33, %39
-  %49 = phi ptr [ %34, %39 ], [ %27, %33 ], [ %27, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ], [ %34, %.lr.ph.preheader.i.i9 ]
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %24
-  store i32 -1, ptr %50, align 4, !tbaa !34
+  %46 = phi ptr [ %34, %39 ], [ %27, %33 ], [ %27, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ], [ %34, %.lr.ph.preheader.i.i9 ]
+  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %24
+  store i32 -1, ptr %47, align 4, !tbaa !34
   ret void
 }
 
@@ -10230,21 +10227,18 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE8capacityEv.exit.thread.i.i: ; preds 
   %43 = zext i32 %.ph25 to i64
   %44 = zext i32 %.0.i16.i.i.ph to i64
   %45 = getelementptr %"struct.std::pair.355", ptr %36, i64 %44
-  %46 = shl nuw nsw i64 %43, 4
-  %47 = add nsw i64 %46, -16
-  %48 = shl nuw nsw i64 %44, 4
-  %49 = sub nsw i64 %47, %48
-  %50 = add nsw i64 %49, 16
-  tail call void @llvm.memset.p0.i64(ptr align 8 %45, i8 0, i64 %50, i1 false)
+  %46 = sub nsw i64 %43, %44
+  %47 = shl nsw i64 %46, 4
+  tail call void @llvm.memset.p0.i64(ptr align 8 %45, i8 0, i64 %47, i1 false)
   %.pre.i = load ptr, ptr %28, align 8, !tbaa !630
   br label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4setxEjRKS4_S7_.exit
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4setxEjRKS4_S7_.exit: ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit.i, %35, %41, %.lr.ph.preheader.i.i5
-  %51 = phi ptr [ %.pre.i, %.lr.ph.preheader.i.i5 ], [ %36, %41 ], [ %29, %35 ], [ %29, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit.i ]
-  %52 = getelementptr inbounds nuw %"struct.std::pair.355", ptr %51, i64 %26
-  store ptr %2, ptr %52, align 8, !tbaa !632
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %3, ptr %53, align 8, !tbaa !634
+  %48 = phi ptr [ %.pre.i, %.lr.ph.preheader.i.i5 ], [ %36, %41 ], [ %29, %35 ], [ %29, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit.i ]
+  %49 = getelementptr inbounds nuw %"struct.std::pair.355", ptr %48, i64 %26
+  store ptr %2, ptr %49, align 8, !tbaa !632
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr %3, ptr %50, align 8, !tbaa !634
   ret void
 }
 
@@ -10531,18 +10525,15 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   %42 = zext i32 %.ph30 to i64
   %43 = zext i32 %.0.i17.i.i7.ph to i64
   %44 = getelementptr i32, ptr %35, i64 %43
-  %45 = shl nuw nsw i64 %42, 2
-  %46 = add nsw i64 %45, -4
-  %47 = shl nuw nsw i64 %43, 2
-  %48 = sub nsw i64 %46, %47
-  %49 = add nsw i64 %48, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %44, i8 -1, i64 %49, i1 false), !tbaa !34
+  %45 = sub nsw i64 %42, %43
+  %46 = shl nsw i64 %45, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %44, i8 -1, i64 %46, i1 false), !tbaa !34
   br label %_ZN6vectorIiLb0EjE4setxEjRKiS2_.exit
 
 _ZN6vectorIiLb0EjE4setxEjRKiS2_.exit:             ; preds = %.lr.ph.preheader.i.i9, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %34, %40
-  %50 = phi ptr [ %35, %40 ], [ %28, %34 ], [ %28, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ], [ %35, %.lr.ph.preheader.i.i9 ]
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %25
-  store i32 %2, ptr %51, align 4, !tbaa !34
+  %47 = phi ptr [ %35, %40 ], [ %28, %34 ], [ %28, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ], [ %35, %.lr.ph.preheader.i.i9 ]
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %25
+  store i32 %2, ptr %48, align 4, !tbaa !34
   ret void
 }
 

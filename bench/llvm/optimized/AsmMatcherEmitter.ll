@@ -26438,7 +26438,7 @@ _ZNSt3mapIPKN4llvm6RecordENS0_20SubtargetFeatureInfoENS0_14LessRecordByIDESaISt4
   %.v.v.i4.i2.i.i = select i1 %170, i32 %171, i32 %172
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 %.idx.i.i
+  %173 = getelementptr i8, ptr %168, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_6RecordEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -29011,7 +29011,7 @@ _ZNSt3mapIPKN4llvm6RecordEPN12_GLOBAL__N_19ClassInfoESt4lessIS3_ESaISt4pairIKS3_
   %.v.v.i4.i2.i311.i = select i1 %1186, i32 %1187, i32 %1188
   %.v.i5.i3.i312.i = zext i32 %.v.v.i4.i2.i311.i to i64
   %.idx.i313.i = shl nuw nsw i64 %.v.i5.i3.i312.i, 3
-  %1189 = getelementptr inbounds nuw i8, ptr %1184, i64 %.idx.i313.i
+  %1189 = getelementptr i8, ptr %1184, i64 %.idx.i313.i
   %.not3.i4.i.i6.i4.i314.i = icmp eq i32 %.v.v.i4.i2.i311.i, 0
   br i1 %.not3.i4.i.i6.i4.i314.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_6RecordEE5beginEv.exit323.i, label %.lr.ph.i5.i.i7.i5.i315.i
 

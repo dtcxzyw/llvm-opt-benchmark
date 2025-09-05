@@ -51153,8 +51153,8 @@ define internal fastcc noundef nonnull ptr @"_ZN7hir_def8generics13GenericParams
   %25 = load ptr, ptr %24, align 8, !alias.scope !13415, !noalias !13418, !nonnull !13, !noundef !13
   %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %27 = load i64, ptr %26, align 8, !alias.scope !13415, !noalias !13418, !noundef !13
-  %.idx = shl nsw i64 %27, 6
-  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx
+  %.idx = shl i64 %27, 6
+  %28 = getelementptr i8, ptr %25, i64 %.idx
   %.not.not.not.i.not15 = icmp eq i64 %27, 0
   br i1 %.not.not.not.i.not15, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbcabd2904b49ce8eE.exit.thread, label %.lr.ph
 

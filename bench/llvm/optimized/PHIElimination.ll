@@ -2527,7 +2527,7 @@ _ZN12_GLOBAL__N_118PHIEliminationImpl15analyzePHINodesERKN4llvm15MachineFunction
   %.v.v.i4.i2.i = select i1 %898, i32 %900, i32 %902
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %903 = getelementptr inbounds nuw i8, ptr %895, i64 %.idx.i
+  %903 = getelementptr i8, ptr %895, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -3476,7 +3476,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vectorIS4_SaI
   %1327 = load i24, ptr %1326, align 8, !noalias !535
   %1328 = zext i24 %1327 to i64
   %.idx.i.i320 = shl nuw nsw i64 %1328, 5
-  %1329 = getelementptr inbounds nuw i8, ptr %1325, i64 %.idx.i.i320
+  %1329 = getelementptr i8, ptr %1325, i64 %.idx.i.i320
   %.not1.i.i.i.i.i.i = icmp eq i24 %1327, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit.i, label %.lr.ph.i.i.i.i.i9.i
 
@@ -6709,7 +6709,7 @@ _ZN12_GLOBAL__N_118PHIEliminationImpl17EliminatePHINodesERN4llvm15MachineFunctio
 
 2953:                                             ; preds = %._crit_edge732
   %.idx.i172 = shl nuw nsw i64 %2950, 4
-  %2954 = getelementptr inbounds nuw i8, ptr %2947, i64 %.idx.i172
+  %2954 = getelementptr i8, ptr %2947, i64 %.idx.i172
   %.not8.i5.i10.i2.i = icmp eq i32 %2949, 0
   br i1 %.not8.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_27MachineInstrExpressionTraitENS_6detail12DenseMapPairIS3_jEEEES3_jS4_S7_E5beginEv.exit, label %_ZN4llvm27MachineInstrExpressionTrait7isEqualERKPKNS_12MachineInstrES5_.exit.i6.i12.i3.i
 

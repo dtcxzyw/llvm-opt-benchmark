@@ -1667,7 +1667,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKN5clang13CXXRecordDeclES6_ENS3_9Ch
 
 94:                                               ; preds = %64
   %.idx.i = shl nuw nsw i64 %91, 4
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i
+  %95 = getelementptr i8, ptr %88, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %90, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -2431,7 +2431,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %_ZNK5clang13CXXReco
 
 189:                                              ; preds = %.loopexit
   %.idx.i = shl nuw nsw i64 %186, 4
-  %190 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx.i
+  %190 = getelementptr i8, ptr %183, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %185, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -2818,7 +2818,7 @@ define internal fastcc void @_ZL18CreateVTableLayoutRKN12_GLOBAL__N_120ItaniumVT
 
 15:                                               ; preds = %2
   %.idx.i.i = shl nuw nsw i64 %12, 6
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %11, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK12_GLOBAL__N_120ItaniumVTableBuilder19vtable_thunks_beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -8810,7 +8810,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15VTableComponentELb1EE9push_backES2_.e
 
 1823:                                             ; preds = %1818
   %.idx.i.i.i = shl nuw nsw i64 %1820, 5
-  %1824 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 %.idx.i.i.i
+  %1824 = getelementptr i8, ptr %.val7.i.i.i, i64 %.idx.i.i.i
   %.not5.i5.i12.i10.i.i.i = icmp eq i32 %.val8.i.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit.i.i, label %.lr.ph.i6.i14.i11.i.i.i
 
@@ -10347,7 +10347,7 @@ _ZN12_GLOBAL__N_114VFTableBuilderC2ERN5clang22MicrosoftVTableContextEPKNS1_13CXX
 
 2457:                                             ; preds = %_ZN12_GLOBAL__N_114VFTableBuilderC2ERN5clang22MicrosoftVTableContextEPKNS1_13CXXRecordDeclERKNS1_8VPtrInfoE.exit
   %.idx.i.i = shl nuw nsw i64 %2454, 6
-  %2458 = getelementptr inbounds nuw i8, ptr %2452, i64 %.idx.i.i
+  %2458 = getelementptr i8, ptr %2452, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %2453, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK12_GLOBAL__N_114VFTableBuilder19vtable_thunks_beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -12724,7 +12724,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN5clang22Mic
 
 35:                                               ; preds = %24
   %.idx.i = shl nuw nsw i64 %32, 4
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
+  %36 = getelementptr i8, ptr %29, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %31, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -15885,7 +15885,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %60, %62
 
 76:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.idx.i = shl nuw nsw i64 %73, 4
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i
+  %77 = getelementptr i8, ptr %70, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %72, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -18116,7 +18116,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit405:              ; preds = %854, %_ZN4llvm11raw
 
 1068:                                             ; preds = %1052
   %.idx.i449 = shl nuw nsw i64 %1065, 4
-  %1069 = getelementptr inbounds nuw i8, ptr %1062, i64 %.idx.i449
+  %1069 = getelementptr i8, ptr %1062, i64 %.idx.i449
   %.not5.i5.i10.i2.i450 = icmp eq i32 %1064, 0
   br i1 %.not5.i5.i10.i2.i450, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i451
 
@@ -21439,7 +21439,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15VTableComponentELb1EE9push_backES2_.e
 
 234:                                              ; preds = %226
   %.idx.i = shl nuw nsw i64 %231, 5
-  %235 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 %.idx.i
+  %235 = getelementptr i8, ptr %.val8.i, i64 %.idx.i
   %.not5.i5.i12.i10.i = icmp eq i32 %.val9.i, 0
   br i1 %.not5.i5.i12.i10.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit, label %.lr.ph.i6.i14.i11.i
 
@@ -21610,7 +21610,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTab
 
 299:                                              ; preds = %.loopexit
   %.idx.i.i = shl nuw nsw i64 %296, 5
-  %300 = getelementptr inbounds nuw i8, ptr %.val8.i.i, i64 %.idx.i.i
+  %300 = getelementptr i8, ptr %.val8.i.i, i64 %.idx.i.i
   %.not5.i5.i12.i10.i.i = icmp eq i32 %.val9.i.i, 0
   br i1 %.not5.i5.i12.i10.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit.i, label %.lr.ph.i6.i14.i11.i.i
 
@@ -22003,7 +22003,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTab
 
 482:                                              ; preds = %471
   %.idx.i39.i = shl nuw nsw i64 %479, 6
-  %483 = getelementptr inbounds nuw i8, ptr %476, i64 %.idx.i39.i
+  %483 = getelementptr i8, ptr %476, i64 %.idx.i39.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %478, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImN5clang9ThunkInfoENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -25011,7 +25011,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_127FindNearestOverriddenMeth
   %.v.v.i4.i2.i = select i1 %20, i32 %21, i32 %22
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
+  %23 = getelementptr i8, ptr %18, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXMethodDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 

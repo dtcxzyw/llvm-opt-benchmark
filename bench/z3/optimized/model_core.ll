@@ -104,7 +104,7 @@ define hidden void @_ZN10model_coreD2Ev(ptr noundef nonnull align 8 captures(non
   %16 = load i32, ptr %15, align 8, !tbaa !24
   %17 = zext i32 %16 to i64
   %.idx.i.i11 = shl nuw nsw i64 %17, 4
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i11
+  %18 = getelementptr i8, ptr %14, i64 %.idx.i.i11
   %.not1.i.i.i.i12 = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i12, label %.loopexit48, label %.lr.ph.i.i.i.i13
 

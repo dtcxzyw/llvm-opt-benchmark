@@ -38370,7 +38370,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h2668feeaa4640619E.exit.i: ; pre
   %201 = icmp ult i64 %.sroa.5133.0.copyload.i, 576460752303423488
   call void @llvm.assume(i1 %201)
   %.idx338.i = shl nuw nsw i64 %.sroa.5133.0.copyload.i, 4
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.4132.0.copyload.i, i64 %.idx338.i
+  %202 = getelementptr i8, ptr %.sroa.4132.0.copyload.i, i64 %.idx338.i
   %203 = icmp sgt i64 %.sroa.0131.0.copyload.i, -1
   call void @llvm.assume(i1 %203)
   store i8 30, ptr %20, align 8, !noalias !4510

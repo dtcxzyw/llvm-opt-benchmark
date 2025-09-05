@@ -2488,7 +2488,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %17, %21, %25
   %32 = load i32, ptr %31, align 8, !tbaa !52
   %33 = zext i32 %32 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %33, 4
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i
+  %34 = getelementptr i8, ptr %30, i64 %.idx.i.i.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK7obj_mapI3appjE5beginEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -2560,7 +2560,7 @@ _ZN17fix_dl_var_tactic9is_target9most_occsER7obj_mapI3appjERj.exit.i: ; preds = 
   %55 = load i32, ptr %54, align 8, !tbaa !52
   %56 = zext i32 %55 to i64
   %.idx.i.i.i4.i = shl nuw nsw i64 %56, 4
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i4.i
+  %57 = getelementptr i8, ptr %53, i64 %.idx.i.i.i4.i
   %.not1.i.i.i.i.i5.i = icmp eq i32 %55, 0
   br i1 %.not1.i.i.i.i.i5.i, label %_ZNK7obj_mapI3appjE5beginEv.exit.i9.i, label %.lr.ph.i.i.i.i.i6.i
 

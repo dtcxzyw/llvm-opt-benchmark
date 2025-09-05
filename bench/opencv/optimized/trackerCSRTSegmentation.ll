@@ -322,7 +322,7 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
   br label %79
 
 ._crit_edge114:                                   ; preds = %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit, %60
-  %.073.lcssa = phi double [ 0.000000e+00, %60 ], [ %.1.lcssa177, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
+  %.073.lcssa = phi double [ 0.000000e+00, %60 ], [ %.1.lcssa178, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
   %73 = fdiv double 1.000000e+00, %.073.lcssa
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !21
@@ -337,9 +337,9 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
 
 79:                                               ; preds = %.lr.ph113, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
   %indvars.iv150 = phi i64 [ %71, %.lr.ph113 ], [ %indvars.iv.next151, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
-  %.073110 = phi double [ 0.000000e+00, %.lr.ph113 ], [ %.1.lcssa177, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
+  %.073110 = phi double [ 0.000000e+00, %.lr.ph113 ], [ %.1.lcssa178, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
   %80 = load i32, ptr %64, align 4, !tbaa !19
-  %81 = zext i32 %80 to i64
+  %81 = sext i32 %80 to i64
   %82 = icmp slt i32 %80, 0
   br i1 %82, label %.noexc, label %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -355,13 +355,14 @@ _ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %79
   %83 = shl nuw nsw i64 %81, 3
   %84 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #21
   store ptr null, ptr %84, align 8, !tbaa !47
-  %85 = icmp eq i32 %80, 1
-  br i1 %85, label %.lr.ph98, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %85 = add nsw i64 %81, -1
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %.lr.ph98, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc81
-  %86 = getelementptr i8, ptr %84, i64 8
-  %87 = add nsw i64 %83, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 %87, i1 false), !tbaa !47
+  %87 = getelementptr i8, ptr %84, i64 8
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %85, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %87, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !47
   br label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc81
@@ -472,7 +473,7 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc81
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit:                ; preds = %.preheader, %._crit_edge99, %._crit_edge107
-  %.1.lcssa177 = phi double [ %.1.lcssa, %._crit_edge107 ], [ %.073110, %._crit_edge99 ], [ %138, %.preheader ]
+  %.1.lcssa178 = phi double [ %.1.lcssa, %._crit_edge107 ], [ %.073110, %._crit_edge99 ], [ %138, %.preheader ]
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %lftr.wideiv153 = trunc i64 %indvars.iv.next151 to i32
   %exitcond154.not = icmp eq i32 %72, %lftr.wideiv153
@@ -536,10 +537,10 @@ define hidden void @_ZN2cv9Histogram26extractBackGroundHistogramERSt6vectorINS_3
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79.split.us.preheader, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
   %indvars.iv130 = phi i64 [ %25, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next131, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
-  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us159, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
+  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us161, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
   %28 = load i32, ptr %15, align 4, !tbaa !19
   %.fr = freeze i32 %28
-  %29 = zext i32 %.fr to i64
+  %29 = sext i32 %.fr to i64
   %30 = icmp slt i32 %.fr, 0
   br i1 %30, label %.noexc, label %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.us
 
@@ -551,13 +552,14 @@ _ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.us: ; preds = %.lr.ph7
   %31 = shl nuw nsw i64 %29, 3
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #21
   store ptr null, ptr %32, align 8, !tbaa !47
-  %33 = icmp eq i32 %.fr, 1
-  br i1 %33, label %.lr.ph.us, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us
+  %33 = add nsw i64 %29, -1
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %.lr.ph.us, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us
 
 _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us: ; preds = %.noexc49.us
-  %34 = getelementptr i8, ptr %32, i64 8
-  %35 = add nsw i64 %31, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %35, i1 false), !tbaa !47
+  %35 = getelementptr i8, ptr %32, i64 8
+  %.idx.i.i.i.i.i.i.i.us = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %.idx.i.i.i.i.i.i.i.us, i1 false), !tbaa !47
   br label %.lr.ph.us
 
 ._crit_edge65.us:                                 ; preds = %55
@@ -565,7 +567,7 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us: ; preds = %.noexc
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.split.split.us.us, %._crit_edge65.us
-  %.us-phi.us159 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
+  %.us-phi.us161 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
   br i1 %exitcond134.not, label %._crit_edge, label %.lr.ph79.split.us, !llvm.loop !54
@@ -622,11 +624,11 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   br label %38
 
 .lr.ph64.split.us89:                              ; preds = %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.us
-  %.not45.us150 = icmp slt i64 %indvars.iv130, %26
-  %.not46.us151 = icmp sgt i64 %indvars.iv130, %27
-  %invariant.op.us152 = or i1 %.not45.us150, %.not46.us151
+  %.not45.us152 = icmp slt i64 %indvars.iv130, %26
+  %.not46.us153 = icmp sgt i64 %indvars.iv130, %27
+  %invariant.op.us154 = or i1 %.not45.us152, %.not46.us153
   %54 = load ptr, ptr %18, align 8
-  br i1 %invariant.op.us152, label %.lr.ph64.split.split.us.us, label %.lr.ph64.split.split.us90
+  br i1 %invariant.op.us154, label %.lr.ph64.split.split.us.us, label %.lr.ph64.split.split.us90
 
 .lr.ph64.split.us.us:                             ; preds = %.lr.ph64.split.us.us.preheader, %55
   %indvars.iv123 = phi i64 [ %22, %.lr.ph64.split.us.us.preheader ], [ %indvars.iv.next124, %55 ]
@@ -690,7 +692,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us, %10
-  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us159, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us161, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %77 = fdiv double 1.000000e+00, %.042.lcssa
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !21
@@ -763,7 +765,7 @@ define hidden void @_ZN2cv9Histogram11backProjectERSt6vectorINS_3MatESaIS2_EE(pt
   %24 = mul i64 %23, %indvars.iv68
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
   %26 = load i32, ptr %16, align 4, !tbaa !19
-  %27 = zext i32 %26 to i64
+  %27 = sext i32 %26 to i64
   %28 = icmp slt i32 %26, 0
   br i1 %28, label %29, label %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -785,13 +787,14 @@ _ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %19
 
 .noexc33:                                         ; preds = %30
   store ptr null, ptr %32, align 8, !tbaa !47
-  %33 = icmp eq i32 %26, 1
-  br i1 %33, label %.lr.ph, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %33 = add nsw i64 %27, -1
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %.lr.ph, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc33
-  %34 = getelementptr i8, ptr %32, i64 8
-  %35 = add nsw i64 %31, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %35, i1 false), !tbaa !47
+  %35 = getelementptr i8, ptr %32, i64 8
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !47
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc33

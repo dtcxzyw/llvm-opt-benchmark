@@ -2002,7 +2002,7 @@ _ZN13obj_hashtableI4exprEC2ERKS1_.exit:           ; preds = %_ZN7obj_mapI4exprjE
   %18 = load i32, ptr %17, align 8, !tbaa !50
   %19 = zext i32 %18 to i64
   %.idx.i = shl nuw nsw i64 %19, 3
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %20 = getelementptr i8, ptr %16, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i.i, label %.loopexit141, label %.lr.ph.i.i.i
 
@@ -2033,7 +2033,7 @@ _ZN13obj_hashtableI4exprEC2ERKS1_.exit:           ; preds = %_ZN7obj_mapI4exprjE
   %28 = load i32, ptr %27, align 8, !tbaa !116
   %29 = zext i32 %28 to i64
   %.idx.i.i = shl nuw nsw i64 %29, 4
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i
+  %30 = getelementptr i8, ptr %26, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %28, 0
   br i1 %.not1.i.i.i.i, label %.loopexit140, label %.lr.ph.i.i.i.i
 
@@ -2100,7 +2100,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iter
   %46 = load i32, ptr %13, align 8, !tbaa !109
   %47 = zext i32 %46 to i64
   %.idx.i.i69 = shl nuw nsw i64 %47, 4
-  %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i69
+  %48 = getelementptr i8, ptr %.pre, i64 %.idx.i.i69
   %.not1.i.i.i.i70 = icmp eq i32 %46, 0
   br i1 %.not1.i.i.i.i70, label %.loopexit137, label %.lr.ph.i.i.i.i71
 
@@ -2326,7 +2326,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93: ; preds = %_ZNSo
   %126 = load i32, ptr %13, align 8, !tbaa !109
   %127 = zext i32 %126 to i64
   %.idx.i.i94 = shl nuw nsw i64 %127, 4
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx.i.i94
+  %128 = getelementptr i8, ptr %125, i64 %.idx.i.i94
   %.not1.i.i.i.i95 = icmp eq i32 %126, 0
   br i1 %.not1.i.i.i.i95, label %.loopexit, label %.lr.ph.i.i.i.i96
 
@@ -2826,7 +2826,7 @@ _ZNK6vectorIN3opt13weighted_coreELb1EjE4sizeEv.exit: ; preds = %121, %124
   %131 = load i32, ptr %30, align 8, !tbaa !50
   %132 = zext i32 %131 to i64
   %.idx.i = shl nuw nsw i64 %132, 3
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx.i
+  %133 = getelementptr i8, ptr %130, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %131, 0
   br i1 %.not1.i.i.i, label %.loopexit481, label %.lr.ph.i.i.i
 
@@ -3087,7 +3087,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %242 = load i32, ptr %68, align 8, !tbaa !50
   %243 = zext i32 %242 to i64
   %.idx.i127 = shl nuw nsw i64 %243, 3
-  %244 = getelementptr inbounds nuw i8, ptr %241, i64 %.idx.i127
+  %244 = getelementptr i8, ptr %241, i64 %.idx.i127
   %.not1.i.i.i128 = icmp eq i32 %242, 0
   br i1 %.not1.i.i.i128, label %.loopexit480, label %.lr.ph.i.i.i129
 
@@ -3383,7 +3383,7 @@ _ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZNK15r
   %350 = load i32, ptr %35, align 8, !tbaa !50
   %351 = zext i32 %350 to i64
   %.idx.i153 = shl nuw nsw i64 %351, 3
-  %352 = getelementptr inbounds nuw i8, ptr %349, i64 %.idx.i153
+  %352 = getelementptr i8, ptr %349, i64 %.idx.i153
   %.not1.i.i.i154 = icmp eq i32 %350, 0
   br i1 %.not1.i.i.i154, label %.loopexit478, label %.lr.ph.i.i.i155
 
@@ -3409,7 +3409,7 @@ _ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZNK15r
   %358 = load i32, ptr %30, align 8, !tbaa !50
   %359 = zext i32 %358 to i64
   %.idx.i165 = shl nuw nsw i64 %359, 3
-  %360 = getelementptr inbounds nuw i8, ptr %357, i64 %.idx.i165
+  %360 = getelementptr i8, ptr %357, i64 %.idx.i165
   %.not1.i.i.i166 = icmp eq i32 %358, 0
   br i1 %.not1.i.i.i166, label %.loopexit477, label %.lr.ph.i.i.i167
 
@@ -4549,7 +4549,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit248:              ; preds = %_ZN6vectorIP4exprLb
   %774 = load i32, ptr %70, align 8, !tbaa !50
   %775 = zext i32 %774 to i64
   %.idx.i249 = shl nuw nsw i64 %775, 3
-  %776 = getelementptr inbounds nuw i8, ptr %773, i64 %.idx.i249
+  %776 = getelementptr i8, ptr %773, i64 %.idx.i249
   %.not1.i.i.i250 = icmp eq i32 %774, 0
   br i1 %.not1.i.i.i250, label %.loopexit479, label %.lr.ph.i.i.i251
 

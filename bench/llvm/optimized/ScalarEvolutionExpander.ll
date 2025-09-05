@@ -16621,7 +16621,7 @@ define dso_local void @_ZN4llvm19SCEVExpanderCleaner7cleanupEv(ptr noundef nonnu
 
 19:                                               ; preds = %7
   %.idx.i = shl nuw nsw i64 %16, 4
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
+  %20 = getelementptr i8, ptr %13, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %15, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11PoisoningVHINS_11InstructionEEENS_11PoisonFlagsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -16760,7 +16760,7 @@ define linkonce_odr hidden void @_ZNK4llvm12SCEVExpander26getAllInsertedInstruct
 
 16:                                               ; preds = %2
   %.idx.i.i = shl nuw nsw i64 %13, 3
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %12, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplINS_11AssertingVHINS_5ValueEEENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -16808,7 +16808,7 @@ _ZNK4llvm6detail12DenseSetImplINS_11AssertingVHINS_5ValueEEENS_8DenseMapIS4_NS0_
 
 34:                                               ; preds = %._crit_edge
   %.idx.i.i22 = shl nuw nsw i64 %31, 3
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i22
+  %35 = getelementptr i8, ptr %28, i64 %.idx.i.i22
   %.not4.i5.i10.i2.i.i23 = icmp eq i32 %30, 0
   br i1 %.not4.i5.i10.i2.i.i23, label %_ZNK4llvm6detail12DenseSetImplINS_11AssertingVHINS_5ValueEEENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit33, label %.lr.ph.i6.i12.i3.i.i24
 

@@ -12864,7 +12864,7 @@ define hidden void @_ZN4llvm13CodeViewDebug30collectVariableInfoFromMFTableERNS_
   %29 = load i32, ptr %28, align 8, !tbaa !64, !noalias !1117
   %30 = zext i32 %29 to i64
   %.idx.i.i = shl nuw nsw i64 %30, 5
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i
+  %31 = getelementptr i8, ptr %27, i64 %.idx.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK4llvm15MachineFunction29getInStackSlotVariableDbgInfoEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -36940,7 +36940,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionESt10unique_ptrINS_13CodeViewDeb
 
 77:                                               ; preds = %64
   %.idx.i = shl nuw nsw i64 %74, 4
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i
+  %78 = getelementptr i8, ptr %72, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %73, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

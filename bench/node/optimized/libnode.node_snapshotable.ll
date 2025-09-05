@@ -2990,9 +2990,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
-  %7 = add nsw i64 %mul.i.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %7, i1 false), !noalias !109
   %add.ptr.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i.i, i1 false), !noalias !109
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i.i
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
@@ -3031,13 +3030,13 @@ if.then14:                                        ; preds = %_ZNSt6vectorImSaImE
   store ptr %call18, ptr %ref.tmp17, align 8
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   store ptr %call20, ptr %ref.tmp19, align 8
-  %8 = load i8, ptr %this, align 8
-  %tobool.i10 = trunc i8 %8 to i1
+  %7 = load i8, ptr %this, align 8
+  %tobool.i10 = trunc i8 %7 to i1
   br i1 %tobool.i10, label %if.then.i11, label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 if.then.i11:                                      ; preds = %if.then14
-  %9 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %9, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
+  %8 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %8, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit: ; preds = %if.then14, %if.then.i11

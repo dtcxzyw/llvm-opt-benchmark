@@ -4950,17 +4950,14 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit.i: ; preds = %14, %9
 .lr.ph.preheader.i:                               ; preds = %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit.i
   %16 = load ptr, ptr %0, align 8, !tbaa !14
   %17 = getelementptr %"class.llvm::StringRef", ptr %16, i64 %.pre-phi.i
-  %18 = shl i64 %1, 4
-  %19 = add i64 %18, -16
-  %20 = shl nuw nsw i64 %.pre-phi.i, 4
-  %21 = sub i64 %19, %20
-  %22 = add i64 %21, 16
-  tail call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %22, i1 false)
+  %18 = sub i64 %1, %.pre-phi.i
+  %19 = shl i64 %18, 4
+  tail call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %19, i1 false)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.lr.ph.preheader.i, %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit.i, %7
-  %23 = trunc i64 %1 to i32
-  store i32 %23, ptr %3, align 8, !tbaa !11
+  %20 = trunc i64 %1 to i32
+  store i32 %20, ptr %3, align 8, !tbaa !11
   br label %_ZN4llvm15SmallVectorImplINS_9StringRefEE10resizeImplILb0EEEvm.exit
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEE10resizeImplILb0EEEvm.exit: ; preds = %2, %.sink.split.i

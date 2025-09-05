@@ -449,7 +449,7 @@ define hidden void @_ZN16bv2fpa_converterC2ER11ast_managerR16fpa2bv_converter(pt
   %41 = load i32, ptr %40, align 8, !tbaa !17
   %42 = zext i32 %41 to i64
   %.idx.i.i = shl nuw nsw i64 %42, 4
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
+  %43 = getelementptr i8, ptr %39, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not1.i.i.i.i, label %.loopexit168, label %.lr.ph.i.i.i.i
 
@@ -481,7 +481,7 @@ define hidden void @_ZN16bv2fpa_converterC2ER11ast_managerR16fpa2bv_converter(pt
   %52 = load i32, ptr %51, align 8, !tbaa !17
   %53 = zext i32 %52 to i64
   %.idx.i.i78 = shl nuw nsw i64 %53, 4
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i78
+  %54 = getelementptr i8, ptr %50, i64 %.idx.i.i78
   %.not1.i.i.i.i79 = icmp eq i32 %52, 0
   br i1 %.not1.i.i.i.i79, label %.loopexit167, label %.lr.ph.i.i.i.i80
 
@@ -602,7 +602,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   %94 = load i32, ptr %93, align 8, !tbaa !23
   %95 = zext i32 %94 to i64
   %.idx.i.i92 = shl nuw nsw i64 %95, 4
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i92
+  %96 = getelementptr i8, ptr %92, i64 %.idx.i.i92
   %.not1.i.i.i.i93 = icmp eq i32 %94, 0
   br i1 %.not1.i.i.i.i93, label %.loopexit166, label %.lr.ph.i.i.i.i94
 
@@ -934,7 +934,7 @@ _Z22dec_ref_map_key_valuesI11ast_manager7obj_mapI9func_declP4exprEEvRT_RT0_.exit
   %10 = load i32, ptr %9, align 8, !tbaa !23
   %11 = zext i32 %10 to i64
   %.idx.i.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i.i, label %.loopexit75, label %.lr.ph.i.i.i.i
 
@@ -5885,7 +5885,7 @@ define hidden void @_ZN16bv2fpa_converter14convert_constsEP10model_coreS1_R13obj
   %22 = load i32, ptr %21, align 8, !tbaa !17
   %23 = zext i32 %22 to i64
   %.idx.i.i = shl nuw nsw i64 %23, 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
+  %24 = getelementptr i8, ptr %20, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6867,7 +6867,7 @@ define hidden void @_ZN16bv2fpa_converter17convert_rm_constsEP10model_coreS1_R13
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = zext i32 %10 to i64
   %.idx.i.i = shl nuw nsw i64 %11, 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
+  %12 = getelementptr i8, ptr %8, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -7758,7 +7758,7 @@ define hidden void @_ZN16bv2fpa_converter15convert_uf2bvufEP10model_coreS1_R13ob
   %13 = load i32, ptr %12, align 8, !tbaa !23
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 4
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -8041,7 +8041,7 @@ define hidden void @_ZN16bv2fpa_converter7displayERSo(ptr noundef nonnull readon
   %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = zext i32 %11 to i64
   %.idx.i.i = shl nuw nsw i64 %12, 4
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -8074,7 +8074,7 @@ _ZNK7obj_mapI9func_declP4exprE5beginEv.exit:      ; preds = %.lr.ph.i.i.i.i, %15
   %23 = load i32, ptr %22, align 8, !tbaa !17
   %24 = zext i32 %23 to i64
   %.idx.i.i52 = shl nuw nsw i64 %24, 4
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i52
+  %25 = getelementptr i8, ptr %21, i64 %.idx.i.i52
   %.not1.i.i.i.i53 = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i.i53, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit61, label %.lr.ph.i.i.i.i54
 
@@ -8184,7 +8184,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   %67 = load i32, ptr %66, align 8, !tbaa !23
   %68 = zext i32 %67 to i64
   %.idx.i.i64 = shl nuw nsw i64 %68, 4
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i64
+  %69 = getelementptr i8, ptr %65, i64 %.idx.i.i64
   %.not1.i.i.i.i65 = icmp eq i32 %67, 0
   br i1 %.not1.i.i.i.i65, label %_ZNK7obj_mapI9func_declPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i66
 
@@ -8546,7 +8546,7 @@ define hidden noundef ptr @_ZN16bv2fpa_converter9translateER15ast_translation(pt
   %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 4
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %15 = getelementptr i8, ptr %11, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -8579,7 +8579,7 @@ _ZNK7obj_mapI9func_declP4exprE5beginEv.exit:      ; preds = %.lr.ph.i.i.i.i, %17
   %25 = load i32, ptr %24, align 8, !tbaa !17
   %26 = zext i32 %25 to i64
   %.idx.i.i52 = shl nuw nsw i64 %26, 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i52
+  %27 = getelementptr i8, ptr %23, i64 %.idx.i.i52
   %.not1.i.i.i.i53 = icmp eq i32 %25, 0
   br i1 %.not1.i.i.i.i53, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit61, label %.lr.ph.i.i.i.i54
 
@@ -8688,7 +8688,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   %62 = load i32, ptr %61, align 8, !tbaa !23
   %63 = zext i32 %62 to i64
   %.idx.i.i67 = shl nuw nsw i64 %63, 4
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i67
+  %64 = getelementptr i8, ptr %60, i64 %.idx.i.i67
   %.not1.i.i.i.i68 = icmp eq i32 %62, 0
   br i1 %.not1.i.i.i.i68, label %_ZNK7obj_mapI9func_declPS0_E5beginEv.exit, label %.lr.ph.i.i.i.i69
 
@@ -10300,7 +10300,7 @@ define linkonce_odr hidden void @_Z22dec_ref_map_key_valuesI11ast_managerS0_7obj
   %6 = load i32, ptr %5, align 8, !tbaa !17
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 

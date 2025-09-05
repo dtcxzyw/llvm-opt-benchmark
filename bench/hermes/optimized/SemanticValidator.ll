@@ -7347,7 +7347,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end8.i:                                        ; preds = %if.end
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i6, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %17, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %17, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %18, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
@@ -7692,7 +7692,7 @@ if.then.i17:                                      ; preds = %if.end
 
 if.end8.i:                                        ; preds = %if.end
   %add.ptr.i4.idx.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
-  %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %19, i64 %add.ptr.i4.idx.i
+  %add.ptr.i4.i = getelementptr i8, ptr %19, i64 %add.ptr.i4.idx.i
   %cmp.not3.i3.i7.i5.i = icmp eq i32 %20, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 

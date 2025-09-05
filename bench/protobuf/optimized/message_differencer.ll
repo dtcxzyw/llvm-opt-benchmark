@@ -5198,21 +5198,20 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont6, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %11 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.ptr.sub.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i
-  %12 = phi ptr [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i25, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i ]
+  %11 = phi ptr [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i25, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %message1_fields, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %_M_finish.i26 = getelementptr inbounds nuw i8, ptr %message2_fields_arg, i64 8
-  %13 = load ptr, ptr %_M_finish.i26, align 8
-  %14 = load ptr, ptr %message2_fields_arg, align 8
-  %sub.ptr.lhs.cast.i27 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i28 = ptrtoint ptr %14 to i64
+  %12 = load ptr, ptr %_M_finish.i26, align 8
+  %13 = load ptr, ptr %message2_fields_arg, align 8
+  %sub.ptr.lhs.cast.i27 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i28 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i27, %sub.ptr.rhs.cast.i28
   %sub.ptr.div.i30 = ashr exact i64 %sub.ptr.sub.i29, 3
   %add8 = add nsw i64 %sub.ptr.div.i30, 1
@@ -5246,17 +5245,16 @@ call5.i.i.i.i2.i.i.noexc47:                       ; preds = %if.then.i.i.i.i.i34
   store ptr %add.ptr.i.i.i36, ptr %_M_end_of_storage.i.i.i37, align 8
   store ptr null, ptr %call5.i.i.i.i2.i.i48, align 8
   %incdec.ptr.i.i.i.i.i38 = getelementptr i8, ptr %call5.i.i.i.i2.i.i48, i64 8
-  %cmp.i.i.i.i.i.i.i39 = icmp eq ptr %13, %14
+  %cmp.i.i.i.i.i.i.i39 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i.i39, label %invoke.cont11, label %if.end.i.i.i.i.i.i.i40
 
 if.end.i.i.i.i.i.i.i40:                           ; preds = %call5.i.i.i.i2.i.i.noexc47
-  %15 = add nsw i64 %mul.i.i.i.i.i.i35, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i38, i8 0, i64 %15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i38, i8 0, i64 %sub.ptr.sub.i29, i1 false)
   %add.ptr.i.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i38, i64 %sub.ptr.sub.i29
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i.i.i.i.i.i.i40, %call5.i.i.i.i2.i.i.noexc47, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i44
-  %16 = phi ptr [ %call5.i.i.i.i2.i.i48, %call5.i.i.i.i2.i.i.noexc47 ], [ %call5.i.i.i.i2.i.i48, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i44 ]
+  %14 = phi ptr [ %call5.i.i.i.i2.i.i48, %call5.i.i.i.i2.i.i.noexc47 ], [ %call5.i.i.i.i2.i.i48, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i44 ]
   %__first.addr.0.i.i.i.i.i42 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %call5.i.i.i.i2.i.i.noexc47 ], [ %add.ptr.i.i.i.i.i.i.i41, %if.end.i.i.i.i.i.i.i40 ], [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i44 ]
   %_M_finish.i.i7.i43 = getelementptr inbounds nuw i8, ptr %message2_fields, i64 8
   store ptr %__first.addr.0.i.i.i.i.i42, ptr %_M_finish.i.i7.i43, align 8
@@ -5264,151 +5262,151 @@ invoke.cont11:                                    ; preds = %if.end.i.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont23, label %if.then.i.i.i.i.i51
 
 if.then.i.i.i.i.i51:                              ; preds = %invoke.cont11
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %10, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr align 8 %10, i64 %sub.ptr.sub.i, i1 false)
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %if.then.i.i.i.i.i51, %invoke.cont11
-  %tobool.not.i.i.i.i.i56 = icmp eq ptr %13, %14
+  %tobool.not.i.i.i.i.i56 = icmp eq ptr %12, %13
   br i1 %tobool.not.i.i.i.i.i56, label %invoke.cont38, label %if.then.i.i.i.i.i57
 
 if.then.i.i.i.i.i57:                              ; preds = %invoke.cont23
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %16, ptr align 8 %14, i64 %sub.ptr.sub.i29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %13, i64 %sub.ptr.sub.i29, i1 false)
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.then.i.i.i.i.i57, %invoke.cont23
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i
   store ptr null, ptr %add.ptr.i, align 8
-  %add.ptr.i70 = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i29
+  %add.ptr.i70 = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub.i29
   store ptr null, ptr %add.ptr.i70, align 8
-  %cmp.i.not.i.i = icmp eq ptr %12, %__first.addr.0.i.i.i.i.i
+  %cmp.i.not.i.i = icmp eq ptr %11, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i.not.i.i, label %invoke.cont54, label %if.then.i.i72
 
 if.then.i.i72:                                    ; preds = %invoke.cont38
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
-  %sub.i.i.i = shl nuw nsw i64 %17, 1
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
+  %sub.i.i.i = shl nuw nsw i64 %15, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr nonnull %12, ptr %__first.addr.0.i.i.i.i.i, i64 noundef %mul.i.i, ptr nonnull @_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr nonnull %11, ptr %__first.addr.0.i.i.i.i.i, i64 noundef %mul.i.i, ptr nonnull @_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_)
           to label %.noexc73 unwind label %lpad22
 
 .noexc73:                                         ; preds = %if.then.i.i72
   %cmp.i101 = icmp sgt i64 %sub.ptr.sub.i.i.i, 128
-  %scevgep.i = getelementptr i8, ptr %12, i64 8
+  %scevgep.i = getelementptr i8, ptr %11, i64 8
   br i1 %cmp.i101, label %for.body.i.i103, label %if.else.i102
 
 for.body.i.i103:                                  ; preds = %.noexc73, %for.inc.i.i104
   %__i.sroa.0.012.i.idx.i = phi i64 [ %__i.sroa.0.012.i.add.i, %for.inc.i.i104 ], [ 8, %.noexc73 ]
-  %__first.coerce.pn11.i.i = phi ptr [ %__i.sroa.0.012.i.ptr.i, %for.inc.i.i104 ], [ %12, %.noexc73 ]
-  %__i.sroa.0.012.i.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 %__i.sroa.0.012.i.idx.i
-  %18 = load ptr, ptr %__i.sroa.0.012.i.ptr.i, align 8
-  %19 = load ptr, ptr %12, align 8
-  %cmp.i229 = icmp eq ptr %18, null
+  %__first.coerce.pn11.i.i = phi ptr [ %__i.sroa.0.012.i.ptr.i, %for.inc.i.i104 ], [ %11, %.noexc73 ]
+  %__i.sroa.0.012.i.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %__i.sroa.0.012.i.idx.i
+  %16 = load ptr, ptr %__i.sroa.0.012.i.ptr.i, align 8
+  %17 = load ptr, ptr %11, align 8
+  %cmp.i229 = icmp eq ptr %16, null
   br i1 %cmp.i229, label %for.inc.i.i104, label %if.end.i230
 
 if.end.i230:                                      ; preds = %for.body.i.i103
-  %cmp1.i231 = icmp eq ptr %19, null
+  %cmp1.i231 = icmp eq ptr %17, null
   br i1 %cmp1.i231, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i, label %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit237
 
 _ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit237: ; preds = %if.end.i230
-  %number_.i.i233 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = load i32, ptr %number_.i.i233, align 4
-  %number_.i3.i234 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %21 = load i32, ptr %number_.i3.i234, align 4
-  %cmp5.i235 = icmp slt i32 %20, %21
+  %number_.i.i233 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i32, ptr %number_.i.i233, align 4
+  %number_.i3.i234 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = load i32, ptr %number_.i3.i234, align 4
+  %cmp5.i235 = icmp slt i32 %18, %19
   br i1 %cmp5.i235, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i, label %if.end.i221
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i: ; preds = %if.end.i230, %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit237
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %__i.sroa.0.012.i.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %__i.sroa.0.012.i.idx.i, i1 false)
   br label %for.inc.i.i104
 
 if.end.i221:                                      ; preds = %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit237
-  %22 = load ptr, ptr %__first.coerce.pn11.i.i, align 8
-  %cmp1.i222 = icmp eq ptr %22, null
+  %20 = load ptr, ptr %__first.coerce.pn11.i.i, align 8
+  %cmp1.i222 = icmp eq ptr %20, null
   br i1 %cmp1.i222, label %if.end.i212.preheader, label %if.end3.i223
 
 if.end3.i223:                                     ; preds = %if.end.i221
-  %number_.i3.i225 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %23 = load i32, ptr %number_.i3.i225, align 4
-  %cmp5.i226 = icmp slt i32 %20, %23
+  %number_.i3.i225 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %21 = load i32, ptr %number_.i3.i225, align 4
+  %cmp5.i226 = icmp slt i32 %18, %21
   br i1 %cmp5.i226, label %if.end.i212.preheader, label %for.inc.i.i104
 
 if.end.i212.preheader:                            ; preds = %if.end3.i223, %if.end.i221
   br label %if.end.i212
 
 if.end.i212:                                      ; preds = %if.end.i212.backedge, %if.end.i212.preheader
-  %24 = phi ptr [ %22, %if.end.i212.preheader ], [ %25, %if.end.i212.backedge ]
+  %22 = phi ptr [ %20, %if.end.i212.preheader ], [ %23, %if.end.i212.backedge ]
   %__next.sroa.0.010.i.i.i = phi ptr [ %__first.coerce.pn11.i.i, %if.end.i212.preheader ], [ %__next.sroa.0.0.i.i.i, %if.end.i212.backedge ]
   %__last.sroa.0.09.i.i.i = phi ptr [ %__i.sroa.0.012.i.ptr.i, %if.end.i212.preheader ], [ %__next.sroa.0.010.i.i.i, %if.end.i212.backedge ]
-  store ptr %24, ptr %__last.sroa.0.09.i.i.i, align 8
+  store ptr %22, ptr %__last.sroa.0.09.i.i.i, align 8
   %__next.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i, i64 -8
-  %25 = load ptr, ptr %__next.sroa.0.0.i.i.i, align 8
-  %cmp1.i213 = icmp eq ptr %25, null
+  %23 = load ptr, ptr %__next.sroa.0.0.i.i.i, align 8
+  %cmp1.i213 = icmp eq ptr %23, null
   br i1 %cmp1.i213, label %if.end.i212.backedge, label %if.end3.i214
 
 if.end3.i214:                                     ; preds = %if.end.i212
-  %26 = load i32, ptr %number_.i.i233, align 4
-  %number_.i3.i216 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %number_.i3.i216, align 4
-  %cmp5.i217 = icmp slt i32 %26, %27
+  %24 = load i32, ptr %number_.i.i233, align 4
+  %number_.i3.i216 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %25 = load i32, ptr %number_.i3.i216, align 4
+  %cmp5.i217 = icmp slt i32 %24, %25
   br i1 %cmp5.i217, label %if.end.i212.backedge, label %for.inc.i.i104
 
 if.end.i212.backedge:                             ; preds = %if.end3.i214, %if.end.i212
   br label %if.end.i212, !llvm.loop !111
 
 for.inc.i.i104:                                   ; preds = %if.end3.i214, %for.body.i.i103, %if.end3.i223, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i
-  %__first.coerce.sink.i.i = phi ptr [ %12, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i ], [ %__i.sroa.0.012.i.ptr.i, %if.end3.i223 ], [ %__i.sroa.0.012.i.ptr.i, %for.body.i.i103 ], [ %__next.sroa.0.010.i.i.i, %if.end3.i214 ]
-  store ptr %18, ptr %__first.coerce.sink.i.i, align 8
+  %__first.coerce.sink.i.i = phi ptr [ %11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i ], [ %__i.sroa.0.012.i.ptr.i, %if.end3.i223 ], [ %__i.sroa.0.012.i.ptr.i, %for.body.i.i103 ], [ %__next.sroa.0.010.i.i.i, %if.end3.i214 ]
+  store ptr %16, ptr %__first.coerce.sink.i.i, align 8
   %__i.sroa.0.012.i.add.i = add nuw nsw i64 %__i.sroa.0.012.i.idx.i, 8
   %cmp.i1.not.i.i = icmp eq i64 %__i.sroa.0.012.i.add.i, 128
   br i1 %cmp.i1.not.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i, label %for.body.i.i103, !llvm.loop !112
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i: ; preds = %for.inc.i.i104
-  %add.ptr.i.i105 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %add.ptr.i.i105 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %cmp.i.not2.i.i = icmp eq ptr %add.ptr.i.i105, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i.not2.i.i, label %invoke.cont54, label %for.body.i2.i
 
 for.body.i2.i:                                    ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i
   %__i.sroa.0.03.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i ], [ %add.ptr.i.i105, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i ]
-  %28 = load ptr, ptr %__i.sroa.0.03.i.i, align 8
+  %26 = load ptr, ptr %__i.sroa.0.03.i.i, align 8
   %__next.sroa.0.07.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 -8
-  %29 = load ptr, ptr %__next.sroa.0.07.i.i.i, align 8
-  %cmp.i202 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %__next.sroa.0.07.i.i.i, align 8
+  %cmp.i202 = icmp eq ptr %26, null
   br i1 %cmp.i202, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i, label %if.end.i203
 
 if.end.i203:                                      ; preds = %for.body.i2.i
-  %cmp1.i204 = icmp eq ptr %29, null
+  %cmp1.i204 = icmp eq ptr %27, null
   br i1 %cmp1.i204, label %if.end.i194.preheader, label %if.end3.i205
 
 if.end3.i205:                                     ; preds = %if.end.i203
-  %number_.i.i206 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %number_.i.i206, align 4
-  %number_.i3.i207 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = load i32, ptr %number_.i3.i207, align 4
-  %cmp5.i208 = icmp slt i32 %30, %31
+  %number_.i.i206 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %number_.i.i206, align 4
+  %number_.i3.i207 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %29 = load i32, ptr %number_.i3.i207, align 4
+  %cmp5.i208 = icmp slt i32 %28, %29
   br i1 %cmp5.i208, label %if.end.i194.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i
 
 if.end.i194.preheader:                            ; preds = %if.end3.i205, %if.end.i203
-  %number_.i.i197 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %number_.i.i197 = getelementptr inbounds nuw i8, ptr %26, i64 4
   br label %if.end.i194
 
 if.end.i194:                                      ; preds = %if.end.i194.backedge, %if.end.i194.preheader
-  %32 = phi ptr [ %29, %if.end.i194.preheader ], [ %33, %if.end.i194.backedge ]
+  %30 = phi ptr [ %27, %if.end.i194.preheader ], [ %31, %if.end.i194.backedge ]
   %__next.sroa.0.010.i.i5.i = phi ptr [ %__next.sroa.0.07.i.i.i, %if.end.i194.preheader ], [ %__next.sroa.0.0.i.i7.i, %if.end.i194.backedge ]
   %__last.sroa.0.09.i.i6.i = phi ptr [ %__i.sroa.0.03.i.i, %if.end.i194.preheader ], [ %__next.sroa.0.010.i.i5.i, %if.end.i194.backedge ]
-  store ptr %32, ptr %__last.sroa.0.09.i.i6.i, align 8
+  store ptr %30, ptr %__last.sroa.0.09.i.i6.i, align 8
   %__next.sroa.0.0.i.i7.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i, i64 -8
-  %33 = load ptr, ptr %__next.sroa.0.0.i.i7.i, align 8
-  %cmp1.i195 = icmp eq ptr %33, null
+  %31 = load ptr, ptr %__next.sroa.0.0.i.i7.i, align 8
+  %cmp1.i195 = icmp eq ptr %31, null
   br i1 %cmp1.i195, label %if.end.i194.backedge, label %if.end3.i196
 
 if.end3.i196:                                     ; preds = %if.end.i194
-  %34 = load i32, ptr %number_.i.i197, align 4
-  %number_.i3.i198 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %35 = load i32, ptr %number_.i3.i198, align 4
-  %cmp5.i199 = icmp slt i32 %34, %35
+  %32 = load i32, ptr %number_.i.i197, align 4
+  %number_.i3.i198 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %number_.i3.i198, align 4
+  %cmp5.i199 = icmp slt i32 %32, %33
   br i1 %cmp5.i199, label %if.end.i194.backedge, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i
 
 if.end.i194.backedge:                             ; preds = %if.end3.i196, %if.end.i194
@@ -5416,7 +5414,7 @@ if.end.i194.backedge:                             ; preds = %if.end3.i196, %if.e
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i: ; preds = %if.end3.i196, %for.body.i2.i, %if.end3.i205
   %__last.sroa.0.0.lcssa.i.i.i = phi ptr [ %__i.sroa.0.03.i.i, %if.end3.i205 ], [ %__i.sroa.0.03.i.i, %for.body.i2.i ], [ %__next.sroa.0.010.i.i5.i, %if.end3.i196 ]
-  store ptr %28, ptr %__last.sroa.0.0.lcssa.i.i.i, align 8
+  store ptr %26, ptr %__last.sroa.0.0.lcssa.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i, i64 8
   %cmp.i.not.i.i106 = icmp eq ptr %incdec.ptr.i.i.i, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i.not.i.i106, label %invoke.cont54, label %for.body.i2.i, !llvm.loop !113
@@ -5427,22 +5425,22 @@ if.else.i102:                                     ; preds = %.noexc73
 
 for.body.i15.i:                                   ; preds = %if.else.i102, %for.inc.i21.i
   %__i.sroa.0.012.i16.i = phi ptr [ %__i.sroa.0.0.i23.i, %for.inc.i21.i ], [ %scevgep.i, %if.else.i102 ]
-  %__first.coerce.pn11.i17.i = phi ptr [ %__i.sroa.0.012.i16.i, %for.inc.i21.i ], [ %12, %if.else.i102 ]
-  %36 = load ptr, ptr %__i.sroa.0.012.i16.i, align 8
-  %37 = load ptr, ptr %12, align 8
-  %cmp.i184 = icmp eq ptr %36, null
+  %__first.coerce.pn11.i17.i = phi ptr [ %__i.sroa.0.012.i16.i, %for.inc.i21.i ], [ %11, %if.else.i102 ]
+  %34 = load ptr, ptr %__i.sroa.0.012.i16.i, align 8
+  %35 = load ptr, ptr %11, align 8
+  %cmp.i184 = icmp eq ptr %34, null
   br i1 %cmp.i184, label %for.inc.i21.i, label %if.end.i185
 
 if.end.i185:                                      ; preds = %for.body.i15.i
-  %cmp1.i186 = icmp eq ptr %37, null
+  %cmp1.i186 = icmp eq ptr %35, null
   br i1 %cmp1.i186, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i, label %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit192
 
 _ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit192: ; preds = %if.end.i185
-  %number_.i.i188 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %38 = load i32, ptr %number_.i.i188, align 4
-  %number_.i3.i189 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = load i32, ptr %number_.i3.i189, align 4
-  %cmp5.i190 = icmp slt i32 %38, %39
+  %number_.i.i188 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %36 = load i32, ptr %number_.i.i188, align 4
+  %number_.i3.i189 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = load i32, ptr %number_.i3.i189, align 4
+  %cmp5.i190 = icmp slt i32 %36, %37
   br i1 %cmp5.i190, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i, label %if.end.i176
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i: ; preds = %if.end.i185, %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit192
@@ -5452,182 +5450,182 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %idx.neg.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i31.i, i64 %idx.neg.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.end.i176:                                      ; preds = %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit192
-  %40 = load ptr, ptr %__first.coerce.pn11.i17.i, align 8
-  %cmp1.i177 = icmp eq ptr %40, null
+  %38 = load ptr, ptr %__first.coerce.pn11.i17.i, align 8
+  %cmp1.i177 = icmp eq ptr %38, null
   br i1 %cmp1.i177, label %if.end.i.preheader, label %if.end3.i178
 
 if.end3.i178:                                     ; preds = %if.end.i176
-  %number_.i3.i180 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %41 = load i32, ptr %number_.i3.i180, align 4
-  %cmp5.i181 = icmp slt i32 %38, %41
+  %number_.i3.i180 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %39 = load i32, ptr %number_.i3.i180, align 4
+  %cmp5.i181 = icmp slt i32 %36, %39
   br i1 %cmp5.i181, label %if.end.i.preheader, label %for.inc.i21.i
 
 if.end.i.preheader:                               ; preds = %if.end3.i178, %if.end.i176
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.backedge, %if.end.i.preheader
-  %42 = phi ptr [ %40, %if.end.i.preheader ], [ %43, %if.end.i.backedge ]
+  %40 = phi ptr [ %38, %if.end.i.preheader ], [ %41, %if.end.i.backedge ]
   %__next.sroa.0.010.i.i26.i = phi ptr [ %__first.coerce.pn11.i17.i, %if.end.i.preheader ], [ %__next.sroa.0.0.i.i28.i, %if.end.i.backedge ]
   %__last.sroa.0.09.i.i27.i = phi ptr [ %__i.sroa.0.012.i16.i, %if.end.i.preheader ], [ %__next.sroa.0.010.i.i26.i, %if.end.i.backedge ]
-  store ptr %42, ptr %__last.sroa.0.09.i.i27.i, align 8
+  store ptr %40, ptr %__last.sroa.0.09.i.i27.i, align 8
   %__next.sroa.0.0.i.i28.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i, i64 -8
-  %43 = load ptr, ptr %__next.sroa.0.0.i.i28.i, align 8
-  %cmp1.i = icmp eq ptr %43, null
+  %41 = load ptr, ptr %__next.sroa.0.0.i.i28.i, align 8
+  %cmp1.i = icmp eq ptr %41, null
   br i1 %cmp1.i, label %if.end.i.backedge, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %44 = load i32, ptr %number_.i.i188, align 4
-  %number_.i3.i = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %number_.i3.i, align 4
-  %cmp5.i = icmp slt i32 %44, %45
+  %42 = load i32, ptr %number_.i.i188, align 4
+  %number_.i3.i = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i32, ptr %number_.i3.i, align 4
+  %cmp5.i = icmp slt i32 %42, %43
   br i1 %cmp5.i, label %if.end.i.backedge, label %for.inc.i21.i
 
 if.end.i.backedge:                                ; preds = %if.end3.i, %if.end.i
   br label %if.end.i, !llvm.loop !111
 
 for.inc.i21.i:                                    ; preds = %if.end3.i, %for.body.i15.i, %if.end3.i178, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i
-  %__first.coerce.sink.i22.i = phi ptr [ %12, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i ], [ %__i.sroa.0.012.i16.i, %if.end3.i178 ], [ %__i.sroa.0.012.i16.i, %for.body.i15.i ], [ %__next.sroa.0.010.i.i26.i, %if.end3.i ]
-  store ptr %36, ptr %__first.coerce.sink.i22.i, align 8
+  %__first.coerce.sink.i22.i = phi ptr [ %11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i ], [ %__i.sroa.0.012.i16.i, %if.end3.i178 ], [ %__i.sroa.0.012.i16.i, %for.body.i15.i ], [ %__next.sroa.0.010.i.i26.i, %if.end3.i ]
+  store ptr %34, ptr %__first.coerce.sink.i22.i, align 8
   %__i.sroa.0.0.i23.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.012.i16.i, i64 8
   %cmp.i1.not.i24.i = icmp eq ptr %__i.sroa.0.0.i23.i, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i1.not.i24.i, label %invoke.cont54, label %for.body.i15.i, !llvm.loop !112
 
 invoke.cont54:                                    ; preds = %for.inc.i21.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i, %invoke.cont38, %if.else.i102, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i
-  %46 = load ptr, ptr %message2_fields, align 8
-  %47 = load ptr, ptr %_M_finish.i.i7.i43, align 8
-  %cmp.i.not.i.i76 = icmp eq ptr %46, %47
+  %44 = load ptr, ptr %message2_fields, align 8
+  %45 = load ptr, ptr %_M_finish.i.i7.i43, align 8
+  %cmp.i.not.i.i76 = icmp eq ptr %44, %45
   br i1 %cmp.i.not.i.i76, label %invoke.cont63, label %if.then.i.i77
 
 if.then.i.i77:                                    ; preds = %invoke.cont54
-  %sub.ptr.lhs.cast.i.i.i78 = ptrtoint ptr %47 to i64
-  %sub.ptr.rhs.cast.i.i.i79 = ptrtoint ptr %46 to i64
+  %sub.ptr.lhs.cast.i.i.i78 = ptrtoint ptr %45 to i64
+  %sub.ptr.rhs.cast.i.i.i79 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i.i.i80 = sub i64 %sub.ptr.lhs.cast.i.i.i78, %sub.ptr.rhs.cast.i.i.i79
   %sub.ptr.div.i.i.i81 = ashr exact i64 %sub.ptr.sub.i.i.i80, 3
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i81, i1 true)
-  %sub.i.i.i82 = shl nuw nsw i64 %48, 1
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i81, i1 true)
+  %sub.i.i.i82 = shl nuw nsw i64 %46, 1
   %mul.i.i83 = xor i64 %sub.i.i.i82, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr %46, ptr %47, i64 noundef %mul.i.i83, ptr nonnull @_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr %44, ptr %45, i64 noundef %mul.i.i83, ptr nonnull @_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_)
           to label %.noexc84 unwind label %lpad22
 
 .noexc84:                                         ; preds = %if.then.i.i77
   %cmp.i110 = icmp sgt i64 %sub.ptr.sub.i.i.i80, 128
-  %scevgep.i139 = getelementptr i8, ptr %46, i64 8
+  %scevgep.i139 = getelementptr i8, ptr %44, i64 8
   br i1 %cmp.i110, label %for.body.i.i140, label %if.else.i111
 
 for.body.i.i140:                                  ; preds = %.noexc84, %for.inc.i.i147
   %__i.sroa.0.012.i.idx.i141 = phi i64 [ %__i.sroa.0.012.i.add.i149, %for.inc.i.i147 ], [ 8, %.noexc84 ]
-  %__first.coerce.pn11.i.i142 = phi ptr [ %__i.sroa.0.012.i.ptr.i143, %for.inc.i.i147 ], [ %46, %.noexc84 ]
-  %__i.sroa.0.012.i.ptr.i143 = getelementptr inbounds nuw i8, ptr %46, i64 %__i.sroa.0.012.i.idx.i141
-  %49 = load ptr, ptr %__i.sroa.0.012.i.ptr.i143, align 8
-  %50 = load ptr, ptr %46, align 8
-  %cmp.i301 = icmp eq ptr %49, null
+  %__first.coerce.pn11.i.i142 = phi ptr [ %__i.sroa.0.012.i.ptr.i143, %for.inc.i.i147 ], [ %44, %.noexc84 ]
+  %__i.sroa.0.012.i.ptr.i143 = getelementptr inbounds nuw i8, ptr %44, i64 %__i.sroa.0.012.i.idx.i141
+  %47 = load ptr, ptr %__i.sroa.0.012.i.ptr.i143, align 8
+  %48 = load ptr, ptr %44, align 8
+  %cmp.i301 = icmp eq ptr %47, null
   br i1 %cmp.i301, label %for.inc.i.i147, label %if.end.i302
 
 if.end.i302:                                      ; preds = %for.body.i.i140
-  %cmp1.i303 = icmp eq ptr %50, null
+  %cmp1.i303 = icmp eq ptr %48, null
   br i1 %cmp1.i303, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i172, label %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit309
 
 _ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit309: ; preds = %if.end.i302
-  %number_.i.i305 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i32, ptr %number_.i.i305, align 4
-  %number_.i3.i306 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %52 = load i32, ptr %number_.i3.i306, align 4
-  %cmp5.i307 = icmp slt i32 %51, %52
+  %number_.i.i305 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %49 = load i32, ptr %number_.i.i305, align 4
+  %number_.i3.i306 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %50 = load i32, ptr %number_.i3.i306, align 4
+  %cmp5.i307 = icmp slt i32 %49, %50
   br i1 %cmp5.i307, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i172, label %if.end.i293
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i172: ; preds = %if.end.i302, %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit309
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i139, ptr noundef nonnull align 8 dereferenceable(1) %46, i64 %__i.sroa.0.012.i.idx.i141, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i139, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %__i.sroa.0.012.i.idx.i141, i1 false)
   br label %for.inc.i.i147
 
 if.end.i293:                                      ; preds = %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit309
-  %53 = load ptr, ptr %__first.coerce.pn11.i.i142, align 8
-  %cmp1.i294 = icmp eq ptr %53, null
+  %51 = load ptr, ptr %__first.coerce.pn11.i.i142, align 8
+  %cmp1.i294 = icmp eq ptr %51, null
   br i1 %cmp1.i294, label %if.end.i284.preheader, label %if.end3.i295
 
 if.end3.i295:                                     ; preds = %if.end.i293
-  %number_.i3.i297 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %54 = load i32, ptr %number_.i3.i297, align 4
-  %cmp5.i298 = icmp slt i32 %51, %54
+  %number_.i3.i297 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %52 = load i32, ptr %number_.i3.i297, align 4
+  %cmp5.i298 = icmp slt i32 %49, %52
   br i1 %cmp5.i298, label %if.end.i284.preheader, label %for.inc.i.i147
 
 if.end.i284.preheader:                            ; preds = %if.end3.i295, %if.end.i293
   br label %if.end.i284
 
 if.end.i284:                                      ; preds = %if.end.i284.backedge, %if.end.i284.preheader
-  %55 = phi ptr [ %53, %if.end.i284.preheader ], [ %56, %if.end.i284.backedge ]
+  %53 = phi ptr [ %51, %if.end.i284.preheader ], [ %54, %if.end.i284.backedge ]
   %__next.sroa.0.010.i.i.i168 = phi ptr [ %__first.coerce.pn11.i.i142, %if.end.i284.preheader ], [ %__next.sroa.0.0.i.i.i170, %if.end.i284.backedge ]
   %__last.sroa.0.09.i.i.i169 = phi ptr [ %__i.sroa.0.012.i.ptr.i143, %if.end.i284.preheader ], [ %__next.sroa.0.010.i.i.i168, %if.end.i284.backedge ]
-  store ptr %55, ptr %__last.sroa.0.09.i.i.i169, align 8
+  store ptr %53, ptr %__last.sroa.0.09.i.i.i169, align 8
   %__next.sroa.0.0.i.i.i170 = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i168, i64 -8
-  %56 = load ptr, ptr %__next.sroa.0.0.i.i.i170, align 8
-  %cmp1.i285 = icmp eq ptr %56, null
+  %54 = load ptr, ptr %__next.sroa.0.0.i.i.i170, align 8
+  %cmp1.i285 = icmp eq ptr %54, null
   br i1 %cmp1.i285, label %if.end.i284.backedge, label %if.end3.i286
 
 if.end3.i286:                                     ; preds = %if.end.i284
-  %57 = load i32, ptr %number_.i.i305, align 4
-  %number_.i3.i288 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %58 = load i32, ptr %number_.i3.i288, align 4
-  %cmp5.i289 = icmp slt i32 %57, %58
+  %55 = load i32, ptr %number_.i.i305, align 4
+  %number_.i3.i288 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %56 = load i32, ptr %number_.i3.i288, align 4
+  %cmp5.i289 = icmp slt i32 %55, %56
   br i1 %cmp5.i289, label %if.end.i284.backedge, label %for.inc.i.i147
 
 if.end.i284.backedge:                             ; preds = %if.end3.i286, %if.end.i284
   br label %if.end.i284, !llvm.loop !111
 
 for.inc.i.i147:                                   ; preds = %if.end3.i286, %for.body.i.i140, %if.end3.i295, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i172
-  %__first.coerce.sink.i.i148 = phi ptr [ %46, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i172 ], [ %__i.sroa.0.012.i.ptr.i143, %if.end3.i295 ], [ %__i.sroa.0.012.i.ptr.i143, %for.body.i.i140 ], [ %__next.sroa.0.010.i.i.i168, %if.end3.i286 ]
-  store ptr %49, ptr %__first.coerce.sink.i.i148, align 8
+  %__first.coerce.sink.i.i148 = phi ptr [ %44, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i172 ], [ %__i.sroa.0.012.i.ptr.i143, %if.end3.i295 ], [ %__i.sroa.0.012.i.ptr.i143, %for.body.i.i140 ], [ %__next.sroa.0.010.i.i.i168, %if.end3.i286 ]
+  store ptr %47, ptr %__first.coerce.sink.i.i148, align 8
   %__i.sroa.0.012.i.add.i149 = add nuw nsw i64 %__i.sroa.0.012.i.idx.i141, 8
   %cmp.i1.not.i.i150 = icmp eq i64 %__i.sroa.0.012.i.add.i149, 128
   br i1 %cmp.i1.not.i.i150, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i151, label %for.body.i.i140, !llvm.loop !112
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i151: ; preds = %for.inc.i.i147
-  %add.ptr.i.i152 = getelementptr inbounds nuw i8, ptr %46, i64 128
-  %cmp.i.not2.i.i153 = icmp eq ptr %add.ptr.i.i152, %47
+  %add.ptr.i.i152 = getelementptr inbounds nuw i8, ptr %44, i64 128
+  %cmp.i.not2.i.i153 = icmp eq ptr %add.ptr.i.i152, %45
   br i1 %cmp.i.not2.i.i153, label %invoke.cont63, label %for.body.i2.i154
 
 for.body.i2.i154:                                 ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i151, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158
   %__i.sroa.0.03.i.i155 = phi ptr [ %incdec.ptr.i.i.i160, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158 ], [ %add.ptr.i.i152, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i151 ]
-  %59 = load ptr, ptr %__i.sroa.0.03.i.i155, align 8
+  %57 = load ptr, ptr %__i.sroa.0.03.i.i155, align 8
   %__next.sroa.0.07.i.i.i156 = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i155, i64 -8
-  %60 = load ptr, ptr %__next.sroa.0.07.i.i.i156, align 8
-  %cmp.i274 = icmp eq ptr %59, null
+  %58 = load ptr, ptr %__next.sroa.0.07.i.i.i156, align 8
+  %cmp.i274 = icmp eq ptr %57, null
   br i1 %cmp.i274, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158, label %if.end.i275
 
 if.end.i275:                                      ; preds = %for.body.i2.i154
-  %cmp1.i276 = icmp eq ptr %60, null
+  %cmp1.i276 = icmp eq ptr %58, null
   br i1 %cmp1.i276, label %if.end.i266.preheader, label %if.end3.i277
 
 if.end3.i277:                                     ; preds = %if.end.i275
-  %number_.i.i278 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = load i32, ptr %number_.i.i278, align 4
-  %number_.i3.i279 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %62 = load i32, ptr %number_.i3.i279, align 4
-  %cmp5.i280 = icmp slt i32 %61, %62
+  %number_.i.i278 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i32, ptr %number_.i.i278, align 4
+  %number_.i3.i279 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = load i32, ptr %number_.i3.i279, align 4
+  %cmp5.i280 = icmp slt i32 %59, %60
   br i1 %cmp5.i280, label %if.end.i266.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158
 
 if.end.i266.preheader:                            ; preds = %if.end3.i277, %if.end.i275
-  %number_.i.i269 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %number_.i.i269 = getelementptr inbounds nuw i8, ptr %57, i64 4
   br label %if.end.i266
 
 if.end.i266:                                      ; preds = %if.end.i266.backedge, %if.end.i266.preheader
-  %63 = phi ptr [ %60, %if.end.i266.preheader ], [ %64, %if.end.i266.backedge ]
+  %61 = phi ptr [ %58, %if.end.i266.preheader ], [ %62, %if.end.i266.backedge ]
   %__next.sroa.0.010.i.i5.i163 = phi ptr [ %__next.sroa.0.07.i.i.i156, %if.end.i266.preheader ], [ %__next.sroa.0.0.i.i7.i165, %if.end.i266.backedge ]
   %__last.sroa.0.09.i.i6.i164 = phi ptr [ %__i.sroa.0.03.i.i155, %if.end.i266.preheader ], [ %__next.sroa.0.010.i.i5.i163, %if.end.i266.backedge ]
-  store ptr %63, ptr %__last.sroa.0.09.i.i6.i164, align 8
+  store ptr %61, ptr %__last.sroa.0.09.i.i6.i164, align 8
   %__next.sroa.0.0.i.i7.i165 = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i163, i64 -8
-  %64 = load ptr, ptr %__next.sroa.0.0.i.i7.i165, align 8
-  %cmp1.i267 = icmp eq ptr %64, null
+  %62 = load ptr, ptr %__next.sroa.0.0.i.i7.i165, align 8
+  %cmp1.i267 = icmp eq ptr %62, null
   br i1 %cmp1.i267, label %if.end.i266.backedge, label %if.end3.i268
 
 if.end3.i268:                                     ; preds = %if.end.i266
-  %65 = load i32, ptr %number_.i.i269, align 4
-  %number_.i3.i270 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = load i32, ptr %number_.i3.i270, align 4
-  %cmp5.i271 = icmp slt i32 %65, %66
+  %63 = load i32, ptr %number_.i.i269, align 4
+  %number_.i3.i270 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %64 = load i32, ptr %number_.i3.i270, align 4
+  %cmp5.i271 = icmp slt i32 %63, %64
   br i1 %cmp5.i271, label %if.end.i266.backedge, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158
 
 if.end.i266.backedge:                             ; preds = %if.end3.i268, %if.end.i266
@@ -5635,33 +5633,33 @@ if.end.i266.backedge:                             ; preds = %if.end3.i268, %if.e
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158: ; preds = %if.end3.i268, %for.body.i2.i154, %if.end3.i277
   %__last.sroa.0.0.lcssa.i.i.i159 = phi ptr [ %__i.sroa.0.03.i.i155, %if.end3.i277 ], [ %__i.sroa.0.03.i.i155, %for.body.i2.i154 ], [ %__next.sroa.0.010.i.i5.i163, %if.end3.i268 ]
-  store ptr %59, ptr %__last.sroa.0.0.lcssa.i.i.i159, align 8
+  store ptr %57, ptr %__last.sroa.0.0.lcssa.i.i.i159, align 8
   %incdec.ptr.i.i.i160 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i155, i64 8
-  %cmp.i.not.i.i161 = icmp eq ptr %incdec.ptr.i.i.i160, %47
+  %cmp.i.not.i.i161 = icmp eq ptr %incdec.ptr.i.i.i160, %45
   br i1 %cmp.i.not.i.i161, label %invoke.cont63, label %for.body.i2.i154, !llvm.loop !113
 
 if.else.i111:                                     ; preds = %.noexc84
-  %cmp.i1.not10.i12.i114 = icmp eq ptr %scevgep.i139, %47
+  %cmp.i1.not10.i12.i114 = icmp eq ptr %scevgep.i139, %45
   br i1 %cmp.i1.not10.i12.i114, label %invoke.cont63, label %for.body.i15.i116
 
 for.body.i15.i116:                                ; preds = %if.else.i111, %for.inc.i21.i122
   %__i.sroa.0.012.i16.i117 = phi ptr [ %__i.sroa.0.0.i23.i124, %for.inc.i21.i122 ], [ %scevgep.i139, %if.else.i111 ]
-  %__first.coerce.pn11.i17.i118 = phi ptr [ %__i.sroa.0.012.i16.i117, %for.inc.i21.i122 ], [ %46, %if.else.i111 ]
-  %67 = load ptr, ptr %__i.sroa.0.012.i16.i117, align 8
-  %68 = load ptr, ptr %46, align 8
-  %cmp.i256 = icmp eq ptr %67, null
+  %__first.coerce.pn11.i17.i118 = phi ptr [ %__i.sroa.0.012.i16.i117, %for.inc.i21.i122 ], [ %44, %if.else.i111 ]
+  %65 = load ptr, ptr %__i.sroa.0.012.i16.i117, align 8
+  %66 = load ptr, ptr %44, align 8
+  %cmp.i256 = icmp eq ptr %65, null
   br i1 %cmp.i256, label %for.inc.i21.i122, label %if.end.i257
 
 if.end.i257:                                      ; preds = %for.body.i15.i116
-  %cmp1.i258 = icmp eq ptr %68, null
+  %cmp1.i258 = icmp eq ptr %66, null
   br i1 %cmp1.i258, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i131, label %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit264
 
 _ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit264: ; preds = %if.end.i257
-  %number_.i.i260 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = load i32, ptr %number_.i.i260, align 4
-  %number_.i3.i261 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %70 = load i32, ptr %number_.i3.i261, align 4
-  %cmp5.i262 = icmp slt i32 %69, %70
+  %number_.i.i260 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %67 = load i32, ptr %number_.i.i260, align 4
+  %number_.i3.i261 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i32, ptr %number_.i3.i261, align 4
+  %cmp5.i262 = icmp slt i32 %67, %68
   br i1 %cmp5.i262, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i131, label %if.end.i248
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i131: ; preds = %if.end.i257, %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit264
@@ -5671,58 +5669,58 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %sub.ptr.div.i.i.i.i.i.i34.i135 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i134, 3
   %idx.neg.i.i.i.i.i.i35.i136 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i135
   %add.ptr.i.i.i.i.i.i36.i137 = getelementptr inbounds ptr, ptr %add.ptr.i2.i31.i132, i64 %idx.neg.i.i.i.i.i.i35.i136
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i137, ptr noundef nonnull align 8 dereferenceable(1) %46, i64 %sub.ptr.sub.i.i.i.i.i.i33.i134, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i137, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %sub.ptr.sub.i.i.i.i.i.i33.i134, i1 false)
   br label %for.inc.i21.i122
 
 if.end.i248:                                      ; preds = %_ZN6google8protobuf4util18MessageDifferencer11FieldBeforeEPKNS0_15FieldDescriptorES5_.exit264
-  %71 = load ptr, ptr %__first.coerce.pn11.i17.i118, align 8
-  %cmp1.i249 = icmp eq ptr %71, null
+  %69 = load ptr, ptr %__first.coerce.pn11.i17.i118, align 8
+  %cmp1.i249 = icmp eq ptr %69, null
   br i1 %cmp1.i249, label %if.end.i239.preheader, label %if.end3.i250
 
 if.end3.i250:                                     ; preds = %if.end.i248
-  %number_.i3.i252 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %72 = load i32, ptr %number_.i3.i252, align 4
-  %cmp5.i253 = icmp slt i32 %69, %72
+  %number_.i3.i252 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %70 = load i32, ptr %number_.i3.i252, align 4
+  %cmp5.i253 = icmp slt i32 %67, %70
   br i1 %cmp5.i253, label %if.end.i239.preheader, label %for.inc.i21.i122
 
 if.end.i239.preheader:                            ; preds = %if.end3.i250, %if.end.i248
   br label %if.end.i239
 
 if.end.i239:                                      ; preds = %if.end.i239.backedge, %if.end.i239.preheader
-  %73 = phi ptr [ %71, %if.end.i239.preheader ], [ %74, %if.end.i239.backedge ]
+  %71 = phi ptr [ %69, %if.end.i239.preheader ], [ %72, %if.end.i239.backedge ]
   %__next.sroa.0.010.i.i26.i127 = phi ptr [ %__first.coerce.pn11.i17.i118, %if.end.i239.preheader ], [ %__next.sroa.0.0.i.i28.i129, %if.end.i239.backedge ]
   %__last.sroa.0.09.i.i27.i128 = phi ptr [ %__i.sroa.0.012.i16.i117, %if.end.i239.preheader ], [ %__next.sroa.0.010.i.i26.i127, %if.end.i239.backedge ]
-  store ptr %73, ptr %__last.sroa.0.09.i.i27.i128, align 8
+  store ptr %71, ptr %__last.sroa.0.09.i.i27.i128, align 8
   %__next.sroa.0.0.i.i28.i129 = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i127, i64 -8
-  %74 = load ptr, ptr %__next.sroa.0.0.i.i28.i129, align 8
-  %cmp1.i240 = icmp eq ptr %74, null
+  %72 = load ptr, ptr %__next.sroa.0.0.i.i28.i129, align 8
+  %cmp1.i240 = icmp eq ptr %72, null
   br i1 %cmp1.i240, label %if.end.i239.backedge, label %if.end3.i241
 
 if.end3.i241:                                     ; preds = %if.end.i239
-  %75 = load i32, ptr %number_.i.i260, align 4
-  %number_.i3.i243 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = load i32, ptr %number_.i3.i243, align 4
-  %cmp5.i244 = icmp slt i32 %75, %76
+  %73 = load i32, ptr %number_.i.i260, align 4
+  %number_.i3.i243 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %74 = load i32, ptr %number_.i3.i243, align 4
+  %cmp5.i244 = icmp slt i32 %73, %74
   br i1 %cmp5.i244, label %if.end.i239.backedge, label %for.inc.i21.i122
 
 if.end.i239.backedge:                             ; preds = %if.end3.i241, %if.end.i239
   br label %if.end.i239, !llvm.loop !111
 
 for.inc.i21.i122:                                 ; preds = %if.end3.i241, %for.body.i15.i116, %if.end3.i250, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i131
-  %__first.coerce.sink.i22.i123 = phi ptr [ %46, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i131 ], [ %__i.sroa.0.012.i16.i117, %if.end3.i250 ], [ %__i.sroa.0.012.i16.i117, %for.body.i15.i116 ], [ %__next.sroa.0.010.i.i26.i127, %if.end3.i241 ]
-  store ptr %67, ptr %__first.coerce.sink.i22.i123, align 8
+  %__first.coerce.sink.i22.i123 = phi ptr [ %44, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30.i131 ], [ %__i.sroa.0.012.i16.i117, %if.end3.i250 ], [ %__i.sroa.0.012.i16.i117, %for.body.i15.i116 ], [ %__next.sroa.0.010.i.i26.i127, %if.end3.i241 ]
+  store ptr %65, ptr %__first.coerce.sink.i22.i123, align 8
   %__i.sroa.0.0.i23.i124 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.012.i16.i117, i64 8
-  %cmp.i1.not.i24.i125 = icmp eq ptr %__i.sroa.0.0.i23.i124, %47
+  %cmp.i1.not.i24.i125 = icmp eq ptr %__i.sroa.0.0.i23.i124, %45
   br i1 %cmp.i1.not.i24.i125, label %invoke.cont63, label %for.body.i15.i116, !llvm.loop !112
 
 invoke.cont63:                                    ; preds = %for.inc.i21.i122, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbS6_S6_EEEEvT_T0_.exit.i.i158, %invoke.cont54, %if.else.i111, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_.exit.i151
   %output_string_ = getelementptr inbounds nuw i8, ptr %this, i64 384
-  %77 = load ptr, ptr %output_string_, align 8
-  %tobool.not = icmp eq ptr %77, null
+  %75 = load ptr, ptr %output_string_, align 8
+  %tobool.not = icmp eq ptr %75, null
   br i1 %tobool.not, label %if.else, label %if.then64
 
 if.then64:                                        ; preds = %invoke.cont63
-  invoke void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %output_stream, ptr noundef nonnull %77)
+  invoke void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %output_stream, ptr noundef nonnull %75)
           to label %invoke.cont66 unwind label %lpad22
 
 invoke.cont66:                                    ; preds = %if.then64
@@ -5740,32 +5738,32 @@ invoke.cont70:                                    ; preds = %invoke.cont68
   br label %if.end76
 
 lpad:                                             ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit.i, %if.else.i
-  %78 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup80
 
 lpad5:                                            ; preds = %if.then.i.i.i.i.i, %if.then.i.i23
-  %79 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup80
 
 lpad10:                                           ; preds = %if.then.i.i.i.i.i34, %if.then.i.i45
-  %80 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup79
 
 lpad22:                                           ; preds = %if.then.i.i77, %if.then.i.i72, %if.else, %if.then64
-  %81 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup78
 
 lpad67:                                           ; preds = %invoke.cont66
-  %82 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup78
 
 lpad69:                                           ; preds = %invoke.cont68
-  %83 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf4util18MessageDifferencer14StreamReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %reporter) #36
   br label %ehcleanup78
@@ -5776,60 +5774,60 @@ if.else:                                          ; preds = %invoke.cont63
 
 if.end76:                                         ; preds = %if.else, %invoke.cont70
   %result.0.in = phi i1 [ %call71, %invoke.cont70 ], [ %call74, %if.else ]
-  %84 = load ptr, ptr %message2_fields, align 8
-  %tobool.not.i.i.i = icmp eq ptr %84, null
+  %82 = load ptr, ptr %message2_fields, align 8
+  %tobool.not.i.i.i = icmp eq ptr %82, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end76
-  call void @_ZdlPv(ptr noundef nonnull %84) #35
+  call void @_ZdlPv(ptr noundef nonnull %82) #35
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit: ; preds = %if.end76, %if.then.i.i.i
-  %85 = load ptr, ptr %message1_fields, align 8
-  %tobool.not.i.i.i87 = icmp eq ptr %85, null
+  %83 = load ptr, ptr %message1_fields, align 8
+  %tobool.not.i.i.i87 = icmp eq ptr %83, null
   br i1 %tobool.not.i.i.i87, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit89, label %if.then.i.i.i88
 
 if.then.i.i.i88:                                  ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %85) #35
+  call void @_ZdlPv(ptr noundef nonnull %83) #35
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit89
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit89: ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit, %if.then.i.i.i88
-  %86 = load ptr, ptr %parent_fields, align 8
-  %tobool.not.i.i.i90 = icmp eq ptr %86, null
+  %84 = load ptr, ptr %parent_fields, align 8
+  %tobool.not.i.i.i90 = icmp eq ptr %84, null
   br i1 %tobool.not.i.i.i90, label %return, label %if.then.i.i.i91
 
 if.then.i.i.i91:                                  ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit89
-  call void @_ZdlPv(ptr noundef nonnull %86) #35
+  call void @_ZdlPv(ptr noundef nonnull %84) #35
   br label %return
 
 ehcleanup78:                                      ; preds = %lpad67, %lpad69, %lpad22
-  %.pn.pn = phi { ptr, i32 } [ %81, %lpad22 ], [ %83, %lpad69 ], [ %82, %lpad67 ]
-  %87 = load ptr, ptr %message2_fields, align 8
-  %tobool.not.i.i.i92 = icmp eq ptr %87, null
+  %.pn.pn = phi { ptr, i32 } [ %79, %lpad22 ], [ %81, %lpad69 ], [ %80, %lpad67 ]
+  %85 = load ptr, ptr %message2_fields, align 8
+  %tobool.not.i.i.i92 = icmp eq ptr %85, null
   br i1 %tobool.not.i.i.i92, label %ehcleanup79, label %if.then.i.i.i93
 
 if.then.i.i.i93:                                  ; preds = %ehcleanup78
-  call void @_ZdlPv(ptr noundef nonnull %87) #35
+  call void @_ZdlPv(ptr noundef nonnull %85) #35
   br label %ehcleanup79
 
 ehcleanup79:                                      ; preds = %if.then.i.i.i93, %ehcleanup78, %lpad10
-  %.pn.pn.pn = phi { ptr, i32 } [ %80, %lpad10 ], [ %.pn.pn, %ehcleanup78 ], [ %.pn.pn, %if.then.i.i.i93 ]
-  %88 = load ptr, ptr %message1_fields, align 8
-  %tobool.not.i.i.i95 = icmp eq ptr %88, null
+  %.pn.pn.pn = phi { ptr, i32 } [ %78, %lpad10 ], [ %.pn.pn, %ehcleanup78 ], [ %.pn.pn, %if.then.i.i.i93 ]
+  %86 = load ptr, ptr %message1_fields, align 8
+  %tobool.not.i.i.i95 = icmp eq ptr %86, null
   br i1 %tobool.not.i.i.i95, label %ehcleanup80, label %if.then.i.i.i96
 
 if.then.i.i.i96:                                  ; preds = %ehcleanup79
-  call void @_ZdlPv(ptr noundef nonnull %88) #35
+  call void @_ZdlPv(ptr noundef nonnull %86) #35
   br label %ehcleanup80
 
 ehcleanup80:                                      ; preds = %if.then.i.i.i96, %ehcleanup79, %lpad5, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %lpad5 ], [ %78, %lpad ], [ %.pn.pn.pn, %ehcleanup79 ], [ %.pn.pn.pn, %if.then.i.i.i96 ]
-  %89 = load ptr, ptr %parent_fields, align 8
-  %tobool.not.i.i.i98 = icmp eq ptr %89, null
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %77, %lpad5 ], [ %76, %lpad ], [ %.pn.pn.pn, %ehcleanup79 ], [ %.pn.pn.pn, %if.then.i.i.i96 ]
+  %87 = load ptr, ptr %parent_fields, align 8
+  %tobool.not.i.i.i98 = icmp eq ptr %87, null
   br i1 %tobool.not.i.i.i98, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit100, label %if.then.i.i.i99
 
 if.then.i.i.i99:                                  ; preds = %ehcleanup80
-  call void @_ZdlPv(ptr noundef nonnull %89) #35
+  call void @_ZdlPv(ptr noundef nonnull %87) #35
   br label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit100
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit100: ; preds = %ehcleanup80, %if.then.i.i.i99

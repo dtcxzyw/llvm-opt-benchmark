@@ -1034,7 +1034,7 @@ if.end8.i.i.i.i.i:                                ; preds = %for.end.i.i.i
   %122 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i.i.i, align 8
   %idx.ext.i.i.i.i9.i.i.i = zext i32 %122 to i64
   %add.ptr.i4.idx.i.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i9.i.i.i, 3
-  %add.ptr.i4.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %.pre18.i.i, i64 %add.ptr.i4.idx.i.i.i.i.i
+  %add.ptr.i4.i.i10.i.i.i = getelementptr i8, ptr %.pre18.i.i, i64 %add.ptr.i4.idx.i.i.i.i.i
   %cmp.not3.i3.i7.i5.i.i.i.i.i = icmp eq i32 %122, 0
   br i1 %cmp.not3.i3.i7.i5.i.i.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i, label %land.rhs.i4.i9.i6.i.i.i.i.i
 

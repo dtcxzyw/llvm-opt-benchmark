@@ -3278,7 +3278,7 @@ define linkonce_odr hidden void @_Z18dec_ref_map_valuesI11ast_manager7obj_mapI9f
   %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3465,7 +3465,7 @@ define linkonce_odr hidden void @_Z22dec_ref_map_key_valuesI11ast_managerS0_7obj
   %6 = load i32, ptr %5, align 8, !tbaa !107
   %7 = zext i32 %6 to i64
   %.idx.i.i = shl nuw nsw i64 %7, 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %8 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not1.i.i.i.i, label %_ZNK7obj_mapI9func_declP4exprE5beginEv.exit, label %.lr.ph.i.i.i.i
 
@@ -4976,7 +4976,7 @@ _ZN4goal11assert_exprEP4expr.exit:                ; preds = %.lr.ph357
   %566 = load i32, ptr %565, align 8, !tbaa !107
   %567 = zext i32 %566 to i64
   %.idx.i.i = shl nuw nsw i64 %567, 4
-  %568 = getelementptr inbounds nuw i8, ptr %564, i64 %.idx.i.i
+  %568 = getelementptr i8, ptr %564, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %566, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -25198,7 +25198,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %223 = load i32, ptr %222, align 8, !tbaa !512
   %224 = zext i32 %223 to i64
   %.idx.i = shl nuw nsw i64 %224, 3
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 %.idx.i
+  %225 = getelementptr i8, ptr %221, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %223, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -30113,7 +30113,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i68: ; preds = %_ZNK6vect
   %168 = load i32, ptr %167, align 8, !tbaa !512
   %169 = zext i32 %168 to i64
   %.idx.i = shl nuw nsw i64 %169, 3
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 %.idx.i
+  %170 = getelementptr i8, ptr %166, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %168, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

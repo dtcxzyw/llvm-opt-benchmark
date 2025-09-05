@@ -2048,13 +2048,14 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZNK11flatbuffers5T
   %19 = shl nuw nsw i64 %18, 2
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
   store i32 0, ptr %20, align 4, !tbaa !9
-  %21 = icmp eq i32 %17, 1
-  br i1 %21, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i24.lr.ph.split, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  %21 = add nsw i64 %18, -1
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i24.lr.ph.split, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
-  %22 = getelementptr i8, ptr %20, i64 4
-  %23 = add nsw i64 %19, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 %23, i1 false), !tbaa !9
+  %23 = getelementptr i8, ptr %20, i64 4
+  %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %21, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !9
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i24.lr.ph.split
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i24.lr.ph.split: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i

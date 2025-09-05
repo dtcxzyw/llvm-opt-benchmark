@@ -14825,7 +14825,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17remo
 
 17:                                               ; preds = %3
   %.idx.i = shl nuw nsw i64 %14, 3
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %18 = getelementptr i8, ptr %11, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %13, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -15176,7 +15176,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vectorIS4_SaI
   %63 = load i24, ptr %62, align 8, !noalias !843
   %64 = zext i24 %63 to i64
   %.idx.i = shl nuw nsw i64 %64, 5
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i
+  %65 = getelementptr i8, ptr %61, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %63, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i9
 

@@ -496,7 +496,7 @@ define dso_local noundef ptr @_ZN4llvm12MMRAMetadata7combineERNS_11LLVMContextER
 
 19:                                               ; preds = %3
   %.idx.i.i.i = shl nuw nsw i64 %16, 5
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i
+  %20 = getelementptr i8, ptr %13, i64 %.idx.i.i.i
   %.not30.i5.i10.i2.i.i.i = icmp eq i32 %15, 0
   br i1 %.not30.i5.i10.i2.i.i.i, label %_ZNK4llvm12MMRAMetadata5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -554,7 +554,7 @@ _ZNK4llvm12MMRAMetadata5beginEv.exit:             ; preds = %.lr.ph.i6.i12.i3.i.
 
 38:                                               ; preds = %._crit_edge
   %.idx.i.i.i31 = shl nuw nsw i64 %35, 5
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i31
+  %39 = getelementptr i8, ptr %32, i64 %.idx.i.i.i31
   %.not30.i5.i10.i2.i.i.i32 = icmp eq i32 %34, 0
   br i1 %.not30.i5.i10.i2.i.i.i32, label %_ZNK4llvm12MMRAMetadata5beginEv.exit47, label %.lr.ph.i6.i12.i3.i.i.i33
 
@@ -794,7 +794,7 @@ define dso_local { ptr, ptr } @_ZNK4llvm12MMRAMetadata5beginEv(ptr noundef nonnu
 
 11:                                               ; preds = %1
   %.idx.i.i = shl nuw nsw i64 %8, 5
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %12 = getelementptr i8, ptr %5, i64 %.idx.i.i
   %.not30.i5.i10.i2.i.i = icmp eq i32 %7, 0
   br i1 %.not30.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplISt4pairINS_9StringRefES3_ENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -861,7 +861,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MMRAMetadata16hasTagWithPrefixEN
 
 13:                                               ; preds = %3
   %.idx.i.i = shl nuw nsw i64 %10, 5
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
+  %14 = getelementptr i8, ptr %7, i64 %.idx.i.i
   %.not30.i5.i10.i2.i.i = icmp eq i32 %9, 0
   br i1 %.not30.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplISt4pairINS_9StringRefES3_ENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -1000,7 +1000,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MMRAMetadata16isCompatibleWithER
 
 16:                                               ; preds = %2
   %.idx.i.i = shl nuw nsw i64 %13, 5
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %17 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not30.i5.i10.i2.i.i = icmp eq i32 %12, 0
   br i1 %.not30.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplISt4pairINS_9StringRefES3_ENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
@@ -1059,7 +1059,7 @@ _ZNK4llvm6detail12DenseSetImplISt4pairINS_9StringRefES3_ENS_8DenseMapIS4_NS0_13D
 
 34:                                               ; preds = %._crit_edge
   %.idx.i.i.i = shl nuw nsw i64 %31, 5
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i
+  %35 = getelementptr i8, ptr %28, i64 %.idx.i.i.i
   %.not30.i5.i10.i2.i.i.i = icmp eq i32 %30, 0
   br i1 %.not30.i5.i10.i2.i.i.i, label %_ZNK4llvm12MMRAMetadata5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i
 
@@ -1375,7 +1375,7 @@ define dso_local void @_ZNK4llvm12MMRAMetadata5printERNS_11raw_ostreamE(ptr noun
 
 12:                                               ; preds = %2
   %.idx.i.i = shl nuw nsw i64 %9, 5
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %13 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not30.i5.i10.i2.i.i = icmp eq i32 %8, 0
   br i1 %.not30.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplISt4pairINS_9StringRefES3_ENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

@@ -2553,46 +2553,47 @@ if.then.i.i.i.i.i:                                ; preds = %do.end11
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv14, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, 1
+  %sub.i.i.i.i.i = add nsw i64 %conv14, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 8
-  %9 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %9, i1 false)
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %argv.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end11 ]
-  %10 = load i32, ptr %argv_buf_offset.addr, align 4
-  %idxprom = zext i32 %10 to i64
+  %9 = load i32, ptr %argv_buf_offset.addr, align 4
+  %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds nuw i8, ptr %memory.coerce0, i64 %idxprom
   %call17 = call zeroext i16 @uvwasi_args_get(ptr noundef nonnull %uvw_, ptr noundef %argv.sroa.0.0, ptr noundef %arrayidx) #22
   %cmp = icmp eq i16 %call17, 0
-  %11 = load i32, ptr %argc, align 8
-  %cmp2317 = icmp ne i32 %11, 0
+  %10 = load i32, ptr %argc, align 8
+  %cmp2317 = icmp ne i32 %10, 0
   %or.cond = select i1 %cmp, i1 %cmp2317, i1 false
   br i1 %or.cond, label %for.body, label %if.end32
 
 for.body:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, %for.body
   %i.018 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit ]
-  %12 = load i32, ptr %argv_buf_offset.addr, align 4
+  %11 = load i32, ptr %argv_buf_offset.addr, align 4
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %argv.sroa.0.0, i64 %i.018
-  %13 = load ptr, ptr %add.ptr.i, align 8
-  %14 = load ptr, ptr %argv.sroa.0.0, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
+  %12 = load ptr, ptr %add.ptr.i, align 8
+  %13 = load ptr, ptr %argv.sroa.0.0, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %15 = trunc i64 %sub.ptr.sub to i32
-  %conv27 = add i32 %12, %15
-  %16 = load i32, ptr %argv_offset.addr, align 4
-  %conv29 = zext i32 %16 to i64
+  %14 = trunc i64 %sub.ptr.sub to i32
+  %conv27 = add i32 %11, %14
+  %15 = load i32, ptr %argv_offset.addr, align 4
+  %conv29 = zext i32 %15 to i64
   %mul30 = shl nuw nsw i64 %i.018, 2
   %add31 = add nuw nsw i64 %mul30, %conv29
   call void @uvwasi_serdes_write_uint32_t(ptr noundef %memory.coerce0, i64 noundef %add31, i32 noundef %conv27) #22
   %inc = add nuw nsw i64 %i.018, 1
-  %17 = load i32, ptr %argc, align 8
-  %conv22 = zext i32 %17 to i64
+  %16 = load i32, ptr %argc, align 8
+  %conv22 = zext i32 %16 to i64
   %cmp23 = icmp samesign ult i64 %inc, %conv22
   br i1 %cmp23, label %for.body, label %if.then.i.i.i, !llvm.loop !18
 
@@ -2844,46 +2845,47 @@ if.then.i.i.i.i.i:                                ; preds = %do.end11
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv14, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, 1
+  %sub.i.i.i.i.i = add nsw i64 %conv14, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 8
-  %9 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %9, i1 false)
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %environment.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end11 ]
-  %10 = load i32, ptr %environ_buf_offset.addr, align 4
-  %idxprom = zext i32 %10 to i64
+  %9 = load i32, ptr %environ_buf_offset.addr, align 4
+  %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds nuw i8, ptr %memory.coerce0, i64 %idxprom
   %call17 = call zeroext i16 @uvwasi_environ_get(ptr noundef nonnull %uvw_, ptr noundef %environment.sroa.0.0, ptr noundef %arrayidx) #22
   %cmp = icmp eq i16 %call17, 0
-  %11 = load i32, ptr %envc, align 4
-  %cmp2317 = icmp ne i32 %11, 0
+  %10 = load i32, ptr %envc, align 4
+  %cmp2317 = icmp ne i32 %10, 0
   %or.cond = select i1 %cmp, i1 %cmp2317, i1 false
   br i1 %or.cond, label %for.body, label %if.end32
 
 for.body:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, %for.body
   %i.018 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit ]
-  %12 = load i32, ptr %environ_buf_offset.addr, align 4
+  %11 = load i32, ptr %environ_buf_offset.addr, align 4
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %environment.sroa.0.0, i64 %i.018
-  %13 = load ptr, ptr %add.ptr.i, align 8
-  %14 = load ptr, ptr %environment.sroa.0.0, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
+  %12 = load ptr, ptr %add.ptr.i, align 8
+  %13 = load ptr, ptr %environment.sroa.0.0, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %15 = trunc i64 %sub.ptr.sub to i32
-  %conv27 = add i32 %12, %15
-  %16 = load i32, ptr %environ_offset.addr, align 4
-  %conv29 = zext i32 %16 to i64
+  %14 = trunc i64 %sub.ptr.sub to i32
+  %conv27 = add i32 %11, %14
+  %15 = load i32, ptr %environ_offset.addr, align 4
+  %conv29 = zext i32 %15 to i64
   %mul30 = shl nuw nsw i64 %i.018, 2
   %add31 = add nuw nsw i64 %mul30, %conv29
   call void @uvwasi_serdes_write_uint32_t(ptr noundef %memory.coerce0, i64 noundef %add31, i32 noundef %conv27) #22
   %inc = add nuw nsw i64 %i.018, 1
-  %17 = load i32, ptr %envc, align 4
-  %conv22 = zext i32 %17 to i64
+  %16 = load i32, ptr %envc, align 4
+  %conv22 = zext i32 %16 to i64
   %cmp23 = icmp samesign ult i64 %inc, %conv22
   br i1 %cmp23, label %for.body, label %if.then.i.i.i, !llvm.loop !19
 

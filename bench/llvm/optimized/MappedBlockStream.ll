@@ -931,7 +931,7 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %.lr.ph
 
 63:                                               ; preds = %.critedge39
   %.idx.i = shl nuw nsw i64 %49, 5
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
+  %64 = getelementptr i8, ptr %27, i64 %.idx.i
   br i1 %30, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
 .lr.ph.i6.i12.i3.i:                               ; preds = %63, %.critedge2.i8.i14.i9.i
@@ -1668,7 +1668,7 @@ define dso_local void @_ZNK4llvm3msf17MappedBlockStream18fixCacheAfterWriteEmNS_
 
 15:                                               ; preds = %4
   %.idx.i = shl nuw nsw i64 %12, 5
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %11, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -2770,7 +2770,7 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %35
 
 59:                                               ; preds = %._crit_edge
   %.idx.i.i = shl nuw nsw i64 %56, 5
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i
+  %60 = getelementptr i8, ptr %53, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %55, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 

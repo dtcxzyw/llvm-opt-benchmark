@@ -588,7 +588,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE5eraseES3_.exit20: ; preds = %104,
 
 119:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE5eraseES3_.exit20
   %.idx.i = shl nuw nsw i64 %116, 4
-  %120 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i
+  %120 = getelementptr i8, ptr %113, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %115, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_11GlobalValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -677,7 +677,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE5eraseES3_.exit20.thread: ; preds 
 
 150:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE5eraseES3_.exit20.thread
   %.idx.i21 = shl nuw nsw i64 %147, 4
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx.i21
+  %151 = getelementptr i8, ptr %144, i64 %.idx.i21
   %.not5.i5.i10.i2.i22 = icmp eq i32 %146, 0
   br i1 %.not5.i5.i10.i2.i22, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_15GlobalsAAResult12FunctionInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i23
 
@@ -1387,7 +1387,7 @@ _ZNSt7__cxx114listIN4llvm15GlobalsAAResult22DeletionCallbackHandleESaIS3_EE13emp
   %.v.v.i4.i2.i = select i1 %147, i32 %148, i32 %149
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %150 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx.i
+  %150 = getelementptr i8, ptr %145, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -1906,7 +1906,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_8FunctionEEppEv.exit: ; preds = %.lr.ph.i4.i, 
   %.v.v.i4.i2.i130 = select i1 %383, i32 %384, i32 %385
   %.v.i5.i3.i131 = zext i32 %.v.v.i4.i2.i130 to i64
   %.idx.i132 = shl nuw nsw i64 %.v.i5.i3.i131, 3
-  %386 = getelementptr inbounds nuw i8, ptr %381, i64 %.idx.i132
+  %386 = getelementptr i8, ptr %381, i64 %.idx.i132
   %.not3.i4.i.i6.i4.i133 = icmp eq i32 %.v.v.i4.i2.i130, 0
   br i1 %.not3.i4.i.i6.i4.i133, label %_ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5beginEv.exit142, label %.lr.ph.i5.i.i7.i5.i134
 
@@ -4306,7 +4306,7 @@ _ZN4llvm15GlobalsAAResult15getFunctionInfoEPKNS_8FunctionE.exit: ; preds = %200,
   %240 = select i1 %.not.i.i.i2.i.i, i32 %239, i32 16
   %241 = zext i32 %240 to i64
   %.idx.i.i = shl nuw nsw i64 %241, 4
-  %242 = getelementptr inbounds nuw i8, ptr %237, i64 %.idx.i.i
+  %242 = getelementptr i8, ptr %237, i64 %.idx.i.i
   %.not5.i5.i10.i4.i.i = icmp eq i32 %240, 0
   br i1 %.not5.i5.i10.i4.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11GlobalValueENS_10ModRefInfoELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i5.i.i
 
@@ -4327,7 +4327,7 @@ _ZN4llvm15GlobalsAAResult15getFunctionInfoEPKNS_8FunctionE.exit: ; preds = %200,
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11GlobalValueENS_10ModRefInfoELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i8.i.i, %.lr.ph.i6.i12.i5.i.i, %233, %224
   %.pre-phi336 = phi i64 [ 0, %233 ], [ %231, %224 ], [ %241, %.lr.ph.i6.i12.i5.i.i ], [ %241, %.critedge2.i8.i14.i8.i.i ]
   %.pre-phi = phi ptr [ %237, %233 ], [ %227, %224 ], [ %237, %.lr.ph.i6.i12.i5.i.i ], [ %237, %.critedge2.i8.i14.i8.i.i ]
-  %.pn16.i.i = phi ptr [ %237, %233 ], [ %232, %224 ], [ %244, %.critedge2.i8.i14.i8.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
+  %.pn16.i.i = phi ptr [ %237, %233 ], [ %232, %224 ], [ %242, %.critedge2.i8.i14.i8.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
   %.pn14.i.i = phi ptr [ %242, %233 ], [ %232, %224 ], [ %242, %.lr.ph.i6.i12.i5.i.i ], [ %242, %.critedge2.i8.i14.i8.i.i ]
   %245 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.276", ptr %.pre-phi, i64 %.pre-phi336
   %.not1920.i = icmp eq ptr %.pn16.i.i, %245

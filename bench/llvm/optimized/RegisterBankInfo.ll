@@ -3049,11 +3049,11 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
   %21 = phi ptr [ %5, %19 ], [ %.pre, %20 ]
   %.pre-phi.i = phi i64 [ 0, %19 ], [ %.pre.i, %20 ]
   %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.pre-phi.i
-  %23 = shl nuw nsw i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 -1, i64 %23, i1 false), !tbaa !26
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %17, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !26
   %.pre.i.i = load i32, ptr %6, align 8, !tbaa !36
-  %24 = add i32 %.pre.i.i, %16
-  store i32 %24, ptr %6, align 8, !tbaa !36
+  %23 = add i32 %.pre.i.i, %16
+  store i32 %23, ptr %6, align 8, !tbaa !36
   br label %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit
 
 _ZN4llvm15SmallVectorImplIiE6resizeEmi.exit:      ; preds = %4, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i

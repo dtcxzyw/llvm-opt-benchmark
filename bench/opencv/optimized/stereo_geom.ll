@@ -522,13 +522,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
 
 .noexc191:                                        ; preds = %167
   store float 0.000000e+00, ptr %169, align 4, !tbaa !39
-  %170 = icmp eq i32 %146, 1
-  br i1 %170, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %170 = add nsw i64 %166, -1
+  %171 = icmp eq i64 %170, 0
+  br i1 %171, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc191
-  %171 = getelementptr i8, ptr %169, i64 4
-  %172 = add nsw i64 %168, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %171, i8 0, i64 %172, i1 false), !tbaa !39
+  %172 = getelementptr i8, ptr %169, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %170, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %172, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !39
   br label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc191

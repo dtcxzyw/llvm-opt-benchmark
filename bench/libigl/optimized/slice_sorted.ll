@@ -79,13 +79,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %19
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #17
   %26 = getelementptr inbounds nuw i32, ptr %25, i64 %22
   store i32 0, ptr %25, align 4, !tbaa !19
-  %27 = icmp eq i64 %sext, 4294967296
-  br i1 %27, label %30, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %27 = add nsw i64 %22, -1
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %30, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc97
-  %28 = getelementptr i8, ptr %25, i64 4
-  %29 = add nsw i64 %24, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %28, i8 0, i64 %29, i1 false), !tbaa !19
+  %29 = getelementptr i8, ptr %25, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %27, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !19
   br label %30
 
 30:                                               ; preds = %.noexc97, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -516,14 +517,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %140, %_ZNSt6vectorI
   br i1 %.not.i.i.i121, label %_ZNSt6vectorIiSaIiEED2Ev.exit122, label %197
 
 197:                                              ; preds = %.body.thread, %.body
-  %.pn84.pn.pn288 = phi { ptr, i32 } [ %69, %.body.thread ], [ %.pn84.pn, %.body ]
+  %.pn84.pn.pn289 = phi { ptr, i32 } [ %69, %.body.thread ], [ %.pn84.pn, %.body ]
   %198 = ptrtoint ptr %.sroa.0136.0 to i64
   %199 = sub i64 %.sroa.12141.0, %198
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0136.0, i64 noundef %199) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit122
 
 _ZNSt6vectorIiSaIiEED2Ev.exit122:                 ; preds = %82, %.body, %197
-  %.pn91 = phi { ptr, i32 } [ %83, %82 ], [ %.pn84.pn, %.body ], [ %.pn84.pn.pn288, %197 ]
+  %.pn91 = phi { ptr, i32 } [ %83, %82 ], [ %.pn84.pn, %.body ], [ %.pn84.pn.pn289, %197 ]
   %.not.i.i.i123 = icmp eq ptr %.sroa.0148.0, null
   br i1 %.not.i.i.i123, label %_ZNSt6vectorIiSaIiEED2Ev.exit124, label %200
 

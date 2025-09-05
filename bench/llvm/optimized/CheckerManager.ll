@@ -4676,7 +4676,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %109, %111
 
 124:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
   %.idx.i = shl nuw nsw i64 %121, 4
-  %125 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx.i
+  %125 = getelementptr i8, ptr %118, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %120, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -4725,7 +4725,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMap
 
 136:                                              ; preds = %._crit_edge
   %.idx.i62 = shl nuw nsw i64 %.pre-phi, 4
-  %137 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i62
+  %137 = getelementptr i8, ptr %131, i64 %.idx.i62
   %.not5.i5.i10.i2.i63 = icmp eq i32 %130, 0
   br i1 %.not5.i5.i10.i2.i63, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E5beginEv.exit73, label %.lr.ph.i6.i12.i3.i64
 

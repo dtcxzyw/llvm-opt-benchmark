@@ -1967,20 +1967,20 @@ _ZL14getResolutionsRK10gmx_mtop_tbb.exit:         ; preds = %_ZNK6RmsMax13getRes
 
 199:                                              ; preds = %._crit_edge369
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.44) #26
-          to label %.noexc unwind label %.thread530
+          to label %.noexc unwind label %.thread531
 
 .noexc:                                           ; preds = %199
   unreachable
 
 200:                                              ; preds = %._crit_edge369
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not528 = icmp eq i64 %.pre462, 0
-  br i1 %.not528, label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EE7reserveEm.exit, label %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i
+  %.not529 = icmp eq i64 %.pre462, 0
+  br i1 %.not529, label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EE7reserveEm.exit, label %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %200
   %202 = shl nuw nsw i64 %.pre462, 5
   %203 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %202) #30
-          to label %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE13_M_deallocateEPS0_m.exit.i unwind label %.thread530
+          to label %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE13_M_deallocateEPS0_m.exit.i unwind label %.thread531
 
 _ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2259,13 +2259,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge359
 .noexc155:                                        ; preds = %330
   %333 = getelementptr inbounds nuw float, ptr %332, i64 %327
   store float 0.000000e+00, ptr %332, align 4, !tbaa !25
-  %334 = icmp eq i32 %326, 1
-  br i1 %334, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %334 = add nsw i64 %327, -1
+  %335 = icmp eq i64 %334, 0
+  br i1 %335, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc155
-  %335 = getelementptr i8, ptr %332, i64 4
-  %336 = add nsw i64 %331, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %335, i8 0, i64 %336, i1 false), !tbaa !25
+  %336 = getelementptr i8, ptr %332, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %334, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %336, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !25
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 337:                                              ; preds = %.lr.ph358, %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit167
@@ -3160,7 +3161,7 @@ _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EE7reserveEm.exit: ; preds = %.thread, %_Z
   %745 = ashr exact i64 %744, 5
   br label %.lr.ph376
 
-.thread530:                                       ; preds = %199, %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i
+.thread531:                                       ; preds = %199, %_ZNSt12_Vector_baseI17VerletbufAtomtypeSaIS0_EE11_M_allocateEm.exit.i
   %746 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EED2Ev.exit190
@@ -3366,8 +3367,8 @@ _ZNSt13unordered_mapI33AtomNonbondedAndKineticPropertiesiSt4hashIS0_ESt8equal_to
   call void @_ZdlPvm(ptr noundef nonnull %756, i64 noundef %834) #28
   br label %_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EED2Ev.exit190
 
-_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EED2Ev.exit190: ; preds = %.thread530, %.loopexit273, %.loopexit.split-lp274, %829, %828, %_ZNSt6vectorIfSaIfEED2Ev.exit188, %732
-  %.pn134.pn.pn.pn = phi { ptr, i32 } [ %.pn134.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.pn134.pn, %732 ], [ %lpad.phi, %828 ], [ %lpad.phi, %829 ], [ %lpad.loopexit275, %.loopexit273 ], [ %lpad.loopexit.split-lp276, %.loopexit.split-lp274 ], [ %746, %.thread530 ]
+_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EED2Ev.exit190: ; preds = %.thread531, %.loopexit273, %.loopexit.split-lp274, %829, %828, %_ZNSt6vectorIfSaIfEED2Ev.exit188, %732
+  %.pn134.pn.pn.pn = phi { ptr, i32 } [ %.pn134.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit188 ], [ %.pn134.pn, %732 ], [ %lpad.phi, %828 ], [ %lpad.phi, %829 ], [ %lpad.loopexit275, %.loopexit273 ], [ %lpad.loopexit.split-lp276, %.loopexit.split-lp274 ], [ %746, %.thread531 ]
   %835 = load ptr, ptr %189, align 8, !tbaa !276
   %.not5.i.i.i.i201 = icmp eq ptr %835, null
   br i1 %.not5.i.i.i.i201, label %_ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i205, label %.lr.ph.i.i.i.i202

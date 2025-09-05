@@ -152311,7 +152311,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9get_tur
   %65 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %45, i64 %61
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %67 = load i64, ptr %66, align 8, !tbaa !2553
-  %68 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %45, i64 %67
+  %68 = getelementptr %"class.boost::geometry::model::point", ptr %45, i64 %67
   %.not26.i = icmp eq i64 %61, %67
   br i1 %.not26.i, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit, label %.lr.ph.i
 
@@ -152474,7 +152474,7 @@ _ZN5boost8geometry6detail7section9exceedingILm0ENS0_5model5pointIiLm2ENS0_2cs9ca
   %133 = load i64, ptr %103, align 8, !tbaa !2552
   %134 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %55, i64 %132
   %135 = load i64, ptr %104, align 8, !tbaa !2553
-  %136 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %55, i64 %135
+  %136 = getelementptr %"class.boost::geometry::model::point", ptr %55, i64 %135
   %.not26.i92 = icmp eq i64 %132, %135
   br i1 %.not26.i92, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit98, label %.lr.ph.i93
 
@@ -173918,7 +173918,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9get_tur
   %65 = getelementptr inbounds %"class.boost::geometry::model::point.1127", ptr %45, i64 %61
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %67 = load i64, ptr %66, align 8, !tbaa !3172
-  %68 = getelementptr inbounds %"class.boost::geometry::model::point.1127", ptr %45, i64 %67
+  %68 = getelementptr %"class.boost::geometry::model::point.1127", ptr %45, i64 %67
   %.not27.i = icmp eq i64 %61, %67
   br i1 %.not27.i, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIfLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit, label %.lr.ph.i
 
@@ -174081,7 +174081,7 @@ _ZN5boost8geometry6detail7section9exceedingILm0ENS0_5model5pointIfLm2ENS0_2cs9ca
   %133 = load i64, ptr %103, align 8, !tbaa !3171
   %134 = getelementptr inbounds %"class.boost::geometry::model::point.1127", ptr %55, i64 %132
   %135 = load i64, ptr %104, align 8, !tbaa !3172
-  %136 = getelementptr inbounds %"class.boost::geometry::model::point.1127", ptr %55, i64 %135
+  %136 = getelementptr %"class.boost::geometry::model::point.1127", ptr %55, i64 %135
   %.not27.i93 = icmp eq i64 %132, %135
   br i1 %.not27.i93, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIfLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit101, label %.lr.ph.i94
 
@@ -191312,7 +191312,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9get_tur
   %65 = getelementptr inbounds %"class.boost::geometry::model::point.1220", ptr %45, i64 %61
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %67 = load i64, ptr %66, align 8, !tbaa !3652
-  %68 = getelementptr inbounds %"class.boost::geometry::model::point.1220", ptr %45, i64 %67
+  %68 = getelementptr %"class.boost::geometry::model::point.1220", ptr %45, i64 %67
   %.not27.i = icmp eq i64 %61, %67
   br i1 %.not27.i, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit, label %.lr.ph.i
 
@@ -191475,7 +191475,7 @@ _ZN5boost8geometry6detail7section9exceedingILm0ENS0_5model5pointIdLm2ENS0_2cs9ca
   %133 = load i64, ptr %103, align 8, !tbaa !3651
   %134 = getelementptr inbounds %"class.boost::geometry::model::point.1220", ptr %55, i64 %132
   %135 = load i64, ptr %104, align 8, !tbaa !3652
-  %136 = getelementptr inbounds %"class.boost::geometry::model::point.1220", ptr %55, i64 %135
+  %136 = getelementptr %"class.boost::geometry::model::point.1220", ptr %55, i64 %135
   %.not27.i93 = icmp eq i64 %132, %135
   br i1 %.not27.i93, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit101, label %.lr.ph.i94
 
@@ -208338,7 +208338,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9get_tur
   %65 = getelementptr inbounds %"class.boost::geometry::model::point.1314", ptr %45, i64 %61
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %67 = load i64, ptr %66, align 8, !tbaa !4082
-  %68 = getelementptr inbounds %"class.boost::geometry::model::point.1314", ptr %45, i64 %67
+  %68 = getelementptr %"class.boost::geometry::model::point.1314", ptr %45, i64 %67
   %.not27.i = icmp eq i64 %61, %67
   br i1 %.not27.i, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIeLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit, label %.lr.ph.i
 
@@ -208501,7 +208501,7 @@ _ZN5boost8geometry6detail7section9exceedingILm0ENS0_5model5pointIeLm2ENS0_2cs9ca
   %133 = load i64, ptr %103, align 8, !tbaa !4081
   %134 = getelementptr inbounds %"class.boost::geometry::model::point.1314", ptr %55, i64 %132
   %135 = load i64, ptr %104, align 8, !tbaa !4082
-  %136 = getelementptr inbounds %"class.boost::geometry::model::point.1314", ptr %55, i64 %135
+  %136 = getelementptr %"class.boost::geometry::model::point.1314", ptr %55, i64 %135
   %.not27.i93 = icmp eq i64 %132, %135
   br i1 %.not27.i93, label %_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model7polygonINS4_5pointIeLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSA_SaSaEESB_Lb0ELb0ENS0_7sectionINS4_3boxIS9_EELm2EEESF_NS2_18get_turn_info_typeISB_SB_NS1_7overlay18assign_null_policyENS0_11polygon_tagESJ_NS0_9areal_tagESK_EEE24get_start_point_iteratorINS1_21closed_clockwise_viewIKNS4_4ringIS9_Lb1ELb1ESA_SaEELNS0_16closure_selectorE1ELNS0_14order_selectorE1EEESF_SE_NS1_17no_rescale_policyEEEvRKT0_RKT_RNS_14range_iteratorIS10_vE4typeES15_S15_RlS16_iRKT1_RKT2_.exit101, label %.lr.ph.i94
 

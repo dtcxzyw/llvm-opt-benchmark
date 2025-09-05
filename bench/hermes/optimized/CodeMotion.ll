@@ -83,7 +83,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %5 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.idx.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %4, i64 %add.ptr.i.i.idx.i.i.i.i
+  %add.ptr.i.i.i.i.i.i13 = getelementptr i8, ptr %4, i64 %add.ptr.i.i.idx.i.i.i.i
   %cmp.not3.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not3.i.i.i.i.i, label %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i, label %land.rhs.i.i.i.i.i
 
@@ -149,7 +149,7 @@ lor.lhs.false5.i:                                 ; preds = %_ZN6hermes10pred_co
   %15 = load i32, ptr %Size.i.i.i.i.i17.i, align 8
   %conv.i.i.i.i.i18.i = zext i32 %15 to i64
   %add.ptr.i.i.idx.i.i.i19.i = shl nuw nsw i64 %conv.i.i.i.i.i18.i, 3
-  %add.ptr.i.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %14, i64 %add.ptr.i.i.idx.i.i.i19.i
+  %add.ptr.i.i.i.i.i20.i = getelementptr i8, ptr %14, i64 %add.ptr.i.i.idx.i.i.i19.i
   %cmp.not3.i.i.i.i21.i = icmp eq i32 %15, 0
   br i1 %cmp.not3.i.i.i.i21.i, label %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i27.i, label %land.rhs.i.i.i.i22.i
 

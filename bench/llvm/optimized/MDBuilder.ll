@@ -338,7 +338,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit23: ; pr
 
 52:                                               ; preds = %42
   %.idx.i.i = shl nuw nsw i64 %49, 3
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
+  %53 = getelementptr i8, ptr %46, i64 %.idx.i.i
   %.not4.i5.i10.i2.i.i = icmp eq i32 %48, 0
   br i1 %.not4.i5.i10.i2.i.i, label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i
 

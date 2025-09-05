@@ -1577,7 +1577,7 @@ _ZN12_GLOBAL__N_115StatepointStateC2ERN4llvm12MachineInstrEPKjRNS_17FrameIndexes
 
 343:                                              ; preds = %_ZN12_GLOBAL__N_115StatepointStateC2ERN4llvm12MachineInstrEPKjRNS_17FrameIndexesCacheEb.exit.i
   %.idx.i.i.i = shl nuw nsw i64 %340, 6
-  %344 = getelementptr inbounds nuw i8, ptr %.val8.i.i.i, i64 %.idx.i.i.i
+  %344 = getelementptr i8, ptr %.val8.i.i.i, i64 %.idx.i.i.i
   %.not4.i5.i12.i10.i.i.i = icmp eq i32 %.val9.i.i.i, 0
   br i1 %.not4.i5.i12.i10.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN12_GLOBAL__N_117FrameIndexesCache19FrameIndexesPerSizeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5beginEv.exit.i.i, label %.lr.ph.i6.i14.i11.i.i.i
 
@@ -3226,7 +3226,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.i.i:  ; preds = %1128, %1126, %1124,
 
 1141:                                             ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i.i
   %.idx.i.i36.i = shl nuw nsw i64 %1138, 3
-  %1142 = getelementptr inbounds nuw i8, ptr %1136, i64 %.idx.i.i36.i
+  %1142 = getelementptr i8, ptr %1136, i64 %.idx.i.i36.i
   %.not4.i5.i10.i2.i.i.i = icmp eq i32 %1137, 0
   br i1 %.not4.i5.i10.i2.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i
 

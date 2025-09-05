@@ -3364,100 +3364,100 @@ _ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit
   %.pre-phi.i = phi i64 [ 0, %147 ], [ %.pre.i103, %148 ]
   %150 = phi i32 [ 0, %147 ], [ %.pre.i.i, %148 ]
   %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %.pre-phi.i
-  %152 = shl nuw nsw i64 %145, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %151, i8 0, i64 %152, i1 false), !tbaa !52
-  %153 = add i32 %150, %.pre159
-  store i32 %153, ptr %143, align 8, !tbaa !352
-  %154 = icmp ugt i32 %.pre161, 1
-  br i1 %154, label %.lr.ph154, label %_ZN4llvm5ErrorD2Ev.exit104
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %145, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %151, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !52
+  %152 = add i32 %150, %.pre159
+  store i32 %152, ptr %143, align 8, !tbaa !352
+  %153 = icmp ugt i32 %.pre161, 1
+  br i1 %153, label %.lr.ph154, label %_ZN4llvm5ErrorD2Ev.exit104
 
 .lr.ph154:                                        ; preds = %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %160
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %159
 
 _ZN4llvm5ErrorD2Ev.exit104:                       ; preds = %._crit_edge152, %.critedge86.thread, %.critedge86, %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit
-  %156 = phi ptr [ %142, %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit ], [ %132, %.critedge86.thread ], [ %142, %.critedge86 ], [ %142, %._crit_edge152 ]
+  %155 = phi ptr [ %142, %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit ], [ %132, %.critedge86.thread ], [ %142, %.critedge86 ], [ %142, %._crit_edge152 ]
   store ptr null, ptr %0, align 8, !tbaa !23
-  %157 = load ptr, ptr %11, align 8, !tbaa !350
-  %158 = icmp eq ptr %157, %156
-  br i1 %158, label %_ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit, label %159
+  %156 = load ptr, ptr %11, align 8, !tbaa !350
+  %157 = icmp eq ptr %156, %155
+  br i1 %157, label %_ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit, label %158
 
-159:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit104
-  call void @free(ptr noundef %157) #17
+158:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit104
+  call void @free(ptr noundef %156) #17
   br label %_ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit104, %159
+_ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit104, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge78
 
-160:                                              ; preds = %.lr.ph154, %._crit_edge152
-  %.060153 = phi i32 [ 1, %.lr.ph154 ], [ %176, %._crit_edge152 ]
-  %161 = load ptr, ptr %155, align 8, !tbaa !397
-  %162 = load ptr, ptr %161, align 8, !tbaa !52
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %164 = load ptr, ptr %163, align 8, !tbaa !52
-  %.not127143 = icmp eq ptr %162, %164
+159:                                              ; preds = %.lr.ph154, %._crit_edge152
+  %.060153 = phi i32 [ 1, %.lr.ph154 ], [ %175, %._crit_edge152 ]
+  %160 = load ptr, ptr %154, align 8, !tbaa !397
+  %161 = load ptr, ptr %160, align 8, !tbaa !52
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !52
+  %.not127143 = icmp eq ptr %161, %163
   br i1 %.not127143, label %._crit_edge152, label %.lr.ph146
 
-.lr.ph146:                                        ; preds = %160
-  %165 = load ptr, ptr %11, align 8
-  br label %166
+.lr.ph146:                                        ; preds = %159
+  %164 = load ptr, ptr %11, align 8
+  br label %165
 
-._crit_edge147:                                   ; preds = %174
-  %.pre162 = load ptr, ptr %161, align 8, !tbaa !52
-  %.pre163 = load ptr, ptr %163, align 8, !tbaa !52
+._crit_edge147:                                   ; preds = %173
+  %.pre162 = load ptr, ptr %160, align 8, !tbaa !52
+  %.pre163 = load ptr, ptr %162, align 8, !tbaa !52
   %.not128148 = icmp eq ptr %.pre162, %.pre163
   br i1 %.not128148, label %._crit_edge152, label %.lr.ph151
 
-166:                                              ; preds = %.lr.ph146, %174
-  %.sroa.0111.0144 = phi ptr [ %162, %.lr.ph146 ], [ %175, %174 ]
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 52
-  %168 = load i32, ptr %167, align 4, !tbaa !398
-  %.not71 = icmp eq i32 %168, 1
-  br i1 %.not71, label %169, label %174
+165:                                              ; preds = %.lr.ph146, %173
+  %.sroa.0111.0144 = phi ptr [ %161, %.lr.ph146 ], [ %174, %173 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 52
+  %167 = load i32, ptr %166, align 4, !tbaa !398
+  %.not71 = icmp eq i32 %167, 1
+  br i1 %.not71, label %168, label %173
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 32
-  %171 = load i32, ptr %170, align 4, !tbaa !408
-  %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw ptr, ptr %165, i64 %172
-  store ptr %.sroa.0111.0144, ptr %173, align 8, !tbaa !52
-  br label %174
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 32
+  %170 = load i32, ptr %169, align 4, !tbaa !408
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr inbounds nuw ptr, ptr %164, i64 %171
+  store ptr %.sroa.0111.0144, ptr %172, align 8, !tbaa !52
+  br label %173
 
-174:                                              ; preds = %166, %169
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 56
-  %.not127 = icmp eq ptr %175, %164
-  br i1 %.not127, label %._crit_edge147, label %166
+173:                                              ; preds = %165, %168
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 56
+  %.not127 = icmp eq ptr %174, %163
+  br i1 %.not127, label %._crit_edge147, label %165
 
-._crit_edge152:                                   ; preds = %189, %160, %._crit_edge147
-  %176 = add nuw i32 %.060153, 1
-  %exitcond158.not = icmp eq i32 %176, %.pre161
-  br i1 %exitcond158.not, label %_ZN4llvm5ErrorD2Ev.exit104, label %160, !llvm.loop !409
+._crit_edge152:                                   ; preds = %188, %159, %._crit_edge147
+  %175 = add nuw i32 %.060153, 1
+  %exitcond158.not = icmp eq i32 %175, %.pre161
+  br i1 %exitcond158.not, label %_ZN4llvm5ErrorD2Ev.exit104, label %159, !llvm.loop !409
 
-.lr.ph151:                                        ; preds = %._crit_edge147, %189
-  %.sroa.0107.0149 = phi ptr [ %190, %189 ], [ %.pre162, %._crit_edge147 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0149, i64 28
-  %178 = load i32, ptr %177, align 4, !tbaa !410
-  %179 = zext i32 %178 to i64
-  %180 = load ptr, ptr %11, align 8, !tbaa !350
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %179
-  %182 = load ptr, ptr %181, align 8, !tbaa !52
-  %.not70 = icmp eq ptr %182, null
-  br i1 %.not70, label %189, label %183
+.lr.ph151:                                        ; preds = %._crit_edge147, %188
+  %.sroa.0107.0149 = phi ptr [ %189, %188 ], [ %.pre162, %._crit_edge147 ]
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0149, i64 28
+  %177 = load i32, ptr %176, align 4, !tbaa !410
+  %178 = zext i32 %177 to i64
+  %179 = load ptr, ptr %11, align 8, !tbaa !350
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %178
+  %181 = load ptr, ptr %180, align 8, !tbaa !52
+  %.not70 = icmp eq ptr %181, null
+  br i1 %.not70, label %188, label %182
 
-183:                                              ; preds = %.lr.ph151
-  %184 = load i64, ptr %.sroa.0107.0149, align 4
-  store i64 %184, ptr %182, align 4
-  %185 = load i32, ptr %177, align 4, !tbaa !410
-  %186 = zext i32 %185 to i64
-  %187 = load ptr, ptr %11, align 8, !tbaa !350
-  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %186
-  store ptr null, ptr %188, align 8, !tbaa !52
-  br label %189
+182:                                              ; preds = %.lr.ph151
+  %183 = load i64, ptr %.sroa.0107.0149, align 4
+  store i64 %183, ptr %181, align 4
+  %184 = load i32, ptr %176, align 4, !tbaa !410
+  %185 = zext i32 %184 to i64
+  %186 = load ptr, ptr %11, align 8, !tbaa !350
+  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %185
+  store ptr null, ptr %187, align 8, !tbaa !52
+  br label %188
 
-189:                                              ; preds = %183, %.lr.ph151
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0149, i64 56
-  %.not128 = icmp eq ptr %190, %.pre163
+188:                                              ; preds = %182, %.lr.ph151
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0149, i64 56
+  %.not128 = icmp eq ptr %189, %.pre163
   br i1 %.not128, label %._crit_edge152, label %.lr.ph151
 
 .critedge78:                                      ; preds = %.lr.ph140, %_ZN4llvm5ErrorD2Ev.exit97, %_ZN4llvm5ErrorD2Ev.exit99, %._crit_edge, %_ZN4llvm8coverage17RawCoverageReader8readSizeERm.exit94.thread125, %_ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit
@@ -3466,15 +3466,15 @@ _ZN4llvm11SmallVectorIPNS_8coverage20CounterMappingRegionELj8EED2Ev.exit: ; pred
 
 .critedge:                                        ; preds = %2, %.critedge74, %_ZN4llvm8coverage17RawCoverageReader8readSizeERm.exit.thread121, %.critedge78
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %191 = load ptr, ptr %6, align 8, !tbaa !350
-  %192 = icmp eq ptr %191, %12
-  br i1 %192, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %193
+  %190 = load ptr, ptr %6, align 8, !tbaa !350
+  %191 = icmp eq ptr %190, %12
+  br i1 %191, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %192
 
-193:                                              ; preds = %.critedge
-  call void @free(ptr noundef %191) #17
+192:                                              ; preds = %.critedge
+  call void @free(ptr noundef %190) #17
   br label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %.critedge, %193
+_ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %.critedge, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

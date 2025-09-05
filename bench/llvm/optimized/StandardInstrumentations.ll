@@ -12193,7 +12193,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66:               ; preds = %_ZN4llvm11raw_ostre
 
 99:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit66
   %.idx.i = shl nuw nsw i64 %96, 5
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
+  %100 = getelementptr i8, ptr %93, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %95, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS1_IS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES6_NS8_IS4_SA_EEEES4_SA_S6_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -12239,7 +12239,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS1_IS4_jNS_12DenseMapInf
 
 115:                                              ; preds = %._crit_edge
   %.idx.i67 = shl nuw nsw i64 %112, 5
-  %116 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx.i67
+  %116 = getelementptr i8, ptr %109, i64 %.idx.i67
   %.not5.i5.i10.i2.i68 = icmp eq i32 %111, 0
   br i1 %.not5.i5.i10.i2.i68, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS1_IS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES6_NS8_IS4_SA_EEEES4_SA_S6_SB_E5beginEv.exit78, label %.lr.ph.i6.i12.i3.i69
 
@@ -12644,7 +12644,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit127:              ; preds = %318, %320
 
 331:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit127
   %.idx.i128 = shl nuw nsw i64 %328, 4
-  %332 = getelementptr inbounds nuw i8, ptr %325, i64 %.idx.i128
+  %332 = getelementptr i8, ptr %325, i64 %.idx.i128
   %.not5.i5.i10.i2.i129 = icmp eq i32 %327, 0
   br i1 %.not5.i5.i10.i2.i129, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i130
 
@@ -12749,7 +12749,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit149:              ; preds = %367, %369
 
 380:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit149
   %.idx.i150 = shl nuw nsw i64 %377, 4
-  %381 = getelementptr inbounds nuw i8, ptr %374, i64 %.idx.i150
+  %381 = getelementptr i8, ptr %374, i64 %.idx.i150
   %.not5.i5.i10.i2.i151 = icmp eq i32 %376, 0
   br i1 %.not5.i5.i10.i2.i151, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit161, label %.lr.ph.i6.i12.i3.i152
 
@@ -13324,7 +13324,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvmeqINS_8DenseMapIPKNS_10BasicBloc
 
 15:                                               ; preds = %7
   %.idx.i = shl nuw nsw i64 %12, 4
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %11, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -47194,7 +47194,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvmeqINS_8DenseMapIPKNS_10BasicBloc
 
 15:                                               ; preds = %7
   %.idx.i = shl nuw nsw i64 %12, 5
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %16 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %11, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS1_IS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES6_NS8_IS4_SA_EEEES4_SA_S6_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 

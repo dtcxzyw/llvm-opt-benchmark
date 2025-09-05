@@ -483,8 +483,8 @@ define noundef i32 @_ZNK6casadi10SymbolicMX10sp_forwardEPPKyPPyPxS4_(ptr noundef
   br i1 %12, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5
-  %13 = shl i64 %11, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %13, i1 false), !tbaa !19
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %.idx.i.i, i1 false), !tbaa !19
   br label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit
 
 _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i, %5
@@ -503,8 +503,8 @@ define noundef i32 @_ZNK6casadi10SymbolicMX10sp_reverseEPPyS2_PxS1_(ptr noundef 
   br i1 %12, label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5
-  %13 = shl i64 %11, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %13, i1 false), !tbaa !19
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %.idx.i.i, i1 false), !tbaa !19
   br label %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit
 
 _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i, %5

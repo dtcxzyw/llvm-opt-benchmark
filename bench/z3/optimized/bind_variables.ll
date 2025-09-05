@@ -557,7 +557,7 @@ _ZN6vectorIP4sortLb0EjE5resetEv.exit:             ; preds = %_ZN6vectorI6symbolL
   %130 = load i32, ptr %129, align 8, !tbaa !22
   %131 = zext i32 %130 to i64
   %.idx.i.i27 = shl nuw nsw i64 %131, 4
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i.i27
+  %132 = getelementptr i8, ptr %128, i64 %.idx.i.i27
   %.not1.i.i.i.i = icmp eq i32 %130, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 

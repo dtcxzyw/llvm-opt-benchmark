@@ -4734,11 +4734,11 @@ _ZN6vectorIiLb0EjE6resizeEj.exit:                 ; preds = %.lr.ph.preheader.i,
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread, %_ZN6vectorIiLb0EjE6resizeEj.exit
   %38 = phi i1 [ true, %_ZN6vectorIiLb0EjE6resizeEj.exit ], [ false, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ]
-  %.0.i2143 = phi i32 [ %.0.i21, %_ZN6vectorIiLb0EjE6resizeEj.exit ], [ %6, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ]
+  %.0.i2142 = phi i32 [ %.0.i21, %_ZN6vectorIiLb0EjE6resizeEj.exit ], [ %6, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ]
   %39 = phi ptr [ %37, %_ZN6vectorIiLb0EjE6resizeEj.exit ], [ %7, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ]
   %40 = phi ptr [ %36, %_ZN6vectorIiLb0EjE6resizeEj.exit ], [ %8, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread ]
   %41 = load ptr, ptr %2, align 8, !tbaa !89
-  %wide.trip.count = zext i32 %.0.i2143 to i64
+  %wide.trip.count = zext i32 %.0.i2142 to i64
   br label %42
 
 ._crit_edge:                                      ; preds = %42

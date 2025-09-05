@@ -678,7 +678,7 @@ define linkonce_odr hidden void @_ZN2qe15datatype_pluginD2Ev(ptr noundef nonnull
   %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = zext i32 %5 to i64
   %.idx.i.i = shl nuw nsw i64 %6, 5
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %7 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not1.i.i.i.i, label %.loopexit32, label %.lr.ph.i.i.i.i
 
@@ -739,7 +739,7 @@ _ZN14core_hashtableIN12obj_pair_mapI3app4exprPN2qe14datatype_atomsEE5entryE8obj_
   %23 = load i32, ptr %22, align 8, !tbaa !50
   %24 = zext i32 %23 to i64
   %.idx.i.i3 = shl nuw nsw i64 %24, 5
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i3
+  %25 = getelementptr i8, ptr %21, i64 %.idx.i.i3
   %.not1.i.i.i.i4 = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i.i4, label %.loopexit31, label %.lr.ph.i.i.i.i5
 
@@ -2779,7 +2779,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe15datatype_plugin10update_e
   %66 = load i32, ptr %65, align 8, !tbaa !155
   %67 = zext i32 %66 to i64
   %.idx.i.i = shl nuw nsw i64 %67, 3
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i
+  %68 = getelementptr i8, ptr %64, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %66, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -2851,7 +2851,7 @@ _Z7deallocIN2qe14datatype_atomsEEvPT_.exit:       ; preds = %77
   %90 = load i32, ptr %89, align 8, !tbaa !155
   %91 = zext i32 %90 to i64
   %.idx.i.i14 = shl nuw nsw i64 %91, 3
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i.i14
+  %92 = getelementptr i8, ptr %88, i64 %.idx.i.i14
   %.not1.i.i.i.i15 = icmp eq i32 %90, 0
   br i1 %.not1.i.i.i.i15, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit.i19, label %.lr.ph.i.i.i.i16
 

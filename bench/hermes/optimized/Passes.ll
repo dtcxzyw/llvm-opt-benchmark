@@ -2511,7 +2511,7 @@ for.end44:                                        ; preds = %_ZN6hermes9IRBuilde
   store i32 8, ptr %Capacity2.i.i.i.i.i.i30, align 4
   %cond.v.i8.i7.i = zext i32 %25 to i64
   %cond.i9.i8.idx.i = shl nuw nsw i64 %cond.v.i8.i7.i, 3
-  %cond.i9.i8.i = getelementptr inbounds nuw i8, ptr %.pre86, i64 %cond.i9.i8.idx.i
+  %cond.i9.i8.i = getelementptr i8, ptr %.pre86, i64 %cond.i9.i8.idx.i
   %cmp.not2.i3.i.i11.i9.i = icmp eq i32 %25, 0
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes11InstructionEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 

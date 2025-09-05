@@ -12975,7 +12975,7 @@ _ZNK9table2mapI17default_map_entryIjPN7datalog8ddnf_mgrEE6u_hash4u_eqE4findERKj.
   %98 = load i32, ptr %97, align 8, !tbaa !48
   %99 = zext i32 %98 to i64
   %.idx.i = shl nuw nsw i64 %99, 4
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i
+  %100 = getelementptr i8, ptr %96, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %98, 0
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i31
 
@@ -14031,7 +14031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %146 = load i32, ptr %145, align 8, !tbaa !48
   %147 = zext i32 %146 to i64
   %.idx.i.i = shl nuw nsw i64 %147, 4
-  %148 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx.i.i
+  %148 = getelementptr i8, ptr %144, i64 %.idx.i.i
   %.not1.i.i.i.i = icmp eq i32 %146, 0
   br i1 %.not1.i.i.i.i, label %_ZNK14core_hashtableI14ptr_hash_entryIN7datalog9ddnf_nodeEENS2_4hashENS2_2eqEE5beginEv.exit.i, label %.lr.ph.i.i.i.i
 
@@ -14566,7 +14566,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp8init_ctxERNS_8rule_setE(pt
   %8 = load i32, ptr %7, align 8, !tbaa !529
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  %10 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %8, 0
   br i1 %.not1.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %.lr.ph.i.i.i
 

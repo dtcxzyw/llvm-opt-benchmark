@@ -753,13 +753,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %26
 .noexc67:                                         ; preds = %45
   %48 = getelementptr inbounds nuw float, ptr %47, i64 %42
   store float 0.000000e+00, ptr %47, align 4, !tbaa !43
-  %49 = icmp eq i32 %41, 1
-  br i1 %49, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %49 = add nsw i64 %42, -1
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc67
-  %50 = getelementptr i8, ptr %47, i64 4
-  %51 = add nsw i64 %46, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %51, i1 false), !tbaa !43
+  %51 = getelementptr i8, ptr %47, i64 4
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %49, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %51, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !43
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc67, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -789,13 +790,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i68: ; preds = %_ZNSt6vector
 .noexc75:                                         ; preds = %56
   %59 = getelementptr inbounds nuw float, ptr %58, i64 %53
   store float 0.000000e+00, ptr %58, align 4, !tbaa !43
-  %60 = icmp eq i32 %52, 1
-  br i1 %60, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i70
+  %60 = add nsw i64 %53, -1
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i70
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i70: ; preds = %.noexc75
-  %61 = getelementptr i8, ptr %58, i64 4
-  %62 = add nsw i64 %57, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %62, i1 false), !tbaa !43
+  %62 = getelementptr i8, ptr %58, i64 4
+  %.idx.i.i.i.i.i.i.i71 = shl nuw nsw i64 %60, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %62, i8 0, i64 %.idx.i.i.i.i.i.i.i71, i1 false), !tbaa !43
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i70, %.noexc75, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i68
@@ -860,8 +862,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_
   %85 = load i32, ptr %84, align 4, !tbaa !41
   %factor.op.mul = mul i32 %81, %83
   %factor.op.mul109 = mul i32 %factor.op.mul, %85
-  %.not130 = icmp eq i32 %41, 0
-  br i1 %.not130, label %._crit_edge108.thread, label %.lr.ph105.us.preheader
+  %.not132 = icmp eq i32 %41, 0
+  br i1 %.not132, label %._crit_edge108.thread, label %.lr.ph105.us.preheader
 
 .lr.ph105.us.preheader:                           ; preds = %.lr.ph107
   %wide.trip.count127 = zext nneg i32 %52 to i64

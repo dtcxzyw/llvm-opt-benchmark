@@ -2279,7 +2279,7 @@ _ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14
 
 88:                                               ; preds = %80
   %.idx.i37 = shl nuw nsw i64 %85, 4
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i37
+  %89 = getelementptr i8, ptr %82, i64 %.idx.i37
   %.not5.i5.i10.i2.i = icmp eq i32 %84, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i38
 
@@ -2439,7 +2439,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6det
 
 174:                                              ; preds = %161
   %.idx.i.i = shl nuw nsw i64 %171, 4
-  %175 = getelementptr inbounds nuw i8, ptr %168, i64 %.idx.i.i
+  %175 = getelementptr i8, ptr %168, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %170, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -2859,7 +2859,7 @@ _ZL24removeIdenticalIndexPairRN4llvm11SmallVectorISt10unique_ptrINS_17StableFunc
 
 388:                                              ; preds = %.lr.ph15.i
   %.idx.i.i47 = shl nuw nsw i64 %385, 4
-  %389 = getelementptr inbounds nuw i8, ptr %382, i64 %.idx.i.i47
+  %389 = getelementptr i8, ptr %382, i64 %.idx.i.i47
   %.not5.i5.i10.i2.i.i48 = icmp eq i32 %384, 0
   br i1 %.not5.i5.i10.i2.i.i48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit.i51, label %.lr.ph.i6.i12.i3.i.i49
 

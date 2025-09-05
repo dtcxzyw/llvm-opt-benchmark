@@ -1233,7 +1233,7 @@ define internal fastcc void @"_ZZN4llvm12DWARFContext17DWARFContextState19parseM
   %34 = select i1 %31, i32 %33, i32 %30
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
+  %36 = getelementptr i8, ptr %28, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1264,7 +1264,7 @@ define internal fastcc void @"_ZZN4llvm12DWARFContext17DWARFContextState19parseM
   %53 = select i1 %50, i32 %52, i32 %49
   %54 = zext i32 %53 to i64
   %.idx.i3 = shl nuw nsw i64 %54, 3
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i3
+  %55 = getelementptr i8, ptr %47, i64 %.idx.i3
   %.not1.i.i.i.i.i4 = icmp eq i32 %53, 0
   br i1 %.not1.i.i.i.i.i4, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i5
 
@@ -6444,7 +6444,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit740:          ; preds = %_ZNSt8functionIFvN4
   %2392 = select i1 %2389, i32 %2391, i32 %2388
   %2393 = zext i32 %2392 to i64
   %.idx.i.i = shl nuw nsw i64 %2393, 3
-  %2394 = getelementptr inbounds nuw i8, ptr %2386, i64 %.idx.i.i
+  %2394 = getelementptr i8, ptr %2386, i64 %.idx.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %2392, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -6900,7 +6900,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9.i764:           ; preds = %2560, %2558
   %2590 = select i1 %2587, i32 %2589, i32 %2586
   %2591 = zext i32 %2590 to i64
   %.idx.i.i769 = shl nuw nsw i64 %2591, 3
-  %2592 = getelementptr inbounds nuw i8, ptr %2584, i64 %.idx.i.i769
+  %2592 = getelementptr i8, ptr %2584, i64 %.idx.i.i769
   %.not1.i.i.i.i.i.i770 = icmp eq i32 %2590, 0
   br i1 %.not1.i.i.i.i.i.i770, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit.i774, label %.lr.ph.i.i.i.i.i.i771
 
@@ -12005,7 +12005,7 @@ define dso_local noundef zeroext i8 @_ZN4llvm12DWARFContext13getCUAddrSizeEv(ptr
   %14 = select i1 %11, i32 %13, i32 %10
   %15 = zext i32 %14 to i64
   %.idx.i = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %16 = getelementptr i8, ptr %8, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -13484,7 +13484,7 @@ define dso_local noundef ptr @_ZN4llvm12DWARFContext24getDWOCompileUnitForHashEm
   %34 = select i1 %31, i32 %33, i32 %30
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 3
-  %36 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
+  %36 = getelementptr i8, ptr %28, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12DWARFContext17dwo_compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -14225,7 +14225,7 @@ select.unfold:                                    ; preds = %16, %2
   %31 = select i1 %28, i32 %30, i32 %27
   %32 = zext i32 %31 to i64
   %.idx.i = shl nuw nsw i64 %32, 3
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
+  %33 = getelementptr i8, ptr %25, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -14985,7 +14985,7 @@ _ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit: ; preds = %202
   %234 = select i1 %231, i32 %233, i32 %230
   %235 = zext i32 %234 to i64
   %.idx.i.i = shl nuw nsw i64 %235, 3
-  %236 = getelementptr inbounds nuw i8, ptr %228, i64 %.idx.i.i
+  %236 = getelementptr i8, ptr %228, i64 %.idx.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %234, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -30189,7 +30189,7 @@ define internal void @"_ZN4llvm12function_refIFSt8optionalINS_6object16Sectioned
   %16 = select i1 %13, i32 %15, i32 %12
   %17 = zext i32 %16 to i64
   %.idx.i.i = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %18 = getelementptr i8, ptr %10, i64 %.idx.i.i
   %.not1.i.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not1.i.i.i.i.i.i, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 

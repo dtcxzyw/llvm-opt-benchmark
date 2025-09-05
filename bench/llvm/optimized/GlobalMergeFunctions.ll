@@ -615,7 +615,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %43, %45
 
 57:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %.idx.i = shl nuw nsw i64 %54, 4
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i
+  %58 = getelementptr i8, ptr %51, i64 %.idx.i
   %.not5.i5.i10.i2.i = icmp eq i32 %53, 0
   br i1 %.not5.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
@@ -1858,7 +1858,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17Stabl
 
 281:                                              ; preds = %270
   %.idx.i.i89 = shl nuw nsw i64 %278, 4
-  %282 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx.i.i89
+  %282 = getelementptr i8, ptr %275, i64 %.idx.i.i89
   %.not5.i5.i10.i2.i.i = icmp eq i32 %277, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i
 
@@ -2018,7 +2018,7 @@ _ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12Dense
 
 361:                                              ; preds = %347
   %.idx.i.i91 = shl nuw nsw i64 %358, 4
-  %362 = getelementptr inbounds nuw i8, ptr %355, i64 %.idx.i.i91
+  %362 = getelementptr i8, ptr %355, i64 %.idx.i.i91
   %.not5.i5.i10.i2.i.i92 = icmp eq i32 %357, 0
   br i1 %.not5.i5.i10.i2.i.i92, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i93
 
@@ -2428,7 +2428,7 @@ _ZL24checkConstHashCompatibleRKN4llvm8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS2_
 
 569:                                              ; preds = %554
   %.idx.i.i114 = shl nuw nsw i64 %566, 4
-  %570 = getelementptr inbounds nuw i8, ptr %563, i64 %.idx.i.i114
+  %570 = getelementptr i8, ptr %563, i64 %.idx.i.i114
   %.not5.i5.i10.i2.i.i115 = icmp eq i32 %565, 0
   br i1 %.not5.i5.i10.i2.i.i115, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit.i118, label %.lr.ph.i6.i12.i3.i.i116
 

@@ -747,21 +747,20 @@ if.then.i.i.i.i.i:                                ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %4 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %4, i1 false)
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %5 = load ptr, ptr %font, align 8
+  %4 = load ptr, ptr %font, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call5.i.i.i.i2.i.i9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv10 = trunc i64 %sub.ptr.div.i to i32
-  %call14 = invoke i32 @FT_Get_Var_Design_Coordinates(ptr noundef %5, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
+  %call14 = invoke i32 @FT_Get_Var_Design_Coordinates(ptr noundef %4, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
           to label %invoke.cont13 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 invoke.cont13:                                    ; preds = %invoke.cont
@@ -769,15 +768,15 @@ invoke.cont13:                                    ; preds = %invoke.cont
   br i1 %tobool15.not, label %for.cond.preheader, label %if.end26
 
 for.cond.preheader:                               ; preds = %invoke.cont13
-  %6 = load ptr, ptr %master, align 8
-  %7 = load i32, ptr %6, align 8
-  %cmp29.not = icmp eq i32 %7, 0
+  %5 = load ptr, ptr %master, align 8
+  %6 = load i32, ptr %5, align 8
+  %cmp29.not = icmp eq i32 %6, 0
   br i1 %cmp29.not, label %if.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %axis = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %axis, align 8
-  %wide.trip.count = zext i32 %7 to i64
+  %axis = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %axis, align 8
+  %wide.trip.count = zext i32 %6 to i64
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -787,9 +786,9 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %8, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx, align 8
-  %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %9) #19
+  %arrayidx = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %7, i64 %indvars.iv
+  %8 = load ptr, ptr %arrayidx, align 8
+  %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %8) #19
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %for.cond
 
@@ -801,15 +800,15 @@ if.then21:                                        ; preds = %for.body
   br label %if.end26
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %if.end26, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i9) #17
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 if.end26:                                         ; preds = %for.cond, %for.cond.preheader, %if.then21, %invoke.cont13
   %success.2 = phi i1 [ false, %invoke.cont13 ], [ true, %if.then21 ], [ false, %for.cond.preheader ], [ false, %for.cond ]
-  %11 = load ptr, ptr %font, align 8
-  %call32 = invoke i32 @FT_Set_Var_Design_Coordinates(ptr noundef %11, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
+  %10 = load ptr, ptr %font, align 8
+  %call32 = invoke i32 @FT_Set_Var_Design_Coordinates(ptr noundef %10, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
           to label %_ZNSt6vectorIlSaIlEED2Ev.exit18 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit18:                  ; preds = %if.end26
@@ -820,10 +819,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit18:                  ; preds = %if.end26
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit18, %land.lhs.true, %if.end
-  %12 = phi ptr [ %.pre, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ %2, %land.lhs.true ], [ null, %if.end ]
+  %11 = phi ptr [ %.pre, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ %2, %land.lhs.true ], [ null, %if.end ]
   %success.1 = phi i1 [ %spec.select, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ false, %land.lhs.true ], [ false, %if.end ]
-  %13 = load ptr, ptr %library, align 8
-  %call38 = call i32 @FT_Done_MM_Var(ptr noundef %13, ptr noundef %12)
+  %12 = load ptr, ptr %library, align 8
+  %call38 = call i32 @FT_Done_MM_Var(ptr noundef %12, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %entry, %if.end36, %if.then

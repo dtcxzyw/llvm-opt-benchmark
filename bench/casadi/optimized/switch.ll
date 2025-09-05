@@ -7689,13 +7689,14 @@ _ZNSt6vectorIPN6casadi6SXElemESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds
 .noexc156:                                        ; preds = %27
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %24
   store ptr null, ptr %29, align 8, !tbaa !186
-  %31 = icmp eq i64 %24, 1
-  br i1 %31, label %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EEC2EmRKS3_.exit, label %_ZSt6fill_nIPPN6casadi6SXElemEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %31 = add nsw i64 %24, -1
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EEC2EmRKS3_.exit, label %_ZSt6fill_nIPPN6casadi6SXElemEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPN6casadi6SXElemEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc156
-  %32 = getelementptr i8, ptr %29, i64 8
-  %33 = add nsw i64 %28, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %33, i1 false), !tbaa !186
+  %33 = getelementptr i8, ptr %29, i64 8
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !186
   br label %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt6vectorIPN6casadi6SXElemESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZSt6fill_nIPPN6casadi6SXElemEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc156, %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -8456,7 +8457,7 @@ _ZN6casadi17GenericExpressionINS_6SXElemEE12if_else_zeroERKS1_S4_.exit.i: ; pred
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EED2Ev.exit, label %.loopexit.split-lp219.thread
 
 .loopexit.split-lp219.thread:                     ; preds = %.loopexit.split-lp239, %.loopexit238, %.loopexit.split-lp219
-  %.pn149.pn.pn.pn404 = phi { ptr, i32 } [ %.pn149.pn.pn.pn, %.loopexit.split-lp219 ], [ %lpad.loopexit.split-lp241, %.loopexit.split-lp239 ], [ %lpad.loopexit240, %.loopexit238 ]
+  %.pn149.pn.pn.pn405 = phi { ptr, i32 } [ %.pn149.pn.pn.pn, %.loopexit.split-lp219 ], [ %lpad.loopexit.split-lp241, %.loopexit.split-lp239 ], [ %lpad.loopexit240, %.loopexit238 ]
   %327 = ptrtoint ptr %.sroa.11.0 to i64
   %328 = ptrtoint ptr %.sroa.0206.0 to i64
   %329 = sub i64 %327, %328
@@ -8512,7 +8513,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN6ca
   ret i32 %.not144.lcssa
 
 _ZNSt6vectorIPN6casadi6SXElemESaIS2_EED2Ev.exit:  ; preds = %.loopexit.split-lp219.thread, %.loopexit.split-lp219, %47
-  %.pn149.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn149.pn.pn.pn, %.loopexit.split-lp219 ], [ %.pn149.pn.pn.pn404, %.loopexit.split-lp219.thread ]
+  %.pn149.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn149.pn.pn.pn, %.loopexit.split-lp219 ], [ %.pn149.pn.pn.pn405, %.loopexit.split-lp219.thread ]
   call void @_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn149.pn.pn.pn.pn

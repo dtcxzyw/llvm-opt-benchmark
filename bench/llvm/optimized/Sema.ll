@@ -21948,7 +21948,7 @@ _ZN4llvm11SmallVectorIPN5clang6ModuleELj2EED2Ev.exit: ; preds = %1716, %1719
   %.v.v.i4.i2.i = select i1 %1732, i32 %1724, i32 %1734
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
   %.idx.i261 = shl nuw nsw i64 %.v.i5.i3.i, 3
-  %1735 = getelementptr inbounds nuw i8, ptr %1729, i64 %.idx.i261
+  %1735 = getelementptr i8, ptr %1729, i64 %.idx.i261
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang12FunctionDeclEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -34204,7 +34204,7 @@ define dso_local void @_ZN5clang4Sema20PopFunctionScopeInfoEPKNS_4sema21Analysis
   %.v.v.i4.i2.i.i = select i1 %22, i32 %24, i32 %26
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %.v.i5.i3.i.i, 3
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  %27 = getelementptr i8, ptr %19, i64 %.idx.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang9BlockDeclEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
