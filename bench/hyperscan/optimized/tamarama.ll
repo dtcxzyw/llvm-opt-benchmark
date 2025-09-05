@@ -1481,8 +1481,8 @@ define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) 
   %24 = icmp ult i8 %switch.tableidx, 8
   %switch.shifted = lshr i8 -3, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond47 = select i1 %24, i1 %switch.lobit, i1 false
-  br i1 %or.cond47, label %isMultiTopType.exit, label %25
+  %or.cond69 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond69, label %isMultiTopType.exit, label %25
 
 25:                                               ; preds = %23
   %26 = add i8 %.fr, -11

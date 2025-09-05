@@ -27019,8 +27019,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit511: ; preds = %_Z
   %843 = load i8, ptr %842, align 8, !tbaa !232
   %844 = icmp eq i8 %843, 2
   %845 = icmp eq i8 %83, 2
-  %or.cond322 = and i1 %844, %845
-  br i1 %or.cond322, label %.noexc.i513, label %1087
+  %or.cond = and i1 %844, %845
+  br i1 %or.cond, label %.noexc.i513, label %1087
 
 .noexc.i513:                                      ; preds = %.thread23
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -29069,8 +29069,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit843: ; preds = %_Z
   %1661 = load i8, ptr %1660, align 8, !tbaa !232
   %1662 = icmp eq i8 %1661, 3
   %1663 = icmp eq i8 %1376, 41
-  %or.cond323 = and i1 %1662, %1663
-  br i1 %or.cond323, label %1664, label %.critedge259
+  %or.cond322 = and i1 %1662, %1663
+  br i1 %or.cond322, label %1664, label %.critedge259
 
 1664:                                             ; preds = %1658
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
@@ -29111,7 +29111,7 @@ _ZN5Yosys7token_tC2EcNS_5RTLIL7SigSpecE.exit845:  ; preds = %1664
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %1673
 
-.critedge259:                                     ; preds = %.thread319, %1381, %1385, %.critedge, %1372, %1658, %1375, %837, %.thread, %1667, %_ZN5Yosys7token_tD2Ev.exit834, %1374, %_ZN5Yosys7token_tD2Ev.exit719, %_ZN5Yosys7token_tD2Ev.exit604, %840, %_ZN5Yosys7token_tD2Ev.exit502, %550, %_ZN5Yosys7token_tD2Ev.exit387, %_ZN5Yosys7token_tD2Ev.exit
+switch.hole_check:                                ; preds = %.thread319, %1381, %1385, %.critedge, %1372, %1658, %1375, %837, %.thread, %1667, %_ZN5Yosys7token_tD2Ev.exit834, %1374, %_ZN5Yosys7token_tD2Ev.exit719, %_ZN5Yosys7token_tD2Ev.exit604, %840, %_ZN5Yosys7token_tD2Ev.exit502, %550, %_ZN5Yosys7token_tD2Ev.exit387, %_ZN5Yosys7token_tD2Ev.exit
   %.0 = phi i1 [ true, %_ZN5Yosys7token_tD2Ev.exit ], [ true, %_ZN5Yosys7token_tD2Ev.exit387 ], [ true, %550 ], [ true, %_ZN5Yosys7token_tD2Ev.exit502 ], [ true, %840 ], [ true, %_ZN5Yosys7token_tD2Ev.exit604 ], [ true, %_ZN5Yosys7token_tD2Ev.exit719 ], [ true, %1374 ], [ true, %_ZN5Yosys7token_tD2Ev.exit834 ], [ true, %1667 ], [ false, %.thread ], [ false, %837 ], [ false, %1375 ], [ false, %1658 ], [ false, %1372 ], [ false, %.critedge ], [ false, %1385 ], [ false, %1381 ], [ false, %.thread319 ]
   ret i1 %.0
 

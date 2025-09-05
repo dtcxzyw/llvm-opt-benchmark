@@ -86950,22 +86950,22 @@ define void @"_ZN102_$LT$ruff_linter..rules..pydocstyle..settings..Settings$u20$
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8, !range !1823, !noundef !9
   %.not = icmp eq i8 %4, 3
-  br i1 %.not, label %6, label %5
+  br i1 %.not, label %"_ZN104_$LT$ruff_linter..rules..pydocstyle..settings..Convention$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h9ae117ec0a440151E.exit", label %switch.lookup
 
-5:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
-  %switch.idx.cast.i = zext nneg i8 %4 to i64
-  br label %6
+  %switch.idx.cast = zext nneg i8 %4 to i64
+  br label %"_ZN104_$LT$ruff_linter..rules..pydocstyle..settings..Convention$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h9ae117ec0a440151E.exit"
 
-6:                                                ; preds = %2, %5
-  %.sink = phi i64 [ %switch.idx.cast.i, %5 ], [ 0, %2 ]
+"_ZN104_$LT$ruff_linter..rules..pydocstyle..settings..Convention$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h9ae117ec0a440151E.exit": ; preds = %2, %switch.lookup
+  %.sink = phi i64 [ %switch.idx.cast, %5 ], [ 0, %2 ]
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink)
   tail call void @"_ZN101_$LT$alloc..collections..btree..set..BTreeSet$LT$V$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h4f36da6db94fa6e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @"_ZN101_$LT$alloc..collections..btree..set..BTreeSet$LT$V$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h4f36da6db94fa6e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %9 = load i8, ptr %8, align 1, !range !150, !noundef !9
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %9)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @"_ZN101_$LT$alloc..collections..btree..set..BTreeSet$LT$V$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h4f36da6db94fa6e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %7 = load i8, ptr %6, align 1, !range !150, !noundef !9
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %7)
   ret void
 }
 

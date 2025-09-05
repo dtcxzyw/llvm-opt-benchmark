@@ -494,14 +494,14 @@ define hidden i32 @hpke_extract(i16 noundef zeroext %0, ptr noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %switch.tableidx = add i16 %0, -1
   %10 = icmp ult i16 %switch.tableidx, 3
-  br i1 %10, label %switch.lookup, label %27
+  br i1 %10, label %switch.lookup, label %26
 
 switch.lookup:                                    ; preds = %8
   %11 = or disjoint i16 %switch.tableidx, 8
   %switch.offset = zext nneg i16 %11 to i32
   %12 = call i32 @gcry_md_open(ptr noundef nonnull %9, i32 noundef %switch.offset, i32 noundef 2)
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %27
+  br i1 %.not, label %13, label %26
 
 13:                                               ; preds = %switch.lookup
   %14 = load ptr, ptr %9, align 8
@@ -509,9 +509,9 @@ switch.lookup:                                    ; preds = %8
   %16 = call i32 @gcry_md_setkey(ptr noundef %14, ptr noundef %1, i64 noundef %15)
   %.not18 = icmp eq i32 %16, 0
   %17 = load ptr, ptr %9, align 8
-  br i1 %.not18, label %hpke_hkdf_len.exit, label %.sink.split
+  br i1 %.not18, label %switch.lookup22, label %.sink.split
 
-hpke_hkdf_len.exit:                               ; preds = %13
+switch.lookup22:                                  ; preds = %13
   call void @gcry_md_write(ptr noundef %17, ptr noundef nonnull @.str.8, i64 noundef 7)
   %18 = load ptr, ptr %9, align 8
   call void @gcry_md_write(ptr noundef %18, ptr noundef %3, i64 noundef 10)
@@ -530,13 +530,13 @@ hpke_hkdf_len.exit:                               ; preds = %13
   %26 = load ptr, ptr %9, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %hpke_hkdf_len.exit
+.sink.split:                                      ; preds = %13, %switch.lookup22
   %.sink = phi ptr [ %26, %hpke_hkdf_len.exit ], [ %17, %13 ]
   %.015.ph = phi i32 [ 0, %hpke_hkdf_len.exit ], [ %16, %13 ]
   call void @gcry_md_close(ptr noundef %.sink)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.sink.split, %switch.lookup, %8
+26:                                               ; preds = %.sink.split, %switch.lookup, %8
   %.015 = phi i32 [ 5, %8 ], [ %12, %switch.lookup ], [ %.015.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.015
@@ -679,17 +679,17 @@ switch.lookup:                                    ; preds = %7
   %18 = trunc i64 %17 to i32
   %19 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef %3, i32 noundef %18)
   %switch.tableidx30 = add nsw i16 %0, -1
-  %switch.idx.cast = zext i16 %switch.tableidx30 to i32
-  %switch.idx.mult = shl nuw nsw i32 %switch.idx.cast, 5
-  %switch.offset32 = add nuw nsw i32 %switch.idx.mult, 65
-  %switch.idx.cast33 = zext i16 %switch.tableidx30 to i32
-  %switch.idx.mult34 = shl nuw nsw i32 %switch.idx.cast33, 4
-  %switch.offset35 = add nuw nsw i32 %switch.idx.mult34, 32
-  %20 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef %4, i32 noundef %switch.offset32)
+  %switch.idx.cast32 = zext i16 %switch.tableidx30 to i32
+  %switch.idx.mult = shl nuw nsw i32 %switch.idx.cast32, 5
+  %switch.offset33 = add nuw nsw i32 %switch.idx.mult, 65
+  %switch.idx.cast34 = zext i16 %switch.tableidx30 to i32
+  %switch.idx.mult35 = shl nuw nsw i32 %switch.idx.cast34, 4
+  %switch.offset36 = add nuw nsw i32 %switch.idx.mult35, 32
+  %20 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef %4, i32 noundef %switch.offset33)
   %21 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = call i32 @hkdf_expand(i32 noundef %switch.offset, ptr noundef %1, i32 noundef %switch.offset35, ptr noundef %21, i32 noundef %23, ptr noundef %5, i32 noundef %12)
+  %24 = call i32 @hkdf_expand(i32 noundef %switch.offset, ptr noundef %1, i32 noundef %switch.offset36, ptr noundef %21, i32 noundef %23, ptr noundef %5, i32 noundef %12)
   %25 = call ptr @g_byte_array_free(ptr noundef %9, i32 noundef 1)
   br label %26
 

@@ -1086,9 +1086,9 @@ define internal noundef i64 @_ZN4llvm6objectL13resolveWasm32Emmmml(i64 %0, i64 %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm64Em(i64 noundef %0) #1 {
   %switch.tableidx = add i64 %0, -14
-  %2 = icmp ult i64 %switch.tableidx, 9
-  %switch.maskindex = trunc i64 %switch.tableidx to i16
-  %switch.shifted = lshr i16 311, %switch.maskindex
+  %1 = icmp ult i64 %switch.tableidx, 9
+  %switch.cast = trunc i64 %switch.tableidx to i16
+  %switch.downshift = lshr i16 311, %switch.cast
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %2, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %3

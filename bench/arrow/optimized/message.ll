@@ -1467,8 +1467,8 @@ _ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i: ; preds = %_ZNK22ar
   br label %_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit
 
 _ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit:  ; preds = %1, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i
-  %18 = phi i32 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %1 ], [ %spec.select.i, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
-  ret i32 %18
+  %.0.i = phi i32 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %1 ], [ %spec.select.i, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable

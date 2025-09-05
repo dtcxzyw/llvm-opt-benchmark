@@ -2151,35 +2151,35 @@ define noundef zeroext i1 @_ZNK5arrow7compute9InputType7MatchesERKNS_5DatumE(ptr
     i8 5, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
   ]
 
-6:                                                ; preds = %2
-  %7 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Datum4typeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %8 = load ptr, ptr %7, align 8, !tbaa !197
-  %9 = load i32, ptr %0, align 8, !tbaa !190
-  switch i32 %9, label %21 [
-    i32 1, label %10
-    i32 2, label %14
-    i32 0, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
+5:                                                ; preds = %2
+  %6 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Datum4typeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %7 = load ptr, ptr %6, align 8, !tbaa !197
+  %8 = load i32, ptr %0, align 8, !tbaa !190
+  switch i32 %8, label %21 [
+    i32 1, label %9
+    i32 2, label %13
+    i32 0, label %_ZNK5arrow5Datum4kindEv.exit
   ]
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !197
-  %13 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %8, i1 noundef zeroext false)
-  br label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !197
+  %12 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %7, i1 noundef zeroext false)
+  br label %_ZNK5arrow5Datum4kindEv.exit
 
-14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !117
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  br label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !117
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(72) %7)
+  br label %_ZNK5arrow5Datum4kindEv.exit
 
-21:                                               ; preds = %6
-  br label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
+20:                                               ; preds = %5
+  br label %_ZNK5arrow5Datum4kindEv.exit
 
-_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit: ; preds = %21, %14, %10, %6, %2, %2, %2
+_ZNK5arrow5Datum4kindEv.exit:                     ; preds = %20, %13, %9, %5, %2, %2, %2
   %.0 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %21 ], [ %13, %10 ], [ %20, %14 ], [ true, %6 ]
   ret i1 %.0
 }

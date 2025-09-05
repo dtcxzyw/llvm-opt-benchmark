@@ -1327,7 +1327,7 @@ define internal fastcc noundef range(i32 -529, 1) i32 @kiocb_done(ptr noundef %0
   %57 = icmp eq i64 %1, -529
   br i1 %57, label %68, label %58
 
-58:                                               ; preds = %56
+58:; preds = %56
   %switch.tableidx = add nsw i64 %1, 516
   %59 = icmp ult i64 %switch.tableidx, 5
   %switch.maskindex = trunc i64 %switch.tableidx to i8
@@ -1339,7 +1339,7 @@ define internal fastcc noundef range(i32 -529, 1) i32 @kiocb_done(ptr noundef %0
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %29, %58
+switch.lookup:; preds = %29, %58
   %60 = phi ptr [ %.pre, %58 ], [ %31, %29 ]
   %61 = phi i64 [ %spec.select, %58 ], [ %1, %29 ]
   %62 = icmp eq ptr %60, @io_complete_rw_iopoll
