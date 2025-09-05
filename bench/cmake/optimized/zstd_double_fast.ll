@@ -9714,14 +9714,13 @@ ZSTD_compressBlock_doubleFast_dictMatchState_4.exit: ; preds = %ZSTD_compressBlo
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
 define dso_local i64 @ZSTD_compressBlock_doubleFast_extDict(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
-switch.lookup:
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %6 = load i32, ptr %5, align 8, !tbaa !30
-  %switch.tableidx = add i32 %6, -5
-  %7 = icmp ult i32 %switch.tableidx, 3
-  %spec.select = select i1 %7, i32 %6, i32 4
-  %8 = tail call fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %spec.select)
-  ret i64 %8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %7 = load i32, ptr %6, align 8, !tbaa !30
+  %switch.tableidx = add i32 %7, -5
+  %8 = icmp ult i32 %switch.tableidx, 3
+  %.sink = select i1 %8, i32 %7, i32 4
+  %9 = tail call fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %.sink)
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

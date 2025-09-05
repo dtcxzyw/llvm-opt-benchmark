@@ -5158,13 +5158,12 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @hamt_tp_contains(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
-switch.lookup:
-  %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call fastcc i32 @hamt_find(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2)
-  %switch.offset = add nsw i32 %3, -1
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %switch.offset
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %4 = call fastcc i32 @hamt_find(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %3)
+  %switch.offset.i = add nsw i32 %4, -1
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  ret i32 %switch.offset.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

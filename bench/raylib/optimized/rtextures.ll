@@ -26931,27 +26931,19 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %95 = or disjoint i32 %94, %4
   %.11170197.i.i.i = add i32 %81, -1
   %96 = icmp sgt i32 %.11170197.i.i.i, -1
-  switch i32 %95, label %.critedge.i.i.i [
-    i32 10, label %.lr.ph257.split.i.i.i
-    i32 11, label %.lr.ph257.split.i.i.i
-    i32 12, label %.lr.ph257.split.i.i.i
-    i32 17, label %.lr.ph257.split.i.i.i
-    i32 19, label %.lr.ph257.split.i.i.i
-    i32 20, label %.lr.ph257.split.i.i.i
-    i32 28, label %.lr.ph257.split.i.i.i
-    i32 25, label %.lr.ph257.split.i.i.i
-    i32 26, label %.lr.ph257.split.i.i.i
-    i32 33, label %.lr.ph257.split.i.i.i
-    i32 34, label %.lr.ph257.split.i.i.i
-    i32 35, label %.lr.ph257.split.i.i.i
-  ]
+  %switch.tableidx.i.i.i = add i32 %95, -10
+  %97 = icmp ult i32 %switch.tableidx.i.i.i, 26
+  %switch.shifted.i.i.i = lshr i32 59082375, %switch.tableidx.i.i.i
+  %switch.lobit.i.i.i = trunc i32 %switch.shifted.i.i.i to i1
+  %or.cond.i.i.i = select i1 %97, i1 %switch.lobit.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %switch.lookup.preheader.i.i.i, label %.critedge.i.i.i
 
-.lr.ph257.split.i.i.i:                            ; preds = %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i, %.lr.ph257.i.i.i
+switch.lookup.preheader.i.i.i:                    ; preds = %.lr.ph257.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %83 to i64
-  br label %97
+  br label %switch.lookup.i.i.i
 
-97:                                               ; preds = %.loopexit.i.i.i, %.lr.ph257.split.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph257.split.i.i.i ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
+switch.lookup.i.i.i:                              ; preds = %.loopexit.i.i.i, %switch.lookup.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %switch.lookup.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
   %98 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %99 = mul i32 %81, %98
   %100 = mul i32 %99, %79
@@ -26974,40 +26966,40 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
     i32 34, label %.preheader192.i.i.i
   ]
 
-.preheader194.i.i.i:                              ; preds = %97
+.preheader194.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
-.preheader192.i.i.i:                              ; preds = %97
+.preheader192.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph205.i.i.i, label %.loopexit.i.i.i
 
-.preheader190.i.i.i:                              ; preds = %97
+.preheader190.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph210.i.i.i, label %.loopexit.i.i.i
 
-.preheader188.i.i.i:                              ; preds = %97
+.preheader188.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph215.i.i.i, label %.loopexit.i.i.i
 
-.preheader186.i.i.i:                              ; preds = %97
+.preheader186.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph220.i.i.i, label %.loopexit.i.i.i
 
-.preheader184.i.i.i:                              ; preds = %97
+.preheader184.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph225.i.i.i, label %.loopexit.i.i.i
 
-.preheader182.i.i.i:                              ; preds = %97
+.preheader182.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph230.i.i.i, label %.loopexit.i.i.i
 
-.preheader180.i.i.i:                              ; preds = %97
+.preheader180.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph235.i.i.i, label %.loopexit.i.i.i
 
-.preheader178.i.i.i:                              ; preds = %97
+.preheader178.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph240.i.i.i, label %.loopexit.i.i.i
 
-.preheader176.i.i.i:                              ; preds = %97
+.preheader176.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph245.i.i.i, label %.loopexit.i.i.i
 
-.preheader174.i.i.i:                              ; preds = %97
+.preheader174.i.i.i:                              ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph250.i.i.i, label %.loopexit.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %97
+.preheader.i.i.i:                                 ; preds = %switch.lookup.i.i.i
   br i1 %96, label %.lr.ph255.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph255.i.i.i:                                  ; preds = %.preheader.i.i.i, %.lr.ph255.i.i.i
@@ -27265,7 +27257,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 .loopexit.i.i.i:                                  ; preds = %.lr.ph205.i.i.i, %.lr.ph210.i.i.i, %.lr.ph215.i.i.i, %.lr.ph220.i.i.i, %.lr.ph225.i.i.i, %.lr.ph230.i.i.i, %.lr.ph235.i.i.i, %.lr.ph240.i.i.i, %.lr.ph245.i.i.i, %.lr.ph250.i.i.i, %.lr.ph255.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i, %.preheader174.i.i.i, %.preheader176.i.i.i, %.preheader178.i.i.i, %.preheader180.i.i.i, %.preheader182.i.i.i, %.preheader184.i.i.i, %.preheader186.i.i.i, %.preheader188.i.i.i, %.preheader190.i.i.i, %.preheader192.i.i.i, %.preheader194.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %97
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %switch.lookup.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.loopexit.i.i.i, %.preheader196.i.i.i
   tail call void @free(ptr noundef %76) #54
@@ -27450,10 +27442,10 @@ stbi__get8.exit25.i.i:                            ; preds = %stbi__refill_buffer
   %309 = shl nuw i32 %308, 16
   %310 = or disjoint i32 %309, %307
   switch i32 %310, label %stbi__bmp_test.exit [
-    i32 108, label %stbi__bmp_test.exit.thread73
-    i32 56, label %stbi__bmp_test.exit.thread73
-    i32 40, label %stbi__bmp_test.exit.thread73
-    i32 12, label %stbi__bmp_test.exit.thread73
+    i32 108, label %stbi__bmp_test.exit.thread74
+    i32 56, label %stbi__bmp_test.exit.thread74
+    i32 40, label %stbi__bmp_test.exit.thread74
+    i32 12, label %stbi__bmp_test.exit.thread74
   ]
 
 stbi__bmp_test.exit.thread:                       ; preds = %stbi__get8.exit.i.i41, %stbi__get8.exit25.i.i, %249, %278
@@ -27463,7 +27455,7 @@ stbi__bmp_test.exit.thread:                       ; preds = %stbi__get8.exit.i.i
   store ptr %312, ptr %18, align 8
   br label %1174
 
-stbi__bmp_test.exit.thread73:                     ; preds = %300, %300, %300, %300
+stbi__bmp_test.exit.thread74:                     ; preds = %300, %300, %300, %300
   %313 = load ptr, ptr %24, align 8
   store ptr %313, ptr %17, align 8
   %314 = load ptr, ptr %243, align 8
@@ -27478,7 +27470,7 @@ stbi__bmp_test.exit:                              ; preds = %300
   store ptr %316, ptr %18, align 8
   br i1 %.not, label %317, label %1174
 
-317:                                              ; preds = %stbi__bmp_test.exit.thread73, %stbi__bmp_test.exit
+317:                                              ; preds = %stbi__bmp_test.exit.thread74, %stbi__bmp_test.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %318 = getelementptr inbounds nuw i8, ptr %13, i64 28
@@ -29240,13 +29232,13 @@ stbi__gif_load.exit:                              ; preds = %1179, %1184, %1186,
   %1200 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 18472
   store i8 -1, ptr %1200, align 8
   %1201 = tail call fastcc zeroext i8 @stbi__get_marker(ptr noundef nonnull %calloc.i)
-  %.not78 = icmp eq i8 %1201, -40
+  %.not79 = icmp eq i8 %1201, -40
   %1202 = load ptr, ptr %24, align 8
   store ptr %1202, ptr %17, align 8
   %1203 = load ptr, ptr %243, align 8
   store ptr %1203, ptr %18, align 8
   tail call void @free(ptr noundef nonnull %calloc.i) #54
-  br i1 %.not78, label %.critedge, label %stbi__jpeg_test.exit.thread
+  br i1 %.not79, label %.critedge, label %stbi__jpeg_test.exit.thread
 
 .critedge:                                        ; preds = %1195
   %calloc.i54 = tail call dereferenceable_or_null(18568) ptr @calloc(i64 1, i64 18568)
@@ -31271,8 +31263,8 @@ stbi__skip_jpeg_junk_at_end.exit.i.i.i:           ; preds = %stbi__at_eof.exit.i
 2231:                                             ; preds = %stbi__skip_jpeg_junk_at_end.exit.i.i.i, %stbi__parse_entropy_coded_data.exit.thread.i.i.i
   %2232 = call fastcc zeroext i8 @stbi__get_marker(ptr noundef nonnull %calloc.i54)
   %2233 = and i8 %2232, -8
-  %or.cond.i.i.i = icmp eq i8 %2233, -48
-  br i1 %or.cond.i.i.i, label %.sink.split.i.i.i, label %.backedge
+  %or.cond.i.i.i63 = icmp eq i8 %2233, -48
+  br i1 %or.cond.i.i.i63, label %.sink.split.i.i.i, label %.backedge
 
 2234:                                             ; preds = %1244
   %2235 = load ptr, ptr %calloc.i54, align 8
@@ -31471,9 +31463,9 @@ stbi__decode_jpeg_image.exit.loopexit477.i.i:     ; preds = %2243
   br label %stbi__decode_jpeg_image.exit.i.i
 
 stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i.i, %stbi__decode_jpeg_image.exit.loopexit477.i.i, %.preheader35.i.i.i.i, %2246
-  %.pre.i.i63 = phi ptr [ %.pre.pre.i.i, %stbi__decode_jpeg_image.exit.loopexit477.i.i ], [ %.pre.pre539.i.i, %.preheader35.i.i.i.i ], [ %.pre.pre539.i.i, %2246 ], [ %2296, %._crit_edge38.i.i.i.i ]
+  %.pre.i.i64 = phi ptr [ %.pre.pre.i.i, %stbi__decode_jpeg_image.exit.loopexit477.i.i ], [ %.pre.pre539.i.i, %.preheader35.i.i.i.i ], [ %.pre.pre539.i.i, %2246 ], [ %2296, %._crit_edge38.i.i.i.i ]
   %.not281.i.i = icmp eq i32 %4, 0
-  %2321 = getelementptr inbounds nuw i8, ptr %.pre.i.i63, i64 8
+  %2321 = getelementptr inbounds nuw i8, ptr %.pre.i.i64, i64 8
   %2322 = load i32, ptr %2321, align 8
   %.inv.i.i = icmp slt i32 %2322, 3
   %2323 = select i1 %.inv.i.i, i32 1, i32 3
@@ -31567,17 +31559,17 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   %2361 = getelementptr inbounds nuw i8, ptr %calloc.i54, i64 18056
   %2362 = getelementptr inbounds nuw i8, ptr %calloc.i54, i64 18060
   %wide.trip.count.i.i = zext nneg i32 %..i.i to i64
-  %.pre537.i.i = load i32, ptr %.pre.i.i63, align 8
+  %.pre537.i.i = load i32, ptr %.pre.i.i64, align 8
   br label %2363
 
 2363:                                             ; preds = %.thread342.i.i, %2360
   %2364 = phi i32 [ %.pre537.i.i, %2360 ], [ %2403, %.thread342.i.i ]
-  %indvars.iv.i.i64 = phi i64 [ 0, %2360 ], [ %indvars.iv.next.i.i65, %.thread342.i.i ]
-  %2365 = getelementptr inbounds nuw %struct.stbi__resample, ptr %10, i64 %indvars.iv.i.i64
+  %indvars.iv.i.i65 = phi i64 [ 0, %2360 ], [ %indvars.iv.next.i.i66, %.thread342.i.i ]
+  %2365 = getelementptr inbounds nuw %struct.stbi__resample, ptr %10, i64 %indvars.iv.i.i65
   %2366 = add i32 %2364, 3
   %2367 = zext i32 %2366 to i64
   %2368 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %2367) #55
-  %2369 = getelementptr inbounds nuw %struct.anon.0, ptr %1212, i64 %indvars.iv.i.i64
+  %2369 = getelementptr inbounds nuw %struct.anon.0, ptr %1212, i64 %indvars.iv.i.i65
   %2370 = getelementptr inbounds nuw i8, ptr %2369, i64 72
   store ptr %2368, ptr %2370, align 8
   %.not292.not.i.i = icmp eq ptr %2368, null
@@ -31655,7 +31647,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   %2401 = ashr i32 %2399, 1
   %2402 = getelementptr inbounds nuw i8, ptr %2365, i64 36
   store i32 %2401, ptr %2402, align 4
-  %2403 = load i32, ptr %.pre.i.i63, align 8
+  %2403 = load i32, ptr %.pre.i.i64, align 8
   %2404 = add i32 %2394, -1
   %2405 = add i32 %2404, %2403
   %2406 = udiv i32 %2405, %2394
@@ -31701,12 +31693,12 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
 .thread342.i.i:                                   ; preds = %.thread341.i.i, %2415, %2414, %2413
   %stbi__resample_row_v_2.sink.i.i = phi ptr [ %2416, %2415 ], [ @stbi__resample_row_generic, %.thread341.i.i ], [ %switch.select718.i.i, %2413 ], [ @stbi__resample_row_h_2, %2414 ]
   store ptr %stbi__resample_row_v_2.sink.i.i, ptr %2365, align 16
-  %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
-  %exitcond.not.i.i66 = icmp eq i64 %indvars.iv.next.i.i65, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i66, label %2418, label %2363
+  %indvars.iv.next.i.i66 = add nuw nsw i64 %indvars.iv.i.i65, 1
+  %exitcond.not.i.i67 = icmp eq i64 %indvars.iv.next.i.i66, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i67, label %2418, label %2363
 
 2418:                                             ; preds = %.thread342.i.i
-  %2419 = getelementptr inbounds nuw i8, ptr %.pre.i.i63, i64 4
+  %2419 = getelementptr inbounds nuw i8, ptr %.pre.i.i64, i64 4
   %2420 = load i32, ptr %2419, align 4
   %2421 = or i32 %2403, %2324
   %or.cond.not.i.i.i.i.i = icmp sgt i32 %2421, -1
@@ -31817,7 +31809,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2457, %stbi__malloc
   br label %2799
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit.i.i, %.lr.ph439.i.i
-  %2458 = phi ptr [ %.pre.i.i63, %.lr.ph439.i.i ], [ %2767, %.loopexit.i.i ]
+  %2458 = phi ptr [ %.pre.i.i64, %.lr.ph439.i.i ], [ %2767, %.loopexit.i.i ]
   %.0264438.i.i = phi i32 [ 0, %.lr.ph439.i.i ], [ %2768, %.loopexit.i.i ]
   %2459 = load i32, ptr %2458, align 8
   br label %.lr.ph.i.i
@@ -32317,11 +32309,11 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2457, %stbi__malloc
   %2765 = load ptr, ptr %2439, align 16
   %2766 = load i32, ptr %2501, align 8
   call void %2763(ptr noundef nonnull %2498, ptr noundef %2500, ptr noundef %2764, ptr noundef %2765, i32 noundef %2766, i32 noundef %2324) #54
-  %.pre.i67 = load ptr, ptr %calloc.i54, align 8
+  %.pre.i68 = load ptr, ptr %calloc.i54, align 8
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %2728, %2685, %.lr.ph410.i.i, %.lr.ph412.i.i, %2652, %2631, %2575, %2529, %2509, %.lr.ph437.i.i, %.loopexit.sink.split.i.i, %.preheader361.i.i, %.preheader363.i.i, %.preheader359.i.i, %.preheader357.i.i, %.preheader353.i.i, %.preheader355.i.i, %2567, %.preheader350.i.i, %.preheader348.i.i, %.preheader.i.i
-  %2767 = phi ptr [ %.pre.i67, %.loopexit.sink.split.i.i ], [ %2622, %.preheader361.i.i ], [ %2622, %.preheader363.i.i ], [ %2622, %.preheader359.i.i ], [ %2622, %.preheader357.i.i ], [ %2622, %.preheader353.i.i ], [ %2622, %.preheader355.i.i ], [ %2572, %2567 ], [ %2501, %.preheader350.i.i ], [ %2501, %.preheader348.i.i ], [ %2501, %.preheader.i.i ], [ %2501, %.lr.ph437.i.i ], [ %2501, %2509 ], [ %2501, %2529 ], [ %2572, %2575 ], [ %2622, %2631 ], [ %2622, %2652 ], [ %2622, %.lr.ph412.i.i ], [ %2622, %.lr.ph410.i.i ], [ %2622, %2685 ], [ %2622, %2728 ]
+  %2767 = phi ptr [ %.pre.i68, %.loopexit.sink.split.i.i ], [ %2622, %.preheader361.i.i ], [ %2622, %.preheader363.i.i ], [ %2622, %.preheader359.i.i ], [ %2622, %.preheader357.i.i ], [ %2622, %.preheader353.i.i ], [ %2622, %.preheader355.i.i ], [ %2572, %2567 ], [ %2501, %.preheader350.i.i ], [ %2501, %.preheader348.i.i ], [ %2501, %.preheader.i.i ], [ %2501, %.lr.ph437.i.i ], [ %2501, %2509 ], [ %2501, %2529 ], [ %2572, %2575 ], [ %2622, %2631 ], [ %2622, %2652 ], [ %2622, %.lr.ph412.i.i ], [ %2622, %.lr.ph410.i.i ], [ %2622, %2685 ], [ %2622, %2728 ]
   %2768 = add nuw i32 %.0264438.i.i, 1
   %2769 = getelementptr inbounds nuw i8, ptr %2767, i64 4
   %2770 = load i32, ptr %2769, align 4
@@ -32329,7 +32321,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2457, %stbi__malloc
   br i1 %2771, label %.lr.ph.preheader.i.i, label %._crit_edge440.i.i
 
 ._crit_edge440.i.i:                               ; preds = %.loopexit.i.i, %.preheader365.i.i
-  %.lcssa.i.i = phi ptr [ %.pre.i.i63, %.preheader365.i.i ], [ %2767, %.loopexit.i.i ]
+  %.lcssa.i.i = phi ptr [ %.pre.i.i64, %.preheader365.i.i ], [ %2767, %.loopexit.i.i ]
   %2772 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 8
   %2773 = load i32, ptr %2772, align 8
   %2774 = icmp sgt i32 %2773, 0
@@ -34537,32 +34529,24 @@ stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2size
   %23 = add nsw i32 %22, %2
   %.11170198 = add i32 %3, -1
   %24 = icmp sgt i32 %.11170198, -1
-  switch i32 %23, label %.critedge [
-    i32 10, label %.lr.ph258.split
-    i32 11, label %.lr.ph258.split
-    i32 12, label %.lr.ph258.split
-    i32 17, label %.lr.ph258.split
-    i32 19, label %.lr.ph258.split
-    i32 20, label %.lr.ph258.split
-    i32 28, label %.lr.ph258.split
-    i32 25, label %.lr.ph258.split
-    i32 26, label %.lr.ph258.split
-    i32 33, label %.lr.ph258.split
-    i32 34, label %.lr.ph258.split
-    i32 35, label %.lr.ph258.split
-  ]
+  %switch.tableidx = add i32 %23, -10
+  %25 = icmp ult i32 %switch.tableidx, 26
+  %switch.shifted = lshr i32 59082375, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %25, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup.preheader, label %.critedge
 
-.lr.ph258.split:                                  ; preds = %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258
+switch.lookup.preheader:                          ; preds = %.lr.ph258
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %25
+  br label %switch.lookup
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %7, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
   tail call void @free(ptr noundef %0) #54
   store ptr @.str.106, ptr @stbi__g_failure_reason, align 8
   br label %156
 
-25:                                               ; preds = %.lr.ph258.split, %.loopexit
-  %indvars.iv = phi i64 [ 0, %.lr.ph258.split ], [ %indvars.iv.next, %.loopexit ]
+switch.lookup:                                    ; preds = %switch.lookup.preheader, %.loopexit
+  %indvars.iv = phi i64 [ 0, %switch.lookup.preheader ], [ %indvars.iv.next, %.loopexit ]
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = mul i32 %3, %26
   %28 = mul i32 %27, %1
@@ -34585,40 +34569,40 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
     i32 34, label %.preheader193
   ]
 
-.preheader195:                                    ; preds = %25
+.preheader195:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph, label %.loopexit
 
-.preheader193:                                    ; preds = %25
+.preheader193:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph206, label %.loopexit
 
-.preheader191:                                    ; preds = %25
+.preheader191:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph211, label %.loopexit
 
-.preheader189:                                    ; preds = %25
+.preheader189:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph216, label %.loopexit
 
-.preheader187:                                    ; preds = %25
+.preheader187:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph221, label %.loopexit
 
-.preheader185:                                    ; preds = %25
+.preheader185:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph226, label %.loopexit
 
-.preheader183:                                    ; preds = %25
+.preheader183:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph231, label %.loopexit
 
-.preheader181:                                    ; preds = %25
+.preheader181:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph236, label %.loopexit
 
-.preheader179:                                    ; preds = %25
+.preheader179:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph241, label %.loopexit
 
-.preheader177:                                    ; preds = %25
+.preheader177:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph246, label %.loopexit
 
-.preheader175:                                    ; preds = %25
+.preheader175:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph251, label %.loopexit
 
-.preheader:                                       ; preds = %25
+.preheader:                                       ; preds = %switch.lookup
   br i1 %24, label %.lr.ph256, label %.loopexit
 
 .lr.ph256:                                        ; preds = %.preheader, %.lr.ph256
@@ -34878,7 +34862,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 .loopexit:                                        ; preds = %.lr.ph206, %.lr.ph211, %.lr.ph216, %.lr.ph221, %.lr.ph226, %.lr.ph231, %.lr.ph236, %.lr.ph241, %.lr.ph246, %.lr.ph251, %.lr.ph256, %.lr.ph, %.preheader195, %.preheader193, %.preheader191, %.preheader189, %.preheader187, %.preheader185, %.preheader183, %.preheader181, %.preheader179, %.preheader177, %.preheader175, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge, label %switch.lookup
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader197
   tail call void @free(ptr noundef %0) #54

@@ -3407,41 +3407,43 @@ declare i64 @gtk_popover_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @_display_intent_callback(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2172
-  %6 = load i32, ptr %5, align 4, !tbaa !285
-  %switch = icmp ugt i32 %3, 3
-  %.not = icmp eq i32 %3, %6
-  %or.cond = select i1 %switch, i1 true, i1 %.not
-  br i1 %or.cond, label %.thread, label %7
+switch.lookup:
+  %2 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2172
+  %5 = load i32, ptr %4, align 4, !tbaa !285
+  %6 = icmp ugt i32 %2, 3
+  %.not5 = icmp eq i32 %2, %5
+  %.not = select i1 %6, i1 true, i1 %.not5
+  br i1 %.not, label %8, label %7
 
-7:                                                ; preds = %2
-  store i32 %3, ptr %5, align 4, !tbaa !285
+7:                                                ; preds = %switch.lookup
+  store i32 %2, ptr %4, align 4, !tbaa !285
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
-  br label %.thread
+  br label %8
 
-.thread:                                          ; preds = %2, %7
+8:                                                ; preds = %7, %switch.lookup
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_display2_intent_callback(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2176
-  %6 = load i32, ptr %5, align 8, !tbaa !286
-  %switch = icmp ugt i32 %3, 3
-  %.not = icmp eq i32 %3, %6
-  %or.cond = select i1 %switch, i1 true, i1 %.not
-  br i1 %or.cond, label %.thread, label %7
+switch.lookup:
+  %2 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2176
+  %5 = load i32, ptr %4, align 8, !tbaa !286
+  %6 = icmp ugt i32 %2, 3
+  %.not5 = icmp eq i32 %2, %5
+  %.not = select i1 %6, i1 true, i1 %.not5
+  br i1 %.not, label %8, label %7
 
-7:                                                ; preds = %2
-  store i32 %3, ptr %5, align 8, !tbaa !286
+7:                                                ; preds = %switch.lookup
+  store i32 %2, ptr %4, align 8, !tbaa !286
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
-  br label %.thread
+  br label %8
 
-.thread:                                          ; preds = %2, %7
+8:                                                ; preds = %7, %switch.lookup
   ret void
 }
 

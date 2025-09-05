@@ -1283,7 +1283,7 @@ define internal fastcc noundef range(i32 -529, 1) i32 @kiocb_done(ptr noundef %0
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, @io_complete_rw
-  br i1 %32, label %33, label %58
+  br i1 %32, label %33, label %switch.lookup
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1324,41 +1324,44 @@ define internal fastcc noundef range(i32 -529, 1) i32 @kiocb_done(ptr noundef %0
   br label %86
 
 56:                                               ; preds = %17
-  switch i64 %1, label %58 [
-    i64 -529, label %68
-    i64 -512, label %57
-    i64 -513, label %57
-    i64 -514, label %57
-    i64 -516, label %57
-  ]
+  %57 = icmp eq i64 %1, -529
+  br i1 %57, label %68, label %58
 
-57:                                               ; preds = %56, %56, %56, %56
-  br label %58
+58:                                               ; preds = %56
+  %switch.tableidx = add nsw i64 %1, 516
+  %59 = icmp ult i64 %switch.tableidx, 5
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.shifted = lshr i8 29, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %59, i1 %switch.lobit, i1 false
+  %spec.select = select i1 %or.cond, i64 -4, i64 %1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  br label %switch.lookup
 
-58:                                               ; preds = %56, %29, %57
-  %59 = phi i64 [ -4, %57 ], [ %1, %29 ], [ %1, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, @io_complete_rw_iopoll
+switch.lookup:                                    ; preds = %29, %58
+  %60 = phi ptr [ %.pre, %58 ], [ %31, %29 ]
+  %61 = phi i64 [ %spec.select, %58 ], [ %1, %29 ]
+  %62 = icmp eq ptr %60, @io_complete_rw_iopoll
   br i1 %62, label %63, label %64, !prof !8
 
-63:                                               ; preds = %58
-  tail call void @io_complete_rw_iopoll(ptr noundef %0, i64 noundef %59)
+63:                                               ; preds = %switch.lookup
+  tail call void @io_complete_rw_iopoll(ptr noundef %0, i64 noundef %61)
   br label %68
 
-64:                                               ; preds = %58
-  %65 = icmp eq ptr %61, @io_complete_rw
+64:                                               ; preds = %switch.lookup
+  %65 = icmp eq ptr %60, @io_complete_rw
   br i1 %65, label %66, label %67, !prof !8
 
 66:                                               ; preds = %64
-  tail call void @io_complete_rw(ptr noundef %0, i64 noundef %59)
+  tail call void @io_complete_rw(ptr noundef %0, i64 noundef %61)
   br label %68
 
 67:                                               ; preds = %64
-  tail call void %61(ptr noundef %0, i64 noundef %59) #12
+  tail call void %60(ptr noundef %0, i64 noundef %61) #12
   br label %68
 
-68:                                               ; preds = %56, %67, %66, %63
+68:                                               ; preds = %67, %66, %63, %56
   %69 = load i32, ptr %4, align 4
   %70 = and i32 %69, 131072
   %71 = icmp eq i32 %70, 0
