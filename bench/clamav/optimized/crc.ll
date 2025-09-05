@@ -24,10 +24,10 @@ define void @_Z9InitCRC32Pj(ptr noundef captures(none) %0) local_unnamed_addr #0
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %crc.next, ptr %5, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !7
+  %exitcond19.not = icmp eq i64 %indvars.iv.next, 256
+  br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.preheader, %1
+7:                                                ; preds = %.preheader, %1
   ret void
 }
 
@@ -181,7 +181,7 @@ define internal void @_GLOBAL__sub_I_crc.cpp() #3 section ".text.startup" {
   %.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %_Z9InitCRC32Pj.exit.i.i.i.preheader
 
-.preheader.i.i.i.i:                               ; preds = %0, %.preheader.i.i.i.i
+_Z9InitCRC32Pj.exit.i.i.i.preheader:              ; preds = %0, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %0 ]
   %2 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %crc.le.shift.i.i.i.i = lshr i32 %2, 8
@@ -191,39 +191,39 @@ define internal void @_GLOBAL__sub_I_crc.cpp() #3 section ".text.startup" {
   %3 = getelementptr inbounds nuw i32, ptr @_ZL10crc_tables, i64 %indvars.iv.i.i.i.i
   store i32 %crc.next.i.i.i.i, ptr %3, align 4, !tbaa !3
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 256
-  br i1 %exitcond.not.i.i.i.i, label %_Z9InitCRC32Pj.exit.i.i.i.preheader, label %.preheader.i.i.i.i, !llvm.loop !7
+  %exitcond19.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 256
+  br i1 %exitcond19.not.i.i.i.i, label %_Z9InitCRC32Pj.exit.i.i.i.preheader, label %.preheader.i.i.i.i, !llvm.loop !7
 
-_Z9InitCRC32Pj.exit.i.i.i.preheader:              ; preds = %.preheader.i.i.i.i, %0
+5:                                                ; preds = %.preheader.i.i.i.i, %0
   br label %_Z9InitCRC32Pj.exit.i.i.i
 
-_Z9InitCRC32Pj.exit.i.i.i:                        ; preds = %_Z9InitCRC32Pj.exit.i.i.i.preheader, %6
+_Z9InitCRC32Pj.exit.i.i.i:                        ; preds = %_Z9InitCRC32Pj.exit.i.i.i.preheader, %13
   %indvars.iv16.i.i.i = phi i64 [ %indvars.iv.next17.i.i.i, %6 ], [ 0, %_Z9InitCRC32Pj.exit.i.i.i.preheader ]
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL10crc_tables, i64 %indvars.iv16.i.i.i
-  %5 = load i32, ptr %4, align 4, !tbaa !3
-  br label %7
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL10crc_tables, i64 %indvars.iv16.i.i.i
+  %12 = load i32, ptr %11, align 4, !tbaa !3
+  br label %14
 
-6:                                                ; preds = %7
+13:                                               ; preds = %14
   %indvars.iv.next17.i.i.i = add nuw nsw i64 %indvars.iv16.i.i.i, 1
   %exitcond19.not.i.i.i = icmp eq i64 %indvars.iv.next17.i.i.i, 256
   br i1 %exitcond19.not.i.i.i, label %__cxx_global_var_init.exit, label %_Z9InitCRC32Pj.exit.i.i.i, !llvm.loop !14
 
-7:                                                ; preds = %7, %_Z9InitCRC32Pj.exit.i.i.i
+14:                                               ; preds = %14, %_Z9InitCRC32Pj.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %_Z9InitCRC32Pj.exit.i.i.i ], [ %indvars.iv.next.i.i.i, %7 ]
-  %.01012.i.i.i = phi i32 [ %5, %_Z9InitCRC32Pj.exit.i.i.i ], [ %13, %7 ]
-  %8 = and i32 %.01012.i.i.i, 255
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL10crc_tables, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !3
-  %12 = lshr i32 %.01012.i.i.i, 8
-  %13 = xor i32 %11, %12
-  %gep.i.i.i = getelementptr inbounds nuw [256 x i32], ptr %4, i64 %indvars.iv.i.i.i
-  store i32 %13, ptr %gep.i.i.i, align 4, !tbaa !3
+  %.01012.i.i.i = phi i32 [ %12, %_Z9InitCRC32Pj.exit.i.i.i ], [ %20, %7 ]
+  %15 = and i32 %.01012.i.i.i, 255
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL10crc_tables, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !3
+  %19 = lshr i32 %.01012.i.i.i, 8
+  %20 = xor i32 %18, %19
+  %gep.i.i.i = getelementptr inbounds nuw [256 x i32], ptr %11, i64 %indvars.iv.i.i.i
+  store i32 %20, ptr %gep.i.i.i, align 4, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %6, label %7, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %13, label %14, !llvm.loop !15
 
-__cxx_global_var_init.exit:                       ; preds = %6
+__cxx_global_var_init.exit:                       ; preds = %13
   ret void
 }
 
