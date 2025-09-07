@@ -5707,11 +5707,11 @@ agxbsizeof.exit:                                  ; preds = %2
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
   %7 = shl i64 %.fr, 1
-  %spec.select50 = select i1 %6, i64 8192, i64 %7
+  %spec.select45 = select i1 %6, i64 8192, i64 %7
   %8 = add i64 %.fr, %1
-  %spec.select35 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select50)
+  %spec.select34 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select45)
   %9 = load ptr, ptr %0, align 8, !tbaa !15
-  %10 = icmp eq i64 %spec.select35, 0
+  %10 = icmp eq i64 %spec.select34, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %agxbsizeof.exit
@@ -5719,23 +5719,23 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 12:                                               ; preds = %agxbsizeof.exit
-  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select35) #24
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #24
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, i64 noundef %spec.select35) #21
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, i64 noundef %spec.select34) #21
   tail call fastcc void @graphviz_exit() #22
   unreachable
 
 18:                                               ; preds = %12
-  %19 = icmp ugt i64 %spec.select35, %.fr
+  %19 = icmp ugt i64 %spec.select34, %.fr
   br i1 %19, label %20, label %gv_recalloc.exit
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.fr
-  %22 = sub nuw i64 %spec.select35, %.fr
+  %22 = sub nuw i64 %spec.select34, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 
@@ -5760,11 +5760,11 @@ gv_calloc.exit:                                   ; preds = %23
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_calloc.exit
-  %spec.select3843 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select35, %18 ], [ %spec.select35, %20 ]
+  %spec.select3742 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select34, %18 ], [ %spec.select34, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select3843, ptr %32, align 8, !tbaa !15
+  store i64 %spec.select3742, ptr %32, align 8, !tbaa !15
   store i8 -1, ptr %3, align 1, !tbaa !15
   ret void
 }

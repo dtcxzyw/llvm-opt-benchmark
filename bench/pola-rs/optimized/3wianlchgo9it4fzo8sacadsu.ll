@@ -1999,10 +1999,10 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %36
 
 _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18: ; preds = %69
   %73 = icmp eq i64 %71, 0
-  br i1 %73, label %.thread58, label %76
+  br i1 %73, label %.thread57, label %76
 
-.thread58:                                        ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18
-  store i64 0, ptr %13, align 8
+.thread57:                                        ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18
+  store i64 %71, ptr %13, align 8
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2036,9 +2036,9 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18: ; preds = %6
 
 85:                                               ; preds = %81
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %.pre48, i64 noundef range(i64 0, -9223372036854775808) %71, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4280b7abeef26774adde4fdde8072bd.12) #30
-          to label %.noexc25 unwind label %.thread65
+          to label %.noexc25 unwind label %.thread63
 
-.thread65:                                        ; preds = %85
+.thread63:                                        ; preds = %85
   %86 = landingpad { ptr, i32 }
           cleanup
   br label %139
@@ -2054,10 +2054,10 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18: ; preds = %6
           cleanup
   br label %51
 
-90:                                               ; preds = %.thread58, %81
-  %91 = phi ptr [ %75, %.thread58 ], [ %83, %81 ]
-  %.sroa.10.0.i2063 = phi ptr [ inttoptr (i64 1 to ptr), %.thread58 ], [ %78, %81 ]
-  %.pre-phi62 = phi i64 [ 0, %.thread58 ], [ %.pre48, %81 ]
+90:                                               ; preds = %.thread57, %81
+  %91 = phi ptr [ %75, %.thread57 ], [ %83, %81 ]
+  %.sroa.10.0.i2061 = phi ptr [ inttoptr (i64 1 to ptr), %.thread57 ], [ %78, %81 ]
+  %.pre-phi60 = phi i64 [ 0, %.thread57 ], [ %.pre48, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2184,7 +2184,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18: ; preds = %6
   %132 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
   %133 = add i64 %117, -1
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  invoke void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalias noundef nonnull align 1 %.sroa.10.0.i2063, i64 noundef %.pre-phi62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %112, i8 noundef %115, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %..i.i.i.i.i, ptr noalias noundef nonnull align 8 %134, i64 noundef %133, i64 noundef %68, ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalias noundef nonnull align 1 %.sroa.10.0.i2061, i64 noundef %.pre-phi60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %112, i8 noundef %115, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %..i.i.i.i.i, ptr noalias noundef nonnull align 8 %134, i64 noundef %133, i64 noundef %68, ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
           to label %106 unwind label %.loopexit
 
 135:                                              ; preds = %116
@@ -2200,13 +2200,13 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i18: ; preds = %6
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
   unreachable
 
-139:                                              ; preds = %.thread65, %87
-  %.pn.pn64 = phi { ptr, i32 } [ %.pn, %87 ], [ %86, %.thread65 ]
+139:                                              ; preds = %.thread63, %87
+  %.pn.pn62 = phi { ptr, i32 } [ %.pn, %87 ], [ %86, %.thread63 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha0a5a3fda5bf2160E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #31
           to label %140 unwind label %137
 
 140:                                              ; preds = %139, %61
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %62, %61 ], [ %.pn.pn64, %139 ]
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %62, %61 ], [ %.pn.pn62, %139 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h4a5a796b891e07f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #31
           to label %51 unwind label %137
 

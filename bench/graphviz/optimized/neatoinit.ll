@@ -1849,8 +1849,8 @@ neatoModel.exit:                                  ; preds = %neatoMode.exit, %59
   br i1 %96, label %106, label %115
 
 .preheader:                                       ; preds = %.thread92, %103
-  %.06896 = phi i64 [ %104, %103 ], [ 0, %.thread92 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %.06896
+  %.06895 = phi i64 [ %104, %103 ], [ 0, %.thread92 ]
+  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %.06895
   %98 = load ptr, ptr %97, align 8, !tbaa !115
   %99 = call i64 @graphviz_node_induce(ptr noundef %98, ptr noundef null) #22
   call fastcc void @neatoLayout(ptr noundef %0, ptr noundef %98, i32 noundef %.0.i, i32 noundef %.0.i75, ptr noundef %6)
@@ -1868,7 +1868,7 @@ neatoModel.exit:                                  ; preds = %neatoMode.exit, %59
   br label %103
 
 103:                                              ; preds = %101, %102
-  %104 = add nuw i64 %.06896, 1
+  %104 = add nuw i64 %.06895, 1
   %.pr = load i64, ptr %7, align 8, !tbaa !104
   %105 = icmp ult i64 %104, %.pr
   br i1 %105, label %.preheader, label %94, !llvm.loop !116
@@ -1958,8 +1958,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %108
 addZ.exit83:                                      ; preds = %.lr.ph.i80, %125, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %143 = load i64, ptr %7, align 8, !tbaa !104
-  %.not98 = icmp eq i64 %143, 0
-  br i1 %.not98, label %._crit_edge, label %.lr.ph
+  %.not97 = icmp eq i64 %143, 0
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %addZ.exit83
   call void @free(ptr noundef %91) #22
@@ -1990,13 +1990,13 @@ addCluster.exit:                                  ; preds = %149, %._crit_edge
   br label %179
 
 .lr.ph:                                           ; preds = %addZ.exit83, %.lr.ph
-  %.097 = phi i64 [ %155, %.lr.ph ], [ 0, %addZ.exit83 ]
-  %151 = getelementptr inbounds nuw ptr, ptr %91, i64 %.097
+  %.096 = phi i64 [ %155, %.lr.ph ], [ 0, %addZ.exit83 ]
+  %151 = getelementptr inbounds nuw ptr, ptr %91, i64 %.096
   %152 = load ptr, ptr %151, align 8, !tbaa !115
   call void @free_scan_graph(ptr noundef %152) #22
   %153 = call i32 @agdelrec(ptr noundef %152, ptr noundef nonnull @.str.19) #22
   %154 = call i32 @agdelete(ptr noundef %0, ptr noundef %152) #22
-  %155 = add nuw i64 %.097, 1
+  %155 = add nuw i64 %.096, 1
   %156 = load i64, ptr %7, align 8, !tbaa !104
   %157 = icmp ult i64 %155, %156
   br i1 %157, label %.lr.ph, label %._crit_edge, !llvm.loop !121
@@ -3260,11 +3260,11 @@ agxbsizeof.exit:                                  ; preds = %2
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
   %7 = shl i64 %.fr, 1
-  %spec.select49 = select i1 %6, i64 8192, i64 %7
+  %spec.select46 = select i1 %6, i64 8192, i64 %7
   %8 = add i64 %.fr, %1
-  %spec.select36 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select49)
+  %spec.select35 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select46)
   %9 = load ptr, ptr %0, align 8, !tbaa !42
-  %10 = icmp eq i64 %spec.select36, 0
+  %10 = icmp eq i64 %spec.select35, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %agxbsizeof.exit
@@ -3272,23 +3272,23 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 12:                                               ; preds = %agxbsizeof.exit
-  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select36) #29
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select35) #29
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8, !tbaa !32
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.21, i64 noundef %spec.select36) #24
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.21, i64 noundef %spec.select35) #24
   tail call fastcc void @graphviz_exit() #25
   unreachable
 
 18:                                               ; preds = %12
-  %19 = icmp ugt i64 %spec.select36, %.fr
+  %19 = icmp ugt i64 %spec.select35, %.fr
   br i1 %19, label %20, label %gv_recalloc.exit
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.fr
-  %22 = sub nuw i64 %spec.select36, %.fr
+  %22 = sub nuw i64 %spec.select35, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 
@@ -3313,11 +3313,11 @@ gv_calloc.exit:                                   ; preds = %23
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_calloc.exit
-  %spec.select3944 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select36, %18 ], [ %spec.select36, %20 ]
+  %spec.select3843 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select35, %18 ], [ %spec.select35, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8, !tbaa !42
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select3944, ptr %32, align 8, !tbaa !42
+  store i64 %spec.select3843, ptr %32, align 8, !tbaa !42
   store i8 -1, ptr %3, align 1, !tbaa !42
   ret void
 }

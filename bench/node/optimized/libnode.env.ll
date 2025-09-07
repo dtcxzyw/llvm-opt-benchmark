@@ -69308,11 +69308,11 @@ _ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds
 
 _ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread: ; preds = %if.end8
   store ptr null, ptr %ref.tmp, align 8
-  %cmp.i.not19 = icmp eq ptr %js_array_, %ref.tmp
-  br i1 %cmp.i.not19, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit, label %if.then.i48
+  %cmp.i.not18 = icmp eq ptr %js_array_, %ref.tmp
+  br i1 %cmp.i.not18, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit, label %if.then.i48
 
 if.then.i48:                                      ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
-  %.pr1320 = phi ptr [ null, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread ], [ %call2.i.i, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit ]
+  %.pr1319 = phi ptr [ null, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread ], [ %call2.i.i, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit ]
   %3 = load ptr, ptr %js_array_, align 8
   %cmp.i.i.i50 = icmp eq ptr %3, null
   br i1 %cmp.i.i.i50, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i, label %if.end.i.i51
@@ -69323,11 +69323,11 @@ if.end.i.i51:                                     ; preds = %if.then.i48
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i: ; preds = %if.then.i48, %if.end.i.i51
-  %cmp.i.i53 = icmp eq ptr %.pr1320, null
+  %cmp.i.i53 = icmp eq ptr %.pr1319, null
   br i1 %cmp.i.i53, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit, label %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i
-  store ptr %.pr1320, ptr %js_array_, align 8
+  store ptr %.pr1319, ptr %js_array_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_) #24
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.sink.split
 

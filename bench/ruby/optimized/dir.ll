@@ -215,7 +215,7 @@ define internal fastcc i32 @ruby_glob0(ptr noundef %0, i32 noundef %1, ptr nound
   %16 = ptrtoint ptr %9 to i64
   %17 = call fastcc i32 @ruby_brace_expand(ptr noundef nonnull %0, i32 noundef %3, ptr noundef nonnull @push_glob0_caller, i64 noundef %16, ptr noundef %6, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %48
+  br label %49
 
 18:                                               ; preds = %7
   %19 = getelementptr i8, ptr %0, i64 1
@@ -251,61 +251,61 @@ rb_mul_size_overflow.exit.i.i:                    ; preds = %28
 glob_alloc_n.exit:                                ; preds = %28
   %31 = tail call noalias noundef ptr @malloc(i64 noundef %29) #25
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %48, label %rbimpl_size_mul_or_raise.exit
+  br i1 %.not, label %49, label %32
 
-rbimpl_size_mul_or_raise.exit:                    ; preds = %glob_alloc_n.exit
+32:                                               ; preds = %glob_alloc_n.exit
   %.not.i = icmp eq i64 %.048, 0
-  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %32
+  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %33
 
-32:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+33:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %31, ptr noundef nonnull readonly align 1 %.049, i64 noundef range(i64 1, 0) %.048, i1 noundef false) #22
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %32
-  %33 = getelementptr i8, ptr %31, i64 %.048
-  store i8 0, ptr %33, align 1, !tbaa !19
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #23
-  %35 = getelementptr i8, ptr %.050, i64 %34
-  %36 = tail call fastcc ptr @glob_make_pattern(ptr noundef nonnull %.050, ptr noundef %35, i32 noundef %3, ptr noundef %6)
-  store ptr %36, ptr %8, align 8, !tbaa !28
-  %.not54 = icmp eq ptr %36, null
-  br i1 %.not54, label %37, label %38
-
-37:                                               ; preds = %ruby_nonempty_memcpy.exit
-  tail call void @free(ptr noundef nonnull %31) #22
-  br label %48
+ruby_nonempty_memcpy.exit:                        ; preds = %32, %33
+  %34 = getelementptr i8, ptr %31, i64 %.048
+  store i8 0, ptr %34, align 1, !tbaa !19
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #23
+  %36 = getelementptr i8, ptr %.050, i64 %35
+  %37 = tail call fastcc ptr @glob_make_pattern(ptr noundef nonnull %.050, ptr noundef %36, i32 noundef %3, ptr noundef %6)
+  store ptr %37, ptr %8, align 8, !tbaa !28
+  %.not54 = icmp eq ptr %37, null
+  br i1 %.not54, label %38, label %39
 
 38:                                               ; preds = %ruby_nonempty_memcpy.exit
-  %39 = sub i64 %.048, %.047
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %41 = call fastcc i32 @glob_helper(i32 noundef %1, ptr noundef nonnull %31, i64 noundef %.047, i64 noundef %39, i32 noundef %.0, i32 noundef -2, ptr noundef %8, ptr noundef nonnull %40, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6)
-  %42 = load ptr, ptr %8, align 8, !tbaa !28
-  %.not8.i = icmp eq ptr %42, null
+  tail call void @free(ptr noundef nonnull %31) #22
+  br label %49
+
+39:                                               ; preds = %ruby_nonempty_memcpy.exit
+  %40 = sub i64 %.048, %.047
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %42 = call fastcc i32 @glob_helper(i32 noundef %1, ptr noundef nonnull %31, i64 noundef %.047, i64 noundef %40, i32 noundef %.0, i32 noundef -2, ptr noundef %8, ptr noundef nonnull %41, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6)
+  %43 = load ptr, ptr %8, align 8, !tbaa !28
+  %.not8.i = icmp eq ptr %43, null
   br i1 %.not8.i, label %glob_free_pattern.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %38, %47
-  %.09.i = phi ptr [ %44, %47 ], [ %42, %38 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !30
-  %45 = load ptr, ptr %.09.i, align 8, !tbaa !32
-  %.not7.i = icmp eq ptr %45, null
-  br i1 %.not7.i, label %47, label %46
+.lr.ph.i:                                         ; preds = %39, %48
+  %.09.i = phi ptr [ %45, %48 ], [ %43, %39 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !30
+  %46 = load ptr, ptr %.09.i, align 8, !tbaa !32
+  %.not7.i = icmp eq ptr %46, null
+  br i1 %.not7.i, label %48, label %47
 
-46:                                               ; preds = %.lr.ph.i
-  call void @free(ptr noundef nonnull %45) #22
-  br label %47
-
-47:                                               ; preds = %46, %.lr.ph.i
-  call void @free(ptr noundef nonnull %.09.i) #22
-  %.not.i55 = icmp eq ptr %44, null
-  br i1 %.not.i55, label %glob_free_pattern.exit, label %.lr.ph.i, !llvm.loop !33
-
-glob_free_pattern.exit:                           ; preds = %47, %38
-  call void @free(ptr noundef %31) #22
+47:                                               ; preds = %.lr.ph.i
+  call void @free(ptr noundef nonnull %46) #22
   br label %48
 
-48:                                               ; preds = %glob_alloc_n.exit, %glob_free_pattern.exit, %37, %11
-  %.046 = phi i32 [ %17, %11 ], [ %41, %glob_free_pattern.exit ], [ -1, %37 ], [ -1, %glob_alloc_n.exit ]
+48:                                               ; preds = %47, %.lr.ph.i
+  call void @free(ptr noundef nonnull %.09.i) #22
+  %.not.i55 = icmp eq ptr %45, null
+  br i1 %.not.i55, label %glob_free_pattern.exit, label %.lr.ph.i, !llvm.loop !33
+
+glob_free_pattern.exit:                           ; preds = %48, %39
+  call void @free(ptr noundef %31) #22
+  br label %49
+
+49:                                               ; preds = %glob_alloc_n.exit, %glob_free_pattern.exit, %38, %11
+  %.046 = phi i32 [ %17, %11 ], [ %42, %glob_free_pattern.exit ], [ -1, %38 ], [ -1, %glob_alloc_n.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.046
 }

@@ -2927,9 +2927,9 @@ agxblen.exit.i.i.i:                               ; preds = %layerPagePrefix.exi
 agxbsizeof.exit.i117:                             ; preds = %280
   %281 = icmp eq i64 %.fr.i118, 0
   %282 = shl i64 %.fr.i118, 1
-  %spec.select47.i119 = select i1 %281, i64 8192, i64 %282
+  %spec.select44.i119 = select i1 %281, i64 8192, i64 %282
   %283 = add i64 %.fr.i118, %273
-  %spec.select33.i120 = call i64 @llvm.umax.i64(i64 %283, i64 %spec.select47.i119)
+  %spec.select33.i120 = call i64 @llvm.umax.i64(i64 %283, i64 %spec.select44.i119)
   %284 = load ptr, ptr %7, align 8, !tbaa !3
   %285 = icmp eq i64 %spec.select33.i120, 0
   br i1 %285, label %286, label %287
@@ -3048,9 +3048,9 @@ agxbsizeof.exit.i:                                ; preds = %319
   %.fr.i = freeze i64 %320
   %321 = icmp eq i64 %.fr.i, 0
   %322 = shl i64 %.fr.i, 1
-  %spec.select47.i = select i1 %321, i64 8192, i64 %322
+  %spec.select44.i = select i1 %321, i64 8192, i64 %322
   %323 = add i64 %.fr.i, 1
-  %spec.select33.i = call i64 @llvm.umax.i64(i64 %323, i64 %spec.select47.i)
+  %spec.select33.i = call i64 @llvm.umax.i64(i64 %323, i64 %spec.select44.i)
   %324 = load ptr, ptr %7, align 8, !tbaa !3
   %325 = icmp eq i64 %spec.select33.i, 0
   br i1 %325, label %326, label %327
@@ -12018,9 +12018,9 @@ agxbsizeof.exit:                                  ; preds = %2
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
   %7 = shl i64 %.fr, 1
-  %spec.select47 = select i1 %6, i64 8192, i64 %7
+  %spec.select44 = select i1 %6, i64 8192, i64 %7
   %8 = add i64 %.fr, %1
-  %spec.select33 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select47)
+  %spec.select33 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select44)
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = icmp eq i64 %spec.select33, 0
   br i1 %10, label %11, label %12

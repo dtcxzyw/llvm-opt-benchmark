@@ -1459,21 +1459,21 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %16, ptr noundef nonnull readonly align 1 %24, i64 noundef range(i64 1, 0) %25, i1 noundef false) #25
   %26 = load ptr, ptr %3, align 8, !tbaa !25
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %ruby_nonempty_memcpy.exit22, label %rbimpl_size_mul_or_raise.exit19
+  br i1 %.not, label %ruby_nonempty_memcpy.exit21, label %27
 
-rbimpl_size_mul_or_raise.exit19:                  ; preds = %rbimpl_size_mul_or_raise.exit
-  %27 = getelementptr %struct.st_features, ptr @features, i64 %18, i32 3
-  %28 = load i64, ptr %27, align 8, !tbaa !24
-  %29 = shl i64 %28, 3
-  %.not.i20 = icmp eq i64 %29, 0
-  br i1 %.not.i20, label %ruby_nonempty_memcpy.exit22, label %30
+27:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %28 = getelementptr %struct.st_features, ptr @features, i64 %18, i32 3
+  %29 = load i64, ptr %28, align 8, !tbaa !24
+  %30 = shl i64 %29, 3
+  %.not.i19 = icmp eq i64 %30, 0
+  br i1 %.not.i19, label %ruby_nonempty_memcpy.exit21, label %31
 
-30:                                               ; preds = %rbimpl_size_mul_or_raise.exit19
-  %31 = load ptr, ptr %13, align 8, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %31, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %29, i1 noundef false) #25
-  br label %ruby_nonempty_memcpy.exit22
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %13, align 8, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %30, i1 noundef false) #25
+  br label %ruby_nonempty_memcpy.exit21
 
-ruby_nonempty_memcpy.exit22:                      ; preds = %30, %rbimpl_size_mul_or_raise.exit19, %rbimpl_size_mul_or_raise.exit
+ruby_nonempty_memcpy.exit21:                      ; preds = %31, %27, %rbimpl_size_mul_or_raise.exit
   ret ptr %0
 }
 

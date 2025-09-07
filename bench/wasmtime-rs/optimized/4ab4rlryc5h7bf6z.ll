@@ -30517,7 +30517,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %43 = icmp eq i64 %42, -9223372036854775807
   br i1 %43, label %.thread.i.i, label %73
 
-.thread.i.i:                                      ; preds = %30, %32, %34, %40
+.thread.i.i:                                      ; preds = %40, %34, %32, %30
   %.sroa.6.051.i.i = phi i64 [ %.sroa.6.0.i.i3, %40 ], [ 1, %32 ], [ %39, %34 ], [ %..i.i.i, %30 ]
   %44 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.6.051.i.i, i64 15)
   %45 = extractvalue { i64, i1 } %44, 1

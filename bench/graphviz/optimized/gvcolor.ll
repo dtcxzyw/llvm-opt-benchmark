@@ -579,9 +579,9 @@ agxbsizeof.exit.thread.i.i:                       ; preds = %9
 agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i
   %15 = icmp eq i64 %.fr.i.i.i, 0
   %16 = shl i64 %.fr.i.i.i, 1
-  %spec.select46.i.i.i = select i1 %15, i64 8192, i64 %16
+  %spec.select45.i.i.i = select i1 %15, i64 8192, i64 %16
   %17 = add i64 %.fr.i.i.i, 1
-  %spec.select34.i.i.i = call i64 @llvm.umax.i64(i64 %17, i64 %spec.select46.i.i.i)
+  %spec.select34.i.i.i = call i64 @llvm.umax.i64(i64 %17, i64 %spec.select45.i.i.i)
   %18 = load ptr, ptr %3, align 8, !tbaa !13
   %19 = icmp eq i64 %spec.select34.i.i.i, 0
   br i1 %19, label %20, label %21

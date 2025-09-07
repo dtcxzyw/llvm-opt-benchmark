@@ -5362,9 +5362,9 @@ agxbsizeof.exit:                                  ; preds = %2
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
   %7 = shl i64 %.fr, 1
-  %spec.select46 = select i1 %6, i64 8192, i64 %7
+  %spec.select45 = select i1 %6, i64 8192, i64 %7
   %8 = add i64 %.fr, %1
-  %spec.select34 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select46)
+  %spec.select34 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select45)
   %9 = load ptr, ptr %0, align 8, !tbaa !21
   %10 = icmp eq i64 %spec.select34, 0
   br i1 %10, label %11, label %12

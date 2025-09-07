@@ -20874,38 +20874,38 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit: ; p
 
 55:                                               ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit
   %56 = load i8, ptr %3, align 1
-  %57 = load i8, ptr %0, align 1
-  %58 = load i8, ptr %17, align 1
-  %59 = load i8, ptr %22, align 1
-  %60 = load i8, ptr %27, align 1
-  %61 = zext i8 %57 to i32
-  %62 = shl nuw i32 %61, 24
-  %63 = zext i8 %58 to i32
-  %64 = shl nuw nsw i32 %63, 16
-  %65 = or disjoint i32 %64, %62
-  %66 = zext i8 %59 to i32
-  %67 = shl nuw nsw i32 %66, 8
-  %68 = or disjoint i32 %65, %67
-  %69 = zext i8 %60 to i32
-  %70 = or disjoint i32 %68, %69
-  %71 = tail call noundef i32 @_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj(ptr noundef nonnull align 1 dereferenceable(6) %0, i32 noundef %70)
-  %72 = zext i8 %58 to i64
-  %73 = shl nuw nsw i64 %72, 16
-  %74 = zext i8 %57 to i64
-  %75 = shl nuw nsw i64 %74, 24
-  %76 = or disjoint i64 %73, %75
-  %77 = zext i8 %59 to i64
-  %78 = shl nuw nsw i64 %77, 8
-  %79 = or disjoint i64 %76, %78
-  %80 = zext i8 %60 to i64
-  %81 = or disjoint i64 %79, %80
-  %82 = add nuw nsw i64 %81, 1
-  %83 = zext i8 %56 to i64
-  %84 = mul nuw nsw i64 %82, %83
-  %85 = and i64 %84, 4294967295
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 %85
+  %57 = zext i8 %56 to i64
+  %58 = load i8, ptr %0, align 1
+  %59 = zext i8 %58 to i64
+  %60 = shl nuw nsw i64 %59, 24
+  %61 = load i8, ptr %17, align 1
+  %62 = zext i8 %61 to i64
+  %63 = shl nuw nsw i64 %62, 16
+  %64 = or disjoint i64 %63, %60
+  %65 = load i8, ptr %22, align 1
+  %66 = zext i8 %65 to i64
+  %67 = shl nuw nsw i64 %66, 8
+  %68 = or disjoint i64 %64, %67
+  %69 = load i8, ptr %27, align 1
+  %70 = zext i8 %69 to i64
+  %71 = or disjoint i64 %68, %70
+  %72 = add nuw nsw i64 %71, 1
+  %73 = mul nuw nsw i64 %72, %57
+  %74 = and i64 %73, 4294967295
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %74
+  %76 = zext i8 %58 to i32
+  %77 = shl nuw i32 %76, 24
+  %78 = zext i8 %61 to i32
+  %79 = shl nuw nsw i32 %78, 16
+  %80 = or disjoint i32 %79, %77
+  %81 = zext i8 %65 to i32
+  %82 = shl nuw nsw i32 %81, 8
+  %83 = or disjoint i32 %80, %82
+  %84 = zext i8 %69 to i32
+  %85 = or disjoint i32 %83, %84
+  %86 = tail call noundef i32 @_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj(ptr noundef nonnull align 1 dereferenceable(6) %0, i32 noundef %85)
   %87 = load ptr, ptr %4, align 8
-  %88 = ptrtoint ptr %86 to i64
+  %88 = ptrtoint ptr %75 to i64
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = load i32, ptr %9, align 8
@@ -20918,12 +20918,12 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit: ; p
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %88
   %97 = trunc i64 %96 to i32
-  %.not16.i.i.i25 = icmp ugt i32 %71, %97
+  %.not16.i.i.i25 = icmp ugt i32 %86, %97
   br i1 %.not16.i.i.i25, label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit.thread, label %98
 
 98:                                               ; preds = %93
   %99 = load i32, ptr %51, align 4
-  %100 = sub i32 %99, %71
+  %100 = sub i32 %99, %86
   store i32 %100, ptr %51, align 4
   %101 = icmp sgt i32 %100, 0
   br label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit.thread
@@ -25412,23 +25412,23 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit: ; p
 
 41:                                               ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit
   %42 = load i8, ptr %3, align 1
-  %43 = load i8, ptr %0, align 1
-  %44 = load i8, ptr %17, align 1
-  %45 = zext i8 %43 to i32
-  %46 = shl nuw nsw i32 %45, 8
-  %47 = zext i8 %44 to i32
-  %48 = or disjoint i32 %46, %47
-  %49 = tail call noundef i32 @_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj(ptr noundef nonnull align 1 dereferenceable(4) %0, i32 noundef %48)
-  %50 = zext i8 %43 to i64
-  %51 = shl nuw nsw i64 %50, 8
-  %52 = zext i8 %44 to i64
-  %53 = or disjoint i64 %51, %52
-  %54 = add nuw nsw i64 %53, 1
-  %55 = zext i8 %42 to i64
-  %56 = mul nuw nsw i64 %54, %55
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 %56
+  %43 = zext i8 %42 to i64
+  %44 = load i8, ptr %0, align 1
+  %45 = zext i8 %44 to i64
+  %46 = shl nuw nsw i64 %45, 8
+  %47 = load i8, ptr %17, align 1
+  %48 = zext i8 %47 to i64
+  %49 = or disjoint i64 %46, %48
+  %50 = add nuw nsw i64 %49, 1
+  %51 = mul nuw nsw i64 %50, %43
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 %51
+  %53 = zext i8 %44 to i32
+  %54 = shl nuw nsw i32 %53, 8
+  %55 = zext i8 %47 to i32
+  %56 = or disjoint i32 %54, %55
+  %57 = tail call noundef i32 @_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj(ptr noundef nonnull align 1 dereferenceable(4) %0, i32 noundef %56)
   %58 = load ptr, ptr %4, align 8
-  %59 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %52 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = load i32, ptr %9, align 8
@@ -25441,12 +25441,12 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit: ; p
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %66, %59
   %68 = trunc i64 %67 to i32
-  %.not16.i.i.i25 = icmp ugt i32 %49, %68
+  %.not16.i.i.i25 = icmp ugt i32 %57, %68
   br i1 %.not16.i.i.i25, label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit.thread, label %69
 
 69:                                               ; preds = %64
   %70 = load i32, ptr %37, align 4
-  %71 = sub i32 %70, %49
+  %71 = sub i32 %70, %57
   store i32 %71, ptr %37, align 4
   %72 = icmp sgt i32 %71, 0
   br label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit.thread

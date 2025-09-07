@@ -9203,117 +9203,116 @@ define internal fastcc range(i32 -1, 256) i32 @read_escaped_byte(ptr noundef non
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @unescape_escaped_nonascii(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #1 {
-rbimpl_size_mul_or_raise.exit:
-  %6 = alloca ptr, align 8
-  %7 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %8 = load ptr, ptr %0, align 8, !tbaa !64
-  store ptr %8, ptr %6, align 8, !tbaa !64
-  %9 = getelementptr i8, ptr %2, i64 16
-  %.val = load i32, ptr %9, align 8, !tbaa !74
-  %10 = sext i32 %.val to i64
-  %11 = alloca i8, i64 %10, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 %11, i8 noundef 0, i64 noundef %10, i1 noundef false) #29
-  %12 = call fastcc i32 @read_escaped_byte(ptr noundef %6, ptr noundef %1, ptr noundef %5)
-  %13 = icmp eq i32 %12, -1
-  br i1 %13, label %.loopexit, label %14
+  %7 = alloca ptr, align 8
+  %8 = alloca [5 x i8], align 1
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %9 = load ptr, ptr %0, align 8, !tbaa !64
+  store ptr %9, ptr %7, align 8, !tbaa !64
+  %10 = getelementptr i8, ptr %2, i64 16
+  %.val = load i32, ptr %10, align 8, !tbaa !74
+  %11 = sext i32 %.val to i64
+  %12 = alloca i8, i64 %11, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 %12, i8 noundef 0, i64 noundef %11, i1 noundef false) #29
+  %13 = call fastcc i32 @read_escaped_byte(ptr noundef %7, ptr noundef %1, ptr noundef %5)
+  %14 = icmp eq i32 %13, -1
+  br i1 %14, label %.loopexit, label %15
 
-14:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %15 = trunc nuw i32 %12 to i8
-  store i8 %15, ptr %11, align 16, !tbaa !7
-  %16 = icmp sgt i32 %.val, 1
-  br i1 %16, label %.lr.ph.preheader, label %.critedge.thread
+15:                                               ; preds = %6
+  %16 = trunc nuw i32 %13 to i8
+  store i8 %16, ptr %12, align 16, !tbaa !7
+  %17 = icmp sgt i32 %.val, 1
+  br i1 %17, label %.lr.ph.preheader, label %.critedge.thread
 
-.lr.ph.preheader:                                 ; preds = %14
+.lr.ph.preheader:                                 ; preds = %15
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %17 = getelementptr i8, ptr %11, i64 %indvars.iv
-  %18 = call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %11, ptr noundef %17, ptr noundef %2) #29
-  %19 = icmp slt i32 %18, -1
-  br i1 %19, label %20, label %.critedge.split.loop.exit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
+  %18 = getelementptr i8, ptr %12, i64 %indvars.iv
+  %19 = call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %12, ptr noundef %18, ptr noundef %2) #29
+  %20 = icmp slt i32 %19, -1
+  br i1 %20, label %21, label %.critedge.split.loop.exit
 
-20:                                               ; preds = %.lr.ph
-  %21 = call fastcc i32 @read_escaped_byte(ptr noundef %6, ptr noundef %1, ptr noundef %5)
-  %22 = icmp eq i32 %21, -1
-  br i1 %22, label %.loopexit, label %23
+21:                                               ; preds = %.lr.ph
+  %22 = call fastcc i32 @read_escaped_byte(ptr noundef %7, ptr noundef %1, ptr noundef %5)
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %.loopexit, label %24
 
-23:                                               ; preds = %20
-  %24 = trunc nuw i32 %21 to i8
+24:                                               ; preds = %21
+  %25 = trunc nuw i32 %22 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  store i8 %24, ptr %17, align 1, !tbaa !7
+  store i8 %25, ptr %18, align 1, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !261
 
 .critedge.split.loop.exit:                        ; preds = %.lr.ph
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %.critedge.split.loop.exit
-  %.044.lcssa = phi i32 [ %25, %.critedge.split.loop.exit ], [ %.val, %23 ]
-  %26 = zext nneg i32 %.044.lcssa to i64
-  %27 = getelementptr i8, ptr %11, i64 %26
-  %28 = call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %11, ptr noundef %27, ptr noundef %2) #29
-  %29 = icmp eq i32 %28, -1
-  br i1 %29, label %33, label %34
+.critedge:                                        ; preds = %24, %.critedge.split.loop.exit
+  %.044.lcssa = phi i32 [ %26, %.critedge.split.loop.exit ], [ %.val, %24 ]
+  %27 = zext nneg i32 %.044.lcssa to i64
+  %28 = getelementptr i8, ptr %12, i64 %27
+  %29 = call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %12, ptr noundef %28, ptr noundef %2) #29
+  %30 = icmp eq i32 %29, -1
+  br i1 %30, label %34, label %35
 
-.critedge.thread:                                 ; preds = %14
-  %30 = getelementptr i8, ptr %11, i64 1
-  %31 = call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %11, ptr noundef %30, ptr noundef nonnull %2) #29
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %.thread
+.critedge.thread:                                 ; preds = %15
+  %31 = getelementptr i8, ptr %12, i64 1
+  %32 = call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %12, ptr noundef %31, ptr noundef nonnull %2) #29
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %.thread
 
-33:                                               ; preds = %.critedge.thread, %.critedge
+34:                                               ; preds = %.critedge.thread, %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %5, ptr noundef nonnull align 1 dereferenceable(25) @.str.89, i64 noundef 25, i1 false) #29
   br label %.loopexit
 
-34:                                               ; preds = %.critedge
-  %35 = icmp samesign ugt i32 %.044.lcssa, 1
-  br i1 %35, label %38, label %.thread
+35:                                               ; preds = %.critedge
+  %36 = icmp samesign ugt i32 %.044.lcssa, 1
+  br i1 %36, label %39, label %.thread
 
-.thread:                                          ; preds = %.critedge.thread, %34
-  %36 = phi i64 [ %26, %34 ], [ 1, %.critedge.thread ]
-  %37 = load i8, ptr %11, align 16, !tbaa !7
-  %.not = icmp sgt i8 %37, -1
-  br i1 %.not, label %46, label %38
+.thread:                                          ; preds = %.critedge.thread, %35
+  %37 = phi i64 [ %27, %35 ], [ 1, %.critedge.thread ]
+  %38 = load i8, ptr %12, align 16, !tbaa !7
+  %.not = icmp sgt i8 %38, -1
+  br i1 %.not, label %47, label %39
 
-38:                                               ; preds = %.thread, %34
-  %39 = phi i64 [ %36, %.thread ], [ %26, %34 ]
-  %40 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %11, i64 noundef %39) #29
-  %41 = load ptr, ptr %4, align 8, !tbaa !65
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %44
+39:                                               ; preds = %.thread, %35
+  %40 = phi i64 [ %37, %.thread ], [ %27, %35 ]
+  %41 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %12, i64 noundef %40) #29
+  %42 = load ptr, ptr %4, align 8, !tbaa !65
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %38
+44:                                               ; preds = %39
   store ptr %2, ptr %4, align 8, !tbaa !65
-  br label %50
+  br label %51
 
-44:                                               ; preds = %38
-  %.not48 = icmp eq ptr %41, %2
-  br i1 %.not48, label %50, label %45
+45:                                               ; preds = %39
+  %.not48 = icmp eq ptr %42, %2
+  br i1 %.not48, label %51, label %46
 
-45:                                               ; preds = %44
+46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %5, ptr noundef nonnull align 1 dereferenceable(44) @.str.90, i64 noundef 44, i1 false) #29
   br label %.loopexit
 
-46:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %47 = zext nneg i8 %37 to i32
-  %48 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %7, i64 noundef 5, ptr noundef nonnull @.str.75, i32 noundef %47) #29
-  %49 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %7, i64 noundef 4) #29
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %50
+47:                                               ; preds = %.thread
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %48 = zext nneg i8 %38 to i32
+  %49 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %8, i64 noundef 5, ptr noundef nonnull @.str.75, i32 noundef %48) #29
+  %50 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %8, i64 noundef 4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %51
 
-50:                                               ; preds = %43, %44, %46
-  %51 = load ptr, ptr %6, align 8, !tbaa !64
-  store ptr %51, ptr %0, align 8, !tbaa !64
+51:                                               ; preds = %44, %45, %47
+  %52 = load ptr, ptr %7, align 8, !tbaa !64
+  store ptr %52, ptr %0, align 8, !tbaa !64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %rbimpl_size_mul_or_raise.exit, %50, %45, %33
-  %.0 = phi i32 [ -1, %33 ], [ 0, %50 ], [ -1, %45 ], [ -1, %rbimpl_size_mul_or_raise.exit ], [ -1, %20 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+.loopexit:                                        ; preds = %21, %6, %51, %46, %34
+  %.0 = phi i32 [ -1, %34 ], [ 0, %51 ], [ -1, %46 ], [ -1, %6 ], [ -1, %21 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 

@@ -297,26 +297,26 @@ define dso_local range(i32 -13, 1) i32 @reftable_buf_add(ptr noundef captures(no
   %9 = icmp ugt i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !8
-  br i1 %9, label %st_mult.exit.i, label %._crit_edge
+  br i1 %9, label %12, label %._crit_edge
 
-st_mult.exit.i:                                   ; preds = %3
-  %12 = shl i64 %8, 1
-  %13 = or disjoint i64 %12, 1
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %13, i64 %7)
-  %14 = load ptr, ptr @reftable_realloc_ptr, align 8, !tbaa !4
-  %.not8.i.i = icmp eq ptr %14, null
-  br i1 %.not8.i.i, label %17, label %15
+12:                                               ; preds = %3
+  %13 = shl i64 %8, 1
+  %14 = or disjoint i64 %13, 1
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %7)
+  %15 = load ptr, ptr @reftable_realloc_ptr, align 8, !tbaa !4
+  %.not8.i.i = icmp eq ptr %15, null
+  br i1 %.not8.i.i, label %18, label %16
 
-15:                                               ; preds = %st_mult.exit.i
-  %16 = tail call ptr %14(ptr noundef %11, i64 noundef %spec.select.i) #20
+16:                                               ; preds = %12
+  %17 = tail call ptr %15(ptr noundef %11, i64 noundef %spec.select.i) #20
   br label %reftable_realloc.exit.i
 
-17:                                               ; preds = %st_mult.exit.i
-  %18 = tail call ptr @realloc(ptr noundef %11, i64 noundef %spec.select.i) #22
+18:                                               ; preds = %12
+  %19 = tail call ptr @realloc(ptr noundef %11, i64 noundef %spec.select.i) #22
   br label %reftable_realloc.exit.i
 
-reftable_realloc.exit.i:                          ; preds = %17, %15
-  %.0.i.i = phi ptr [ %16, %15 ], [ %18, %17 ]
+reftable_realloc.exit.i:                          ; preds = %18, %16
+  %.0.i.i = phi ptr [ %17, %16 ], [ %19, %18 ]
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %reftable_alloc_grow.exit, label %reftable_alloc_grow.exit.thread
 
@@ -327,28 +327,28 @@ reftable_alloc_grow.exit.thread:                  ; preds = %reftable_realloc.ex
 
 reftable_alloc_grow.exit:                         ; preds = %reftable_realloc.exit.i
   %.pre = load i64, ptr %0, align 8, !tbaa !12
-  %19 = icmp ugt i64 %7, %.pre
+  %20 = icmp ugt i64 %7, %.pre
   store ptr %11, ptr %10, align 8, !tbaa !8
-  br i1 %19, label %26, label %reftable_alloc_grow.exit._crit_edge
+  br i1 %20, label %27, label %reftable_alloc_grow.exit._crit_edge
 
 reftable_alloc_grow.exit._crit_edge:              ; preds = %reftable_alloc_grow.exit.thread, %reftable_alloc_grow.exit
-  %.012.i28 = phi ptr [ %.0.i.i, %reftable_alloc_grow.exit.thread ], [ %11, %reftable_alloc_grow.exit ]
-  %.pre23 = load i64, ptr %4, align 8, !tbaa !13
+  %.012.i27 = phi ptr [ %.0.i.i, %reftable_alloc_grow.exit.thread ], [ %11, %reftable_alloc_grow.exit ]
+  %.pre22 = load i64, ptr %4, align 8, !tbaa !13
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %reftable_alloc_grow.exit._crit_edge
-  %20 = phi i64 [ %.pre23, %reftable_alloc_grow.exit._crit_edge ], [ %5, %3 ]
-  %21 = phi ptr [ %.012.i28, %reftable_alloc_grow.exit._crit_edge ], [ %11, %3 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %1, i64 %2, i1 false)
-  %24 = load ptr, ptr %22, align 8, !tbaa !8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %6
-  store i8 0, ptr %25, align 1, !tbaa !14
+  %21 = phi i64 [ %.pre22, %reftable_alloc_grow.exit._crit_edge ], [ %5, %3 ]
+  %22 = phi ptr [ %.012.i27, %reftable_alloc_grow.exit._crit_edge ], [ %11, %3 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %2, i1 false)
+  %25 = load ptr, ptr %23, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %6
+  store i8 0, ptr %26, align 1, !tbaa !14
   store i64 %6, ptr %4, align 8, !tbaa !13
-  br label %26
+  br label %27
 
-26:                                               ; preds = %reftable_alloc_grow.exit, %._crit_edge
+27:                                               ; preds = %reftable_alloc_grow.exit, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -13, %reftable_alloc_grow.exit ]
   ret i32 %.0
 }
@@ -364,26 +364,26 @@ define dso_local range(i32 -13, 1) i32 @reftable_buf_addstr(ptr noundef captures
   %9 = icmp ugt i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !8
-  br i1 %9, label %st_mult.exit.i.i, label %._crit_edge.i
+  br i1 %9, label %12, label %._crit_edge.i
 
-st_mult.exit.i.i:                                 ; preds = %2
-  %12 = shl i64 %8, 1
-  %13 = or disjoint i64 %12, 1
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 %7)
-  %14 = load ptr, ptr @reftable_realloc_ptr, align 8, !tbaa !4
-  %.not8.i.i.i = icmp eq ptr %14, null
-  br i1 %.not8.i.i.i, label %17, label %15
+12:                                               ; preds = %2
+  %13 = shl i64 %8, 1
+  %14 = or disjoint i64 %13, 1
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %7)
+  %15 = load ptr, ptr @reftable_realloc_ptr, align 8, !tbaa !4
+  %.not8.i.i.i = icmp eq ptr %15, null
+  br i1 %.not8.i.i.i, label %18, label %16
 
-15:                                               ; preds = %st_mult.exit.i.i
-  %16 = tail call ptr %14(ptr noundef %11, i64 noundef %spec.select.i.i) #20
+16:                                               ; preds = %12
+  %17 = tail call ptr %15(ptr noundef %11, i64 noundef %spec.select.i.i) #20
   br label %reftable_realloc.exit.i.i
 
-17:                                               ; preds = %st_mult.exit.i.i
-  %18 = tail call ptr @realloc(ptr noundef %11, i64 noundef %spec.select.i.i) #22
+18:                                               ; preds = %12
+  %19 = tail call ptr @realloc(ptr noundef %11, i64 noundef %spec.select.i.i) #22
   br label %reftable_realloc.exit.i.i
 
-reftable_realloc.exit.i.i:                        ; preds = %17, %15
-  %.0.i.i.i = phi ptr [ %16, %15 ], [ %18, %17 ]
+reftable_realloc.exit.i.i:                        ; preds = %18, %16
+  %.0.i.i.i = phi ptr [ %17, %16 ], [ %19, %18 ]
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i, label %reftable_alloc_grow.exit.i, label %reftable_alloc_grow.exit.thread.i
 
@@ -394,23 +394,23 @@ reftable_alloc_grow.exit.thread.i:                ; preds = %reftable_realloc.ex
 
 reftable_alloc_grow.exit.i:                       ; preds = %reftable_realloc.exit.i.i
   %.pre.i = load i64, ptr %0, align 8, !tbaa !12
-  %19 = icmp ugt i64 %7, %.pre.i
+  %20 = icmp ugt i64 %7, %.pre.i
   store ptr %11, ptr %10, align 8, !tbaa !8
-  br i1 %19, label %reftable_buf_add.exit, label %reftable_alloc_grow.exit._crit_edge.i
+  br i1 %20, label %reftable_buf_add.exit, label %reftable_alloc_grow.exit._crit_edge.i
 
 reftable_alloc_grow.exit._crit_edge.i:            ; preds = %reftable_alloc_grow.exit.i, %reftable_alloc_grow.exit.thread.i
-  %.012.i28.i = phi ptr [ %.0.i.i.i, %reftable_alloc_grow.exit.thread.i ], [ %11, %reftable_alloc_grow.exit.i ]
-  %.pre23.i = load i64, ptr %4, align 8, !tbaa !13
+  %.012.i27.i = phi ptr [ %.0.i.i.i, %reftable_alloc_grow.exit.thread.i ], [ %11, %reftable_alloc_grow.exit.i ]
+  %.pre22.i = load i64, ptr %4, align 8, !tbaa !13
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %reftable_alloc_grow.exit._crit_edge.i, %2
-  %20 = phi i64 [ %.pre23.i, %reftable_alloc_grow.exit._crit_edge.i ], [ %5, %2 ]
-  %21 = phi ptr [ %.012.i28.i, %reftable_alloc_grow.exit._crit_edge.i ], [ %11, %2 ]
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
-  %23 = load ptr, ptr %10, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %6
-  store i8 0, ptr %24, align 1, !tbaa !14
+  %21 = phi i64 [ %.pre22.i, %reftable_alloc_grow.exit._crit_edge.i ], [ %5, %2 ]
+  %22 = phi ptr [ %.012.i27.i, %reftable_alloc_grow.exit._crit_edge.i ], [ %11, %2 ]
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
+  %24 = load ptr, ptr %10, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %6
+  store i8 0, ptr %25, align 1, !tbaa !14
   store i64 %6, ptr %4, align 8, !tbaa !13
   br label %reftable_buf_add.exit
 

@@ -3410,7 +3410,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %42 = call { i64, i64 } @_ZN9hashbrown3raw11Fallibility17capacity_overflow17he2f1be606ae76e56E(i1 noundef zeroext %3), !noalias !709
   br label %57
 
-43:                                               ; preds = %34, %32
+43:                                               ; preds = %32, %34
   %.sroa.4.0.i.ph.i.i = phi i64 [ %40, %34 ], [ %..i.i.i, %32 ]
   %44 = add nuw nsw i64 %.sroa.4.0.i.ph.i.i, 15
   %45 = and i64 %44, -16

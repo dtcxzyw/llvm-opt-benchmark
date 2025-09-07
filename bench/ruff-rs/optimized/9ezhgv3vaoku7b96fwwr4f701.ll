@@ -28318,7 +28318,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h07c007b2ffd5eba6E.exit89: ; pre
   br label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableCmpOp$GT$$GT$17hf5bfddb60f539910E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator7collect17h868adb28f97fe700E.exit: ; preds = %.preheader.i.i.i.preheader.i.i.i, %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i
-  %.sroa.10.0.i.i2.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i ], [ %302, %.preheader.i.i.i.preheader.i.i.i ]
+  %.sroa.10.0.i6.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i ], [ %302, %.preheader.i.i.i.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %539 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %540 = load ptr, ptr %539, align 8, !nonnull !3, !align !135, !noundef !3
@@ -28334,7 +28334,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h868adb28f97fe700E.exit: ; preds
   br i1 %300, label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableCmpOp$GT$$GT$17hf5bfddb60f539910E.exit", label %546
 
 546:                                              ; preds = %544
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.10.0.i.i2.i.i.i, i64 noundef %298, i64 noundef range(i64 1, -9223372036854775807) 1) #55
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.10.0.i6.i.i.i.i, i64 noundef %298, i64 noundef range(i64 1, -9223372036854775807) 1) #55
   br label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableCmpOp$GT$$GT$17hf5bfddb60f539910E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator7collect17h1e457dca194d8e23E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator7collect17h868adb28f97fe700E.exit
@@ -28345,7 +28345,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h1e457dca194d8e23E.exit: ; preds
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %298, ptr %547, align 8
   %.sroa.023.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.10.0.i.i2.i.i.i, ptr %.sroa.023.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.10.0.i6.i.i.i.i, ptr %.sroa.023.sroa.4.0..sroa_idx, align 8
   %.sroa.023.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %298, ptr %.sroa.023.sroa.5.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56

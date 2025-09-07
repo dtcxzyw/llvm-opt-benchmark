@@ -2451,22 +2451,22 @@ select.unfold:                                    ; preds = %75, %.thread172, %.
   %119 = and i64 %118, 8192
   %.not.i.i168 = icmp eq i64 %119, 0
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  br i1 %.not.i.i168, label %rbimpl_size_mul_or_raise.exit, label %121
+  br i1 %.not.i.i168, label %RSTRING_PTR.exit, label %121
 
 121:                                              ; preds = %114
   %.sroa.2.0.copyload.i = load ptr, ptr %120, align 8
-  br label %rbimpl_size_mul_or_raise.exit
+  br label %RSTRING_PTR.exit
 
-rbimpl_size_mul_or_raise.exit:                    ; preds = %121, %114
+RSTRING_PTR.exit:                                 ; preds = %114, %121
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %121 ], [ %120, %114 ]
   %.not.i169 = icmp eq i64 %.0132, 0
   br i1 %.not.i169, label %ruby_nonempty_memcpy.exit, label %122
 
-122:                                              ; preds = %rbimpl_size_mul_or_raise.exit
+122:                                              ; preds = %RSTRING_PTR.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i, ptr noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %.0132, i1 noundef false) #6
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %122
+ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %122
   %123 = getelementptr i8, ptr %.sroa.2.0.i, i64 %.0132
   %124 = ptrtoint ptr %.sroa.2.0.i to i64
   store i32 6451758, ptr %123, align 1

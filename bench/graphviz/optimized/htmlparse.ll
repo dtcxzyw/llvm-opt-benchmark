@@ -1956,9 +1956,9 @@ agxbsizeof.exit.thread:                           ; preds = %1
 agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
   %7 = icmp eq i64 %.fr.i, 0
   %8 = shl i64 %.fr.i, 1
-  %spec.select46.i = select i1 %7, i64 8192, i64 %8
+  %spec.select45.i = select i1 %7, i64 8192, i64 %8
   %9 = add i64 %.fr.i, 1
-  %spec.select34.i = tail call i64 @llvm.umax.i64(i64 %9, i64 %spec.select46.i)
+  %spec.select34.i = tail call i64 @llvm.umax.i64(i64 %9, i64 %spec.select45.i)
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = icmp eq i64 %spec.select34.i, 0
   br i1 %11, label %12, label %13

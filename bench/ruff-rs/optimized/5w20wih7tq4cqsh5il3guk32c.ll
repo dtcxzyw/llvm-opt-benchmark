@@ -6978,14 +6978,14 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %3
   %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1400
   %12 = tail call noalias noundef ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %7, i64 noundef range(i64 1, -9223372036854775807) 1) #31, !noalias !1400
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92ca4dc9311f524bE.exit.i.i.i"
+  br i1 %13, label %14, label %.lr.ph.i.i.i.i.i.i.preheader.i
 
 14:                                               ; preds = %10, %3
   %.sroa.4.0.ph.i.i = phi i64 [ 1, %10 ], [ 0, %3 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.4.0.ph.i.i, i64 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #33, !noalias !1405
   unreachable
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92ca4dc9311f524bE.exit.i.i.i": ; preds = %10
+.lr.ph.i.i.i.i.i.i.preheader.i:                   ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1406)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1409)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1412)
@@ -6994,9 +6994,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1421)
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92ca4dc9311f524bE.exit.i.i.i", %.lr.ph.i.i.i.i.i.i.i
-  %15 = phi i64 [ %20, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92ca4dc9311f524bE.exit.i.i.i" ]
-  %16 = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i.i ], [ %.val.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92ca4dc9311f524bE.exit.i.i.i" ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.preheader.i
+  %15 = phi i64 [ %20, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader.i ]
+  %16 = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i.i ], [ %.val.i.i, %.lr.ph.i.i.i.i.i.i.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1424)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = load i8, ptr %16, align 1, !noalias !1427, !noundef !9
@@ -7011,11 +7011,11 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %3
   br label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf7eca1357e46d5b7E.exit"
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf7eca1357e46d5b7E.exit": ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.10.0.i.i2 = phi ptr [ %12, %._crit_edge.i.i.i.i.i.i.i ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i ]
+  %.sroa.10.0.i9.i = phi ptr [ %12, %._crit_edge.i.i.i.i.i.i.i ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i ]
   %.val5.i.i.i.i.i.i.i = phi i64 [ %20, %._crit_edge.i.i.i.i.i.i.i ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i ]
   store i64 %7, ptr %0, align 8, !alias.scope !1391, !noalias !1445
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.10.0.i.i2, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1391, !noalias !1445
+  store ptr %.sroa.10.0.i9.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1391, !noalias !1445
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.val5.i.i.i.i.i.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1391, !noalias !1445
   ret void

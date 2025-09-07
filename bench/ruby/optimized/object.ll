@@ -4302,7 +4302,7 @@ define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %
 RSTRING_PTR.exit:                                 ; preds = %4
   %.sroa.2.0.copyload.i = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.sroa.2.0.copyload.i, null
-  br i1 %.not, label %35, label %RSTRING_PTR.exit.thread
+  br i1 %.not, label %36, label %RSTRING_PTR.exit.thread
 
 RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exit
   %.sroa.2.0.i37 = phi ptr [ %.sroa.2.0.copyload.i, %RSTRING_PTR.exit ], [ %14, %4 ]
@@ -4327,69 +4327,69 @@ RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exi
 
 21:                                               ; preds = %18
   %.not34 = icmp eq ptr %3, null
-  br i1 %.not34, label %44, label %22
+  br i1 %.not34, label %45, label %22
 
 22:                                               ; preds = %21
   store i32 1, ptr %3, align 4, !tbaa !79
-  br label %44
+  br label %45
 
 23:                                               ; preds = %16, %RSTRING_PTR.exit.thread
   %24 = getelementptr i8, ptr %.sroa.2.0.i37, i64 %15
   %25 = load i8, ptr %24, align 1, !tbaa !28
   %.not31 = icmp eq i8 %25, 0
-  br i1 %.not31, label %35, label %26
+  br i1 %.not31, label %36, label %26
 
 26:                                               ; preds = %23
   %27 = add i64 %15, 1
   %28 = icmp ult i64 %27, 1024
-  br i1 %28, label %rbimpl_size_mul_or_raise.exit, label %rbimpl_size_mul_or_raise.exit.thread
+  br i1 %28, label %30, label %.thread
 
-rbimpl_size_mul_or_raise.exit.thread:             ; preds = %26
+.thread:                                          ; preds = %26
   %29 = call noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef nonnull %6, i64 noundef %27) #29
-  br label %31
+  br label %32
 
-rbimpl_size_mul_or_raise.exit:                    ; preds = %26
+30:                                               ; preds = %26
   store i64 0, ptr %6, align 8, !tbaa !7
-  %30 = alloca i8, i64 %27, align 16
+  %31 = alloca i8, i64 %27, align 16
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %31
+  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %32
 
-31:                                               ; preds = %rbimpl_size_mul_or_raise.exit.thread, %rbimpl_size_mul_or_raise.exit
-  %32 = phi ptr [ %29, %rbimpl_size_mul_or_raise.exit.thread ], [ %30, %rbimpl_size_mul_or_raise.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %.sroa.2.0.i37, i64 noundef range(i64 1, 0) %15, i1 noundef false) #23
+32:                                               ; preds = %.thread, %30
+  %33 = phi ptr [ %29, %.thread ], [ %31, %30 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %33, ptr noundef nonnull readonly align 1 %.sroa.2.0.i37, i64 noundef range(i64 1, 0) %15, i1 noundef false) #23
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %31
-  %33 = phi ptr [ %30, %rbimpl_size_mul_or_raise.exit ], [ %32, %31 ]
-  %34 = getelementptr i8, ptr %33, i64 %15
-  store i8 0, ptr %34, align 1, !tbaa !28
+ruby_nonempty_memcpy.exit:                        ; preds = %30, %32
+  %34 = phi ptr [ %31, %30 ], [ %33, %32 ]
+  %35 = getelementptr i8, ptr %34, i64 %15
+  store i8 0, ptr %35, align 1, !tbaa !28
   %.pre = load i64, ptr %5, align 8, !tbaa !7
-  br label %35
+  br label %36
 
-35:                                               ; preds = %23, %ruby_nonempty_memcpy.exit, %RSTRING_PTR.exit
-  %36 = phi i64 [ %.pre, %ruby_nonempty_memcpy.exit ], [ %10, %23 ], [ %10, %RSTRING_PTR.exit ]
-  %.024 = phi ptr [ %33, %ruby_nonempty_memcpy.exit ], [ %.sroa.2.0.i37, %23 ], [ null, %RSTRING_PTR.exit ]
-  %37 = call ptr @rb_enc_get(i64 noundef %36) #23
-  %38 = call fastcc double @rb_cstr_to_dbl_raise(ptr noundef %.024, ptr noundef %37, i32 noundef %1, i32 noundef %2, ptr noundef %3)
-  %39 = load i64, ptr %6, align 8, !tbaa !7
-  %.not32 = icmp eq i64 %39, 0
-  br i1 %.not32, label %41, label %40
+36:                                               ; preds = %23, %ruby_nonempty_memcpy.exit, %RSTRING_PTR.exit
+  %37 = phi i64 [ %.pre, %ruby_nonempty_memcpy.exit ], [ %10, %23 ], [ %10, %RSTRING_PTR.exit ]
+  %.024 = phi ptr [ %34, %ruby_nonempty_memcpy.exit ], [ %.sroa.2.0.i37, %23 ], [ null, %RSTRING_PTR.exit ]
+  %38 = call ptr @rb_enc_get(i64 noundef %37) #23
+  %39 = call fastcc double @rb_cstr_to_dbl_raise(ptr noundef %.024, ptr noundef %38, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+  %40 = load i64, ptr %6, align 8, !tbaa !7
+  %.not32 = icmp eq i64 %40, 0
+  br i1 %.not32, label %42, label %41
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #23
-  br label %44
+  br label %45
 
-41:                                               ; preds = %35
+42:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !92
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #23, !srcloc !93
-  %42 = load ptr, ptr %7, align 8, !tbaa !92
+  %43 = load ptr, ptr %7, align 8, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %43 = load volatile i64, ptr %42, align 8, !tbaa !7
-  br label %44
+  %44 = load volatile i64, ptr %43, align 8, !tbaa !7
+  br label %45
 
-44:                                               ; preds = %40, %41, %21, %22
-  %.0 = phi double [ 0.000000e+00, %22 ], [ 0.000000e+00, %21 ], [ %38, %41 ], [ %38, %40 ]
+45:                                               ; preds = %41, %42, %21, %22
+  %.0 = phi double [ 0.000000e+00, %22 ], [ 0.000000e+00, %21 ], [ %39, %42 ], [ %39, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }

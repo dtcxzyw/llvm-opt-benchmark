@@ -2242,7 +2242,7 @@ define internal void @generate_json(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %generate_json_null.exit
 
 generate_json_null.exit:                          ; preds = %10, %17
-  %18 = phi i64 [ %.pre.i.i, %17 ], [ %14, %10 ]
+  %18 = phi i64 [ %14, %10 ], [ %.pre.i.i, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !46
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
@@ -2267,7 +2267,7 @@ generate_json_null.exit:                          ; preds = %10, %17
   br label %generate_json_false.exit
 
 generate_json_false.exit:                         ; preds = %24, %31
-  %32 = phi i64 [ %.pre.i.i57, %31 ], [ %28, %24 ]
+  %32 = phi i64 [ %28, %24 ], [ %.pre.i.i57, %31 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
@@ -2292,7 +2292,7 @@ generate_json_false.exit:                         ; preds = %24, %31
   br label %generate_json_true.exit
 
 generate_json_true.exit:                          ; preds = %38, %45
-  %46 = phi i64 [ %.pre.i.i58, %45 ], [ %42, %38 ]
+  %46 = phi i64 [ %42, %38 ], [ %.pre.i.i58, %45 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %46
@@ -2366,7 +2366,7 @@ fltoa.exit.i.i:                                   ; preds = %68, %66
   br label %ruby_nonempty_memcpy.exit.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %78, %71
-  %79 = phi i64 [ %.pre.i.i.i, %78 ], [ %75, %71 ]
+  %79 = phi i64 [ %75, %71 ], [ %.pre.i.i.i, %78 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %79
@@ -2679,7 +2679,7 @@ increase_depth.exit:                              ; preds = %24
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %55, %48
-  %56 = phi i64 [ %.pre.i.i, %55 ], [ %52, %48 ]
+  %56 = phi i64 [ %52, %48 ], [ %.pre.i.i, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %56
@@ -2754,7 +2754,7 @@ define internal fastcc void @generate_json_bignum(ptr noundef captures(none) %0,
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %21, %14
-  %22 = phi i64 [ %.pre.i.i, %21 ], [ %18, %14 ]
+  %22 = phi i64 [ %18, %14 ], [ %.pre.i.i, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
@@ -2809,7 +2809,7 @@ increase_depth.exit:                              ; preds = %4
   br label %fbuffer_append.exit
 
 fbuffer_append.exit:                              ; preds = %20, %23
-  %24 = phi i64 [ %.pre.i, %23 ], [ %19, %20 ]
+  %24 = phi i64 [ %19, %20 ], [ %.pre.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
@@ -2958,7 +2958,7 @@ rb_array_len.exit:                                ; preds = %18, %21
   br label %fbuffer_append.exit
 
 fbuffer_append.exit:                              ; preds = %29, %32
-  %33 = phi i64 [ %.pre.i, %32 ], [ %28, %29 ]
+  %33 = phi i64 [ %28, %29 ], [ %.pre.i, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
@@ -3096,7 +3096,7 @@ fbuffer_append_char.exit54:                       ; preds = %66, %70
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %93, %88
-  %94 = phi i64 [ %.pre.i.i, %93 ], [ %90, %88 ]
+  %94 = phi i64 [ %90, %88 ], [ %.pre.i.i, %93 ]
   %95 = load ptr, ptr %45, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %96, ptr noundef nonnull readonly align 1 %81, i64 noundef range(i64 1, 0) %85, i1 noundef false) #22
@@ -3336,7 +3336,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %fbuffer_append_char
   br label %ruby_nonempty_memcpy.exit.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %79, %74
-  %80 = phi i64 [ %.pre.i.i5.i, %79 ], [ %76, %74 ]
+  %80 = phi i64 [ %76, %74 ], [ %.pre.i.i5.i, %79 ]
   %81 = load ptr, ptr %36, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %64, i64 noundef range(i64 1, 0) %73, i1 noundef false) #22
@@ -3371,7 +3371,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %79, %74
   br label %ruby_nonempty_memcpy.exit.i.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i.i:                ; preds = %94, %89
-  %95 = phi i64 [ %.pre.i.i.i.i, %94 ], [ %91, %89 ]
+  %95 = phi i64 [ %91, %89 ], [ %.pre.i.i.i.i, %94 ]
   %96 = load ptr, ptr %36, align 8, !tbaa !46
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %97, ptr noundef nonnull readonly align 1 %64, i64 noundef range(i64 1, 0) %88, i1 noundef false) #22
@@ -3407,7 +3407,7 @@ ruby_nonempty_memcpy.exit.i.i.i.i:                ; preds = %94, %89
   br label %fbuffer_append.exit.i.i
 
 fbuffer_append.exit.i.i:                          ; preds = %107, %102
-  %108 = phi i64 [ %.pre.i.i2.i, %107 ], [ %104, %102 ]
+  %108 = phi i64 [ %104, %102 ], [ %.pre.i.i2.i, %107 ]
   %109 = load ptr, ptr %36, align 8, !tbaa !46
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   store i16 8796, ptr %110, align 1
@@ -3429,7 +3429,7 @@ fbuffer_append.exit.i.i:                          ; preds = %107, %102
   br label %fbuffer_append.exit18.i.i
 
 fbuffer_append.exit18.i.i:                        ; preds = %118, %113
-  %119 = phi i64 [ %.pre.i17.i.i, %118 ], [ %115, %113 ]
+  %119 = phi i64 [ %115, %113 ], [ %.pre.i17.i.i, %118 ]
   %120 = load ptr, ptr %36, align 8, !tbaa !46
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %119
   store i16 23644, ptr %121, align 1
@@ -3451,7 +3451,7 @@ fbuffer_append.exit18.i.i:                        ; preds = %118, %113
   br label %fbuffer_append.exit20.i.i
 
 fbuffer_append.exit20.i.i:                        ; preds = %129, %124
-  %130 = phi i64 [ %.pre.i19.i.i, %129 ], [ %126, %124 ]
+  %130 = phi i64 [ %126, %124 ], [ %.pre.i19.i.i, %129 ]
   %131 = load ptr, ptr %36, align 8, !tbaa !46
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %130
   store i16 12124, ptr %132, align 1
@@ -3473,7 +3473,7 @@ fbuffer_append.exit20.i.i:                        ; preds = %129, %124
   br label %fbuffer_append.exit22.i.i
 
 fbuffer_append.exit22.i.i:                        ; preds = %140, %135
-  %141 = phi i64 [ %.pre.i21.i.i, %140 ], [ %137, %135 ]
+  %141 = phi i64 [ %137, %135 ], [ %.pre.i21.i.i, %140 ]
   %142 = load ptr, ptr %36, align 8, !tbaa !46
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 %141
   store i16 25180, ptr %143, align 1
@@ -3495,7 +3495,7 @@ fbuffer_append.exit22.i.i:                        ; preds = %140, %135
   br label %fbuffer_append.exit24.i.i
 
 fbuffer_append.exit24.i.i:                        ; preds = %151, %146
-  %152 = phi i64 [ %.pre.i23.i.i, %151 ], [ %148, %146 ]
+  %152 = phi i64 [ %148, %146 ], [ %.pre.i23.i.i, %151 ]
   %153 = load ptr, ptr %36, align 8, !tbaa !46
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 %152
   store i16 26204, ptr %154, align 1
@@ -3517,7 +3517,7 @@ fbuffer_append.exit24.i.i:                        ; preds = %151, %146
   br label %fbuffer_append.exit26.i.i
 
 fbuffer_append.exit26.i.i:                        ; preds = %162, %157
-  %163 = phi i64 [ %.pre.i25.i.i, %162 ], [ %159, %157 ]
+  %163 = phi i64 [ %159, %157 ], [ %.pre.i25.i.i, %162 ]
   %164 = load ptr, ptr %36, align 8, !tbaa !46
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 %163
   store i16 28252, ptr %165, align 1
@@ -3539,7 +3539,7 @@ fbuffer_append.exit26.i.i:                        ; preds = %162, %157
   br label %fbuffer_append.exit28.i.i
 
 fbuffer_append.exit28.i.i:                        ; preds = %173, %168
-  %174 = phi i64 [ %.pre.i27.i.i, %173 ], [ %170, %168 ]
+  %174 = phi i64 [ %170, %168 ], [ %.pre.i27.i.i, %173 ]
   %175 = load ptr, ptr %36, align 8, !tbaa !46
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %174
   store i16 29276, ptr %176, align 1
@@ -3561,7 +3561,7 @@ fbuffer_append.exit28.i.i:                        ; preds = %173, %168
   br label %fbuffer_append.exit30.i.i
 
 fbuffer_append.exit30.i.i:                        ; preds = %184, %179
-  %185 = phi i64 [ %.pre.i29.i.i, %184 ], [ %181, %179 ]
+  %185 = phi i64 [ %181, %179 ], [ %.pre.i29.i.i, %184 ]
   %186 = load ptr, ptr %36, align 8, !tbaa !46
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 %185
   store i16 29788, ptr %187, align 1
@@ -3592,7 +3592,7 @@ fbuffer_append.exit30.i.i:                        ; preds = %184, %179
   br label %fbuffer_append.exit32.i.i
 
 fbuffer_append.exit32.i.i:                        ; preds = %204, %190
-  %205 = phi i64 [ %.pre.i31.i.i, %204 ], [ %201, %190 ]
+  %205 = phi i64 [ %201, %190 ], [ %.pre.i31.i.i, %204 ]
   %206 = load ptr, ptr %36, align 8, !tbaa !46
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 %205
   store i32 808482140, ptr %207, align 1
@@ -3693,7 +3693,7 @@ Check_Type.exit:                                  ; preds = %10
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %29, %22
-  %30 = phi i64 [ %.pre.i.i, %29 ], [ %26, %22 ]
+  %30 = phi i64 [ %26, %22 ], [ %.pre.i.i, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
@@ -3837,7 +3837,7 @@ Check_Type.exit:                                  ; preds = %20
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %39, %32
-  %40 = phi i64 [ %.pre.i.i, %39 ], [ %36, %32 ]
+  %40 = phi i64 [ %36, %32 ], [ %.pre.i.i, %39 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %40
@@ -3948,26 +3948,26 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
 35:                                               ; preds = %33
   %36 = load i32, ptr %0, align 8, !tbaa !45
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %rbimpl_size_mul_or_raise.exit.i, label %41
+  br i1 %37, label %38, label %42
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %35
-  %38 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0, i64 noundef 1) #29
-  store ptr %38, ptr %15, align 8, !tbaa !46
+38:                                               ; preds = %35
+  %39 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0, i64 noundef 1) #29
+  store ptr %39, ptr %15, align 8, !tbaa !46
   store i32 0, ptr %0, align 8, !tbaa !45
-  %39 = load i64, ptr %27, align 8, !tbaa !56
-  %.not.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %40
+  %40 = load i64, ptr %27, align 8, !tbaa !56
+  %.not.i.i = icmp eq i64 %40, 0
+  br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %41
 
-40:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %38, ptr noundef nonnull readonly align 1 %24, i64 noundef range(i64 1, 0) %39, i1 noundef false) #22
+41:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %39, ptr noundef nonnull readonly align 1 %24, i64 noundef range(i64 1, 0) %40, i1 noundef false) #22
   br label %ruby_nonempty_memcpy.exit.i
 
-41:                                               ; preds = %35
-  %42 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %24, i64 noundef %.0, i64 noundef 1) #30
-  store ptr %42, ptr %15, align 8, !tbaa !46
+42:                                               ; preds = %35
+  %43 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %24, i64 noundef %.0, i64 noundef 1) #30
+  store ptr %43, ptr %15, align 8, !tbaa !46
   br label %ruby_nonempty_memcpy.exit.i
 
-ruby_nonempty_memcpy.exit.i:                      ; preds = %41, %40, %rbimpl_size_mul_or_raise.exit.i
+ruby_nonempty_memcpy.exit.i:                      ; preds = %42, %41, %38
   store i64 %.0, ptr %26, align 8, !tbaa !47
   br label %fbuffer_realloc.exit
 
@@ -3980,38 +3980,38 @@ define internal fastcc void @fbuffer_realloc(ptr noundef captures(none) %0, i64 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !47
   %5 = icmp ugt i64 %1, %4
-  br i1 %5, label %6, label %17
+  br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8, !tbaa !45
   %8 = icmp eq i32 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !46
-  br i1 %8, label %rbimpl_size_mul_or_raise.exit, label %15
+  br i1 %8, label %11, label %16
 
-rbimpl_size_mul_or_raise.exit:                    ; preds = %6
-  %11 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %1, i64 noundef 1) #29
-  store ptr %11, ptr %9, align 8, !tbaa !46
+11:                                               ; preds = %6
+  %12 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %1, i64 noundef 1) #29
+  store ptr %12, ptr %9, align 8, !tbaa !46
   store i32 0, ptr %0, align 8, !tbaa !45
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !56
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %14
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !56
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %15
 
-14:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %11, ptr noundef nonnull readonly align 1 %10, i64 noundef range(i64 1, 0) %13, i1 noundef false) #22
+15:                                               ; preds = %11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %10, i64 noundef range(i64 1, 0) %14, i1 noundef false) #22
   br label %ruby_nonempty_memcpy.exit
 
-15:                                               ; preds = %6
-  %16 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %10, i64 noundef %1, i64 noundef 1) #30
-  store ptr %16, ptr %9, align 8, !tbaa !46
+16:                                               ; preds = %6
+  %17 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %10, i64 noundef %1, i64 noundef 1) #30
+  store ptr %17, ptr %9, align 8, !tbaa !46
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %14, %rbimpl_size_mul_or_raise.exit, %15
+ruby_nonempty_memcpy.exit:                        ; preds = %15, %11, %16
   store i64 %1, ptr %3, align 8, !tbaa !47
-  br label %17
+  br label %18
 
-17:                                               ; preds = %ruby_nonempty_memcpy.exit, %2
+18:                                               ; preds = %ruby_nonempty_memcpy.exit, %2
   ret void
 }
 
@@ -4061,7 +4061,7 @@ define internal fastcc void @fbuffer_append_str(ptr noundef captures(none) %0, i
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %19, %12
-  %20 = phi i64 [ %.pre.i, %19 ], [ %16, %12 ]
+  %20 = phi i64 [ %16, %12 ], [ %.pre.i, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
@@ -4314,7 +4314,7 @@ define internal fastcc void @convert_UTF8_to_ASCII_only_JSON(ptr noundef nonnull
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %26, %19
-  %27 = phi i64 [ %.pre.i.i9, %26 ], [ %23, %19 ]
+  %27 = phi i64 [ %23, %19 ], [ %.pre.i.i9, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
@@ -4370,7 +4370,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %26, %19
   br label %ruby_nonempty_memcpy.exit.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %50, %43
-  %51 = phi i64 [ %.pre.i.i.i, %50 ], [ %47, %43 ]
+  %51 = phi i64 [ %47, %43 ], [ %.pre.i.i.i, %50 ]
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %51
@@ -4430,7 +4430,7 @@ search_ascii_only_escape.exit:                    ; preds = %ruby_nonempty_memcp
   br label %fbuffer_append.exit.i
 
 fbuffer_append.exit.i:                            ; preds = %71, %63
-  %72 = phi i64 [ %.pre.i.i6, %71 ], [ %68, %63 ]
+  %72 = phi i64 [ %68, %63 ], [ %.pre.i.i6, %71 ]
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %72
@@ -4456,7 +4456,7 @@ fbuffer_append.exit.i:                            ; preds = %71, %63
   br label %fbuffer_append.exit61.i
 
 fbuffer_append.exit61.i:                          ; preds = %86, %78
-  %87 = phi i64 [ %.pre.i60.i, %86 ], [ %83, %78 ]
+  %87 = phi i64 [ %83, %78 ], [ %.pre.i60.i, %86 ]
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %89 = load ptr, ptr %88, align 8, !tbaa !46
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %87
@@ -4482,7 +4482,7 @@ fbuffer_append.exit61.i:                          ; preds = %86, %78
   br label %fbuffer_append.exit63.i
 
 fbuffer_append.exit63.i:                          ; preds = %101, %93
-  %102 = phi i64 [ %.pre.i62.i, %101 ], [ %98, %93 ]
+  %102 = phi i64 [ %98, %93 ], [ %.pre.i62.i, %101 ]
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %104 = load ptr, ptr %103, align 8, !tbaa !46
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %102
@@ -4508,7 +4508,7 @@ fbuffer_append.exit63.i:                          ; preds = %101, %93
   br label %fbuffer_append.exit65.i
 
 fbuffer_append.exit65.i:                          ; preds = %116, %108
-  %117 = phi i64 [ %.pre.i64.i, %116 ], [ %113, %108 ]
+  %117 = phi i64 [ %113, %108 ], [ %.pre.i64.i, %116 ]
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %119 = load ptr, ptr %118, align 8, !tbaa !46
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 %117
@@ -4534,7 +4534,7 @@ fbuffer_append.exit65.i:                          ; preds = %116, %108
   br label %fbuffer_append.exit67.i
 
 fbuffer_append.exit67.i:                          ; preds = %131, %123
-  %132 = phi i64 [ %.pre.i66.i, %131 ], [ %128, %123 ]
+  %132 = phi i64 [ %128, %123 ], [ %.pre.i66.i, %131 ]
   %133 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !46
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %132
@@ -4560,7 +4560,7 @@ fbuffer_append.exit67.i:                          ; preds = %131, %123
   br label %fbuffer_append.exit69.i
 
 fbuffer_append.exit69.i:                          ; preds = %146, %138
-  %147 = phi i64 [ %.pre.i68.i, %146 ], [ %143, %138 ]
+  %147 = phi i64 [ %143, %138 ], [ %.pre.i68.i, %146 ]
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %149 = load ptr, ptr %148, align 8, !tbaa !46
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %147
@@ -4586,7 +4586,7 @@ fbuffer_append.exit69.i:                          ; preds = %146, %138
   br label %fbuffer_append.exit71.i
 
 fbuffer_append.exit71.i:                          ; preds = %161, %153
-  %162 = phi i64 [ %.pre.i70.i, %161 ], [ %158, %153 ]
+  %162 = phi i64 [ %158, %153 ], [ %.pre.i70.i, %161 ]
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %164 = load ptr, ptr %163, align 8, !tbaa !46
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 %162
@@ -4612,7 +4612,7 @@ fbuffer_append.exit71.i:                          ; preds = %161, %153
   br label %fbuffer_append.exit73.i
 
 fbuffer_append.exit73.i:                          ; preds = %176, %168
-  %177 = phi i64 [ %.pre.i72.i, %176 ], [ %173, %168 ]
+  %177 = phi i64 [ %173, %168 ], [ %.pre.i72.i, %176 ]
   %178 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %179 = load ptr, ptr %178, align 8, !tbaa !46
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 %177
@@ -4647,7 +4647,7 @@ fbuffer_append.exit73.i:                          ; preds = %176, %168
   br label %fbuffer_append.exit75.i
 
 fbuffer_append.exit75.i:                          ; preds = %200, %183
-  %201 = phi i64 [ %.pre.i74.i, %200 ], [ %197, %183 ]
+  %201 = phi i64 [ %197, %183 ], [ %.pre.i74.i, %200 ]
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %203 = load ptr, ptr %202, align 8, !tbaa !46
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 %201
@@ -4730,7 +4730,7 @@ fbuffer_append.exit75.i:                          ; preds = %200, %183
   br label %fbuffer_append.exit77.i
 
 fbuffer_append.exit77.i:                          ; preds = %246, %220
-  %247 = phi i64 [ %.pre.i76.i, %246 ], [ %243, %220 ]
+  %247 = phi i64 [ %243, %220 ], [ %.pre.i76.i, %246 ]
   %248 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %249 = load ptr, ptr %248, align 8, !tbaa !46
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 %247
@@ -4801,7 +4801,7 @@ fbuffer_append.exit77.i:                          ; preds = %246, %220
   br label %fbuffer_append.exit79.i
 
 fbuffer_append.exit79.i:                          ; preds = %298, %253
-  %299 = phi i64 [ %.pre.i78.i, %298 ], [ %295, %253 ]
+  %299 = phi i64 [ %295, %253 ], [ %.pre.i78.i, %298 ]
   %300 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %301 = load ptr, ptr %300, align 8, !tbaa !46
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 %299
@@ -4916,7 +4916,7 @@ define internal fastcc void @convert_UTF8_to_script_safe_JSON(ptr noundef nonnul
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %37, %30
-  %38 = phi i64 [ %.pre.i.i5, %37 ], [ %34, %30 ]
+  %38 = phi i64 [ %34, %30 ], [ %.pre.i.i5, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
@@ -4965,7 +4965,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %37, %30
   br label %ruby_nonempty_memcpy.exit.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %63, %56
-  %64 = phi i64 [ %.pre.i.i.i, %63 ], [ %60, %56 ]
+  %64 = phi i64 [ %60, %56 ], [ %.pre.i.i.i, %63 ]
   %65 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !46
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %64
@@ -5020,7 +5020,7 @@ search_script_safe_escape.exit:                   ; preds = %ruby_nonempty_memcp
   br label %fbuffer_append.exit.i
 
 fbuffer_append.exit.i:                            ; preds = %83, %75
-  %84 = phi i64 [ %.pre.i.i3, %83 ], [ %80, %75 ]
+  %84 = phi i64 [ %80, %75 ], [ %.pre.i.i3, %83 ]
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %86 = load ptr, ptr %85, align 8, !tbaa !46
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %84
@@ -5046,7 +5046,7 @@ fbuffer_append.exit.i:                            ; preds = %83, %75
   br label %fbuffer_append.exit22.i
 
 fbuffer_append.exit22.i:                          ; preds = %98, %90
-  %99 = phi i64 [ %.pre.i21.i, %98 ], [ %95, %90 ]
+  %99 = phi i64 [ %95, %90 ], [ %.pre.i21.i, %98 ]
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %101 = load ptr, ptr %100, align 8, !tbaa !46
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %99
@@ -5072,7 +5072,7 @@ fbuffer_append.exit22.i:                          ; preds = %98, %90
   br label %fbuffer_append.exit24.i
 
 fbuffer_append.exit24.i:                          ; preds = %113, %105
-  %114 = phi i64 [ %.pre.i23.i, %113 ], [ %110, %105 ]
+  %114 = phi i64 [ %110, %105 ], [ %.pre.i23.i, %113 ]
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !46
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 %114
@@ -5098,7 +5098,7 @@ fbuffer_append.exit24.i:                          ; preds = %113, %105
   br label %fbuffer_append.exit26.i
 
 fbuffer_append.exit26.i:                          ; preds = %128, %120
-  %129 = phi i64 [ %.pre.i25.i, %128 ], [ %125, %120 ]
+  %129 = phi i64 [ %125, %120 ], [ %.pre.i25.i, %128 ]
   %130 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %131 = load ptr, ptr %130, align 8, !tbaa !46
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %129
@@ -5124,7 +5124,7 @@ fbuffer_append.exit26.i:                          ; preds = %128, %120
   br label %fbuffer_append.exit28.i
 
 fbuffer_append.exit28.i:                          ; preds = %143, %135
-  %144 = phi i64 [ %.pre.i27.i, %143 ], [ %140, %135 ]
+  %144 = phi i64 [ %140, %135 ], [ %.pre.i27.i, %143 ]
   %145 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %146 = load ptr, ptr %145, align 8, !tbaa !46
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 %144
@@ -5150,7 +5150,7 @@ fbuffer_append.exit28.i:                          ; preds = %143, %135
   br label %fbuffer_append.exit30.i
 
 fbuffer_append.exit30.i:                          ; preds = %158, %150
-  %159 = phi i64 [ %.pre.i29.i, %158 ], [ %155, %150 ]
+  %159 = phi i64 [ %155, %150 ], [ %.pre.i29.i, %158 ]
   %160 = getelementptr inbounds nuw i8, ptr %151, i64 32
   %161 = load ptr, ptr %160, align 8, !tbaa !46
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 %159
@@ -5176,7 +5176,7 @@ fbuffer_append.exit30.i:                          ; preds = %158, %150
   br label %fbuffer_append.exit32.i
 
 fbuffer_append.exit32.i:                          ; preds = %173, %165
-  %174 = phi i64 [ %.pre.i31.i, %173 ], [ %170, %165 ]
+  %174 = phi i64 [ %170, %165 ], [ %.pre.i31.i, %173 ]
   %175 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %176 = load ptr, ptr %175, align 8, !tbaa !46
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 %174
@@ -5202,7 +5202,7 @@ fbuffer_append.exit32.i:                          ; preds = %173, %165
   br label %fbuffer_append.exit34.i
 
 fbuffer_append.exit34.i:                          ; preds = %188, %180
-  %189 = phi i64 [ %.pre.i33.i, %188 ], [ %185, %180 ]
+  %189 = phi i64 [ %185, %180 ], [ %.pre.i33.i, %188 ]
   %190 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %191 = load ptr, ptr %190, align 8, !tbaa !46
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 %189
@@ -5237,7 +5237,7 @@ fbuffer_append.exit34.i:                          ; preds = %188, %180
   br label %fbuffer_append.exit36.i
 
 fbuffer_append.exit36.i:                          ; preds = %212, %195
-  %213 = phi i64 [ %.pre.i35.i, %212 ], [ %209, %195 ]
+  %213 = phi i64 [ %209, %195 ], [ %.pre.i35.i, %212 ]
   %214 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %215 = load ptr, ptr %214, align 8, !tbaa !46
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 %213
@@ -5274,7 +5274,7 @@ fbuffer_append.exit36.i:                          ; preds = %212, %195
   br label %fbuffer_append.exit38.i
 
 fbuffer_append.exit38.i:                          ; preds = %231, %230
-  %232 = phi i64 [ %.pre.i37.i, %231 ], [ %227, %230 ]
+  %232 = phi i64 [ %227, %230 ], [ %.pre.i37.i, %231 ]
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %234 = load ptr, ptr %233, align 8, !tbaa !46
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 %232
@@ -5293,7 +5293,7 @@ fbuffer_append.exit38.i:                          ; preds = %231, %230
   br label %fbuffer_append.exit40.i
 
 fbuffer_append.exit40.i:                          ; preds = %239, %238
-  %240 = phi i64 [ %.pre.i39.i, %239 ], [ %227, %238 ]
+  %240 = phi i64 [ %227, %238 ], [ %.pre.i39.i, %239 ]
   %241 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %242 = load ptr, ptr %241, align 8, !tbaa !46
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 %240
@@ -5561,7 +5561,7 @@ fltoa.exit.i.i:                                   ; preds = %18, %16
   br label %ruby_nonempty_memcpy.exit.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %28, %21
-  %29 = phi i64 [ %.pre.i.i.i, %28 ], [ %25, %21 ]
+  %29 = phi i64 [ %25, %21 ], [ %.pre.i.i.i, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %29
@@ -5609,7 +5609,7 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
   br label %ruby_nonempty_memcpy.exit.i.i.i9
 
 ruby_nonempty_memcpy.exit.i.i.i9:                 ; preds = %52, %45
-  %53 = phi i64 [ %.pre.i.i.i10, %52 ], [ %49, %45 ]
+  %53 = phi i64 [ %49, %45 ], [ %.pre.i.i.i10, %52 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %53

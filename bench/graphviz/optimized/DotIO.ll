@@ -193,9 +193,9 @@ agxbsizeof.exit.i.i.thread..thread35_crit_edge:   ; preds = %agxbsizeof.exit.i.i
 agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i.thread
   %68 = icmp eq i64 %.fr.i, 0
   %69 = shl i64 %.fr.i, 1
-  %spec.select46.i = select i1 %68, i64 8192, i64 %69
+  %spec.select45.i = select i1 %68, i64 8192, i64 %69
   %70 = add i64 %.fr.i, 1
-  %spec.select34.i = call i64 @llvm.umax.i64(i64 %70, i64 %spec.select46.i)
+  %spec.select34.i = call i64 @llvm.umax.i64(i64 %70, i64 %spec.select45.i)
   %71 = load ptr, ptr %4, align 8, !tbaa !28
   %72 = icmp eq i64 %spec.select34.i, 0
   br i1 %72, label %73, label %74
@@ -2998,9 +2998,9 @@ agxbsizeof.exit:                                  ; preds = %2
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
   %7 = shl i64 %.fr, 1
-  %spec.select46 = select i1 %6, i64 8192, i64 %7
+  %spec.select45 = select i1 %6, i64 8192, i64 %7
   %8 = add i64 %.fr, %1
-  %spec.select34 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select46)
+  %spec.select34 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select45)
   %9 = load ptr, ptr %0, align 8, !tbaa !28
   %10 = icmp eq i64 %spec.select34, 0
   br i1 %10, label %11, label %12

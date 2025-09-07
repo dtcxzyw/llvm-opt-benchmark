@@ -912,38 +912,38 @@ declare ptr @__errno_location() local_unnamed_addr #5
 define internal fastcc range(i32 -13, -2147483648) i32 @fd_read_lines(i32 noundef range(i32 0, -2147483648) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @lseek64(i32 noundef %0, i64 noundef 0, i32 noundef 2) #16
   %4 = icmp slt i64 %3, 0
-  br i1 %4, label %17, label %5
+  br i1 %4, label %18, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @lseek64(i32 noundef %0, i64 noundef 0, i32 noundef 0) #16
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %17, label %st_mult.exit
+  br i1 %8, label %18, label %9
 
-st_mult.exit:                                     ; preds = %5
-  %9 = add nuw nsw i64 %3, 1
-  %10 = tail call ptr @reftable_malloc(i64 noundef %9) #16
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %17, label %11
+9:                                                ; preds = %5
+  %10 = add nuw nsw i64 %3, 1
+  %11 = tail call ptr @reftable_malloc(i64 noundef %10) #16
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %18, label %12
 
-11:                                               ; preds = %st_mult.exit
-  %12 = tail call i64 @read_in_full(i32 noundef %0, ptr noundef nonnull %10, i64 noundef %3) #16
-  %.not21 = icmp eq i64 %12, %3
-  br i1 %.not21, label %13, label %17
+12:                                               ; preds = %9
+  %13 = tail call i64 @read_in_full(i32 noundef %0, ptr noundef nonnull %11, i64 noundef %3) #16
+  %.not21 = icmp eq i64 %13, %3
+  br i1 %.not21, label %14, label %18
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %3
-  store i8 0, ptr %14, align 1, !tbaa !5
-  %15 = trunc i64 %3 to i32
-  %16 = tail call ptr @parse_names(ptr noundef nonnull %10, i32 noundef %15) #16
-  store ptr %16, ptr %1, align 8, !tbaa !30
-  %.not22 = icmp eq ptr %16, null
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %3
+  store i8 0, ptr %15, align 1, !tbaa !5
+  %16 = trunc i64 %3 to i32
+  %17 = tail call ptr @parse_names(ptr noundef nonnull %11, i32 noundef %16) #16
+  store ptr %17, ptr %1, align 8, !tbaa !30
+  %.not22 = icmp eq ptr %17, null
   %spec.select = select i1 %.not22, i32 -13, i32 %7
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13, %11, %st_mult.exit, %5, %2
-  %.017 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %st_mult.exit ], [ %10, %11 ], [ %10, %13 ]
-  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -13, %st_mult.exit ], [ -2, %11 ], [ %spec.select, %13 ]
+18:                                               ; preds = %14, %12, %9, %5, %2
+  %.017 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %9 ], [ %11, %12 ], [ %11, %14 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -13, %9 ], [ -2, %12 ], [ %spec.select, %14 ]
   tail call void @reftable_free(ptr noundef %.017) #16
   ret i32 %.0
 }

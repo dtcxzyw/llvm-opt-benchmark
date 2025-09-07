@@ -62137,8 +62137,8 @@ _ZN12polars_arrow6bitmap10assign_ops13or_assign_mut17h62d1bde29723abe1E.exit194:
   br i1 %653, label %._crit_edge533, label %.lr.ph532
 
 654:                                              ; preds = %278, %.lr.ph525
-  %.sroa.10.0.i = phi i64 [ %279, %278 ], [ 1, %.lr.ph525 ]
-  %655 = inttoptr i64 %.sroa.10.0.i to ptr
+  %.sroa.9.0.ph.i = phi i64 [ 1, %.lr.ph525 ], [ %279, %278 ]
+  %655 = inttoptr i64 %.sroa.9.0.ph.i to ptr
   store i64 %272, ptr %44, align 8
   store ptr %655, ptr %.sroa.4231.0..sroa_idx, align 8
   store i64 %272, ptr %.sroa.5232.0..sroa_idx, align 8

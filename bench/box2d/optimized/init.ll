@@ -173,8 +173,8 @@ define hidden ptr @_glfwParseUriList(ptr noundef %0, ptr noundef captures(none) 
   %3 = alloca [3 x i8], align 1
   store i32 0, ptr %1, align 4, !tbaa !6
   %4 = tail call ptr @strtok(ptr noundef %0, ptr noundef nonnull @.str.1) #21
-  %.not48 = icmp eq ptr %4, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq ptr %4, null
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -183,7 +183,7 @@ define hidden ptr @_glfwParseUriList(ptr noundef %0, ptr noundef captures(none) 
 
 7:                                                ; preds = %.lr.ph, %.loopexit
   %8 = phi ptr [ %4, %.lr.ph ], [ %67, %.loopexit ]
-  %.03149 = phi ptr [ null, %.lr.ph ], [ %.132, %.loopexit ]
+  %.03148 = phi ptr [ null, %.lr.ph ], [ %.132, %.loopexit ]
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = icmp eq i8 %9, 35
   br i1 %10, label %.loopexit, label %11
@@ -191,7 +191,7 @@ define hidden ptr @_glfwParseUriList(ptr noundef %0, ptr noundef captures(none) 
 11:                                               ; preds = %7
   %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str, i64 noundef 7) #22
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %.loopexit44
+  br i1 %13, label %14, label %.loopexit43
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 7
@@ -202,19 +202,19 @@ define hidden ptr @_glfwParseUriList(ptr noundef %0, ptr noundef captures(none) 
   %17 = load i8, ptr %.1, align 1, !tbaa !3
   %.not36 = icmp eq i8 %17, 47
   %18 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %.not36, label %.loopexit44, label %16
+  br i1 %.not36, label %.loopexit43, label %16
 
-.loopexit44:                                      ; preds = %16, %11
+.loopexit43:                                      ; preds = %16, %11
   %.030 = phi ptr [ %8, %11 ], [ %.1, %16 ]
   %19 = load i32, ptr %1, align 4, !tbaa !6
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %1, align 4, !tbaa !6
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.030) #22
   %22 = add i64 %21, 1
-  %.not43 = icmp eq i64 %22, 0
-  br i1 %.not43, label %_glfw_calloc.exit, label %23
+  %.not42 = icmp eq i64 %22, 0
+  br i1 %.not42, label %_glfw_calloc.exit, label %23
 
-23:                                               ; preds = %.loopexit44
+23:                                               ; preds = %.loopexit43
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 8), align 8, !tbaa !8
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 32), align 8, !tbaa !95
   %26 = tail call ptr %24(i64 noundef %22, ptr noundef %25) #21
@@ -229,12 +229,12 @@ define hidden ptr @_glfwParseUriList(ptr noundef %0, ptr noundef captures(none) 
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65541, ptr noundef null)
   br label %_glfw_calloc.exit
 
-_glfw_calloc.exit:                                ; preds = %.loopexit44, %27, %28
-  %.1.i = phi ptr [ %26, %27 ], [ null, %28 ], [ null, %.loopexit44 ]
+_glfw_calloc.exit:                                ; preds = %.loopexit43, %27, %28
+  %.1.i = phi ptr [ %26, %27 ], [ null, %28 ], [ null, %.loopexit43 ]
   %29 = load i32, ptr %1, align 4, !tbaa !6
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
-  %32 = icmp ne ptr %.03149, null
+  %32 = icmp ne ptr %.03148, null
   %33 = icmp ne i32 %29, 0
   %or.cond.i = and i1 %32, %33
   br i1 %or.cond.i, label %34, label %39
@@ -242,7 +242,7 @@ _glfw_calloc.exit:                                ; preds = %.loopexit44, %27, %
 34:                                               ; preds = %_glfw_calloc.exit
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 16), align 8, !tbaa !96
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 32), align 8, !tbaa !95
-  %37 = tail call ptr %35(ptr noundef nonnull %.03149, i64 noundef %31, ptr noundef %36) #21
+  %37 = tail call ptr %35(ptr noundef nonnull %.03148, i64 noundef %31, ptr noundef %36) #21
   %.not.i41 = icmp eq ptr %37, null
   br i1 %.not.i41, label %38, label %_glfw_realloc.exit
 
@@ -256,7 +256,7 @@ _glfw_calloc.exit:                                ; preds = %.loopexit44, %27, %
 _glfw_free.exit.i:                                ; preds = %39
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 24), align 8, !tbaa !97
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 32), align 8, !tbaa !95
-  tail call void %40(ptr noundef nonnull %.03149, ptr noundef %41) #21
+  tail call void %40(ptr noundef nonnull %.03148, ptr noundef %41) #21
   unreachable
 
 42:                                               ; preds = %39
@@ -327,7 +327,7 @@ _glfw_realloc.exit:                               ; preds = %34, %46
   br label %52
 
 .loopexit:                                        ; preds = %52, %7
-  %.132 = phi ptr [ %.03149, %7 ], [ %.1.i40, %52 ]
+  %.132 = phi ptr [ %.03148, %7 ], [ %.1.i40, %52 ]
   %67 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.1) #21
   %.not = icmp eq ptr %67, null
   br i1 %.not, label %._crit_edge, label %7
