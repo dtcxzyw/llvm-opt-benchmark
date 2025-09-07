@@ -1,7 +1,7 @@
 import requests
 import os
 
-allow_list = ['dtcxzyw','nikic','preames','topperc','goldsteinn','fhahn','RKSimon','arsenm','antoniofrighetto','asb','michaelmaitland','artagnon','XChy','andjo403']
+allow_list = ['dtcxzyw','nikic','preames','topperc','goldsteinn','fhahn','RKSimon','arsenm','antoniofrighetto','asb','michaelmaitland','artagnon','XChy','andjo403','zyw-bot']
 def is_authorized_users(user):
     if user in allow_list:
         return True
