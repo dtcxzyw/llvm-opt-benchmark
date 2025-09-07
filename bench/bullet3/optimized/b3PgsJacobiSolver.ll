@@ -4108,12 +4108,12 @@ _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit141: ; preds = %_ZNK12b3S
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %foldExtExtBinop = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
   %154 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop185 = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
-  %155 = extractelement <2 x float> %foldExtExtBinop185, i64 1
-  %foldExtExtBinop187 = fsub <2 x float> %.sroa.6.2, %.sroa.6170.2
-  %156 = extractelement <2 x float> %foldExtExtBinop187, i64 0
-  %.sroa.3.12.vec.insert.i.i189 = insertelement <2 x float> %foldExtExtBinop187, float 0.000000e+00, i64 1
-  store <2 x float> %.sroa.3.12.vec.insert.i.i189, ptr %72, align 8
+  %foldExtExtBinop186 = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
+  %155 = extractelement <2 x float> %foldExtExtBinop186, i64 1
+  %foldExtExtBinop188 = fsub <2 x float> %.sroa.6.2, %.sroa.6170.2
+  %156 = extractelement <2 x float> %foldExtExtBinop188, i64 0
+  %.sroa.3.12.vec.insert.i.i190 = insertelement <2 x float> %foldExtExtBinop188, float 0.000000e+00, i64 1
+  store <2 x float> %.sroa.3.12.vec.insert.i.i190, ptr %72, align 8
   %157 = load float, ptr %73, align 8, !tbaa !116
   %158 = fcmp ogt float %157, 0.000000e+00
   %159 = icmp sgt i32 %.0172, 0

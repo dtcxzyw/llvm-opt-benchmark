@@ -7621,8 +7621,8 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef 
   %46 = load ptr, ptr %4, align 16, !tbaa !116
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 384
   store ptr %45, ptr %47, align 32, !tbaa !208
-  %.not332 = icmp eq i32 %7, 1
-  br i1 %.not332, label %.preheader164, label %.lr.ph184
+  %.not333 = icmp eq i32 %7, 1
+  br i1 %.not333, label %.preheader164, label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %._crit_edge181
   %48 = mul nsw i32 %19, %13
@@ -7790,7 +7790,7 @@ float_to_half.exit.us:                            ; preds = %115, %112, %110, %1
 
 .preheader164:                                    ; preds = %755, %._crit_edge181.thread, %._crit_edge181
   %127 = phi ptr [ %27, %._crit_edge181.thread ], [ %46, %._crit_edge181 ], [ %46, %755 ]
-  %.0131322325 = phi ptr [ null, %._crit_edge181.thread ], [ %.0131.ph, %._crit_edge181 ], [ %.0131.ph, %755 ]
+  %.0131323326 = phi ptr [ null, %._crit_edge181.thread ], [ %.0131.ph, %._crit_edge181 ], [ %.0131.ph, %755 ]
   %128 = fcmp ult float %18, 1.000000e+00
   br i1 %128, label %._crit_edge205, label %.preheader163.lr.ph
 
@@ -8767,8 +8767,8 @@ half_to_float.exit.us:                            ; preds = %693, %691, %680, %6
   %722 = sext i32 %.1.us.us.us to i64
   %723 = getelementptr inbounds ptr, ptr %716, i64 %722
   %724 = load ptr, ptr %723, align 8, !tbaa !97
-  %.idx318 = shl nuw nsw i64 %indvars.iv257, 5
-  %invariant.gep330 = getelementptr inbounds nuw i8, ptr %714, i64 %.idx318
+  %.idx319 = shl nuw nsw i64 %indvars.iv257, 5
+  %invariant.gep331 = getelementptr inbounds nuw i8, ptr %714, i64 %.idx319
   br label %725
 
 725:                                              ; preds = %half_to_float.exit.us.us.us.us, %.preheader.us.us.us
@@ -8821,8 +8821,8 @@ half_to_float.exit.us:                            ; preds = %693, %691, %680, %6
 
 half_to_float.exit.us.us.us.us:                   ; preds = %753, %751, %740, %739
   %.sroa.0.0.i.i.us.us.us.us = phi i32 [ %754, %753 ], [ %752, %751 ], [ %747, %740 ], [ %737, %739 ]
-  %gep331 = getelementptr inbounds nuw float, ptr %invariant.gep330, i64 %indvars.iv253
-  store i32 %.sroa.0.0.i.i.us.us.us.us, ptr %gep331, align 4, !tbaa !174
+  %gep332 = getelementptr inbounds nuw float, ptr %invariant.gep331, i64 %indvars.iv253
+  store i32 %.sroa.0.0.i.i.us.us.us.us, ptr %gep332, align 4, !tbaa !174
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next254, 8
   br i1 %exitcond256.not, label %.split.us.us.us.us, label %725, !llvm.loop !237
@@ -8839,8 +8839,8 @@ half_to_float.exit.us.us.us.us:                   ; preds = %753, %751, %740, %7
 
 ._crit_edge201.us:                                ; preds = %._crit_edge197.us
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
-  %exitcond281.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count280
-  br i1 %exitcond281.not, label %._crit_edge205, label %.preheader163.us, !llvm.loop !239
+  %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count280
+  br i1 %exitcond280.not, label %._crit_edge205, label %.preheader163.us, !llvm.loop !239
 
 755:                                              ; preds = %.lr.ph184, %755
   %indvars.iv235 = phi i64 [ 1, %.lr.ph184 ], [ %indvars.iv.next236, %755 ]
@@ -8858,11 +8858,11 @@ half_to_float.exit.us.us.us.us:                   ; preds = %753, %751, %740, %7
   br i1 %exitcond239.not, label %.preheader164, label %755, !llvm.loop !240
 
 ._crit_edge205:                                   ; preds = %._crit_edge201.us, %.preheader163.lr.ph, %.preheader164
-  %.not147 = icmp eq ptr %.0131322325, null
+  %.not147 = icmp eq ptr %.0131323326, null
   br i1 %.not147, label %765, label %764
 
 764:                                              ; preds = %._crit_edge205
-  tail call void %1(ptr noundef nonnull %.0131322325) #20
+  tail call void %1(ptr noundef nonnull %.0131323326) #20
   br label %765
 
 765:                                              ; preds = %._crit_edge205, %764, %40

@@ -189,7 +189,7 @@ define void @_ZN14ClickableLabel17mouseReleaseEventEP11QMouseEvent(ptr noundef a
   %32 = fcmp ugt double %31, -1.000000e+00
   br i1 %32, label %33, label %.critedge
 
-33:                                               ; preds = %26
+33: ; preds = %26
   %34 = load ptr, ptr %3, align 8
   %35 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %34)
   %36 = extractvalue { double, double } %35, 1
@@ -206,7 +206,7 @@ define void @_ZN14ClickableLabel17mouseReleaseEventEP11QMouseEvent(ptr noundef a
   %47 = icmp slt i32 %46, %39
   br i1 %47, label %.critedge, label %48
 
-48:                                               ; preds = %33
+48: ; preds = %33
   tail call void @_ZN14ClickableLabel7clickedEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   br label %.critedge
 

@@ -319,10 +319,10 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br label %.noexc.us.us
 
 .noexc.us.us:                                     ; preds = %._crit_edge157.split.us.us.us, %.noexc.lr.ph.split.us.split.us
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %._crit_edge157.split.us.us.us ], [ %46, %.noexc.lr.ph.split.us.split.us ]
-  %.reass.us167.us = mul i64 %factor.op.mul, %indvars.iv181
+  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %._crit_edge157.split.us.us.us ], [ %46, %.noexc.lr.ph.split.us.split.us ]
+  %.reass.us167.us = mul i64 %factor.op.mul, %indvars.iv180
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 %.reass.us167.us
-  %.reass166.us.us = mul i64 %factor.op.mul165, %indvars.iv181
+  %.reass166.us.us = mul i64 %factor.op.mul165, %indvars.iv180
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 %.reass166.us.us
   %50 = load i32, ptr %10, align 4
   %51 = sitofp i32 %50 to float
@@ -405,8 +405,8 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %101 = select fast i1 %95, float 0.000000e+00, float %100
   %102 = getelementptr inbounds nuw float, ptr %.054156.us.us.us, i64 %indvars.iv
   store float %101, ptr %102, align 4, !tbaa !44
-  %exitcond179.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond179.not, label %._crit_edge.us162.us.us, label %59, !llvm.loop !56
+  %exitcond178.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond178.not, label %._crit_edge.us162.us.us, label %59, !llvm.loop !56
 
 .lr.ph149.split.us.us.us.us:                      ; preds = %89
   %103 = sitofp i32 %92 to float
@@ -489,19 +489,19 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 
 ._crit_edge.us.us.us.us:                          ; preds = %120
   %159 = add nuw nsw i32 %.057147.us.us.us.us, 1
-  %exitcond177.not = icmp eq i32 %159, %smax176
-  br i1 %exitcond177.not, label %._crit_edge150.us.us.us, label %.lr.ph.us.us.us.us, !llvm.loop !59
+  %exitcond176.not = icmp eq i32 %159, %smax176
+  br i1 %exitcond176.not, label %._crit_edge150.us.us.us, label %.lr.ph.us.us.us.us, !llvm.loop !59
 
 ._crit_edge.us162.us.us:                          ; preds = %._crit_edge150.us.us.us
   %160 = getelementptr inbounds nuw float, ptr %.054156.us.us.us, i64 %42
-  %exitcond180.not = icmp eq i32 %57, %36
-  br i1 %exitcond180.not, label %._crit_edge157.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !60
+  %exitcond179.not = icmp eq i32 %57, %36
+  br i1 %exitcond179.not, label %._crit_edge157.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !60
 
 ._crit_edge157.split.us.us.us:                    ; preds = %._crit_edge.us162.us.us
-  %indvars.iv.next182 = add nsw i64 %indvars.iv181, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next182 to i32
-  %exitcond184.not = icmp eq i32 %47, %lftr.wideiv
-  br i1 %exitcond184.not, label %._crit_edge, label %.noexc.us.us
+  %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next181 to i32
+  %exitcond183.not = icmp eq i32 %47, %lftr.wideiv
+  br i1 %exitcond183.not, label %._crit_edge, label %.noexc.us.us
 
 ._crit_edge:                                      ; preds = %._crit_edge157.split.us.us.us, %.noexc.lr.ph.split.us, %.noexc.lr.ph, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)

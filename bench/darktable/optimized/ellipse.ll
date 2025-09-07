@@ -4598,12 +4598,12 @@ declare i32 @dt_masks_point_in_form_near(float noundef, float noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #0 {
   %9 = fcmp reassoc nsz arcp contract afn ult float %2, %3
-  %.sink133 = select i1 %9, float %3, float %2
-  %.sink131 = select i1 %9, float %2, float %3
+  %.sink135 = select i1 %9, float %3, float %2
+  %.sink133 = select i1 %9, float %2, float %3
   %10 = fcmp reassoc nsz arcp contract afn olt float %5, %6
   %11 = select reassoc nsz arcp contract afn i1 %10, float %5, float %6
-  %12 = fmul reassoc nsz arcp contract afn float %11, %.sink133
-  %13 = fmul reassoc nsz arcp contract afn float %11, %.sink131
+  %12 = fmul reassoc nsz arcp contract afn float %11, %.sink135
+  %13 = fmul reassoc nsz arcp contract afn float %11, %.sink133
   %14 = fsub reassoc nsz arcp contract afn float %12, %13
   %15 = fadd reassoc nsz arcp contract afn float %12, %13
   %16 = fdiv reassoc nsz arcp contract afn float %14, %15
@@ -4695,13 +4695,13 @@ define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef
   %72 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %71
   br label %73
 
-73:                                               ; preds = %.lr.ph, %73
+73:; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %73 ]
   %74 = trunc i64 %indvars.iv to i32
   %75 = add i32 %74, -5
   %76 = sitofp i32 %75 to double
   %77 = fmul reassoc nsz arcp contract afn double %76, 0x401921FB54442D18
-  %78 = fmul reassoc nsz arcp contract afn double %77, %72
+  %.reass125 = fmul reassoc nsz arcp contract afn double %77, %72
   %79 = fptrunc reassoc nsz arcp contract afn double %78 to float
   %80 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %79)
   %.reass123 = fmul reassoc nsz arcp contract afn float %80, %46
@@ -4712,12 +4712,12 @@ define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef
   %.reass121.reass = fmul reassoc nsz arcp contract afn float %82, %factor.op.fmul
   %83 = fadd reassoc nsz arcp contract afn float %81, %.reass121.reass
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %84 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
-  store float %83, ptr %84, align 8, !tbaa !24
-  %85 = fadd reassoc nsz arcp contract afn float %.reass123, %41
-  %86 = fadd reassoc nsz arcp contract afn float %85, %.reass125
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store float %86, ptr %87, align 4, !tbaa !24
+  %83 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
+  store float %83, ptr %83, align 8, !tbaa !24
+  %84 = fadd reassoc nsz arcp contract afn float %.reass123, %41
+  %85 = fadd reassoc nsz arcp contract afn float %84, %.reass125
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store float %85, ptr %86, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %73

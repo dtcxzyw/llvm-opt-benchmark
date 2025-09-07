@@ -1516,21 +1516,21 @@ _get_pipescale.exit:                              ; preds = %.thread457, %266, %
   store i64 0, ptr %33, align 8
   %278 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef nonnull %27, ptr noundef nonnull %30, double noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %33, i64 noundef 1) #18
   %.not413 = icmp eq i32 %278, 0
-  %.pre523 = load i32, ptr %209, align 4, !tbaa !191
-  %.pre525 = load i32, ptr %210, align 16, !tbaa !192
+  %.pre522 = load i32, ptr %209, align 4, !tbaa !191
+  %.pre524 = load i32, ptr %210, align 16, !tbaa !192
   br i1 %.not413, label %306, label %279
 
 279:                                              ; preds = %_get_pipescale.exit
   %280 = icmp eq i32 %.0367, 0
-  %spec.select436 = select i1 %280, i32 %.pre523, i32 %.0367
+  %spec.select436 = select i1 %280, i32 %.pre522, i32 %.0367
   %281 = icmp eq i32 %.0369, 0
-  %.1370 = select i1 %281, i32 %.pre525, i32 %.0369
+  %.1370 = select i1 %281, i32 %.pre524, i32 %.0369
   %282 = icmp sgt i32 %spec.select436, 0
   br i1 %282, label %283, label %288
 
 283:                                              ; preds = %279
   %284 = uitofp nneg i32 %spec.select436 to double
-  %285 = sitofp i32 %.pre523 to double
+  %285 = sitofp i32 %.pre522 to double
   %286 = fdiv reassoc nsz arcp contract afn double %284, %285
   %287 = call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %286, double %275)
   br label %288
@@ -1542,7 +1542,7 @@ _get_pipescale.exit:                              ; preds = %.thread457, %266, %
 
 291:                                              ; preds = %288
   %292 = uitofp nneg i32 %.1370 to double
-  %293 = sitofp i32 %.pre525 to double
+  %293 = sitofp i32 %.pre524 to double
   %294 = fdiv reassoc nsz arcp contract afn double %292, %293
   %295 = call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %294, double %275)
   br label %_get_pipescale.exit440
@@ -1571,12 +1571,12 @@ _get_pipescale.exit440:                           ; preds = %288, %291
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %.pre = load i32, ptr %209, align 4, !tbaa !191
-  %.pre524 = load i32, ptr %210, align 16, !tbaa !192
+  %.pre523 = load i32, ptr %210, align 16, !tbaa !192
   br label %306
 
 306:                                              ; preds = %_get_pipescale.exit440, %305, %_get_pipescale.exit
-  %307 = phi i32 [ %.pre524, %305 ], [ %.pre525, %_get_pipescale.exit440 ], [ %.pre525, %_get_pipescale.exit ]
-  %308 = phi i32 [ %.pre, %305 ], [ %.pre523, %_get_pipescale.exit440 ], [ %.pre523, %_get_pipescale.exit ]
+  %307 = phi i32 [ %.pre523, %305 ], [ %.pre524, %_get_pipescale.exit440 ], [ %.pre524, %_get_pipescale.exit ]
+  %308 = phi i32 [ %.pre, %305 ], [ %.pre522, %_get_pipescale.exit440 ], [ %.pre522, %_get_pipescale.exit ]
   %.0371 = phi nsz double [ %.1372, %305 ], [ %297, %_get_pipescale.exit440 ], [ %277, %_get_pipescale.exit ]
   %309 = sitofp i32 %308 to double
   %310 = fmul reassoc nsz arcp contract afn double %.0371, %309
@@ -1788,8 +1788,8 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
 
 ._crit_edge491.us:                                ; preds = %401
   %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
-  %exitcond519.not = icmp eq i64 %indvars.iv.next515, %wide.trip.count518
-  br i1 %exitcond519.not, label %.loopexit, label %.preheader469.us
+  %exitcond518.not = icmp eq i64 %indvars.iv.next515, %wide.trip.count518
+  br i1 %exitcond518.not, label %.loopexit, label %.preheader469.us
 
 416:                                              ; preds = %393
   %.not419 = icmp eq i32 %5, 0
@@ -1868,8 +1868,8 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   %459 = getelementptr inbounds nuw i8, ptr %387, i64 %422
   store i8 %456, ptr %459, align 1, !tbaa !53
   %460 = add nuw i64 %.0375493, 1
-  %exitcond520.not = icmp eq i64 %460, %420
-  br i1 %exitcond520.not, label %.loopexit, label %.lr.ph494
+  %exitcond519.not = icmp eq i64 %460, %420
+  br i1 %exitcond519.not, label %.loopexit, label %.lr.ph494
 
 461:                                              ; preds = %416
   %462 = sext i32 %312 to i64
@@ -1947,8 +1947,8 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   %503 = getelementptr inbounds nuw i8, ptr %387, i64 %489
   store i8 %500, ptr %503, align 1, !tbaa !53
   %504 = add nuw i64 %.0366497, 1
-  %exitcond522.not = icmp eq i64 %504, %464
-  br i1 %exitcond522.not, label %.loopexit, label %.lr.ph498
+  %exitcond521.not = icmp eq i64 %504, %464
+  br i1 %exitcond521.not, label %.loopexit, label %.lr.ph498
 
 .lr.ph496:                                        ; preds = %.preheader465, %.lr.ph496
   %.0361495 = phi i64 [ %510, %.lr.ph496 ], [ 0, %.preheader465 ]
@@ -1960,8 +1960,8 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   store i8 %509, ptr %506, align 1, !tbaa !53
   store i8 %507, ptr %508, align 1, !tbaa !53
   %510 = add nuw i64 %.0361495, 1
-  %exitcond521.not = icmp eq i64 %510, %464
-  br i1 %exitcond521.not, label %.loopexit, label %.lr.ph496
+  %exitcond520.not = icmp eq i64 %510, %464
+  br i1 %exitcond520.not, label %.loopexit, label %.lr.ph496
 
 .loopexit:                                        ; preds = %._crit_edge491.us, %455, %.lr.ph496, %499, %.preheader469.lr.ph, %.preheader470, %.preheader467, %.preheader465, %.preheader, %393, %417
   %511 = getelementptr inbounds nuw i8, ptr %3, i64 8

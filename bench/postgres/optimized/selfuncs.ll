@@ -5682,24 +5682,24 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv25 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next26, %..loopexit_crit_edge.us ]
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next31, %..loopexit_crit_edge.us ]
   %.010914.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %.2.us, %..loopexit_crit_edge.us ]
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv25
+  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv30
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %38, align 8
   br label %56
 
 56:                                               ; preds = %.lr.ph.us, %77
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %77 ]
-  %57 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
+  %indvars.iv25 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next26, %77 ]
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv25
   %58 = load i8, ptr %57, align 1, !range !4, !noundef !5
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %77, label %60
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv25
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %40, align 8
   store i8 0, ptr %36, align 4
@@ -5713,28 +5713,28 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br i1 %or.cond8.not.us, label %77, label %70
 
 70:                                               ; preds = %60
-  %71 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv25
   store i8 1, ptr %71, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv25
+  %72 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv30
   store i8 1, ptr %72, align 1
   %73 = add i32 %.010914.us, 1
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %77, %70
   %.2.us = phi i32 [ %73, %70 ], [ %.010914.us, %77 ]
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %74 = load i32, ptr %42, align 8
   %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next26, %75
+  %76 = icmp slt i64 %indvars.iv.next31, %75
   br i1 %76, label %.lr.ph.us, label %.preheader, !llvm.loop !30
 
 77:                                               ; preds = %60, %56
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !31
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
+  br i1 %exitcond29.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !31
 
 .lr.ph15.split:                                   ; preds = %.lr.ph15
-  %wide.trip.count32 = zext nneg i32 %48 to i64
+  %wide.trip.count = zext nneg i32 %48 to i64
   %.pre = load ptr, ptr %50, align 8
   br label %.loopexit
 
@@ -5747,29 +5747,29 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   %.lcssa1052 = phi i32 [ %74, %.preheader ], [ %48, %.loopexit ]
   %.0109.lcssa51 = phi double [ %78, %.preheader ], [ 0.000000e+00, %.loopexit ]
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %wide.trip.count37 = zext nneg i32 %.lcssa1052 to i64
+  %wide.trip.count36 = zext nneg i32 %.lcssa1052 to i64
   br label %83
 
 .loopexit:                                        ; preds = %.lr.ph15.split, %.loopexit
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph15.split ], [ %indvars.iv.next29, %.loopexit ]
-  %81 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv28
+  %indvars.iv = phi i64 [ 0, %.lr.ph15.split ], [ %indvars.iv.next, %.loopexit ]
+  %81 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
   %82 = load i64, ptr %81, align 8
   store i64 %82, ptr %38, align 8
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond33.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count32
-  br i1 %exitcond33.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 83:                                               ; preds = %.lr.ph, %93
-  %indvars.iv34 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next35, %93 ]
+  %indvars.iv33 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next34, %93 ]
   %.011518 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1116, %93 ]
-  %84 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv34
+  %84 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv33
   %85 = load i8, ptr %84, align 1, !range !4, !noundef !5
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %80, align 8
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv34
+  %89 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv33
   %90 = load float, ptr %89, align 4
   %91 = fpext float %90 to double
   %92 = fadd double %.011518, %91
@@ -5777,9 +5777,9 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
 
 93:                                               ; preds = %83, %87
   %.1116 = phi double [ %92, %87 ], [ %.011518, %83 ]
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge, label %83, !llvm.loop !32
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
+  br i1 %exitcond37.not, label %._crit_edge, label %83, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %93
   %94 = fcmp olt double %.1116, 0.000000e+00

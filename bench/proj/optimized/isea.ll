@@ -1013,7 +1013,7 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
   %78 = select i1 %77, double %.0100.i, double 5.000000e+00
   %79 = fptosi double %78 to i32
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
-  %80 = icmp eq i32 %.sroa.speculated.i, %.sroa.speculated14.i
+  %82 = icmp eq i32 %.sroa.speculated.i, %.sroa.speculated14.i
   %81 = add nuw nsw i32 %.sroa.speculated14.i, 1
   %82 = icmp eq i32 %81, %79
   %or.cond108.i = select i1 %80, i1 true, i1 %82
@@ -1306,7 +1306,7 @@ _ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePoin
   %263 = fadd double %.sink.i.i, 0xC01921FB54442D18
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
 
-_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %262, %260, %258, %83, %73, %67
+default.unreachable:                              ; preds = %3, %262, %260, %258, %83, %73, %67
   %.sroa.09.1 = phi double [ %.sink.i.i, %260 ], [ %263, %262 ], [ %259, %258 ], [ 0x7FF0000000000000, %83 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.sroa.4.1 = phi double [ %.sink108.i.i, %260 ], [ %.sink108.i.i, %262 ], [ %.sink108.i.i, %258 ], [ 0x7FF0000000000000, %83 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0

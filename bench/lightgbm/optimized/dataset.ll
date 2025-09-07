@@ -22828,7 +22828,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   %3 = fcmp uno double %1, 0.000000e+00
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !297
-  br i1 %3, label %6, label %15
+  br i1 %3, label %6, label %._crit_edge
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %5, 1
@@ -22845,32 +22845,32 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   %14 = add nsw i32 %13, -1
   br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread
 
-15:                                               ; preds = %2
+._crit_edge:                                      ; preds = %2
   %16 = icmp eq i32 %5, 0
   br i1 %16, label %._crit_edge, label %35
 
 ._crit_edge:                                      ; preds = %15
   %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre65 = load i32, ptr %.phi.trans.insert64, align 4, !tbaa !298
-  %17 = icmp eq i32 %.pre65, 2
+  %17 = load i32, ptr %.phi.trans.insert64, align 4, !tbaa !298
+  %17 = icmp eq i32 %17, 2
   %18 = select i1 %17, i32 -2, i32 -1
-  br label %20
+  br label %37
 
-.thread:                                          ; preds = %8
+24:                                               ; preds = %8
   %19 = icmp eq i32 %5, 0
   br i1 %19, label %20, label %.thread35
 
-20:                                               ; preds = %._crit_edge, %.thread
+37:                                               ; preds = %._crit_edge, %24
   %spec.select.v = phi i32 [ -1, %.thread ], [ %18, %._crit_edge ]
   %.01733 = phi double [ 0.000000e+00, %.thread ], [ %1, %._crit_edge ]
-  %21 = load i32, ptr %0, align 8, !tbaa !250
+  %40 = load i32, ptr %0, align 8, !tbaa !250
   %spec.select = add nsw i32 %spec.select.v, %21
   %22 = icmp sgt i32 %spec.select, 0
   br i1 %22, label %.lr.ph, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread
 
-.lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !264
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load ptr, ptr %42, align 8, !tbaa !264
   br label %25
 
 25:                                               ; preds = %.lr.ph, %25
@@ -22906,101 +22906,101 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %44
 
-44:                                               ; preds = %45, %42
+43:                                               ; preds = %44, %42
   %.sroa.06.0.in.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.06.0.i.i.i, %45 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8, !tbaa !301
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, label %45
+  br i1 %.not.i.i.i, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, label %44
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
-  %47 = load i32, ptr %46, align 4, !tbaa !104
-  %48 = icmp eq i32 %38, %47
-  br i1 %48, label %.loopexit, label %44, !llvm.loop !302
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
+  %46 = load i32, ptr %45, align 4, !tbaa !104
+  %47 = icmp eq i32 %38, %47
+  br i1 %47, label %.loopexit, label %43, !llvm.loop !302
 
-49:                                               ; preds = %.thread35
+48:                                               ; preds = %.thread35
   %50 = sext i32 %38 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %52 = load i64, ptr %51, align 8, !tbaa !303
-  %53 = urem i64 %50, %52
-  %54 = load ptr, ptr %39, align 8, !tbaa !304
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
-  %56 = load ptr, ptr %55, align 8, !tbaa !305
-  %.not.i.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, label %57
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %51 = load i64, ptr %50, align 8, !tbaa !303
+  %52 = urem i64 %50, %51
+  %53 = load ptr, ptr %39, align 8, !tbaa !304
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %55 = load ptr, ptr %54, align 8, !tbaa !305
+  %.not.i.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, label %56
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %56, align 8, !tbaa !301
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 4, !tbaa !104
-  %61 = icmp eq i32 %38, %60
-  br i1 %61, label %.thread41, label %.lr.ph.i.i.i.i.i
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %55, align 8, !tbaa !301
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 4, !tbaa !104
+  %60 = icmp eq i32 %38, %59
+  br i1 %60, label %.thread, label %.lr.ph.i.i.i.i.i
 
-62:                                               ; preds = %65
-  %63 = icmp eq i32 %38, %67
-  br i1 %63, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !306
+61:                                               ; preds = %64
+  %62 = icmp eq i32 %38, %67
+  br i1 %62, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !306
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %57, %62
-  %.020.i.i.i.i.i = phi ptr [ %64, %62 ], [ %58, %57 ]
-  %64 = load ptr, ptr %.020.i.i.i.i.i, align 8, !tbaa !301
-  %.not18.i.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not18.i.i.i.i.i, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, label %65
+.lr.ph.i.i.i.i.i:                                 ; preds = %56, %61
+  %.020.i.i.i.i.i = phi ptr [ %63, %62 ], [ %57, %57 ]
+  %63 = load ptr, ptr %.020.i.i.i.i.i, align 8, !tbaa !301
+  %.not18.i.i.i.i.i = icmp eq ptr %63, null
+  br i1 %.not18.i.i.i.i.i, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, label %64
 
-65:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !104
-  %68 = sext i32 %67 to i64
-  %69 = urem i64 %68, %52
-  %.not19.i.i.i.i.i = icmp eq i64 %69, %53
-  br i1 %.not19.i.i.i.i.i, label %62, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !306
+64:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %66 = load i32, ptr %65, align 4, !tbaa !104
+  %67 = sext i32 %66 to i64
+  %68 = urem i64 %67, %51
+  %.not19.i.i.i.i.i = icmp eq i64 %68, %52
+  br i1 %.not19.i.i.i.i.i, label %61, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !306
 
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %65
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %64
   br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread, !llvm.loop !306
 
-.loopexit:                                        ; preds = %62, %45
-  br i1 %.not.not.i.i.i, label %70, label %.loopexit..thread41_crit_edge
+.loopexit:                                        ; preds = %61, %44
+  br i1 %.not.not.i.i.i, label %69, label %.loopexit..thread_crit_edge
 
-.loopexit..thread41_crit_edge:                    ; preds = %.loopexit
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !303
-  %.pre63 = load ptr, ptr %39, align 8, !tbaa !304
+.loopexit..thread_crit_edge:                      ; preds = %.loopexit
+  %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.pre58 = load i64, ptr %.phi.trans.insert57, align 8, !tbaa !303
+  %.pre59 = load ptr, ptr %39, align 8, !tbaa !304
   %.pre66 = sext i32 %38 to i64
-  %.pre67 = urem i64 %.pre66, %.pre
-  br label %.thread41
+  %.pre61 = urem i64 %.pre66, %.pre58
+  br label %.thread
 
-70:                                               ; preds = %.loopexit
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %72
+69:                                               ; preds = %.loopexit
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %71
 
-72:                                               ; preds = %73, %70
-  %.sroa.06.0.in.i.i.i26 = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i27, %73 ]
+71:                                               ; preds = %72, %69
+  %.sroa.06.0.in.i.i.i26 = phi ptr [ %70, %70 ], [ %.sroa.06.0.i.i.i27, %73 ]
   %.sroa.06.0.i.i.i27 = load ptr, ptr %.sroa.06.0.in.i.i.i26, align 8, !tbaa !301
   %.not.i.i.i28 = icmp eq ptr %.sroa.06.0.i.i.i27, null
-  br i1 %.not.i.i.i28, label %.loopexit.i.i, label %73
+  br i1 %.not.i.i.i28, label %.loopexit.i.i, label %72
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i27, i64 8
-  %75 = load i32, ptr %74, align 4, !tbaa !104
-  %76 = icmp eq i32 %38, %75
-  br i1 %76, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, label %72, !llvm.loop !302
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i27, i64 8
+  %74 = load i32, ptr %73, align 4, !tbaa !104
+  %75 = icmp eq i32 %38, %75
+  br i1 %75, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, label %71, !llvm.loop !302
 
-.thread41:                                        ; preds = %.loopexit..thread41_crit_edge, %57
-  %.pre-phi68 = phi i64 [ %.pre67, %.loopexit..thread41_crit_edge ], [ %53, %57 ]
-  %77 = phi ptr [ %.pre63, %.loopexit..thread41_crit_edge ], [ %54, %57 ]
-  %78 = phi i64 [ %.pre, %.loopexit..thread41_crit_edge ], [ %52, %57 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi68
-  %80 = load ptr, ptr %79, align 8, !tbaa !305
-  %.not.i.i.i.i.i19 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i.i19, label %.loopexit.i.i, label %81
+.thread:                                          ; preds = %.loopexit..thread_crit_edge, %56
+  %.pre-phi62 = phi i64 [ %.pre61, %.loopexit..thread41_crit_edge ], [ %52, %57 ]
+  %76 = phi ptr [ %.pre59, %.loopexit..thread41_crit_edge ], [ %53, %57 ]
+  %77 = phi i64 [ %.pre58, %.loopexit..thread41_crit_edge ], [ %51, %57 ]
+  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi62
+  %79 = load ptr, ptr %78, align 8, !tbaa !305
+  %.not.i.i.i.i.i19 = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i.i19, label %.loopexit.i.i, label %80
 
-81:                                               ; preds = %.thread41
-  %82 = load ptr, ptr %80, align 8, !tbaa !301
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i32, ptr %83, align 4, !tbaa !104
-  %85 = icmp eq i32 %38, %84
-  br i1 %85, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, label %.lr.ph.i.i.i.i.i20
+80:                                               ; preds = %.thread
+  %81 = load ptr, ptr %79, align 8, !tbaa !301
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load i32, ptr %82, align 4, !tbaa !104
+  %84 = icmp eq i32 %38, %83
+  br i1 %84, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, label %.lr.ph.i.i.i.i.i20
 
-86:                                               ; preds = %89
+..loopexit_crit_edge21.i.i.i.i.i24:               ; preds = %89
   %87 = icmp eq i32 %38, %91
   br i1 %87, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, label %.lr.ph.i.i.i.i.i20, !llvm.loop !306
 
@@ -23021,18 +23021,18 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM9BinMapper10ValueToBinEd(ptr nound
 ..loopexit_crit_edge21.i.i.i.i.i24:               ; preds = %89
   br label %.loopexit.i.i, !llvm.loop !306
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i20, %72, %..loopexit_crit_edge21.i.i.i.i.i24, %.thread41
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i20, %71, %..loopexit_crit_edge21.i.i.i.i.i24, %.thread
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.35) #39
   unreachable
 
-_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit: ; preds = %86, %73, %81
-  %.sroa.06.1.i.i.i25 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i27, %73 ], [ %88, %86 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i25, i64 12
-  %95 = load i32, ptr %94, align 4, !tbaa !104
+_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit: ; preds = %86, %72, %80
+  %.sroa.06.1.i.i.i25 = phi ptr [ %81, %81 ], [ %.sroa.06.0.i.i.i27, %73 ], [ %88, %86 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i25, i64 12
+  %94 = load i32, ptr %93, align 4, !tbaa !104
   br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread
 
-_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %44, %25, %20, %..loopexit_crit_edge21.i.i.i.i.i, %49, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, %35, %6, %12
-  %.0 = phi i32 [ %14, %12 ], [ 0, %6 ], [ %95, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit ], [ 0, %35 ], [ 0, %49 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %20 ], [ %.116, %25 ], [ 0, %44 ], [ 0, %.lr.ph.i.i.i.i.i ]
+_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %43, %25, %20, %..loopexit_crit_edge21.i.i.i.i.i, %48, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit, %35, %6, %12
+  %.0 = phi i32 [ %14, %12 ], [ 0, %6 ], [ %94, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE2atERS5_.exit ], [ 0, %35 ], [ 0, %49 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %20 ], [ %.116, %25 ], [ 0, %44 ], [ 0, %.lr.ph.i.i.i.i.i ]
   ret i32 %.0
 }
 

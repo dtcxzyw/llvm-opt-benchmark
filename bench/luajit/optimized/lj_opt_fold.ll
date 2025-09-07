@@ -2280,8 +2280,8 @@ define internal i32 @fold_kfold_conv_knum_u64_num(ptr noundef %0) #0 {
   %4 = fcmp ugt double %3, -1.000000e+00
   %5 = fadd double %3, 0xC3F0000000000000
   %.0.in.i = select i1 %4, double %3, double %5
-  %.0.i = fptosi double %.0.in.i to i64
-  %6 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %.0.i) #12
+  %7 = fptosi double %.0.in.i to i64
+  %6 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %7) #12
   ret i32 %6
 }
 

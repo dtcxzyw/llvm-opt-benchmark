@@ -11217,9 +11217,9 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Iterate(ptr no
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %68 = fcmp ogt float %31, 0.000000e+00
-  br i1 %.not80, label %.lr.ph85.split, label %.lr.ph.us.preheader
+  br i1 %.not80, label %.lr.ph85.split, label %.lr.ph.us
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph85
+.lr.ph.us:                                        ; preds = %.lr.ph85
   %smax = call i32 @llvm.smax.i32(i32 %36, i32 1)
   %smax112 = call i32 @llvm.smax.i32(i32 %34, i32 1)
   br label %.lr.ph.us
@@ -11340,8 +11340,8 @@ QueueCmdGeometry.exit.i.us:                       ; preds = %112
 117:                                              ; preds = %QueueCmdGeometry.exit.i.us, %SDL_RenderTextureInternal.exit.us
   %.pre-phi = phi float [ %110, %QueueCmdGeometry.exit.i.us ], [ %.pre, %SDL_RenderTextureInternal.exit.us ]
   %118 = add nuw nsw i32 %.05581.us, 1
-  %exitcond.not = icmp eq i32 %118, %smax
-  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %78, !llvm.loop !33
+  %exitcond112.not = icmp eq i32 %118, %smax
+  br i1 %exitcond112.not, label %..critedge_crit_edge.us, label %78, !llvm.loop !33
 
 ..critedge_crit_edge.us:                          ; preds = %117
   store float %.pre-phi, ptr %12, align 4
@@ -11368,16 +11368,16 @@ QueueCmdGeometry.exit.i.us:                       ; preds = %112
   %124 = fadd float %18, %119
   store float %124, ptr %39, align 4
   %125 = add nuw nsw i32 %.05784.us94, 1
-  %exitcond117.not = icmp eq i32 %125, %smax116
-  br i1 %exitcond117.not, label %.critedge67, label %.critedge.us93, !llvm.loop !32
+  %exitcond111.not = icmp eq i32 %125, %smax116
+  br i1 %exitcond111.not, label %.critedge67, label %.critedge.us93, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph85.split, %.critedge
   %.05784 = phi i32 [ %128, %.critedge ], [ 0, %.lr.ph85.split ]
   %126 = phi float [ %127, %.critedge ], [ %38, %.lr.ph85.split ]
   %127 = fadd float %18, %126
   %128 = add nuw nsw i32 %.05784, 1
-  %exitcond115.not = icmp eq i32 %128, %smax116
-  br i1 %exitcond115.not, label %..critedge67_crit_edge.split.split, label %.critedge, !llvm.loop !32
+  %exitcond.not = icmp eq i32 %128, %smax116
+  br i1 %exitcond.not, label %..critedge67_crit_edge.split.split, label %.critedge, !llvm.loop !32
 
 .split90.us:                                      ; preds = %112
   store i32 0, ptr %111, align 8
@@ -11401,36 +11401,36 @@ SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
   br label %.critedge67
 
 .critedge67:                                      ; preds = %76, %122, %..critedge67_crit_edge.split.split, %5
-  %129 = fcmp ogt float %32, 0.000000e+00
-  br i1 %129, label %130, label %142
+  %130 = fcmp ogt float %32, 0.000000e+00
+  br i1 %130, label %131, label %143
 
-130:                                              ; preds = %.critedge67
-  %131 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store float %30, ptr %131, align 4
+131:                                              ; preds = %.critedge67
+  %132 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store float %30, ptr %132, align 4
   store float %32, ptr %41, align 4
-  %132 = load float, ptr %4, align 4
-  store float %132, ptr %12, align 4
+  %133 = load float, ptr %4, align 4
+  store float %133, ptr %12, align 4
   %.not6597 = fcmp ult float %35, 1.000000e+00
-  br i1 %.not6597, label %.critedge69, label %.lr.ph.preheader
+  br i1 %.not6597, label %140, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %130
+.lr.ph:                                           ; preds = %131
   %smax118 = call i32 @llvm.smax.i32(i32 %36, i32 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %135
+.lr.ph:; preds = %.lr.ph, %135
   %.098 = phi i32 [ %137, %135 ], [ 0, %.lr.ph.preheader ]
   %133 = phi float [ %136, %135 ], [ %132, %.lr.ph.preheader ]
   %134 = call fastcc zeroext i1 @SDL_RenderTextureInternal(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %12)
   br i1 %134, label %135, label %.loopexit
 
-135:                                              ; preds = %.lr.ph
+135:; preds = %.lr.ph
   %136 = fadd float %15, %133
   store float %136, ptr %12, align 4
   %137 = add nuw nsw i32 %.098, 1
   %exitcond119.not = icmp eq i32 %137, %smax118
-  br i1 %exitcond119.not, label %.critedge69, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond119.not, label %140, label %.lr.ph, !llvm.loop !34
 
-.critedge69:                                      ; preds = %135, %130
+140:                                              ; preds = %135, %130
   %138 = fcmp ogt float %31, 0.000000e+00
   br i1 %138, label %139, label %142
 
@@ -11438,13 +11438,13 @@ SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float %28, ptr %140, align 4
   store float %31, ptr %40, align 4
-  %141 = call fastcc zeroext i1 @SDL_RenderTextureInternal(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %12)
-  br i1 %141, label %142, label %.loopexit
+  %142 = call fastcc zeroext i1 @SDL_RenderTextureInternal(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %12)
+  br i1 %142, label %143, label %.loopexit
 
-142:                                              ; preds = %.critedge69, %139, %.critedge67
+143:                                              ; preds = %.critedge69, %139, %.critedge67
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.critedge.us93, %.lr.ph, %QueueCmdGeometry.exit.i.thread, %SDL_RenderTextureInternal.exit.thread, %139, %142
+.loopexit:                                        ; preds = %72, %.critedge.us93, %.lr.ph, %QueueCmdGeometry.exit.i.thread, %SDL_RenderTextureInternal.exit.thread, %139, %143
   %.3 = phi i1 [ true, %142 ], [ false, %139 ], [ false, %SDL_RenderTextureInternal.exit.thread ], [ false, %QueueCmdGeometry.exit.i.thread ], [ false, %.lr.ph ], [ false, %.critedge.us93 ], [ false, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

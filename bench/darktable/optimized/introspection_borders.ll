@@ -810,9 +810,9 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   store i32 %96, ptr %51, align 4, !tbaa !55
   %97 = fcmp olt float %89, 1.000000e+00
   %98 = uitofp nneg i32 %90 to float
-  %spec.select80 = select i1 %97, float 1.000000e+00, float %98
-  %99 = fcmp reassoc nsz arcp contract afn olt float %72, %spec.select80
-  %100 = select reassoc nsz arcp contract afn i1 %99, float %72, float %spec.select80
+  %97 = select i1 %97, float 1.000000e+00, float %98
+  %99 = fcmp reassoc nsz arcp contract afn olt float %72, %97
+  %100 = select reassoc nsz arcp contract afn i1 %99, float %72, float %97
   %101 = fptosi float %100 to i32
   store i32 %101, ptr %62, align 4, !tbaa !56
   ret void

@@ -5139,14 +5139,14 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
   %61 = tail call noundef float @llvm.floor.f32(float %60)
   %62 = fcmp ugt float %54, -1.000000e+00
   %.not = icmp slt i32 %41, %25
-  %or.cond98 = select i1 %62, i1 %.not, i1 false
+  %or.cond98.not102.not106 = select i1 %62, i1 %.not, i1 false
   %63 = fcmp ugt float %61, -1.000000e+00
-  %or.cond99 = and i1 %63, %or.cond98
+  %or.cond99 = and i1 %63, %or.cond98.not102.not106
   %.not93 = icmp slt i32 %51, %28
   %or.cond100 = select i1 %or.cond99, i1 %.not93, i1 false
-  br i1 %or.cond100, label %64, label %.loopexit
+  br i1 %or.cond100, label %66, label %.loopexit
 
-64:                                               ; preds = %8
+66:                                               ; preds = %8
   %65 = fptosi float %61 to i32
   %66 = fptosi float %54 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
@@ -5155,14 +5155,14 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %51, i32 0)
   %68 = add nsw i32 %28, -1
   %.085 = tail call i32 @llvm.smin.i32(i32 %65, i32 %68)
-  %.not96103 = icmp sgt i32 %spec.store.select1, %.085
-  br i1 %.not96103, label %.loopexit, label %.preheader.lr.ph
+  %.not96109 = icmp sgt i32 %spec.store.select1, %.085
+  br i1 %.not96109, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %64
-  %.not97101 = icmp sgt i32 %spec.store.select, %spec.select
+.preheader.lr.ph:                                 ; preds = %66
+  %.not97107 = icmp sgt i32 %spec.store.select, %spec.select
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not97101, label %.loopexit, label %.preheader.preheader
+  br i1 %.not97107, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %71 = zext nneg i32 %spec.store.select to i64
@@ -5173,13 +5173,13 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv107 = phi i64 [ %73, %.preheader.preheader ], [ %indvars.iv.next108, %._crit_edge ]
-  %76 = trunc nuw nsw i64 %indvars.iv107 to i32
+  %indvars.iv113 = phi i64 [ %73, %.preheader.preheader ], [ %indvars.iv.next114, %._crit_edge ]
+  %76 = trunc nuw nsw i64 %indvars.iv113 to i32
   %77 = uitofp nneg i32 %76 to float
   %78 = fadd float %77, 5.000000e-01
   %79 = fsub float %78, %37
   %80 = fmul float %79, %79
-  %81 = mul nuw nsw i64 %indvars.iv107, %74
+  %81 = mul nuw nsw i64 %indvars.iv113, %74
   br label %82
 
 82:                                               ; preds = %.preheader, %100
@@ -5211,15 +5211,15 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
 
 100:                                              ; preds = %89, %82, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not97.not = icmp samesign ult i64 %indvars.iv, %72
-  br i1 %.not97.not, label %82, label %._crit_edge, !llvm.loop !91
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, %72
+  br i1 %exitcond.not, label %82, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %100
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %.not96.not = icmp samesign ult i64 %indvars.iv107, %75
-  br i1 %.not96.not, label %.preheader, label %.loopexit, !llvm.loop !92
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp samesign ult i64 %indvars.iv113, %75
+  br i1 %exitcond117.not, label %.preheader, label %.loopexit, !llvm.loop !92
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %64, %8
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %66, %8
   ret i32 1073741824
 }
 
@@ -5276,14 +5276,14 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
   %53 = tail call float @llvm.floor.f32(float %52)
   %54 = fcmp ugt float %42, -1.000000e+00
   %.not = icmp slt i32 %22, %11
-  %or.cond73 = select i1 %54, i1 %.not, i1 false
+  %or.cond73.not77.not81 = select i1 %54, i1 %.not, i1 false
   %55 = fcmp ugt float %53, -1.000000e+00
-  %or.cond74 = select i1 %or.cond73, i1 %55, i1 false
+  %or.cond74.not79 = select i1 %or.cond73.not77.not81, i1 %55, i1 false
   %.not68 = icmp slt i32 %38, %14
-  %or.cond75 = select i1 %or.cond74, i1 %.not68, i1 false
-  br i1 %or.cond75, label %56, label %.loopexit
+  %or.cond75 = select i1 %or.cond74.not79, i1 %.not68, i1 false
+  br i1 %or.cond75, label %58, label %.loopexit
 
-56:                                               ; preds = %7
+58:                                               ; preds = %7
   %57 = fptosi float %53 to i32
   %58 = fptosi float %42 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
@@ -5292,14 +5292,14 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
   %60 = add nsw i32 %14, -1
   %.060 = tail call i32 @llvm.smin.i32(i32 %57, i32 %60)
-  %.not7178 = icmp sgt i32 %spec.store.select1, %.060
-  br i1 %.not7178, label %.loopexit, label %.preheader.lr.ph
+  %.not7184 = icmp sgt i32 %spec.store.select1, %.060
+  br i1 %.not7184, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %56
-  %.not7276 = icmp sgt i32 %spec.store.select, %spec.select
+.preheader.lr.ph:                                 ; preds = %58
+  %.not7282 = icmp sgt i32 %spec.store.select, %spec.select
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not7276, label %.loopexit, label %.preheader.preheader
+  br i1 %.not7282, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %63 = zext nneg i32 %spec.store.select to i64
@@ -5310,8 +5310,8 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv82 = phi i64 [ %65, %.preheader.preheader ], [ %indvars.iv.next83, %._crit_edge ]
-  %68 = mul nuw nsw i64 %indvars.iv82, %66
+  %indvars.iv88 = phi i64 [ %65, %.preheader.preheader ], [ %indvars.iv.next89, %._crit_edge ]
+  %68 = mul nuw nsw i64 %indvars.iv88, %66
   br label %69
 
 69:                                               ; preds = %.preheader, %80
@@ -5334,15 +5334,15 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
 
 80:                                               ; preds = %69, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not72.not = icmp samesign ult i64 %indvars.iv, %64
-  br i1 %.not72.not, label %69, label %._crit_edge, !llvm.loop !93
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, %64
+  br i1 %exitcond.not, label %69, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %80
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %.not71.not = icmp samesign ult i64 %indvars.iv82, %67
-  br i1 %.not71.not, label %.preheader, label %.loopexit, !llvm.loop !94
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp samesign ult i64 %indvars.iv82, %67
+  br i1 %exitcond92.not, label %.preheader, label %.loopexit, !llvm.loop !94
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %56, %7
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %58, %7
   ret i32 1073741824
 }
 
@@ -5405,14 +5405,14 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
   %60 = fptosi float %59 to i32
   %61 = fcmp ugt float %39, -1.000000e+00
   %.not = icmp slt i32 %37, %12
-  %or.cond115 = select i1 %61, i1 %.not, i1 false
+  %or.cond115.not119.not123 = select i1 %61, i1 %.not, i1 false
   %62 = fcmp ugt float %44, -1.000000e+00
-  %or.cond116 = select i1 %or.cond115, i1 %62, i1 false
+  %or.cond116.not121 = select i1 %or.cond115.not119.not123, i1 %62, i1 false
   %.not106 = icmp slt i32 %42, %15
-  %or.cond117 = select i1 %or.cond116, i1 %.not106, i1 false
-  br i1 %or.cond117, label %63, label %.loopexit
+  %or.cond117 = select i1 %or.cond116.not121, i1 %.not106, i1 false
+  br i1 %or.cond117, label %65, label %.loopexit
 
-63:                                               ; preds = %8
+65:                                               ; preds = %8
   %64 = fptosi float %44 to i32
   %65 = fptosi float %39 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
@@ -5423,17 +5423,17 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
   %.093 = tail call i32 @llvm.smin.i32(i32 %64, i32 %67)
   %68 = tail call float @llvm.fmuladd.f32(float %28, float %16, float 5.000000e-01)
   %69 = tail call float @llvm.fmuladd.f32(float %30, float %16, float 5.000000e-01)
-  %.not109120 = icmp sgt i32 %spec.store.select1, %.093
-  br i1 %.not109120, label %.loopexit, label %.preheader.lr.ph
+  %.not109126 = icmp sgt i32 %spec.store.select1, %.093
+  br i1 %.not109126, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %63
-  %.not110118 = icmp sgt i32 %spec.store.select, %spec.select
+.preheader.lr.ph:                                 ; preds = %65
+  %.not110124 = icmp sgt i32 %spec.store.select, %spec.select
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %71 = fneg float %68
   %72 = fneg float %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not110118, label %.loopexit, label %.preheader.preheader
+  br i1 %.not110124, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %75 = zext nneg i32 %spec.store.select to i64
@@ -5444,12 +5444,12 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv124 = phi i64 [ %77, %.preheader.preheader ], [ %indvars.iv.next125, %._crit_edge ]
-  %80 = trunc nuw nsw i64 %indvars.iv124 to i32
+  %indvars.iv130 = phi i64 [ %77, %.preheader.preheader ], [ %indvars.iv.next131, %._crit_edge ]
+  %80 = trunc nuw nsw i64 %indvars.iv130 to i32
   %81 = uitofp nneg i32 %80 to float
   %82 = fsub float %81, %27
   %83 = fmul float %82, 2.000000e+00
-  %84 = mul nuw nsw i64 %indvars.iv124, %78
+  %84 = mul nuw nsw i64 %indvars.iv130, %78
   br label %85
 
 85:                                               ; preds = %.preheader, %113
@@ -5495,15 +5495,15 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
 
 113:                                              ; preds = %102, %96, %85, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not110.not = icmp samesign ult i64 %indvars.iv, %76
-  br i1 %.not110.not, label %85, label %._crit_edge, !llvm.loop !95
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, %76
+  br i1 %exitcond.not, label %85, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %113
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %.not109.not = icmp samesign ult i64 %indvars.iv124, %79
-  br i1 %.not109.not, label %.preheader, label %.loopexit, !llvm.loop !96
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %exitcond134.not = icmp samesign ult i64 %indvars.iv130, %79
+  br i1 %exitcond134.not, label %.preheader, label %.loopexit, !llvm.loop !96
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %63, %8
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %65, %8
   ret i32 1073741824
 }
 

@@ -159,7 +159,7 @@ define internal i32 @cng_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 53:                                               ; preds = %.loopexit96
   store i32 0, ptr %47, align 4, !tbaa !50
-  br label %197
+  br label %193
 
 54:                                               ; preds = %.loopexit96
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -404,7 +404,7 @@ make_lpc_coefs.exit:                              ; preds = %._crit_edge38.i, %1
   store i32 %177, ptr %178, align 8, !tbaa !65
   %179 = call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #9
   %180 = icmp slt i32 %179, 0
-  br i1 %180, label %197, label %181
+  br i1 %180, label %193, label %181
 
 181:                                              ; preds = %170
   %182 = load ptr, ptr %1, align 8, !tbaa !70
@@ -438,14 +438,14 @@ make_lpc_coefs.exit:                              ; preds = %._crit_edge38.i, %1
   br i1 %exitcond135.not, label %._crit_edge113, label %186, !llvm.loop !73
 
 ._crit_edge113:                                   ; preds = %186, %181
-  %194 = sext i32 %183 to i64
-  %195 = getelementptr inbounds float, ptr %.pre140, i64 %194
-  %196 = shl nsw i64 %185, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.pre140, ptr align 4 %195, i64 %196, i1 false)
+  %190 = sext i32 %183 to i64
+  %191 = getelementptr inbounds float, ptr %.pre140, i64 %190
+  %192 = shl nsw i64 %185, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.pre140, ptr align 4 %191, i64 %192, i1 false)
   store i32 1, ptr %2, align 4, !tbaa !28
-  br label %197
+  br label %193
 
-197:                                              ; preds = %170, %._crit_edge113, %53
+193:                                              ; preds = %170, %._crit_edge113, %53
   %.0 = phi i32 [ -1094995529, %53 ], [ %9, %._crit_edge113 ], [ %179, %170 ]
   ret i32 %.0
 }

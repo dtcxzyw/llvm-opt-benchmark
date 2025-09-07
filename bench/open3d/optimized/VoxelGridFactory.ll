@@ -641,7 +641,7 @@ define void @_ZN6open3d8geometry9VoxelGrid11CreateDenseERKN5Eigen6MatrixIdLi3ELi
   %or.cond = or i1 %41, %43
   br i1 %or.cond, label %._crit_edge, label %.preheader27.us.us.preheader
 
-.preheader27.us.us.preheader:                     ; preds = %.preheader27.lr.ph
+.preheader27.us.us:                               ; preds = %.preheader27.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
   %smax39 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
   %smax41 = tail call i32 @llvm.smax.i32(i32 %28, i32 1)
@@ -673,13 +673,13 @@ define void @_ZN6open3d8geometry9VoxelGrid11CreateDenseERKN5Eigen6MatrixIdLi3ELi
 
 ._crit_edge.us.us.us:                             ; preds = %45
   %47 = add nuw nsw i32 %storemerge1729.us.us.us, 1
-  %exitcond40.not = icmp eq i32 %47, %smax39
-  br i1 %exitcond40.not, label %._crit_edge30.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !55
+  %exitcond39.not = icmp eq i32 %47, %smax39
+  br i1 %exitcond39.not, label %._crit_edge30.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !55
 
 ._crit_edge30.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %48 = add nuw nsw i32 %storemerge31.us.us, 1
-  %exitcond42.not = icmp eq i32 %48, %smax41
-  br i1 %exitcond42.not, label %._crit_edge, label %.preheader27.us.us, !llvm.loop !56
+  %exitcond40.not = icmp eq i32 %48, %smax41
+  br i1 %exitcond40.not, label %._crit_edge, label %.preheader27.us.us, !llvm.loop !56
 
 .split.us.split.us.split.us:                      ; preds = %44
   %49 = landingpad { ptr, i32 }

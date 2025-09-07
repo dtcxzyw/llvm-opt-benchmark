@@ -3432,19 +3432,19 @@ declare noundef ptr @_ZN16ciBytecodeStream26get_declared_method_holderEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %5, label %26
+  br i1 %4, label %5, label %25
 
 5:                                                ; preds = %3
   %6 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %26, label %7
+  br i1 %.not, label %25, label %7
 
 7:                                                ; preds = %5
   %8 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %26
+  br i1 %11, label %12, label %25
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -3463,7 +3463,7 @@ define hidden noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull alig
   %25 = fptosi double %24 to i32
   br label %26
 
-26:                                               ; preds = %7, %12, %5, %3
+25:                                               ; preds = %7, %12, %5, %3
   %.012 = phi i32 [ %25, %12 ], [ %1, %5 ], [ %1, %3 ], [ 1, %7 ]
   ret i32 %.012
 }

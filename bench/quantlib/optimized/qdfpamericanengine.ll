@@ -18524,7 +18524,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end
 
 _ZN5boost4math5truncIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeERKS8_RKT0_.exit.i.i: ; preds = %if.end
   %cmp.i.i = fcmp ult double %5, 0x41E0000000000000
-  %cmp1.i.i = fcmp uge double %5, 0xC1E0000000000000
+  %cmp.i.i = fcmp uge double %5, 0xC1E0000000000000
   %or.cond.not.i.i = and i1 %cmp.i.i, %cmp1.i.i
   br i1 %or.cond.not.i.i, label %invoke.cont, label %if.then.i.i16
 
@@ -18550,7 +18550,7 @@ if.then.i:                                        ; preds = %invoke.cont
 .noexc21:                                         ; preds = %if.then.i
   unreachable
 
-if.end.i.sink.split:                              ; preds = %if.then.i.i16, %invoke.cont.thread143
+if.end.i:                                         ; preds = %if.then.i.i16, %invoke.cont.thread143
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %if.end.i
 

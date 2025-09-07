@@ -346,13 +346,13 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
   %23 = tail call noundef float @llvm.floor.f32(float %.0.i)
   %24 = fptosi float %23 to i32
   %25 = fcmp ult float %23, 1.000000e+00
-  %.pre = extractelement <2 x float> %0, i64 0
-  %.pre84 = extractelement <2 x float> %0, i64 1
+  %.sroa.0.0.vec.extract.i68 = extractelement <2 x float> %0, i64 0
+  %.sroa.0.4.vec.extract.i69 = extractelement <2 x float> %0, i64 1
   br i1 %25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8
+._crit_edge:                                      ; preds = %8
   %smax = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
-  br label %43
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %43, %8
   %.059.lcssa = phi float [ 1.000000e+00, %8 ], [ %51, %43 ]
@@ -371,30 +371,30 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
   %34 = fsub float 3.000000e+00, %33
   %35 = fmul float %32, %34
   %36 = fmul float %35, %.059.lcssa
-  %37 = fmul float %.pre, %.058.lcssa
-  %38 = fmul float %.pre84, %.058.lcssa
+  %37 = fmul float %.sroa.0.0.vec.extract.i68, %.058.lcssa
+  %38 = fmul float %.sroa.0.4.vec.extract.i69, %.058.lcssa
   %39 = fmul float %1, %.058.lcssa
   %40 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %37, float noundef %38, float noundef %39)
   %41 = fmul float %36, %40
   %42 = fadd float %.0.lcssa, %41
   ret float %42
 
-43:                                               ; preds = %.lr.ph, %43
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph
   %.079 = phi float [ 0.000000e+00, %.lr.ph ], [ %49, %43 ]
   %.05878 = phi float [ 1.000000e+00, %.lr.ph ], [ %50, %43 ]
   %.05977 = phi float [ 1.000000e+00, %.lr.ph ], [ %51, %43 ]
   %.06076 = phi i32 [ 0, %.lr.ph ], [ %52, %43 ]
-  %44 = fmul float %.pre, %.05878
-  %45 = fmul float %.pre84, %.05878
-  %46 = fmul float %1, %.05878
-  %47 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %44, float noundef %45, float noundef %46)
-  %48 = fmul float %.05977, %47
-  %49 = fadd float %.079, %48
-  %50 = fmul float %.05878, 0x3FFFD70A40000000
-  %51 = fmul float %6, %.05977
-  %52 = add nuw nsw i32 %.06076, 1
-  %exitcond.not = icmp eq i32 %52, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !8
+  %43 = fmul float %.sroa.0.0.vec.extract.i68, %.05878
+  %44 = fmul float %.sroa.0.4.vec.extract.i69, %.05878
+  %45 = fmul float %1, %.05878
+  %46 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %43, float noundef %44, float noundef %45)
+  %47 = fmul float %.05977, %46
+  %48 = fadd float %.079, %47
+  %49 = fmul float %.05878, 0x3FFFD70A40000000
+  %50 = fmul float %6, %.05977
+  %51 = add nuw nsw i32 %.06076, 1
+  %exitcond.not = icmp eq i32 %51, %smax
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable
@@ -427,18 +427,18 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %23 = tail call noundef float @llvm.floor.f32(float %.0.i)
   %24 = fptosi float %23 to i32
   %25 = fcmp ult float %23, 1.000000e+00
-  %.pre = extractelement <2 x float> %0, i64 0
-  %.pre103 = extractelement <2 x float> %0, i64 1
+  %.sroa.0.0.vec.extract.i78 = extractelement <2 x float> %0, i64 0
+  %.sroa.0.4.vec.extract.i79 = extractelement <2 x float> %0, i64 1
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %smax = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
   br label %48
 
-._crit_edge:                                      ; preds = %48, %8
-  %.068.lcssa = phi float [ 1.000000e+00, %8 ], [ %57, %48 ]
-  %.067.lcssa = phi float [ 1.000000e+00, %8 ], [ %56, %48 ]
-  %.066.lcssa = phi float [ 0.000000e+00, %8 ], [ %55, %48 ]
+._crit_edge:                                      ; preds = %.lr.ph, %8
+  %.068.lcssa = phi float [ 1.000000e+00, %8 ], [ %56, %48 ]
+  %.067.lcssa = phi float [ 1.000000e+00, %8 ], [ %55, %48 ]
+  %.066.lcssa = phi float [ 0.000000e+00, %8 ], [ %54, %48 ]
   %26 = sitofp i32 %24 to float
   %27 = fsub float %.0.i, %26
   %28 = fadd float %27, 0xBFD3333340000000
@@ -451,8 +451,8 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %33 = fmul float %.0.i.i, 2.000000e+00
   %34 = fsub float 3.000000e+00, %33
   %35 = fmul float %32, %34
-  %36 = fmul float %.pre, %.067.lcssa
-  %37 = fmul float %.pre103, %.067.lcssa
+  %36 = fmul float %.sroa.0.0.vec.extract.i78, %.067.lcssa
+  %37 = fmul float %.sroa.0.4.vec.extract.i79, %.067.lcssa
   %38 = fmul float %1, %.067.lcssa
   %39 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %36, float noundef %37, float noundef %38)
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
@@ -465,37 +465,37 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %47 = icmp sgt i32 %7, %24
   br i1 %47, label %.lr.ph96, label %._crit_edge97
 
-48:                                               ; preds = %.lr.ph, %48
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph
   %.06689 = phi float [ 0.000000e+00, %.lr.ph ], [ %55, %48 ]
   %.06788 = phi float [ 1.000000e+00, %.lr.ph ], [ %56, %48 ]
   %.06887 = phi float [ 1.000000e+00, %.lr.ph ], [ %57, %48 ]
   %.07086 = phi i32 [ 0, %.lr.ph ], [ %58, %48 ]
-  %49 = fmul float %.pre, %.06788
-  %50 = fmul float %.pre103, %.06788
-  %51 = fmul float %1, %.06788
-  %52 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %49, float noundef %50, float noundef %51)
-  %53 = tail call noundef float @llvm.fabs.f32(float %52)
-  %54 = fmul float %.06887, %53
-  %55 = fadd float %.06689, %54
-  %56 = fmul float %.06788, 0x3FFFD70A40000000
-  %57 = fmul float %6, %.06887
-  %58 = add nuw nsw i32 %.07086, 1
-  %exitcond.not = icmp eq i32 %58, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !10
+  %48 = fmul float %.sroa.0.0.vec.extract.i78, %.06788
+  %49 = fmul float %.sroa.0.4.vec.extract.i79, %.06788
+  %50 = fmul float %1, %.06788
+  %51 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %48, float noundef %49, float noundef %50)
+  %52 = tail call noundef float @llvm.fabs.f32(float %51)
+  %53 = fmul float %.06887, %52
+  %54 = fadd float %.06689, %53
+  %55 = fmul float %.06788, 0x3FFFD70A40000000
+  %56 = fmul float %6, %.06887
+  %57 = add nuw nsw i32 %.07086, 1
+  %exitcond.not = icmp eq i32 %57, %smax
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %._crit_edge
-  %.1.lcssa = phi float [ %46, %._crit_edge ], [ %60, %.lr.ph96 ]
+  %.1.lcssa = phi float [ %46, %._crit_edge ], [ %59, %.lr.ph96 ]
   ret float %.1.lcssa
 
 .lr.ph96:                                         ; preds = %._crit_edge, %.lr.ph96
-  %.094 = phi i32 [ %62, %.lr.ph96 ], [ %24, %._crit_edge ]
-  %.193 = phi float [ %60, %.lr.ph96 ], [ %46, %._crit_edge ]
-  %.16992 = phi float [ %61, %.lr.ph96 ], [ %.068.lcssa, %._crit_edge ]
-  %59 = fmul float %.16992, 0x3FC99999A0000000
-  %60 = fadd float %.193, %59
-  %61 = fmul float %6, %.16992
-  %62 = add nsw i32 %.094, 1
-  %exitcond102.not = icmp eq i32 %62, %7
+  %.094 = phi i32 [ %61, %.lr.ph96 ], [ %24, %._crit_edge ]
+  %.193 = phi float [ %59, %.lr.ph96 ], [ %46, %._crit_edge ]
+  %.16992 = phi float [ %60, %.lr.ph96 ], [ %.068.lcssa, %._crit_edge ]
+  %58 = fmul float %.16992, 0x3FC99999A0000000
+  %59 = fadd float %.193, %58
+  %60 = fmul float %6, %.16992
+  %61 = add nsw i32 %.094, 1
+  %exitcond102.not = icmp eq i32 %61, %7
   br i1 %exitcond102.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !11
 }
 

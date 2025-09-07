@@ -11306,12 +11306,12 @@ _ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread: ; preds =
 19:                                               ; preds = %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread
   %20 = load ptr, ptr %3, align 8, !tbaa !146
   %21 = icmp eq ptr %20, %5
-  br i1 %21, label %.loopexit, label %.preheader.i.i
+  br i1 %21, label %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %19
   %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %20) #38
   %.not9.i.i = icmp eq ptr %22, %5
-  br i1 %.not9.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not9.i.i, label %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %23 = phi ptr [ %29, %.lr.ph.i.i ], [ %22, %.preheader.i.i ]
@@ -11324,9 +11324,9 @@ _ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread: ; preds =
   %spec.select.i.i = select i1 %28, ptr %23, ptr %.sroa.02.110.i.i
   %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %23) #38
   %.not.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !416
+  br i1 %.not.i.i, label %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit, label %.lr.ph.i.i, !llvm.loop !416
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %.preheader.i.i, %19
+_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %19
   %.sroa.02.0.i.i = phi ptr [ %20, %19 ], [ %20, %.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i, i64 32
   %31 = load float, ptr %30, align 4, !tbaa !82
@@ -11334,7 +11334,7 @@ _ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread: ; preds =
   %.not22 = fcmp ugt float %31, -1.000000e+00
   br i1 %.not22, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread, %.loopexit
+.lr.ph:; preds = %.thread, %.loopexit
   %32 = phi float [ 0.000000e+00, %.thread ], [ %31, %.loopexit ]
   %33 = fptosi float %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 8

@@ -3353,9 +3353,9 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %104 = load i64, ptr %73, align 8, !tbaa !81
   store i64 %104, ptr %7, align 8, !tbaa !18
   %105 = trunc nuw i8 %.pre to i1
-  br i1 %105, label %.thread, label %.thread265
+  br i1 %105, label %.thread, label %.thread266
 
-.thread265:                                       ; preds = %103
+.thread266:                                       ; preds = %103
   %106 = shl nsw i64 %104, 1
   store i64 %106, ptr %7, align 8, !tbaa !18
   br label %108
@@ -3364,7 +3364,7 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %.pre251 = trunc nuw i8 %.pre to i1
   br i1 %.pre251, label %.thread, label %108
 
-108:                                              ; preds = %.thread265, %107
+108:                                              ; preds = %.thread266, %107
   %109 = phi i64 [ %106, %.thread265 ], [ %101, %107 ]
   %110 = sitofp i64 %109 to float
   %111 = fpext float %110 to double

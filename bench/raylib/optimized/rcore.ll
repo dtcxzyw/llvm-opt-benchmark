@@ -42486,7 +42486,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 .preheader:                                       ; preds = %351, %346
   %.ph = phi i32 [ %339, %346 ], [ %393, %351 ]
-  %.ph144 = phi ptr [ %341, %346 ], [ %389, %351 ]
+  %.ph145 = phi ptr [ %341, %346 ], [ %389, %351 ]
   br label %397
 
 ._crit_edge160.thread.i:                          ; preds = %._crit_edge160.i, %451
@@ -42498,7 +42498,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 397:                                              ; preds = %.preheader, %._crit_edge160.thread.i
   %398 = phi i32 [ %396, %._crit_edge160.thread.i ], [ %.ph, %.preheader ]
-  %399 = phi ptr [ %395, %._crit_edge160.thread.i ], [ %.ph144, %.preheader ]
+  %399 = phi ptr [ %395, %._crit_edge160.thread.i ], [ %.ph145, %.preheader ]
   %indvars.iv136.i = phi i64 [ %indvars.iv.next137.i, %._crit_edge160.thread.i ], [ 0, %.preheader ]
   %400 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 %indvars.iv136.i
   %401 = load i8, ptr %400, align 1

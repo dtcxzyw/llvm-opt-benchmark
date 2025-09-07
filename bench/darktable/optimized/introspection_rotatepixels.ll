@@ -247,8 +247,8 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   %35 = fptosi float %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %37 = fcmp ugt float %31, -1.000000e+00
-  %38 = and i32 %32, -2
-  %39 = select i1 %37, i32 %38, i32 0
+  %spec.select = and i32 %32, -2
+  %39 = select i1 %37, i32 %spec.select, i32 0
   store i32 %39, ptr %33, align 4, !tbaa !32
   %40 = fcmp ole float %34, -1.000000e+00
   %41 = and i32 %35, -2

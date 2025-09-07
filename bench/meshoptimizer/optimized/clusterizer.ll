@@ -1667,12 +1667,12 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 
 ._crit_edge.thread:                               ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br label %214
+  br label %213
 
 ._crit_edge:                                      ; preds = %73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %12 = icmp eq i64 %.1, 0
-  br i1 %12, label %214, label %76
+  br i1 %12, label %213, label %76
 
 .lr.ph:                                           ; preds = %6, %73
   %.0147 = phi i64 [ %.1, %73 ], [ 0, %6 ]
@@ -1818,19 +1818,19 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 117:                                              ; preds = %97
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 1.000000e+00, ptr %118, align 4, !tbaa !65
-  br label %212
+  br label %211
 
 119:                                              ; preds = %.preheader
   %120 = fneg float %94
-  %121 = tail call float @llvm.fmuladd.f32(float %120, float %210, float %78)
+  %121 = tail call float @llvm.fmuladd.f32(float %120, float %209, float %78)
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %121, ptr %122, align 4, !tbaa !28
   %123 = fneg float %95
-  %124 = tail call float @llvm.fmuladd.f32(float %123, float %210, float %80)
+  %124 = tail call float @llvm.fmuladd.f32(float %123, float %209, float %80)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %124, ptr %125, align 4, !tbaa !28
   %126 = fneg float %96
-  %127 = tail call float @llvm.fmuladd.f32(float %126, float %210, float %82)
+  %127 = tail call float @llvm.fmuladd.f32(float %126, float %209, float %82)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %127, ptr %128, align 4, !tbaa !28
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1902,45 +1902,45 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
   br label %212
 
 .preheader:                                       ; preds = %97, %.preheader
-  %.0141151 = phi float [ %210, %.preheader ], [ 0.000000e+00, %97 ]
-  %.0142150 = phi i64 [ %211, %.preheader ], [ 0, %97 ]
-  %187 = getelementptr inbounds nuw [3 x [3 x float]], ptr %8, i64 %.0142150
-  %188 = load float, ptr %187, align 4, !tbaa !28
-  %189 = fsub float %78, %188
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 4
-  %191 = load float, ptr %190, align 4, !tbaa !28
-  %192 = fsub float %80, %191
-  %193 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %194 = load float, ptr %193, align 4, !tbaa !28
-  %195 = fsub float %82, %194
-  %196 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0142150
-  %197 = load float, ptr %196, align 4, !tbaa !28
-  %198 = getelementptr inbounds nuw i8, ptr %196, i64 4
-  %199 = load float, ptr %198, align 4, !tbaa !28
-  %200 = fmul float %192, %199
-  %201 = tail call float @llvm.fmuladd.f32(float %189, float %197, float %200)
-  %202 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %203 = load float, ptr %202, align 4, !tbaa !28
-  %204 = tail call float @llvm.fmuladd.f32(float %195, float %203, float %201)
-  %205 = fmul float %95, %199
-  %206 = tail call float @llvm.fmuladd.f32(float %94, float %197, float %205)
-  %207 = tail call float @llvm.fmuladd.f32(float %96, float %203, float %206)
-  %208 = fdiv float %204, %207
-  %209 = fcmp ogt float %208, %.0141151
-  %210 = select i1 %209, float %208, float %.0141151
-  %211 = add nuw i64 %.0142150, 1
-  %exitcond153.not = icmp eq i64 %211, %.1
+  %.0141151 = phi float [ %209, %.preheader ], [ 0.000000e+00, %97 ]
+  %.0142150 = phi i64 [ %210, %.preheader ], [ 0, %97 ]
+  %186 = getelementptr inbounds nuw [3 x [3 x float]], ptr %8, i64 %.0142150
+  %187 = load float, ptr %186, align 4, !tbaa !28
+  %188 = fsub float %78, %187
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %190 = load float, ptr %189, align 4, !tbaa !28
+  %191 = fsub float %80, %190
+  %192 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %193 = load float, ptr %192, align 4, !tbaa !28
+  %194 = fsub float %82, %193
+  %195 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0142150
+  %196 = load float, ptr %195, align 4, !tbaa !28
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %198 = load float, ptr %197, align 4, !tbaa !28
+  %199 = fmul float %191, %198
+  %200 = tail call float @llvm.fmuladd.f32(float %188, float %196, float %199)
+  %201 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %202 = load float, ptr %201, align 4, !tbaa !28
+  %203 = tail call float @llvm.fmuladd.f32(float %194, float %202, float %200)
+  %204 = fmul float %95, %198
+  %205 = tail call float @llvm.fmuladd.f32(float %94, float %196, float %204)
+  %206 = tail call float @llvm.fmuladd.f32(float %96, float %202, float %205)
+  %207 = fdiv float %203, %206
+  %208 = fcmp ogt float %207, %.0141151
+  %209 = select i1 %208, float %207, float %.0141151
+  %210 = add nuw i64 %.0142150, 1
+  %exitcond153.not = icmp eq i64 %210, %.1
   br i1 %exitcond153.not, label %119, label %.preheader, !llvm.loop !66
 
-212:                                              ; preds = %119, %117
+211:                                              ; preds = %119, %117
   %.sink = phi i8 [ %186, %119 ], [ 127, %117 ]
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  store i8 %.sink, ptr %213, align 1, !tbaa !67
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 47
+  store i8 %.sink, ptr %212, align 1, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %214
+  br label %213
 
-214:                                              ; preds = %._crit_edge.thread, %._crit_edge, %212
+213:                                              ; preds = %._crit_edge.thread, %._crit_edge, %211
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

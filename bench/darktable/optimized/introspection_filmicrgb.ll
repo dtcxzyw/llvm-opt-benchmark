@@ -9392,23 +9392,23 @@ dt_draw_grid.exit:                                ; preds = %263, %249, %217
 
 820:                                              ; preds = %757
   %821 = load float, ptr %148, align 4, !tbaa !143
-  br label %.sink.split1392
+  br label %.sink.split1393
 
 822:                                              ; preds = %757, %757
   %823 = load float, ptr %148, align 4, !tbaa !143
   %824 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %823)
   %825 = load float, ptr %6, align 4, !tbaa !438
   %826 = fmul reassoc nsz arcp contract afn float %824, %825
-  br label %.sink.split1392
+  br label %.sink.split1393
 
-.sink.split1392:                                  ; preds = %820, %822
-  %.sink1393 = phi float [ %826, %822 ], [ %821, %820 ]
+.sink.split1393:                                  ; preds = %820, %822
+  %.sink1394 = phi float [ %826, %822 ], [ %821, %820 ]
   %.str.156.sink = phi ptr [ @.str.156, %822 ], [ @.str.157, %820 ]
-  %827 = fpext reassoc nsz arcp contract afn float %.sink1393 to double
+  %827 = fpext reassoc nsz arcp contract afn float %.sink1394 to double
   %828 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull %.str.156.sink, double noundef %827) #20
   br label %829
 
-829:                                              ; preds = %.sink.split1392, %757
+829:                                              ; preds = %.sink.split1393, %757
   call void @pango_layout_set_text(ptr noundef %40, ptr noundef nonnull %4, i32 noundef -1) #20
   call void @pango_layout_get_pixel_extents(ptr noundef %40, ptr noundef nonnull %52, ptr noundef null) #20
   %830 = load float, ptr %105, align 4, !tbaa !540
@@ -9601,17 +9601,17 @@ dt_draw_grid.exit:                                ; preds = %263, %249, %217
   call void @cairo_set_source_rgba(ptr noundef %39, double noundef %.sroa.01187.0.copyload, double noundef %.sroa.41188.0.copyload, double noundef %.sroa.51189.0.copyload, double noundef %.sroa.61190.0.copyload) #20
   %935 = load i32, ptr %153, align 4, !tbaa !472
   %936 = icmp ult i32 %935, 3
-  br i1 %936, label %switch.lookup1399, label %940
+  br i1 %936, label %switch.lookup1400, label %940
 
-switch.lookup1399:                                ; preds = %909
+switch.lookup1400:                                ; preds = %909
   %937 = zext nneg i32 %935 to i64
-  %switch.gep1400 = getelementptr inbounds nuw ptr, ptr @switch.table.dt_iop_tonecurve_draw.11, i64 %937
-  %switch.load1401 = load ptr, ptr %switch.gep1400, align 8
-  %938 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.load1401, i32 noundef 5) #20
+  %switch.gep1401 = getelementptr inbounds nuw ptr, ptr @switch.table.dt_iop_tonecurve_draw.11, i64 %937
+  %switch.load1402 = load ptr, ptr %switch.gep1401, align 8
+  %938 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.load1402, i32 noundef 5) #20
   %939 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef %938, i64 noundef 256) #20
   br label %940
 
-940:                                              ; preds = %909, %switch.lookup1399
+940:                                              ; preds = %909, %switch.lookup1400
   call void @pango_layout_set_text(ptr noundef %40, ptr noundef nonnull %4, i32 noundef -1) #20
   call void @pango_layout_get_pixel_extents(ptr noundef %40, ptr noundef nonnull %52, ptr noundef null) #20
   %941 = load float, ptr %105, align 4, !tbaa !540
@@ -9636,7 +9636,7 @@ switch.lookup1399:                                ; preds = %909
   %960 = sitofp i32 %959 to double
   %961 = fsub reassoc nsz arcp contract afn double %958, %960
   call void @cairo_move_to(ptr noundef %39, double noundef %949, double noundef %961) #20
-  br label %.sink.split1396
+  br label %.sink.split1397
 
 962:                                              ; preds = %159
   call void @cairo_identity_matrix(ptr noundef %39) #20
@@ -9981,7 +9981,7 @@ switch.lookup1399:                                ; preds = %909
   %1204 = fcmp ult float %1203, 1.000000e+00
   br i1 %1204, label %.._crit_edge_crit_edge, label %.lr.ph
 
-.._crit_edge_crit_edge:                           ; preds = %1192
+.._crit_edge_crit_edge:; preds = %1192
   %.pre1373 = fpext reassoc nsz arcp contract afn float %979 to double
   br label %._crit_edge
 
@@ -10261,7 +10261,7 @@ switch.lookup1399:                                ; preds = %909
   %1376 = fadd reassoc nsz arcp contract afn double %1372, %1374
   %1377 = fsub reassoc nsz arcp contract afn double %1375, %1376
   call void @cairo_move_to(ptr noundef %39, double noundef %1368, double noundef %1377) #20
-  br label %.sink.split1396
+  br label %.sink.split1397
 
 1378:                                             ; preds = %.lr.ph1342, %1424
   %1379 = phi float [ %1224, %.lr.ph1342 ], [ %1427, %1424 ]
@@ -10295,8 +10295,8 @@ switch.lookup1399:                                ; preds = %909
   %1398 = fcmp reassoc nsz arcp contract afn olt float %1397, %1379
   %.pre1361 = load float, ptr %146, align 4, !tbaa !142
   %1399 = fcmp reassoc nsz arcp contract afn ogt float %.pre1361, %1379
-  %or.cond1395 = select i1 %1398, i1 %1399, i1 false
-  br i1 %or.cond1395, label %1400, label %1424
+  %or.cond1396 = select i1 %1398, i1 %1399, i1 false
+  br i1 %or.cond1396, label %1400, label %1424
 
 1400:                                             ; preds = %1378
   %1401 = fsub reassoc nsz arcp contract afn float %1379, %1397
@@ -10345,12 +10345,12 @@ switch.lookup1399:                                ; preds = %909
   %1429 = fcmp reassoc nsz arcp contract afn ogt float %1428, %1427
   br i1 %1429, label %1378, label %._crit_edge1343
 
-.sink.split1396:                                  ; preds = %._crit_edge1343, %940
+.sink.split1397:                                  ; preds = %._crit_edge1343, %940
   call void @pango_cairo_show_layout(ptr noundef %39, ptr noundef %40) #20
   call void @cairo_stroke(ptr noundef %39) #20
   br label %1430
 
-1430:                                             ; preds = %.sink.split1396, %644
+1430:                                             ; preds = %.sink.split1397, %644
   call void @pango_font_description_set_size(ptr noundef %38, i32 noundef %47) #20
   call void @pango_layout_set_font_description(ptr noundef %40, ptr noundef %38) #20
   call void @cairo_destroy(ptr noundef %39) #20
