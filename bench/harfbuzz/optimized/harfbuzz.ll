@@ -181095,17 +181095,17 @@ _ZNK2OT6Layout6Common8Coverage16collect_coverageI8hb_set_tEEbPT_.exit13: ; preds
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT9Condition8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %120, %4
-  %accumulator.tr = phi i1 [ false, %4 ], [ %138, %120 ]
+tailrecurse:                                      ; preds = %121, %4
+  %accumulator.tr = phi i1 [ false, %4 ], [ %139, %120 ]
   %.tr = phi ptr [ %0, %4 ], [ %.0.i.i20, %120 ]
   %5 = load i16, ptr %.tr, align 1, !tbaa !109
   %6 = tail call noundef i16 @llvm.bswap.i16(i16 %5)
   switch i16 %6, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit [
     i16 1, label %7
     i16 2, label %29
-    i16 3, label %74
-    i16 4, label %97
-    i16 5, label %120
+    i16 3, label %75
+    i16 4, label %98
+    i16 5, label %121
   ]
 
 7:                                                ; preds = %tailrecurse
@@ -181211,107 +181211,107 @@ _ZNK2OT14ConditionValue8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit: ; p
   %73 = fcmp oge float %72, 1.000000e+00
   br label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit
 
-74:                                               ; preds = %tailrecurse
+75:                                               ; preds = %tailrecurse
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #61, !srcloc !762
-  %75 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
-  %76 = load i8, ptr %75, align 1, !tbaa !1058
-  %.not.i16.not42.not = icmp eq i8 %76, 0
+  %76 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
+  %77 = load i8, ptr %76, align 1, !tbaa !1058
+  %.not.i16.not42.not = icmp eq i8 %77, 0
   br i1 %.not.i16.not42.not, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit, label %.lr.ph44
 
-.lr.ph44:                                         ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %.tr, i64 3
-  %wide.trip.count64 = zext i8 %76 to i64
-  br label %78
+.lr.ph44:                                         ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %.tr, i64 3
+  %wide.trip.count64 = zext i8 %77 to i64
+  br label %79
 
-78:                                               ; preds = %78, %.lr.ph44
+79:                                               ; preds = %79, %.lr.ph44
   %indvars.iv61 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next62, %78 ]
-  %79 = getelementptr inbounds nuw %"struct.OT::OffsetTo.1195", ptr %77, i64 %indvars.iv61
-  %80 = load i8, ptr %79, align 1, !tbaa !219
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  %82 = load i8, ptr %81, align 1, !tbaa !219
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 2
-  %84 = load i8, ptr %83, align 1, !tbaa !219
-  %85 = or i8 %82, %80
-  %86 = or i8 %85, %84
-  %87 = icmp eq i8 %86, 0
-  %88 = zext i8 %80 to i64
-  %89 = shl nuw nsw i64 %88, 16
-  %90 = zext i8 %82 to i64
-  %91 = shl nuw nsw i64 %90, 8
-  %92 = zext i8 %84 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %.tr, i64 %91
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %89
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %92
-  %.0.i.i = select i1 %87, ptr @_hb_NullPool, ptr %95, !prof !64
-  %96 = tail call noundef zeroext i1 @_ZNK2OT9Condition8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  %80 = getelementptr inbounds nuw %"struct.OT::OffsetTo.1195", ptr %78, i64 %indvars.iv61
+  %81 = load i8, ptr %80, align 1, !tbaa !219
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  %83 = load i8, ptr %82, align 1, !tbaa !219
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 2
+  %85 = load i8, ptr %84, align 1, !tbaa !219
+  %86 = or i8 %83, %81
+  %87 = or i8 %86, %85
+  %88 = icmp eq i8 %87, 0
+  %89 = zext i8 %81 to i64
+  %90 = shl nuw nsw i64 %89, 16
+  %91 = zext i8 %83 to i64
+  %92 = shl nuw nsw i64 %91, 8
+  %93 = zext i8 %85 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %.tr, i64 %92
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %90
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %93
+  %.0.i.i = select i1 %88, ptr @_hb_NullPool, ptr %96, !prof !64
+  %97 = tail call noundef zeroext i1 @_ZNK2OT9Condition8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp ne i64 %indvars.iv.next62, %wide.trip.count64
-  %or.cond.not = select i1 %96, i1 %exitcond65.not, i1 false
-  br i1 %or.cond.not, label %78, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit, !llvm.loop !3121
+  %or.cond.not = select i1 %97, i1 %exitcond65.not, i1 false
+  br i1 %or.cond.not, label %79, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit, !llvm.loop !3121
 
-97:                                               ; preds = %tailrecurse
+98:                                               ; preds = %tailrecurse
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #61, !srcloc !762
-  %98 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
-  %99 = load i8, ptr %98, align 1, !tbaa !1058
-  %.not.i1838.not = icmp eq i8 %99, 0
+  %99 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
+  %100 = load i8, ptr %99, align 1, !tbaa !1058
+  %.not.i1838.not = icmp eq i8 %100, 0
   br i1 %.not.i1838.not, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %.tr, i64 3
-  %wide.trip.count = zext i8 %99 to i64
-  br label %101
+.lr.ph:                                           ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %.tr, i64 3
+  %wide.trip.count = zext i8 %100 to i64
+  br label %102
 
-101:                                              ; preds = %101, %.lr.ph
+102:                                              ; preds = %102, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw %"struct.OT::OffsetTo.1195", ptr %100, i64 %indvars.iv
-  %103 = load i8, ptr %102, align 1, !tbaa !219
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  %105 = load i8, ptr %104, align 1, !tbaa !219
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  %107 = load i8, ptr %106, align 1, !tbaa !219
-  %108 = or i8 %105, %103
-  %109 = or i8 %108, %107
-  %110 = icmp eq i8 %109, 0
-  %111 = zext i8 %103 to i64
-  %112 = shl nuw nsw i64 %111, 16
-  %113 = zext i8 %105 to i64
-  %114 = shl nuw nsw i64 %113, 8
-  %115 = zext i8 %107 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %.tr, i64 %114
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %112
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %115
-  %.0.i.i19 = select i1 %110, ptr @_hb_NullPool, ptr %118, !prof !64
-  %119 = tail call noundef zeroext i1 @_ZNK2OT9Condition8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i19, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  %103 = getelementptr inbounds nuw %"struct.OT::OffsetTo.1195", ptr %101, i64 %indvars.iv
+  %104 = load i8, ptr %103, align 1, !tbaa !219
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 1
+  %106 = load i8, ptr %105, align 1, !tbaa !219
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 2
+  %108 = load i8, ptr %107, align 1, !tbaa !219
+  %109 = or i8 %106, %104
+  %110 = or i8 %109, %108
+  %111 = icmp eq i8 %110, 0
+  %112 = zext i8 %104 to i64
+  %113 = shl nuw nsw i64 %112, 16
+  %114 = zext i8 %106 to i64
+  %115 = shl nuw nsw i64 %114, 8
+  %116 = zext i8 %108 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %.tr, i64 %115
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %113
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %116
+  %.0.i.i19 = select i1 %111, ptr @_hb_NullPool, ptr %119, !prof !64
+  %120 = tail call noundef zeroext i1 @_ZNK2OT9Condition8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i19, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond93 = select i1 %119, i1 true, i1 %exitcond.not
-  br i1 %or.cond93, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit, label %101, !llvm.loop !3122
+  %or.cond93 = select i1 %120, i1 true, i1 %exitcond.not
+  br i1 %or.cond93, label %_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit, label %102, !llvm.loop !3122
 
-120:                                              ; preds = %tailrecurse
+121:                                              ; preds = %tailrecurse
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #61, !srcloc !762
-  %121 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
-  %122 = load i8, ptr %121, align 1, !tbaa !219
-  %123 = getelementptr inbounds nuw i8, ptr %.tr, i64 3
-  %124 = load i8, ptr %123, align 1, !tbaa !219
-  %125 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %126 = load i8, ptr %125, align 1, !tbaa !219
-  %127 = or i8 %124, %122
-  %128 = or i8 %127, %126
-  %129 = icmp eq i8 %128, 0
-  %130 = zext i8 %122 to i64
-  %131 = shl nuw nsw i64 %130, 16
-  %132 = zext i8 %124 to i64
-  %133 = shl nuw nsw i64 %132, 8
-  %134 = zext i8 %126 to i64
-  %135 = getelementptr inbounds nuw i8, ptr %.tr, i64 %133
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %131
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %134
-  %.0.i.i20 = select i1 %129, ptr @_hb_NullPool, ptr %137, !prof !64
-  %138 = xor i1 %accumulator.tr, true
+  %122 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
+  %123 = load i8, ptr %122, align 1, !tbaa !219
+  %124 = getelementptr inbounds nuw i8, ptr %.tr, i64 3
+  %125 = load i8, ptr %124, align 1, !tbaa !219
+  %126 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %127 = load i8, ptr %126, align 1, !tbaa !219
+  %128 = or i8 %125, %123
+  %129 = or i8 %128, %127
+  %130 = icmp eq i8 %129, 0
+  %131 = zext i8 %123 to i64
+  %132 = shl nuw nsw i64 %131, 16
+  %133 = zext i8 %125 to i64
+  %134 = shl nuw nsw i64 %133, 8
+  %135 = zext i8 %127 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %.tr, i64 %134
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %132
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %135
+  %.0.i.i20 = select i1 %130, ptr @_hb_NullPool, ptr %138, !prof !64
+  %139 = xor i1 %accumulator.tr, true
   br label %tailrecurse
 
-_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit: ; preds = %tailrecurse, %101, %78, %97, %74, %23, %17, %_ZNK2OT14ConditionValue8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit
-  %.0 = phi i1 [ %73, %_ZNK2OT14ConditionValue8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit ], [ false, %17 ], [ %28, %23 ], [ true, %74 ], [ false, %97 ], [ %96, %78 ], [ %119, %101 ], [ false, %tailrecurse ]
+_ZNK2OT18ConditionAxisRange8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit: ; preds = %tailrecurse, %102, %79, %98, %75, %23, %17, %_ZNK2OT14ConditionValue8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit
+  %.0 = phi i1 [ %73, %_ZNK2OT14ConditionValue8evaluateINS_21ItemVarStoreInstancerEEEbPKijPT_.exit ], [ false, %17 ], [ %28, %23 ], [ true, %74 ], [ false, %97 ], [ %97, %78 ], [ %120, %101 ], [ false, %tailrecurse ]
   %accumulator.ret.tr = xor i1 %accumulator.tr, %.0
   ret i1 %accumulator.ret.tr
 }

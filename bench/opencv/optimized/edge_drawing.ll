@@ -20196,7 +20196,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ValidateCirclesEb(ptr noun
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 888
   br label %40
 
-._crit_edge306:                                   ; preds = %444, %31
+._crit_edge306:                                   ; preds = %446, %31
   %.0201.lcssa = phi i32 [ 0, %31 ], [ %.1202, %444 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 908
   store i32 %.0201.lcssa, ptr %39, align 4, !tbaa !394
@@ -20204,7 +20204,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ValidateCirclesEb(ptr noun
   tail call void @_ZdaPv(ptr noundef nonnull %16) #43
   ret void
 
-40:                                               ; preds = %.lr.ph305, %444
+40:                                               ; preds = %.lr.ph305, %446
   %.0201303 = phi i32 [ 0, %.lr.ph305 ], [ %.1202, %444 ]
   %.0203301 = phi i32 [ 0, %.lr.ph305 ], [ %.1204, %444 ]
   %41 = load ptr, ptr %35, align 8, !tbaa !356
@@ -20224,7 +20224,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ValidateCirclesEb(ptr noun
 
 53:                                               ; preds = %40
   %54 = add nsw i32 %.0203301, 1
-  br label %444, !llvm.loop !504
+  br label %446, !llvm.loop !504
 
 55:                                               ; preds = %40
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 64
@@ -20235,7 +20235,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ValidateCirclesEb(ptr noun
 
 60:                                               ; preds = %55
   %61 = add nsw i32 %.0203301, 1
-  br label %444, !llvm.loop !504
+  br label %446, !llvm.loop !504
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 128
@@ -20297,7 +20297,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 ._crit_edge:                                      ; preds = %376, %88
   %.0222.lcssa = phi i32 [ 0, %88 ], [ %.1223, %376 ]
   %.0220.lcssa = phi i32 [ 0, %88 ], [ %.1221, %376 ]
-  br i1 %1, label %377, label %.critedge
+  br i1 %1, label %379, label %.critedge
 
 95:                                               ; preds = %.lr.ph, %376
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %376 ]
@@ -20359,10 +20359,10 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %132 = fcmp oge double %130, 1.000000e+00
   br i1 %131, label %210, label %133
 
-133:                                              ; preds = %123
+133:; preds = %123
   br i1 %132, label %134, label %170
 
-134:                                              ; preds = %133
+134:; preds = %133
   %.not260 = icmp eq i32 %103, 1
   br i1 %.not260, label %142, label %135
 
@@ -20380,9 +20380,9 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %144 = icmp samesign ult i32 %143, %115
   br i1 %144, label %145, label %151
 
-145:                                              ; preds = %142
-  %146 = add nsw i32 %118, %143
-  %147 = sext i32 %146 to i64
+137:                                              ; preds = %142
+  %138 = add nsw i32 %118, %143
+  %147 = sext i32 %138 to i64
   %148 = getelementptr inbounds i8, ptr %117, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !53
   %150 = icmp eq i8 %149, -1
@@ -20392,7 +20392,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %152 = icmp samesign ugt i32 %103, 3
   br i1 %152, label %153, label %160
 
-153:                                              ; preds = %151
+153:   ; preds = %151
   %154 = add nsw i32 %103, -2
   %155 = add nsw i32 %118, %154
   %156 = sext i32 %155 to i64
@@ -20401,25 +20401,25 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %159 = icmp eq i8 %158, -1
   br i1 %159, label %.thread, label %160
 
-160:                                              ; preds = %153, %151
+184:                                              ; preds = %153, %151
   %161 = add nuw nsw i32 %103, 2
-  %162 = add nsw i32 %114, -2
+  %186 = add nsw i32 %114, -2
   %163 = icmp samesign ult i32 %161, %162
   br i1 %163, label %164, label %376
 
-164:                                              ; preds = %160
-  %165 = add nsw i32 %118, %161
+193:                                              ; preds = %160
+  %194 = add nsw i32 %118, %161
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i8, ptr %117, i64 %166
   %168 = load i8, ptr %167, align 1, !tbaa !53
   %169 = icmp eq i8 %168, -1
   br i1 %169, label %.thread, label %376
 
-170:                                              ; preds = %133
+170: ; preds = %133
   %.not259 = icmp eq i32 %99, 1
   br i1 %.not259, label %179, label %171
 
-171:                                              ; preds = %170
+171:; preds = %170
   %172 = add nsw i32 %99, -1
   %173 = mul nsw i32 %114, %172
   %174 = add nsw i32 %173, %103
@@ -20429,7 +20429,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %178 = icmp eq i8 %177, -1
   br i1 %178, label %.thread, label %179
 
-179:                                              ; preds = %171, %170
+179:; preds = %171, %170
   %180 = add nuw nsw i32 %99, 1
   %181 = icmp samesign ult i32 %180, %111
   br i1 %181, label %182, label %189
@@ -20479,9 +20479,9 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %.not258 = icmp eq i32 %99, 1
   br i1 %.not258, label %220, label %212
 
-212:                                              ; preds = %211
-  %213 = add nsw i32 %99, -1
-  %214 = mul nsw i32 %114, %213
+254:                                              ; preds = %211
+  %255 = add nsw i32 %99, -1
+  %214 = mul nsw i32 %114, %255
   %215 = add nsw i32 %214, %103
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds i8, ptr %117, i64 %216
@@ -20489,12 +20489,12 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %219 = icmp eq i8 %218, -1
   br i1 %219, label %.thread, label %220
 
-220:                                              ; preds = %212, %211
+220:; preds = %212, %211
   %221 = add nuw nsw i32 %99, 1
   %222 = icmp samesign ult i32 %221, %111
   br i1 %222, label %223, label %230
 
-223:                                              ; preds = %220
+223:; preds = %220
   %224 = mul nsw i32 %114, %221
   %225 = add nsw i32 %224, %103
   %226 = sext i32 %225 to i64
@@ -20503,11 +20503,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %229 = icmp eq i8 %228, -1
   br i1 %229, label %.thread, label %230
 
-230:                                              ; preds = %223, %220
+230:; preds = %223, %220
   %231 = icmp samesign ugt i32 %99, 3
   br i1 %231, label %232, label %240
 
-232:                                              ; preds = %230
+232:; preds = %230
   %233 = add nsw i32 %99, -2
   %234 = mul nsw i32 %114, %233
   %235 = add nsw i32 %234, %103
@@ -20662,14 +20662,14 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %353 = fadd double %352, %351
   br label %359
 
-354:                                              ; preds = %.thread
+279:                                              ; preds = %.thread
   %355 = uitofp nneg i32 %.1230 to double
   %356 = fsub double %355, %44
   %357 = uitofp nneg i32 %.1228 to double
   %358 = fsub double %357, %46
   br label %359
 
-359:                                              ; preds = %354, %338
+283:                                              ; preds = %279, %338
   %.0208 = phi double [ %347, %338 ], [ %356, %354 ]
   %.0207 = phi double [ %353, %338 ], [ %358, %354 ]
   %360 = fptrunc double %.0208 to float
@@ -20689,12 +20689,12 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %373 = fsub double 0x400921FB54442D18, %371
   %374 = fcmp oge double %370, %373
   %or.cond266.not = or i1 %372, %374
-  %375 = zext i1 %or.cond266.not to i32
-  %.3225 = add nsw i32 %.0222294, %375
+  %297 = zext i1 %or.cond266.not to i32
+  %298 = add nsw i32 %.0222294, %375
   br label %376
 
-376:                                              ; preds = %244, %240, %281, %277, %164, %160, %203, %199, %359, %113, %106, %109, %95
-  %.1223 = phi i32 [ %.0222294, %95 ], [ %.0222294, %109 ], [ %.0222294, %106 ], [ %.0222294, %113 ], [ %.3225, %359 ], [ %.0222294, %199 ], [ %.0222294, %203 ], [ %.0222294, %160 ], [ %.0222294, %164 ], [ %.0222294, %277 ], [ %.0222294, %281 ], [ %.0222294, %240 ], [ %.0222294, %244 ]
+376:; preds = %244, %240, %281, %277, %164, %160, %203, %199, %283, %113, %106, %109, %95
+  %.1223 = phi i32 [ %.0222294, %95 ], [ %.0222294, %109 ], [ %.0222294, %106 ], [ %.0222294, %113 ], [ %298, %359 ], [ %.0222294, %199 ], [ %.0222294, %203 ], [ %.0222294, %160 ], [ %.0222294, %164 ], [ %.0222294, %277 ], [ %.0222294, %281 ], [ %.0222294, %240 ], [ %.0222294, %244 ]
   %.1221 = phi i32 [ %.0220295, %95 ], [ %107, %109 ], [ %107, %106 ], [ %107, %113 ], [ %107, %359 ], [ %107, %199 ], [ %107, %203 ], [ %107, %160 ], [ %107, %164 ], [ %107, %277 ], [ %107, %281 ], [ %107, %240 ], [ %107, %244 ]
   %.1213 = phi i32 [ %.0212298, %95 ], [ %.0212298, %109 ], [ %.0212298, %106 ], [ %.0212298, %113 ], [ %103, %359 ], [ %103, %199 ], [ %103, %203 ], [ %103, %160 ], [ %103, %164 ], [ %103, %277 ], [ %103, %281 ], [ %103, %240 ], [ %103, %244 ]
   %.1211 = phi i32 [ %.0210299, %95 ], [ %.0210299, %109 ], [ %.0210299, %106 ], [ %.0210299, %113 ], [ %99, %359 ], [ %99, %199 ], [ %99, %203 ], [ %99, %160 ], [ %99, %164 ], [ %99, %277 ], [ %99, %281 ], [ %99, %240 ], [ %99, %244 ]
@@ -20702,144 +20702,144 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %95, !llvm.loop !506
 
-377:                                              ; preds = %._crit_edge
-  %378 = load ptr, ptr %17, align 8, !tbaa !111
-  %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
-  %380 = load i32, ptr %379, align 8, !tbaa !3
-  %.not.i = icmp slt i32 %.0220.lcssa, %380
-  br i1 %.not.i, label %_ZN6NFALUT20checkValidationByNFAEii.exit, label %381
+379:                                              ; preds = %._crit_edge
+  %380 = load ptr, ptr %17, align 8, !tbaa !111
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
+  %382 = load i32, ptr %381, align 8, !tbaa !3
+  %.not.i = icmp slt i32 %.0220.lcssa, %382
+  br i1 %.not.i, label %_ZN6NFALUT20checkValidationByNFAEii.exit, label %383
 
-381:                                              ; preds = %377
+383:                                              ; preds = %379
   %.not15.i.i = icmp sgt i32 %.0222.lcssa, %.0220.lcssa
   br i1 %.not15.i.i, label %_ZN6NFALUT3nfaEii.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %381
-  %382 = sitofp i32 %.0220.lcssa to double
-  br label %383
+.lr.ph.i.i:                                       ; preds = %383
+  %384 = sitofp i32 %.0220.lcssa to double
+  br label %385
 
-383:                                              ; preds = %_ZN6NFALUT4CombEdd.exit.i.i, %.lr.ph.i.i
-  %.017.i.i = phi i32 [ %.0222.lcssa, %.lr.ph.i.i ], [ %397, %_ZN6NFALUT4CombEdd.exit.i.i ]
-  %.01316.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %396, %_ZN6NFALUT4CombEdd.exit.i.i ]
-  %384 = sitofp i32 %.017.i.i to double
-  %385 = fcmp ogt double %384, %382
-  br i1 %385, label %_ZN6NFALUT4CombEdd.exit.i.i, label %.preheader.i.i.i
+385:                                              ; preds = %_ZN6NFALUT4CombEdd.exit.i.i, %.lr.ph.i.i
+  %.017.i.i = phi i32 [ %.0222.lcssa, %.lr.ph.i.i ], [ %399, %_ZN6NFALUT4CombEdd.exit.i.i ]
+  %.01316.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %398, %_ZN6NFALUT4CombEdd.exit.i.i ]
+  %386 = sitofp i32 %.017.i.i to double
+  %387 = fcmp ogt double %386, %384
+  br i1 %387, label %_ZN6NFALUT4CombEdd.exit.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %383
-  %386 = icmp slt i32 %.017.i.i, 1
-  br i1 %386, label %_ZN6NFALUT4CombEdd.exit.i.i, label %.lr.ph.i.i.i
+.preheader.i.i.i:                                 ; preds = %385
+  %388 = icmp slt i32 %.017.i.i, 1
+  br i1 %388, label %_ZN6NFALUT4CombEdd.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.018.i.i.i = phi double [ %390, %.lr.ph.i.i.i ], [ 1.000000e+00, %.preheader.i.i.i ]
-  %.01117.i.i.i = phi double [ %389, %.lr.ph.i.i.i ], [ 1.000000e+00, %.preheader.i.i.i ]
-  %.01316.i.i.i = phi double [ %387, %.lr.ph.i.i.i ], [ %382, %.preheader.i.i.i ]
-  %387 = fadd double %.01316.i.i.i, -1.000000e+00
-  %388 = fmul double %.01117.i.i.i, %.01316.i.i.i
-  %389 = fdiv double %388, %.018.i.i.i
-  %390 = fadd double %.018.i.i.i, 1.000000e+00
-  %391 = fcmp ugt double %390, %384
-  br i1 %391, label %_ZN6NFALUT4CombEdd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
+  %.018.i.i.i = phi double [ %392, %.lr.ph.i.i.i ], [ 1.000000e+00, %.preheader.i.i.i ]
+  %.01117.i.i.i = phi double [ %391, %.lr.ph.i.i.i ], [ 1.000000e+00, %.preheader.i.i.i ]
+  %.01316.i.i.i = phi double [ %389, %.lr.ph.i.i.i ], [ %384, %.preheader.i.i.i ]
+  %389 = fadd double %.01316.i.i.i, -1.000000e+00
+  %390 = fmul double %.01117.i.i.i, %.01316.i.i.i
+  %391 = fdiv double %390, %.018.i.i.i
+  %392 = fadd double %.018.i.i.i, 1.000000e+00
+  %393 = fcmp ugt double %392, %386
+  br i1 %393, label %_ZN6NFALUT4CombEdd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
-_ZN6NFALUT4CombEdd.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %383
-  %.012.i.i.i = phi double [ 0.000000e+00, %383 ], [ 1.000000e+00, %.preheader.i.i.i ], [ %389, %.lr.ph.i.i.i ]
-  %mul.i.i = fmul double %384, -3.000000e+00
+_ZN6NFALUT4CombEdd.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %385
+  %.012.i.i.i = phi double [ 0.000000e+00, %383 ], [ 1.000000e+00, %.preheader.i.i.i ], [ %391, %.lr.ph.i.i.i ]
+  %mul.i.i = fmul double %386, -3.000000e+00
   %exp2.i.i = tail call double @exp2(double %mul.i.i)
-  %392 = fmul double %.012.i.i.i, %exp2.i.i
-  %393 = sub nsw i32 %.0220.lcssa, %.017.i.i
-  %394 = sitofp i32 %393 to double
-  %395 = tail call noundef double @pow(double noundef 8.750000e-01, double noundef %394) #42, !tbaa !15
-  %396 = tail call double @llvm.fmuladd.f64(double %392, double %395, double %.01316.i.i)
-  %397 = add i32 %.017.i.i, 1
+  %394 = fmul double %.012.i.i.i, %exp2.i.i
+  %395 = sub nsw i32 %.0220.lcssa, %.017.i.i
+  %396 = sitofp i32 %395 to double
+  %397 = tail call noundef double @pow(double noundef 8.750000e-01, double noundef %396) #42, !tbaa !15
+  %398 = tail call double @llvm.fmuladd.f64(double %394, double %397, double %.01316.i.i)
+  %399 = add i32 %.017.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.017.i.i, %.0220.lcssa
-  br i1 %exitcond.not.i.i, label %_ZN6NFALUT3nfaEii.exit.i, label %383, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %_ZN6NFALUT3nfaEii.exit.i, label %385, !llvm.loop !18
 
-_ZN6NFALUT3nfaEii.exit.i:                         ; preds = %_ZN6NFALUT4CombEdd.exit.i.i, %381
-  %.013.lcssa.i.i = phi double [ 0.000000e+00, %381 ], [ %396, %_ZN6NFALUT4CombEdd.exit.i.i ]
-  %398 = getelementptr inbounds nuw i8, ptr %378, i64 24
-  %399 = load i32, ptr %398, align 8, !tbaa !12
-  %400 = sitofp i32 %399 to double
-  %401 = fmul double %.013.lcssa.i.i, %400
-  %402 = fmul double %401, %400
-  %403 = getelementptr inbounds nuw i8, ptr %378, i64 28
-  %404 = load i32, ptr %403, align 4, !tbaa !13
-  %405 = sitofp i32 %404 to double
-  %406 = fmul double %402, %405
-  %407 = fmul double %406, %405
-  %408 = fcmp ugt double %407, 1.000000e+00
-  br i1 %408, label %419, label %.critedge
+_ZN6NFALUT3nfaEii.exit.i:                         ; preds = %_ZN6NFALUT4CombEdd.exit.i.i, %383
+  %.013.lcssa.i.i = phi double [ 0.000000e+00, %381 ], [ %398, %_ZN6NFALUT4CombEdd.exit.i.i ]
+  %400 = getelementptr inbounds nuw i8, ptr %380, i64 24
+  %401 = load i32, ptr %400, align 8, !tbaa !12
+  %402 = sitofp i32 %401 to double
+  %403 = fmul double %.013.lcssa.i.i, %402
+  %404 = fmul double %403, %402
+  %405 = getelementptr inbounds nuw i8, ptr %380, i64 28
+  %406 = load i32, ptr %405, align 4, !tbaa !13
+  %407 = sitofp i32 %406 to double
+  %408 = fmul double %404, %407
+  %409 = fmul double %408, %407
+  %410 = fcmp ugt double %409, 1.000000e+00
+  br i1 %410, label %421, label %.critedge
 
-_ZN6NFALUT20checkValidationByNFAEii.exit:         ; preds = %377
-  %409 = load ptr, ptr %378, align 8, !tbaa !11
-  %410 = sext i32 %.0220.lcssa to i64
-  %411 = getelementptr inbounds i32, ptr %409, i64 %410
-  %412 = load i32, ptr %411, align 4, !tbaa !15
-  %.not285 = icmp slt i32 %.0222.lcssa, %412
-  br i1 %.not285, label %419, label %.critedge
+_ZN6NFALUT20checkValidationByNFAEii.exit:         ; preds = %379
+  %411 = load ptr, ptr %380, align 8, !tbaa !11
+  %412 = sext i32 %.0220.lcssa to i64
+  %413 = getelementptr inbounds i32, ptr %411, i64 %412
+  %414 = load i32, ptr %413, align 4, !tbaa !15
+  %.not285 = icmp slt i32 %.0222.lcssa, %414
+  br i1 %.not285, label %421, label %.critedge
 
 .critedge:                                        ; preds = %_ZN6NFALUT3nfaEii.exit.i, %._crit_edge, %_ZN6NFALUT20checkValidationByNFAEii.exit
-  %413 = load ptr, ptr %35, align 8, !tbaa !356
-  %414 = getelementptr inbounds %struct.Circle, ptr %413, i64 %42
-  %415 = load ptr, ptr %38, align 8, !tbaa !395
-  %416 = add nsw i32 %.0201303, 1
-  %417 = sext i32 %.0201303 to i64
-  %418 = getelementptr inbounds %struct.Circle, ptr %415, i64 %417
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %418, ptr noundef nonnull align 8 dereferenceable(152) %414, i64 152, i1 false), !tbaa.struct !507
+  %415 = load ptr, ptr %35, align 8, !tbaa !356
+  %416 = getelementptr inbounds %struct.Circle, ptr %415, i64 %42
+  %417 = load ptr, ptr %38, align 8, !tbaa !395
+  %418 = add nsw i32 %.0201303, 1
+  %419 = sext i32 %.0201303 to i64
+  %420 = getelementptr inbounds %struct.Circle, ptr %417, i64 %419
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %420, ptr noundef nonnull align 8 dereferenceable(152) %416, i64 152, i1 false), !tbaa.struct !507
   br label %.thread278
 
-419:                                              ; preds = %_ZN6NFALUT3nfaEii.exit.i, %_ZN6NFALUT20checkValidationByNFAEii.exit
-  %420 = load i8, ptr %63, align 8, !tbaa !376, !range !61, !noundef !62
-  %421 = icmp eq i8 %420, 0
-  br i1 %421, label %422, label %.thread278
+421:                                              ; preds = %_ZN6NFALUT3nfaEii.exit.i, %_ZN6NFALUT20checkValidationByNFAEii.exit
+  %422 = load i8, ptr %63, align 8, !tbaa !376, !range !61, !noundef !62
+  %423 = icmp eq i8 %422, 0
+  br i1 %423, label %424, label %.thread278
 
-422:                                              ; preds = %419
-  %423 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %424 = load double, ptr %423, align 8, !tbaa !372
-  %425 = fcmp ult double %424, 5.000000e-01
-  br i1 %425, label %.thread278, label %426
+424:                                              ; preds = %421
+  %425 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %426 = load double, ptr %425, align 8, !tbaa !372
+  %427 = fcmp ult double %426, 5.000000e-01
+  br i1 %427, label %.thread278, label %428
 
-426:                                              ; preds = %422
+428:                                              ; preds = %424
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !tbaa !37
-  %427 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %428 = load ptr, ptr %427, align 8, !tbaa !373
-  %429 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %430 = load ptr, ptr %429, align 8, !tbaa !374
-  %431 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %432 = load i32, ptr %431, align 8, !tbaa !375
-  %433 = call noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl10EllipseFitEPdS2_iP15EllipseEquationi(ptr noundef %428, ptr noundef %430, i32 noundef %432, ptr noundef nonnull %3, i32 noundef 1)
-  br i1 %433, label %434, label %.thread284
+  %429 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %430 = load ptr, ptr %429, align 8, !tbaa !373
+  %431 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  %432 = load ptr, ptr %431, align 8, !tbaa !374
+  %433 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %434 = load i32, ptr %433, align 8, !tbaa !375
+  %435 = call noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl10EllipseFitEPdS2_iP15EllipseEquationi(ptr noundef %430, ptr noundef %432, i32 noundef %434, ptr noundef nonnull %3, i32 noundef 1)
+  br i1 %435, label %436, label %.thread284
 
-434:                                              ; preds = %426
-  %435 = load ptr, ptr %427, align 8, !tbaa !373
-  %436 = load ptr, ptr %429, align 8, !tbaa !374
-  %437 = load i32, ptr %431, align 8, !tbaa !375
-  %438 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeEllipseErrorEP15EllipseEquationPdS4_i(ptr noundef nonnull %3, ptr noundef %435, ptr noundef %436, i32 noundef %437)
-  %439 = fcmp ugt double %438, 1.500000e+00
-  br i1 %439, label %.thread284, label %442
+436:                                              ; preds = %428
+  %437 = load ptr, ptr %429, align 8, !tbaa !373
+  %438 = load ptr, ptr %431, align 8, !tbaa !374
+  %439 = load i32, ptr %433, align 8, !tbaa !375
+  %440 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeEllipseErrorEP15EllipseEquationPdS4_i(ptr noundef nonnull %3, ptr noundef %437, ptr noundef %438, i32 noundef %439)
+  %441 = fcmp ugt double %440, 1.500000e+00
+  br i1 %441, label %.thread284, label %444
 
-.thread278:                                       ; preds = %.critedge, %422, %419
-  %.3.ph = phi i32 [ %.0201303, %419 ], [ %.0201303, %422 ], [ %416, %.critedge ]
-  %440 = add nsw i32 %.0203301, 1
-  br label %444
+.thread278:                                       ; preds = %.critedge, %424, %421
+  %.3.ph = phi i32 [ %.0201303, %419 ], [ %.0201303, %422 ], [ %418, %.critedge ]
+  %442 = add nsw i32 %.0203301, 1
+  br label %446
 
-.thread284:                                       ; preds = %434, %426
+.thread284:                                       ; preds = %436, %428
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %441 = add nsw i32 %.0203301, 1
-  br label %444
+  %443 = add nsw i32 %.0203301, 1
+  br label %446
 
-442:                                              ; preds = %434
+444:                                              ; preds = %436
   store i8 1, ptr %63, align 8, !tbaa !376
-  %443 = getelementptr inbounds nuw i8, ptr %43, i64 120
-  store double %438, ptr %443, align 8, !tbaa !378
+  %445 = getelementptr inbounds nuw i8, ptr %43, i64 120
+  store double %440, ptr %445, align 8, !tbaa !378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !377
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %444
+  br label %446
 
-444:                                              ; preds = %60, %.thread278, %.thread284, %442, %53
-  %.1204 = phi i32 [ %54, %53 ], [ %61, %60 ], [ %.0203301, %442 ], [ %440, %.thread278 ], [ %441, %.thread284 ]
+446:                                              ; preds = %60, %.thread278, %.thread284, %444, %53
+  %.1204 = phi i32 [ %54, %53 ], [ %61, %60 ], [ %.0203301, %442 ], [ %442, %.thread278 ], [ %443, %.thread284 ]
   %.1202 = phi i32 [ %.0201303, %53 ], [ %.0201303, %60 ], [ %.0201303, %442 ], [ %.3.ph, %.thread278 ], [ %.0201303, %.thread284 ]
-  %445 = load i32, ptr %32, align 8, !tbaa !355
-  %446 = icmp slt i32 %.1204, %445
-  br i1 %446, label %40, label %._crit_edge306
+  %447 = load i32, ptr %32, align 8, !tbaa !355
+  %448 = icmp slt i32 %.1204, %447
+  br i1 %448, label %40, label %._crit_edge306
 }
 
 ; Function Attrs: mustprogress uwtable

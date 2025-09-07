@@ -177,9 +177,9 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %37 = mul i64 %2, 1000
   br label %38
 
-38:                                               ; preds = %.lr.ph85, %100
-  %39 = phi i64 [ 0, %.lr.ph85 ], [ %102, %100 ]
-  %.083 = phi i32 [ 0, %.lr.ph85 ], [ %101, %100 ]
+38:                                               ; preds = %.lr.ph85, %101
+  %39 = phi i64 [ 0, %.lr.ph85 ], [ %103, %100 ]
+  %.083 = phi i32 [ 0, %.lr.ph85 ], [ %102, %100 ]
   %40 = load i32, ptr %30, align 8
   %.not75 = icmp eq i32 %40, 0
   br i1 %.not75, label %45, label %41
@@ -287,25 +287,25 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
 
 92:                                               ; preds = %91
   call void @g_usleep(i64 noundef %37)
-  %93 = load ptr, ptr %35, align 8
-  %94 = call zeroext i1 @wtap_dump_flush(ptr noundef %93, ptr noundef nonnull %4)
-  br i1 %94, label %100, label %95
+  %94 = load ptr, ptr %35, align 8
+  %95 = call zeroext i1 @wtap_dump_flush(ptr noundef %94, ptr noundef nonnull %4)
+  br i1 %95, label %101, label %96
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %36, align 8
-  %97 = load i32, ptr %4, align 4
-  %98 = load ptr, ptr %35, align 8
-  %99 = call i32 @wtap_dump_file_type_subtype(ptr noundef %98)
-  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %96, i32 noundef %97, ptr noundef null, i64 noundef 0, i32 noundef %99)
-  br label %100
+96:                                               ; preds = %92
+  %97 = load ptr, ptr %36, align 8
+  %98 = load i32, ptr %4, align 4
+  %99 = load ptr, ptr %35, align 8
+  %100 = call i32 @wtap_dump_file_type_subtype(ptr noundef %99)
+  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %97, i32 noundef %98, ptr noundef null, i64 noundef 0, i32 noundef %100)
+  br label %101
 
-100:                                              ; preds = %91, %95, %92
-  %101 = add i32 %.083, 1
-  %102 = zext i32 %101 to i64
-  %103 = icmp ugt i64 %1, %102
-  br i1 %103, label %38, label %._crit_edge86, !llvm.loop !22
+101:                                              ; preds = %91, %96, %92
+  %102 = add i32 %.083, 1
+  %103 = zext i32 %102 to i64
+  %104 = icmp ugt i64 %1, %103
+  br i1 %104, label %38, label %._crit_edge86, !llvm.loop !22
 
-._crit_edge86:                                    ; preds = %100, %29
+._crit_edge86:                                    ; preds = %101, %29
   call void @g_free(ptr noundef %6)
   call void @g_free(ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

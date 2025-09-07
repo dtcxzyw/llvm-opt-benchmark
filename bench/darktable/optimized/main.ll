@@ -3763,21 +3763,21 @@ get_corners.exit:                                 ; preds = %61
   %189 = fcmp reassoc nsz arcp contract afn ogt float %147, %.410.i
   br i1 %189, label %190, label %.thread439.i
 
-190:                                              ; preds = %186
+95:                                               ; preds = %186
   %191 = fcmp reassoc nsz arcp contract afn ogt float %145, %147
   br i1 %191, label %195, label %193
 
-.thread439.i:                                     ; preds = %186
-  %192 = fcmp reassoc nsz arcp contract afn ogt float %145, %.410.i
-  br i1 %192, label %195, label %194
+96:                                               ; preds = %186
+  %97 = fcmp reassoc nsz arcp contract afn ogt float %145, %.410.i
+  br i1 %97, label %195, label %99
 
-193:                                              ; preds = %190
+.thread425.i:                                     ; preds = %95
   br label %195
 
-194:                                              ; preds = %.thread439.i
+99:                                               ; preds = %96
   br label %195
 
-195:                                              ; preds = %194, %193, %.thread439.i, %190
+126:                                              ; preds = %99, %193, %.thread439.i, %95
   %196 = phi reassoc nsz arcp contract afn float [ %147, %193 ], [ %.410.i, %194 ], [ %145, %190 ], [ %145, %.thread439.i ]
   %197 = fpext reassoc nsz arcp contract afn float %196 to double
   %198 = fadd reassoc nsz arcp contract afn double %197, 5.000000e-01
@@ -3785,135 +3785,135 @@ get_corners.exit:                                 ; preds = %61
   %200 = icmp slt i32 %162, %199
   br i1 %200, label %get_pixel_region.exit, label %201
 
-201:                                              ; preds = %195
-  br i1 %189, label %202, label %.thread441.i
+127:                                              ; preds = %126
+  br i1 %189, label %133, label %.thread441.i
 
-202:                                              ; preds = %201
+133:                                              ; preds = %127
   %203 = fcmp reassoc nsz arcp contract afn ogt float %145, %147
   br i1 %203, label %207, label %205
 
-.thread441.i:                                     ; preds = %201
-  %204 = fcmp reassoc nsz arcp contract afn ogt float %145, %.410.i
-  br i1 %204, label %207, label %206
+134:                                              ; preds = %201
+  %135 = fcmp reassoc nsz arcp contract afn ogt float %145, %.410.i
+  br i1 %135, label %138, label %137
 
-205:                                              ; preds = %202
+.thread431.i:                                     ; preds = %133
   br label %207
 
-206:                                              ; preds = %.thread441.i
-  br label %207
+137:                                              ; preds = %134
+  br label %138
 
-207:                                              ; preds = %206, %205, %.thread441.i, %202
+138:                                              ; preds = %206, %205, %.thread441.i, %202
   %208 = phi reassoc nsz arcp contract afn float [ %147, %205 ], [ %.410.i, %206 ], [ %145, %202 ], [ %145, %.thread441.i ]
   %209 = fpext reassoc nsz arcp contract afn float %208 to double
   %210 = fadd reassoc nsz arcp contract afn double %209, 5.000000e-01
   %211 = fcmp ugt double %210, -1.000000e+00
   br i1 %211, label %212, label %get_pixel_region.exit
 
-212:                                              ; preds = %207
+139:                                              ; preds = %138
   br i1 %189, label %213, label %.thread443.i
 
-213:                                              ; preds = %212
+144:                                              ; preds = %139
   %214 = fcmp reassoc nsz arcp contract afn ogt float %145, %147
   br i1 %214, label %218, label %216
 
-.thread443.i:                                     ; preds = %212
+.thread443.i:; preds = %212
   %215 = fcmp reassoc nsz arcp contract afn ogt float %145, %.410.i
   br i1 %215, label %218, label %217
 
-216:                                              ; preds = %213
+216:; preds = %213
   br label %218
 
-217:                                              ; preds = %.thread443.i
+217:   ; preds = %.thread443.i
   br label %218
 
-218:                                              ; preds = %217, %216, %.thread443.i, %213
+218:; preds = %217, %216, %.thread443.i, %144
   %219 = phi reassoc nsz arcp contract afn float [ %147, %216 ], [ %.410.i, %217 ], [ %145, %213 ], [ %145, %.thread443.i ]
   %220 = fpext reassoc nsz arcp contract afn float %219 to double
   %221 = fadd reassoc nsz arcp contract afn double %220, 5.000000e-01
   %222 = fptosi double %221 to i32
   br label %get_pixel_region.exit
 
-get_pixel_region.exit:                            ; preds = %195, %207, %218
-  %223 = phi i32 [ %222, %218 ], [ 0, %207 ], [ %162, %195 ]
-  %224 = icmp slt i32 %187, %223
-  br i1 %224, label %.preheader.lr.ph, label %._crit_edge95
+get_pixel_region.exit:                            ; preds = %195, %138, %218
+  %227 = phi i32 [ %222, %218 ], [ 0, %207 ], [ %162, %195 ]
+  %228 = icmp slt i32 %187, %227
+  br i1 %228, label %.preheader.lr.ph, label %._crit_edge95
 
 .preheader.lr.ph:                                 ; preds = %get_pixel_region.exit
-  %225 = fsub reassoc nsz arcp contract afn float %148, %149
-  %226 = fsub reassoc nsz arcp contract afn float %147, %145
-  %227 = fsub reassoc nsz arcp contract afn float %67, %66
-  %228 = fsub reassoc nsz arcp contract afn float %68, %65
-  %229 = icmp slt i32 %106, %143
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %229, label %.preheader.us.preheader, label %._crit_edge95
+  %229 = fsub reassoc nsz arcp contract afn float %148, %149
+  %230 = fsub reassoc nsz arcp contract afn float %147, %145
+  %231 = fsub reassoc nsz arcp contract afn float %67, %66
+  %232 = fsub reassoc nsz arcp contract afn float %68, %65
+  %233 = icmp slt i32 %106, %143
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br i1 %233, label %.preheader.us.preheader, label %._crit_edge95
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %231 = fsub reassoc nsz arcp contract afn float %66, %65
-  %232 = fsub reassoc nsz arcp contract afn float %67, %68
-  %233 = fsub reassoc nsz arcp contract afn float %149, %145
-  %234 = fsub reassoc nsz arcp contract afn float %148, %147
-  %235 = sext i32 %106 to i64
-  %236 = sext i32 %187 to i64
-  %237 = sext i32 %81 to i64
-  %wide.trip.count113 = sext i32 %223 to i64
+  %235 = fsub reassoc nsz arcp contract afn float %66, %65
+  %236 = fsub reassoc nsz arcp contract afn float %67, %68
+  %237 = fsub reassoc nsz arcp contract afn float %149, %145
+  %238 = fsub reassoc nsz arcp contract afn float %148, %147
+  %239 = sext i32 %106 to i64
+  %240 = sext i32 %187 to i64
+  %241 = sext i32 %81 to i64
+  %wide.trip.count113 = sext i32 %227 to i64
   %wide.trip.count = sext i32 %143 to i64
-  %238 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %233
-  %239 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %234
-  %240 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %231
-  %241 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %232
+  %242 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %237
+  %243 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %238
+  %244 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %235
+  %245 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %236
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv110 = phi i64 [ %236, %.preheader.us.preheader ], [ %indvars.iv.next111, %._crit_edge.us ]
+  %indvars.iv110 = phi i64 [ %240, %.preheader.us.preheader ], [ %indvars.iv.next111, %._crit_edge.us ]
   %.04993.us = phi i64 [ 0, %.preheader.us.preheader ], [ %.2.us, %._crit_edge.us ]
   %.05092.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %.252.us, %._crit_edge.us ]
   %.05391.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %.255.us, %._crit_edge.us ]
   %.05690.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %.258.us, %._crit_edge.us ]
-  %242 = trunc nsw i64 %indvars.iv110 to i32
-  %243 = sitofp i32 %242 to float
-  %244 = fsub reassoc nsz arcp contract afn float %243, %145
-  %245 = fmul reassoc nsz arcp contract afn float %228, %244
-  %246 = fmul reassoc nsz arcp contract afn float %245, %238
-  %247 = fadd reassoc nsz arcp contract afn float %246, %65
-  %248 = fsub reassoc nsz arcp contract afn float %243, %147
-  %249 = fmul reassoc nsz arcp contract afn float %227, %248
-  %250 = fmul reassoc nsz arcp contract afn float %249, %239
-  %251 = fadd reassoc nsz arcp contract afn float %250, %66
-  %252 = mul nsw i64 %indvars.iv110, %237
-  br label %253
+  %246 = trunc nsw i64 %indvars.iv110 to i32
+  %247 = sitofp i32 %246 to float
+  %248 = fsub reassoc nsz arcp contract afn float %247, %145
+  %249 = fmul reassoc nsz arcp contract afn float %232, %248
+  %250 = fmul reassoc nsz arcp contract afn float %249, %242
+  %251 = fadd reassoc nsz arcp contract afn float %250, %65
+  %252 = fsub reassoc nsz arcp contract afn float %247, %147
+  %253 = fmul reassoc nsz arcp contract afn float %231, %252
+  %254 = fmul reassoc nsz arcp contract afn float %253, %243
+  %255 = fadd reassoc nsz arcp contract afn float %254, %66
+  %256 = mul nsw i64 %indvars.iv110, %241
+  br label %257
 
-253:                                              ; preds = %.preheader.us, %285
-  %indvars.iv = phi i64 [ %235, %.preheader.us ], [ %indvars.iv.next, %285 ]
+257:                                              ; preds = %.preheader.us, %285
+  %indvars.iv = phi i64 [ %239, %.preheader.us ], [ %indvars.iv.next, %285 ]
   %.180.us = phi i64 [ %.04993.us, %.preheader.us ], [ %.2.us, %285 ]
   %.15179.us = phi double [ %.05092.us, %.preheader.us ], [ %.252.us, %285 ]
   %.15478.us = phi double [ %.05391.us, %.preheader.us ], [ %.255.us, %285 ]
   %.15777.us = phi double [ %.05690.us, %.preheader.us ], [ %.258.us, %285 ]
-  %254 = trunc nsw i64 %indvars.iv to i32
-  %255 = sitofp i32 %254 to float
-  %256 = fsub reassoc nsz arcp contract afn float %255, %65
-  %257 = fmul reassoc nsz arcp contract afn float %226, %256
-  %258 = fmul reassoc nsz arcp contract afn float %257, %240
-  %259 = fadd reassoc nsz arcp contract afn float %258, %145
-  %260 = fcmp reassoc nsz arcp contract afn olt float %259, %243
-  br i1 %260, label %261, label %285
+  %258 = trunc nsw i64 %indvars.iv to i32
+  %259 = sitofp i32 %258 to float
+  %260 = fsub reassoc nsz arcp contract afn float %259, %65
+  %261 = fmul reassoc nsz arcp contract afn float %230, %260
+  %262 = fmul reassoc nsz arcp contract afn float %261, %244
+  %263 = fadd reassoc nsz arcp contract afn float %262, %145
+  %264 = fcmp reassoc nsz arcp contract afn olt float %263, %247
+  br i1 %264, label %265, label %285
 
-261:                                              ; preds = %253
-  %262 = fsub reassoc nsz arcp contract afn float %255, %68
-  %263 = fmul reassoc nsz arcp contract afn float %225, %262
-  %264 = fmul reassoc nsz arcp contract afn float %263, %241
-  %265 = fadd reassoc nsz arcp contract afn float %264, %149
-  %266 = fcmp reassoc nsz arcp contract afn ogt float %265, %243
-  %267 = fcmp reassoc nsz arcp contract afn olt float %247, %255
-  %or.cond = select i1 %266, i1 %267, i1 false
-  %268 = fcmp reassoc nsz arcp contract afn ogt float %251, %255
-  %or.cond107 = and i1 %or.cond, %268
-  br i1 %or.cond107, label %269, label %285
+265:                                              ; preds = %257
+  %266 = fsub reassoc nsz arcp contract afn float %259, %68
+  %267 = fmul reassoc nsz arcp contract afn float %229, %266
+  %268 = fmul reassoc nsz arcp contract afn float %267, %245
+  %269 = fadd reassoc nsz arcp contract afn float %268, %149
+  %270 = fcmp reassoc nsz arcp contract afn ogt float %269, %247
+  %271 = fcmp reassoc nsz arcp contract afn olt float %251, %259
+  %or.cond = select i1 %270, i1 %271, i1 false
+  %272 = fcmp reassoc nsz arcp contract afn ogt float %255, %259
+  %or.cond107 = and i1 %or.cond, %272
+  br i1 %or.cond107, label %273, label %285
 
-269:                                              ; preds = %261
-  %270 = load ptr, ptr %230, align 8, !tbaa !63
-  %271 = add nsw i64 %indvars.iv, %252
-  %.idx = mul nsw i64 %271, 12
-  %272 = getelementptr inbounds i8, ptr %270, i64 %.idx
+273:                                              ; preds = %265
+  %274 = load ptr, ptr %234, align 8, !tbaa !63
+  %275 = add nsw i64 %indvars.iv, %256
+  %.idx = mul nsw i64 %275, 12
+  %276 = getelementptr inbounds i8, ptr %274, i64 %.idx
   %273 = load float, ptr %272, align 4, !tbaa !67
   %274 = fpext reassoc nsz arcp contract afn float %273 to double
   %275 = fadd reassoc nsz arcp contract afn double %.15777.us, %274
@@ -3921,21 +3921,21 @@ get_pixel_region.exit:                            ; preds = %195, %207, %218
   %277 = load float, ptr %276, align 4, !tbaa !67
   %278 = fpext reassoc nsz arcp contract afn float %277 to double
   %279 = fadd reassoc nsz arcp contract afn double %.15478.us, %278
-  %280 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %281 = load float, ptr %280, align 4, !tbaa !67
   %282 = fpext reassoc nsz arcp contract afn float %281 to double
   %283 = fadd reassoc nsz arcp contract afn double %.15179.us, %282
   %284 = add i64 %.180.us, 1
   br label %285
 
-285:                                              ; preds = %269, %261, %253
+285:; preds = %269, %261, %253
   %.258.us = phi nsz double [ %275, %269 ], [ %.15777.us, %261 ], [ %.15777.us, %253 ]
   %.255.us = phi nsz double [ %279, %269 ], [ %.15478.us, %261 ], [ %.15478.us, %253 ]
   %.252.us = phi nsz double [ %283, %269 ], [ %.15179.us, %261 ], [ %.15179.us, %253 ]
   %.2.us = phi i64 [ %284, %269 ], [ %.180.us, %261 ], [ %.180.us, %253 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %253
+  br i1 %exitcond.not, label %._crit_edge.us, label %257
 
 ._crit_edge.us:                                   ; preds = %285
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
@@ -3943,15 +3943,15 @@ get_pixel_region.exit:                            ; preds = %195, %207, %218
   br i1 %exitcond114.not, label %._crit_edge95.loopexit, label %.preheader.us
 
 ._crit_edge95.loopexit:                           ; preds = %._crit_edge.us
-  %286 = uitofp i64 %.2.us to double
+  %290 = uitofp i64 %.2.us to double
   br label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %.preheader.lr.ph, %._crit_edge95.loopexit, %get_pixel_region.exit
   %.056.lcssa = phi double [ 0.000000e+00, %get_pixel_region.exit ], [ %.258.us, %._crit_edge95.loopexit ], [ 0.000000e+00, %.preheader.lr.ph ]
   %.053.lcssa = phi double [ 0.000000e+00, %get_pixel_region.exit ], [ %.255.us, %._crit_edge95.loopexit ], [ 0.000000e+00, %.preheader.lr.ph ]
   %.050.lcssa = phi double [ 0.000000e+00, %get_pixel_region.exit ], [ %.252.us, %._crit_edge95.loopexit ], [ 0.000000e+00, %.preheader.lr.ph ]
-  %.049.lcssa = phi double [ 0.000000e+00, %get_pixel_region.exit ], [ %286, %._crit_edge95.loopexit ], [ 0.000000e+00, %.preheader.lr.ph ]
-  %287 = fdiv reassoc nsz arcp contract afn double %.056.lcssa, %.049.lcssa
+  %.049.lcssa = phi double [ 0.000000e+00, %get_pixel_region.exit ], [ %290, %._crit_edge95.loopexit ], [ 0.000000e+00, %.preheader.lr.ph ]
+  %291 = fdiv reassoc nsz arcp contract afn double %.056.lcssa, %.049.lcssa
   %288 = fptrunc reassoc nsz arcp contract afn double %287 to float
   store float %288, ptr %3, align 4, !tbaa !67
   %289 = fdiv reassoc nsz arcp contract afn double %.053.lcssa, %.049.lcssa
@@ -3962,7 +3962,7 @@ get_pixel_region.exit:                            ; preds = %195, %207, %218
   store float %292, ptr %8, align 4, !tbaa !67
   br label %293
 
-293:                                              ; preds = %4, %._crit_edge95
+293:; preds = %4, %._crit_edge95
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
