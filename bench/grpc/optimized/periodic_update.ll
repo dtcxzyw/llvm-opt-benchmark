@@ -40,16 +40,16 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %7, %8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %10)
   store i64 %13, ptr %4, align 8, !tbaa !13
-  br label %82
+  br label %81
 
 14:                                               ; preds = %3
-  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit17, label %15
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit16, label %15
 
 15:                                               ; preds = %14
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %_ZN9grpc_core9Timestamp3NowEv.exit17
+  br label %_ZN9grpc_core9Timestamp3NowEv.exit16
 
-_ZN9grpc_core9Timestamp3NowEv.exit17:             ; preds = %14, %15
+_ZN9grpc_core9Timestamp3NowEv.exit16:             ; preds = %14, %15
   %16 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   %17 = load ptr, ptr %16, align 8, !tbaa !8
   %18 = load ptr, ptr %17, align 8, !tbaa !11
@@ -61,16 +61,16 @@ _ZN9grpc_core9Timestamp3NowEv.exit17:             ; preds = %14, %15
     i64 9223372036854775807, label %22
   ]
 
-21:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit17
+21:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit16
   %.not12.i = icmp eq i64 %20, -9223372036854775808
   br i1 %.not12.i, label %.thread.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
 
-22:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit17
+22:                                               ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit16
   %.not.i = icmp eq i64 %20, 9223372036854775807
   %spec.select.i = select i1 %.not.i, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
-.thread.i:                                        ; preds = %21, %_ZN9grpc_core9Timestamp3NowEv.exit17
+.thread.i:                                        ; preds = %21, %_ZN9grpc_core9Timestamp3NowEv.exit16
   %23 = sub i64 0, %.sroa.04.0.copyload
   %24 = icmp eq i64 %20, 9223372036854775807
   %25 = icmp eq i64 %.sroa.04.0.copyload, -9223372036854775807
@@ -103,7 +103,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit17:             ; preds = %14, %15
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %21, %.thread.i, %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.03.0.copyload26 = load i64, ptr %39, align 8, !tbaa !13
+  %.sroa.03.0.copyload25 = load i64, ptr %39, align 8, !tbaa !13
   br label %65
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %22, %26, %34, %37
@@ -146,42 +146,43 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %22, %26, %34, %37
   %63 = phi i64 [ %46, %44 ], [ %57, %48 ]
   %.011 = phi i64 [ %47, %44 ], [ %spec.select, %48 ]
   %64 = sub nsw i64 %.011, %63
-  br label %82
+  br label %81
 
 65:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, %_ZN9grpc_coremiENS_9TimestampES0_.exit
-  %.sroa.03.0.copyload28 = phi i64 [ %.sroa.03.0.copyload26, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread ], [ %.sroa.03.0.copyload, %_ZN9grpc_coremiENS_9TimestampES0_.exit ]
-  %.sroa.04.0.i27 = phi i64 [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread ], [ %.sroa.04.0.i, %_ZN9grpc_coremiENS_9TimestampES0_.exit ]
-  %66 = sitofp i64 %.sroa.03.0.copyload28 to double
+  %.sroa.03.0.copyload27 = phi i64 [ %.sroa.03.0.copyload25, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread ], [ %.sroa.03.0.copyload, %_ZN9grpc_coremiENS_9TimestampES0_.exit ]
+  %.sroa.04.0.i26 = phi i64 [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread ], [ %.sroa.04.0.i, %_ZN9grpc_coremiENS_9TimestampES0_.exit ]
+  %66 = sitofp i64 %.sroa.03.0.copyload27 to double
   %67 = fdiv double %66, 1.000000e+03
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !14
   %70 = sitofp i64 %69 to double
   %71 = fmul double %67, %70
-  %72 = sitofp i64 %.sroa.04.0.i27 to double
+  %72 = sitofp i64 %.sroa.04.0.i26 to double
   %73 = fdiv double %72, 1.000000e+03
   %74 = fdiv double %71, %73
-  %75 = fptosi double %74 to i64
-  %spec.select15 = tail call i64 @llvm.smax.i64(i64 %75, i64 1)
-  store i64 %spec.select15, ptr %68, align 8, !tbaa !14
-  tail call void %2(ptr %1, i64 %.sroa.04.0.i27)
-  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit19, label %76
+  %.inv = fcmp ole double %74, 1.000000e+00
+  %storemerge28 = select i1 %.inv, double 1.000000e+00, double %74
+  %storemerge = fptosi double %storemerge28 to i64
+  store i64 %storemerge, ptr %68, align 8, !tbaa !14
+  tail call void %2(ptr %1, i64 %.sroa.04.0.i26)
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit18, label %75
 
-76:                                               ; preds = %65
+75:                                               ; preds = %65
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %_ZN9grpc_core9Timestamp3NowEv.exit19
+  br label %_ZN9grpc_core9Timestamp3NowEv.exit18
 
-_ZN9grpc_core9Timestamp3NowEv.exit19:             ; preds = %65, %76
-  %77 = load ptr, ptr %16, align 8, !tbaa !8
-  %78 = load ptr, ptr %77, align 8, !tbaa !11
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call i64 %79(ptr noundef nonnull align 8 dereferenceable(8) %77)
-  store i64 %80, ptr %4, align 8, !tbaa !13
-  %81 = load i64, ptr %68, align 8, !tbaa !14
-  br label %82
+_ZN9grpc_core9Timestamp3NowEv.exit18:             ; preds = %65, %75
+  %76 = load ptr, ptr %16, align 8, !tbaa !8
+  %77 = load ptr, ptr %76, align 8, !tbaa !11
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call i64 %78(ptr noundef nonnull align 8 dereferenceable(8) %76)
+  store i64 %79, ptr %4, align 8, !tbaa !13
+  %80 = load i64, ptr %68, align 8, !tbaa !14
+  br label %81
 
-82:                                               ; preds = %62, %_ZN9grpc_core9Timestamp3NowEv.exit19, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.sink = phi i64 [ %64, %62 ], [ %81, %_ZN9grpc_core9Timestamp3NowEv.exit19 ], [ 1, %_ZN9grpc_core9Timestamp3NowEv.exit ]
-  %.0 = phi i1 [ false, %62 ], [ true, %_ZN9grpc_core9Timestamp3NowEv.exit19 ], [ false, %_ZN9grpc_core9Timestamp3NowEv.exit ]
+81:                                               ; preds = %62, %_ZN9grpc_core9Timestamp3NowEv.exit18, %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.sink = phi i64 [ %64, %62 ], [ %80, %_ZN9grpc_core9Timestamp3NowEv.exit18 ], [ 1, %_ZN9grpc_core9Timestamp3NowEv.exit ]
+  %.0 = phi i1 [ false, %62 ], [ true, %_ZN9grpc_core9Timestamp3NowEv.exit18 ], [ false, %_ZN9grpc_core9Timestamp3NowEv.exit ]
   store atomic i64 %.sink, ptr %0 release, align 8
   ret i1 %.0
 }

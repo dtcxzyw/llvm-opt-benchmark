@@ -823,7 +823,7 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
   %6 = tail call ptr @sdsnew(ptr noundef nonnull @.str.94) #11
   tail call void @luaPushErrorBuff(ptr noundef %0, ptr noundef %6)
   %7 = tail call i32 @lua_error(ptr noundef %0) #11
-  br label %34
+  br label %36
 
 8:                                                ; preds = %1
   %9 = sub nsw i32 0, %3
@@ -835,66 +835,68 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
   %12 = tail call ptr @sdsnew(ptr noundef nonnull @.str.95) #11
   tail call void @luaPushErrorBuff(ptr noundef %0, ptr noundef %12)
   %13 = tail call i32 @lua_error(ptr noundef %0) #11
-  br label %34
+  br label %36
 
 14:                                               ; preds = %8
   %15 = tail call double @lua_tonumber(ptr noundef %0, i32 noundef %9) #11
   %16 = fptosi double %15 to i32
-  %or.cond = icmp ugt i32 %16, 3
-  br i1 %or.cond, label %17, label %20
+  %17 = fcmp ole double %15, -1.000000e+00
+  %18 = fcmp oge double %15, 4.000000e+00
+  %or.cond = or i1 %17, %18
+  br i1 %or.cond, label %19, label %22
 
-17:                                               ; preds = %14
-  %18 = tail call ptr @sdsnew(ptr noundef nonnull @.str.96) #11
-  tail call void @luaPushErrorBuff(ptr noundef %0, ptr noundef %18)
-  %19 = tail call i32 @lua_error(ptr noundef %0) #11
-  br label %34
+19:                                               ; preds = %14
+  %20 = tail call ptr @sdsnew(ptr noundef nonnull @.str.96) #11
+  tail call void @luaPushErrorBuff(ptr noundef %0, ptr noundef %20)
+  %21 = tail call i32 @lua_error(ptr noundef %0) #11
+  br label %36
 
-20:                                               ; preds = %14
-  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
-  %22 = icmp sgt i32 %21, %16
-  br i1 %22, label %34, label %.lr.ph.preheader
+22:                                               ; preds = %14
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
+  %24 = icmp sgt i32 %23, %16
+  br i1 %24, label %36, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %20
-  %23 = tail call ptr @sdsempty() #11
+.lr.ph.preheader:                                 ; preds = %22
+  %25 = tail call ptr @sdsempty() #11
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
-  %.03038 = phi ptr [ %.1, %32 ], [ %23, %.lr.ph.preheader ]
-  %.03137 = phi i32 [ %33, %32 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
+  %.03038 = phi ptr [ %.1, %34 ], [ %25, %.lr.ph.preheader ]
+  %.03137 = phi i32 [ %35, %34 ], [ 1, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %24 = sub nsw i32 %.03137, %3
-  %25 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2) #11
-  %.not35 = icmp eq ptr %25, null
-  br i1 %.not35, label %32, label %26
+  %26 = sub nsw i32 %.03137, %3
+  %27 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %2) #11
+  %.not35 = icmp eq ptr %27, null
+  br i1 %.not35, label %34, label %28
 
-26:                                               ; preds = %.lr.ph
+28:                                               ; preds = %.lr.ph
   %.not36 = icmp eq i32 %.03137, 1
-  br i1 %.not36, label %29, label %27
+  br i1 %.not36, label %31, label %29
 
-27:                                               ; preds = %26
-  %28 = call ptr @sdscatlen(ptr noundef %.03038, ptr noundef nonnull @.str.4, i64 noundef 1) #11
-  br label %29
+29:                                               ; preds = %28
+  %30 = call ptr @sdscatlen(ptr noundef %.03038, ptr noundef nonnull @.str.4, i64 noundef 1) #11
+  br label %31
 
-29:                                               ; preds = %27, %26
-  %.2 = phi ptr [ %28, %27 ], [ %.03038, %26 ]
-  %30 = load i64, ptr %2, align 8, !tbaa !20
-  %31 = call ptr @sdscatlen(ptr noundef %.2, ptr noundef nonnull %25, i64 noundef %30) #11
-  br label %32
-
-32:                                               ; preds = %29, %.lr.ph
-  %.1 = phi ptr [ %31, %29 ], [ %.03038, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %33 = add nuw nsw i32 %.03137, 1
-  %exitcond.not = icmp eq i32 %33, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
-
-._crit_edge:                                      ; preds = %32
-  call void @serverLogRaw(i32 noundef %16, ptr noundef %.1) #11
-  call void @sdsfree(ptr noundef %.1) #11
+31:                                               ; preds = %29, %28
+  %.2 = phi ptr [ %30, %29 ], [ %.03038, %28 ]
+  %32 = load i64, ptr %2, align 8, !tbaa !20
+  %33 = call ptr @sdscatlen(ptr noundef %.2, ptr noundef nonnull %27, i64 noundef %32) #11
   br label %34
 
-34:                                               ; preds = %20, %._crit_edge, %17, %11, %5
-  %.0 = phi i32 [ %7, %5 ], [ %19, %17 ], [ 0, %._crit_edge ], [ %13, %11 ], [ 0, %20 ]
+34:                                               ; preds = %31, %.lr.ph
+  %.1 = phi ptr [ %33, %31 ], [ %.03038, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %35 = add nuw nsw i32 %.03137, 1
+  %exitcond.not = icmp eq i32 %35, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+
+._crit_edge:                                      ; preds = %34
+  call void @serverLogRaw(i32 noundef %16, ptr noundef %.1) #11
+  call void @sdsfree(ptr noundef %.1) #11
+  br label %36
+
+36:                                               ; preds = %22, %._crit_edge, %19, %11, %5
+  %.0 = phi i32 [ %7, %5 ], [ %21, %19 ], [ 0, %._crit_edge ], [ %13, %11 ], [ 0, %22 ]
   ret i32 %.0
 }
 

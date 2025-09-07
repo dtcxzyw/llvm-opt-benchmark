@@ -5130,60 +5130,56 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
   %52 = fsub float %16, %31
   %53 = fmul float %29, %52
   %54 = tail call noundef float @llvm.floor.f32(float %53)
-  %55 = fptosi float %54 to i32
-  %56 = fsub float %17, %43
-  %57 = fmul float %30, %56
-  %58 = tail call noundef float @llvm.floor.f32(float %57)
-  %59 = fptosi float %58 to i32
-  %60 = fsub float %18, %35
-  %61 = fmul float %29, %60
-  %62 = tail call noundef float @llvm.floor.f32(float %61)
-  %63 = fptosi float %62 to i32
-  %64 = icmp sgt i32 %55, -1
+  %55 = fsub float %17, %43
+  %56 = fmul float %30, %55
+  %57 = tail call noundef float @llvm.floor.f32(float %56)
+  %58 = fptosi float %57 to i32
+  %59 = fsub float %18, %35
+  %60 = fmul float %29, %59
+  %61 = tail call noundef float @llvm.floor.f32(float %60)
+  %62 = fcmp ugt float %54, -1.000000e+00
   %.not = icmp slt i32 %41, %25
-  %or.cond98.not102.not106 = select i1 %64, i1 %.not, i1 false
-  %65 = icmp sgt i32 %63, -1
-  %or.cond99.not104 = select i1 %or.cond98.not102.not106, i1 %65, i1 false
+  %or.cond98 = select i1 %62, i1 %.not, i1 false
+  %63 = fcmp ugt float %61, -1.000000e+00
+  %or.cond99 = and i1 %63, %or.cond98
   %.not93 = icmp slt i32 %51, %28
-  %or.cond100 = select i1 %or.cond99.not104, i1 %.not93, i1 false
-  br i1 %or.cond100, label %66, label %.loopexit
+  %or.cond100 = select i1 %or.cond99, i1 %.not93, i1 false
+  br i1 %or.cond100, label %64, label %.loopexit
 
-66:                                               ; preds = %8
+64:                                               ; preds = %8
+  %65 = fptosi float %61 to i32
+  %66 = fptosi float %54 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
-  %.not94 = icmp samesign ult i32 %55, %25
   %67 = add nsw i32 %25, -1
-  %spec.select = select i1 %.not94, i32 %55, i32 %67
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %66, i32 %67)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %51, i32 0)
-  %.not95 = icmp samesign ult i32 %63, %28
   %68 = add nsw i32 %28, -1
-  %.085 = select i1 %.not95, i32 %63, i32 %68
-  %.not96109 = icmp sgt i32 %spec.store.select1, %.085
-  br i1 %.not96109, label %.loopexit, label %.preheader.lr.ph
+  %.085 = tail call i32 @llvm.smin.i32(i32 %65, i32 %68)
+  %.not96103 = icmp sgt i32 %spec.store.select1, %.085
+  br i1 %.not96103, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %66
-  %.not97107 = icmp sgt i32 %spec.store.select, %spec.select
+.preheader.lr.ph:                                 ; preds = %64
+  %.not97101 = icmp sgt i32 %spec.store.select, %spec.select
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not97107, label %.loopexit, label %.preheader.preheader
+  br i1 %.not97101, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %71 = zext nneg i32 %spec.store.select to i64
-  %72 = add nuw i32 %spec.select, 1
+  %72 = zext nneg i32 %spec.select to i64
   %73 = zext nneg i32 %spec.store.select1 to i64
   %74 = zext i8 %24 to i64
-  %75 = add nuw i32 %.085, 1
-  %wide.trip.count116 = zext i32 %75 to i64
-  %wide.trip.count = zext i32 %72 to i64
+  %75 = zext nneg i32 %.085 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv113 = phi i64 [ %73, %.preheader.preheader ], [ %indvars.iv.next114, %._crit_edge ]
-  %76 = trunc nuw nsw i64 %indvars.iv113 to i32
+  %indvars.iv107 = phi i64 [ %73, %.preheader.preheader ], [ %indvars.iv.next108, %._crit_edge ]
+  %76 = trunc nuw nsw i64 %indvars.iv107 to i32
   %77 = uitofp nneg i32 %76 to float
   %78 = fadd float %77, 5.000000e-01
   %79 = fsub float %78, %37
   %80 = fmul float %79, %79
-  %81 = mul nuw nsw i64 %indvars.iv113, %74
+  %81 = mul nuw nsw i64 %indvars.iv107, %74
   br label %82
 
 82:                                               ; preds = %.preheader, %100
@@ -5203,7 +5199,7 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = icmp slt i32 %94, %47
-  %96 = icmp sgt i32 %94, %59
+  %96 = icmp sgt i32 %94, %58
   %or.cond = select i1 %95, i1 true, i1 %96
   br i1 %or.cond, label %100, label %97
 
@@ -5215,15 +5211,15 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr nou
 
 100:                                              ; preds = %89, %82, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %82, !llvm.loop !91
+  %.not97.not = icmp samesign ult i64 %indvars.iv, %72
+  br i1 %.not97.not, label %82, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %100
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
-  br i1 %exitcond117.not, label %.loopexit, label %.preheader, !llvm.loop !92
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %.not96.not = icmp samesign ult i64 %indvars.iv107, %75
+  br i1 %.not96.not, label %.preheader, label %.loopexit, !llvm.loop !92
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %66, %8
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %64, %8
   ret i32 1073741824
 }
 
@@ -5267,59 +5263,55 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
   %40 = fsub float %39, %18
   %41 = fmul float %15, %40
   %42 = tail call float @llvm.floor.f32(float %41)
-  %43 = fptosi float %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %45 = load float, ptr %44, align 4
-  %46 = fsub float %45, %26
-  %47 = fmul float %16, %46
-  %48 = tail call float @llvm.floor.f32(float %47)
-  %49 = fptosi float %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = load float, ptr %50, align 4
-  %52 = fsub float %51, %34
-  %53 = fmul float %15, %52
-  %54 = tail call float @llvm.floor.f32(float %53)
-  %55 = fptosi float %54 to i32
-  %56 = icmp sgt i32 %43, -1
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %44 = load float, ptr %43, align 4
+  %45 = fsub float %44, %26
+  %46 = fmul float %16, %45
+  %47 = tail call float @llvm.floor.f32(float %46)
+  %48 = fptosi float %47 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %50 = load float, ptr %49, align 4
+  %51 = fsub float %50, %34
+  %52 = fmul float %15, %51
+  %53 = tail call float @llvm.floor.f32(float %52)
+  %54 = fcmp ugt float %42, -1.000000e+00
   %.not = icmp slt i32 %22, %11
-  %or.cond73.not77.not81 = select i1 %56, i1 %.not, i1 false
-  %57 = icmp sgt i32 %55, -1
-  %or.cond74.not79 = select i1 %or.cond73.not77.not81, i1 %57, i1 false
+  %or.cond73 = select i1 %54, i1 %.not, i1 false
+  %55 = fcmp ugt float %53, -1.000000e+00
+  %or.cond74 = select i1 %or.cond73, i1 %55, i1 false
   %.not68 = icmp slt i32 %38, %14
-  %or.cond75 = select i1 %or.cond74.not79, i1 %.not68, i1 false
-  br i1 %or.cond75, label %58, label %.loopexit
+  %or.cond75 = select i1 %or.cond74, i1 %.not68, i1 false
+  br i1 %or.cond75, label %56, label %.loopexit
 
-58:                                               ; preds = %7
+56:                                               ; preds = %7
+  %57 = fptosi float %53 to i32
+  %58 = fptosi float %42 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
-  %.not69 = icmp samesign ult i32 %43, %11
   %59 = add nsw i32 %11, -1
-  %spec.select = select i1 %.not69, i32 %43, i32 %59
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %58, i32 %59)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
-  %.not70 = icmp samesign ult i32 %55, %14
   %60 = add nsw i32 %14, -1
-  %.060 = select i1 %.not70, i32 %55, i32 %60
-  %.not7184 = icmp sgt i32 %spec.store.select1, %.060
-  br i1 %.not7184, label %.loopexit, label %.preheader.lr.ph
+  %.060 = tail call i32 @llvm.smin.i32(i32 %57, i32 %60)
+  %.not7178 = icmp sgt i32 %spec.store.select1, %.060
+  br i1 %.not7178, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %58
-  %.not7282 = icmp sgt i32 %spec.store.select, %spec.select
+.preheader.lr.ph:                                 ; preds = %56
+  %.not7276 = icmp sgt i32 %spec.store.select, %spec.select
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not7282, label %.loopexit, label %.preheader.preheader
+  br i1 %.not7276, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %63 = zext nneg i32 %spec.store.select to i64
-  %64 = add nuw i32 %spec.select, 1
+  %64 = zext nneg i32 %spec.select to i64
   %65 = zext nneg i32 %spec.store.select1 to i64
   %66 = zext i8 %10 to i64
-  %67 = add nuw i32 %.060, 1
-  %wide.trip.count91 = zext i32 %67 to i64
-  %wide.trip.count = zext i32 %64 to i64
+  %67 = zext nneg i32 %.060 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv88 = phi i64 [ %65, %.preheader.preheader ], [ %indvars.iv.next89, %._crit_edge ]
-  %68 = mul nuw nsw i64 %indvars.iv88, %66
+  %indvars.iv82 = phi i64 [ %65, %.preheader.preheader ], [ %indvars.iv.next83, %._crit_edge ]
+  %68 = mul nuw nsw i64 %indvars.iv82, %66
   br label %69
 
 69:                                               ; preds = %.preheader, %80
@@ -5330,7 +5322,7 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = icmp slt i32 %74, %30
-  %76 = icmp sgt i32 %74, %49
+  %76 = icmp sgt i32 %74, %48
   %or.cond = select i1 %75, i1 true, i1 %76
   br i1 %or.cond, label %80, label %77
 
@@ -5342,15 +5334,15 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr noundef
 
 80:                                               ; preds = %69, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !93
+  %.not72.not = icmp samesign ult i64 %indvars.iv, %64
+  br i1 %.not72.not, label %69, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %80
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %.loopexit, label %.preheader, !llvm.loop !94
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %.not71.not = icmp samesign ult i64 %indvars.iv82, %67
+  br i1 %.not71.not, label %.preheader, label %.loopexit, !llvm.loop !94
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %58, %7
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %56, %7
   ret i32 1073741824
 }
 
@@ -5390,78 +5382,74 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
   %37 = fptosi float %36 to i32
   %38 = tail call float @llvm.fmuladd.f32(float %33, float %16, float %21)
   %39 = tail call float @llvm.floor.f32(float %38)
-  %40 = fptosi float %39 to i32
-  %41 = tail call float @llvm.fmuladd.f32(float %34, float %16, float %27)
-  %42 = tail call float @llvm.floor.f32(float %41)
-  %43 = fptosi float %42 to i32
-  %44 = tail call float @llvm.fmuladd.f32(float %33, float %16, float %27)
-  %45 = tail call float @llvm.floor.f32(float %44)
-  %46 = fptosi float %45 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %40 = tail call float @llvm.fmuladd.f32(float %34, float %16, float %27)
+  %41 = tail call float @llvm.floor.f32(float %40)
+  %42 = fptosi float %41 to i32
+  %43 = tail call float @llvm.fmuladd.f32(float %33, float %16, float %27)
+  %44 = tail call float @llvm.floor.f32(float %43)
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %46 = load float, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %50 = load float, ptr %49, align 4
-  %51 = fsub float %48, %50
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %53 = load float, ptr %52, align 4
-  %54 = fsub float %51, %53
-  %55 = fmul float %17, %54
-  %56 = tail call float @llvm.floor.f32(float %55)
-  %57 = fptosi float %56 to i32
-  %58 = fadd float %48, %50
-  %59 = fsub float %58, %53
-  %60 = fmul float %17, %59
-  %61 = tail call float @llvm.floor.f32(float %60)
-  %62 = fptosi float %61 to i32
-  %63 = icmp sgt i32 %40, -1
+  %49 = fsub float %46, %48
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %51 = load float, ptr %50, align 4
+  %52 = fsub float %49, %51
+  %53 = fmul float %17, %52
+  %54 = tail call float @llvm.floor.f32(float %53)
+  %55 = fptosi float %54 to i32
+  %56 = fadd float %46, %48
+  %57 = fsub float %56, %51
+  %58 = fmul float %17, %57
+  %59 = tail call float @llvm.floor.f32(float %58)
+  %60 = fptosi float %59 to i32
+  %61 = fcmp ugt float %39, -1.000000e+00
   %.not = icmp slt i32 %37, %12
-  %or.cond115.not119.not123 = select i1 %63, i1 %.not, i1 false
-  %64 = icmp sgt i32 %46, -1
-  %or.cond116.not121 = select i1 %or.cond115.not119.not123, i1 %64, i1 false
-  %.not106 = icmp slt i32 %43, %15
-  %or.cond117 = select i1 %or.cond116.not121, i1 %.not106, i1 false
-  br i1 %or.cond117, label %65, label %.loopexit
+  %or.cond115 = select i1 %61, i1 %.not, i1 false
+  %62 = fcmp ugt float %44, -1.000000e+00
+  %or.cond116 = select i1 %or.cond115, i1 %62, i1 false
+  %.not106 = icmp slt i32 %42, %15
+  %or.cond117 = select i1 %or.cond116, i1 %.not106, i1 false
+  br i1 %or.cond117, label %63, label %.loopexit
 
-65:                                               ; preds = %8
+63:                                               ; preds = %8
+  %64 = fptosi float %44 to i32
+  %65 = fptosi float %39 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
-  %.not107 = icmp samesign ult i32 %40, %12
   %66 = add nsw i32 %12, -1
-  %spec.select = select i1 %.not107, i32 %40, i32 %66
-  %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %.not108 = icmp samesign ult i32 %46, %15
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %65, i32 %66)
+  %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
   %67 = add nsw i32 %15, -1
-  %.093 = select i1 %.not108, i32 %46, i32 %67
+  %.093 = tail call i32 @llvm.smin.i32(i32 %64, i32 %67)
   %68 = tail call float @llvm.fmuladd.f32(float %28, float %16, float 5.000000e-01)
   %69 = tail call float @llvm.fmuladd.f32(float %30, float %16, float 5.000000e-01)
-  %.not109126 = icmp sgt i32 %spec.store.select1, %.093
-  br i1 %.not109126, label %.loopexit, label %.preheader.lr.ph
+  %.not109120 = icmp sgt i32 %spec.store.select1, %.093
+  br i1 %.not109120, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %65
-  %.not110124 = icmp sgt i32 %spec.store.select, %spec.select
+.preheader.lr.ph:                                 ; preds = %63
+  %.not110118 = icmp sgt i32 %spec.store.select, %spec.select
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %71 = fneg float %68
   %72 = fneg float %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not110124, label %.loopexit, label %.preheader.preheader
+  br i1 %.not110118, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %75 = zext nneg i32 %spec.store.select to i64
-  %76 = add nuw i32 %spec.select, 1
+  %76 = zext nneg i32 %spec.select to i64
   %77 = zext nneg i32 %spec.store.select1 to i64
   %78 = zext i8 %11 to i64
-  %79 = add nuw i32 %.093, 1
-  %wide.trip.count133 = zext i32 %79 to i64
-  %wide.trip.count = zext i32 %76 to i64
+  %79 = zext nneg i32 %.093 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv130 = phi i64 [ %77, %.preheader.preheader ], [ %indvars.iv.next131, %._crit_edge ]
-  %80 = trunc nuw nsw i64 %indvars.iv130 to i32
+  %indvars.iv124 = phi i64 [ %77, %.preheader.preheader ], [ %indvars.iv.next125, %._crit_edge ]
+  %80 = trunc nuw nsw i64 %indvars.iv124 to i32
   %81 = uitofp nneg i32 %80 to float
   %82 = fsub float %81, %27
   %83 = fmul float %82, 2.000000e+00
-  %84 = mul nuw nsw i64 %indvars.iv130, %78
+  %84 = mul nuw nsw i64 %indvars.iv124, %78
   br label %85
 
 85:                                               ; preds = %.preheader, %113
@@ -5494,8 +5482,8 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
-  %108 = icmp slt i32 %107, %57
-  %109 = icmp sgt i32 %107, %62
+  %108 = icmp slt i32 %107, %55
+  %109 = icmp sgt i32 %107, %60
   %or.cond114 = select i1 %108, i1 true, i1 %109
   br i1 %or.cond114, label %113, label %110
 
@@ -5507,15 +5495,15 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noun
 
 113:                                              ; preds = %102, %96, %85, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !95
+  %.not110.not = icmp samesign ult i64 %indvars.iv, %76
+  br i1 %.not110.not, label %85, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %113
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %.loopexit, label %.preheader, !llvm.loop !96
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %.not109.not = icmp samesign ult i64 %indvars.iv124, %79
+  br i1 %.not109.not, label %.preheader, label %.loopexit, !llvm.loop !96
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %65, %8
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %63, %8
   ret i32 1073741824
 }
 
@@ -6390,6 +6378,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

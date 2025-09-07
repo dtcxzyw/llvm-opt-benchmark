@@ -598,25 +598,25 @@ define dso_local i64 @percentile_disc_final(ptr noundef captures(none) %0) local
   %43 = sitofp i64 %42 to double
   %44 = fmul double %12, %43
   %45 = tail call double @llvm.ceil.f64(double %44)
-  %46 = fptosi double %45 to i64
-  %47 = icmp sgt i64 %46, 1
-  br i1 %47, label %48, label %56
+  %46 = fcmp ult double %45, 2.000000e+00
+  br i1 %46, label %56, label %47
 
-48:                                               ; preds = %41
+47:                                               ; preds = %41
+  %48 = fptosi double %45 to i64
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = add nsw i64 %46, -1
+  %51 = add nsw i64 %48, -1
   %52 = tail call zeroext i1 @tuplesort_skiptuples(ptr noundef %50, i64 noundef %51, i1 noundef zeroext true) #10
   br i1 %52, label %56, label %53
 
-53:                                               ; preds = %48
+53:                                               ; preds = %47
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %54)
   %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.percentile_disc_final) #10
   unreachable
 
-56:                                               ; preds = %48, %41
+56:                                               ; preds = %47, %41
   %57 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = call zeroext i1 @tuplesort_getdatum(ptr noundef %58, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #10

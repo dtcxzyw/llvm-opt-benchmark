@@ -629,20 +629,26 @@ define void @_ZN6open3d8geometry9VoxelGrid11CreateDenseERKN5Eigen6MatrixIdLi3ELi
   %39 = load double, ptr %38, align 8, !tbaa !42
   store double %39, ptr %37, align 8, !tbaa !42
   store double %3, ptr %19, align 8, !tbaa !44
-  %40 = icmp sgt i32 %28, 0
-  br i1 %40, label %.preheader27.lr.ph, label %._crit_edge
+  %40 = fcmp ult double %27, 1.000000e+00
+  br i1 %40, label %._crit_edge, label %.preheader27.lr.ph
 
 .preheader27.lr.ph:                               ; preds = %7
-  %41 = icmp sgt i32 %31, 0
+  %41 = fcmp ult double %30, 1.000000e+00
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %43 = icmp sgt i32 %34, 0
-  %or.cond = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond, label %.preheader27.us.us, label %._crit_edge
+  %43 = fcmp ult double %33, 1.000000e+00
+  %or.cond = or i1 %41, %43
+  br i1 %or.cond, label %._crit_edge, label %.preheader27.us.us.preheader
 
-.preheader27.us.us:                               ; preds = %.preheader27.lr.ph, %._crit_edge30.split.us.us.us
-  %storemerge31.us.us = phi i32 [ %48, %._crit_edge30.split.us.us.us ], [ 0, %.preheader27.lr.ph ]
+.preheader27.us.us.preheader:                     ; preds = %.preheader27.lr.ph
+  %smax = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
+  %smax39 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
+  %smax41 = tail call i32 @llvm.smax.i32(i32 %28, i32 1)
+  br label %.preheader27.us.us
+
+.preheader27.us.us:                               ; preds = %.preheader27.us.us.preheader, %._crit_edge30.split.us.us.us
+  %storemerge31.us.us = phi i32 [ %48, %._crit_edge30.split.us.us.us ], [ 0, %.preheader27.us.us.preheader ]
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader27.us.us
@@ -662,18 +668,18 @@ define void @_ZN6open3d8geometry9VoxelGrid11CreateDenseERKN5Eigen6MatrixIdLi3ELi
 45:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %46 = add nuw nsw i32 %storemerge1828.us.us.us, 1
-  %exitcond.not = icmp eq i32 %46, %34
+  %exitcond.not = icmp eq i32 %46, %smax
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %44, !llvm.loop !53
 
 ._crit_edge.us.us.us:                             ; preds = %45
   %47 = add nuw nsw i32 %storemerge1729.us.us.us, 1
-  %exitcond39.not = icmp eq i32 %47, %31
-  br i1 %exitcond39.not, label %._crit_edge30.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !55
+  %exitcond40.not = icmp eq i32 %47, %smax39
+  br i1 %exitcond40.not, label %._crit_edge30.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !55
 
 ._crit_edge30.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %48 = add nuw nsw i32 %storemerge31.us.us, 1
-  %exitcond40.not = icmp eq i32 %48, %28
-  br i1 %exitcond40.not, label %._crit_edge, label %.preheader27.us.us, !llvm.loop !56
+  %exitcond42.not = icmp eq i32 %48, %smax41
+  br i1 %exitcond42.not, label %._crit_edge, label %.preheader27.us.us, !llvm.loop !56
 
 .split.us.split.us.split.us:                      ; preds = %44
   %49 = landingpad { ptr, i32 }
@@ -31852,7 +31858,7 @@ define void @_ZN6open3d8geometry9VoxelGrid34CreateFromTriangleMeshWithinBoundsER
   %123 = fptosi double %122 to i32
   %124 = add nsw i32 %123, 2
   %125 = add nsw i32 %124, %109
-  %126 = icmp sgt i32 %123, -2
+  %126 = fcmp ogt double %122, -2.000000e+00
   br i1 %126, label %.preheader147.lr.ph, label %._crit_edge
 
 .preheader147.lr.ph:                              ; preds = %61
@@ -31875,9 +31881,9 @@ define void @_ZN6open3d8geometry9VoxelGrid34CreateFromTriangleMeshWithinBoundsER
   %143 = fptosi double %142 to i32
   %144 = add nsw i32 %143, 2
   %145 = add nsw i32 %144, %114
-  %146 = icmp sgt i32 %143, -2
+  %146 = fcmp ogt double %142, -2.000000e+00
   %147 = add nsw i32 %135, %119
-  %148 = icmp sgt i32 %134, -2
+  %148 = fcmp ogt double %133, -2.000000e+00
   %or.cond = select i1 %146, i1 %148, i1 false
   br i1 %or.cond, label %.preheader147.us.us, label %._crit_edge
 

@@ -1163,8 +1163,8 @@ define linkonce_odr dso_local void @_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_ext
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i: ; preds = %15, %10
   %18 = phi double [ %.pre.i.i.i.i, %10 ], [ %17, %15 ]
   %19 = fptosi double %18 to i32
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, !prof !30
+  %20 = fcmp ugt double %18, -1.000000e+00
+  br i1 %20, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, label %21, !prof !105
 
 21:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i
   store i8 1, ptr %7, align 8, !tbaa !147
@@ -1188,9 +1188,9 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i: ; preds = %21, %_ZN3CFF
   br label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
 _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, %29
-  %.sink2.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
+  %.sink1.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
   %.0.i.sink.i.i = phi i32 [ %32, %29 ], [ %.0.i.i.i, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink2.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
   store i32 %.0.i.sink.i.i, ptr %33, align 4, !tbaa !148
   store i8 1, ptr %22, align 1, !tbaa !124
   store i32 0, ptr %8, align 4, !tbaa !146
@@ -1935,8 +1935,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %16 = phi i32 [ %10, %8 ], [ 0, %13 ]
   %17 = phi double [ %.pre.i.i, %8 ], [ %15, %13 ]
   %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.preheader.thread, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, !prof !30
+  %19 = fcmp ugt double %17, -1.000000e+00
+  br i1 %19, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, label %.preheader.thread, !prof !105
 
 _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
   %.neg = xor i32 %4, -1
@@ -1968,19 +1968,19 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_sta
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = zext nneg i32 %18 to i64
+  %wide.trip.count = zext i32 %18 to i64
   %32 = bitcast i64 %24 to double
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.not34 = icmp eq i32 %.fr33, 0
-  %wide.trip.count46 = zext nneg i32 %18 to i64
+  %wide.trip.count46 = zext i32 %18 to i64
   %33 = bitcast i64 %24 to double
   br i1 %.not34, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %34 = trunc nuw nsw i64 %indvars.iv43 to i32
+  %34 = trunc nuw i64 %indvars.iv43 to i32
   %35 = add i32 %20, %34
   %.not.i30.us.us = icmp ult i32 %35, %16
   br i1 %.not.i30.us.us, label %37, label %36, !prof !105
@@ -2007,7 +2007,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us: ; preds = %37, %36
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ 0, %.lr.ph.split.us ]
-  %42 = trunc nuw nsw i64 %indvars.iv38 to i32
+  %42 = trunc nuw i64 %indvars.iv38 to i32
   %43 = mul i32 %4, %42
   %44 = add i32 %22, %43
   %storemerge.i.i.i.us = tail call i32 @llvm.usub.sat.i32(i32 513, i32 %44)
@@ -2066,8 +2066,8 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8numb
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
 ._crit_edge:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us, %.preheader.thread, %.preheader
-  %.0.i6063 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
-  %66 = mul i32 %.0.i6063, %4
+  %.0.i5962 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
+  %66 = mul i32 %.0.i5962, %4
   %.not.i = icmp ult i32 %16, %66
   br i1 %.not.i, label %69, label %67, !prof !30
 
@@ -2082,7 +2082,7 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8numb
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
-  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  %70 = trunc nuw i64 %indvars.iv to i32
   %71 = add i32 %20, %70
   %.not.i30 = icmp ult i32 %71, %16
   br i1 %.not.i30, label %73, label %72, !prof !105
@@ -6347,8 +6347,8 @@ define linkonce_odr dso_local void @_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_pat
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i: ; preds = %15, %10
   %18 = phi double [ %.pre.i.i.i.i, %10 ], [ %17, %15 ]
   %19 = fptosi double %18 to i32
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, !prof !30
+  %20 = fcmp ugt double %18, -1.000000e+00
+  br i1 %20, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, label %21, !prof !105
 
 21:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i
   store i8 1, ptr %7, align 8, !tbaa !147
@@ -6372,9 +6372,9 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i: ; preds = %21, %_ZN3CFF
   br label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
 _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, %29
-  %.sink2.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
+  %.sink1.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
   %.0.i.sink.i.i = phi i32 [ %32, %29 ], [ %.0.i.i.i, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink2.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
   store i32 %.0.i.sink.i.i, ptr %33, align 4, !tbaa !148
   store i8 1, ptr %22, align 1, !tbaa !124
   store i32 0, ptr %8, align 4, !tbaa !146
@@ -7205,8 +7205,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %16 = phi i32 [ %10, %8 ], [ 0, %13 ]
   %17 = phi double [ %.pre.i.i, %8 ], [ %15, %13 ]
   %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.preheader.thread, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, !prof !30
+  %19 = fcmp ugt double %17, -1.000000e+00
+  br i1 %19, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, label %.preheader.thread, !prof !105
 
 _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
   %.neg = xor i32 %4, -1
@@ -7238,19 +7238,19 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_sta
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = zext nneg i32 %18 to i64
+  %wide.trip.count = zext i32 %18 to i64
   %32 = bitcast i64 %24 to double
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.not34 = icmp eq i32 %.fr33, 0
-  %wide.trip.count46 = zext nneg i32 %18 to i64
+  %wide.trip.count46 = zext i32 %18 to i64
   %33 = bitcast i64 %24 to double
   br i1 %.not34, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %34 = trunc nuw nsw i64 %indvars.iv43 to i32
+  %34 = trunc nuw i64 %indvars.iv43 to i32
   %35 = add i32 %20, %34
   %.not.i30.us.us = icmp ult i32 %35, %16
   br i1 %.not.i30.us.us, label %37, label %36, !prof !105
@@ -7277,7 +7277,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us: ; preds = %37, %36
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ 0, %.lr.ph.split.us ]
-  %42 = trunc nuw nsw i64 %indvars.iv38 to i32
+  %42 = trunc nuw i64 %indvars.iv38 to i32
   %43 = mul i32 %4, %42
   %44 = add i32 %22, %43
   %storemerge.i.i.i.us = tail call i32 @llvm.usub.sat.i32(i32 513, i32 %44)
@@ -7336,8 +7336,8 @@ _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE2
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
 ._crit_edge:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us, %.preheader.thread, %.preheader
-  %.0.i6063 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
-  %66 = mul i32 %.0.i6063, %4
+  %.0.i5962 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
+  %66 = mul i32 %.0.i5962, %4
   %.not.i = icmp ult i32 %16, %66
   br i1 %.not.i, label %69, label %67, !prof !30
 
@@ -7352,7 +7352,7 @@ _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE2
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
-  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  %70 = trunc nuw i64 %indvars.iv to i32
   %71 = add i32 %20, %70
   %.not.i30 = icmp ult i32 %71, %16
   br i1 %.not.i30, label %73, label %72, !prof !105

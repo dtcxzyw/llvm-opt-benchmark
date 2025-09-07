@@ -5287,7 +5287,7 @@ evdns_strtotimeval.exit:                          ; preds = %44
   %54 = fptosi double %53 to i32
   %55 = sext i32 %54 to i64
   %56 = icmp eq i32 %49, 0
-  %57 = icmp slt i32 %54, 1000
+  %57 = fcmp olt double %53, 1.000000e+03
   %or.cond.i238 = select i1 %56, i1 %57, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %or.cond.i238, label %.thread274, label %58
@@ -5343,7 +5343,7 @@ evdns_strtotimeval.exit251:                       ; preds = %66
   %76 = fptosi double %75 to i32
   %77 = sext i32 %76 to i64
   %78 = icmp eq i32 %71, 0
-  %79 = icmp slt i32 %76, 1000
+  %79 = fcmp olt double %75, 1.000000e+03
   %or.cond.i248 = select i1 %78, i1 %79, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %or.cond.i248, label %.thread274, label %80
@@ -13661,7 +13661,7 @@ define internal fastcc range(i32 -1, 1) i32 @evdns_strtotimeval(ptr noundef %0, 
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %16, align 8
   %17 = icmp eq i32 %9, 0
-  %18 = icmp slt i32 %14, 1000
+  %18 = fcmp olt double %13, 1.000000e+03
   %or.cond = select i1 %17, i1 %18, i1 false
   %spec.select = sext i1 %or.cond to i32
   br label %19

@@ -423,10 +423,10 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %85 = fmul float %8, %84
   %86 = fptosi float %85 to i32
   %87 = add nsw i32 %79, -1
-  %88 = icmp slt i32 %83, -1
+  %88 = fcmp ole float %82, -2.000000e+00
   %89 = tail call i32 @llvm.smin.i32(i32 %83, i32 %87)
   %90 = select i1 %88, i32 -1, i32 %89
-  %91 = icmp slt i32 %86, 0
+  %91 = fcmp ole float %85, -1.000000e+00
   %92 = tail call i32 @llvm.smin.i32(i32 %86, i32 %87)
   %93 = select i1 %91, i32 0, i32 %92
   store float %17, ptr %12, align 16
@@ -458,7 +458,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   br label %106
 
 106:                                              ; preds = %.lr.ph183, %.loopexit
-  %.0100181 = phi i32 [ %90, %.lr.ph183 ], [ %179, %.loopexit ]
+  %.0100181 = phi i32 [ %90, %.lr.ph183 ], [ %180, %.loopexit ]
   %.0154180 = phi ptr [ %102, %.lr.ph183 ], [ %.1155, %.loopexit ]
   %.0156179 = phi ptr [ %103, %.lr.ph183 ], [ %.0160177, %.loopexit ]
   %.0157178 = phi ptr [ %104, %.lr.ph183 ], [ %.1158, %.loopexit ]
@@ -502,105 +502,106 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %126 = fptosi float %125 to i32
   %127 = fsub float %.1104, %123
   %128 = fmul float %8, %127
-  %129 = fptosi float %128 to i32
-  %130 = icmp sgt i32 %129, -1
+  %129 = fcmp ugt float %128, -1.000000e+00
   %.not115 = icmp sgt i32 %77, %126
-  %or.cond117 = select i1 %130, i1 %.not115, i1 false
-  br i1 %or.cond117, label %131, label %.loopexit
+  %or.cond117 = select i1 %129, i1 %.not115, i1 false
+  br i1 %or.cond117, label %130, label %.loopexit
 
-131:                                              ; preds = %122
-  %132 = tail call i32 @llvm.smax.i32(i32 %126, i32 -1)
-  %133 = tail call i32 @llvm.smin.i32(i32 %129, i32 %105)
+130:                                              ; preds = %122
+  %131 = fptosi float %128 to i32
+  %132 = fcmp ole float %125, -2.000000e+00
+  %133 = select i1 %132, i32 -1, i32 %126
+  %134 = tail call i32 @llvm.smin.i32(i32 %131, i32 %105)
   store i32 %112, ptr %16, align 4
-  %.not116171 = icmp sgt i32 %132, %133
+  %.not116171 = icmp sgt i32 %133, %134
   br i1 %.not116171, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %131
-  %134 = getelementptr inbounds nuw i8, ptr %.0160177, i64 4
-  br label %135
+.lr.ph:                                           ; preds = %130
+  %135 = getelementptr inbounds nuw i8, ptr %.0160177, i64 4
+  br label %136
 
-135:                                              ; preds = %.lr.ph, %177
-  %.0101174 = phi i32 [ %132, %.lr.ph ], [ %178, %177 ]
-  %.2173 = phi ptr [ %.0154180, %.lr.ph ], [ %.2159172, %177 ]
-  %.2159172 = phi ptr [ %.0157178, %.lr.ph ], [ %.2173, %177 ]
-  %136 = load float, ptr %5, align 4
-  %137 = sitofp i32 %.0101174 to float
-  %138 = tail call float @llvm.fmuladd.f32(float %137, float %7, float %136)
-  %139 = load i32, ptr %16, align 4
-  %140 = fadd float %7, %138
-  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.2159172, i32 noundef %139, ptr noundef %.0160177, ptr noundef %15, ptr noundef %.2173, ptr noundef %16, float noundef %140, i32 noundef 0)
-  %141 = load i32, ptr %15, align 4
-  %142 = icmp slt i32 %141, 3
-  %143 = icmp slt i32 %.0101174, 0
-  %or.cond3 = or i1 %143, %142
-  br i1 %or.cond3, label %177, label %144
+136:                                              ; preds = %.lr.ph, %178
+  %.0101174 = phi i32 [ %133, %.lr.ph ], [ %179, %178 ]
+  %.2173 = phi ptr [ %.0154180, %.lr.ph ], [ %.2159172, %178 ]
+  %.2159172 = phi ptr [ %.0157178, %.lr.ph ], [ %.2173, %178 ]
+  %137 = load float, ptr %5, align 4
+  %138 = sitofp i32 %.0101174 to float
+  %139 = tail call float @llvm.fmuladd.f32(float %138, float %7, float %137)
+  %140 = load i32, ptr %16, align 4
+  %141 = fadd float %7, %139
+  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.2159172, i32 noundef %140, ptr noundef %.0160177, ptr noundef %15, ptr noundef %.2173, ptr noundef %16, float noundef %141, i32 noundef 0)
+  %142 = load i32, ptr %15, align 4
+  %143 = icmp slt i32 %142, 3
+  %144 = icmp slt i32 %.0101174, 0
+  %or.cond3 = or i1 %144, %143
+  br i1 %or.cond3, label %178, label %145
 
-144:                                              ; preds = %135
-  %145 = load float, ptr %134, align 4
-  %wide.trip.count192 = zext nneg i32 %141 to i64
-  br label %146
+145:                                              ; preds = %136
+  %146 = load float, ptr %135, align 4
+  %wide.trip.count192 = zext nneg i32 %142 to i64
+  br label %147
 
-146:                                              ; preds = %144, %146
-  %indvars.iv189 = phi i64 [ 1, %144 ], [ %indvars.iv.next190, %146 ]
-  %.097169 = phi float [ %145, %144 ], [ %153, %146 ]
-  %.098168 = phi float [ %145, %144 ], [ %151, %146 ]
+147:                                              ; preds = %145, %147
+  %indvars.iv189 = phi i64 [ 1, %145 ], [ %indvars.iv.next190, %147 ]
+  %.097169 = phi float [ %146, %145 ], [ %154, %147 ]
+  %.098168 = phi float [ %146, %145 ], [ %152, %147 ]
   %.idx214 = mul nuw nsw i64 %indvars.iv189, 12
-  %147 = getelementptr inbounds nuw i8, ptr %.0160177, i64 %.idx214
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %149 = load float, ptr %148, align 4
-  %150 = fcmp olt float %.098168, %149
-  %151 = select i1 %150, float %.098168, float %149
-  %152 = fcmp ogt float %.097169, %149
-  %153 = select i1 %152, float %.097169, float %149
+  %148 = getelementptr inbounds nuw i8, ptr %.0160177, i64 %.idx214
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %150 = load float, ptr %149, align 4
+  %151 = fcmp olt float %.098168, %150
+  %152 = select i1 %151, float %.098168, float %150
+  %153 = fcmp ogt float %.097169, %150
+  %154 = select i1 %153, float %.097169, float %150
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %154, label %146, !llvm.loop !8
+  br i1 %exitcond193.not, label %155, label %147, !llvm.loop !8
 
-154:                                              ; preds = %146
-  %155 = load float, ptr %66, align 4
-  %156 = fsub float %151, %155
-  %157 = fsub float %153, %155
-  %158 = fcmp olt float %157, 0.000000e+00
-  %159 = fcmp ogt float %156, %80
-  %or.cond118 = select i1 %158, i1 true, i1 %159
-  br i1 %or.cond118, label %177, label %160
+155:                                              ; preds = %147
+  %156 = load float, ptr %66, align 4
+  %157 = fsub float %152, %156
+  %158 = fsub float %154, %156
+  %159 = fcmp olt float %158, 0.000000e+00
+  %160 = fcmp ogt float %157, %80
+  %or.cond118 = select i1 %159, i1 true, i1 %160
+  br i1 %or.cond118, label %178, label %161
 
-160:                                              ; preds = %154
-  %161 = fcmp olt float %156, 0.000000e+00
-  %.199 = select i1 %161, float 0.000000e+00, float %156
-  %162 = fcmp ogt float %157, %80
-  %.1 = select i1 %162, float %80, float %157
-  %163 = fmul float %9, %.199
-  %164 = tail call float @llvm.floor.f32(float %163)
-  %165 = fptosi float %164 to i32
-  %166 = tail call i32 @llvm.smax.i32(i32 %165, i32 0)
-  %167 = tail call i32 @llvm.umin.i32(i32 %166, i32 8191)
-  %168 = trunc nuw nsw i32 %167 to i16
-  %169 = fmul float %9, %.1
-  %170 = tail call float @llvm.ceil.f32(float %169)
-  %171 = fptosi float %170 to i32
-  %172 = add nuw nsw i32 %167, 1
-  %.not161 = icmp slt i32 %167, %171
-  %173 = tail call i32 @llvm.smin.i32(i32 %171, i32 8191)
-  %174 = select i1 %.not161, i32 %173, i32 %172
-  %175 = trunc i32 %174 to i16
-  %176 = tail call fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.0101174, i32 noundef %.0100181, i16 noundef zeroext %168, i16 noundef zeroext %175, i8 noundef zeroext %3, i32 noundef %10)
-  br i1 %176, label %177, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread
+161:                                              ; preds = %155
+  %162 = fcmp olt float %157, 0.000000e+00
+  %.199 = select i1 %162, float 0.000000e+00, float %157
+  %163 = fcmp ogt float %158, %80
+  %.1 = select i1 %163, float %80, float %158
+  %164 = fmul float %9, %.199
+  %165 = tail call float @llvm.floor.f32(float %164)
+  %166 = fptosi float %165 to i32
+  %167 = tail call i32 @llvm.smax.i32(i32 %166, i32 0)
+  %168 = tail call i32 @llvm.umin.i32(i32 %167, i32 8191)
+  %169 = trunc nuw nsw i32 %168 to i16
+  %170 = fmul float %9, %.1
+  %171 = tail call float @llvm.ceil.f32(float %170)
+  %172 = fptosi float %171 to i32
+  %173 = add nuw nsw i32 %168, 1
+  %.not161 = icmp slt i32 %168, %172
+  %174 = tail call i32 @llvm.smin.i32(i32 %172, i32 8191)
+  %175 = select i1 %.not161, i32 %174, i32 %173
+  %176 = trunc i32 %175 to i16
+  %177 = tail call fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.0101174, i32 noundef %.0100181, i16 noundef zeroext %169, i16 noundef zeroext %176, i8 noundef zeroext %3, i32 noundef %10)
+  br i1 %177, label %178, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread
 
-177:                                              ; preds = %160, %154, %135
-  %178 = add i32 %.0101174, 1
-  %exitcond194.not = icmp eq i32 %.0101174, %133
-  br i1 %exitcond194.not, label %.loopexit, label %135, !llvm.loop !9
+178:                                              ; preds = %161, %155, %136
+  %179 = add i32 %.0101174, 1
+  %exitcond194.not = icmp eq i32 %.0101174, %134
+  br i1 %exitcond194.not, label %.loopexit, label %136, !llvm.loop !9
 
-.loopexit:                                        ; preds = %177, %131, %122, %106
-  %.1158 = phi ptr [ %.0157178, %106 ], [ %.0157178, %122 ], [ %.0157178, %131 ], [ %.2173, %177 ]
-  %.1155 = phi ptr [ %.0154180, %106 ], [ %.0154180, %122 ], [ %.0154180, %131 ], [ %.2159172, %177 ]
-  %179 = add i32 %.0100181, 1
+.loopexit:                                        ; preds = %178, %130, %122, %106
+  %.1158 = phi ptr [ %.0157178, %106 ], [ %.0157178, %122 ], [ %.0157178, %130 ], [ %.2173, %178 ]
+  %.1155 = phi ptr [ %.0154180, %106 ], [ %.0154180, %122 ], [ %.0154180, %130 ], [ %.2159172, %178 ]
+  %180 = add i32 %.0100181, 1
   %exitcond195.not = icmp eq i32 %.0100181, %93
   br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %106, !llvm.loop !10
 
-_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %160, %76, %11, %54, %61, %65, %69, %_ZL13overlapBoundsPKfS0_S0_S0_.exit
-  %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ true, %11 ], [ true, %76 ], [ false, %160 ], [ true, %.loopexit ]
+_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %161, %76, %11, %54, %61, %65, %69, %_ZL13overlapBoundsPKfS0_S0_S0_.exit
+  %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ true, %11 ], [ true, %76 ], [ false, %161 ], [ true, %.loopexit ]
   ret i1 %.0
 }
 

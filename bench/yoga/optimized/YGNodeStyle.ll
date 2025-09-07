@@ -5003,9 +5003,9 @@ _ZNSt6vectorIjSaIjEE2atEm.exit.i.i:               ; preds = %17
   %31 = fptosi float %2 to i32
   %32 = sitofp i32 %31 to float
   %33 = fcmp oeq float %2, %32
-  %34 = add i32 %31, 2047
-  %35 = icmp ult i32 %34, 4095
-  %spec.select.i.i = and i1 %33, %35
+  %34 = tail call float @llvm.fabs.f32(float %2)
+  %35 = fcmp olt float %34, 2.048000e+03
+  %spec.select.i.i = and i1 %35, %33
   br i1 %spec.select.i.i, label %36, label %44
 
 36:                                               ; preds = %30
@@ -5691,9 +5691,9 @@ _ZNSt6vectorIjSaIjEE2atEm.exit.i.i21:             ; preds = %107
   %121 = fptosi float %4 to i32
   %122 = sitofp i32 %121 to float
   %123 = fcmp oeq float %4, %122
-  %124 = add i32 %121, 2047
-  %125 = icmp ult i32 %124, 4095
-  %spec.select.i.i = and i1 %123, %125
+  %124 = tail call float @llvm.fabs.f32(float %4)
+  %125 = fcmp olt float %124, 2.048000e+03
+  %spec.select.i.i = and i1 %125, %123
   br i1 %spec.select.i.i, label %126, label %134
 
 126:                                              ; preds = %120
@@ -5793,9 +5793,9 @@ _ZNSt6vectorIjSaIjEE2atEm.exit.i.i:               ; preds = %26
   %40 = fptosi float %4 to i32
   %41 = sitofp i32 %40 to float
   %42 = fcmp oeq float %4, %41
-  %43 = add i32 %40, 2047
-  %44 = icmp ult i32 %43, 4095
-  %spec.select.i.i = and i1 %42, %44
+  %43 = tail call float @llvm.fabs.f32(float %4)
+  %44 = fcmp olt float %43, 2.048000e+03
+  %spec.select.i.i = and i1 %44, %42
   br i1 %spec.select.i.i, label %45, label %53
 
 45:                                               ; preds = %39

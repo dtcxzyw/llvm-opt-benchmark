@@ -71408,8 +71408,8 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest14CompressStringERNSt7__cxx1112b
   %13 = call double @llvm.fmuladd.f64(double %12, double 1.001000e+00, double 1.300000e+01)
   %14 = fptosi double %13 to i32
   %15 = sext i32 %14 to i64
-  %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %16 = fcmp ugt double %13, -1.000000e+00
+  br i1 %16, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, label %.noexc
 
 .noexc:                                           ; preds = %8
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.493) #40
@@ -71667,10 +71667,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
           to label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i34 unwind label %99
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i34: ; preds = %114
-  %116 = lshr i32 %14, 1
-  %117 = add nuw nsw i32 %116, %14
-  %118 = zext nneg i32 %117 to i64
-  %.not.i.i.i.i35 = icmp eq i32 %117, 0
+  %116 = mul nsw i32 %14, 3
+  %117 = sdiv i32 %116, 2
+  %118 = sext i32 %117 to i64
+  %.off = add i32 %116, 1
+  %.not.i.i.i.i35 = icmp ult i32 %.off, 3
   br i1 %.not.i.i.i.i35, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit40, label %119
 
 119:                                              ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i34

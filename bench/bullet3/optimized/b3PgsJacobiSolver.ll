@@ -3907,11 +3907,11 @@ _ZNK9b3Vector36isZeroEv.exit135:                  ; preds = %38
 _ZNK9b3Vector36isZeroEv.exit.thread:              ; preds = %38, %5, %_ZNK9b3Vector36isZeroEv.exit135, %_ZNK9b3Vector36isZeroEv.exit
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %49 = load float, ptr %48, align 4, !tbaa !20
-  %50 = fptosi float %49 to i32
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph, label %.loopexit
+  %50 = fcmp ult float %49, 1.000000e+00
+  br i1 %50, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK9b3Vector36isZeroEv.exit.thread
+  %51 = fptosi float %49 to i32
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3957,6 +3957,7 @@ _ZNK9b3Vector36isZeroEv.exit.thread:              ; preds = %38, %5, %_ZNK9b3Vec
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %smax = tail call i32 @llvm.smax.i32(i32 %51, i32 1)
   br label %96
 
 96:                                               ; preds = %.lr.ph, %325
@@ -4107,12 +4108,12 @@ _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit141: ; preds = %_ZNK12b3S
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %foldExtExtBinop = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
   %154 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop186 = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
-  %155 = extractelement <2 x float> %foldExtExtBinop186, i64 1
-  %foldExtExtBinop188 = fsub <2 x float> %.sroa.6.2, %.sroa.6170.2
-  %156 = extractelement <2 x float> %foldExtExtBinop188, i64 0
-  %.sroa.3.12.vec.insert.i.i190 = insertelement <2 x float> %foldExtExtBinop188, float 0.000000e+00, i64 1
-  store <2 x float> %.sroa.3.12.vec.insert.i.i190, ptr %72, align 8
+  %foldExtExtBinop185 = fsub <2 x float> %.sroa.0168.2, %.sroa.0169.2
+  %155 = extractelement <2 x float> %foldExtExtBinop185, i64 1
+  %foldExtExtBinop187 = fsub <2 x float> %.sroa.6.2, %.sroa.6170.2
+  %156 = extractelement <2 x float> %foldExtExtBinop187, i64 0
+  %.sroa.3.12.vec.insert.i.i189 = insertelement <2 x float> %foldExtExtBinop187, float 0.000000e+00, i64 1
+  store <2 x float> %.sroa.3.12.vec.insert.i.i189, ptr %72, align 8
   %157 = load float, ptr %73, align 8, !tbaa !116
   %158 = fcmp ogt float %157, 0.000000e+00
   %159 = icmp sgt i32 %.0172, 0
@@ -4411,7 +4412,7 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit165: ; preds = %285, %296
   %.1 = phi i32 [ %.2, %324 ], [ %.0172, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %326 = add nuw nsw i32 %.0127171, 1
-  %exitcond.not = icmp eq i32 %326, %50
+  %exitcond.not = icmp eq i32 %326, %smax
   br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !124
 
 .loopexit:                                        ; preds = %325, %_ZNK9b3Vector36isZeroEv.exit.thread, %_ZNK9b3Vector36isZeroEv.exit135

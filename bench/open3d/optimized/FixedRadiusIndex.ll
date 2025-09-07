@@ -4149,10 +4149,11 @@ _ZN6open3d4core6TensorD2Ev.exit126:               ; preds = %_ZN6open3d4core11Sm
   %345 = load double, ptr %254, align 8, !tbaa !40
   %346 = sitofp i64 %288 to double
   %347 = fmul double %345, %346
-  %348 = fptosi double %347 to i64
-  %349 = load i64, ptr %255, align 8, !tbaa !10
-  %350 = call i64 @llvm.smax.i64(i64 %348, i64 1)
-  %351 = call i64 @llvm.smin.i64(i64 %349, i64 %350)
+  %348 = load i64, ptr %255, align 8, !tbaa !10
+  %.inv = fcmp ole double %347, 1.000000e+00
+  %349 = select i1 %.inv, double 1.000000e+00, double %347
+  %350 = fptosi double %349 to i64
+  %351 = call i64 @llvm.smin.i64(i64 %348, i64 %350)
   %352 = load ptr, ptr %23, align 8, !tbaa !71
   %353 = getelementptr inbounds nuw i32, ptr %352, i64 %indvars.iv
   %354 = load i32, ptr %353, align 4, !tbaa !38
@@ -38528,9 +38529,6 @@ declare i128 @llvm.ctlz.i128(i128, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #27

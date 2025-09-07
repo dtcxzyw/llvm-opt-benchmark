@@ -246,12 +246,14 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   %34 = fsub reassoc nsz arcp contract afn float %25, %30
   %35 = fptosi float %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %37 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
-  %spec.select = and i32 %37, 2147483646
-  store i32 %spec.select, ptr %33, align 4, !tbaa !32
-  %38 = tail call i32 @llvm.smax.i32(i32 %35, i32 0)
-  %39 = and i32 %38, 2147483646
-  store i32 %39, ptr %36, align 4, !tbaa !33
+  %37 = fcmp ugt float %31, -1.000000e+00
+  %38 = and i32 %32, -2
+  %39 = select i1 %37, i32 %38, i32 0
+  store i32 %39, ptr %33, align 4, !tbaa !32
+  %40 = fcmp ole float %34, -1.000000e+00
+  %41 = and i32 %35, -2
+  %42 = select i1 %40, i32 0, i32 %41
+  store i32 %42, ptr %36, align 4, !tbaa !33
   ret void
 }
 

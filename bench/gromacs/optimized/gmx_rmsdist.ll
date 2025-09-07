@@ -3805,17 +3805,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
   %1475 = sub nsw i32 %.sroa.6.0.copyload.i, %.sroa.68.0.copyload.i
   %1476 = fmul float %1443, 6.000000e+00
   %1477 = fdiv float %1476, %1428
-  %1478 = fptosi float %1477 to i32
-  %1479 = fmul float %1445, 6.000000e+00
-  %1480 = fdiv float %1479, %1428
-  %1481 = fptosi float %1480 to i32
-  %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %1481, i32 6)
-  %1482 = sub i32 6, %.sroa.speculated.i.i
-  %1483 = icmp slt i32 %1478, 6
-  br i1 %1483, label %.lr.ph.preheader.i.i, label %.preheader.i.i
+  %1478 = fmul float %1445, 6.000000e+00
+  %1479 = fdiv float %1478, %1428
+  %1480 = fptosi float %1479 to i32
+  %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %1480, i32 6)
+  %1481 = sub i32 6, %.sroa.speculated.i.i
+  %1482 = fcmp olt float %1477, 6.000000e+00
+  br i1 %1482, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1466
-  %1484 = sub i32 6, %1478
+  %1483 = fptosi float %1477 to i32
+  %.sroa.speculated16.i.i = call i32 @llvm.smin.i32(i32 %1483, i32 6)
+  %1484 = sub i32 6, %.sroa.speculated16.i.i
   %smax.i.i = call i32 @llvm.smax.i32(i32 %1484, i32 1)
   %1485 = zext nneg i32 %smax.i.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) @_ZZL9noe2scalefffE3buf, i8 61, i64 %1485, i1 false), !tbaa !32
@@ -3823,7 +3824,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
 
 .preheader.i.i:                                   ; preds = %1466, %.lr.ph.preheader.i.i
   %.0.lcssa.i.i = phi i32 [ %smax.i.i, %.lr.ph.preheader.i.i ], [ 0, %1466 ]
-  %1486 = icmp slt i32 %.0.lcssa.i.i, %1482
+  %1486 = icmp slt i32 %.0.lcssa.i.i, %1481
   %1487 = zext nneg i32 %.0.lcssa.i.i to i64
   br i1 %1486, label %.lr.ph23.preheader.i.i, label %_ZL9noe2scalefff.exit.i
 
@@ -3834,7 +3835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
   %1490 = zext i32 %1489 to i64
   %1491 = add nuw nsw i64 %1490, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i.i, i8 45, i64 %1491, i1 false), !tbaa !32
-  %wide.trip.count29.i.i = zext nneg i32 %1482 to i64
+  %wide.trip.count29.i.i = zext nneg i32 %1481 to i64
   br label %_ZL9noe2scalefff.exit.i
 
 _ZL9noe2scalefff.exit.i:                          ; preds = %.lr.ph23.preheader.i.i, %.preheader.i.i

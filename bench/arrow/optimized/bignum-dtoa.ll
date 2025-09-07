@@ -127,7 +127,7 @@ _ZN14arrow_vendored17double_conversionL18NormalizedExponentEmi.exit: ; preds = %
   br label %_ZN14arrow_vendored17double_conversionL40InitialScaledStartValuesPositiveExponentEmiibPNS0_6BignumES2_S2_S2_.exit.i
 
 70:                                               ; preds = %62
-  %71 = icmp sgt i32 %56, -1
+  %71 = fcmp ogt double %55, -1.000000e+00
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %70

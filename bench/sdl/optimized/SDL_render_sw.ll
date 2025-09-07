@@ -42,7 +42,7 @@ define hidden zeroext i1 @SW_CreateRendererForSurface(ptr noundef %0, ptr nounde
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i8 1, ptr %8, align 4
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #12
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #11
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %72, label %10
 
@@ -636,9 +636,9 @@ define internal noundef zeroext i1 @SW_QueueFillRects(ptr noundef %0, ptr nounde
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.029 = phi i32 [ %27, %.lr.ph ], [ 0, %9 ]
-  %.02128 = phi ptr [ %28, %.lr.ph ], [ %8, %9 ]
-  %.02327 = phi ptr [ %29, %.lr.ph ], [ %2, %9 ]
+  %.029 = phi i32 [ %30, %.lr.ph ], [ 0, %9 ]
+  %.02128 = phi ptr [ %31, %.lr.ph ], [ %8, %9 ]
+  %.02327 = phi ptr [ %32, %.lr.ph ], [ %2, %9 ]
   %12 = load float, ptr %.02327, align 4
   %13 = fptosi float %12 to i32
   store i32 %13, ptr %.02128, align 4
@@ -649,20 +649,22 @@ define internal noundef zeroext i1 @SW_QueueFillRects(ptr noundef %0, ptr nounde
   store i32 %16, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %.02327, i64 8
   %19 = load float, ptr %18, align 4
-  %20 = fptosi float %19 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
-  %21 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
-  store i32 %spec.select, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %.02327, i64 12
-  %23 = load float, ptr %22, align 4
-  %24 = fptosi float %23 to i32
-  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
-  %26 = getelementptr inbounds nuw i8, ptr %.02128, i64 12
-  store i32 %25, ptr %26, align 4
-  %27 = add nuw nsw i32 %.029, 1
-  %28 = getelementptr inbounds nuw i8, ptr %.02128, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %.02327, i64 16
-  %exitcond.not = icmp eq i32 %27, %3
+  %20 = fcmp ult float %19, 2.000000e+00
+  %21 = fptosi float %19 to i32
+  %22 = select i1 %20, i32 1, i32 %21
+  %23 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %.02327, i64 12
+  %25 = load float, ptr %24, align 4
+  %26 = fcmp ult float %25, 2.000000e+00
+  %27 = fptosi float %25 to i32
+  %28 = select i1 %26, i32 1, i32 %27
+  %29 = getelementptr inbounds nuw i8, ptr %.02128, i64 12
+  store i32 %28, ptr %29, align 4
+  %30 = add nuw nsw i32 %.029, 1
+  %31 = getelementptr inbounds nuw i8, ptr %.02128, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.02327, i64 16
+  %exitcond.not = icmp eq i32 %30, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
@@ -2982,11 +2984,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2998,9 +2997,8 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind allocsize(0,1) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

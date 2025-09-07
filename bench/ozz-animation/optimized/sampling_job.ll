@@ -1464,23 +1464,23 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %34 = load float, ptr %33, align 8, !tbaa !60
   %35 = fdiv float %0, %34
   %36 = fadd float %35, 5.000000e-01
-  %37 = fptosi float %36 to i32
-  %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %39, label %.thread3
+  %37 = fcmp ogt float %36, -1.000000e+00
+  br i1 %37, label %38, label %.thread3
 
-39:                                               ; preds = %32
+38:                                               ; preds = %32
+  %39 = fptosi float %36 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = zext i32 %8 to i64
   %41 = load ptr, ptr %4, align 8, !tbaa !57
   store ptr %41, ptr %7, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %40, ptr %42, align 8
-  %.not.i = icmp eq i32 %37, 0
+  %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %64, label %43
 
-43:                                               ; preds = %39
-  %44 = shl nuw i32 %37, 1
-  %45 = zext i32 %44 to i64
+43:                                               ; preds = %38
+  %44 = zext nneg i32 %39 to i64
+  %45 = shl nuw nsw i64 %44, 1
   %46 = load ptr, ptr %24, align 8, !tbaa !109
   %47 = getelementptr i32, ptr %46, i64 %45
   %48 = getelementptr i8, ptr %47, i64 -8
@@ -1505,9 +1505,9 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %63 = add i32 %62, 1
   br label %_ZN3ozz9animation12_GLOBAL__N_115InitializeCacheERKNS0_9Animation14TKeyframesCtrlILb1EEEmRKNS_4spanIjEE.exit
 
-64:                                               ; preds = %.thread5, %39
-  %65 = phi ptr [ %31, %.thread5 ], [ %41, %39 ]
-  %66 = phi i64 [ %30, %.thread5 ], [ %40, %39 ]
+64:                                               ; preds = %.thread5, %38
+  %65 = phi ptr [ %31, %.thread5 ], [ %41, %38 ]
+  %66 = phi i64 [ %30, %.thread5 ], [ %40, %38 ]
   %.not24.i = icmp eq i32 %8, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 

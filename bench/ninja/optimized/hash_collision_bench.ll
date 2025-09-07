@@ -17,7 +17,7 @@ $_ZSt13__adjust_heapIPSt4pairImiElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_Z6randomii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sitofp i32 %0 to double
-  %4 = tail call i32 @rand() #10
+  %4 = tail call i32 @rand() #11
   %5 = sitofp i32 %4 to double
   %6 = fdiv double %5, 0x41DFFFFFFFC00000
   %7 = sub nsw i32 %1, %0
@@ -36,7 +36,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z13RandomCommandPPc(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #3 {
-  %2 = tail call i32 @rand() #10
+  %2 = tail call i32 @rand() #11
   %3 = sitofp i32 %2 to double
   %4 = fdiv double %3, 0x41DFFFFFFFC00000
   %5 = tail call double @llvm.fmuladd.f64(double %4, double 9.500000e+01, double 5.000000e+00)
@@ -44,13 +44,14 @@ define dso_local void @_Z13RandomCommandPPc(ptr noundef captures(none) initializ
   %7 = fptosi double %6 to i32
   %8 = add nsw i32 %7, 1
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #11
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #12
   store ptr %10, ptr %0, align 8, !tbaa !4
-  %11 = icmp sgt i32 %7, 0
-  br i1 %11, label %.lr.ph.preheader, label %._crit_edge
+  %11 = fcmp ult double %6, 1.000000e+00
+  br i1 %11, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -66,7 +67,7 @@ define dso_local void @_Z13RandomCommandPPc(ptr noundef captures(none) initializ
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = tail call i32 @rand() #10
+  %15 = tail call i32 @rand() #11
   %16 = sitofp i32 %15 to double
   %17 = fdiv double %16, 0x41DFFFFFFFC00000
   %18 = tail call double @llvm.fmuladd.f64(double %17, double 9.500000e+01, double 3.200000e+01)
@@ -86,8 +87,8 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress norecurse uwtable
 define dso_local noundef i32 @main() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(160000000) ptr @_Znam(i64 noundef 160000000) #11
-  %2 = tail call noalias noundef nonnull dereferenceable(320000000) ptr @_Znam(i64 noundef 320000000) #11
+  %1 = tail call noalias noundef nonnull dereferenceable(160000000) ptr @_Znam(i64 noundef 160000000) #12
+  %2 = tail call noalias noundef nonnull dereferenceable(320000000) ptr @_Znam(i64 noundef 320000000) #12
   br label %3
 
 3:                                                ; preds = %3, %0
@@ -101,9 +102,9 @@ define dso_local noundef i32 @main() local_unnamed_addr #5 personality ptr @__gx
   br i1 %5, label %6, label %3
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @time(ptr noundef null) #10
+  %7 = tail call i64 @time(ptr noundef null) #11
   %8 = trunc i64 %7 to i32
-  tail call void @srand(i32 noundef %8) #10
+  tail call void @srand(i32 noundef %8) #11
   br label %52
 
 9:                                                ; preds = %_Z13RandomCommandPPc.exit
@@ -255,7 +256,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEv
 52:                                               ; preds = %6, %_Z13RandomCommandPPc.exit
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_Z13RandomCommandPPc.exit ]
   %53 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %54 = tail call i32 @rand() #10
+  %54 = tail call i32 @rand() #11
   %55 = sitofp i32 %54 to double
   %56 = fdiv double %55, 0x41DFFFFFFFC00000
   %57 = tail call double @llvm.fmuladd.f64(double %56, double 9.500000e+01, double 5.000000e+00)
@@ -263,18 +264,19 @@ _ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEv
   %59 = fptosi double %58 to i32
   %60 = add nsw i32 %59, 1
   %61 = sext i32 %60 to i64
-  %62 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %61) #11
+  %62 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %61) #12
   store ptr %62, ptr %53, align 8, !tbaa !4
-  %63 = icmp sgt i32 %59, 0
-  br i1 %63, label %.lr.ph.preheader.i, label %_Z13RandomCommandPPc.exit
+  %63 = fcmp ult double %58, 1.000000e+00
+  br i1 %63, label %_Z13RandomCommandPPc.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %52
-  %wide.trip.count.i = zext nneg i32 %59 to i64
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %64 = tail call i32 @rand() #10
+  %64 = tail call i32 @rand() #11
   %65 = sitofp i32 %64 to double
   %66 = fdiv double %65, 0x41DFFFFFFFC00000
   %67 = tail call double @llvm.fmuladd.f64(double %66, double 9.500000e+01, double 3.200000e+01)
@@ -291,7 +293,7 @@ _Z13RandomCommandPPc.exit:                        ; preds = %.lr.ph.i, %52
   %72 = sext i32 %59 to i64
   %73 = getelementptr inbounds i8, ptr %62, i64 %72
   store i8 0, ptr %73, align 1, !tbaa !9
-  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #12
+  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #13
   %75 = tail call noundef i64 @_ZN8BuildLog8LogEntry11HashCommandE11StringPiece(ptr nonnull %62, i64 %74)
   %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %indvars.iv
   store i64 %75, ptr %76, align 8, !tbaa !12
@@ -327,7 +329,7 @@ _ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds ptr, ptr %1, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !4
-  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #12
+  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #13
   %.not = icmp eq i32 %97, 0
   br i1 %.not, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %98
 
@@ -769,6 +771,9 @@ _ZSt11__push_heapIPSt4pairImiElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
+
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -779,9 +784,10 @@ attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

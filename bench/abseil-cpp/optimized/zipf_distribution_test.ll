@@ -15859,8 +15859,8 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i32 0, ptr %76, align 4, !tbaa !53
-  %.not.i349 = icmp slt i32 %887, 0
-  br i1 %.not.i349, label %889, label %888
+  %.not.i349 = fcmp ugt double %857, -1.000000e+00
+  br i1 %.not.i349, label %888, label %889
 
 888:                                              ; preds = %886
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %75)
@@ -22810,8 +22810,8 @@ _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i8 0, ptr %76, align 1, !tbaa !17
-  %.not.i347 = icmp slt i8 %887, 0
-  br i1 %.not.i347, label %889, label %888
+  %.not.i347 = fcmp ugt double %859, -1.000000e+00
+  br i1 %.not.i347, label %888, label %889
 
 888:                                              ; preds = %886
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %75)
@@ -28923,8 +28923,8 @@ _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i16 0, ptr %76, align 2, !tbaa !582
-  %.not.i347 = icmp slt i16 %887, 0
-  br i1 %.not.i347, label %889, label %888
+  %.not.i347 = fcmp ugt double %859, -1.000000e+00
+  br i1 %.not.i347, label %888, label %889
 
 888:                                              ; preds = %886
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %75)
@@ -39613,8 +39613,8 @@ _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i64 0, ptr %76, align 8, !tbaa !31
-  %.not.i349 = icmp slt i64 %887, 0
-  br i1 %.not.i349, label %889, label %888
+  %.not.i349 = fcmp ugt double %859, -1.000000e+00
+  br i1 %.not.i349, label %888, label %889
 
 888:                                              ; preds = %886
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %75)

@@ -4707,7 +4707,7 @@ define internal void @_ZNK4ncnn11Convolution12forward_int8ERKNS_3MatERS1_RKNS_6O
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %17 = load i32, ptr %16, align 8, !tbaa !18
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %187
+  br i1 %18, label %19, label %192
 
 19:                                               ; preds = %11
   %20 = add nsw i32 %17, -1
@@ -4797,23 +4797,23 @@ define internal void @_ZNK4ncnn11Convolution12forward_int8ERKNS_3MatERS1_RKNS_6O
   %.not.not = icmp slt i64 %indvars.iv136, %63
   br i1 %.not.not, label %.noexc76, label %._crit_edge126, !llvm.loop !95
 
-._crit_edge119.loopexit:                          ; preds = %183
+._crit_edge119.loopexit:                          ; preds = %188
   %.pre139 = load i32, ptr %4, align 4, !tbaa !71
   br label %._crit_edge119
 
 ._crit_edge119:                                   ; preds = %._crit_edge119.loopexit, %.preheader
   %64 = phi i32 [ %56, %.preheader ], [ %.pre139, %._crit_edge119.loopexit ]
-  %65 = phi i32 [ %57, %.preheader ], [ %184, %._crit_edge119.loopexit ]
-  %66 = phi i32 [ %58, %.preheader ], [ %184, %._crit_edge119.loopexit ]
+  %65 = phi i32 [ %57, %.preheader ], [ %189, %._crit_edge119.loopexit ]
+  %66 = phi i32 [ %58, %.preheader ], [ %189, %._crit_edge119.loopexit ]
   %.1.lcssa = phi ptr [ %.055121, %.preheader ], [ %.2, %._crit_edge119.loopexit ]
   %67 = add nuw nsw i32 %.058120, 1
   %68 = icmp slt i32 %67, %64
   br i1 %68, label %.preheader, label %._crit_edge122.loopexit, !llvm.loop !97
 
-.lr.ph:                                           ; preds = %.preheader, %183
-  %69 = phi i32 [ %184, %183 ], [ %57, %.preheader ]
-  %.1118 = phi ptr [ %.2, %183 ], [ %.055121, %.preheader ]
-  %.060117 = phi i32 [ %185, %183 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %188
+  %69 = phi i32 [ %189, %188 ], [ %57, %.preheader ]
+  %.1118 = phi ptr [ %.2, %188 ], [ %.055121, %.preheader ]
+  %.060117 = phi i32 [ %190, %188 ], [ 0, %.preheader ]
   %70 = load i32, ptr %7, align 4, !tbaa !71
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.noexc75.lr.ph, label %._crit_edge
@@ -4998,7 +4998,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %150, %1
   %.1107 = phi nsz float [ %.056, %125 ], [ %128, %127 ], [ %134, %129 ], [ %139, %142 ], [ %.0106, %135 ], [ %149, %143 ], [ %155, %150 ], [ %.056, %164 ], [ %171, %168 ], [ 0.000000e+00, %156 ]
   %172 = load i8, ptr %10, align 1, !tbaa !73, !range !68, !noundef !69
   %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %181
+  br i1 %173, label %174, label %186
 
 174:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   %175 = load ptr, ptr %39, align 8, !tbaa !16
@@ -5006,25 +5006,35 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %150, %1
   %177 = fmul fast float %176, %.1107
   %178 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %177)
   %179 = fptosi float %178 to i32
-  %spec.select5.i = call i32 @llvm.smax.i32(i32 %179, i32 -127)
-  %.06.i = call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)
-  %.0.i = trunc nsw i32 %.06.i to i8
+  %180 = fcmp ult float %178, 1.280000e+02
+  br i1 %180, label %181, label %_ZN4ncnnL10float2int8Ef.exit
+
+181:                                              ; preds = %174
+  %182 = fcmp ugt float %178, -1.280000e+02
+  br i1 %182, label %183, label %_ZN4ncnnL10float2int8Ef.exit
+
+183:                                              ; preds = %181
+  %184 = trunc nsw i32 %179 to i8
+  br label %_ZN4ncnnL10float2int8Ef.exit
+
+_ZN4ncnnL10float2int8Ef.exit:                     ; preds = %183, %181, %174
+  %.0.i = phi i8 [ %184, %183 ], [ 127, %174 ], [ -127, %181 ]
   store i8 %.0.i, ptr %.1118, align 1, !tbaa !101
-  %180 = getelementptr inbounds nuw i8, ptr %.1118, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %.1118, i64 1
   %.pre = load i32, ptr %5, align 4, !tbaa !71
-  br label %183
+  br label %188
 
-181:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
+186:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   store float %.1107, ptr %.1118, align 4, !tbaa !85
-  %182 = getelementptr inbounds nuw i8, ptr %.1118, i64 4
-  br label %183
+  %187 = getelementptr inbounds nuw i8, ptr %.1118, i64 4
+  br label %188
 
-183:                                              ; preds = %181, %174
-  %184 = phi i32 [ %.pre, %174 ], [ %69, %181 ]
-  %.2 = phi ptr [ %180, %174 ], [ %182, %181 ]
-  %185 = add nuw nsw i32 %.060117, 1
-  %186 = icmp slt i32 %185, %184
-  br i1 %186, label %.lr.ph, label %._crit_edge119.loopexit, !llvm.loop !104
+188:                                              ; preds = %186, %_ZN4ncnnL10float2int8Ef.exit
+  %189 = phi i32 [ %.pre, %_ZN4ncnnL10float2int8Ef.exit ], [ %69, %186 ]
+  %.2 = phi ptr [ %185, %_ZN4ncnnL10float2int8Ef.exit ], [ %187, %186 ]
+  %190 = add nuw nsw i32 %.060117, 1
+  %191 = icmp slt i32 %190, %189
+  br i1 %191, label %.lr.ph, label %._crit_edge119.loopexit, !llvm.loop !104
 
 ._crit_edge126:                                   ; preds = %._crit_edge122, %.noexc76.lr.ph, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -5032,9 +5042,9 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %150, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %187
+  br label %192
 
-187:                                              ; preds = %._crit_edge126, %11
+192:                                              ; preds = %._crit_edge126, %11
   ret void
 }
 
@@ -5052,9 +5062,6 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

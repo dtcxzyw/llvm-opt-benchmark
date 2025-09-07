@@ -662,15 +662,15 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %122 = fsub double 1.000000e+00, %.0.i.i.us
   %123 = fmul double %122, 2.550000e+02
   %124 = fptosi double %123 to i32
-  %125 = icmp slt i32 %124, 0
+  %125 = fcmp ugt double %123, -1.000000e+00
   %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.17089.us, i32 %124)
-  %.2.us = select i1 %125, i32 %.17089.us, i32 %spec.select.us
-  %.0.us = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
-  %126 = tail call i32 @llvm.umin.i32(i32 %.0.us, i32 255)
-  %127 = trunc nuw i32 %126 to i8
-  %128 = shl nsw i64 %indvars.iv110, 2
-  %gep136 = getelementptr i8, ptr %invariant.gep135, i64 %128
-  store i8 %127, ptr %gep136, align 1, !tbaa !27
+  %.2.us = select i1 %125, i32 %spec.select.us, i32 %.17089.us
+  %126 = tail call i32 @llvm.smin.i32(i32 %124, i32 255)
+  %127 = trunc i32 %126 to i8
+  %128 = select i1 %125, i8 %127, i8 0
+  %129 = shl nsw i64 %indvars.iv110, 2
+  %gep136 = getelementptr i8, ptr %invariant.gep135, i64 %129
+  store i8 %128, ptr %gep136, align 1, !tbaa !27
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
   br i1 %exitcond114.not, label %._crit_edge.us95, label %49, !llvm.loop !33
@@ -684,56 +684,56 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %.069.lcssa = phi i32 [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ %.2.us, %._crit_edge.us95 ]
   tail call void @free(ptr noundef %11) #13
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %RescalePlane.exit, label %129
+  br i1 %.not, label %RescalePlane.exit, label %130
 
-129:                                              ; preds = %._crit_edge93
+130:                                              ; preds = %._crit_edge93
   %.not.i = icmp eq i32 %.069.lcssa, 0
-  br i1 %.not.i, label %132, label %130
+  br i1 %.not.i, label %133, label %131
 
-130:                                              ; preds = %129
-  %131 = udiv i32 16711680, %.069.lcssa
-  br label %132
+131:                                              ; preds = %130
+  %132 = udiv i32 16711680, %.069.lcssa
+  br label %133
 
-132:                                              ; preds = %130, %129
-  %133 = phi i32 [ %131, %130 ], [ 0, %129 ]
-  %134 = icmp sgt i32 %4, 0
-  %or.cond.i = and i1 %134, %16
+133:                                              ; preds = %131, %130
+  %134 = phi i32 [ %132, %131 ], [ 0, %130 ]
+  %135 = icmp sgt i32 %4, 0
+  %or.cond.i = and i1 %135, %16
   br i1 %or.cond.i, label %.lr.ph.us.preheader.i, label %RescalePlane.exit
 
-.lr.ph.us.preheader.i:                            ; preds = %132
-  %135 = shl nsw i32 %4, 2
-  %136 = zext nneg i32 %135 to i64
-  %137 = sext i32 %1 to i64
+.lr.ph.us.preheader.i:                            ; preds = %133
+  %136 = shl nsw i32 %4, 2
+  %137 = zext nneg i32 %136 to i64
+  %138 = sext i32 %1 to i64
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next28.i, %._crit_edge.us.i ]
-  %138 = mul nsw i64 %indvars.iv27.i, %137
-  %139 = getelementptr inbounds i8, ptr %0, i64 %138
-  br label %140
+  %139 = mul nsw i64 %indvars.iv27.i, %138
+  %140 = getelementptr inbounds i8, ptr %0, i64 %139
+  br label %141
 
-140:                                              ; preds = %140, %.lr.ph.us.i
-  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i77, %140 ]
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv.i76
-  %142 = load i8, ptr %141, align 1, !tbaa !27
-  %143 = zext i8 %142 to i32
-  %144 = mul nuw i32 %133, %143
-  %145 = add nuw i32 %144, 32768
-  %146 = lshr i32 %145, 16
-  %147 = trunc i32 %146 to i8
-  store i8 %147, ptr %141, align 1, !tbaa !27
+141:                                              ; preds = %141, %.lr.ph.us.i
+  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i77, %141 ]
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv.i76
+  %143 = load i8, ptr %142, align 1, !tbaa !27
+  %144 = zext i8 %143 to i32
+  %145 = mul nuw i32 %134, %144
+  %146 = add nuw i32 %145, 32768
+  %147 = lshr i32 %146, 16
+  %148 = trunc i32 %147 to i8
+  store i8 %148, ptr %142, align 1, !tbaa !27
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 4
-  %148 = icmp samesign ult i64 %indvars.iv.next.i77, %136
-  br i1 %148, label %140, label %._crit_edge.us.i, !llvm.loop !35
+  %149 = icmp samesign ult i64 %indvars.iv.next.i77, %137
+  br i1 %149, label %141, label %._crit_edge.us.i, !llvm.loop !35
 
-._crit_edge.us.i:                                 ; preds = %140
+._crit_edge.us.i:                                 ; preds = %141
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count.i
   br i1 %exitcond.not.i78, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !36
 
-RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %132, %._crit_edge93, %7
-  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %132 ], [ %.069.lcssa, %._crit_edge.us.i ]
+RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %133, %._crit_edge93, %7
+  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %133 ], [ %.069.lcssa, %._crit_edge.us.i ]
   ret i32 %.065
 }
 
@@ -956,9 +956,6 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

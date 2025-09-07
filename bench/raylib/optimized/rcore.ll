@@ -41958,8 +41958,8 @@ define void @EndDrawing() local_unnamed_addr #28 {
   %29 = call noalias ptr @calloc(i64 noundef %28, i64 noundef 1) #63
   %30 = load ptr, ptr @glad_glReadPixels, align 8
   call void %30(i32 noundef 0, i32 noundef 0, i32 noundef %21, i32 noundef %25, i32 noundef 6408, i32 noundef 5121, ptr noundef %29) #60
-  %.not53.not.i = icmp sgt i32 %25, 0
-  %31 = icmp sgt i32 %21, 0
+  %.not53.not.i = fcmp oge float %24, 1.000000e+00
+  %31 = fcmp oge float %20, 1.000000e+00
   %or.cond.i = and i1 %31, %.not53.not.i
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %rlReadScreenPixels.exit
 
@@ -41973,10 +41973,10 @@ define void @EndDrawing() local_unnamed_addr #28 {
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv58.in.i = phi i64 [ %34, %.preheader.us.preheader.i ], [ %indvars.iv58.i, %._crit_edge.us.i ]
   %indvars.iv58.i = add nsw i64 %indvars.iv58.in.i, -1
-  %36 = trunc nuw nsw i64 %indvars.iv58.i to i32
+  %36 = trunc nsw i64 %indvars.iv58.i to i32
   %factor.op.mul.reass.us.i = mul i32 %26, %36
   %37 = xor i32 %36, -1
-  %38 = add nsw i32 %37, %25
+  %38 = add i32 %37, %25
   %39 = mul i32 %38, %26
   %40 = sext i32 %39 to i64
   %41 = sext i32 %factor.op.mul.reass.us.i to i64
@@ -42486,7 +42486,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 .preheader:                                       ; preds = %351, %346
   %.ph = phi i32 [ %339, %346 ], [ %393, %351 ]
-  %.ph145 = phi ptr [ %341, %346 ], [ %389, %351 ]
+  %.ph144 = phi ptr [ %341, %346 ], [ %389, %351 ]
   br label %397
 
 ._crit_edge160.thread.i:                          ; preds = %._crit_edge160.i, %451
@@ -42498,7 +42498,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 397:                                              ; preds = %.preheader, %._crit_edge160.thread.i
   %398 = phi i32 [ %396, %._crit_edge160.thread.i ], [ %.ph, %.preheader ]
-  %399 = phi ptr [ %395, %._crit_edge160.thread.i ], [ %.ph145, %.preheader ]
+  %399 = phi ptr [ %395, %._crit_edge160.thread.i ], [ %.ph144, %.preheader ]
   %indvars.iv136.i = phi i64 [ %indvars.iv.next137.i, %._crit_edge160.thread.i ], [ 0, %.preheader ]
   %400 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 %indvars.iv136.i
   %401 = load i8, ptr %400, align 1
@@ -43178,8 +43178,8 @@ define void @TakeScreenshot(ptr noundef %0) local_unnamed_addr #28 {
   %22 = call noalias ptr @calloc(i64 noundef %21, i64 noundef 1) #63
   %23 = load ptr, ptr @glad_glReadPixels, align 8
   call void %23(i32 noundef 0, i32 noundef 0, i32 noundef %14, i32 noundef %18, i32 noundef 6408, i32 noundef 5121, ptr noundef %22) #60
-  %.not53.not.i = icmp sgt i32 %18, 0
-  %24 = icmp sgt i32 %14, 0
+  %.not53.not.i = fcmp oge float %17, 1.000000e+00
+  %24 = fcmp oge float %13, 1.000000e+00
   %or.cond.i = and i1 %24, %.not53.not.i
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %rlReadScreenPixels.exit
 
@@ -43193,10 +43193,10 @@ define void @TakeScreenshot(ptr noundef %0) local_unnamed_addr #28 {
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv58.in.i = phi i64 [ %27, %.preheader.us.preheader.i ], [ %indvars.iv58.i, %._crit_edge.us.i ]
   %indvars.iv58.i = add nsw i64 %indvars.iv58.in.i, -1
-  %29 = trunc nuw nsw i64 %indvars.iv58.i to i32
+  %29 = trunc nsw i64 %indvars.iv58.i to i32
   %factor.op.mul.reass.us.i = mul i32 %19, %29
   %30 = xor i32 %29, -1
-  %31 = add nsw i32 %30, %18
+  %31 = add i32 %30, %18
   %32 = mul i32 %31, %19
   %33 = sext i32 %32 to i64
   %34 = sext i32 %factor.op.mul.reass.us.i to i64

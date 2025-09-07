@@ -80742,34 +80742,35 @@ define hidden void @drmp3dec_f32_to_s16(ptr noundef readonly captures(none) %0, 
   %37 = icmp ult i64 %36, %4
   br i1 %37, label %.lr.ph, label %.preheader
 
-.lr.ph59:                                         ; preds = %.preheader, %48
-  %.158 = phi i64 [ %50, %48 ], [ %.0.lcssa, %.preheader ]
+.lr.ph59:                                         ; preds = %.preheader, %49
+  %.158 = phi i64 [ %51, %49 ], [ %.0.lcssa, %.preheader ]
   %38 = getelementptr inbounds nuw float, ptr %0, i64 %.158
   %39 = load float, ptr %38, align 4
   %40 = fmul float %39, 3.276800e+04
   %41 = fcmp ult float %40, 3.276650e+04
-  br i1 %41, label %42, label %48
+  br i1 %41, label %42, label %49
 
 42:                                               ; preds = %.lr.ph59
   %43 = fcmp ugt float %40, -3.276750e+04
-  br i1 %43, label %44, label %48
+  br i1 %43, label %44, label %49
 
 44:                                               ; preds = %42
   %45 = fadd float %40, 5.000000e-01
   %46 = fptosi float %45 to i16
-  %.lobit.neg = ashr i16 %46, 15
-  %47 = add i16 %.lobit.neg, %46
-  br label %48
+  %47 = fcmp ole float %45, -1.000000e+00
+  %.neg = sext i1 %47 to i16
+  %48 = add i16 %.neg, %46
+  br label %49
 
-48:                                               ; preds = %42, %.lr.ph59, %44
-  %.sink = phi i16 [ %47, %44 ], [ 32767, %.lr.ph59 ], [ -32768, %42 ]
-  %49 = getelementptr inbounds nuw i16, ptr %1, i64 %.158
-  store i16 %.sink, ptr %49, align 2
-  %50 = add nuw i64 %.158, 1
-  %exitcond.not = icmp eq i64 %50, %2
+49:                                               ; preds = %42, %.lr.ph59, %44
+  %.sink = phi i16 [ %48, %44 ], [ 32767, %.lr.ph59 ], [ -32768, %42 ]
+  %50 = getelementptr inbounds nuw i16, ptr %1, i64 %.158
+  store i16 %.sink, ptr %50, align 2
+  %51 = add nuw i64 %.158, 1
+  %exitcond.not = icmp eq i64 %51, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph59
 
-._crit_edge:                                      ; preds = %48, %.preheader
+._crit_edge:                                      ; preds = %49, %.preheader
   ret void
 }
 
@@ -120128,57 +120129,59 @@ define internal fastcc void @drmp3d_synth_pair(ptr noundef nonnull writeonly cap
 51:                                               ; preds = %49
   %52 = fadd float %47, 5.000000e-01
   %53 = fptosi float %52 to i16
-  %.lobit.neg.i = ashr i16 %53, 15
-  %54 = add i16 %.lobit.neg.i, %53
+  %54 = fcmp ole float %52, -1.000000e+00
+  %.neg.i = sext i1 %54 to i16
+  %55 = add i16 %.neg.i, %53
   br label %drmp3d_scale_pcm.exit
 
 drmp3d_scale_pcm.exit:                            ; preds = %3, %49, %51
-  %.0.i = phi i16 [ %54, %51 ], [ 32767, %3 ], [ -32768, %49 ]
+  %.0.i = phi i16 [ %55, %51 ], [ 32767, %3 ], [ -32768, %49 ]
   store i16 %.0.i, ptr %0, align 2
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 3592
-  %57 = load float, ptr %56, align 4
-  %58 = fmul float %57, 1.040000e+02
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 3080
-  %60 = load float, ptr %59, align 4
-  %61 = tail call float @llvm.fmuladd.f32(float %60, float 1.567000e+03, float %58)
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 2568
-  %63 = load float, ptr %62, align 4
-  %64 = tail call float @llvm.fmuladd.f32(float %63, float 9.727000e+03, float %61)
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 2056
-  %66 = load float, ptr %65, align 4
-  %67 = tail call float @llvm.fmuladd.f32(float %66, float 6.401900e+04, float %64)
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 1544
-  %69 = load float, ptr %68, align 4
-  %70 = tail call float @llvm.fmuladd.f32(float %69, float -9.975000e+03, float %67)
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %72 = load float, ptr %71, align 4
-  %73 = tail call float @llvm.fmuladd.f32(float %72, float -4.500000e+01, float %70)
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %75 = load float, ptr %74, align 4
-  %76 = tail call float @llvm.fmuladd.f32(float %75, float 1.460000e+02, float %73)
-  %77 = load float, ptr %55, align 4
-  %78 = tail call float @llvm.fmuladd.f32(float %77, float -5.000000e+00, float %76)
-  %79 = fcmp ult float %78, 3.276650e+04
-  br i1 %79, label %80, label %drmp3d_scale_pcm.exit44
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 3592
+  %58 = load float, ptr %57, align 4
+  %59 = fmul float %58, 1.040000e+02
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 3080
+  %61 = load float, ptr %60, align 4
+  %62 = tail call float @llvm.fmuladd.f32(float %61, float 1.567000e+03, float %59)
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 2568
+  %64 = load float, ptr %63, align 4
+  %65 = tail call float @llvm.fmuladd.f32(float %64, float 9.727000e+03, float %62)
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 2056
+  %67 = load float, ptr %66, align 4
+  %68 = tail call float @llvm.fmuladd.f32(float %67, float 6.401900e+04, float %65)
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 1544
+  %70 = load float, ptr %69, align 4
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float -9.975000e+03, float %68)
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 1032
+  %73 = load float, ptr %72, align 4
+  %74 = tail call float @llvm.fmuladd.f32(float %73, float -4.500000e+01, float %71)
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %76 = load float, ptr %75, align 4
+  %77 = tail call float @llvm.fmuladd.f32(float %76, float 1.460000e+02, float %74)
+  %78 = load float, ptr %56, align 4
+  %79 = tail call float @llvm.fmuladd.f32(float %78, float -5.000000e+00, float %77)
+  %80 = fcmp ult float %79, 3.276650e+04
+  br i1 %80, label %81, label %drmp3d_scale_pcm.exit44
 
-80:                                               ; preds = %drmp3d_scale_pcm.exit
-  %81 = fcmp ugt float %78, -3.276750e+04
-  br i1 %81, label %82, label %drmp3d_scale_pcm.exit44
+81:                                               ; preds = %drmp3d_scale_pcm.exit
+  %82 = fcmp ugt float %79, -3.276750e+04
+  br i1 %82, label %83, label %drmp3d_scale_pcm.exit44
 
-82:                                               ; preds = %80
-  %83 = fadd float %78, 5.000000e-01
-  %84 = fptosi float %83 to i16
-  %.lobit.neg.i43 = ashr i16 %84, 15
-  %85 = add i16 %.lobit.neg.i43, %84
+83:                                               ; preds = %81
+  %84 = fadd float %79, 5.000000e-01
+  %85 = fptosi float %84 to i16
+  %86 = fcmp ole float %84, -1.000000e+00
+  %.neg.i43 = sext i1 %86 to i16
+  %87 = add i16 %.neg.i43, %85
   br label %drmp3d_scale_pcm.exit44
 
-drmp3d_scale_pcm.exit44:                          ; preds = %drmp3d_scale_pcm.exit, %80, %82
-  %.0.i42 = phi i16 [ %85, %82 ], [ 32767, %drmp3d_scale_pcm.exit ], [ -32768, %80 ]
-  %86 = shl nsw i32 %1, 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i16, ptr %0, i64 %87
-  store i16 %.0.i42, ptr %88, align 2
+drmp3d_scale_pcm.exit44:                          ; preds = %drmp3d_scale_pcm.exit, %81, %83
+  %.0.i42 = phi i16 [ %87, %83 ], [ 32767, %drmp3d_scale_pcm.exit ], [ -32768, %81 ]
+  %88 = shl nsw i32 %1, 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i16, ptr %0, i64 %89
+  store i16 %.0.i42, ptr %90, align 2
   ret void
 }
 
@@ -120863,8 +120866,8 @@ define internal fastcc void @jar_xm_update_frequency(ptr noundef readonly captur
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = sext i8 %104 to i32
-  %111 = icmp sgt i8 %104, 0
-  br i1 %111, label %112, label %119
+  %111 = fcmp ult float %103, 1.000000e+00
+  br i1 %111, label %119, label %112
 
 112:                                              ; preds = %.loopexit.i
   %113 = zext i16 %107 to i32
@@ -120876,8 +120879,8 @@ define internal fastcc void @jar_xm_update_frequency(ptr noundef readonly captur
   br label %jar_xm_amiga_period.exit.i
 
 119:                                              ; preds = %.loopexit.i
-  %120 = icmp slt i8 %104, 0
-  br i1 %120, label %121, label %jar_xm_amiga_period.exit.i
+  %120 = fcmp ugt float %103, -1.000000e+00
+  br i1 %120, label %jar_xm_amiga_period.exit.i, label %121
 
 121:                                              ; preds = %119
   %122 = sub nsw i32 0, %110
@@ -121059,8 +121062,8 @@ define internal fastcc void @jar_xm_trigger_note(ptr noundef readonly captures(n
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %58 = load i16, ptr %57, align 2
   %59 = sext i8 %53 to i32
-  %60 = icmp sgt i8 %53, 0
-  br i1 %60, label %61, label %68
+  %60 = fcmp ult float %52, 1.000000e+00
+  br i1 %60, label %68, label %61
 
 61:                                               ; preds = %48
   %62 = zext i16 %56 to i32
@@ -121072,8 +121075,8 @@ define internal fastcc void @jar_xm_trigger_note(ptr noundef readonly captures(n
   br label %jar_xm_amiga_period.exit.i
 
 68:                                               ; preds = %48
-  %69 = icmp slt i8 %53, 0
-  br i1 %69, label %70, label %jar_xm_amiga_period.exit.i
+  %69 = fcmp ugt float %52, -1.000000e+00
+  br i1 %69, label %jar_xm_amiga_period.exit.i, label %70
 
 70:                                               ; preds = %68
   %71 = sub nsw i32 0, %59
@@ -121351,8 +121354,8 @@ jar_xm_trigger_note.exit:                         ; preds = %jar_xm_trigger_note
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 2
   %124 = load i16, ptr %123, align 2
   %125 = sext i8 %119 to i32
-  %126 = icmp sgt i8 %119, 0
-  br i1 %126, label %127, label %134
+  %126 = fcmp ult float %118, 1.000000e+00
+  br i1 %126, label %134, label %127
 
 127:                                              ; preds = %114
   %128 = zext i16 %122 to i32
@@ -121364,8 +121367,8 @@ jar_xm_trigger_note.exit:                         ; preds = %jar_xm_trigger_note
   br label %jar_xm_amiga_period.exit.i
 
 134:                                              ; preds = %114
-  %135 = icmp slt i8 %119, 0
-  br i1 %135, label %136, label %jar_xm_amiga_period.exit.i
+  %135 = fcmp ugt float %118, -1.000000e+00
+  br i1 %135, label %jar_xm_amiga_period.exit.i, label %136
 
 136:                                              ; preds = %134
   %137 = sub nsw i32 0, %125
@@ -122476,8 +122479,8 @@ define internal fastcc float @jar_xm_period(i32 %.64.val, float noundef %0) unna
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = sext i8 %10 to i32
-  %17 = icmp sgt i8 %10, 0
-  br i1 %17, label %18, label %25
+  %17 = fcmp ult float %9, 1.000000e+00
+  br i1 %17, label %25, label %18
 
 18:                                               ; preds = %5
   %19 = zext i16 %13 to i32
@@ -122489,8 +122492,8 @@ define internal fastcc float @jar_xm_period(i32 %.64.val, float noundef %0) unna
   br label %jar_xm_amiga_period.exit
 
 25:                                               ; preds = %5
-  %26 = icmp slt i8 %10, 0
-  br i1 %26, label %27, label %jar_xm_amiga_period.exit
+  %26 = fcmp ugt float %9, -1.000000e+00
+  br i1 %26, label %jar_xm_amiga_period.exit, label %27
 
 27:                                               ; preds = %25
   %28 = sub nsw i32 0, %16

@@ -568,11 +568,12 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   br i1 %16, label %20, label %.preheader54
 
 .preheader54:                                     ; preds = %1
-  %17 = icmp sgt i32 %12, -1
+  %17 = fcmp ogt double %11, -1.000000e+00
   br i1 %17, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader54
-  %18 = zext nneg i32 %spec.select to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 1)
+  %18 = zext nneg i32 %smax to i64
   %19 = shl nuw nsw i64 %18, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, i8 0, i64 %19, i1 false), !tbaa !18
   br label %.preheader

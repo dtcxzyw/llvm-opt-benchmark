@@ -36620,7 +36620,7 @@ define linkonce_odr i32 @_ZN3vcg15GetColorMappingEdddNS_8ColorMapE(double nounde
   store float %22, ptr %18, align 4
   %23 = fptrunc double %0 to float
   call void @_ZN3vcg6Color4IhE12SetColorRampERKfS3_f(ptr noundef nonnull align 1 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, float noundef %23)
-  br label %160
+  br label %161
 
 24:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -36681,8 +36681,8 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   %49 = sitofp i32 %43 to double
   %50 = fmul double %48, %49
   %51 = fptosi double %50 to i32
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %69
+  %52 = fcmp ugt double %50, -1.000000e+00
+  br i1 %52, label %69, label %53
 
 53:                                               ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -36732,7 +36732,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 1
   store i32 %68, ptr %15, align 4
-  br label %160
+  br label %161
 
 69:                                               ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit
   %70 = add nsw i32 %43, -1
@@ -36788,7 +36788,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   %86 = getelementptr inbounds i8, ptr %85, i64 -4
   %87 = load i32, ptr %86, align 1
   store i32 %87, ptr %15, align 4
-  br label %160
+  br label %161
 
 88:                                               ; preds = %69
   %89 = uitofp nneg i32 %51 to double
@@ -36906,49 +36906,50 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw %"class.vcg::Color4", ptr %132, i64 %105
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  %135 = load i32, ptr %134, align 1
-  %.sroa.0.0.extract.trunc = trunc i32 %135 to i8
-  %.sroa.2.0.extract.shift = lshr i32 %135, 8
+  %133 = sext i32 %51 to i64
+  %134 = getelementptr inbounds nuw %"class.vcg::Color4", ptr %132, i64 %133
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
+  %136 = load i32, ptr %135, align 1
+  %.sroa.0.0.extract.trunc = trunc i32 %136 to i8
+  %.sroa.2.0.extract.shift = lshr i32 %136, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
-  %.sroa.3.0.extract.shift = lshr i32 %135, 16
+  %.sroa.3.0.extract.shift = lshr i32 %136, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
-  %.sroa.4.0.extract.shift = lshr i32 %135, 24
+  %.sroa.4.0.extract.shift = lshr i32 %136, 24
   %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
-  %136 = uitofp i8 %.sroa.0.0.extract.trunc to double
-  %137 = uitofp i8 %130 to double
-  %138 = fsub double 1.000000e+00, %90
-  %139 = fmul double %138, %137
-  %140 = call double @llvm.fmuladd.f64(double %136, double %90, double %139)
-  %141 = fptoui double %140 to i8
-  store i8 %141, ptr %15, align 4
-  %142 = uitofp i8 %.sroa.2.0.extract.trunc to double
-  %143 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %144 = uitofp i8 %129 to double
-  %145 = fmul double %138, %144
-  %146 = call double @llvm.fmuladd.f64(double %142, double %90, double %145)
-  %147 = fptoui double %146 to i8
-  store i8 %147, ptr %143, align 1
-  %148 = uitofp i8 %.sroa.3.0.extract.trunc to double
-  %149 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %150 = uitofp i8 %128 to double
-  %151 = fmul double %138, %150
-  %152 = call double @llvm.fmuladd.f64(double %148, double %90, double %151)
-  %153 = fptoui double %152 to i8
-  store i8 %153, ptr %149, align 2
-  %154 = uitofp i8 %.sroa.4.0.extract.trunc to double
-  %155 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  %156 = uitofp i8 %127 to double
-  %157 = fmul double %138, %156
-  %158 = call double @llvm.fmuladd.f64(double %154, double %90, double %157)
-  %159 = fptoui double %158 to i8
-  store i8 %159, ptr %155, align 1
-  br label %160
+  %137 = uitofp i8 %.sroa.0.0.extract.trunc to double
+  %138 = uitofp i8 %130 to double
+  %139 = fsub double 1.000000e+00, %90
+  %140 = fmul double %139, %138
+  %141 = call double @llvm.fmuladd.f64(double %137, double %90, double %140)
+  %142 = fptoui double %141 to i8
+  store i8 %142, ptr %15, align 4
+  %143 = uitofp i8 %.sroa.2.0.extract.trunc to double
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %145 = uitofp i8 %129 to double
+  %146 = fmul double %139, %145
+  %147 = call double @llvm.fmuladd.f64(double %143, double %90, double %146)
+  %148 = fptoui double %147 to i8
+  store i8 %148, ptr %144, align 1
+  %149 = uitofp i8 %.sroa.3.0.extract.trunc to double
+  %150 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %151 = uitofp i8 %128 to double
+  %152 = fmul double %139, %151
+  %153 = call double @llvm.fmuladd.f64(double %149, double %90, double %152)
+  %154 = fptoui double %153 to i8
+  store i8 %154, ptr %150, align 2
+  %155 = uitofp i8 %.sroa.4.0.extract.trunc to double
+  %156 = getelementptr inbounds nuw i8, ptr %15, i64 3
+  %157 = uitofp i8 %127 to double
+  %158 = fmul double %139, %157
+  %159 = call double @llvm.fmuladd.f64(double %155, double %90, double %158)
+  %160 = fptoui double %159 to i8
+  store i8 %160, ptr %156, align 1
+  br label %161
 
-160:                                              ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit55, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit41, %20
-  %161 = load i32, ptr %15, align 4
-  ret i32 %161
+161:                                              ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit55, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit41, %20
+  %162 = load i32, ptr %15, align 4
+  ret i32 %162
 }
 
 ; Function Attrs: mustprogress uwtable

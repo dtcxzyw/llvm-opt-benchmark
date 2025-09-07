@@ -1939,8 +1939,8 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   call void @_ZNK3gmx9SelectioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @_ZN3gmx20AnalysisNeighborhood10initSearchEPK5t_pbcRKNS_29AnalysisNeighborhoodPositionsE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisNeighborhoodSearch") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %63 = icmp sgt i32 %61, 0
-  br i1 %63, label %.lr.ph, label %._crit_edge.thread
+  %63 = fcmp ult float %60, 1.000000e+00
+  br i1 %63, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1963,6 +1963,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %smax = call i32 @llvm.smax.i32(i32 %61, i32 1)
   br label %82
 
 82:                                               ; preds = %.lr.ph, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
@@ -2291,7 +2292,7 @@ _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit: ; preds = %.critedge, %233, %_
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %249 = add nuw nsw i32 %.03574, 1
-  %exitcond78.not = icmp eq i32 %249, %61
+  %exitcond78.not = icmp eq i32 %249, %smax
   br i1 %exitcond78.not, label %._crit_edge, label %82, !llvm.loop !195
 
 250:                                              ; preds = %224, %222
@@ -3365,6 +3366,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

@@ -119,7 +119,7 @@ define i32 @dt_dwt_first_scale_visible(ptr noundef readonly captures(none) %0) l
   br label %6
 
 6:                                                ; preds = %7, %1
-  %.010.i = phi i32 [ 0, %1 ], [ %13, %7 ]
+  %.010.i = phi i32 [ 0, %1 ], [ %12, %7 ]
   %exitcond.not.i = icmp eq i32 %.010.i, %3
   br i1 %exitcond.not.i, label %_first_scale_visible.exit, label %7
 
@@ -127,13 +127,12 @@ define i32 @dt_dwt_first_scale_visible(ptr noundef readonly captures(none) %0) l
   %8 = shl nuw i32 1, %.010.i
   %9 = sitofp i32 %8 to float
   %10 = fmul reassoc nsz arcp contract afn float %5, %9
-  %11 = fptosi float %10 to i32
-  %12 = icmp slt i32 %11, 1
-  %13 = add i32 %.010.i, 1
-  br i1 %12, label %6, label %_first_scale_visible.exit
+  %11 = fcmp ult float %10, 1.000000e+00
+  %12 = add i32 %.010.i, 1
+  br i1 %11, label %6, label %_first_scale_visible.exit
 
 _first_scale_visible.exit:                        ; preds = %6, %7
-  %.1.i = phi i32 [ %13, %7 ], [ 0, %6 ]
+  %.1.i = phi i32 [ %12, %7 ], [ 0, %6 ]
   ret i32 %.1.i
 }
 

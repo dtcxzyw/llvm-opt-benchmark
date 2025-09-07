@@ -11297,17 +11297,21 @@ _ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread: ; preds =
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !tbaa !295
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %32, label %19
+  br i1 %18, label %.thread, label %19
+
+.thread:                                          ; preds = %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread
+  tail call void @_ZN7xgboost6common11CheckMaxCatEfm(float noundef 0.000000e+00, i64 noundef %17)
+  br label %.lr.ph
 
 19:                                               ; preds = %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread
   %20 = load ptr, ptr %3, align 8, !tbaa !146
   %21 = icmp eq ptr %20, %5
-  br i1 %21, label %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit, label %.preheader.i.i
+  br i1 %21, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %19
   %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %20) #38
   %.not9.i.i = icmp eq ptr %22, %5
-  br i1 %.not9.i.i, label %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit, label %.lr.ph.i.i
+  br i1 %.not9.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %23 = phi ptr [ %29, %.lr.ph.i.i ], [ %22, %.preheader.i.i ]
@@ -11320,30 +11324,29 @@ _ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread: ; preds =
   %spec.select.i.i = select i1 %28, ptr %23, ptr %.sroa.02.110.i.i
   %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %23) #38
   %.not.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i, label %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit, label %.lr.ph.i.i, !llvm.loop !416
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !416
 
-_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit: ; preds = %.lr.ph.i.i, %19, %.preheader.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i, %.preheader.i.i, %19
   %.sroa.02.0.i.i = phi ptr [ %20, %19 ], [ %20, %.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i, i64 32
   %31 = load float, ptr %30, align 4, !tbaa !82
-  br label %32
+  tail call void @_ZN7xgboost6common11CheckMaxCatEfm(float noundef %31, i64 noundef %17)
+  %.not22 = fcmp ugt float %31, -1.000000e+00
+  br i1 %.not22, label %.lr.ph, label %._crit_edge
 
-32:                                               ; preds = %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread, %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit
-  %33 = phi float [ %31, %_ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit ], [ 0.000000e+00, %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread ]
-  tail call void @_ZN7xgboost6common11CheckMaxCatEfm(float noundef %33, i64 noundef %17)
-  %34 = fptosi float %33 to i32
-  %.not22 = icmp slt i32 %34, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.pre = load ptr, ptr %35, align 8, !tbaa !51
-  %.pre25 = load ptr, ptr %36, align 8, !tbaa !53
+.lr.ph:                                           ; preds = %.thread, %.loopexit
+  %32 = phi float [ 0.000000e+00, %.thread ], [ %31, %.loopexit ]
+  %33 = fptosi float %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %smax = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %.pre = load ptr, ptr %34, align 8, !tbaa !51
+  %.pre25 = load ptr, ptr %35, align 8, !tbaa !53
   br label %37
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit, %32
-  ret float %33
+._crit_edge:                                      ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit, %.loopexit
+  %36 = phi float [ %31, %.loopexit ], [ %32, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
+  ret float %36
 
 37:                                               ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
   %38 = phi ptr [ %.pre25, %.lr.ph ], [ %63, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
@@ -11356,7 +11359,7 @@ _ZSt11max_elementISt23_Rb_tree_const_iteratorIfEET_S2_S2_.exit: ; preds = %.lr.p
 41:                                               ; preds = %37
   store float %40, ptr %39, align 4, !tbaa !82
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store ptr %42, ptr %35, align 8, !tbaa !51
+  store ptr %42, ptr %34, align 8, !tbaa !51
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
 43:                                               ; preds = %37
@@ -11402,16 +11405,16 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %59, %_ZN
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %61, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %56, ptr %15, align 8, !tbaa !48
-  store ptr %60, ptr %35, align 8, !tbaa !51
+  store ptr %60, ptr %34, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw float, ptr %56, i64 %54
-  store ptr %62, ptr %36, align 8, !tbaa !53
+  store ptr %62, ptr %35, align 8, !tbaa !53
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %41, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i
   %63 = phi ptr [ %38, %41 ], [ %62, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ]
   %64 = phi ptr [ %42, %41 ], [ %60, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ]
   %65 = add nuw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %.023, %34
+  %exitcond.not = icmp eq i32 %.023, %smax
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !417
 }
 
@@ -51871,6 +51874,9 @@ declare i64 @llvm.umax.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #31
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

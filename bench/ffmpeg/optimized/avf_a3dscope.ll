@@ -573,9 +573,10 @@ define internal i32 @activate(ptr noundef %0) #1 {
 
 381:                                              ; preds = %360
   %382 = icmp sle i32 %31, %380
-  %383 = or i32 %380, %378
-  %384 = icmp slt i32 %383, 0
-  %or.cond3.i = or i1 %382, %384
+  %383 = fcmp ole float %377, -1.000000e+00
+  %or.cond.i = or i1 %383, %382
+  %384 = fcmp ole float %379, -1.000000e+00
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %384
   br i1 %or.cond3.i, label %408, label %385
 
 385:                                              ; preds = %381

@@ -686,8 +686,7 @@ calc_persistent_max.exit.i:                       ; preds = %315, %._crit_edge.i
 
 calc_max_draw.exit283.i:                          ; preds = %335, %330
   %.09.in.i281.i = phi float [ %334, %330 ], [ %338, %335 ]
-  %.09.i282.i = fptosi float %.09.in.i281.i to i32
-  %339 = icmp slt i32 %.09.i282.i, 1
+  %339 = fcmp olt float %.09.in.i281.i, 1.000000e+00
   br i1 %339, label %360, label %340
 
 340:                                              ; preds = %calc_max_draw.exit283.i
@@ -871,10 +870,10 @@ calc_max_draw.exit299.i:                          ; preds = %454, %449
   %.09.in.i297.i = phi float [ %453, %449 ], [ %457, %454 ]
   %.09.i298.i = fptosi float %.09.in.i297.i to i32
   %458 = load i32, ptr %216, align 4, !tbaa !82
-  %459 = icmp sgt i32 %458, 0
-  %460 = icmp sgt i32 %.09.i298.i, 0
-  %or.cond518.i = select i1 %459, i1 %460, i1 false
-  br i1 %or.cond518.i, label %.lr.ph411.us.i, label %._crit_edge415.i
+  %459 = icmp slt i32 %458, 1
+  %460 = fcmp ult float %.09.in.i297.i, 1.000000e+00
+  %or.cond518.i = select i1 %459, i1 true, i1 %460
+  br i1 %or.cond518.i, label %._crit_edge415.i, label %.lr.ph411.us.i
 
 .lr.ph411.us.i:                                   ; preds = %calc_max_draw.exit299.i, %._crit_edge412.us.i
   %461 = phi i32 [ %485, %._crit_edge412.us.i ], [ %458, %calc_max_draw.exit299.i ]
@@ -984,8 +983,7 @@ calc_persistent_max.exit302.i:                    ; preds = %500, %._crit_edge.i
 
 calc_max_draw.exit308.i:                          ; preds = %520, %515
   %.09.in.i306.i = phi float [ %519, %515 ], [ %523, %520 ]
-  %.09.i307.i = fptosi float %.09.in.i306.i to i32
-  %524 = icmp slt i32 %.09.i307.i, 1
+  %524 = fcmp olt float %.09.in.i306.i, 1.000000e+00
   br i1 %524, label %545, label %525
 
 525:                                              ; preds = %calc_max_draw.exit308.i

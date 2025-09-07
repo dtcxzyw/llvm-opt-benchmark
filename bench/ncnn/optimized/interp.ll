@@ -1548,9 +1548,9 @@ define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i3
   %28 = fptosi float %27 to i32
   %29 = sitofp i32 %28 to float
   %30 = fsub fast float %.028.us, %29
-  %31 = icmp slt i32 %28, 0
-  %.129.us = select nsz i1 %31, float 0.000000e+00, float %30
-  %.0.us = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
+  %31 = fcmp ugt float %27, -1.000000e+00
+  %.129.us = select nsz i1 %31, float %30, float 0.000000e+00
+  %.0.us = select i1 %31, i32 %28, i32 0
   %.not33.us = icmp slt i32 %.0.us, %18
   %.2.us = select nsz i1 %.not33.us, float %.129.us, float 1.000000e+00
   %.1.us = select i1 %.not33.us, i32 %.0.us, i32 %19
@@ -1580,9 +1580,9 @@ define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i3
   %41 = fptosi float %40 to i32
   %42 = sitofp i32 %41 to float
   %43 = fsub fast float %.028, %42
-  %44 = icmp slt i32 %41, 0
-  %.129 = select nsz i1 %44, float 0.000000e+00, float %43
-  %.0 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
+  %44 = fcmp ugt float %40, -1.000000e+00
+  %.129 = select nsz i1 %44, float %43, float 0.000000e+00
+  %.0 = select i1 %44, i32 %41, i32 0
   %.not33 = icmp slt i32 %.0, %15
   %.2 = select nsz i1 %.not33, float %.129, float 1.000000e+00
   %.1 = select i1 %.not33, i32 %.0, i32 %16
@@ -1784,8 +1784,8 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %54 = fneg fast float %53
   %55 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store float %54, ptr %55, align 4, !tbaa !56
-  %56 = icmp slt i32 %28, 0
-  br i1 %56, label %.thread, label %58
+  %56 = fcmp ugt float %27, -1.000000e+00
+  br i1 %56, label %58, label %.thread
 
 .thread:                                          ; preds = %20
   %57 = fadd fast float %53, 1.000000e+00
@@ -3305,9 +3305,6 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18

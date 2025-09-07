@@ -2129,11 +2129,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %7
   %38 = fdiv double %37, %26
   %39 = fadd double %4, %38
   %40 = fptosi double %39 to i32
-  %41 = mul i64 %31, %indvars.iv
-  %42 = getelementptr inbounds nuw i8, ptr %28, i64 %41
-  %storemerge16 = call i32 @llvm.smax.i32(i32 %40, i32 0)
-  %storemerge = uitofp nneg i32 %storemerge16 to double
-  store double %storemerge, ptr %42, align 8, !tbaa !57
+  %41 = sitofp i32 %40 to double
+  %42 = mul i64 %31, %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 %42
+  %44 = fcmp ugt double %39, -1.000000e+00
+  %storemerge = select i1 %44, double %41, double 0.000000e+00
+  store double %storemerge, ptr %43, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !99

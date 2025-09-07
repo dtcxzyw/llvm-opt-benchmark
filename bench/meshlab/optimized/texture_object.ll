@@ -913,23 +913,27 @@ define void @_ZN13TextureObject4BindEi(ptr noundef nonnull readonly align 8 capt
   %42 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
   %43 = sitofp i32 %42 to float
   %44 = call noundef float @log2f(float noundef %43) #24
-  %45 = fptosi float %44 to i32
-  %46 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %47 = call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %48 = icmp sgt i32 %45, 0
-  br i1 %48, label %.lr.ph, label %._crit_edge
+  %45 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %46 = call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %47 = fcmp ult float %44, 1.000000e+00
+  br i1 %47, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %36, %.lr.ph
-  %.048 = phi i32 [ %51, %.lr.ph ], [ 0, %36 ]
-  %.03347 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %47, %36 ]
-  %.03446 = phi i32 [ %.sroa.speculated41, %.lr.ph ], [ %46, %36 ]
+.lr.ph.preheader:                                 ; preds = %36
+  %48 = fptosi float %44 to i32
+  %smax = call i32 @llvm.smax.i32(i32 %48, i32 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.048 = phi i32 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03347 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+  %.03446 = phi i32 [ %.sroa.speculated41, %.lr.ph ], [ %45, %.lr.ph.preheader ]
   call void @glTexImage2D(i32 noundef 3553, i32 noundef %.048, i32 noundef 32856, i32 noundef %.03446, i32 noundef %.03347, i32 noundef 0, i32 noundef 32993, i32 noundef 5121, ptr noundef null)
   %49 = sdiv i32 %.03446, 2
   %.sroa.speculated41 = call i32 @llvm.smax.i32(i32 %49, i32 1)
   %50 = sdiv i32 %.03347, 2
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %50, i32 1)
   %51 = add nuw nsw i32 %.048, 1
-  %exitcond.not = icmp eq i32 %51, %45
+  %exitcond.not = icmp eq i32 %51, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36

@@ -5172,20 +5172,20 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %560 = call double @llvm.fabs.f64(double %559)
   %561 = call double @log10(double noundef %560) #23, !tbaa !4
   %562 = call double @llvm.ceil.f64(double %561)
-  %563 = fptosi double %562 to i32
-  %564 = icmp sgt i32 %563, 3
-  br i1 %564, label %565, label %567
+  %563 = fcmp ult double %562, 4.000000e+00
+  br i1 %563, label %566, label %564
 
-565:                                              ; preds = %558
-  %566 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 80, ptr noundef nonnull @.str.301) #23
+564:                                              ; preds = %558
+  %565 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 80, ptr noundef nonnull @.str.301) #23
   br label %sigfig.exit
 
-567:                                              ; preds = %558
-  %568 = sub nsw i32 4, %563
+566:                                              ; preds = %558
+  %567 = fptosi double %562 to i32
+  %568 = sub nsw i32 4, %567
   %569 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 80, ptr noundef nonnull @.str.302, i32 noundef %568) #23
   br label %sigfig.exit
 
-sigfig.exit:                                      ; preds = %565, %567
+sigfig.exit:                                      ; preds = %564, %566
   %570 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull %10, double noundef %559) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %571 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -5200,20 +5200,20 @@ sigfig.exit:                                      ; preds = %565, %567
   %576 = call double @llvm.fabs.f64(double %575)
   %577 = call double @log10(double noundef %576) #23, !tbaa !4
   %578 = call double @llvm.ceil.f64(double %577)
-  %579 = fptosi double %578 to i32
-  %580 = icmp sgt i32 %579, 3
-  br i1 %580, label %581, label %583
+  %579 = fcmp ult double %578, 4.000000e+00
+  br i1 %579, label %582, label %580
 
-581:                                              ; preds = %._crit_edge1506
-  %582 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.301) #23
+580:                                              ; preds = %._crit_edge1506
+  %581 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.301) #23
   br label %sigfig.exit802
 
-583:                                              ; preds = %._crit_edge1506
-  %584 = sub nsw i32 4, %579
+582:                                              ; preds = %._crit_edge1506
+  %583 = fptosi double %578 to i32
+  %584 = sub nsw i32 4, %583
   %585 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.302, i32 noundef %584) #23
   br label %sigfig.exit802
 
-sigfig.exit802:                                   ; preds = %581, %583
+sigfig.exit802:                                   ; preds = %580, %582
   %586 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull %9, double noundef %575) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %587 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -5226,20 +5226,20 @@ sigfig.exit802:                                   ; preds = %581, %583
   %593 = call double @llvm.fabs.f64(double %592)
   %594 = call double @log10(double noundef %593) #23, !tbaa !4
   %595 = call double @llvm.ceil.f64(double %594)
-  %596 = fptosi double %595 to i32
-  %597 = icmp sgt i32 %596, 3
-  br i1 %597, label %598, label %600
+  %596 = fcmp ult double %595, 4.000000e+00
+  br i1 %596, label %599, label %597
 
-598:                                              ; preds = %sigfig.exit802
-  %599 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 80, ptr noundef nonnull @.str.301) #23
+597:                                              ; preds = %sigfig.exit802
+  %598 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 80, ptr noundef nonnull @.str.301) #23
   br label %sigfig.exit803
 
-600:                                              ; preds = %sigfig.exit802
-  %601 = sub nsw i32 4, %596
+599:                                              ; preds = %sigfig.exit802
+  %600 = fptosi double %595 to i32
+  %601 = sub nsw i32 4, %600
   %602 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 80, ptr noundef nonnull @.str.302, i32 noundef %601) #23
   br label %sigfig.exit803
 
-sigfig.exit803:                                   ; preds = %598, %600
+sigfig.exit803:                                   ; preds = %597, %599
   %603 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 80, ptr noundef nonnull %8, double noundef %592) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %604 = load i32, ptr @quiet, align 4, !tbaa !4
@@ -5568,20 +5568,20 @@ define internal fastcc noundef nonnull ptr @sigfig(double noundef %0, ptr nounde
   %5 = tail call double @llvm.fabs.f64(double %0)
   %6 = tail call double @log10(double noundef %5) #23, !tbaa !4
   %7 = tail call double @llvm.ceil.f64(double %6)
-  %8 = fptosi double %7 to i32
-  %9 = icmp sgt i32 %8, 3
-  br i1 %9, label %10, label %12
+  %8 = fcmp ult double %7, 4.000000e+00
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %3
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 80, ptr noundef nonnull @.str.301) #23
+9:                                                ; preds = %3
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 80, ptr noundef nonnull @.str.301) #23
   br label %15
 
-12:                                               ; preds = %3
-  %13 = sub nsw i32 4, %8
+11:                                               ; preds = %3
+  %12 = fptosi double %7 to i32
+  %13 = sub nsw i32 4, %12
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 80, ptr noundef nonnull @.str.302, i32 noundef %13) #23
   br label %15
 
-15:                                               ; preds = %12, %10
+15:                                               ; preds = %11, %9
   %16 = zext nneg i32 %2 to i64
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef %16, ptr noundef nonnull %4, double noundef %0) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

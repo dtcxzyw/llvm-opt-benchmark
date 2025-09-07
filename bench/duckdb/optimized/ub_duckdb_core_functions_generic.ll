@@ -20363,18 +20363,18 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
   %145 = fptosi double %.078 to i32
   %146 = fptosi double %.079 to i64
   %.sroa.015.sroa.0.0.insert.ext20 = zext i32 %144 to i64
-  %147 = icmp sgt i32 %144, 5
-  br i1 %147, label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit, label %148
+  %147 = fcmp ult double %125, 6.000000e+00
+  br i1 %147, label %148, label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit
 
 148:                                              ; preds = %143
-  %149 = icmp sgt i32 %144, 0
-  %150 = icmp sgt i32 %145, 4
-  %or.cond.i = select i1 %149, i1 true, i1 %150
+  %149 = fcmp oge double %125, 1.000000e+00
+  %150 = fcmp oge double %.078, 5.000000e+00
+  %or.cond.i = or i1 %149, %150
   br i1 %or.cond.i, label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit, label %151
 
 151:                                              ; preds = %148
-  %152 = icmp sgt i32 %145, 0
-  %153 = icmp sgt i64 %146, 21599999999
+  %152 = fcmp oge double %.078, 1.000000e+00
+  %153 = fcmp oge double %.079, 2.160000e+10
   %or.cond5.i = select i1 %152, i1 true, i1 %153
   br i1 %or.cond5.i, label %154, label %158
 
@@ -20385,8 +20385,8 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
   br label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit
 
 158:                                              ; preds = %151
-  %159 = icmp sgt i64 %146, 3599999999
-  br i1 %159, label %160, label %164
+  %159 = fcmp ult double %.079, 3.600000e+09
+  br i1 %159, label %164, label %160
 
 160:                                              ; preds = %158
   %161 = add nuw nsw i64 %146, 450000000
@@ -20395,8 +20395,8 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
   br label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit
 
 164:                                              ; preds = %158
-  %165 = icmp sgt i64 %146, 599999999
-  br i1 %165, label %166, label %170
+  %165 = fcmp ult double %.079, 6.000000e+08
+  br i1 %165, label %170, label %166
 
 166:                                              ; preds = %164
   %167 = add nuw nsw i64 %146, 30000000
@@ -20407,8 +20407,8 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
   br label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit
 
 170:                                              ; preds = %164
-  %171 = icmp sgt i64 %146, 59999999
-  br i1 %171, label %172, label %176
+  %171 = fcmp ult double %.079, 6.000000e+07
+  br i1 %171, label %176, label %172
 
 172:                                              ; preds = %170
   %173 = add nuw nsw i64 %146, 7500000
@@ -20419,8 +20419,8 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
   br label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit
 
 176:                                              ; preds = %170
-  %177 = icmp sgt i64 %146, 9999999
-  br i1 %177, label %178, label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit
+  %177 = fcmp ult double %.079, 1.000000e+07
+  br i1 %177, label %_ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit, label %178
 
 178:                                              ; preds = %176
   %179 = add nuw nsw i64 %146, 500000
@@ -20440,7 +20440,7 @@ _ZN6duckdb16MakeIntervalNiceENS_10interval_tE.exit: ; preds = %143, %148, %154, 
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !80
   %182 = call i64 @_ZN6duckdb17MakeTimestampNiceEiiiiiiiNS_10interval_tE(i32 noundef %90, i32 noundef %94, i32 noundef %98, i32 noundef %101, i32 noundef %106, i32 noundef %112, i32 noundef %118, ptr noundef nonnull byval(%"struct.duckdb::interval_t") align 8 %28)
-  %183 = icmp slt i32 %144, 1
+  %183 = fcmp olt double %125, 1.000000e+00
   %184 = icmp slt i32 %.sroa.0.sroa.4.0.i.shrunk, 1
   %or.cond = select i1 %183, i1 %184, i1 false
   %185 = icmp slt i64 %.sroa.7.0.i, 1

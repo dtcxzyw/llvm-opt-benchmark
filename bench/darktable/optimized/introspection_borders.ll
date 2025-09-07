@@ -801,18 +801,20 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %88 = sitofp i32 %66 to float
   %89 = fsub reassoc nsz arcp contract afn float %88, %87
   %90 = fptosi float %89 to i32
-  %91 = tail call i32 @llvm.smax.i32(i32 %81, i32 1)
-  %92 = uitofp nneg i32 %91 to float
-  %93 = fcmp reassoc nsz arcp contract afn olt float %69, %92
-  %94 = select reassoc nsz arcp contract afn i1 %93, float %69, float %92
-  %95 = fptosi float %94 to i32
-  store i32 %95, ptr %51, align 4, !tbaa !55
-  %spec.select8082 = tail call i32 @llvm.smax.i32(i32 %90, i32 1)
-  %spec.select80 = uitofp nneg i32 %spec.select8082 to float
-  %96 = fcmp reassoc nsz arcp contract afn olt float %72, %spec.select80
-  %97 = select reassoc nsz arcp contract afn i1 %96, float %72, float %spec.select80
-  %98 = fptosi float %97 to i32
-  store i32 %98, ptr %62, align 4, !tbaa !56
+  %91 = fcmp olt float %80, 1.000000e+00
+  %92 = uitofp nneg i32 %81 to float
+  %93 = select i1 %91, float 1.000000e+00, float %92
+  %94 = fcmp reassoc nsz arcp contract afn olt float %69, %93
+  %95 = select reassoc nsz arcp contract afn i1 %94, float %69, float %93
+  %96 = fptosi float %95 to i32
+  store i32 %96, ptr %51, align 4, !tbaa !55
+  %97 = fcmp olt float %89, 1.000000e+00
+  %98 = uitofp nneg i32 %90 to float
+  %spec.select80 = select i1 %97, float 1.000000e+00, float %98
+  %99 = fcmp reassoc nsz arcp contract afn olt float %72, %spec.select80
+  %100 = select reassoc nsz arcp contract afn i1 %99, float %72, float %spec.select80
+  %101 = fptosi float %100 to i32
+  store i32 %101, ptr %62, align 4, !tbaa !56
   ret void
 }
 

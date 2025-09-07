@@ -18520,33 +18520,28 @@ if.then.i.i.i.i:                                  ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store double %5, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !55
   invoke void @_ZN5boost4math8policies6detail11raise_errorINS0_14rounding_errorEdEEvPKcS6_RKT0_(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i)
-          to label %.noexc unwind label %lpad
+          to label %invoke.cont.thread143 unwind label %lpad
 
-.noexc:                                           ; preds = %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
-  br label %_ZN5boost4math5truncIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeERKS8_RKT0_.exit.i.i
-
-_ZN5boost4math5truncIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeERKS8_RKT0_.exit.i.i: ; preds = %if.end, %.noexc
-  %retval.0.i.i.i.i = phi double [ 0.000000e+00, %.noexc ], [ %5, %if.end ]
-  %cmp.i.i = fcmp ult double %retval.0.i.i.i.i, 0x41E0000000000000
-  %cmp1.i.i = fcmp uge double %retval.0.i.i.i.i, 0xC1E0000000000000
+_ZN5boost4math5truncIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeERKS8_RKT0_.exit.i.i: ; preds = %if.end
+  %cmp.i.i = fcmp ult double %5, 0x41E0000000000000
+  %cmp1.i.i = fcmp uge double %5, 0xC1E0000000000000
   %or.cond.not.i.i = and i1 %cmp.i.i, %cmp1.i.i
   br i1 %or.cond.not.i.i, label %invoke.cont, label %if.then.i.i16
 
+invoke.cont.thread143:                            ; preds = %if.then.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  br label %if.end.i.sink.split
+
 if.then.i.i16:                                    ; preds = %_ZN5boost4math5truncIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeERKS8_RKT0_.exit.i.i
   invoke void @_ZN5boost4math8policies6detail11raise_errorINS0_14rounding_errorEdEEvPKcS6_RKT0_(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.79, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont.thread unwind label %lpad
-
-invoke.cont.thread:                               ; preds = %if.then.i.i16
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br label %if.end.i
+          to label %if.end.i.sink.split unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5boost4math5truncIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeERKS8_RKT0_.exit.i.i
-  %conv.i.i = fptosi double %retval.0.i.i.i.i to i32
-  %conv11 = zext nneg i32 %conv.i.i to i64
+  %conv.i.i = fptosi double %5 to i32
+  %conv11 = sext i32 %conv.i.i to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  %cmp.i = icmp slt i32 %conv.i.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+  %cmp.i = fcmp ugt double %5, -1.000000e+00
+  br i1 %cmp.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.50) #38
@@ -18555,8 +18550,12 @@ if.then.i:                                        ; preds = %invoke.cont
 .noexc21:                                         ; preds = %if.then.i
   unreachable
 
-if.end.i:                                         ; preds = %invoke.cont.thread, %invoke.cont
-  %conv11113 = phi i64 [ 0, %invoke.cont.thread ], [ %conv11, %invoke.cont ]
+if.end.i.sink.split:                              ; preds = %if.then.i.i16, %invoke.cont.thread143
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.end.i.sink.split, %invoke.cont
+  %conv11113 = phi i64 [ %conv11, %invoke.cont ], [ 0, %if.end.i.sink.split ]
   %.pn115 = load ptr, ptr %this, align 8, !tbaa !269
   %add.ptr.i114 = getelementptr inbounds nuw %"class.std::vector.85", ptr %.pn115, i64 %conv6
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i114, i64 16

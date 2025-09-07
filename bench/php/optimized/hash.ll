@@ -3353,9 +3353,9 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %104 = load i64, ptr %73, align 8, !tbaa !81
   store i64 %104, ptr %7, align 8, !tbaa !18
   %105 = trunc nuw i8 %.pre to i1
-  br i1 %105, label %.thread, label %.thread266
+  br i1 %105, label %.thread, label %.thread265
 
-.thread266:                                       ; preds = %103
+.thread265:                                       ; preds = %103
   %106 = shl nsw i64 %104, 1
   store i64 %106, ptr %7, align 8, !tbaa !18
   br label %108
@@ -3364,8 +3364,8 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %.pre251 = trunc nuw i8 %.pre to i1
   br i1 %.pre251, label %.thread, label %108
 
-108:                                              ; preds = %.thread266, %107
-  %109 = phi i64 [ %106, %.thread266 ], [ %101, %107 ]
+108:                                              ; preds = %.thread265, %107
+  %109 = phi i64 [ %106, %.thread265 ], [ %101, %107 ]
   %110 = sitofp i64 %109 to float
   %111 = fpext float %110 to double
   %112 = fmul double %111, 5.000000e-01
@@ -3387,12 +3387,13 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %124 = load ptr, ptr %4, align 8, !tbaa !17
   %125 = load i64, ptr %9, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %123, ptr align 1 %124, i64 %125, i1 false)
-  %.not236246 = icmp slt i64 %120, 1
+  %.not236246 = fcmp olt float %119, 1.000000e+00
   br i1 %.not236246, label %._crit_edge250, label %.lr.ph249
 
 .lr.ph249:                                        ; preds = %.thread
   %126 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %127 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %smax = call i64 @llvm.smax.i64(i64 %120, i64 1)
   br label %128
 
 128:                                              ; preds = %.lr.ph249, %._crit_edge
@@ -3490,7 +3491,7 @@ php_hash_string_xor.exit:                         ; preds = %.lr.ph.i239, %.lr.p
   %181 = getelementptr inbounds nuw i8, ptr %121, i64 %180
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 1 %77, i64 %179, i1 false)
   %182 = add nuw i64 %.0247, 1
-  %exitcond.not = icmp eq i64 %.0247, %120
+  %exitcond.not = icmp eq i64 %.0247, %smax
   br i1 %exitcond.not, label %._crit_edge250, label %128
 
 ._crit_edge250:                                   ; preds = %._crit_edge, %.thread
@@ -5074,6 +5075,9 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

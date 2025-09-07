@@ -4598,12 +4598,12 @@ declare i32 @dt_masks_point_in_form_near(float noundef, float noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #0 {
   %9 = fcmp reassoc nsz arcp contract afn ult float %2, %3
-  %.sink135 = select i1 %9, float %3, float %2
-  %.sink133 = select i1 %9, float %2, float %3
+  %.sink133 = select i1 %9, float %3, float %2
+  %.sink131 = select i1 %9, float %2, float %3
   %10 = fcmp reassoc nsz arcp contract afn olt float %5, %6
   %11 = select reassoc nsz arcp contract afn i1 %10, float %5, float %6
-  %12 = fmul reassoc nsz arcp contract afn float %11, %.sink135
-  %13 = fmul reassoc nsz arcp contract afn float %11, %.sink133
+  %12 = fmul reassoc nsz arcp contract afn float %11, %.sink133
+  %13 = fmul reassoc nsz arcp contract afn float %11, %.sink131
   %14 = fsub reassoc nsz arcp contract afn float %12, %13
   %15 = fadd reassoc nsz arcp contract afn float %12, %13
   %16 = fdiv reassoc nsz arcp contract afn float %14, %15
@@ -4618,12 +4618,12 @@ define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef
   %25 = fpext reassoc nsz arcp contract afn float %24 to double
   %26 = fmul reassoc nsz arcp contract afn double %17, 0x3FD41B2F769CF0E0
   %27 = fmul reassoc nsz arcp contract afn double %26, %25
-  %28 = fptosi double %27 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %28, i32 100)
-  %29 = add nuw nsw i32 %spec.select, 5
-  %30 = shl nuw i32 %29, 1
-  %31 = zext i32 %30 to i64
-  %32 = shl nuw nsw i64 %31, 2
+  %.inv = fcmp ole double %27, 1.000000e+02
+  %28 = select i1 %.inv, double 1.000000e+02, double %27
+  %29 = fptosi double %28 to i32
+  %30 = add nuw nsw i32 %29, 5
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw nsw i64 %31, 3
   %33 = tail call ptr @dt_alloc_aligned(i64 noundef %32) #12
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 64) ]
   %.not = icmp eq ptr %33, null
@@ -4642,7 +4642,7 @@ define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef
   %.0114 = fptrunc double %.0114.in to float
   %38 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %.0114)
   %39 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %.0114)
-  store i32 %29, ptr %7, align 4, !tbaa !30
+  store i32 %30, ptr %7, align 4, !tbaa !30
   %40 = fmul reassoc nsz arcp contract afn float %5, %0
   store float %40, ptr %33, align 64, !tbaa !24
   %41 = fmul reassoc nsz arcp contract afn float %6, %1
@@ -4681,43 +4681,48 @@ define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef
   %66 = fsub reassoc nsz arcp contract afn float %41, %61
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 36
   store float %66, ptr %67, align 4, !tbaa !24
-  %68 = uitofp nneg i32 %spec.select to float
-  %69 = fpext reassoc nsz arcp contract afn float %68 to double
-  %70 = fneg reassoc nsz arcp contract afn float %39
-  %factor.op.fmul = fmul reassoc nsz arcp contract afn float %13, %70
+  %68 = fneg reassoc nsz arcp contract afn float %39
+  %factor.op.fmul = fmul reassoc nsz arcp contract afn float %13, %68
   %factor.op.fmul124 = fmul reassoc nsz arcp contract afn float %13, %38
-  %wide.trip.count = zext nneg i32 %29 to i64
-  %71 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %69
-  br label %72
+  %69 = fcmp ult double %28, 1.000000e+00
+  br i1 %69, label %.loopexit, label %.lr.ph
 
-72:                                               ; preds = %35, %72
-  %indvars.iv = phi i64 [ 5, %35 ], [ %indvars.iv.next, %72 ]
-  %73 = trunc i64 %indvars.iv to i32
-  %74 = add i32 %73, -5
-  %75 = sitofp i32 %74 to double
-  %76 = fmul reassoc nsz arcp contract afn double %75, 0x401921FB54442D18
-  %77 = fmul reassoc nsz arcp contract afn double %76, %71
-  %78 = fptrunc reassoc nsz arcp contract afn double %77 to float
-  %79 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %78)
-  %.reass123 = fmul reassoc nsz arcp contract afn float %79, %46
-  %.reass = fmul reassoc nsz arcp contract afn float %79, %43
-  %80 = fadd reassoc nsz arcp contract afn float %.reass, %40
-  %81 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %78)
-  %.reass125 = fmul reassoc nsz arcp contract afn float %81, %factor.op.fmul124
-  %.reass121.reass = fmul reassoc nsz arcp contract afn float %81, %factor.op.fmul
-  %82 = fadd reassoc nsz arcp contract afn float %80, %.reass121.reass
+.lr.ph:                                           ; preds = %35
+  %70 = uitofp nneg i32 %29 to float
+  %71 = fpext reassoc nsz arcp contract afn float %70 to double
+  %smax = tail call i32 @llvm.smax.i32(i32 %30, i32 6)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  %72 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %71
+  br label %73
+
+73:                                               ; preds = %.lr.ph, %73
+  %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %73 ]
+  %74 = trunc i64 %indvars.iv to i32
+  %75 = add i32 %74, -5
+  %76 = sitofp i32 %75 to double
+  %77 = fmul reassoc nsz arcp contract afn double %76, 0x401921FB54442D18
+  %78 = fmul reassoc nsz arcp contract afn double %77, %72
+  %79 = fptrunc reassoc nsz arcp contract afn double %78 to float
+  %80 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %79)
+  %.reass123 = fmul reassoc nsz arcp contract afn float %80, %46
+  %.reass = fmul reassoc nsz arcp contract afn float %80, %43
+  %81 = fadd reassoc nsz arcp contract afn float %.reass, %40
+  %82 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %79)
+  %.reass125 = fmul reassoc nsz arcp contract afn float %82, %factor.op.fmul124
+  %.reass121.reass = fmul reassoc nsz arcp contract afn float %82, %factor.op.fmul
+  %83 = fadd reassoc nsz arcp contract afn float %81, %.reass121.reass
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %83 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
-  store float %82, ptr %83, align 8, !tbaa !24
-  %84 = fadd reassoc nsz arcp contract afn float %.reass123, %41
-  %85 = fadd reassoc nsz arcp contract afn float %84, %.reass125
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store float %85, ptr %86, align 4, !tbaa !24
+  %84 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
+  store float %83, ptr %84, align 8, !tbaa !24
+  %85 = fadd reassoc nsz arcp contract afn float %.reass123, %41
+  %86 = fadd reassoc nsz arcp contract afn float %85, %.reass125
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store float %86, ptr %87, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %72
+  br i1 %exitcond.not, label %.loopexit, label %73
 
-.loopexit:                                        ; preds = %72, %34
+.loopexit:                                        ; preds = %73, %35, %34
   ret ptr %33
 }
 
@@ -4837,13 +4842,14 @@ define internal fastcc ptr @_ellipse_points_to_transform(float noundef %0, float
   %63 = fneg reassoc nsz arcp contract afn float %34
   %factor.op.fmul = fmul reassoc nsz arcp contract afn float %.090, %63
   %factor.op.fmul100 = fmul reassoc nsz arcp contract afn float %.090, %33
-  %64 = icmp sgt i32 %24, 0
-  br i1 %64, label %.lr.ph, label %.loopexit
+  %64 = fcmp ult double %23, 1.000000e+00
+  br i1 %64, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %65 = uitofp nneg i32 %24 to float
+  %65 = sitofp i32 %24 to float
   %66 = fpext reassoc nsz arcp contract afn float %65 to double
-  %wide.trip.count = zext nneg i32 %25 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %25, i32 6)
+  %wide.trip.count = zext nneg i32 %smax to i64
   %67 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %66
   br label %68
 

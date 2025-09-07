@@ -226,14 +226,15 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %31 = sitofp i32 %30 to float
   %32 = fmul float %31, 0x3E00000000000000
   %33 = fmul float %32, 3.000000e+00
-  %34 = fptosi float %33 to i32
-  %.not24.i = icmp slt i32 %34, 0
-  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not24.i = fcmp ugt float %33, -1.000000e+00
+  br i1 %.not24.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %25
+  %34 = fptosi float %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
   br label %38
 
 38:                                               ; preds = %_ZN4Node8AddInputEPKS_.exit.i, %.lr.ph.i
@@ -385,7 +386,7 @@ _ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_it
 
 _ZN4Node8AddInputEPKS_.exit.i:                    ; preds = %_ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, %84
   %106 = add nuw i32 %.02025.i, 1
-  %exitcond28.not.i = icmp eq i32 %.02025.i, %34
+  %exitcond28.not.i = icmp eq i32 %.02025.i, %smax.i
   br i1 %exitcond28.not.i, label %._crit_edge.i, label %38, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %_ZN4Node8AddInputEPKS_.exit.i, %25
@@ -2212,6 +2213,9 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #15

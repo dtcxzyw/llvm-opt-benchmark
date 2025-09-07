@@ -2216,11 +2216,11 @@ Tim_ManBoxNum.exit.thread.i:                      ; preds = %Tim_ManBoxNum.exit.
   %10 = tail call i32 @Tim_ManBoxOutputFirst(ptr noundef nonnull %0, i32 noundef 0) #20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !12
-  %.pre329 = load ptr, ptr %0, align 8, !tbaa !38
+  %.pre331 = load ptr, ptr %0, align 8, !tbaa !38
   br label %Tim_ManPiNum.exit
 
 Tim_ManPiNum.exit:                                ; preds = %Tim_ManBoxNum.exit.thread.i, %9
-  %11 = phi ptr [ %4, %Tim_ManBoxNum.exit.thread.i ], [ %.pre329, %9 ]
+  %11 = phi ptr [ %4, %Tim_ManBoxNum.exit.thread.i ], [ %.pre331, %9 ]
   %12 = phi i32 [ %8, %Tim_ManBoxNum.exit.thread.i ], [ %.pre, %9 ]
   %.0.i = phi i32 [ %8, %Tim_ManBoxNum.exit.thread.i ], [ %10, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2246,13 +2246,13 @@ Tim_ManBoxNum.exit10.i:                           ; preds = %Tim_ManBoxNum.exit.
   %22 = tail call i32 @Tim_ManBoxInputNum(ptr noundef nonnull %0, i32 noundef %18) #20
   %23 = add i32 %21, %22
   %24 = sub i32 %20, %23
-  %.pre331 = load i32, ptr %19, align 4, !tbaa !13
-  %.pre332 = load ptr, ptr %0, align 8, !tbaa !38
+  %.pre333 = load i32, ptr %19, align 4, !tbaa !13
+  %.pre334 = load ptr, ptr %0, align 8, !tbaa !38
   br label %Tim_ManPoNum.exit
 
 Tim_ManPoNum.exit:                                ; preds = %Tim_ManBoxNum.exit.thread.i203, %Tim_ManBoxNum.exit10.i
-  %25 = phi ptr [ %11, %Tim_ManBoxNum.exit.thread.i203 ], [ %.pre332, %Tim_ManBoxNum.exit10.i ]
-  %26 = phi i32 [ %17, %Tim_ManBoxNum.exit.thread.i203 ], [ %.pre331, %Tim_ManBoxNum.exit10.i ]
+  %25 = phi ptr [ %11, %Tim_ManBoxNum.exit.thread.i203 ], [ %.pre334, %Tim_ManBoxNum.exit10.i ]
+  %26 = phi i32 [ %17, %Tim_ManBoxNum.exit.thread.i203 ], [ %.pre333, %Tim_ManBoxNum.exit10.i ]
   %.0.i202 = phi i32 [ %17, %Tim_ManBoxNum.exit.thread.i203 ], [ %24, %Tim_ManBoxNum.exit10.i ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.not.i = icmp eq ptr %25, null
@@ -2352,11 +2352,11 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   %74 = fpext float %73 to double
   %75 = trunc nuw nsw i64 %indvars.iv287 to i32
   %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %75, double noundef %71, double noundef %74)
-  %.pre333 = load i32, ptr %13, align 8, !tbaa !12
+  %.pre335 = load i32, ptr %13, align 8, !tbaa !12
   br label %77
 
 77:                                               ; preds = %68, %64
-  %78 = phi i32 [ %.pre333, %68 ], [ %61, %64 ]
+  %78 = phi i32 [ %.pre335, %68 ], [ %61, %64 ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next288, %79
@@ -2450,11 +2450,11 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   %123 = load float, ptr %122, align 4, !tbaa !21
   %124 = fpext float %123 to double
   %125 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0248, double noundef %121, double noundef %124)
-  %.pre334 = load i32, ptr %27, align 4, !tbaa !13
+  %.pre336 = load i32, ptr %27, align 4, !tbaa !13
   br label %126
 
 126:                                              ; preds = %117, %113
-  %127 = phi i32 [ %110, %113 ], [ %.pre334, %117 ]
+  %127 = phi i32 [ %110, %113 ], [ %.pre336, %117 ]
   %.1 = phi i32 [ %.0248, %113 ], [ %118, %117 ]
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %128 = sext i32 %127 to i64
@@ -2571,7 +2571,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   %186 = load float, ptr %156, align 4, !tbaa !21
   %187 = fpext float %186 to double
   %188 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %185, double noundef %187)
-  %.pre335 = load i32, ptr %142, align 4, !tbaa !40
+  %.pre337 = load i32, ptr %142, align 4, !tbaa !40
   br label %.critedge12
 
 .lr.ph261:                                        ; preds = %.lr.ph391
@@ -2604,7 +2604,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   br label %.critedge12, !llvm.loop !96
 
 .critedge12:                                      ; preds = %.lr.ph261, %.lr.ph261.preheader, %..critedge12.loopexit_crit_edge, %.preheader213, %182
-  %204 = phi i32 [ %180, %.preheader213 ], [ %.pre335, %182 ], [ %201, %..critedge12.loopexit_crit_edge ], [ %180, %.lr.ph261.preheader ], [ %201, %.lr.ph261 ]
+  %204 = phi i32 [ %180, %.preheader213 ], [ %.pre337, %182 ], [ %201, %..critedge12.loopexit_crit_edge ], [ %180, %.lr.ph261.preheader ], [ %201, %.lr.ph261 ]
   %.val196 = load ptr, ptr %32, align 8, !tbaa !14
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds i32, ptr %152, i64 %205
@@ -2720,17 +2720,17 @@ Tim_ManDelayTableNum.exit:                        ; preds = %.critedge8
   br i1 %263, label %.lr.ph283, label %.critedge18
 
 .lr.ph283:                                        ; preds = %Tim_ManDelayTableNum.exit, %.loopexit
-  %indvars.iv326 = phi i64 [ %indvars.iv.next327, %.loopexit ], [ 0, %Tim_ManDelayTableNum.exit ]
+  %indvars.iv328 = phi i64 [ %indvars.iv.next329, %.loopexit ], [ 0, %Tim_ManDelayTableNum.exit ]
   %264 = phi ptr [ %295, %.loopexit ], [ %261, %Tim_ManDelayTableNum.exit ]
   %265 = getelementptr i8, ptr %264, i64 8
   %.val191 = load ptr, ptr %265, align 8, !tbaa !33
-  %266 = getelementptr inbounds nuw ptr, ptr %.val191, i64 %indvars.iv326
+  %266 = getelementptr inbounds nuw ptr, ptr %.val191, i64 %indvars.iv328
   %267 = load ptr, ptr %266, align 8, !tbaa !34
   %268 = icmp eq ptr %267, null
   br i1 %268, label %.loopexit, label %269
 
 269:                                              ; preds = %.lr.ph283
-  %270 = trunc nuw nsw i64 %indvars.iv326 to i32
+  %270 = trunc nuw nsw i64 %indvars.iv328 to i32
   %271 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %270)
   %272 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %273 = load float, ptr %272, align 4, !tbaa !35
@@ -2738,28 +2738,35 @@ Tim_ManDelayTableNum.exit:                        ; preds = %.critedge8
   %275 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %276 = load float, ptr %275, align 4, !tbaa !35
   %277 = fptosi float %276 to i32
-  %278 = icmp sgt i32 %277, 0
-  br i1 %278, label %.preheader.lr.ph, label %.loopexit
+  %278 = fcmp ult float %276, 1.000000e+00
+  br i1 %278, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %269
-  %279 = icmp sgt i32 %274, 0
-  br i1 %279, label %.preheader.us.preheader, label %.preheader
+  %279 = fcmp ult float %273, 1.000000e+00
+  br i1 %279, label %.preheader.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %280 = zext nneg i32 %274 to i64
-  %wide.trip.count324 = zext nneg i32 %277 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %274, i32 1)
+  %280 = sext i32 %274 to i64
+  %smax323 = tail call i32 @llvm.smax.i32(i32 %277, i32 1)
+  %wide.trip.count324 = zext nneg i32 %smax323 to i64
+  %wide.trip.count318 = zext nneg i32 %smax to i64
   br label %.preheader.us
 
+.preheader.preheader:                             ; preds = %.preheader.lr.ph
+  %smax326 = tail call i32 @llvm.smax.i32(i32 %277, i32 1)
+  br label %.preheader
+
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv321 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next322, %._crit_edge.us ]
-  %281 = mul nuw nsw i64 %indvars.iv321, %280
-  %282 = getelementptr inbounds nuw float, ptr %267, i64 %281
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 12
+  %indvars.iv320 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next321, %._crit_edge.us ]
+  %281 = mul nsw i64 %indvars.iv320, %280
+  %282 = getelementptr float, ptr %267, i64 %281
+  %283 = getelementptr i8, ptr %282, i64 12
   br label %284
 
 284:                                              ; preds = %.preheader.us, %293
-  %indvars.iv316 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next317, %293 ]
-  %285 = getelementptr inbounds nuw float, ptr %283, i64 %indvars.iv316
+  %indvars.iv315 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next316, %293 ]
+  %285 = getelementptr float, ptr %283, i64 %indvars.iv315
   %286 = load float, ptr %285, align 4, !tbaa !35
   %287 = fcmp oeq float %286, -1.000000e+09
   br i1 %287, label %291, label %288
@@ -2774,30 +2781,30 @@ Tim_ManDelayTableNum.exit:                        ; preds = %.critedge8
   br label %293
 
 293:                                              ; preds = %291, %288
-  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
-  %exitcond320.not = icmp eq i64 %indvars.iv.next317, %280
-  br i1 %exitcond320.not, label %._crit_edge.us, label %284, !llvm.loop !99
+  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
+  %exitcond319.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count318
+  br i1 %exitcond319.not, label %._crit_edge.us, label %284, !llvm.loop !99
 
 ._crit_edge.us:                                   ; preds = %293
-  %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
+  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %putchar189.us = tail call i32 @putchar(i32 10)
-  %exitcond325.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count324
+  %exitcond325.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count324
   br i1 %exitcond325.not, label %.loopexit, label %.preheader.us, !llvm.loop !100
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.0164280 = phi i32 [ %294, %.preheader ], [ 0, %.preheader.lr.ph ]
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.0164280 = phi i32 [ %294, %.preheader ], [ 0, %.preheader.preheader ]
   %294 = add nuw nsw i32 %.0164280, 1
   %putchar189 = tail call i32 @putchar(i32 10)
-  %exitcond315.not = icmp eq i32 %294, %277
-  br i1 %exitcond315.not, label %.loopexit, label %.preheader, !llvm.loop !100
+  %exitcond327.not = icmp eq i32 %294, %smax326
+  br i1 %exitcond327.not, label %.loopexit, label %.preheader, !llvm.loop !100
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge.us, %269, %.lr.ph283
-  %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
+.loopexit:                                        ; preds = %._crit_edge.us, %.preheader, %269, %.lr.ph283
+  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %295 = load ptr, ptr %260, align 8, !tbaa !29
   %296 = getelementptr i8, ptr %295, i64 4
   %.val = load i32, ptr %296, align 4, !tbaa !30
   %297 = sext i32 %.val to i64
-  %298 = icmp slt i64 %indvars.iv.next327, %297
+  %298 = icmp slt i64 %indvars.iv.next329, %297
   br i1 %298, label %.lr.ph283, label %.critedge18, !llvm.loop !101
 
 .critedge18:                                      ; preds = %.loopexit, %.critedge8, %Tim_ManDelayTableNum.exit

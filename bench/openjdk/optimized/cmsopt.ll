@@ -2491,18 +2491,18 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
 
 .preheader221.backedge:                           ; preds = %._crit_edge233, %._crit_edge233.thread
   %.be = phi i32 [ %114, %._crit_edge233 ], [ 0, %._crit_edge233.thread ]
-  %indvars.iv268.be = phi i64 [ %indvars.iv.next269, %._crit_edge233 ], [ %indvars.iv.next269309, %._crit_edge233.thread ]
+  %indvars.iv268.be = phi i64 [ %indvars.iv.next269, %._crit_edge233 ], [ %indvars.iv.next269308, %._crit_edge233.thread ]
   br label %.preheader221, !llvm.loop !42
 
 ._crit_edge233.thread:                            ; preds = %._crit_edge
-  %indvars.iv.next269309 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond271.not310 = icmp eq i64 %indvars.iv.next269309, 4096
-  br i1 %exitcond271.not310, label %.preheader218, label %.preheader221.backedge
+  %indvars.iv.next269308 = add nuw nsw i64 %indvars.iv268, 1
+  %exitcond271.not309 = icmp eq i64 %indvars.iv.next269308, 4096
+  br i1 %exitcond271.not309, label %.preheader218, label %.preheader221.backedge
 
 .preheader218:                                    ; preds = %._crit_edge233.thread, %SlopeLimiting.exit, %.preheader220
   %117 = load i32, ptr %70, align 8
-  %.not333 = icmp eq i32 %117, 0
-  br i1 %.not333, label %.critedge._crit_edge, label %.lr.ph332
+  %.not332 = icmp eq i32 %117, 0
+  br i1 %.not332, label %.critedge._crit_edge, label %.lr.ph331
 
 .lr.ph236:                                        ; preds = %.preheader220, %SlopeLimiting.exit
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %SlopeLimiting.exit ], [ 0, %.preheader220 ]
@@ -2531,23 +2531,24 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
   %137 = fdiv double %135, %136
   %138 = fneg double %137
   %139 = call double @llvm.fmuladd.f64(double %138, double %136, double %134)
-  %140 = icmp sgt i32 %125, 0
-  br i1 %140, label %.lr.ph.preheader.i, label %._crit_edge.i182
+  %140 = fcmp ult double %124, 1.000000e+00
+  br i1 %140, label %._crit_edge.i187, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph236
-  %wide.trip.count.i183 = zext nneg i32 %125 to i64
-  br label %.lr.ph.i184
+  %smax.i = call i32 @llvm.smax.i32(i32 %125, i32 1)
+  %wide.trip.count.i182 = zext nneg i32 %smax.i to i64
+  br label %.lr.ph.i183
 
-.lr.ph.i184:                                      ; preds = %_cmsQuickSaturateWord.exit.i, %.lr.ph.preheader.i
-  %indvars.iv.i185 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i186, %_cmsQuickSaturateWord.exit.i ]
-  %141 = trunc nuw nsw i64 %indvars.iv.i185 to i32
+.lr.ph.i183:                                      ; preds = %_cmsQuickSaturateWord.exit.i, %.lr.ph.preheader.i
+  %indvars.iv.i184 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i185, %_cmsQuickSaturateWord.exit.i ]
+  %141 = trunc nuw nsw i64 %indvars.iv.i184 to i32
   %142 = uitofp nneg i32 %141 to double
   %143 = call double @llvm.fmuladd.f64(double %142, double %137, double %139)
   %144 = fadd double %143, 5.000000e-01
   %145 = fcmp ugt double %144, 0.000000e+00
   br i1 %145, label %146, label %_cmsQuickSaturateWord.exit.i
 
-146:                                              ; preds = %.lr.ph.i184
+146:                                              ; preds = %.lr.ph.i183
   %147 = fcmp ult double %144, 6.553500e+04
   br i1 %147, label %148, label %_cmsQuickSaturateWord.exit.i
 
@@ -2559,20 +2560,20 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
   %153 = add i16 %152, 32767
   br label %_cmsQuickSaturateWord.exit.i
 
-_cmsQuickSaturateWord.exit.i:                     ; preds = %148, %146, %.lr.ph.i184
-  %.0.i.i = phi i16 [ %153, %148 ], [ 0, %.lr.ph.i184 ], [ -1, %146 ]
+_cmsQuickSaturateWord.exit.i:                     ; preds = %148, %146, %.lr.ph.i183
+  %.0.i.i = phi i16 [ %153, %148 ], [ 0, %.lr.ph.i183 ], [ -1, %146 ]
   %154 = load ptr, ptr %129, align 8
-  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv.i185
+  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv.i184
   store i16 %.0.i.i, ptr %155, align 2
-  %indvars.iv.next.i186 = add nuw nsw i64 %indvars.iv.i185, 1
-  %exitcond.not.i187 = icmp eq i64 %indvars.iv.next.i186, %wide.trip.count.i183
-  br i1 %exitcond.not.i187, label %._crit_edge.loopexit.i, label %.lr.ph.i184, !llvm.loop !43
+  %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i184, 1
+  %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, %wide.trip.count.i182
+  br i1 %exitcond.not.i186, label %._crit_edge.loopexit.i, label %.lr.ph.i183, !llvm.loop !43
 
 ._crit_edge.loopexit.i:                           ; preds = %_cmsQuickSaturateWord.exit.i
   %.pre.i = load ptr, ptr %129, align 8
-  br label %._crit_edge.i182
+  br label %._crit_edge.i187
 
-._crit_edge.i182:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph236
+._crit_edge.i187:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph236
   %156 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %130, %.lr.ph236 ]
   %157 = sext i32 %127 to i64
   %158 = getelementptr inbounds i16, ptr %156, i64 %157
@@ -2587,8 +2588,8 @@ _cmsQuickSaturateWord.exit.i:                     ; preds = %148, %146, %.lr.ph.
   %167 = icmp slt i32 %127, %166
   br i1 %167, label %.lr.ph44.i, label %SlopeLimiting.exit
 
-.lr.ph44.i:                                       ; preds = %._crit_edge.i182, %_cmsQuickSaturateWord.exit40.i
-  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %_cmsQuickSaturateWord.exit40.i ], [ %157, %._crit_edge.i182 ]
+.lr.ph44.i:                                       ; preds = %._crit_edge.i187, %_cmsQuickSaturateWord.exit40.i
+  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %_cmsQuickSaturateWord.exit40.i ], [ %157, %._crit_edge.i187 ]
   %168 = trunc nsw i64 %indvars.iv47.i to i32
   %169 = sitofp i32 %168 to double
   %170 = call double @llvm.fmuladd.f64(double %169, double %162, double %165)
@@ -2619,34 +2620,34 @@ _cmsQuickSaturateWord.exit40.i:                   ; preds = %175, %173, %.lr.ph4
   %185 = icmp slt i64 %indvars.iv.next48.i, %184
   br i1 %185, label %.lr.ph44.i, label %SlopeLimiting.exit, !llvm.loop !44
 
-SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWord.exit40.i, %._crit_edge.i182
+SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWord.exit40.i, %._crit_edge.i187
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %186 = load i32, ptr %70, align 8
   %187 = zext i32 %186 to i64
   %188 = icmp samesign ult i64 %indvars.iv.next273, %187
   br i1 %188, label %.lr.ph236, label %.preheader218, !llvm.loop !45
 
-.backedge:                                        ; preds = %.lr.ph332, %215
-  %189 = phi i32 [ %216, %215 ], [ 0, %.lr.ph332 ]
-  %.017.lcssa3437.i201 = phi i32 [ %.1.i195, %215 ], [ 0, %.lr.ph332 ]
+.backedge:                                        ; preds = %.lr.ph331, %215
+  %189 = phi i32 [ %216, %215 ], [ 0, %.lr.ph331 ]
+  %.017.lcssa3437.i201 = phi i32 [ %.1.i195, %215 ], [ 0, %.lr.ph331 ]
   %190 = icmp ugt i32 %.017.lcssa3437.i201, %189
   %191 = select i1 %190, i1 true, i1 %.not168
-  br i1 %191, label %.critedge176, label %.backedge316
+  br i1 %191, label %.critedge176, label %.backedge315
 
-.backedge316:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
-  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275331, 1
+.backedge315:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
+  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275330, 1
   %192 = load i32, ptr %70, align 8
   %193 = zext i32 %192 to i64
   %194 = icmp samesign ult i64 %indvars.iv275.be, %193
-  br i1 %194, label %.lr.ph332, label %..critedge.preheader_crit_edge, !llvm.loop !46
+  br i1 %194, label %.lr.ph331, label %..critedge.preheader_crit_edge, !llvm.loop !46
 
-..critedge.preheader_crit_edge:                   ; preds = %.backedge316
+..critedge.preheader_crit_edge:                   ; preds = %.backedge315
   %195 = icmp eq i32 %192, 0
   br i1 %195, label %.critedge._crit_edge, label %.lr.ph240
 
-.lr.ph332:                                        ; preds = %.preheader218, %.backedge316
-  %indvars.iv275331 = phi i64 [ %indvars.iv275.be, %.backedge316 ], [ 0, %.preheader218 ]
-  %196 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv275331
+.lr.ph331:                                        ; preds = %.preheader218, %.backedge315
+  %indvars.iv275330 = phi i64 [ %indvars.iv275.be, %.backedge315 ], [ 0, %.preheader218 ]
+  %196 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv275330
   %197 = load ptr, ptr %196, align 8
   %198 = call i32 @cmsIsToneCurveLinear(ptr noundef %197) #10
   %199 = load ptr, ptr %196, align 8
@@ -2658,7 +2659,7 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %.not.i188 = icmp eq i32 %203, 0
   br i1 %.not.i188, label %.backedge, label %.lr.ph.i189
 
-.lr.ph.i189:                                      ; preds = %.lr.ph332
+.lr.ph.i189:                                      ; preds = %.lr.ph331
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 48
   %205 = load ptr, ptr %204, align 8
   %wide.trip.count.i190 = zext i32 %203 to i64
@@ -2687,7 +2688,7 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   br i1 %or.cond.i199, label %IsDegenerated.exit204.thread, label %215
 
 IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
-  br i1 %.not168, label %.critedge176, label %.backedge316
+  br i1 %.not168, label %.critedge176, label %.backedge315
 
 215:                                              ; preds = %._crit_edge.i198
   %216 = udiv i32 %203, 20

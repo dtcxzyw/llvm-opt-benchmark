@@ -11942,7 +11942,7 @@ if.end4:                                          ; preds = %if.then1
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
   %cmp5 = icmp sle i32 %nPrecision, %conv
-  %cmp6 = icmp slt i32 %conv, -4
+  %cmp6 = fcmp ole double %1, -5.000000e+00
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
 
@@ -11951,7 +11951,7 @@ if.end4.thread:                                   ; preds = %if.then1
   br i1 %cmp5167, label %while.end, label %if.end23
 
 while.cond.preheader:                             ; preds = %if.end4
-  %cmp8.not127 = icmp slt i32 %conv, 10
+  %cmp8.not127 = fcmp olt double %1, 1.000000e+01
   br i1 %cmp8.not127, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -12281,7 +12281,7 @@ if.end4:                                          ; preds = %if.then1
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
   %cmp5 = icmp sle i32 %nPrecision, %conv
-  %cmp6 = icmp slt i32 %conv, -4
+  %cmp6 = fcmp ole double %1, -5.000000e+00
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
 
@@ -12290,7 +12290,7 @@ if.end4.thread:                                   ; preds = %if.then1
   br i1 %cmp5176, label %while.end, label %if.end23
 
 while.cond.preheader:                             ; preds = %if.end4
-  %cmp8.not130 = icmp slt i32 %conv, 10
+  %cmp8.not130 = fcmp olt double %1, 1.000000e+01
   br i1 %cmp8.not130, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -12692,7 +12692,7 @@ if.end4:                                          ; preds = %if.then1
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
   %cmp5 = icmp sle i32 %nPrecision, %conv
-  %cmp6 = icmp slt i32 %conv, -4
+  %cmp6 = fcmp ole double %1, -5.000000e+00
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
 
@@ -12701,7 +12701,7 @@ if.end4.thread:                                   ; preds = %if.then1
   br i1 %cmp5169, label %while.end, label %if.end23
 
 while.cond.preheader:                             ; preds = %if.end4
-  %cmp8.not128 = icmp slt i32 %conv, 10
+  %cmp8.not128 = fcmp olt double %1, 1.000000e+01
   br i1 %cmp8.not128, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body

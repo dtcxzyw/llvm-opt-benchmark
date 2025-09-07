@@ -159,60 +159,58 @@ define void @_ZN14ClickableLabel17mouseReleaseEventEP11QMouseEvent(ptr noundef a
   %6 = extractvalue { double, double } %5, 0
   %7 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %6)
   %8 = fadd double %6, %7
-  %9 = fptosi double %8 to i32
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %.critedge, label %11
+  %9 = fcmp ugt double %8, -1.000000e+00
+  br i1 %9, label %10, label %.critedge
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %12)
-  %14 = extractvalue { double, double } %13, 0
-  %15 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %14)
-  %16 = fadd double %14, %15
-  %17 = fptosi double %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %22 = load i32, ptr %21, align 4
-  %23 = load i32, ptr %20, align 4
-  %24 = add i32 %22, 1
-  %25 = sub i32 %24, %23
-  %26 = icmp slt i32 %25, %17
-  br i1 %26, label %.critedge, label %27
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8
+  %12 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %11)
+  %13 = extractvalue { double, double } %12, 0
+  %14 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %13)
+  %15 = fadd double %13, %14
+  %16 = fptosi double %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %21 = load i32, ptr %20, align 4
+  %22 = load i32, ptr %19, align 4
+  %23 = add i32 %21, 1
+  %24 = sub i32 %23, %22
+  %25 = icmp slt i32 %24, %16
+  br i1 %25, label %.critedge, label %26
 
-27:                                               ; preds = %11
-  %28 = load ptr, ptr %3, align 8
-  %29 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %28)
-  %30 = extractvalue { double, double } %29, 1
-  %31 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %30)
-  %32 = fadd double %30, %31
-  %33 = fptosi double %32 to i32
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %.critedge, label %35
+26:                                               ; preds = %10
+  %27 = load ptr, ptr %3, align 8
+  %28 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %27)
+  %29 = extractvalue { double, double } %28, 1
+  %30 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %29)
+  %31 = fadd double %29, %30
+  %32 = fcmp ugt double %31, -1.000000e+00
+  br i1 %32, label %33, label %.critedge
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %3, align 8
-  %37 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %36)
-  %38 = extractvalue { double, double } %37, 1
-  %39 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %38)
-  %40 = fadd double %38, %39
-  %41 = fptosi double %40 to i32
-  %42 = load ptr, ptr %18, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %3, align 8
+  %35 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %34)
+  %36 = extractvalue { double, double } %35, 1
+  %37 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %36)
+  %38 = fadd double %36, %37
+  %39 = fptosi double %38 to i32
+  %40 = load ptr, ptr %17, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %46 = load i32, ptr %45, align 4
-  %47 = add i32 %44, 1
-  %48 = sub i32 %47, %46
-  %49 = icmp slt i32 %48, %41
-  br i1 %49, label %.critedge, label %50
+  %45 = add i32 %42, 1
+  %46 = sub i32 %45, %44
+  %47 = icmp slt i32 %46, %39
+  br i1 %47, label %.critedge, label %48
 
-50:                                               ; preds = %35
+48:                                               ; preds = %33
   tail call void @_ZN14ClickableLabel7clickedEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   br label %.critedge
 
-.critedge:                                        ; preds = %27, %2, %35, %11, %50
+.critedge:                                        ; preds = %26, %2, %33, %10, %48
   ret void
 }
 

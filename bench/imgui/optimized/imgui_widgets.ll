@@ -384,8 +384,8 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   %61 = fsub float %60, %29
   %62 = fdiv float %61, %51
   %63 = fptosi float %62 to i32
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.preheader, label %90
+  %64 = fcmp ult float %62, 1.000000e+00
+  br i1 %64, label %90, label %.preheader
 
 .preheader:                                       ; preds = %58
   %65 = icmp ult ptr %spec.select101, %.1
@@ -442,9 +442,9 @@ define void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %90
 
 90:                                               ; preds = %58, %._crit_edge, %50
-  %.val114181 = phi float [ 0.000000e+00, %50 ], [ %.lcssa, %._crit_edge ], [ 0.000000e+00, %58 ]
-  %.sroa.0128.0 = phi <2 x float> [ %54, %50 ], [ %.sroa.0128.4.vec.insert, %._crit_edge ], [ %54, %58 ]
-  %.087 = phi ptr [ %spec.select101, %50 ], [ %.2.lcssa, %._crit_edge ], [ %spec.select101, %58 ]
+  %.val114181 = phi float [ 0.000000e+00, %50 ], [ 0.000000e+00, %58 ], [ %.lcssa, %._crit_edge ]
+  %.sroa.0128.0 = phi <2 x float> [ %54, %50 ], [ %54, %58 ], [ %.sroa.0128.4.vec.insert, %._crit_edge ]
+  %.087 = phi ptr [ %spec.select101, %50 ], [ %spec.select101, %58 ], [ %.2.lcssa, %._crit_edge ]
   %91 = icmp ult ptr %.087, %.1
   br i1 %91, label %92, label %137
 
@@ -2691,8 +2691,8 @@ define noundef zeroext i1 @_ZN5ImGui11ScrollbarExERK6ImRectj9ImGuiAxisPxxxi(ptr 
   %44 = fmul float %43, 5.000000e-01
   %45 = fptosi float %44 to i32
   %46 = sitofp i32 %45 to float
-  %47 = icmp slt i32 %45, 0
-  %48 = icmp sgt i32 %45, 3
+  %47 = fcmp ole float %44, -1.000000e+00
+  %48 = fcmp oge float %44, 4.000000e+00
   %.neg132 = fneg float %46
   %.neg = select i1 %48, float -3.000000e+00, float %.neg132
   %49 = select i1 %47, float -0.000000e+00, float %.neg
@@ -2700,8 +2700,8 @@ define noundef zeroext i1 @_ZN5ImGui11ScrollbarExERK6ImRectj9ImGuiAxisPxxxi(ptr 
   %51 = fmul float %50, 5.000000e-01
   %52 = fptosi float %51 to i32
   %53 = sitofp i32 %52 to float
-  %54 = icmp slt i32 %52, 0
-  %55 = icmp sgt i32 %52, 3
+  %54 = fcmp ole float %51, -1.000000e+00
+  %55 = fcmp oge float %51, 4.000000e+00
   %.neg134 = fneg float %53
   %.neg133 = select i1 %55, float -3.000000e+00, float %.neg134
   %56 = select i1 %54, float -0.000000e+00, float %.neg133
@@ -41816,19 +41816,19 @@ select.unfold:                                    ; preds = %467, %475
   %497 = getelementptr inbounds %struct.ImGuiShrinkWidthItem, ptr %493, i64 %indvars.iv440
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 4
   %499 = load float, ptr %498, align 4, !tbaa !296
-  %500 = fptosi float %499 to i32
-  %501 = icmp slt i32 %500, 0
-  br i1 %501, label %521, label %502
+  %500 = fcmp ugt float %499, -1.000000e+00
+  br i1 %500, label %501, label %521
 
-502:                                              ; preds = %496
-  %503 = load ptr, ptr %494, align 8, !tbaa !773
-  %504 = load i32, ptr %497, align 4, !tbaa !304
-  %505 = sext i32 %504 to i64
-  %506 = getelementptr inbounds %struct.ImGuiTabItem, ptr %503, i64 %505
-  %507 = uitofp nneg i32 %500 to float
+501:                                              ; preds = %496
+  %502 = load ptr, ptr %494, align 8, !tbaa !773
+  %503 = load i32, ptr %497, align 4, !tbaa !304
+  %504 = sext i32 %503 to i64
+  %505 = getelementptr inbounds %struct.ImGuiTabItem, ptr %502, i64 %504
+  %506 = fptosi float %499 to i32
+  %507 = sitofp i32 %506 to float
   %508 = fcmp ole float %507, 1.000000e+00
   %509 = select i1 %508, float 1.000000e+00, float %507
-  %510 = getelementptr i8, ptr %506, i64 4
+  %510 = getelementptr i8, ptr %505, i64 4
   %.val332 = load i32, ptr %510, align 4, !tbaa !781
   %511 = and i32 %.val332, 64
   %.not.i357 = icmp eq i32 %511, 0
@@ -41836,7 +41836,7 @@ select.unfold:                                    ; preds = %467, %475
   %.not2.i358 = icmp eq i32 %512, 0
   %513 = select i1 %.not2.i358, i64 1, i64 2
   %514 = select i1 %.not.i357, i64 %513, i64 0
-  %515 = getelementptr inbounds nuw i8, ptr %506, i64 20
+  %515 = getelementptr inbounds nuw i8, ptr %505, i64 20
   %516 = load float, ptr %515, align 4, !tbaa !802
   %517 = fsub float %516, %509
   %518 = getelementptr inbounds nuw %struct.ImGuiTabBarSection, ptr %7, i64 %514, i32 1
@@ -41846,7 +41846,7 @@ select.unfold:                                    ; preds = %467, %475
   store float %509, ptr %515, align 4, !tbaa !802
   br label %521
 
-521:                                              ; preds = %496, %502
+521:                                              ; preds = %496, %501
   %indvars.iv.next441 = add nsw i64 %indvars.iv440, 1
   %522 = icmp slt i64 %indvars.iv.next441, %495
   br i1 %522, label %496, label %.thread, !llvm.loop !808

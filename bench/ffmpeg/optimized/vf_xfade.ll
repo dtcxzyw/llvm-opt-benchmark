@@ -9363,16 +9363,17 @@ define internal void @hblur8_transition(ptr noundef readonly captures(none) %0, 
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %27 = sitofp i32 %21 to float
-  %28 = icmp sgt i32 %21, 0
+  %28 = fcmp ult float %20, 1.000000e+00
   %29 = icmp sgt i32 %14, 0
   %or.cond = select i1 %23, i1 %29, i1 false
   br i1 %or.cond, label %.preheader85.us.us.preheader, label %._crit_edge
 
 .preheader85.us.us.preheader:                     ; preds = %.preheader85.lr.ph
+  %smax = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %30 = sext i32 %21 to i64
   %31 = zext nneg i32 %14 to i64
   %wide.trip.count129 = zext nneg i32 %12 to i64
-  %wide.trip.count = zext nneg i32 %21 to i64
+  %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count124 = zext nneg i32 %14 to i64
   br label %.preheader85.us.us
 
@@ -9403,7 +9404,7 @@ define internal void @hblur8_transition(ptr noundef readonly captures(none) %0, 
   %51 = mul nsw i32 %50, %.078105.us.us
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %48, i64 %52
-  br i1 %28, label %.lr.ph.us.us.us, label %.preheader.us.us.us.preheader
+  br i1 %28, label %.preheader.us.us.us.preheader, label %.lr.ph.us.us.us
 
 .preheader.us.us.us.preheader:                    ; preds = %.lr.ph.us.us.us, %32
   %.17491.us.us.us.ph = phi float [ 0.000000e+00, %32 ], [ %99, %.lr.ph.us.us.us ]
@@ -9522,16 +9523,17 @@ define internal void @hblur16_transition(ptr noundef readonly captures(none) %0,
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %27 = sitofp i32 %21 to float
-  %28 = icmp sgt i32 %21, 0
+  %28 = fcmp ult float %20, 1.000000e+00
   %29 = icmp sgt i32 %14, 0
   %or.cond = select i1 %23, i1 %29, i1 false
   br i1 %or.cond, label %.preheader85.us.us.preheader, label %._crit_edge
 
 .preheader85.us.us.preheader:                     ; preds = %.preheader85.lr.ph
+  %smax = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %30 = sext i32 %21 to i64
   %31 = zext nneg i32 %14 to i64
   %wide.trip.count129 = zext nneg i32 %12 to i64
-  %wide.trip.count = zext nneg i32 %21 to i64
+  %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count124 = zext nneg i32 %14 to i64
   br label %.preheader85.us.us
 
@@ -9562,7 +9564,7 @@ define internal void @hblur16_transition(ptr noundef readonly captures(none) %0,
   %51 = mul nsw i32 %50, %.078105.us.us
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %48, i64 %52
-  br i1 %28, label %.lr.ph.us.us.us, label %.preheader.us.us.us.preheader
+  br i1 %28, label %.preheader.us.us.us.preheader, label %.lr.ph.us.us.us
 
 .preheader.us.us.us.preheader:                    ; preds = %.lr.ph.us.us.us, %32
   %.17491.us.us.us.ph = phi float [ 0.000000e+00, %32 ], [ %99, %.lr.ph.us.us.us ]
@@ -15740,6 +15742,9 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

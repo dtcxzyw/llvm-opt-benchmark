@@ -4227,7 +4227,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16subr_flattener_tIKN2O
   %.sroa.gep39 = getelementptr inbounds nuw i8, ptr %4, i64 16825
   %.sroa.gep42 = getelementptr inbounds nuw i8, ptr %4, i64 16826
   %.sroa.gep45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink2.i.i.i.sroa.gep74 = getelementptr inbounds nuw i8, ptr %4, i64 16804
+  %.sink1.i.i.i.sroa.gep74 = getelementptr inbounds nuw i8, ptr %4, i64 16804
   br i1 %10, label %.preheader, label %.loopexit60
 
 .preheader:                                       ; preds = %2
@@ -4438,8 +4438,8 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i.i.i: ; preds = %115, 
   %.0.i.i.i.i.i.i = phi ptr [ %114, %111 ], [ @_hb_CrapPool, %115 ]
   %116 = load double, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !335
   %117 = fptosi double %116 to i32
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i, !prof !34
+  %118 = fcmp ugt double %116, -1.000000e+00
+  br i1 %118, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i, label %119, !prof !50
 
 119:                                              ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i.i.i
   store i8 1, ptr %.sroa.gep30, align 8, !tbaa !334
@@ -4459,9 +4459,9 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i: ; preds = %119, %
   br label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE15process_vsindexERS6_RS2_.exit.i
 
 _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE15process_vsindexERS6_RS2_.exit.i: ; preds = %125, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i
-  %.sink2.i.i.i.sroa.phi = phi ptr [ %.sroa.gep, %125 ], [ %.sink2.i.i.i.sroa.gep74, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i ]
+  %.sink1.i.i.i.sroa.phi = phi ptr [ %.sroa.gep, %125 ], [ %.sink1.i.i.i.sroa.gep74, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i ]
   %.0.i.sink.i.i.i = phi i32 [ %126, %125 ], [ %.0.i.i.i.i, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i.i ]
-  store i32 %.0.i.sink.i.i.i, ptr %.sink2.i.i.i.sroa.phi, align 4, !tbaa !93
+  store i32 %.0.i.sink.i.i.i, ptr %.sink1.i.i.i.sroa.phi, align 4, !tbaa !93
   store i8 1, ptr %.sroa.gep39, align 1, !tbaa !336
   store i32 0, ptr %.sroa.gep33, align 4, !tbaa !333
   br label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE10process_opEjRS6_RS2_.exit
@@ -8825,8 +8825,8 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %.0.i.i.i = phi ptr [ %12, %8 ], [ @_hb_CrapPool, %13 ]
   %14 = load double, ptr %.0.i.i.i, align 8, !tbaa !335
   %15 = fptosi double %14 to i32
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.preheader.thread, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit, !prof !34
+  %16 = fcmp ugt double %14, -1.000000e+00
+  br i1 %16, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit, label %.preheader.thread, !prof !50
 
 _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i
   %17 = load i32, ptr %6, align 4, !tbaa !333
@@ -8852,7 +8852,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16824
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16812
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16816
-  %wide.trip.count = zext nneg i32 %15 to i64
+  %wide.trip.count = zext i32 %15 to i64
   br label %37
 
 27:                                               ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit
@@ -8868,9 +8868,9 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.thread, %._crit_edge.loopexit, %.preheader
-  %.0.i4447 = phi i32 [ %15, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
+  %.0.i4346 = phi i32 [ %15, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ], [ %20, %.preheader.thread ]
-  %33 = mul i32 %.0.i4447, %4
+  %33 = mul i32 %.0.i4346, %4
   %.not.i = icmp ult i32 %32, %33
   br i1 %.not.i, label %36, label %34, !prof !34
 
@@ -8885,7 +8885,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
 
 37:                                               ; preds = %.lr.ph, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE17process_arg_blendIS3_TnPN12hb_enable_ifIXsr10hb_is_sameIT_S3_EE5valueEvE4typeELPv0EEEvRS6_RS3_10hb_array_tIKS3_Ejj.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE17process_arg_blendIS3_TnPN12hb_enable_ifIXsr10hb_is_sameIT_S3_EE5valueEvE4typeELPv0EEEvRS6_RS3_10hb_array_tIKS3_Ejj.exit ]
-  %38 = trunc nuw nsw i64 %indvars.iv to i32
+  %38 = trunc nuw i64 %indvars.iv to i32
   %39 = mul i32 %4, %38
   %40 = add i32 %21, %39
   %storemerge.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 513, i32 %40)
@@ -12744,8 +12744,8 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i.i: ; preds = %15, %10
   %.0.i.i.i.i.i = phi ptr [ %14, %10 ], [ @_hb_CrapPool, %15 ]
   %16 = load double, ptr %.0.i.i.i.i.i, align 8, !tbaa !335
   %17 = fptosi double %16 to i32
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i, !prof !34
+  %18 = fcmp ugt double %16, -1.000000e+00
+  br i1 %18, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i, label %19, !prof !50
 
 19:                                               ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i.i
   store i8 1, ptr %7, align 8, !tbaa !334
@@ -12769,9 +12769,9 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i: ; preds = %19, %_ZN
   br label %_ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE15process_vsindexERS6_RS2_.exit
 
 _ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE15process_vsindexERS6_RS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i, %27
-  %.sink2.i.i = phi i64 [ 12, %27 ], [ 16804, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i ]
+  %.sink1.i.i = phi i64 [ 12, %27 ], [ 16804, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i ]
   %.0.i.sink.i.i = phi i32 [ %30, %27 ], [ %.0.i.i.i, %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink2.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
   store i32 %.0.i.sink.i.i, ptr %31, align 4, !tbaa !93
   store i8 1, ptr %20, align 1, !tbaa !336
   store i32 0, ptr %8, align 4, !tbaa !333
@@ -13688,8 +13688,8 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %.0.i.i.i = phi ptr [ %12, %8 ], [ @_hb_CrapPool, %13 ]
   %14 = load double, ptr %.0.i.i.i, align 8, !tbaa !335
   %15 = fptosi double %14 to i32
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.preheader.thread, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit, !prof !34
+  %16 = fcmp ugt double %14, -1.000000e+00
+  br i1 %16, label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit, label %.preheader.thread, !prof !50
 
 _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i
   %17 = load i32, ptr %6, align 4, !tbaa !333
@@ -13715,7 +13715,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16824
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16812
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16816
-  %wide.trip.count = zext nneg i32 %15 to i64
+  %wide.trip.count = zext i32 %15 to i64
   br label %37
 
 27:                                               ; preds = %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit
@@ -13731,9 +13731,9 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.thread, %._crit_edge.loopexit, %.preheader
-  %.0.i4447 = phi i32 [ %15, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
+  %.0.i4346 = phi i32 [ %15, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ], [ %20, %.preheader.thread ]
-  %33 = mul i32 %.0.i4447, %4
+  %33 = mul i32 %.0.i4346, %4
   %.not.i = icmp ult i32 %32, %33
   br i1 %.not.i, label %36, label %34, !prof !34
 
@@ -13748,7 +13748,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
 
 37:                                               ; preds = %.lr.ph, %_ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE17process_arg_blendIS3_TnPN12hb_enable_ifIXsr10hb_is_sameIT_S3_EE5valueEvE4typeELPv0EEEvRS6_RS3_10hb_array_tIKS3_Ejj.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE17process_arg_blendIS3_TnPN12hb_enable_ifIXsr10hb_is_sameIT_S3_EE5valueEvE4typeELPv0EEEvRS6_RS3_10hb_array_tIKS3_Ejj.exit ]
-  %38 = trunc nuw nsw i64 %indvars.iv to i32
+  %38 = trunc nuw i64 %indvars.iv to i32
   %39 = mul i32 %4, %38
   %40 = add i32 %21, %39
   %storemerge.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 513, i32 %40)
@@ -18298,8 +18298,8 @@ define linkonce_odr dso_local void @_ZN31cff2_private_dict_blend_opset_t10proces
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i: ; preds = %22, %17
   %25 = phi double [ %.pre.i.i.i, %17 ], [ %24, %22 ]
   %26 = fptosi double %25 to i32
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i, !prof !34
+  %27 = fcmp ugt double %25, -1.000000e+00
+  br i1 %27, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i, label %28, !prof !50
 
 28:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i
   store i8 1, ptr %14, align 8, !tbaa !597
@@ -18562,8 +18562,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %16 = phi i32 [ %10, %8 ], [ 0, %13 ]
   %17 = phi double [ %.pre.i.i, %8 ], [ %15, %13 ]
   %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.preheader.thread, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, !prof !34
+  %19 = fcmp ugt double %17, -1.000000e+00
+  br i1 %19, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, label %.preheader.thread, !prof !50
 
 _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
   %.neg = xor i32 %4, -1
@@ -18590,13 +18590,13 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_sta
   %.not34 = icmp eq i32 %.fr33, 0
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
-  %wide.trip.count40 = zext nneg i32 %18 to i64
+  %wide.trip.count40 = zext i32 %18 to i64
   %29 = bitcast i64 %24 to double
   br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us ], [ 0, %.lr.ph ]
-  %30 = trunc nuw nsw i64 %indvars.iv37 to i32
+  %30 = trunc nuw i64 %indvars.iv37 to i32
   %31 = add i32 %20, %30
   %.not.i30.us = icmp ult i32 %31, %16
   br i1 %.not.i30.us, label %33, label %32, !prof !50
@@ -18633,8 +18633,8 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us: ; preds = %33, %32
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
 ._crit_edge:                                      ; preds = %_ZN31cff2_private_dict_blend_opset_t17process_arg_blendER34cff2_private_blend_encoder_param_tRN3CFF8number_tE10hb_array_tIKS3_Ejj.exit, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us, %.preheader.thread, %.preheader
-  %.0.i5255 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us ], [ %18, %_ZN31cff2_private_dict_blend_opset_t17process_arg_blendER34cff2_private_blend_encoder_param_tRN3CFF8number_tE10hb_array_tIKS3_Ejj.exit ]
-  %46 = mul i32 %.0.i5255, %4
+  %.0.i5154 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us ], [ %18, %_ZN31cff2_private_dict_blend_opset_t17process_arg_blendER34cff2_private_blend_encoder_param_tRN3CFF8number_tE10hb_array_tIKS3_Ejj.exit ]
+  %46 = mul i32 %.0.i5154, %4
   %.not.i = icmp ult i32 %16, %46
   br i1 %.not.i, label %49, label %47, !prof !34
 
@@ -18649,7 +18649,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us: ; preds = %33, %32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN31cff2_private_dict_blend_opset_t17process_arg_blendER34cff2_private_blend_encoder_param_tRN3CFF8number_tE10hb_array_tIKS3_Ejj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN31cff2_private_dict_blend_opset_t17process_arg_blendER34cff2_private_blend_encoder_param_tRN3CFF8number_tE10hb_array_tIKS3_Ejj.exit ], [ 0, %.lr.ph ]
-  %50 = trunc nuw nsw i64 %indvars.iv to i32
+  %50 = trunc nuw i64 %indvars.iv to i32
   %51 = mul i32 %4, %50
   %52 = add i32 %22, %51
   %storemerge.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 513, i32 %52)

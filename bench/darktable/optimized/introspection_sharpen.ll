@@ -224,11 +224,11 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 56:                                               ; preds = %41
   call void @llvm.memset.p0.i64(ptr nonnull align 64 %55, i8 0, i64 %45, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 64) ]
-  %.not2527.i = icmp slt i32 %25, 0
-  br i1 %.not2527.i, label %.loopexit226, label %.lr.ph.i
+  %.not2527.i = fcmp ugt float %24, -1.000000e+00
+  br i1 %.not2527.i, label %.lr.ph.i, label %.loopexit226
 
 .lr.ph.i:                                         ; preds = %56
-  %57 = sub nsw i32 0, %25
+  %57 = sub i32 0, %25
   %58 = sext i32 %57 to i64
   %59 = zext nneg i32 %25 to i64
   %60 = add nuw i32 %25, 1
@@ -289,7 +289,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.not265 = icmp ult i32 %75, 4
   %.not266 = icmp eq i64 %81, %76
   %82 = shl nsw i64 %76, 2
-  %83 = icmp sgt i32 %25, 0
+  %83 = fcmp ult float %24, 1.000000e+00
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %umax = call i64 @llvm.umax.i64(i64 %81, i64 4)
@@ -302,8 +302,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %umax272 = call i64 @llvm.umax.i64(i64 %90, i64 %76)
   %91 = shl i64 %umax272, 2
   %92 = sub i64 %91, %89
+  %smax = call i32 @llvm.smax.i32(i32 %25, i32 1)
   %93 = sext i32 %25 to i64
-  %wide.trip.count = zext nneg i32 %25 to i64
+  %wide.trip.count = zext nneg i32 %smax to i64
   %94 = shl i32 %25, 1
   br label %96
 
@@ -410,7 +411,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 ._crit_edge242:                                   ; preds = %._crit_edge240, %.preheader.us.preheader, %.preheader225
   %131 = mul i64 %82, %indvars.iv291
   %132 = getelementptr inbounds nuw float, ptr %3, i64 %131
-  br i1 %83, label %.lr.ph245, label %._crit_edge246
+  br i1 %83, label %._crit_edge246, label %.lr.ph245
 
 .lr.ph245:                                        ; preds = %._crit_edge242
   %133 = mul nsw i64 %indvars.iv291, %76
@@ -466,7 +467,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %exitcond278.not, label %._crit_edge246, label %155
 
 .preheader224:                                    ; preds = %183, %._crit_edge246
-  br i1 %83, label %.lr.ph260, label %.loopexit
+  br i1 %83, label %.loopexit, label %.lr.ph260
 
 .lr.ph260:                                        ; preds = %.preheader224
   %159 = mul nsw i64 %indvars.iv291, %76
@@ -478,7 +479,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv284 = phi i64 [ %93, %.lr.ph256 ], [ %indvars.iv.next285, %183 ]
   %indvars.iv279 = phi i32 [ 0, %.lr.ph256 ], [ %indvars.iv.next280, %183 ]
   %163 = add nsw i64 %indvars.iv284, %93
-  br i1 %.not2527.i, label %._crit_edge252, label %.lr.ph251.preheader
+  br i1 %.not2527.i, label %.lr.ph251.preheader, label %._crit_edge252
 
 .lr.ph251.preheader:                              ; preds = %162
   %.neg = sub i64 %93, %indvars.iv284
@@ -798,6 +799,9 @@ declare float @llvm.fabs.f32(float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

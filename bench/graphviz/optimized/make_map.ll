@@ -1551,19 +1551,19 @@ get_boundingbox.exit:                             ; preds = %114, %109
   %162 = load double, ptr %invariant.gep358, align 8, !tbaa !20
   %163 = fmul double %162, %156
   %164 = fdiv double %163, %60
-  %165 = fptosi double %164 to i32
   %gep359.c = getelementptr i8, ptr %invariant.gep358, i64 8
-  %166 = load double, ptr %gep359.c, align 8, !tbaa !20
-  %167 = fmul double %166, %156
-  %168 = fdiv double %167, %60
-  %169 = fptosi double %168 to i32
-  %170 = icmp sgt i32 %165, 0
-  br i1 %170, label %171, label %.loopexit251
+  %165 = load double, ptr %gep359.c, align 8, !tbaa !20
+  %166 = fmul double %165, %156
+  %167 = fdiv double %166, %60
+  %168 = fptosi double %167 to i32
+  %169 = fcmp ult double %164, 1.000000e+00
+  br i1 %169, label %.loopexit251, label %170
 
-171:                                              ; preds = %.split.preheader
+170:                                              ; preds = %.split.preheader
+  %171 = fptosi double %164 to i32
   %172 = getelementptr inbounds double, ptr %4, i64 %161
   %173 = load double, ptr %172, align 8, !tbaa !20
-  %174 = uitofp nneg i32 %165 to double
+  %174 = uitofp nneg i32 %171 to double
   %175 = fdiv double %173, %174
   %176 = getelementptr inbounds double, ptr %3, i64 %161
   %177 = load double, ptr %176, align 8, !tbaa !20
@@ -1577,13 +1577,13 @@ get_boundingbox.exit:                             ; preds = %114, %109
   %185 = fmul double %184, 5.000000e-01
   %186 = fadd double %182, %185
   call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %179, double %186, ptr noundef %24)
-  %187 = add nsw i32 %165, -1
-  %.not296 = icmp eq i32 %165, 1
+  %187 = add nsw i32 %171, -1
+  %.not296 = icmp eq i32 %171, 1
   br i1 %.not296, label %.loopexit251.critedge, label %.lr.ph275
 
-.lr.ph275:                                        ; preds = %171, %.lr.ph275
-  %.0210273 = phi i32 [ %192, %.lr.ph275 ], [ 0, %171 ]
-  %.sroa.0247.0272 = phi double [ %188, %.lr.ph275 ], [ %179, %171 ]
+.lr.ph275:                                        ; preds = %170, %.lr.ph275
+  %.0210273 = phi i32 [ %192, %.lr.ph275 ], [ 0, %170 ]
+  %.sroa.0247.0272 = phi double [ %188, %.lr.ph275 ], [ %179, %170 ]
   %188 = fadd double %175, %.sroa.0247.0272
   %189 = tail call double @drand() #19
   %190 = fsub double 5.000000e-01, %189
@@ -1617,7 +1617,7 @@ get_boundingbox.exit:                             ; preds = %114, %109
   %exitcond331.not = icmp eq i32 %205, %187
   br i1 %exitcond331.not, label %.loopexit251, label %.lr.ph281, !llvm.loop !49
 
-.loopexit251.critedge:                            ; preds = %171
+.loopexit251.critedge:                            ; preds = %170
   %206 = load double, ptr %176, align 8, !tbaa !20
   %207 = load double, ptr %172, align 8, !tbaa !20
   %208 = fmul double %207, 5.000000e-01
@@ -1630,7 +1630,7 @@ get_boundingbox.exit:                             ; preds = %114, %109
   br label %.loopexit251
 
 .loopexit251:                                     ; preds = %.lr.ph281, %158, %.loopexit251.critedge, %.split.preheader
-  %.sroa.5.0375 = phi i32 [ %169, %.loopexit251.critedge ], [ %169, %.split.preheader ], [ 0, %158 ], [ %169, %.lr.ph281 ]
+  %.sroa.5.0375 = phi i32 [ %168, %.loopexit251.critedge ], [ %168, %.split.preheader ], [ 0, %158 ], [ %168, %.lr.ph281 ]
   %214 = icmp sgt i32 %.sroa.5.0375, 0
   br i1 %214, label %215, label %.loopexit
 

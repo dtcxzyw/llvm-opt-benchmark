@@ -326,7 +326,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 153:                                              ; preds = %151
   %154 = icmp samesign ult i64 %.2267.lcssa, 400
   %. = select i1 %154, i8 51, i8 52
-  %.376 = select i1 %154, i64 -300, i64 -400
+  %.377 = select i1 %154, i64 -300, i64 -400
   br label %163
 
 155:                                              ; preds = %146
@@ -335,8 +335,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 157:                                              ; preds = %155
   %158 = icmp samesign ult i64 %.2267.lcssa, 600
-  %.377 = select i1 %158, i8 53, i8 54
-  %.378 = select i1 %158, i64 -500, i64 -600
+  %.378 = select i1 %158, i8 53, i8 54
+  %.379 = select i1 %158, i64 -500, i64 -600
   br label %163
 
 159:                                              ; preds = %155
@@ -345,14 +345,14 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 161:                                              ; preds = %159
   %162 = icmp samesign ult i64 %.2267.lcssa, 900
-  %.379 = select i1 %162, i8 56, i8 57
-  %.380 = select i1 %162, i64 -800, i64 -900
+  %.380 = select i1 %162, i8 56, i8 57
+  %.381 = select i1 %162, i64 -800, i64 -900
   br label %163
 
 163:                                              ; preds = %161, %159, %157, %153, %151, %149
-  %.sink371 = phi i8 [ 49, %149 ], [ 50, %151 ], [ %., %153 ], [ %.377, %157 ], [ 55, %159 ], [ %.379, %161 ]
-  %.sink = phi i64 [ -100, %149 ], [ -200, %151 ], [ %.376, %153 ], [ %.378, %157 ], [ -700, %159 ], [ %.380, %161 ]
-  store i8 %.sink371, ptr %147, align 1, !tbaa !13
+  %.sink372 = phi i8 [ 49, %149 ], [ 50, %151 ], [ %., %153 ], [ %.378, %157 ], [ 55, %159 ], [ %.380, %161 ]
+  %.sink = phi i64 [ -100, %149 ], [ -200, %151 ], [ %.377, %153 ], [ %.379, %157 ], [ -700, %159 ], [ %.381, %161 ]
+  store i8 %.sink372, ptr %147, align 1, !tbaa !13
   %164 = add nsw i64 %.2267.lcssa, %.sink
   %165 = shl nuw nsw i64 %164, 1
   %166 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %165
@@ -380,8 +380,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 179:                                              ; preds = %177
   %180 = icmp samesign ult i64 %.2267.lcssa, 4000
-  %.381 = select i1 %180, i8 51, i8 52
-  %.382 = select i1 %180, i64 -3000, i64 -4000
+  %.382 = select i1 %180, i8 51, i8 52
+  %.383 = select i1 %180, i64 -3000, i64 -4000
   br label %189
 
 181:                                              ; preds = %172
@@ -390,8 +390,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 183:                                              ; preds = %181
   %184 = icmp samesign ult i64 %.2267.lcssa, 6000
-  %.383 = select i1 %184, i8 53, i8 54
-  %.384 = select i1 %184, i64 -5000, i64 -6000
+  %.384 = select i1 %184, i8 53, i8 54
+  %.385 = select i1 %184, i64 -5000, i64 -6000
   br label %189
 
 185:                                              ; preds = %181
@@ -400,15 +400,15 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 187:                                              ; preds = %185
   %188 = icmp samesign ult i64 %.2267.lcssa, 9000
-  %.385 = select i1 %188, i8 56, i8 57
-  %.386 = select i1 %188, i64 -8000, i64 -9000
+  %.386 = select i1 %188, i8 56, i8 57
+  %.387 = select i1 %188, i64 -8000, i64 -9000
   br label %189
 
 189:                                              ; preds = %187, %185, %183, %179, %177, %175
-  %.sink373 = phi i8 [ 49, %175 ], [ 50, %177 ], [ %.381, %179 ], [ %.383, %183 ], [ 55, %185 ], [ %.385, %187 ]
-  %.sink372 = phi i64 [ -1000, %175 ], [ -2000, %177 ], [ %.382, %179 ], [ %.384, %183 ], [ -7000, %185 ], [ %.386, %187 ]
-  store i8 %.sink373, ptr %173, align 1, !tbaa !13
-  %190 = add nsw i64 %.2267.lcssa, %.sink372
+  %.sink374 = phi i8 [ 49, %175 ], [ 50, %177 ], [ %.382, %179 ], [ %.384, %183 ], [ 55, %185 ], [ %.386, %187 ]
+  %.sink373 = phi i64 [ -1000, %175 ], [ -2000, %177 ], [ %.383, %179 ], [ %.385, %183 ], [ -7000, %185 ], [ %.387, %187 ]
+  store i8 %.sink374, ptr %173, align 1, !tbaa !13
+  %190 = add nsw i64 %.2267.lcssa, %.sink373
   %191 = icmp samesign ult i64 %190, 500
   br i1 %191, label %192, label %212
 
@@ -531,10 +531,10 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %249 = and i32 %4, 134217728
   %.not299 = icmp ne i32 %249, 0
   %250 = icmp slt i32 %.promoted, 1
-  %or.cond374 = select i1 %.not299, i1 true, i1 %250
+  %or.cond375 = select i1 %.not299, i1 true, i1 %250
   %251 = add nuw nsw i32 %.promoted, 1
   %252 = zext nneg i32 %251 to i64
-  %253 = select i1 %or.cond374, i64 1, i64 %252
+  %253 = select i1 %or.cond375, i64 1, i64 %252
   %254 = sub nsw i64 %253, %.5276
   %narrow = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %255 = zext nneg i32 %narrow to i64
@@ -599,30 +599,30 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 277:                                              ; preds = %.lr.ph336
   %278 = fmul double %.7334, 1.000000e+01
-  %279 = fptosi double %278 to i32
-  %280 = icmp slt i32 %279, 10
-  br i1 %280, label %283, label %.preheader319.preheader
+  %279 = fcmp olt double %278, 1.000000e+01
+  br i1 %279, label %282, label %.preheader319.preheader
 
 .preheader319.preheader:                          ; preds = %277
-  %281 = add i64 %.5283333350, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %273, i64 %281)
-  %282 = sub i64 %umax, %.5283333350
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.5283333, i8 57, i64 %282, i1 false), !tbaa !13
-  %scevgep = getelementptr i8, ptr %.5283333, i64 %282
+  %280 = add i64 %.5283333350, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %273, i64 %280)
+  %281 = sub i64 %umax, %.5283333350
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.5283333, i8 57, i64 %281, i1 false), !tbaa !13
+  %scevgep = getelementptr i8, ptr %.5283333, i64 %281
   br label %.loopexit320
 
-283:                                              ; preds = %277
-  %284 = trunc i32 %279 to i8
+282:                                              ; preds = %277
+  %283 = fptosi double %278 to i32
+  %284 = trunc i32 %283 to i8
   %285 = add i8 %284, 48
   %286 = getelementptr inbounds nuw i8, ptr %.5283333, i64 1
   store i8 %285, ptr %.5283333, align 1, !tbaa !13
-  %287 = sitofp i32 %279 to double
+  %287 = sitofp i32 %283 to double
   %288 = fsub double %278, %287
   br label %.loopexit320
 
-.loopexit320:                                     ; preds = %.preheader319.preheader, %283
-  %.8286 = phi ptr [ %286, %283 ], [ %scevgep, %.preheader319.preheader ]
-  %.8 = phi double [ %288, %283 ], [ %278, %.preheader319.preheader ]
+.loopexit320:                                     ; preds = %.preheader319.preheader, %282
+  %.8286 = phi ptr [ %286, %282 ], [ %scevgep, %.preheader319.preheader ]
+  %.8 = phi double [ %288, %282 ], [ %278, %.preheader319.preheader ]
   %289 = icmp ult ptr %.8286, %.3261
   br i1 %289, label %.lr.ph336, label %.loopexit321, !llvm.loop !16
 
@@ -719,9 +719,9 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %19, %241, %5, %.loopexit
-  %.sink375 = phi i64 [ %324, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
+  %.sink376 = phi i64 [ %324, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
   %.1 = phi ptr [ %.1257, %.loopexit ], [ @.str, %5 ], [ @.str.1, %241 ], [ @.str.1, %19 ]
-  store i64 %.sink375, ptr @_Sfi, align 8, !tbaa !18
+  store i64 %.sink376, ptr @_Sfi, align 8, !tbaa !18
   ret ptr %.1
 }
 

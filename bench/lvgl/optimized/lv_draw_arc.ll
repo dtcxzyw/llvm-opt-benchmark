@@ -136,12 +136,12 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   br label %289
 
 22:                                               ; preds = %8
-  %23 = icmp sgt i32 %10, 360
+  %23 = fcmp ult float %3, 3.610000e+02
   %24 = add nsw i32 %10, -360
-  %spec.select = select i1 %23, i32 %24, i32 %10
-  %25 = icmp sgt i32 %11, 360
+  %.0 = select i1 %23, i32 %10, i32 %24
+  %25 = fcmp ult float %4, 3.610000e+02
   %26 = add nsw i32 %11, -360
-  %.0239 = select i1 %25, i32 %26, i32 %11
+  %.0239 = select i1 %25, i32 %11, i32 %26
   %27 = sub nsw i32 %9, %5
   br i1 %6, label %28, label %31
 
@@ -152,7 +152,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
 
 31:                                               ; preds = %22, %28
   %32 = phi i32 [ %30, %28 ], [ 0, %22 ]
-  %33 = sdiv i32 %spec.select, 90
+  %33 = sdiv i32 %.0, 90
   %34 = sdiv i32 %.0239, 90
   %35 = and i32 %33, 255
   %36 = icmp eq i32 %35, 4
@@ -161,7 +161,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   %39 = select i1 %36, i32 3, i32 %35
   %40 = select i1 %38, i32 3, i32 %37
   %41 = icmp ne i32 %39, %40
-  %.not = icmp sgt i32 %spec.select, %.0239
+  %.not = icmp sgt i32 %.0, %.0239
   %or.cond243 = select i1 %41, i1 true, i1 %.not
   br i1 %or.cond243, label %155, label %42
 
@@ -175,7 +175,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   ]
 
 43:                                               ; preds = %42
-  %44 = trunc i32 %spec.select to i16
+  %44 = trunc i32 %.0 to i16
   %45 = tail call i32 @lv_trigo_sin(i16 noundef signext %44) #4
   %46 = mul nsw i32 %45, %27
   %47 = ashr i32 %46, 15
@@ -209,7 +209,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   br label %289
 
 71:                                               ; preds = %42
-  %72 = trunc i32 %spec.select to i16
+  %72 = trunc i32 %.0 to i16
   %73 = tail call i32 @lv_trigo_sin(i16 noundef signext %72) #4
   %74 = mul nsw i32 %73, %9
   %75 = ashr i32 %74, 15
@@ -243,7 +243,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   br label %289
 
 99:                                               ; preds = %42
-  %100 = trunc i32 %spec.select to i16
+  %100 = trunc i32 %.0 to i16
   %101 = add i16 %100, 90
   %102 = tail call i32 @lv_trigo_sin(i16 noundef signext %101) #4
   %103 = mul nsw i32 %102, %9
@@ -277,7 +277,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   br label %289
 
 127:                                              ; preds = %42
-  %128 = trunc i32 %spec.select to i16
+  %128 = trunc i32 %.0 to i16
   %129 = add i16 %128, 90
   %130 = tail call i32 @lv_trigo_sin(i16 noundef signext %129) #4
   %131 = mul nsw i32 %130, %27
@@ -326,7 +326,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   %165 = add i32 %164, %163
   store i32 %165, ptr %7, align 4, !tbaa !29
   %166 = tail call i32 @lv_trigo_sin(i16 noundef signext %159) #4
-  %167 = trunc i32 %spec.select to i16
+  %167 = trunc i32 %.0 to i16
   %168 = tail call i32 @lv_trigo_sin(i16 noundef signext %167) #4
   %169 = icmp slt i32 %166, %168
   %. = select i1 %169, i16 %159, i16 %167
@@ -369,14 +369,14 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   %197 = add i32 %196, %195
   %198 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %197, ptr %198, align 4, !tbaa !31
-  %199 = trunc i32 %spec.select to i16
+  %199 = trunc i32 %.0 to i16
   %200 = add i16 %199, 90
   %201 = tail call i32 @lv_trigo_sin(i16 noundef signext %200) #4
   %202 = add i16 %192, 90
   %203 = tail call i32 @lv_trigo_sin(i16 noundef signext %202) #4
   %204 = icmp sgt i32 %201, %203
-  %.251 = select i1 %204, i16 %200, i16 %202
-  %205 = tail call i32 @lv_trigo_sin(i16 noundef signext %.251) #4
+  %.252 = select i1 %204, i16 %200, i16 %202
+  %205 = tail call i32 @lv_trigo_sin(i16 noundef signext %.252) #4
   %206 = mul nsw i32 %205, %27
   %207 = ashr i32 %206, 15
   %208 = add i32 %32, %0
@@ -399,7 +399,7 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   br i1 %or.cond8, label %220, label %250
 
 220:                                              ; preds = %217
-  %221 = trunc i32 %spec.select to i16
+  %221 = trunc i32 %.0 to i16
   %222 = add i16 %221, 90
   %223 = tail call i32 @lv_trigo_sin(i16 noundef signext %222) #4
   %224 = mul nsw i32 %223, %9
@@ -425,8 +425,8 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   %241 = tail call i32 @lv_trigo_sin(i16 noundef signext %221) #4
   %242 = mul nsw i32 %241, %27
   %243 = icmp sgt i32 %240, %242
-  %.252 = select i1 %243, i16 %231, i16 %221
-  %244 = tail call i32 @lv_trigo_sin(i16 noundef signext %.252) #4
+  %.253 = select i1 %243, i16 %231, i16 %221
+  %244 = tail call i32 @lv_trigo_sin(i16 noundef signext %.253) #4
   %245 = mul nsw i32 %244, %27
   %246 = ashr i32 %245, 15
   %247 = add i32 %32, %1
@@ -445,12 +445,12 @@ define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef ze
   %254 = trunc i32 %.0239 to i16
   %255 = add i16 %254, 90
   %256 = tail call i32 @lv_trigo_sin(i16 noundef signext %255) #4
-  %257 = trunc i32 %spec.select to i16
+  %257 = trunc i32 %.0 to i16
   %258 = add i16 %257, 90
   %259 = tail call i32 @lv_trigo_sin(i16 noundef signext %258) #4
   %260 = icmp slt i32 %256, %259
-  %.253 = select i1 %260, i16 %255, i16 %258
-  %261 = tail call i32 @lv_trigo_sin(i16 noundef signext %.253) #4
+  %.254 = select i1 %260, i16 %255, i16 %258
+  %261 = tail call i32 @lv_trigo_sin(i16 noundef signext %.254) #4
   %262 = mul nsw i32 %261, %27
   %263 = ashr i32 %262, 15
   %264 = sub i32 %0, %32

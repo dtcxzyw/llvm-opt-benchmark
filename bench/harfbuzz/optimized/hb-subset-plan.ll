@@ -35530,8 +35530,8 @@ define linkonce_odr dso_local void @_ZN3CFF21cff1_top_dict_opset_t10process_opEj
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i: ; preds = %18, %13
   %21 = phi double [ %.pre.i.i, %13 ], [ %20, %18 ]
   %22 = fptosi double %21 to i32
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, !prof !33
+  %23 = fcmp ugt double %21, -1.000000e+00
+  br i1 %23, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, label %24, !prof !35
 
 24:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
   store i8 1, ptr %10, align 8, !tbaa !813
@@ -35612,8 +35612,8 @@ _ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit: ; preds = %_ZN3CFF11arg_st
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i46: ; preds = %46, %41
   %49 = phi double [ %.pre.i.i45, %41 ], [ %48, %46 ]
   %50 = fptosi double %49 to i32
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit48, !prof !33
+  %51 = fcmp ugt double %49, -1.000000e+00
+  br i1 %51, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit48, label %52, !prof !35
 
 52:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i46
   store i8 1, ptr %38, align 8, !tbaa !813
@@ -35653,8 +35653,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i51: ; preds = %63, %58
   %66 = phi i32 [ %60, %58 ], [ 0, %63 ]
   %67 = phi double [ %.pre.i.i50, %58 ], [ %65, %63 ]
   %68 = fptosi double %67 to i32
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit53, !prof !33
+  %69 = fcmp ugt double %67, -1.000000e+00
+  br i1 %69, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit53, label %70, !prof !35
 
 70:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i51
   store i8 1, ptr %55, align 8, !tbaa !813
@@ -35686,8 +35686,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit53: ; preds = %_ZN3CFF11arg_s
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i56: ; preds = %77, %72
   %80 = phi double [ %.pre.i.i55, %72 ], [ %79, %77 ]
   %81 = fptosi double %80 to i32
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %83, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit58, !prof !33
+  %82 = fcmp ugt double %80, -1.000000e+00
+  br i1 %82, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit58, label %83, !prof !35
 
 83:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i56
   store i8 1, ptr %55, align 8, !tbaa !813
@@ -35719,8 +35719,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit58: ; preds = %_ZN3CFF11arg_s
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i61: ; preds = %91, %86
   %94 = phi double [ %.pre.i.i60, %86 ], [ %93, %91 ]
   %95 = fptosi double %94 to i32
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %97, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit63, !prof !33
+  %96 = fcmp ugt double %94, -1.000000e+00
+  br i1 %96, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit63, label %97, !prof !35
 
 97:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i61
   store i8 1, ptr %55, align 8, !tbaa !813
@@ -35869,8 +35869,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit72: ; preds = %146
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i75: ; preds = %164, %159
   %167 = phi double [ %.pre.i.i74, %159 ], [ %166, %164 ]
   %168 = fptosi double %167 to i32
-  %169 = icmp slt i32 %168, 0
-  br i1 %169, label %170, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit77, !prof !33
+  %169 = fcmp ugt double %167, -1.000000e+00
+  br i1 %169, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit77, label %170, !prof !35
 
 170:                                              ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i75
   store i8 1, ptr %147, align 8, !tbaa !813
@@ -37487,8 +37487,8 @@ define linkonce_odr dso_local void @_ZN3CFF22cff1_font_dict_opset_t10process_opE
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %16 = phi double [ %.pre.i.i, %8 ], [ %15, %13 ]
   %17 = fptosi double %16 to i32
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, !prof !33
+  %18 = fcmp ugt double %16, -1.000000e+00
+  br i1 %18, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, label %19, !prof !35
 
 19:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
   store i8 1, ptr %5, align 8, !tbaa !813
@@ -37532,8 +37532,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i18: ; preds = %32, %27
   %35 = phi i32 [ %29, %27 ], [ 0, %32 ]
   %36 = phi double [ %.pre.i.i17, %27 ], [ %34, %32 ]
   %37 = fptosi double %36 to i32
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit20, !prof !33
+  %38 = fcmp ugt double %36, -1.000000e+00
+  br i1 %38, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit20, label %39, !prof !35
 
 39:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i18
   store i8 1, ptr %24, align 8, !tbaa !813
@@ -37564,8 +37564,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit20: ; preds = %_ZN3CFF11arg_s
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i23: ; preds = %46, %41
   %49 = phi double [ %.pre.i.i22, %41 ], [ %48, %46 ]
   %50 = fptosi double %49 to i32
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit25, !prof !33
+  %51 = fcmp ugt double %49, -1.000000e+00
+  br i1 %51, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit25, label %52, !prof !35
 
 52:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i23
   store i8 1, ptr %24, align 8, !tbaa !813
@@ -102495,8 +102495,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i: ; preds = %13, %8
   %16 = phi i32 [ %10, %8 ], [ 0, %13 ]
   %17 = phi double [ %.pre.i.i, %8 ], [ %15, %13 ]
   %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, !prof !33
+  %19 = fcmp ugt double %17, -1.000000e+00
+  br i1 %19, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit, label %20, !prof !35
 
 20:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
   store i8 1, ptr %6, align 8, !tbaa !813
@@ -102527,8 +102527,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_sta
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i14: ; preds = %27, %22
   %30 = phi double [ %.pre.i.i13, %22 ], [ %29, %27 ]
   %31 = fptosi double %30 to i32
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit16, !prof !33
+  %32 = fcmp ugt double %30, -1.000000e+00
+  br i1 %32, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit16, label %33, !prof !35
 
 33:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i14
   store i8 1, ptr %6, align 8, !tbaa !813
@@ -102748,8 +102748,8 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit: ; preds = %9, %14
 _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i: ; preds = %34, %29
   %37 = phi double [ %.pre.i.i.i, %29 ], [ %36, %34 ]
   %38 = fptosi double %37 to i32
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %40, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i, !prof !33
+  %39 = fcmp ugt double %37, -1.000000e+00
+  br i1 %39, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i, label %40, !prof !35
 
 40:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i
   store i8 1, ptr %26, align 8, !tbaa !813

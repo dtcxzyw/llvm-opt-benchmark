@@ -50564,30 +50564,30 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail16chrono_formatterINS0_15gene
   %15 = load double, ptr %14, align 8, !tbaa !967
   %16 = fdiv double %15, 3.600000e+03
   %17 = tail call noundef double @fmod(double noundef %16, double noundef 2.400000e+01) #31, !tbaa !184
-  %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  %20 = fcmp ogt double %17, 2.400000e+01
-  %or.cond.i = or i1 %20, %19
-  br i1 %or.cond.i, label %21, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %18 = fcmp ole double %17, -1.000000e+00
+  %19 = fcmp ogt double %17, 2.400000e+01
+  %or.cond.i = or i1 %18, %19
+  br i1 %or.cond.i, label %20, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
-21:                                               ; preds = %13
-  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.314)
-          to label %23 unwind label %24
+20:                                               ; preds = %13
+  %21 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull @.str.314)
+          to label %22 unwind label %23
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+22:                                               ; preds = %20
+  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %22) #31
-  resume { ptr, i32 } %25
+  tail call void @__cxa_free_exception(ptr nonnull %21) #31
+  resume { ptr, i32 } %24
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %13
+  %25 = fptosi double %17 to i32
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %18, ptr %26, align 8, !tbaa !843
+  store i32 %25, ptr %26, align 8, !tbaa !843
   call void @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9format_tmIMNS1_9tm_writerISE_cNSt6chrono8durationIlSF_ILl1ELl1EEEEEEFvNS1_14numeric_systemENS1_8pad_typeEEJSP_SQ_EEEvRK2tmT_DpT0_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 ptrtoint (ptr @_ZN3fmt3v116detail9tm_writerINS0_14basic_appenderIcEEcNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE10on_24_hourENS1_14numeric_systemENS1_8pad_typeE to i64), i64 0, i32 noundef %1, i32 noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
@@ -50600,7 +50600,7 @@ _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralI
 define linkonce_odr hidden void @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE10on_12_hourENS1_14numeric_systemENS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.tm, align 8
   %5 = tail call noundef zeroext i1 @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE14handle_nan_infEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
-  br i1 %5, label %31, label %6
+  br i1 %5, label %30, label %6
 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %1, 0
@@ -50614,7 +50614,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail16chrono_formatterINS0_15gene
   %13 = fcmp ole double %12, 0.000000e+00
   %14 = select i1 %13, double 1.200000e+01, double %12
   tail call void @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE5writeEdiNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(41) %0, double noundef %14, i32 noundef 2, i32 noundef %2)
-  br label %31
+  br label %30
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -50625,35 +50625,33 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail16chrono_formatterINS0_15gene
   %19 = tail call noundef double @fmod(double noundef %18, double noundef 1.200000e+01) #31, !tbaa !184
   %20 = fcmp ole double %19, 0.000000e+00
   %21 = select i1 %20, double 1.200000e+01, double %19
-  %22 = fptosi double %21 to i32
-  %23 = icmp slt i32 %22, 0
-  %24 = fcmp ogt double %21, 1.200000e+01
-  %or.cond.i = or i1 %24, %23
-  br i1 %or.cond.i, label %25, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %22 = fcmp ogt double %21, 1.200000e+01
+  br i1 %22, label %23, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
-25:                                               ; preds = %15
-  %26 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull @.str.314)
-          to label %27 unwind label %28
+23:                                               ; preds = %15
+  %24 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @.str.314)
+          to label %25 unwind label %26
 
-27:                                               ; preds = %25
-  tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+25:                                               ; preds = %23
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %26) #31
-  resume { ptr, i32 } %29
+  tail call void @__cxa_free_exception(ptr nonnull %24) #31
+  resume { ptr, i32 } %27
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %15
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %22, ptr %30, align 8, !tbaa !843
+  %28 = fptosi double %21 to i32
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %28, ptr %29, align 8, !tbaa !843
   call void @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9format_tmIMNS1_9tm_writerISE_cNSt6chrono8durationIlSF_ILl1ELl1EEEEEEFvNS1_14numeric_systemENS1_8pad_typeEEJSP_SQ_EEEvRK2tmT_DpT0_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 ptrtoint (ptr @_ZN3fmt3v116detail9tm_writerINS0_14basic_appenderIcEEcNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE10on_12_hourENS1_14numeric_systemENS1_8pad_typeE to i64), i64 0, i32 noundef %1, i32 noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %31
+  br label %30
 
-31:                                               ; preds = %3, %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, %8
+30:                                               ; preds = %3, %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, %8
   ret void
 }
 
@@ -50682,30 +50680,30 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail16chrono_formatterINS0_15gene
   %15 = load double, ptr %14, align 8, !tbaa !967
   %16 = fdiv double %15, 6.000000e+01
   %17 = tail call noundef double @fmod(double noundef %16, double noundef 6.000000e+01) #31, !tbaa !184
-  %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  %20 = fcmp ogt double %17, 6.000000e+01
-  %or.cond.i = or i1 %20, %19
-  br i1 %or.cond.i, label %21, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %18 = fcmp ole double %17, -1.000000e+00
+  %19 = fcmp ogt double %17, 6.000000e+01
+  %or.cond.i = or i1 %18, %19
+  br i1 %or.cond.i, label %20, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
-21:                                               ; preds = %13
-  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.314)
-          to label %23 unwind label %24
+20:                                               ; preds = %13
+  %21 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull @.str.314)
+          to label %22 unwind label %23
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+22:                                               ; preds = %20
+  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %22) #31
-  resume { ptr, i32 } %25
+  tail call void @__cxa_free_exception(ptr nonnull %21) #31
+  resume { ptr, i32 } %24
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %13
+  %25 = fptosi double %17 to i32
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %18, ptr %26, align 4, !tbaa !844
+  store i32 %25, ptr %26, align 4, !tbaa !844
   call void @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9format_tmIMNS1_9tm_writerISE_cNSt6chrono8durationIlSF_ILl1ELl1EEEEEEFvNS1_14numeric_systemENS1_8pad_typeEEJSP_SQ_EEEvRK2tmT_DpT0_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 ptrtoint (ptr @_ZN3fmt3v116detail9tm_writerINS0_14basic_appenderIcEEcNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE9on_minuteENS1_14numeric_systemENS1_8pad_typeE to i64), i64 0, i32 noundef %1, i32 noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
@@ -50980,8 +50978,8 @@ _ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit: ; p
   call void @free(ptr noundef %117) #31
   br label %_ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18
 
-common.resume:                                    ; preds = %129, %_ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18 ], [ %130, %129 ]
+common.resume:                                    ; preds = %128, %_ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18 ], [ %129, %128 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18: ; preds = %116, %118
@@ -50994,29 +50992,29 @@ _ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit18: ;
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load double, ptr %120, align 8, !tbaa !967
   %122 = tail call noundef double @fmod(double noundef %121, double noundef 6.000000e+01) #31, !tbaa !184
-  %123 = fptosi double %122 to i32
-  %124 = icmp slt i32 %123, 0
-  %125 = fcmp ogt double %122, 6.000000e+01
-  %or.cond.i = or i1 %125, %124
-  br i1 %or.cond.i, label %126, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %123 = fcmp ole double %122, -1.000000e+00
+  %124 = fcmp ogt double %122, 6.000000e+01
+  %or.cond.i = or i1 %123, %124
+  br i1 %or.cond.i, label %125, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
-126:                                              ; preds = %119
-  %127 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull @.str.314)
-          to label %128 unwind label %129
+125:                                              ; preds = %119
+  %126 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull @.str.314)
+          to label %127 unwind label %128
 
-128:                                              ; preds = %126
-  tail call void @__cxa_throw(ptr nonnull %127, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+127:                                              ; preds = %125
+  tail call void @__cxa_throw(ptr nonnull %126, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-129:                                              ; preds = %126
-  %130 = landingpad { ptr, i32 }
+128:                                              ; preds = %125
+  %129 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %127) #31
+  tail call void @__cxa_free_exception(ptr nonnull %126) #31
   br label %common.resume
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %119
-  store i32 %123, ptr %6, align 8, !tbaa !814
+  %130 = fptosi double %122 to i32
+  store i32 %130, ptr %6, align 8, !tbaa !814
   call void @_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9format_tmIMNS1_9tm_writerISE_cNSt6chrono8durationIlSF_ILl1ELl1EEEEEEFvNS1_14numeric_systemENS1_8pad_typeEEJSP_SQ_EEEvRK2tmT_DpT0_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 ptrtoint (ptr @_ZN3fmt3v116detail9tm_writerINS0_14basic_appenderIcEEcNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE9on_secondENS1_14numeric_systemENS1_8pad_typeE to i64), i64 0, i32 noundef %1, i32 noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %131
@@ -51294,35 +51292,35 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit.i.i.i.i.i.i.i.i: ; preds = %34, %28
   br i1 %exitcond.not.i, label %_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9write_nanEv.exit, label %28, !llvm.loop !1050
 
 39:                                               ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE10write_signEv.exit
-  %40 = fptosi double %1 to i32
-  %41 = icmp slt i32 %40, 0
-  %42 = fcmp ogt double %1, 0x41DFFFFFFFC00000
-  %or.cond.i = or i1 %42, %41
-  br i1 %or.cond.i, label %43, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %40 = fcmp ole double %1, -1.000000e+00
+  %41 = fcmp ogt double %1, 0x41DFFFFFFFC00000
+  %or.cond.i = or i1 %40, %41
+  br i1 %or.cond.i, label %42, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
-43:                                               ; preds = %39
-  %44 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull @.str.314)
-          to label %45 unwind label %46
+42:                                               ; preds = %39
+  %43 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull @.str.314)
+          to label %44 unwind label %45
 
-45:                                               ; preds = %43
-  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+44:                                               ; preds = %42
+  tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %44) #31
-  resume { ptr, i32 } %47
+  tail call void @__cxa_free_exception(ptr nonnull %43) #31
+  resume { ptr, i32 } %46
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %39
-  %48 = or i32 %40, 1
+  %47 = fptosi double %1 to i32
+  %48 = or i32 %47, 1
   %49 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %50 = xor i32 %49, 31
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !82
-  %54 = zext nneg i32 %40 to i64
+  %54 = zext i32 %47 to i64
   %55 = add i64 %53, %54
   %56 = lshr i64 %55, 32
   %57 = trunc nuw i64 %56 to i32
@@ -51376,7 +51374,7 @@ _ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit._crit_edge: ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, %_ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_i(ptr %.sroa.02.0.copyload, i32 noundef %40, i32 noundef %57)
+  %80 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_i(ptr %.sroa.02.0.copyload, i32 noundef %47, i32 noundef %57)
   store ptr %80, ptr %79, align 8, !tbaa !632
   br label %_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9write_nanEv.exit
 
@@ -52240,83 +52238,83 @@ define linkonce_odr hidden void @_ZNK3fmt3v116detail16chrono_formatterINS0_15gen
   %4 = load double, ptr %3, align 8, !tbaa !967
   %5 = fdiv double %4, 3.600000e+03
   %6 = tail call noundef double @fmod(double noundef %5, double noundef 2.400000e+01) #31, !tbaa !184
-  %7 = fptosi double %6 to i32
-  %8 = icmp slt i32 %7, 0
-  %9 = fcmp ogt double %6, 2.400000e+01
-  %or.cond.i = or i1 %9, %8
-  br i1 %or.cond.i, label %10, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %7 = fcmp ole double %6, -1.000000e+00
+  %8 = fcmp ogt double %6, 2.400000e+01
+  %or.cond.i = or i1 %7, %8
+  br i1 %or.cond.i, label %9, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
 
-10:                                               ; preds = %2
-  %11 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.314)
-          to label %12 unwind label %13
+9:                                                ; preds = %2
+  %10 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.314)
+          to label %11 unwind label %12
 
-12:                                               ; preds = %10
-  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+11:                                               ; preds = %9
+  tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-common.resume:                                    ; preds = %34, %24, %13
-  %.sink = phi ptr [ %32, %34 ], [ %22, %24 ], [ %11, %13 ]
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %25, %24 ], [ %14, %13 ]
+common.resume:                                    ; preds = %33, %23, %12
+  %.sink = phi ptr [ %31, %33 ], [ %21, %23 ], [ %10, %12 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %24, %23 ], [ %13, %12 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #31
   resume { ptr, i32 } %common.resume.op
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %2
+  %14 = fptosi double %6 to i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %7, ptr %15, align 8, !tbaa !843
+  store i32 %14, ptr %15, align 8, !tbaa !843
   %16 = fdiv double %4, 6.000000e+01
   %17 = tail call noundef double @fmod(double noundef %16, double noundef 6.000000e+01) #31, !tbaa !184
-  %18 = fptosi double %17 to i32
-  %19 = icmp slt i32 %18, 0
-  %20 = fcmp ogt double %17, 6.000000e+01
-  %or.cond.i1 = or i1 %20, %19
-  br i1 %or.cond.i1, label %21, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit2
+  %18 = fcmp ole double %17, -1.000000e+00
+  %19 = fcmp ogt double %17, 6.000000e+01
+  %or.cond.i1 = or i1 %18, %19
+  br i1 %or.cond.i1, label %20, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit2
 
-21:                                               ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
-  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.314)
-          to label %23 unwind label %24
+20:                                               ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %21 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull @.str.314)
+          to label %22 unwind label %23
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+22:                                               ; preds = %20
+  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit2: ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit
+  %25 = fptosi double %17 to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %18, ptr %26, align 4, !tbaa !844
+  store i32 %25, ptr %26, align 4, !tbaa !844
   %27 = tail call noundef double @fmod(double noundef %4, double noundef 6.000000e+01) #31, !tbaa !184
-  %28 = fptosi double %27 to i32
-  %29 = icmp slt i32 %28, 0
-  %30 = fcmp ogt double %27, 6.000000e+01
-  %or.cond.i3 = or i1 %30, %29
-  br i1 %or.cond.i3, label %31, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit4
+  %28 = fcmp ole double %27, -1.000000e+00
+  %29 = fcmp ogt double %27, 6.000000e+01
+  %or.cond.i3 = or i1 %28, %29
+  br i1 %or.cond.i3, label %30, label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit4
 
-31:                                               ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit2
-  %32 = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull @.str.314)
-          to label %33 unwind label %34
+30:                                               ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit2
+  %31 = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  invoke void @_ZN3fmt3v1112format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull @.str.314)
+          to label %32 unwind label %33
 
-33:                                               ; preds = %31
-  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
+32:                                               ; preds = %30
+  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN3fmt3v1112format_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #34
   unreachable
 
-34:                                               ; preds = %31
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %30
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit4: ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit2
-  store i32 %28, ptr %0, align 8, !tbaa !814
+  %35 = fptosi double %27 to i32
+  store i32 %35, ptr %0, align 8, !tbaa !814
   ret void
 }
 

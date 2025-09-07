@@ -200,14 +200,14 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   %53 = call float @cosf(float noundef %52) #16, !tbaa !46
   %54 = fmul float %53, 4.000000e+00
   %55 = call float @llvm.round.f32(float %54)
-  %56 = fptosi float %55 to i32
-  %57 = icmp sgt i32 %56, -12
+  %56 = fcmp ogt float %55, -1.200000e+01
   %.pre144 = load float, ptr %15, align 4, !tbaa !26
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  br i1 %56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51
+  %57 = fptosi float %55 to i32
   %.sroa.044.0.vec.insert = insertelement <2 x float> poison, float %.191, i64 0
-  %58 = add i32 %56, 11
+  %58 = add i32 %57, 11
   %smax = call i32 @llvm.smax.i32(i32 %58, i32 0)
   br label %66
 

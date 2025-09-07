@@ -1340,13 +1340,13 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPafffiRKNS_3MatEi(ptr noun
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit, %8
+._crit_edge:                                      ; preds = %_ZN4ncnnL10float2int8Ef.exit, %8
   ret void
 
-.lr.ph:                                           ; preds = %8, %_ZL13activation_ssfiRKN4ncnn3MatE.exit
-  %.029 = phi ptr [ %62, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ], [ %0, %8 ]
-  %.01328 = phi i32 [ %64, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ], [ 0, %8 ]
-  %.01427 = phi ptr [ %63, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ], [ %1, %8 ]
+.lr.ph:                                           ; preds = %8, %_ZN4ncnnL10float2int8Ef.exit
+  %.029 = phi ptr [ %67, %_ZN4ncnnL10float2int8Ef.exit ], [ %0, %8 ]
+  %.01328 = phi i32 [ %69, %_ZN4ncnnL10float2int8Ef.exit ], [ 0, %8 ]
+  %.01427 = phi ptr [ %68, %_ZN4ncnnL10float2int8Ef.exit ], [ %1, %8 ]
   %10 = load i32, ptr %.029, align 4, !tbaa !44
   %11 = sitofp i32 %10 to float
   %12 = fmul fast float %2, %11
@@ -1431,14 +1431,24 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %43, %.lr.ph, %14, %
   %59 = fmul fast float %.1, %4
   %60 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %59)
   %61 = fptosi float %60 to i32
-  %spec.select5.i = tail call i32 @llvm.smax.i32(i32 %61, i32 -127)
-  %.06.i = tail call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)
-  %.0.i = trunc nsw i32 %.06.i to i8
+  %62 = fcmp ult float %60, 1.280000e+02
+  br i1 %62, label %63, label %_ZN4ncnnL10float2int8Ef.exit
+
+63:                                               ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
+  %64 = fcmp ugt float %60, -1.280000e+02
+  br i1 %64, label %65, label %_ZN4ncnnL10float2int8Ef.exit
+
+65:                                               ; preds = %63
+  %66 = trunc nsw i32 %61 to i8
+  br label %_ZN4ncnnL10float2int8Ef.exit
+
+_ZN4ncnnL10float2int8Ef.exit:                     ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit, %63, %65
+  %.0.i = phi i8 [ %66, %65 ], [ 127, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ], [ -127, %63 ]
   store i8 %.0.i, ptr %.01427, align 1, !tbaa !52
-  %62 = getelementptr inbounds nuw i8, ptr %.029, i64 4
-  %63 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
-  %64 = add nuw nsw i32 %.01328, 1
-  %exitcond.not = icmp eq i32 %64, %7
+  %67 = getelementptr inbounds nuw i8, ptr %.029, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
+  %69 = add nuw nsw i32 %.01328, 1
+  %exitcond.not = icmp eq i32 %69, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 }
 
@@ -1713,9 +1723,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14

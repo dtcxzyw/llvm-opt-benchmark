@@ -504,12 +504,12 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
   %21 = fmul float %9, %20
   %22 = fdiv float %21, 3.600000e+02
   %23 = fptosi float %22 to i32
-  %24 = icmp slt i32 %23, 1
-  %spec.select = select i1 %24, i32 %12, i32 %23
+  %24 = fcmp olt float %22, 1.000000e+00
+  %.1 = select i1 %24, i32 %12, i32 %23
   br label %25
 
 25:                                               ; preds = %14, %6
-  %.0129 = phi i32 [ %spec.select, %14 ], [ %4, %6 ]
+  %.0129 = phi i32 [ %.1, %14 ], [ %4, %6 ]
   %26 = sitofp i32 %.0129 to float
   %27 = fdiv float %9, %26
   %.sroa.0.0.copyload = load i32, ptr @texShapes, align 4
@@ -703,12 +703,12 @@ define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float nound
   %21 = fmul float %9, %20
   %22 = fdiv float %21, 3.600000e+02
   %23 = fptosi float %22 to i32
-  %24 = icmp slt i32 %23, 1
-  %spec.select = select i1 %24, i32 %12, i32 %23
+  %24 = fcmp olt float %22, 1.000000e+00
+  %.1 = select i1 %24, i32 %12, i32 %23
   br label %25
 
 25:                                               ; preds = %14, %6
-  %.077 = phi i32 [ %spec.select, %14 ], [ %4, %6 ]
+  %.077 = phi i32 [ %.1, %14 ], [ %4, %6 ]
   %26 = sitofp i32 %.077 to float
   %27 = fdiv float %9, %26
   tail call void @rlBegin(i32 noundef 1) #16
@@ -1009,12 +1009,12 @@ define void @DrawRing(<2 x float> %0, float noundef %1, float noundef %2, float 
   %25 = fmul float %13, %24
   %26 = fdiv float %25, 3.600000e+02
   %27 = fptosi float %26 to i32
-  %28 = icmp slt i32 %27, 1
-  %spec.select = select i1 %28, i32 %16, i32 %27
+  %28 = fcmp olt float %26, 1.000000e+00
+  %.194 = select i1 %28, i32 %16, i32 %27
   br label %29
 
 29:                                               ; preds = %18, %9
-  %.093 = phi i32 [ %spec.select, %18 ], [ %5, %9 ]
+  %.093 = phi i32 [ %.194, %18 ], [ %5, %9 ]
   %30 = fcmp ugt float %.088, 0.000000e+00
   br i1 %30, label %32, label %31
 
@@ -1151,12 +1151,12 @@ define void @DrawRingLines(<2 x float> %0, float noundef %1, float noundef %2, f
   %25 = fmul float %13, %24
   %26 = fdiv float %25, 3.600000e+02
   %27 = fptosi float %26 to i32
-  %28 = icmp slt i32 %27, 1
-  %spec.select = select i1 %28, i32 %16, i32 %27
+  %28 = fcmp olt float %26, 1.000000e+00
+  %.1119 = select i1 %28, i32 %16, i32 %27
   br label %29
 
 29:                                               ; preds = %18, %9
-  %.0118 = phi i32 [ %spec.select, %18 ], [ %5, %9 ]
+  %.0118 = phi i32 [ %.1119, %18 ], [ %5, %9 ]
   %30 = fcmp ugt float %.0113, 0.000000e+00
   br i1 %30, label %32, label %31
 
@@ -1628,7 +1628,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %21 = tail call float @llvm.ceil.f32(float %20)
   %22 = fmul float %21, 2.500000e-01
   %23 = fptosi float %22 to i32
-  %24 = icmp slt i32 %23, 1
+  %24 = fcmp olt float %22, 1.000000e+00
   %spec.store.select = select i1 %24, i32 4, i32 %23
   br label %25
 
@@ -2080,7 +2080,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   %45 = tail call float @llvm.ceil.f32(float %44)
   %46 = fmul float %45, 5.000000e-01
   %47 = fptosi float %46 to i32
-  %48 = icmp slt i32 %47, 1
+  %48 = fcmp olt float %46, 1.000000e+00
   %spec.store.select = select i1 %48, i32 4, i32 %47
   br label %49
 

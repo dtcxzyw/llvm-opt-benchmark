@@ -277,8 +277,8 @@ ff_bufqueue_peek.exit:                            ; preds = %ff_bufqueue_add.exi
   br i1 %.not103, label %ff_bufqueue_peek.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %120
-  %124 = icmp sgt i32 %115, 0
-  br i1 %124, label %.lr.ph111, label %ff_bufqueue_peek.exit.thread
+  %124 = fcmp ult float %114, 1.000000e+00
+  br i1 %124, label %ff_bufqueue_peek.exit.thread, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %.preheader
   %125 = load ptr, ptr %58, align 8, !tbaa !53
@@ -287,7 +287,8 @@ ff_bufqueue_peek.exit:                            ; preds = %ff_bufqueue_add.exi
   %128 = load ptr, ptr %50, align 16, !tbaa !64
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %130 = load i32, ptr %129, align 4, !tbaa !65
-  %wide.trip.count = zext nneg i32 %115 to i64
+  %smax = call i32 @llvm.smax.i32(i32 %115, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %131
 
 131:                                              ; preds = %.lr.ph111, %131
@@ -1269,7 +1270,7 @@ celt_enc_tf.exit.i:                               ; preds = %476, %470
   %510 = call nsz float @llvm.floor.f32(float %509)
   %511 = fptosi float %510 to i32
   %512 = add nsw i32 %505, -1
-  %513 = icmp slt i32 %511, 0
+  %513 = fcmp ole float %510, -1.000000e+00
   %..i.i.i = call i32 @llvm.smin.i32(i32 %512, i32 %511)
   %.0.i.i.i = select i1 %513, i32 0, i32 %..i.i.i
   call void @ff_opus_rc_put_raw(ptr noundef nonnull %113, i32 noundef %.0.i.i.i, i32 noundef %504) #9

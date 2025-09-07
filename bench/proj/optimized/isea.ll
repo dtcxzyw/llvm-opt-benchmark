@@ -1005,26 +1005,28 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
   br i1 %or.cond16.i, label %73, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
 
 73:                                               ; preds = %67
-  %74 = fptosi double %.099.i to i32
-  %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
-  %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 4)
-  %77 = fptosi double %.0100.i to i32
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
-  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 5)
-  %80 = icmp eq i32 %78, %76
-  %81 = add nuw nsw i32 %76, 1
-  %82 = icmp eq i32 %79, %81
+  %74 = fcmp olt double %.099.i, 4.000000e+00
+  %75 = select i1 %74, double %.099.i, double 4.000000e+00
+  %76 = fptosi double %75 to i32
+  %.sroa.speculated14.i = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = fcmp olt double %.0100.i, 5.000000e+00
+  %78 = select i1 %77, double %.0100.i, double 5.000000e+00
+  %79 = fptosi double %78 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
+  %80 = icmp eq i32 %.sroa.speculated.i, %.sroa.speculated14.i
+  %81 = add nuw nsw i32 %.sroa.speculated14.i, 1
+  %82 = icmp eq i32 %81, %79
   %or.cond108.i = select i1 %80, i1 true, i1 %82
   br i1 %or.cond108.i, label %83, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
 
 83:                                               ; preds = %73
-  %84 = add nuw nsw i32 %79, %76
-  %85 = uitofp nneg i32 %76 to double
+  %84 = add nuw nsw i32 %.sroa.speculated.i, %.sroa.speculated14.i
+  %85 = uitofp nneg i32 %.sroa.speculated14.i to double
   %86 = fsub double %.099.i, %85
-  %87 = uitofp nneg i32 %79 to double
+  %87 = uitofp nneg i32 %.sroa.speculated.i to double
   %88 = fsub double %.0100.i, %87
   %89 = fcmp ogt double %86, %88
-  switch i32 %84, label %default.unreachable [
+  switch i32 %84, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit [
     i32 0, label %90
     i32 2, label %91
     i32 4, label %93
@@ -1304,12 +1306,9 @@ _ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePoin
   %263 = fadd double %.sink.i.i, 0xC01921FB54442D18
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
 
-default.unreachable:                              ; preds = %83
-  unreachable
-
-_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %262, %260, %258, %73, %67
-  %.sroa.09.1 = phi double [ %.sink.i.i, %260 ], [ %263, %262 ], [ %259, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.4.1 = phi double [ %.sink108.i.i, %260 ], [ %.sink108.i.i, %262 ], [ %.sink108.i.i, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %262, %260, %258, %83, %73, %67
+  %.sroa.09.1 = phi double [ %.sink.i.i, %260 ], [ %263, %262 ], [ %259, %258 ], [ 0x7FF0000000000000, %83 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.4.1 = phi double [ %.sink108.i.i, %260 ], [ %.sink108.i.i, %262 ], [ %.sink108.i.i, %258 ], [ 0x7FF0000000000000, %83 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert
@@ -1790,9 +1789,6 @@ declare double @llvm.sqrt.f64(double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #16

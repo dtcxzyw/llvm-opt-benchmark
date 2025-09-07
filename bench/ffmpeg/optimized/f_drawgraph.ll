@@ -255,7 +255,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %24 = sext i32 %23 to i64
   %25 = lshr i64 %24, 2
   %.not = icmp ugt i64 %25, %21
-  br i1 %.not, label %.thread395, label %26
+  br i1 %.not, label %.thread396, label %26
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 192
@@ -306,14 +306,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store ptr %55, ptr %49, align 8, !tbaa !32
   %.pr.pre = load i32, ptr %15, align 8, !tbaa !31
   %57 = icmp eq i32 %.pr.pre, 4
-  br i1 %57, label %.thread395, label %thread-pre-split310
+  br i1 %57, label %.thread396, label %thread-pre-split310
 
-.thread395:                                       ; preds = %18, %56
+.thread396:                                       ; preds = %18, %56
   %58 = load i32, ptr %19, align 8, !tbaa !52
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %thread-pre-split310, label %106
 
-thread-pre-split310:                              ; preds = %56, %.thread395
+thread-pre-split310:                              ; preds = %56, %.thread396
   %.pr311 = load ptr, ptr %13, align 8, !tbaa !51
   br label %.thread
 
@@ -412,9 +412,9 @@ clear_image.exit:                                 ; preds = %clear_image.exit.lo
   %105 = tail call i32 @av_frame_copy_props(ptr noundef %.1236, ptr noundef %104) #8
   br label %106
 
-106:                                              ; preds = %clear_image.exit, %.thread395
-  %107 = phi ptr [ %104, %clear_image.exit ], [ %1, %.thread395 ]
-  %.0235 = phi ptr [ %.1236, %clear_image.exit ], [ %14, %.thread395 ]
+106:                                              ; preds = %clear_image.exit, %.thread396
+  %107 = phi ptr [ %104, %clear_image.exit ], [ %1, %.thread396 ]
+  %.0235 = phi ptr [ %.1236, %clear_image.exit ], [ %14, %.thread396 ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 312
   %109 = load ptr, ptr %108, align 8, !tbaa !65
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -703,14 +703,14 @@ clear_image.exit308:                              ; preds = %.lr.ph, %.lr.ph332,
 274:                                              ; preds = %.lr.ph349, %294
   %275 = phi i32 [ %263, %.lr.ph349 ], [ %297, %294 ]
   %.3347 = phi i32 [ %246, %.lr.ph349 ], [ %283, %294 ]
-  %.pre360 = load ptr, ptr %.0235, align 8, !tbaa !27
-  %.pre361 = load i32, ptr %123, align 8, !tbaa !30
+  %.pre361 = load ptr, ptr %.0235, align 8, !tbaa !27
+  %.pre362 = load i32, ptr %123, align 8, !tbaa !30
   br i1 %.not277, label %282, label %276
 
 276:                                              ; preds = %274
-  %277 = mul nsw i32 %.pre361, %.3347
+  %277 = mul nsw i32 %.pre362, %.3347
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds i8, ptr %.pre360, i64 %278
+  %279 = getelementptr inbounds i8, ptr %.pre361, i64 %278
   %280 = getelementptr inbounds i8, ptr %279, i64 %270
   %281 = load i32, ptr %280, align 1, !tbaa !61
   %.not278 = icmp eq i32 %281, %272
@@ -721,25 +721,25 @@ clear_image.exit308:                              ; preds = %.lr.ph, %.lr.ph332,
   %284 = add nsw i32 %275, -1
   %.not279 = icmp slt i32 %.3347, %284
   %. = select i1 %.not279, i32 %283, i32 %284
-  %285 = mul nsw i32 %.pre361, %.
+  %285 = mul nsw i32 %.pre362, %.
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds i8, ptr %.pre360, i64 %286
+  %287 = getelementptr inbounds i8, ptr %.pre361, i64 %286
   %288 = getelementptr inbounds i8, ptr %287, i64 %270
   %289 = load i32, ptr %288, align 1, !tbaa !61
   %.not280 = icmp eq i32 %289, %272
-  %290 = mul nsw i32 %.pre361, %.3347
+  %290 = mul nsw i32 %.pre362, %.3347
   %291 = sext i32 %290 to i64
   br i1 %.not280, label %294, label %split
 
 split:                                            ; preds = %276, %282
-  %.pre-phi365 = phi i64 [ %291, %282 ], [ %278, %276 ]
-  %292 = getelementptr inbounds i8, ptr %.pre360, i64 %.pre-phi365
+  %.pre-phi366 = phi i64 [ %291, %282 ], [ %278, %276 ]
+  %292 = getelementptr inbounds i8, ptr %.pre361, i64 %.pre-phi366
   %293 = getelementptr inbounds i8, ptr %292, i64 %270
   store i32 %168, ptr %293, align 1, !tbaa !61
   br label %.loopexit
 
 294:                                              ; preds = %282
-  %295 = getelementptr inbounds i8, ptr %.pre360, i64 %291
+  %295 = getelementptr inbounds i8, ptr %.pre361, i64 %291
   %296 = getelementptr inbounds i8, ptr %295, i64 %270
   store i32 %168, ptr %296, align 1, !tbaa !61
   %297 = load i32, ptr %124, align 4, !tbaa !60
@@ -753,8 +753,8 @@ split:                                            ; preds = %276, %282
   %301 = load i32, ptr %15, align 8, !tbaa !31
   %302 = icmp sgt i32 %301, 0
   %303 = icmp sgt i32 %234, 0
-  %or.cond411 = select i1 %302, i1 %303, i1 false
-  br i1 %or.cond411, label %.lr.ph344, label %.loopexit319
+  %or.cond412 = select i1 %302, i1 %303, i1 false
+  br i1 %or.cond412, label %.lr.ph344, label %.loopexit319
 
 .lr.ph344:                                        ; preds = %300
   %304 = shl nsw i32 %235, 2
@@ -808,12 +808,13 @@ split:                                            ; preds = %276, %282
   br i1 %328, label %.preheader325, label %.loopexit324
 
 .preheader325:                                    ; preds = %326
-  %329 = icmp sgt i32 %246, 0
-  br i1 %329, label %.lr.ph334, label %._crit_edge
+  %329 = fcmp ult float %245, 1.000000e+00
+  br i1 %329, label %._crit_edge, label %.lr.ph334
 
 .lr.ph334:                                        ; preds = %.preheader325
   %330 = shl nsw i32 %235, 2
   %331 = sext i32 %330 to i64
+  %smax = call i32 @llvm.smax.i32(i32 %246, i32 1)
   br label %332
 
 332:                                              ; preds = %.lr.ph334, %332
@@ -826,7 +827,7 @@ split:                                            ; preds = %276, %282
   %336 = getelementptr inbounds i8, ptr %335, i64 %331
   store i32 %169, ptr %336, align 1, !tbaa !61
   %337 = add nuw nsw i32 %.5333, 1
-  %exitcond.not = icmp eq i32 %337, %246
+  %exitcond.not = icmp eq i32 %337, %smax
   br i1 %exitcond.not, label %._crit_edge, label %332, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %332, %.preheader325
@@ -885,8 +886,8 @@ split:                                            ; preds = %276, %282
   %361 = getelementptr inbounds i8, ptr %360, i64 %351
   store i32 %168, ptr %361, align 1, !tbaa !61
   %362 = add i32 %.8342, 1
-  %exitcond356.not = icmp eq i32 %.8342, %246
-  br i1 %exitcond356.not, label %.loopexit321, label %.preheader320, !llvm.loop !81
+  %exitcond357.not = icmp eq i32 %.8342, %246
+  br i1 %exitcond357.not, label %.loopexit321, label %.preheader320, !llvm.loop !81
 
 .loopexit321:                                     ; preds = %.lr.ph341, %.preheader320
   store i32 %246, ptr %348, align 4, !tbaa !30
@@ -896,8 +897,8 @@ split:                                            ; preds = %276, %282
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond358.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond358.not, label %363, label %128, !llvm.loop !82
+  %exitcond359.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond359.not, label %363, label %128, !llvm.loop !82
 
 363:                                              ; preds = %.loopexit
   %364 = load i32, ptr %112, align 8, !tbaa !52
@@ -1309,6 +1310,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

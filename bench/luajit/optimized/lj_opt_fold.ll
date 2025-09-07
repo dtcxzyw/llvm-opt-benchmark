@@ -2277,13 +2277,12 @@ define internal i32 @fold_kfold_conv_knum_i64_num(ptr noundef %0) #0 {
 define internal i32 @fold_kfold_conv_knum_u64_num(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load double, ptr %2, align 8, !tbaa !28
-  %4 = fptosi double %3 to i64
-  %5 = icmp slt i64 %4, 0
-  %6 = fadd double %3, 0xC3F0000000000000
-  %7 = fptosi double %6 to i64
-  %.0.i = select i1 %5, i64 %7, i64 %4
-  %8 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %.0.i) #12
-  ret i32 %8
+  %4 = fcmp ugt double %3, -1.000000e+00
+  %5 = fadd double %3, 0xC3F0000000000000
+  %.0.in.i = select i1 %4, double %3, double %5
+  %.0.i = fptosi double %.0.in.i to i64
+  %6 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %.0.i) #12
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

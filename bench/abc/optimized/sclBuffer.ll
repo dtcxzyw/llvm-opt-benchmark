@@ -6463,11 +6463,11 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 .lr.ph268:                                        ; preds = %25, %44
   %32 = phi ptr [ %45, %44 ], [ %29, %25 ]
-  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %44 ], [ 0, %25 ]
+  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %44 ], [ 0, %25 ]
   %33 = load ptr, ptr %5, align 8, !tbaa !87
   %34 = getelementptr i8, ptr %32, i64 8
   %.val216 = load ptr, ptr %34, align 8, !tbaa !45
-  %35 = getelementptr inbounds nuw i32, ptr %.val216, i64 %indvars.iv300
+  %35 = getelementptr inbounds nuw i32, ptr %.val216, i64 %indvars.iv305
   %36 = load i32, ptr %35, align 4, !tbaa !33
   %37 = getelementptr i8, ptr %33, i64 32
   %.val203 = load ptr, ptr %37, align 8, !tbaa !3
@@ -6486,11 +6486,11 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 44:                                               ; preds = %43, %.lr.ph268
   %45 = phi ptr [ %.pre, %43 ], [ %32, %.lr.ph268 ]
-  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
+  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %46 = getelementptr i8, ptr %45, i64 4
   %.val217 = load i32, ptr %46, align 4, !tbaa !50
   %47 = sext i32 %.val217 to i64
-  %48 = icmp slt i64 %indvars.iv.next301, %47
+  %48 = icmp slt i64 %indvars.iv.next306, %47
   br i1 %48, label %.lr.ph268, label %.critedge, !llvm.loop !143
 
 .critedge:                                        ; preds = %44, %25
@@ -6520,12 +6520,12 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   %.val206 = load i32, ptr %56, align 4
   %57 = and i32 %.val206, 15
   %.not233 = icmp eq i32 %57, 7
-  %.val222.pr.pre303 = load i32, ptr %13, align 4, !tbaa !60
+  %.val222.pr.pre308 = load i32, ptr %13, align 4, !tbaa !60
   br i1 %.not233, label %58, label %.thread
 
 58:                                               ; preds = %55
   %59 = load i32, ptr %0, align 8, !tbaa !92
-  %60 = icmp sgt i32 %.val222.pr.pre303, %59
+  %60 = icmp sgt i32 %.val222.pr.pre308, %59
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %58
@@ -6541,23 +6541,23 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br label %67
 
 67:                                               ; preds = %.lr.ph258, %67
-  %indvars.iv291 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next292, %67 ]
+  %indvars.iv296 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next297, %67 ]
   %.val212 = load ptr, ptr %11, align 8, !tbaa !31
   %.val213 = load ptr, ptr %66, align 8, !tbaa !32
   %68 = getelementptr i8, ptr %.val212, i64 32
   %.val212.val = load ptr, ptr %68, align 8, !tbaa !3
   %69 = getelementptr i8, ptr %.val212.val, i64 8
   %.val212.val.val = load ptr, ptr %69, align 8, !tbaa !26
-  %70 = getelementptr inbounds nuw i32, ptr %.val213, i64 %indvars.iv291
+  %70 = getelementptr inbounds nuw i32, ptr %.val213, i64 %indvars.iv296
   %71 = load i32, ptr %70, align 4, !tbaa !33
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds ptr, ptr %.val212.val.val, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !27
   tail call void @Abc_ObjAddFanin(ptr noundef %63, ptr noundef %74) #17
-  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
+  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %.val208 = load i32, ptr %64, align 4, !tbaa !28
   %75 = sext i32 %.val208 to i64
-  %76 = icmp slt i64 %indvars.iv.next292, %75
+  %76 = icmp slt i64 %indvars.iv.next297, %75
   br i1 %76, label %67, label %.critedge5, !llvm.loop !144
 
 .critedge5:                                       ; preds = %67, %61
@@ -6571,20 +6571,20 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br i1 %81, label %.lr.ph261, label %.critedge7
 
 .lr.ph261:                                        ; preds = %.critedge5, %.lr.ph261
-  %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.lr.ph261 ], [ 0, %.critedge5 ]
+  %indvars.iv299 = phi i64 [ %indvars.iv.next300, %.lr.ph261 ], [ 0, %.critedge5 ]
   %82 = phi ptr [ %86, %.lr.ph261 ], [ %79, %.critedge5 ]
   %83 = getelementptr i8, ptr %82, i64 8
   %.val197 = load ptr, ptr %83, align 8, !tbaa !26
-  %84 = getelementptr inbounds nuw ptr, ptr %.val197, i64 %indvars.iv294
+  %84 = getelementptr inbounds nuw ptr, ptr %.val197, i64 %indvars.iv299
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   tail call void @Abc_ObjPatchFanin(ptr noundef %85, ptr noundef nonnull %11, ptr noundef %63) #17
-  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
+  %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %86 = load ptr, ptr %77, align 8, !tbaa !131
   %87 = getelementptr i8, ptr %86, i64 4
   %.val195 = load i32, ptr %87, align 4, !tbaa !24
   %88 = sdiv i32 %.val195, 2
   %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next295, %89
+  %90 = icmp slt i64 %indvars.iv.next300, %89
   br i1 %90, label %.lr.ph261, label %.critedge7, !llvm.loop !145
 
 .critedge7:                                       ; preds = %.lr.ph261, %.critedge5
@@ -6616,23 +6616,23 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br label %102
 
 102:                                              ; preds = %.lr.ph264, %102
-  %indvars.iv297 = phi i64 [ 0, %.lr.ph264 ], [ %indvars.iv.next298, %102 ]
+  %indvars.iv302 = phi i64 [ 0, %.lr.ph264 ], [ %indvars.iv.next303, %102 ]
   %.val210 = load ptr, ptr %11, align 8, !tbaa !31
   %.val211 = load ptr, ptr %101, align 8, !tbaa !32
   %103 = getelementptr i8, ptr %.val210, i64 32
   %.val210.val = load ptr, ptr %103, align 8, !tbaa !3
   %104 = getelementptr i8, ptr %.val210.val, i64 8
   %.val210.val.val = load ptr, ptr %104, align 8, !tbaa !26
-  %105 = getelementptr inbounds nuw i32, ptr %.val211, i64 %indvars.iv297
+  %105 = getelementptr inbounds nuw i32, ptr %.val211, i64 %indvars.iv302
   %106 = load i32, ptr %105, align 4, !tbaa !33
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds ptr, ptr %.val210.val.val, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !27
   tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %109)
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %.val207 = load i32, ptr %64, align 4, !tbaa !28
   %110 = sext i32 %.val207 to i64
-  %111 = icmp slt i64 %indvars.iv.next298, %110
+  %111 = icmp slt i64 %indvars.iv.next303, %110
   br i1 %111, label %102, label %.critedge9, !llvm.loop !146
 
 .critedge9:                                       ; preds = %102, %.critedge7
@@ -6652,7 +6652,7 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br i1 %23, label %.thread, label %118
 
 .thread:                                          ; preds = %55, %116, %58
-  %.val222 = phi i32 [ %.val222.pr.pre303, %58 ], [ %.val222.pr.pre303, %55 ], [ %.val221.pre, %116 ]
+  %.val222 = phi i32 [ %.val222.pr.pre308, %58 ], [ %.val222.pr.pre308, %55 ], [ %.val221.pre, %116 ]
   %117 = icmp sgt i32 %.val222, 8
   br i1 %117, label %122, label %118
 
@@ -6726,15 +6726,19 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i32, ptr %.val231.val, i64 %160
   store i32 1000, ptr %161, align 4, !tbaa !33
-  %162 = icmp sgt i32 %127, 0
-  br i1 %162, label %.lr.ph, label %._crit_edge
+  %162 = fcmp ult double %abs, 1.000000e+00
+  br i1 %162, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %143, %.lr.ph
-  %.4235 = phi i32 [ %165, %.lr.ph ], [ 0, %143 ]
+.lr.ph.preheader:                                 ; preds = %143
+  %smax = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.4235 = phi i32 [ %165, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %163 = load ptr, ptr %5, align 8, !tbaa !87
   %164 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %163, ptr noundef nonnull %11) #17
   %165 = add nuw nsw i32 %.4235, 1
-  %exitcond.not = icmp eq i32 %165, %128
+  %exitcond.not = icmp eq i32 %165, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %.lr.ph, %143
@@ -6745,16 +6749,20 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   %168 = load i32, ptr %167, align 4, !tbaa !135
   %169 = add nsw i32 %168, 1
   store i32 %169, ptr %167, align 4, !tbaa !135
-  %170 = icmp sgt i32 %127, 0
-  br i1 %170, label %.lr.ph238, label %._crit_edge239
+  %170 = fcmp ult double %abs, 1.000000e+00
+  br i1 %170, label %._crit_edge239, label %.lr.ph238.preheader
 
-.lr.ph238:                                        ; preds = %166, %.lr.ph238
-  %.5236 = phi i32 [ %173, %.lr.ph238 ], [ 0, %166 ]
+.lr.ph238.preheader:                              ; preds = %166
+  %smax270 = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
+  br label %.lr.ph238
+
+.lr.ph238:                                        ; preds = %.lr.ph238.preheader, %.lr.ph238
+  %.5236 = phi i32 [ %173, %.lr.ph238 ], [ 0, %.lr.ph238.preheader ]
   %171 = load ptr, ptr %5, align 8, !tbaa !87
   %172 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %171, ptr noundef nonnull %11) #17
   %173 = add nuw nsw i32 %.5236, 1
-  %exitcond270.not = icmp eq i32 %173, %128
-  br i1 %exitcond270.not, label %._crit_edge239, label %.lr.ph238, !llvm.loop !148
+  %exitcond271.not = icmp eq i32 %173, %smax270
+  br i1 %exitcond271.not, label %._crit_edge239, label %.lr.ph238, !llvm.loop !148
 
 ._crit_edge239:                                   ; preds = %.lr.ph238, %166
   br i1 %.not, label %175, label %.sink.split
@@ -6776,12 +6784,18 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br label %.lr.ph243
 
 .critedge11.preheader:                            ; preds = %194, %175
-  %180 = icmp sgt i32 %127, 0
-  br i1 %180, label %.critedge11.preheader269, label %._crit_edge249.thread
+  %180 = fcmp ult double %abs, 1.000000e+00
+  br i1 %180, label %._crit_edge249.thread, label %.critedge11.preheader269
+
+._crit_edge249.thread:                            ; preds = %.critedge11.preheader
+  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  br label %.loopexit
 
 .critedge11.preheader269:                         ; preds = %.critedge11.preheader
   %181 = sext i32 %.val215.val to i64
-  %wide.trip.count = zext nneg i32 %128 to i64
+  %smax276 = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
+  %wide.trip.count = zext nneg i32 %smax276 to i64
   br label %.critedge11
 
 .lr.ph243:                                        ; preds = %.lr.ph243.preheader, %194
@@ -6826,24 +6840,19 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br i1 %206, label %.lr.ph243, label %.critedge11.preheader, !llvm.loop !149
 
 .critedge11:                                      ; preds = %.critedge11.preheader269, %.critedge11
-  %indvars.iv272 = phi i64 [ 0, %.critedge11.preheader269 ], [ %indvars.iv.next273, %.critedge11 ]
+  %indvars.iv273 = phi i64 [ 0, %.critedge11.preheader269 ], [ %indvars.iv.next274, %.critedge11 ]
   %207 = load ptr, ptr %5, align 8, !tbaa !87
   %208 = getelementptr i8, ptr %207, i64 32
   %.val201 = load ptr, ptr %208, align 8, !tbaa !3
   %209 = getelementptr i8, ptr %.val201, i64 8
   %.val201.val = load ptr, ptr %209, align 8, !tbaa !26
-  %210 = getelementptr ptr, ptr %.val201.val, i64 %indvars.iv272
+  %210 = getelementptr ptr, ptr %.val201.val, i64 %indvars.iv273
   %211 = getelementptr ptr, ptr %210, i64 %181
   %212 = load ptr, ptr %211, align 8, !tbaa !27
   tail call void @Abc_BufCreateEdges(ptr noundef nonnull %0, ptr noundef %212)
-  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
-  br i1 %exitcond275.not, label %.lr.ph248, label %.critedge11, !llvm.loop !150
-
-._crit_edge249.thread:                            ; preds = %.critedge11.preheader
-  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  br label %.loopexit
+  %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
+  %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count
+  br i1 %exitcond277.not, label %.lr.ph248, label %.critedge11, !llvm.loop !150
 
 .lr.ph248:                                        ; preds = %.critedge11
   tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
@@ -6851,17 +6860,18 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   %214 = getelementptr i8, ptr %0, i64 48
   %215 = getelementptr i8, ptr %0, i64 32
   %216 = sext i32 %.val215.val to i64
-  %wide.trip.count279 = zext nneg i32 %128 to i64
+  %smax281 = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
+  %wide.trip.count282 = zext nneg i32 %smax281 to i64
   br label %217
 
 217:                                              ; preds = %.lr.ph248, %Abc_BufComputeDep.exit
-  %indvars.iv276 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next277, %Abc_BufComputeDep.exit ]
+  %indvars.iv278 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next279, %Abc_BufComputeDep.exit ]
   %218 = load ptr, ptr %5, align 8, !tbaa !87
   %219 = getelementptr i8, ptr %218, i64 32
   %.val200 = load ptr, ptr %219, align 8, !tbaa !3
   %220 = getelementptr i8, ptr %.val200, i64 8
   %.val200.val = load ptr, ptr %220, align 8, !tbaa !26
-  %221 = getelementptr ptr, ptr %.val200.val, i64 %indvars.iv276
+  %221 = getelementptr ptr, ptr %.val200.val, i64 %indvars.iv278
   %222 = getelementptr ptr, ptr %221, i64 %216
   %223 = load ptr, ptr %222, align 8, !tbaa !27
   %224 = getelementptr i8, ptr %223, i64 44
@@ -6951,50 +6961,52 @@ Abc_BufComputeDep.exit:                           ; preds = %Abc_BufComputeDep.e
   %267 = sext i32 %.val31.i to i64
   %268 = getelementptr inbounds i32, ptr %.val30.val.i, i64 %267
   store i32 %.0.lcssa.i, ptr %268, align 4, !tbaa !33
-  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
-  %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
-  br i1 %exitcond280.not, label %._crit_edge249, label %217, !llvm.loop !151
+  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
+  %exitcond283.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count282
+  br i1 %exitcond283.not, label %._crit_edge249, label %217, !llvm.loop !151
 
 ._crit_edge249:                                   ; preds = %Abc_BufComputeDep.exit
   tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %269 = sext i32 %.val215.val to i64
-  %wide.trip.count284 = zext nneg i32 %128 to i64
+  %smax287 = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
+  %wide.trip.count288 = zext nneg i32 %smax287 to i64
   br label %.lr.ph252
 
 .lr.ph254.preheader:                              ; preds = %.lr.ph252
   %270 = sext i32 %.val215.val to i64
-  %wide.trip.count289 = zext nneg i32 %128 to i64
+  %smax293 = tail call i32 @llvm.smax.i32(i32 %128, i32 1)
+  %wide.trip.count294 = zext nneg i32 %smax293 to i64
   br label %.lr.ph254
 
 .lr.ph252:                                        ; preds = %._crit_edge249, %.lr.ph252
-  %indvars.iv281 = phi i64 [ 0, %._crit_edge249 ], [ %indvars.iv.next282, %.lr.ph252 ]
+  %indvars.iv284 = phi i64 [ 0, %._crit_edge249 ], [ %indvars.iv.next285, %.lr.ph252 ]
   %271 = load ptr, ptr %5, align 8, !tbaa !87
   %272 = getelementptr i8, ptr %271, i64 32
   %.val199 = load ptr, ptr %272, align 8, !tbaa !3
   %273 = getelementptr i8, ptr %.val199, i64 8
   %.val199.val = load ptr, ptr %273, align 8, !tbaa !26
-  %274 = getelementptr ptr, ptr %.val199.val, i64 %indvars.iv281
+  %274 = getelementptr ptr, ptr %.val199.val, i64 %indvars.iv284
   %275 = getelementptr ptr, ptr %274, i64 %269
   %276 = load ptr, ptr %275, align 8, !tbaa !27
   tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %276)
-  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
-  br i1 %exitcond285.not, label %.lr.ph254.preheader, label %.lr.ph252, !llvm.loop !152
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
+  %exitcond289.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count288
+  br i1 %exitcond289.not, label %.lr.ph254.preheader, label %.lr.ph252, !llvm.loop !152
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.lr.ph254
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph254.preheader ], [ %indvars.iv.next287, %.lr.ph254 ]
+  %indvars.iv290 = phi i64 [ 0, %.lr.ph254.preheader ], [ %indvars.iv.next291, %.lr.ph254 ]
   %277 = load ptr, ptr %5, align 8, !tbaa !87
   %278 = getelementptr i8, ptr %277, i64 32
   %.val198 = load ptr, ptr %278, align 8, !tbaa !3
   %279 = getelementptr i8, ptr %.val198, i64 8
   %.val198.val = load ptr, ptr %279, align 8, !tbaa !26
-  %280 = getelementptr ptr, ptr %.val198.val, i64 %indvars.iv286
+  %280 = getelementptr ptr, ptr %.val198.val, i64 %indvars.iv290
   %281 = getelementptr ptr, ptr %280, i64 %270
   %282 = load ptr, ptr %281, align 8, !tbaa !27
   tail call void @Abc_SclTimeIncUpdateLevel(ptr noundef %282) #17
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
-  br i1 %exitcond290.not, label %.loopexit, label %.lr.ph254, !llvm.loop !153
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
+  %exitcond295.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count294
+  br i1 %exitcond295.not, label %.loopexit, label %.lr.ph254, !llvm.loop !153
 
 283:                                              ; preds = %118
   br i1 %.not, label %.loopexit, label %284

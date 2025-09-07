@@ -995,14 +995,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %312 = icmp sgt i32 %258, 0
-  br i1 %312, label %.lr.ph121.i, label %._crit_edge122.i
+  %312 = fcmp ult float %257, 1.000000e+00
+  br i1 %312, label %._crit_edge122.i, label %.lr.ph121.i
 
 .lr.ph121.i:                                      ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
+  %smax150.i = call i32 @llvm.smax.i32(i32 %258, i32 1)
   br i1 %261, label %.lr.ph118.us.preheader.i, label %.lr.ph121.split.i
 
 .lr.ph118.us.preheader.i:                         ; preds = %.lr.ph121.i
-  %wide.trip.count150.i = zext nneg i32 %258 to i64
+  %wide.trip.count151.i = zext nneg i32 %smax150.i to i64
   %wide.trip.count145.i = zext nneg i32 %.061.lcssa.i to i64
   br label %.lr.ph118.us.i
 
@@ -1029,8 +1030,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 ._crit_edge119.us.i:                              ; preds = %318
   %fputc.us.i = call i32 @fputc(i32 10, ptr %287)
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
-  %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
-  br i1 %exitcond151.not.i, label %._crit_edge122.i, label %.lr.ph118.us.i, !llvm.loop !48
+  %exitcond152.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count151.i
+  br i1 %exitcond152.not.i, label %._crit_edge122.i, label %.lr.ph118.us.i, !llvm.loop !48
 
 .lr.ph121.split.i:                                ; preds = %.lr.ph121.i, %.lr.ph121.split.i
   %.2120.i = phi i32 [ %328, %.lr.ph121.split.i ], [ 0, %.lr.ph121.i ]
@@ -1040,7 +1041,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef nonnull @.str.114, double noundef %326) #20
   %fputc.i = call i32 @fputc(i32 10, ptr %287)
   %328 = add nuw nsw i32 %.2120.i, 1
-  %exitcond141.not.i = icmp eq i32 %328, %258
+  %exitcond141.not.i = icmp eq i32 %328, %smax150.i
   br i1 %exitcond141.not.i, label %._crit_edge122.i, label %.lr.ph121.split.i, !llvm.loop !48
 
 329:                                              ; preds = %.noexc82
@@ -1945,11 +1946,11 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br label %185
 
 185:                                              ; preds = %176, %177
-  %.sink1645 = phi double [ %184, %177 ], [ %169, %176 ]
+  %.sink1644 = phi double [ %184, %177 ], [ %169, %176 ]
   %186 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv1277
   %187 = load float, ptr %186, align 4, !tbaa !26
   %188 = fpext float %187 to double
-  %189 = fmul double %.sink1645, %188
+  %189 = fmul double %.sink1644, %188
   %.sink = fptrunc double %189 to float
   %190 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv1277
   store float %.sink, ptr %190, align 4, !tbaa !26
@@ -2006,7 +2007,7 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br i1 %101, label %.outer, label %_ZL6indexniPKiS0_.exit
 
 .outer:                                           ; preds = %.preheader1113, %.thread
-  %indvars.iv1287.ph = phi i64 [ %indvars.iv.next12881614, %.thread ], [ 0, %.preheader1113 ]
+  %indvars.iv1287.ph = phi i64 [ %indvars.iv.next12881613, %.thread ], [ 0, %.preheader1113 ]
   %.04501155.ph = phi i1 [ true, %.thread ], [ false, %.preheader1113 ]
   br label %210
 
@@ -2026,8 +2027,8 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   %222 = fptosi double %221 to i32
   %223 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv1287
   store i32 %222, ptr %223, align 4, !tbaa !4
-  %224 = icmp slt i32 %222, 0
-  br i1 %224, label %.thread, label %225
+  %224 = fcmp ugt double %221, -1.000000e+00
+  br i1 %224, label %225, label %.thread
 
 225:                                              ; preds = %210
   %226 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv1287
@@ -2041,9 +2042,9 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br i1 %exitcond1290.not, label %._crit_edge1157, label %210, !llvm.loop !63
 
 .thread:                                          ; preds = %210, %225
-  %indvars.iv.next12881614 = add nuw nsw i64 %indvars.iv1287, 1
-  %exitcond1290.not1615 = icmp eq i64 %indvars.iv.next12881614, %206
-  br i1 %exitcond1290.not1615, label %._crit_edge1157.thread, label %.outer, !llvm.loop !63
+  %indvars.iv.next12881613 = add nuw nsw i64 %indvars.iv1287, 1
+  %exitcond1290.not1614 = icmp eq i64 %indvars.iv.next12881613, %206
+  br i1 %exitcond1290.not1614, label %._crit_edge1157.thread, label %.outer, !llvm.loop !63
 
 ._crit_edge1157:                                  ; preds = %228
   br i1 %.04501155.ph, label %._crit_edge1157.thread, label %.lr.ph23.i
@@ -2461,8 +2462,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit569:       ; preds = %_ZNKSt7__cxx1112bas
   %408 = shl nuw nsw i64 %wide.trip.count1314, 2
   %409 = getelementptr i8, ptr %407, i64 %408
   %scevgep = getelementptr i8, ptr %409, i64 4
-  %scevgep1677 = getelementptr i8, ptr %203, i64 %408
-  %bound0 = icmp ult ptr %407, %scevgep1677
+  %scevgep1676 = getelementptr i8, ptr %203, i64 %408
+  %bound0 = icmp ult ptr %407, %scevgep1676
   %bound1 = icmp ult ptr %203, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph1187.lver.orig, label %.lr.ph1187.ph

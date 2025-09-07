@@ -121,8 +121,8 @@ define hidden noundef range(i32 -2147483646, -2147483648) i32 @_ZN21CgroupV2CpuC
 
 15:                                               ; preds = %11
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not36 = icmp eq ptr %16, null
-  br i1 %.not36, label %43, label %17
+  %.not37 = icmp eq ptr %16, null
+  br i1 %.not37, label %43, label %17
 
 17:                                               ; preds = %15
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef -1)
@@ -144,29 +144,30 @@ define hidden noundef range(i32 -2147483646, -2147483648) i32 @_ZN21CgroupV2CpuC
   br label %27
 
 27:                                               ; preds = %18, %26
-  %28 = icmp slt i32 %23, 1023
+  %28 = fcmp olt double %22, 1.023000e+03
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
   %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not35 = icmp eq ptr %30, null
-  br i1 %.not35, label %43, label %31
+  %.not36 = icmp eq ptr %30, null
+  br i1 %.not36, label %43, label %31
 
 31:                                               ; preds = %29
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %24)
   br label %43
 
 32:                                               ; preds = %27
-  %33 = and i32 %24, 2147482624
-  %34 = add nuw i32 %33, 1024
-  %35 = and i32 %24, 1023
-  %sub = sub nsw i32 %34, %24
-  %36 = call i32 @llvm.abs.i32(i32 %sub, i1 true)
+  %33 = and i32 %24, -1024
+  %34 = add i32 %33, 1024
+  %sub = sub nsw i32 %33, %24
+  %35 = call i32 @llvm.abs.i32(i32 %sub, i1 true)
+  %sub33 = sub nsw i32 %34, %24
+  %36 = call i32 @llvm.abs.i32(i32 %sub33, i1 true)
   %.not = icmp samesign ugt i32 %35, %36
   %37 = select i1 %.not, i32 %34, i32 %33
   %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not33 = icmp eq ptr %38, null
-  br i1 %.not33, label %40, label %39
+  %.not34 = icmp eq ptr %38, null
+  br i1 %.not34, label %40, label %39
 
 39:                                               ; preds = %32
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, i32 noundef 1024, i32 noundef %37)
@@ -174,8 +175,8 @@ define hidden noundef range(i32 -2147483646, -2147483648) i32 @_ZN21CgroupV2CpuC
 
 40:                                               ; preds = %32, %39
   %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not34 = icmp eq ptr %41, null
-  br i1 %.not34, label %43, label %42
+  %.not35 = icmp eq ptr %41, null
+  br i1 %.not35, label %43, label %42
 
 42:                                               ; preds = %40
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %37)

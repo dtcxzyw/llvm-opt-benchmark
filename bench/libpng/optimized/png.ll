@@ -1960,8 +1960,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 
 67:                                               ; preds = %58
   %68 = fptosi double %64 to i32
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %74
+  %69 = fcmp ult double %64, 1.000000e+00
+  br i1 %69, label %74, label %70
 
 70:                                               ; preds = %67
   %71 = add nsw i32 %68, -2147483647
@@ -1973,8 +1973,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   br label %.thread273
 
 74:                                               ; preds = %67
-  %75 = icmp slt i32 %68, 0
-  br i1 %75, label %76, label %.thread273
+  %75 = fcmp ugt double %64, -1.000000e+00
+  br i1 %75, label %.thread273, label %76
 
 76:                                               ; preds = %74
   %77 = add nsw i32 %68, 2147483647
@@ -2029,8 +2029,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 
 105:                                              ; preds = %96
   %106 = fptosi double %102 to i32
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %108, label %112
+  %107 = fcmp ult double %102, 1.000000e+00
+  br i1 %107, label %112, label %108
 
 108:                                              ; preds = %105
   %109 = add nsw i32 %106, -2147483647
@@ -2042,8 +2042,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   br label %png_fp_sub.exit130
 
 112:                                              ; preds = %105
-  %113 = icmp slt i32 %106, 0
-  br i1 %113, label %114, label %png_fp_sub.exit130
+  %113 = fcmp ugt double %102, -1.000000e+00
+  br i1 %113, label %png_fp_sub.exit130, label %114
 
 114:                                              ; preds = %112
   %115 = add nsw i32 %106, 2147483647
@@ -2127,8 +2127,8 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
 
 153:                                              ; preds = %144
   %154 = fptosi double %150 to i32
-  %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %156, label %160
+  %155 = fcmp ult double %150, 1.000000e+00
+  br i1 %155, label %160, label %156
 
 156:                                              ; preds = %153
   %157 = add nsw i32 %154, -2147483647
@@ -2140,8 +2140,8 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
   br label %png_fp_sub.exit153
 
 160:                                              ; preds = %153
-  %161 = icmp slt i32 %154, 0
-  br i1 %161, label %162, label %png_fp_sub.exit153
+  %161 = fcmp ugt double %150, -1.000000e+00
+  br i1 %161, label %png_fp_sub.exit153, label %162
 
 162:                                              ; preds = %160
   %163 = add nsw i32 %154, 2147483647

@@ -7698,8 +7698,12 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   br i1 %or.cond.i, label %116, label %.preheader.i
 
 .preheader.i:                                     ; preds = %109
-  %115 = icmp sgt i32 %111, 0
-  br i1 %115, label %.lr.ph.i, label %_ZL18vrescale_sumnoisesfPN3gmx12ThreeFry2x64ILj64EEEPNS_18NormalDistributionIfEE.exit
+  %115 = fcmp ult float %110, 1.000000e+00
+  br i1 %115, label %_ZL18vrescale_sumnoisesfPN3gmx12ThreeFry2x64ILj64EEEPNS_18NormalDistributionIfEE.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %.preheader.i
+  %smax.i = call i32 @llvm.smax.i32(i32 %111, i32 1)
+  br label %.lr.ph.i
 
 116:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7720,13 +7724,13 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %121
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.023.i = phi float [ %123, %.lr.ph.i ], [ 0.000000e+00, %.preheader.i ]
-  %.01922.i = phi i32 [ %124, %.lr.ph.i ], [ 0, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.023.i = phi float [ %123, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+  %.01922.i = phi i32 [ %124, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %122 = call noundef float @_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(52) %9, ptr noundef nonnull align 4 dereferenceable(16) %10)
   %123 = call float @llvm.fmuladd.f32(float %122, float %122, float %.023.i)
   %124 = add nuw nsw i32 %.01922.i, 1
-  %exitcond.not.i = icmp eq i32 %124, %111
+  %exitcond.not.i = icmp eq i32 %124, %smax.i
   br i1 %exitcond.not.i, label %_ZL18vrescale_sumnoisesfPN3gmx12ThreeFry2x64ILj64EEEPNS_18NormalDistributionIfEE.exit, label %.lr.ph.i, !llvm.loop !412
 
 125:                                              ; preds = %35
@@ -8822,6 +8826,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #25
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.log.f32(float) #25
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #25
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
@@ -8830,9 +8837,6 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

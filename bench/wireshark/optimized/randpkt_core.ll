@@ -177,9 +177,9 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %37 = mul i64 %2, 1000
   br label %38
 
-38:                                               ; preds = %.lr.ph85, %101
-  %39 = phi i64 [ 0, %.lr.ph85 ], [ %103, %101 ]
-  %.083 = phi i32 [ 0, %.lr.ph85 ], [ %102, %101 ]
+38:                                               ; preds = %.lr.ph85, %100
+  %39 = phi i64 [ 0, %.lr.ph85 ], [ %102, %100 ]
+  %.083 = phi i32 [ 0, %.lr.ph85 ], [ %101, %100 ]
   %40 = load i32, ptr %30, align 8
   %.not75 = icmp eq i32 %40, 0
   br i1 %.not75, label %45, label %41
@@ -231,82 +231,81 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %58 = add i32 %.068, -3
   br label %59
 
-59:                                               ; preds = %.lr.ph81, %81
-  %.179 = phi i32 [ %56, %.lr.ph81 ], [ %82, %81 ]
+59:                                               ; preds = %.lr.ph81, %80
+  %.179 = phi i32 [ %56, %.lr.ph81 ], [ %81, %80 ]
   %60 = load ptr, ptr @pkt_rand, align 8
   %61 = call double @g_rand_double(ptr noundef %60)
   %62 = fmul double %61, 1.000000e+02
-  %63 = fptosi double %62 to i32
-  %64 = icmp slt i32 %63, 3
-  %65 = icmp ult i32 %.179, %58
-  %or.cond = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond, label %66, label %75
+  %63 = fcmp olt double %62, 3.000000e+00
+  %64 = icmp ult i32 %.179, %58
+  %or.cond = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond, label %65, label %74
 
-66:                                               ; preds = %59
-  %67 = zext nneg i32 %.179 to i64
-  %68 = getelementptr i8, ptr %7, i64 %67
-  %69 = sub nsw i64 65536, %67
-  %70 = icmp ugt i32 %.179, 65536
-  %71 = select i1 %70, i64 0, i64 %69
-  %72 = icmp ne i64 %71, -1
-  call void @llvm.assume(i1 %72)
-  %73 = call ptr @__memcpy_chk(ptr noundef %68, ptr noundef nonnull @.str.1, i64 noundef 3, i64 noundef %71) #11, !alias.scope !17
-  %74 = add nuw nsw i32 %.179, 2
-  br label %81
+65:                                               ; preds = %59
+  %66 = zext nneg i32 %.179 to i64
+  %67 = getelementptr i8, ptr %7, i64 %66
+  %68 = sub nsw i64 65536, %66
+  %69 = icmp ugt i32 %.179, 65536
+  %70 = select i1 %69, i64 0, i64 %68
+  %71 = icmp ne i64 %70, -1
+  call void @llvm.assume(i1 %71)
+  %72 = call ptr @__memcpy_chk(ptr noundef %67, ptr noundef nonnull @.str.1, i64 noundef 3, i64 noundef %70) #11, !alias.scope !17
+  %73 = add nuw nsw i32 %.179, 2
+  br label %80
 
-75:                                               ; preds = %59
-  %76 = load ptr, ptr @pkt_rand, align 8
-  %77 = call i32 @g_rand_int_range(ptr noundef %76, i32 noundef 0, i32 noundef 256)
-  %78 = trunc i32 %77 to i8
-  %79 = zext nneg i32 %.179 to i64
-  %80 = getelementptr i8, ptr %7, i64 %79
-  store i8 %78, ptr %80, align 1
-  br label %81
+74:                                               ; preds = %59
+  %75 = load ptr, ptr @pkt_rand, align 8
+  %76 = call i32 @g_rand_int_range(ptr noundef %75, i32 noundef 0, i32 noundef 256)
+  %77 = trunc i32 %76 to i8
+  %78 = zext nneg i32 %.179 to i64
+  %79 = getelementptr i8, ptr %7, i64 %78
+  store i8 %77, ptr %79, align 1
+  br label %80
 
-81:                                               ; preds = %66, %75
-  %.2 = phi i32 [ %74, %66 ], [ %.179, %75 ]
-  %82 = add nuw nsw i32 %.2, 1
-  %83 = icmp ult i32 %82, %spec.store.select
-  br i1 %83, label %59, label %._crit_edge82, !llvm.loop !21
+80:                                               ; preds = %65, %74
+  %.2 = phi i32 [ %73, %65 ], [ %.179, %74 ]
+  %81 = add nuw nsw i32 %.2, 1
+  %82 = icmp ult i32 %81, %spec.store.select
+  br i1 %82, label %59, label %._crit_edge82, !llvm.loop !21
 
-._crit_edge82:                                    ; preds = %81, %._crit_edge
-  %84 = load ptr, ptr %35, align 8
-  %85 = call zeroext i1 @wtap_dump(ptr noundef %84, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br i1 %85, label %92, label %86
+._crit_edge82:                                    ; preds = %80, %._crit_edge
+  %83 = load ptr, ptr %35, align 8
+  %84 = call zeroext i1 @wtap_dump(ptr noundef %83, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br i1 %84, label %91, label %85
 
-86:                                               ; preds = %._crit_edge82
-  %87 = load ptr, ptr %36, align 8
-  %88 = load i32, ptr %4, align 4
-  %89 = load ptr, ptr %5, align 8
-  %90 = load ptr, ptr %35, align 8
-  %91 = call i32 @wtap_dump_file_type_subtype(ptr noundef %90)
-  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %87, i32 noundef %88, ptr noundef %89, i64 noundef 0, i32 noundef %91)
-  br label %92
+85:                                               ; preds = %._crit_edge82
+  %86 = load ptr, ptr %36, align 8
+  %87 = load i32, ptr %4, align 4
+  %88 = load ptr, ptr %5, align 8
+  %89 = load ptr, ptr %35, align 8
+  %90 = call i32 @wtap_dump_file_type_subtype(ptr noundef %89)
+  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %86, i32 noundef %87, ptr noundef %88, i64 noundef 0, i32 noundef %90)
+  br label %91
 
-92:                                               ; preds = %86, %._crit_edge82
-  br i1 %.not76, label %101, label %93
+91:                                               ; preds = %85, %._crit_edge82
+  br i1 %.not76, label %100, label %92
 
-93:                                               ; preds = %92
+92:                                               ; preds = %91
   call void @g_usleep(i64 noundef %37)
-  %94 = load ptr, ptr %35, align 8
-  %95 = call zeroext i1 @wtap_dump_flush(ptr noundef %94, ptr noundef nonnull %4)
-  br i1 %95, label %101, label %96
+  %93 = load ptr, ptr %35, align 8
+  %94 = call zeroext i1 @wtap_dump_flush(ptr noundef %93, ptr noundef nonnull %4)
+  br i1 %94, label %100, label %95
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %36, align 8
-  %98 = load i32, ptr %4, align 4
-  %99 = load ptr, ptr %35, align 8
-  %100 = call i32 @wtap_dump_file_type_subtype(ptr noundef %99)
-  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %97, i32 noundef %98, ptr noundef null, i64 noundef 0, i32 noundef %100)
-  br label %101
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %36, align 8
+  %97 = load i32, ptr %4, align 4
+  %98 = load ptr, ptr %35, align 8
+  %99 = call i32 @wtap_dump_file_type_subtype(ptr noundef %98)
+  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %96, i32 noundef %97, ptr noundef null, i64 noundef 0, i32 noundef %99)
+  br label %100
 
-101:                                              ; preds = %92, %96, %93
-  %102 = add i32 %.083, 1
-  %103 = zext i32 %102 to i64
-  %104 = icmp ugt i64 %1, %103
-  br i1 %104, label %38, label %._crit_edge86, !llvm.loop !22
+100:                                              ; preds = %91, %95, %92
+  %101 = add i32 %.083, 1
+  %102 = zext i32 %101 to i64
+  %103 = icmp ugt i64 %1, %102
+  br i1 %103, label %38, label %._crit_edge86, !llvm.loop !22
 
-._crit_edge86:                                    ; preds = %101, %29
+._crit_edge86:                                    ; preds = %100, %29
   call void @g_free(ptr noundef %6)
   call void @g_free(ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

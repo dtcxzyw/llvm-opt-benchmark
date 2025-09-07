@@ -724,8 +724,8 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit: ; pr
 42:                                               ; preds = %30
   %43 = load ptr, ptr %37, align 8, !tbaa !60
   call void @free(ptr noundef %43) #32
-  %44 = icmp sgt i32 %36, 0
-  br i1 %44, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
+  %44 = fcmp ult double %35, 1.000000e+00
+  br i1 %44, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i: ; preds = %42
   %45 = shl nuw nsw i64 %40, 3

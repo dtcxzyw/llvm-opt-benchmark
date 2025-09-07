@@ -9288,7 +9288,7 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr noundef readonly alig
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %82, label %6
+  br i1 %5, label %81, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -9302,18 +9302,18 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr noundef readonly alig
   %15 = load double, ptr %14, align 8
   %16 = fptosi double %15 to i32
   %17 = icmp sgt i32 %12, 0
-  br i1 %17, label %18, label %82
+  br i1 %17, label %18, label %81
 
 18:                                               ; preds = %6
-  %19 = icmp sgt i32 %16, -1
-  br i1 %19, label %20, label %72
+  %19 = fcmp ogt double %15, -1.000000e+00
+  br i1 %19, label %20, label %71
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp sgt i32 %11, -1
+  %25 = fcmp ogt double %10, -1.000000e+00
   %26 = sub nsw i32 %16, %11
   %27 = sitofp i32 %26 to double
   %storemerge = select i1 %25, double %27, double 0.000000e+00
@@ -9335,7 +9335,7 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr noundef readonly alig
   %38 = fadd double %36, %37
   %39 = fptosi double %38 to i32
   %40 = sitofp i32 %39 to double
-  br label %59
+  br label %58
 
 41:                                               ; preds = %20
   %42 = fcmp olt double %.sroa.2.0.copyload.i, %28
@@ -9349,70 +9349,69 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr noundef readonly alig
   %48 = fadd double %46, %47
   %49 = fptosi double %48 to i32
   %50 = sitofp i32 %49 to double
-  br label %59
+  br label %58
 
 51:                                               ; preds = %41
-  br i1 %1, label %52, label %56
+  br i1 %1, label %52, label %55
 
 52:                                               ; preds = %51
-  %53 = add nuw i32 %16, 3
-  %54 = uitofp i32 %53 to double
-  %55 = fcmp ogt double %.sroa.2.0.copyload.i, %54
-  br i1 %55, label %.thread89, label %59
+  %53 = fadd double %28, 3.000000e+00
+  %54 = fcmp olt double %53, %.sroa.2.0.copyload.i
+  br i1 %54, label %.thread89, label %58
 
-56:                                               ; preds = %51
-  %57 = fadd double %28, -3.000000e+00
-  %58 = fcmp ogt double %57, %.sroa.0.0.copyload.i
-  br i1 %58, label %.thread89, label %59
+55:                                               ; preds = %51
+  %56 = fadd double %28, -3.000000e+00
+  %57 = fcmp ogt double %56, %.sroa.0.0.copyload.i
+  br i1 %57, label %.thread89, label %58
 
-59:                                               ; preds = %43, %56, %52, %33
-  %.0 = phi double [ %40, %33 ], [ %50, %43 ], [ %storemerge, %52 ], [ %storemerge, %56 ]
-  %60 = fcmp ogt double %.0, 0.000000e+00
-  br i1 %60, label %61, label %67
+58:                                               ; preds = %43, %55, %52, %33
+  %.0 = phi double [ %40, %33 ], [ %50, %43 ], [ %storemerge, %52 ], [ %storemerge, %55 ]
+  %59 = fcmp ogt double %.0, 0.000000e+00
+  br i1 %59, label %60, label %66
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %63 = load i32, ptr %62, align 8
-  %64 = sitofp i32 %63 to double
-  %65 = fsub double %64, %.sroa.2.0.copyload.i
-  %66 = fcmp olt double %.0, %65
-  %.sroa.speculated81 = select i1 %66, double %.0, double %65
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %62 = load i32, ptr %61, align 8
+  %63 = sitofp i32 %62 to double
+  %64 = fsub double %63, %.sroa.2.0.copyload.i
+  %65 = fcmp olt double %.0, %64
+  %.sroa.speculated81 = select i1 %65, double %.0, double %64
   br label %.thread89
 
-67:                                               ; preds = %59
-  %68 = fcmp olt double %.0, 0.000000e+00
-  br i1 %68, label %69, label %.thread89
+66:                                               ; preds = %58
+  %67 = fcmp olt double %.0, 0.000000e+00
+  br i1 %67, label %68, label %.thread89
 
-69:                                               ; preds = %67
-  %70 = fsub double -1.000000e+00, %.sroa.0.0.copyload.i
-  %71 = fcmp olt double %.0, %70
-  %.sroa.speculated = select i1 %71, double %70, double %.0
+68:                                               ; preds = %66
+  %69 = fsub double -1.000000e+00, %.sroa.0.0.copyload.i
+  %70 = fcmp olt double %.0, %69
+  %.sroa.speculated = select i1 %70, double %69, double %.0
   br label %.thread89
 
-.thread89:                                        ; preds = %52, %56, %67, %69, %61
-  %.1 = phi double [ %.sroa.speculated81, %61 ], [ %.sroa.speculated, %69 ], [ %.0, %67 ], [ 0.000000e+00, %56 ], [ 0.000000e+00, %52 ]
+.thread89:                                        ; preds = %52, %55, %66, %68, %60
+  %.1 = phi double [ %.sroa.speculated81, %60 ], [ %.sroa.speculated, %68 ], [ %.0, %66 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %52 ]
   tail call void @_ZN7QCPAxis9moveRangeEd(ptr noundef align 8 dereferenceable_or_null(472) %30, double noundef %.1)
-  br label %72
+  br label %71
 
-72:                                               ; preds = %.thread89, %18
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef align 8 dereferenceable_or_null(48) %74)
-  br i1 %75, label %76, label %_ZNK11CaptureFile7capFileEv.exit
+71:                                               ; preds = %.thread89, %18
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef align 8 dereferenceable_or_null(48) %73)
+  br i1 %74, label %75, label %_ZNK11CaptureFile7capFileEv.exit
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = load ptr, ptr %77, align 8
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %77 = load ptr, ptr %76, align 8
   br label %_ZNK11CaptureFile7capFileEv.exit
 
-_ZNK11CaptureFile7capFileEv.exit:                 ; preds = %72, %76
-  %79 = phi ptr [ %78, %76 ], [ null, %72 ]
-  %80 = tail call zeroext i1 @cf_goto_frame(ptr noundef %79, i32 noundef %12, i1 noundef zeroext false)
-  %81 = load ptr, ptr %7, align 8
-  tail call void @_ZN15SequenceDiagram17setSelectedPacketEi(ptr noundef align 8 dereferenceable_or_null(240) %81, i32 noundef %12)
-  br label %82
+_ZNK11CaptureFile7capFileEv.exit:                 ; preds = %71, %75
+  %78 = phi ptr [ %77, %75 ], [ null, %71 ]
+  %79 = tail call zeroext i1 @cf_goto_frame(ptr noundef %78, i32 noundef %12, i1 noundef zeroext false)
+  %80 = load ptr, ptr %7, align 8
+  tail call void @_ZN15SequenceDiagram17setSelectedPacketEi(ptr noundef align 8 dereferenceable_or_null(240) %80, i32 noundef %12)
+  br label %81
 
-82:                                               ; preds = %6, %_ZNK11CaptureFile7capFileEv.exit, %2
+81:                                               ; preds = %6, %_ZNK11CaptureFile7capFileEv.exit, %2
   ret void
 }
 

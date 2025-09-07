@@ -9445,15 +9445,18 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
   %112 = load double, ptr %111, align 8, !tbaa !156
   %113 = sitofp i64 %102 to double
   %114 = fmul double %112, %113
-  %115 = fptosi double %114 to i64
-  %116 = load ptr, ptr %10, align 8, !tbaa !13
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %118 = icmp sgt i64 %115, 0
-  br i1 %118, label %.lr.ph.i, label %._crit_edge.i
+  %115 = load ptr, ptr %10, align 8, !tbaa !13
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %117 = fcmp ult double %114, 1.000000e+00
+  br i1 %117, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %110, %180
-  %.0131324.i = phi i64 [ %.1132.i, %180 ], [ %115, %110 ]
-  %.0134323.i = phi i64 [ %.1135.i, %180 ], [ 1, %110 ]
+.lr.ph.preheader.i:                               ; preds = %110
+  %118 = fptosi double %114 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %180, %.lr.ph.preheader.i
+  %.0131324.i = phi i64 [ %.1132.i, %180 ], [ %118, %.lr.ph.preheader.i ]
+  %.0134323.i = phi i64 [ %.1135.i, %180 ], [ 1, %.lr.ph.preheader.i ]
   %.val254.i = load i64, ptr %9, align 8, !tbaa !195
   %.val255.i = load i32, ptr %94, align 8
   %119 = call fastcc i32 @_textiowrapper_decoder_setstate(ptr noundef nonnull %0, i64 %.val254.i, i32 %.val255.i)
@@ -9462,7 +9465,7 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
 
 121:                                              ; preds = %.lr.ph.i
   %122 = load ptr, ptr %77, align 8, !tbaa !53
-  %123 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53032), ptr noundef nonnull @.str.107, ptr noundef nonnull %117, i64 noundef %.0131324.i) #11
+  %123 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53032), ptr noundef nonnull @.str.107, ptr noundef nonnull %116, i64 noundef %.0131324.i) #11
   %124 = call fastcc i32 @check_decoded(ptr noundef %123)
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %Py_DECREF.exit214.i, label %126

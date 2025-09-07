@@ -758,21 +758,24 @@ define hidden void @FLAC__window_tukey(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not.i49, label %FLAC__window_rectangle.exit50, label %.lr.ph.i46, !llvm.loop !24
 
 FLAC__window_rectangle.exit50:                    ; preds = %.lr.ph.i46, %27
-  %34 = icmp sgt i32 %30, 1
-  br i1 %34, label %.preheader52, label %FLAC__window_rectangle.exit
+  %34 = fcmp oge float %29, 2.000000e+00
+  %.not.not.i56 = fcmp oge float %29, 1.000000e+00
+  %or.cond61 = and i1 %34, %.not.not.i56
+  br i1 %or.cond61, label %.lr.ph, label %FLAC__window_rectangle.exit
 
-.preheader52:                                     ; preds = %FLAC__window_rectangle.exit50
+.lr.ph:                                           ; preds = %FLAC__window_rectangle.exit50
   %35 = uitofp nneg i32 %31 to double
   %36 = sub i32 %1, %30
   %37 = sext i32 %36 to i64
-  %wide.trip.count = zext nneg i32 %30 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %30, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   %invariant.gep = getelementptr float, ptr %0, i64 %37
   %38 = fdiv reassoc nsz arcp double 1.000000e+00, %35
   %39 = fdiv reassoc nsz arcp double 1.000000e+00, %35
   br label %40
 
-40:                                               ; preds = %.preheader52, %40
-  %indvars.iv = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next, %40 ]
+40:                                               ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = uitofp nneg i32 %41 to double
   %43 = fmul reassoc nsz arcp double %42, 0x400921FB54442D18
@@ -818,31 +821,34 @@ FLAC__window_rectangle.exit50:                    ; preds = %.lr.ph.i46, %27
   br i1 %exitcond.not.i42, label %FLAC__window_rectangle.exit43, label %.lr.ph.i39, !llvm.loop !24
 
 FLAC__window_rectangle.exit43:                    ; preds = %.lr.ph.i39, %57
-  %65 = icmp sgt i32 %61, 1
-  br i1 %65, label %.preheader, label %FLAC__window_rectangle.exit
+  %65 = fcmp oge float %60, 2.000000e+00
+  %.not.not58 = fcmp oge float %60, 1.000000e+00
+  %or.cond62 = and i1 %65, %.not.not58
+  br i1 %or.cond62, label %.lr.ph60, label %FLAC__window_rectangle.exit
 
-.preheader:                                       ; preds = %FLAC__window_rectangle.exit43
+.lr.ph60:                                         ; preds = %FLAC__window_rectangle.exit43
   %66 = uitofp nneg i32 %62 to double
   %67 = sub i32 %1, %61
   %68 = sext i32 %67 to i64
-  %wide.trip.count65 = zext nneg i32 %61 to i64
-  %invariant.gep73 = getelementptr float, ptr %0, i64 %68
+  %smax70 = tail call i32 @llvm.smax.i32(i32 %61, i32 1)
+  %wide.trip.count71 = zext nneg i32 %smax70 to i64
+  %invariant.gep77 = getelementptr float, ptr %0, i64 %68
   %69 = fdiv reassoc nsz arcp double 1.000000e+00, %66
   %70 = fdiv reassoc nsz arcp double 1.000000e+00, %66
   br label %71
 
-71:                                               ; preds = %.preheader, %71
-  %indvars.iv62 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next63, %71 ]
-  %72 = trunc nuw nsw i64 %indvars.iv62 to i32
+71:                                               ; preds = %.lr.ph60, %71
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next68, %71 ]
+  %72 = trunc nuw nsw i64 %indvars.iv67 to i32
   %73 = uitofp nneg i32 %72 to double
   %74 = fmul reassoc nsz arcp double %73, 0x400921FB54442D18
   %75 = fmul reassoc nsz arcp double %74, %69
   %76 = fptrunc reassoc nsz arcp double %75 to float
   %77 = tail call reassoc nsz arcp float @cosf(float noundef %76) #6, !tbaa !12
   %78 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %77, float -5.000000e-01, float 5.000000e-01)
-  %79 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv62
+  %79 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv67
   store float %78, ptr %79, align 4, !tbaa !3
-  %80 = trunc i64 %indvars.iv62 to i32
+  %80 = trunc i64 %indvars.iv67 to i32
   %81 = add i32 %62, %80
   %82 = sitofp i32 %81 to double
   %83 = fmul reassoc nsz arcp double %82, 0x400921FB54442D18
@@ -850,11 +856,11 @@ FLAC__window_rectangle.exit43:                    ; preds = %.lr.ph.i39, %57
   %85 = fptrunc reassoc nsz arcp double %84 to float
   %86 = tail call reassoc nsz arcp float @cosf(float noundef %85) #6, !tbaa !12
   %87 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %86, float -5.000000e-01, float 5.000000e-01)
-  %gep74 = getelementptr float, ptr %invariant.gep73, i64 %indvars.iv62
-  store float %87, ptr %gep74, align 4, !tbaa !3
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %FLAC__window_rectangle.exit, label %71, !llvm.loop !29
+  %gep78 = getelementptr float, ptr %invariant.gep77, i64 %indvars.iv67
+  store float %87, ptr %gep78, align 4, !tbaa !3
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
+  br i1 %exitcond72.not, label %FLAC__window_rectangle.exit, label %71, !llvm.loop !29
 
 FLAC__window_rectangle.exit:                      ; preds = %.lr.ph.i, %15, %40, %71, %FLAC__window_rectangle.exit50, %10, %5, %FLAC__window_rectangle.exit43
   ret void
@@ -1547,6 +1553,9 @@ define hidden void @FLAC__window_welch(ptr noundef writeonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

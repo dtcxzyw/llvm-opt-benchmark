@@ -67,14 +67,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
-  %46 = icmp slt i32 %43, 0
-  %.0175 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
+  %46 = fcmp ugt float %42, -1.000000e+00
+  %.0175 = select i1 %46, i32 %43, i32 0
   %.not206 = icmp slt i32 %.0175, %27
   %.1176 = select i1 %.not206, i32 %.0175, i32 %28
   %47 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %.1176, ptr %47, align 4, !tbaa !4
   %48 = fmul fast float %45, 2.048000e+03
-  %49 = select i1 %46, float 0.000000e+00, float %48
+  %49 = select i1 %46, float %48, float 0.000000e+00
   %50 = select i1 %.not206, float %49, float 2.048000e+03
   %51 = fsub fast float 2.048000e+03, %50
   %52 = fcmp fast oge float %51, 0.000000e+00
@@ -126,14 +126,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %77 = fptosi float %76 to i32
   %78 = sitofp i32 %77 to float
   %79 = fsub fast float %75, %78
-  %80 = icmp slt i32 %77, 0
-  %.0177 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %80 = fcmp ugt float %76, -1.000000e+00
+  %.0177 = select i1 %80, i32 %77, i32 0
   %.not = icmp slt i32 %.0177, %31
   %.1178 = select i1 %.not, i32 %.0177, i32 %32
   %81 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv335
   store i32 %.1178, ptr %81, align 4, !tbaa !4
   %82 = fmul fast float %79, 2.048000e+03
-  %83 = select i1 %80, float 0.000000e+00, float %82
+  %83 = select i1 %80, float %82, float 0.000000e+00
   %84 = select i1 %.not, float %83, float 2.048000e+03
   %85 = fsub fast float 2.048000e+03, %84
   %86 = fcmp fast oge float %85, 0.000000e+00
@@ -774,15 +774,15 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
-  %46 = icmp slt i32 %43, 0
-  %.0190 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
+  %46 = fcmp ugt float %42, -1.000000e+00
+  %.0190 = select i1 %46, i32 %43, i32 0
   %.not224 = icmp slt i32 %.0190, %27
   %.1191 = select i1 %.not224, i32 %.0190, i32 %28
   %47 = shl nsw i32 %.1191, 1
   %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !4
   %49 = fmul fast float %45, 2.048000e+03
-  %50 = select i1 %46, float 0.000000e+00, float %49
+  %50 = select i1 %46, float %49, float 0.000000e+00
   %51 = select i1 %.not224, float %50, float 2.048000e+03
   %52 = fsub fast float 2.048000e+03, %51
   %53 = fcmp fast oge float %52, 0.000000e+00
@@ -836,14 +836,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %80 = fptosi float %79 to i32
   %81 = sitofp i32 %80 to float
   %82 = fsub fast float %78, %81
-  %83 = icmp slt i32 %80, 0
-  %.0192 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
+  %83 = fcmp ugt float %79, -1.000000e+00
+  %.0192 = select i1 %83, i32 %80, i32 0
   %.not = icmp slt i32 %.0192, %31
   %.1193 = select i1 %.not, i32 %.0192, i32 %32
   %84 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv356
   store i32 %.1193, ptr %84, align 4, !tbaa !4
   %85 = fmul fast float %82, 2.048000e+03
-  %86 = select i1 %83, float 0.000000e+00, float %85
+  %86 = select i1 %83, float %85, float 0.000000e+00
   %87 = select i1 %.not, float %86, float 2.048000e+03
   %88 = fsub fast float 2.048000e+03, %87
   %89 = fcmp fast oge float %88, 0.000000e+00
@@ -1526,15 +1526,15 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
-  %46 = icmp slt i32 %43, 0
-  %.0205 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
+  %46 = fcmp ugt float %42, -1.000000e+00
+  %.0205 = select i1 %46, i32 %43, i32 0
   %.not239 = icmp slt i32 %.0205, %27
   %.1206 = select i1 %.not239, i32 %.0205, i32 %28
   %47 = mul nsw i32 %.1206, 3
   %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !4
   %49 = fmul fast float %45, 2.048000e+03
-  %50 = select i1 %46, float 0.000000e+00, float %49
+  %50 = select i1 %46, float %49, float 0.000000e+00
   %51 = select i1 %.not239, float %50, float 2.048000e+03
   %52 = fsub fast float 2.048000e+03, %51
   %53 = fcmp fast oge float %52, 0.000000e+00
@@ -1588,14 +1588,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %80 = fptosi float %79 to i32
   %81 = sitofp i32 %80 to float
   %82 = fsub fast float %78, %81
-  %83 = icmp slt i32 %80, 0
-  %.0207 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
+  %83 = fcmp ugt float %79, -1.000000e+00
+  %.0207 = select i1 %83, i32 %80, i32 0
   %.not = icmp slt i32 %.0207, %31
   %.1208 = select i1 %.not, i32 %.0207, i32 %32
   %84 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv371
   store i32 %.1208, ptr %84, align 4, !tbaa !4
   %85 = fmul fast float %82, 2.048000e+03
-  %86 = select i1 %83, float 0.000000e+00, float %85
+  %86 = select i1 %83, float %85, float 0.000000e+00
   %87 = select i1 %.not, float %86, float 2.048000e+03
   %88 = fsub fast float 2.048000e+03, %87
   %89 = fcmp fast oge float %88, 0.000000e+00
@@ -2317,15 +2317,15 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %43 = fptosi float %42 to i32
   %44 = sitofp i32 %43 to float
   %45 = fsub fast float %41, %44
-  %46 = icmp slt i32 %43, 0
-  %.0220 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
+  %46 = fcmp ugt float %42, -1.000000e+00
+  %.0220 = select i1 %46, i32 %43, i32 0
   %.not254 = icmp slt i32 %.0220, %27
   %.1221 = select i1 %.not254, i32 %.0220, i32 %28
   %47 = shl nsw i32 %.1221, 2
   %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !4
   %49 = fmul fast float %45, 2.048000e+03
-  %50 = select i1 %46, float 0.000000e+00, float %49
+  %50 = select i1 %46, float %49, float 0.000000e+00
   %51 = select i1 %.not254, float %50, float 2.048000e+03
   %52 = fsub fast float 2.048000e+03, %51
   %53 = fcmp fast oge float %52, 0.000000e+00
@@ -2378,14 +2378,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %79 = fptosi float %78 to i32
   %80 = sitofp i32 %79 to float
   %81 = fsub fast float %77, %80
-  %82 = icmp slt i32 %79, 0
-  %.0222 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
+  %82 = fcmp ugt float %78, -1.000000e+00
+  %.0222 = select i1 %82, i32 %79, i32 0
   %.not = icmp slt i32 %.0222, %31
   %.1223 = select i1 %.not, i32 %.0222, i32 %32
   %83 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv386
   store i32 %.1223, ptr %83, align 4, !tbaa !4
   %84 = fmul fast float %81, 2.048000e+03
-  %85 = select i1 %82, float 0.000000e+00, float %84
+  %85 = select i1 %82, float %84, float 0.000000e+00
   %86 = select i1 %.not, float %85, float 2.048000e+03
   %87 = fsub fast float 2.048000e+03, %86
   %88 = fcmp fast oge float %87, 0.000000e+00
@@ -3142,9 +3142,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fptosi.sat.i16.f32(float) #11
