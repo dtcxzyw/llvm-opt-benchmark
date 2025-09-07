@@ -3384,7 +3384,7 @@ LAME_srand.exit:                                  ; preds = %LAME_fpusht.exit.i
   br i1 %24, label %LAME_getnext.exit.us, label %LAME_getnext.exit
 
 LAME_getnext.exit.us:                             ; preds = %.lr.ph, %LAME_getnext.exit.us
-  %.013.us = phi ptr [ %57, %LAME_getnext.exit.us ], [ %0, %.lr.ph ]
+  %.013.us = phi ptr [ %56, %LAME_getnext.exit.us ], [ %0, %.lr.ph ]
   %.0212.us = phi i32 [ %26, %LAME_getnext.exit.us ], [ %1, %.lr.ph ]
   %spec.select.i5.i811.us = phi i32 [ %spec.select.i5.i.us, %LAME_getnext.exit.us ], [ 8, %.lr.ph ]
   %25 = phi i32 [ %storemerge28.i7.i.us, %LAME_getnext.exit.us ], [ 1, %.lr.ph ]
@@ -3431,74 +3431,72 @@ LAME_getnext.exit.us:                             ; preds = %.lr.ph, %LAME_getne
   %.sroa.0.0.i13.i.us = bitcast i64 %.sroa.0.4.insert.insert.i16.i.us to double
   %52 = fadd double %.sroa.0.0.i13.i.us, -1.000000e+00
   %53 = fmul double %52, 2.560000e+02
-  %54 = fptosi double %53 to i32
-  %55 = icmp slt i32 %54, 256
-  %56 = fptoui double %53 to i8
-  %.0.i.us = select i1 %55, i8 %56, i8 -1
-  %57 = getelementptr inbounds nuw i8, ptr %.013.us, i64 1
-  %58 = load i8, ptr %.013.us, align 1, !tbaa !46
-  %59 = xor i8 %.0.i.us, %58
-  store i8 %59, ptr %.013.us, align 1, !tbaa !46
+  %54 = fcmp olt double %53, 2.560000e+02
+  %55 = fptoui double %53 to i8
+  %.0.i.us = select i1 %54, i8 %55, i8 -1
+  %56 = getelementptr inbounds nuw i8, ptr %.013.us, i64 1
+  %57 = load i8, ptr %.013.us, align 1, !tbaa !46
+  %58 = xor i8 %.0.i.us, %57
+  store i8 %58, ptr %.013.us, align 1, !tbaa !46
   %.not.us = icmp eq i32 %26, 0
   br i1 %.not.us, label %._crit_edge, label %LAME_getnext.exit.us
 
 LAME_getnext.exit:                                ; preds = %.lr.ph, %LAME_getnext.exit
-  %.013 = phi ptr [ %92, %LAME_getnext.exit ], [ %0, %.lr.ph ]
-  %.0212 = phi i32 [ %61, %LAME_getnext.exit ], [ %1, %.lr.ph ]
+  %.013 = phi ptr [ %90, %LAME_getnext.exit ], [ %0, %.lr.ph ]
+  %.0212 = phi i32 [ %60, %LAME_getnext.exit ], [ %1, %.lr.ph ]
   %spec.select.i5.i811 = phi i32 [ %spec.select.i5.i, %LAME_getnext.exit ], [ 8, %.lr.ph ]
-  %60 = phi i32 [ %storemerge28.i7.i, %LAME_getnext.exit ], [ 1, %.lr.ph ]
-  %61 = add i32 %.0212, -1
-  %62 = zext i32 %spec.select.i5.i811 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %6, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !49
-  %65 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 9)
-  %66 = zext i32 %60 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !49
-  %69 = tail call i32 @llvm.fshl.i32(i32 %68, i32 %68, i32 13)
-  %70 = add i32 %69, %65
-  store i32 %70, ptr %63, align 4, !tbaa !49
-  %71 = add i32 %spec.select.i5.i811, -1
+  %59 = phi i32 [ %storemerge28.i7.i, %LAME_getnext.exit ], [ 1, %.lr.ph ]
+  %60 = add i32 %.0212, -1
+  %61 = zext i32 %spec.select.i5.i811 to i64
+  %62 = getelementptr inbounds nuw i32, ptr %6, i64 %61
+  %63 = load i32, ptr %62, align 4, !tbaa !49
+  %64 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 9)
+  %65 = zext i32 %59 to i64
+  %66 = getelementptr inbounds nuw i32, ptr %6, i64 %65
+  %67 = load i32, ptr %66, align 4, !tbaa !49
+  %68 = tail call i32 @llvm.fshl.i32(i32 %67, i32 %67, i32 13)
+  %69 = add i32 %68, %64
+  store i32 %69, ptr %62, align 4, !tbaa !49
+  %70 = add i32 %spec.select.i5.i811, -1
   %.not.i.i4 = icmp eq i32 %spec.select.i5.i811, 0
-  %spec.select.i.i5 = select i1 %.not.i.i4, i32 16, i32 %71
-  %72 = add i32 %60, -1
-  %.not27.i.i6 = icmp eq i32 %60, 0
-  %storemerge28.i.i7 = select i1 %.not27.i.i6, i32 16, i32 %72
-  %73 = zext i32 %spec.select.i.i5 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %6, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !49
-  %76 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 9)
-  %77 = zext i32 %storemerge28.i.i7 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %6, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !49
-  %80 = tail call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 13)
-  %81 = add i32 %80, %76
-  store i32 %81, ptr %74, align 4, !tbaa !49
-  %82 = add i32 %spec.select.i.i5, -1
+  %spec.select.i.i5 = select i1 %.not.i.i4, i32 16, i32 %70
+  %71 = add i32 %59, -1
+  %.not27.i.i6 = icmp eq i32 %59, 0
+  %storemerge28.i.i7 = select i1 %.not27.i.i6, i32 16, i32 %71
+  %72 = zext i32 %spec.select.i.i5 to i64
+  %73 = getelementptr inbounds nuw i32, ptr %6, i64 %72
+  %74 = load i32, ptr %73, align 4, !tbaa !49
+  %75 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 9)
+  %76 = zext i32 %storemerge28.i.i7 to i64
+  %77 = getelementptr inbounds nuw i32, ptr %6, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !49
+  %79 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 13)
+  %80 = add i32 %79, %75
+  store i32 %80, ptr %73, align 4, !tbaa !49
+  %81 = add i32 %spec.select.i.i5, -1
   %.not.i4.i = icmp eq i32 %spec.select.i.i5, 0
-  %spec.select.i5.i = select i1 %.not.i4.i, i32 16, i32 %82
-  %83 = add i32 %storemerge28.i.i7, -1
+  %spec.select.i5.i = select i1 %.not.i4.i, i32 16, i32 %81
+  %82 = add i32 %storemerge28.i.i7, -1
   %.not27.i6.i = icmp eq i32 %storemerge28.i.i7, 0
-  %storemerge28.i7.i = select i1 %.not27.i6.i, i32 16, i32 %83
-  %84 = shl i32 %81, 20
-  %.sroa.0.0.insert.ext.i8.i = zext i32 %84 to i64
+  %storemerge28.i7.i = select i1 %.not27.i6.i, i32 16, i32 %82
+  %83 = shl i32 %80, 20
+  %.sroa.0.0.insert.ext.i8.i = zext i32 %83 to i64
   %.sroa.0.4.insert.shift11.i9.i = shl nuw i64 %.sroa.0.0.insert.ext.i8.i, 32
-  %85 = lshr i32 %81, 12
-  %86 = or disjoint i32 %85, 1072693248
-  %.sroa.0.0.insert.ext6.i10.i = zext nneg i32 %86 to i64
+  %84 = lshr i32 %80, 12
+  %85 = or disjoint i32 %84, 1072693248
+  %.sroa.0.0.insert.ext6.i10.i = zext nneg i32 %85 to i64
   %.sroa.0.0.insert.insert8.i11.i = or disjoint i64 %.sroa.0.4.insert.shift11.i9.i, %.sroa.0.0.insert.ext6.i10.i
   %.sroa.0.0.i13.i = bitcast i64 %.sroa.0.0.insert.insert8.i11.i to double
-  %87 = fadd double %.sroa.0.0.i13.i, -1.000000e+00
-  %88 = fmul double %87, 2.560000e+02
-  %89 = fptosi double %88 to i32
-  %90 = icmp slt i32 %89, 256
-  %91 = fptoui double %88 to i8
-  %.0.i = select i1 %90, i8 %91, i8 -1
-  %92 = getelementptr inbounds nuw i8, ptr %.013, i64 1
-  %93 = load i8, ptr %.013, align 1, !tbaa !46
-  %94 = xor i8 %.0.i, %93
-  store i8 %94, ptr %.013, align 1, !tbaa !46
-  %.not = icmp eq i32 %61, 0
+  %86 = fadd double %.sroa.0.0.i13.i, -1.000000e+00
+  %87 = fmul double %86, 2.560000e+02
+  %88 = fcmp olt double %87, 2.560000e+02
+  %89 = fptoui double %87 to i8
+  %.0.i = select i1 %88, i8 %89, i8 -1
+  %90 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %91 = load i8, ptr %.013, align 1, !tbaa !46
+  %92 = xor i8 %.0.i, %91
+  store i8 %92, ptr %.013, align 1, !tbaa !46
+  %.not = icmp eq i32 %60, 0
   br i1 %.not, label %._crit_edge, label %LAME_getnext.exit
 
 ._crit_edge:                                      ; preds = %LAME_getnext.exit, %LAME_getnext.exit.us, %LAME_srand.exit

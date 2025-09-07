@@ -1996,7 +1996,7 @@ define void @_ZN6open3d13visualization30ViewControlWithCustomAnimation14DeleteKe
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %98
+  br i1 %4, label %5, label %97
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -2004,7 +2004,7 @@ define void @_ZN6open3d13visualization30ViewControlWithCustomAnimation14DeleteKe
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %9 = load ptr, ptr %8, align 16, !tbaa !53
   %10 = icmp eq ptr %7, %9
-  br i1 %10, label %98, label %11
+  br i1 %10, label %97, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -2106,62 +2106,61 @@ _ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE5eraseEN9__gnu_cxx1
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %75 = load i8, ptr %74, align 16, !tbaa !93, !range !94, !noundef !95
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %.preheader19.i, label %92
+  br i1 %76, label %.preheader19.i, label %91
 
 .preheader19.i:                                   ; preds = %73
   %77 = tail call double @llvm.round.f64(double %65)
-  %78 = fptosi double %77 to i32
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %78 = fcmp ugt double %77, -1.000000e+00
+  br i1 %78, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader19.i
-  %80 = uitofp i64 %71 to double
+  %79 = uitofp i64 %71 to double
   br label %83
 
 .preheader.i:                                     ; preds = %83, %.preheader19.i
-  %.pre-phi26.i = phi i32 [ %78, %.preheader19.i ], [ %86, %83 ]
+  %.pre-phi.i = phi double [ %77, %.preheader19.i ], [ %85, %83 ]
   %.0.lcssa.i = phi double [ %65, %.preheader19.i ], [ %84, %83 ]
-  %81 = trunc i64 %71 to i32
-  %.not21.i = icmp slt i32 %.pre-phi26.i, %81
+  %80 = trunc i64 %71 to i32
+  %81 = fptosi double %.pre-phi.i to i32
+  %.not21.i = icmp slt i32 %81, %80
   br i1 %.not21.i, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %.preheader.i
   %82 = uitofp i64 %71 to double
-  br label %88
+  br label %87
 
 83:                                               ; preds = %83, %.lr.ph.i
   %.020.i = phi double [ %65, %.lr.ph.i ], [ %84, %83 ]
-  %84 = fadd double %.020.i, %80
+  %84 = fadd double %.020.i, %79
   %85 = tail call double @llvm.round.f64(double %84)
-  %86 = fptosi double %85 to i32
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %83, label %.preheader.i, !llvm.loop !96
+  %86 = fcmp ugt double %85, -1.000000e+00
+  br i1 %86, label %.preheader.i, label %83, !llvm.loop !96
 
-88:                                               ; preds = %88, %.lr.ph23.i
-  %.122.i = phi double [ %.0.lcssa.i, %.lr.ph23.i ], [ %89, %88 ]
-  %89 = fsub double %.122.i, %82
-  %90 = tail call double @llvm.round.f64(double %89)
-  %91 = fptosi double %90 to i32
-  %.not.i = icmp slt i32 %91, %81
-  br i1 %.not.i, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, label %88, !llvm.loop !97
+87:                                               ; preds = %87, %.lr.ph23.i
+  %.122.i = phi double [ %.0.lcssa.i, %.lr.ph23.i ], [ %88, %87 ]
+  %88 = fsub double %.122.i, %82
+  %89 = tail call double @llvm.round.f64(double %88)
+  %90 = fptosi double %89 to i32
+  %.not.i = icmp slt i32 %90, %80
+  br i1 %.not.i, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, label %87, !llvm.loop !97
 
-92:                                               ; preds = %73
-  %93 = fcmp olt double %65, 0.000000e+00
-  %.3.i = select i1 %93, double 0.000000e+00, double %65
-  %94 = uitofp i64 %71 to double
-  %95 = fadd double %94, -1.000000e+00
-  %96 = fcmp ogt double %.3.i, %95
-  br i1 %96, label %97, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
+91:                                               ; preds = %73
+  %92 = fcmp olt double %65, 0.000000e+00
+  %.3.i = select i1 %92, double 0.000000e+00, double %65
+  %93 = uitofp i64 %71 to double
+  %94 = fadd double %93, -1.000000e+00
+  %95 = fcmp ogt double %.3.i, %94
+  br i1 %95, label %96, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
 
-97:                                               ; preds = %92
+96:                                               ; preds = %91
   br label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
 
-_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit: ; preds = %88, %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %.preheader.i, %92, %97
-  %.015.i = phi double [ 0.000000e+00, %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ], [ %95, %97 ], [ %.3.i, %92 ], [ %.0.lcssa.i, %.preheader.i ], [ %89, %88 ]
+_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit: ; preds = %87, %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %.preheader.i, %91, %96
+  %.015.i = phi double [ 0.000000e+00, %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ], [ %94, %96 ], [ %.3.i, %91 ], [ %.0.lcssa.i, %.preheader.i ], [ %88, %87 ]
   store double %.015.i, ptr %12, align 8, !tbaa !83
-  br label %98
+  br label %97
 
-98:                                               ; preds = %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, %5, %1
+97:                                               ; preds = %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, %5, %1
   tail call void @_ZN6open3d13visualization30ViewControlWithCustomAnimation28SetViewControlFromTrajectoryEv(ptr noundef nonnull align 16 dereferenceable(816) %0)
   ret void
 }
@@ -2172,58 +2171,57 @@ define noundef double @_ZN6open3d13visualization30ViewControlWithCustomAnimation
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  br i1 %3, label %.preheader19, label %22
+  br i1 %3, label %.preheader19, label %21
 
 .preheader19:                                     ; preds = %6
   %7 = tail call double @llvm.round.f64(double %1)
-  %8 = fptosi double %7 to i32
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %.lr.ph, label %.preheader
+  %8 = fcmp ugt double %7, -1.000000e+00
+  br i1 %8, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader19
-  %10 = uitofp i64 %2 to double
+  %9 = uitofp i64 %2 to double
   br label %13
 
 .preheader:                                       ; preds = %13, %.preheader19
-  %.pre-phi26 = phi i32 [ %8, %.preheader19 ], [ %16, %13 ]
+  %.pre-phi = phi double [ %7, %.preheader19 ], [ %15, %13 ]
   %.0.lcssa = phi double [ %1, %.preheader19 ], [ %14, %13 ]
-  %11 = trunc i64 %2 to i32
-  %.not21 = icmp slt i32 %.pre-phi26, %11
+  %10 = trunc i64 %2 to i32
+  %11 = fptosi double %.pre-phi to i32
+  %.not21 = icmp slt i32 %11, %10
   br i1 %.not21, label %.loopexit, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.preheader
   %12 = uitofp i64 %2 to double
-  br label %18
+  br label %17
 
 13:                                               ; preds = %.lr.ph, %13
   %.020 = phi double [ %1, %.lr.ph ], [ %14, %13 ]
-  %14 = fadd double %.020, %10
+  %14 = fadd double %.020, %9
   %15 = tail call double @llvm.round.f64(double %14)
-  %16 = fptosi double %15 to i32
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %13, label %.preheader, !llvm.loop !96
+  %16 = fcmp ugt double %15, -1.000000e+00
+  br i1 %16, label %.preheader, label %13, !llvm.loop !96
 
-18:                                               ; preds = %.lr.ph23, %18
-  %.122 = phi double [ %.0.lcssa, %.lr.ph23 ], [ %19, %18 ]
-  %19 = fsub double %.122, %12
-  %20 = tail call double @llvm.round.f64(double %19)
-  %21 = fptosi double %20 to i32
-  %.not = icmp slt i32 %21, %11
-  br i1 %.not, label %.loopexit, label %18, !llvm.loop !97
+17:                                               ; preds = %.lr.ph23, %17
+  %.122 = phi double [ %.0.lcssa, %.lr.ph23 ], [ %18, %17 ]
+  %18 = fsub double %.122, %12
+  %19 = tail call double @llvm.round.f64(double %18)
+  %20 = fptosi double %19 to i32
+  %.not = icmp slt i32 %20, %10
+  br i1 %.not, label %.loopexit, label %17, !llvm.loop !97
 
-22:                                               ; preds = %6
-  %23 = fcmp olt double %1, 0.000000e+00
-  %.3 = select i1 %23, double 0.000000e+00, double %1
-  %24 = uitofp i64 %2 to double
-  %25 = fadd double %24, -1.000000e+00
-  %26 = fcmp ogt double %.3, %25
-  br i1 %26, label %27, label %.loopexit
+21:                                               ; preds = %6
+  %22 = fcmp olt double %1, 0.000000e+00
+  %.3 = select i1 %22, double 0.000000e+00, double %1
+  %23 = uitofp i64 %2 to double
+  %24 = fadd double %23, -1.000000e+00
+  %25 = fcmp ogt double %.3, %24
+  br i1 %25, label %26, label %.loopexit
 
-27:                                               ; preds = %22
+26:                                               ; preds = %21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %.preheader, %27, %22, %4
-  %.015 = phi double [ 0.000000e+00, %4 ], [ %25, %27 ], [ %.3, %22 ], [ %.0.lcssa, %.preheader ], [ %19, %18 ]
+.loopexit:                                        ; preds = %17, %.preheader, %26, %21, %4
+  %.015 = phi double [ 0.000000e+00, %4 ], [ %24, %26 ], [ %.3, %21 ], [ %.0.lcssa, %.preheader ], [ %18, %17 ]
   ret double %.015
 }
 
@@ -32605,13 +32603,13 @@ define void @_ZN6open3d13visualization30ViewControlWithCustomAnimation4StepEd(pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %6 = load ptr, ptr %5, align 16, !tbaa !53
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %86, label %8
+  br i1 %7, label %84, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %10 = load i32, ptr %9, align 8, !tbaa !26
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %43
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -32624,148 +32622,146 @@ define void @_ZN6open3d13visualization30ViewControlWithCustomAnimation4StepEd(pt
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %21 = load i8, ptr %20, align 16, !tbaa !93, !range !94, !noundef !95
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %.preheader19.i, label %38
+  br i1 %22, label %.preheader19.i, label %37
 
 .preheader19.i:                                   ; preds = %12
   %23 = tail call double @llvm.round.f64(double %15)
-  %24 = fptosi double %23 to i32
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.lr.ph.i, label %.preheader.i
+  %24 = fcmp ugt double %23, -1.000000e+00
+  br i1 %24, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader19.i
-  %26 = uitofp i64 %19 to double
+  %25 = uitofp i64 %19 to double
   br label %29
 
 .preheader.i:                                     ; preds = %29, %.preheader19.i
-  %.pre-phi26.i = phi i32 [ %24, %.preheader19.i ], [ %32, %29 ]
+  %.pre-phi.i = phi double [ %23, %.preheader19.i ], [ %31, %29 ]
   %.0.lcssa.i = phi double [ %15, %.preheader19.i ], [ %30, %29 ]
-  %27 = trunc i64 %19 to i32
-  %.not21.i = icmp slt i32 %.pre-phi26.i, %27
+  %26 = trunc i64 %19 to i32
+  %27 = fptosi double %.pre-phi.i to i32
+  %.not21.i = icmp slt i32 %27, %26
   br i1 %.not21.i, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %.preheader.i
   %28 = uitofp i64 %19 to double
-  br label %34
+  br label %33
 
 29:                                               ; preds = %29, %.lr.ph.i
   %.020.i = phi double [ %15, %.lr.ph.i ], [ %30, %29 ]
-  %30 = fadd double %.020.i, %26
+  %30 = fadd double %.020.i, %25
   %31 = tail call double @llvm.round.f64(double %30)
-  %32 = fptosi double %31 to i32
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %29, label %.preheader.i, !llvm.loop !96
+  %32 = fcmp ugt double %31, -1.000000e+00
+  br i1 %32, label %.preheader.i, label %29, !llvm.loop !96
 
-34:                                               ; preds = %34, %.lr.ph23.i
-  %.122.i = phi double [ %.0.lcssa.i, %.lr.ph23.i ], [ %35, %34 ]
-  %35 = fsub double %.122.i, %28
-  %36 = tail call double @llvm.round.f64(double %35)
-  %37 = fptosi double %36 to i32
-  %.not.i = icmp slt i32 %37, %27
-  br i1 %.not.i, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, label %34, !llvm.loop !97
+33:                                               ; preds = %33, %.lr.ph23.i
+  %.122.i = phi double [ %.0.lcssa.i, %.lr.ph23.i ], [ %34, %33 ]
+  %34 = fsub double %.122.i, %28
+  %35 = tail call double @llvm.round.f64(double %34)
+  %36 = fptosi double %35 to i32
+  %.not.i = icmp slt i32 %36, %26
+  br i1 %.not.i, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit, label %33, !llvm.loop !97
 
-38:                                               ; preds = %12
-  %39 = fcmp olt double %15, 0.000000e+00
-  %.3.i = select i1 %39, double 0.000000e+00, double %15
-  %40 = uitofp i64 %19 to double
-  %41 = fadd double %40, -1.000000e+00
-  %42 = fcmp ogt double %.3.i, %41
-  br i1 %42, label %43, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
+37:                                               ; preds = %12
+  %38 = fcmp olt double %15, 0.000000e+00
+  %.3.i = select i1 %38, double 0.000000e+00, double %15
+  %39 = uitofp i64 %19 to double
+  %40 = fadd double %39, -1.000000e+00
+  %41 = fcmp ogt double %.3.i, %40
+  br i1 %41, label %42, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
 
-43:                                               ; preds = %38
+42:                                               ; preds = %37
   br label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
 
-_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit: ; preds = %34, %.preheader.i, %38, %43
-  %.015.i = phi double [ %41, %43 ], [ %.3.i, %38 ], [ %.0.lcssa.i, %.preheader.i ], [ %35, %34 ]
+_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit: ; preds = %33, %.preheader.i, %37, %42
+  %.015.i = phi double [ %40, %42 ], [ %.3.i, %37 ], [ %.0.lcssa.i, %.preheader.i ], [ %34, %33 ]
   store double %.015.i, ptr %13, align 8, !tbaa !83
-  br label %85
+  br label %83
 
-44:                                               ; preds = %8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %46 = load double, ptr %45, align 16, !tbaa !84
-  %47 = fadd double %1, %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %49 = load i8, ptr %48, align 16, !tbaa !107, !range !94, !noundef !95
-  %50 = trunc nuw i8 %49 to i1
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 772
-  %52 = load i32, ptr %51, align 4, !tbaa !108
-  %53 = add nsw i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = ptrtoint ptr %6 to i64
-  %56 = ptrtoint ptr %4 to i64
-  %57 = sub i64 %55, %56
-  %58 = sdiv exact i64 %57, 144
-  br i1 %50, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
+43:                                               ; preds = %8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %45 = load double, ptr %44, align 16, !tbaa !84
+  %46 = fadd double %1, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %48 = load i8, ptr %47, align 16, !tbaa !107, !range !94, !noundef !95
+  %49 = trunc nuw i8 %48 to i1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 772
+  %51 = load i32, ptr %50, align 4, !tbaa !108
+  %52 = add nsw i32 %51, 1
+  %53 = sext i32 %52 to i64
+  %54 = ptrtoint ptr %6 to i64
+  %55 = ptrtoint ptr %4 to i64
+  %56 = sub i64 %54, %55
+  %57 = sdiv exact i64 %56, 144
+  br i1 %49, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
 
-_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit: ; preds = %44
-  %59 = mul i64 %58, %54
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %.preheader19.i5
+_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit: ; preds = %43
+  %58 = mul i64 %57, %53
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %.preheader19.i5
 
-_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread: ; preds = %44
-  %61 = add nsw i64 %58, -1
-  %62 = mul i64 %61, %54
-  %63 = add i64 %62, 1
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %.thread
+_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread: ; preds = %43
+  %60 = add nsw i64 %57, -1
+  %61 = mul i64 %60, %53
+  %62 = add i64 %61, 1
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %.thread
 
 .preheader19.i5:                                  ; preds = %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
-  %65 = tail call double @llvm.round.f64(double %47)
-  %66 = fptosi double %65 to i32
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.lr.ph.i13, label %.preheader.i6
+  %64 = tail call double @llvm.round.f64(double %46)
+  %65 = fcmp ugt double %64, -1.000000e+00
+  br i1 %65, label %.preheader.i8, label %.lr.ph.i6
 
-.lr.ph.i13:                                       ; preds = %.preheader19.i5
-  %68 = uitofp i64 %59 to double
-  br label %71
+.lr.ph.i6:                                        ; preds = %.preheader19.i5
+  %66 = uitofp i64 %58 to double
+  br label %70
 
-.preheader.i6:                                    ; preds = %71, %.preheader19.i5
-  %.pre-phi26.i7 = phi i32 [ %66, %.preheader19.i5 ], [ %74, %71 ]
-  %.0.lcssa.i8 = phi double [ %47, %.preheader19.i5 ], [ %72, %71 ]
-  %69 = trunc i64 %59 to i32
-  %.not21.i9 = icmp slt i32 %.pre-phi26.i7, %69
-  br i1 %.not21.i9, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %.lr.ph23.i10
+.preheader.i8:                                    ; preds = %70, %.preheader19.i5
+  %.pre-phi.i9 = phi double [ %64, %.preheader19.i5 ], [ %72, %70 ]
+  %.0.lcssa.i10 = phi double [ %46, %.preheader19.i5 ], [ %71, %70 ]
+  %67 = trunc i64 %58 to i32
+  %68 = fptosi double %.pre-phi.i9 to i32
+  %.not21.i11 = icmp slt i32 %68, %67
+  br i1 %.not21.i11, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %.lr.ph23.i12
 
-.lr.ph23.i10:                                     ; preds = %.preheader.i6
-  %70 = uitofp i64 %59 to double
-  br label %76
+.lr.ph23.i12:                                     ; preds = %.preheader.i8
+  %69 = uitofp i64 %58 to double
+  br label %74
 
-71:                                               ; preds = %71, %.lr.ph.i13
-  %.020.i14 = phi double [ %47, %.lr.ph.i13 ], [ %72, %71 ]
-  %72 = fadd double %.020.i14, %68
-  %73 = tail call double @llvm.round.f64(double %72)
-  %74 = fptosi double %73 to i32
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %71, label %.preheader.i6, !llvm.loop !96
+70:                                               ; preds = %70, %.lr.ph.i6
+  %.020.i7 = phi double [ %46, %.lr.ph.i6 ], [ %71, %70 ]
+  %71 = fadd double %.020.i7, %66
+  %72 = tail call double @llvm.round.f64(double %71)
+  %73 = fcmp ugt double %72, -1.000000e+00
+  br i1 %73, label %.preheader.i8, label %70, !llvm.loop !96
 
-76:                                               ; preds = %76, %.lr.ph23.i10
-  %.122.i11 = phi double [ %.0.lcssa.i8, %.lr.ph23.i10 ], [ %77, %76 ]
-  %77 = fsub double %.122.i11, %70
-  %78 = tail call double @llvm.round.f64(double %77)
-  %79 = fptosi double %78 to i32
-  %.not.i12 = icmp slt i32 %79, %69
-  br i1 %.not.i12, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %76, !llvm.loop !97
+74:                                               ; preds = %74, %.lr.ph23.i12
+  %.122.i13 = phi double [ %.0.lcssa.i10, %.lr.ph23.i12 ], [ %75, %74 ]
+  %75 = fsub double %.122.i13, %69
+  %76 = tail call double @llvm.round.f64(double %75)
+  %77 = fptosi double %76 to i32
+  %.not.i14 = icmp slt i32 %77, %67
+  br i1 %.not.i14, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, label %74, !llvm.loop !97
 
 .thread:                                          ; preds = %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
-  %80 = fcmp olt double %47, 0.000000e+00
-  %.3.i3 = select i1 %80, double 0.000000e+00, double %47
-  %81 = uitofp i64 %63 to double
-  %82 = fadd double %81, -1.000000e+00
-  %83 = fcmp ogt double %.3.i3, %82
-  br i1 %83, label %84, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15
+  %78 = fcmp olt double %46, 0.000000e+00
+  %.3.i3 = select i1 %78, double 0.000000e+00, double %46
+  %79 = uitofp i64 %62 to double
+  %80 = fadd double %79, -1.000000e+00
+  %81 = fcmp ogt double %.3.i3, %80
+  br i1 %81, label %82, label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15
 
-84:                                               ; preds = %.thread
+82:                                               ; preds = %.thread
   br label %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15
 
-_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15: ; preds = %76, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit, %.preheader.i6, %.thread, %84
-  %.015.i4 = phi double [ 0.000000e+00, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit ], [ %82, %84 ], [ %.3.i3, %.thread ], [ %.0.lcssa.i8, %.preheader.i6 ], [ 0.000000e+00, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread ], [ %77, %76 ]
-  store double %.015.i4, ptr %45, align 16, !tbaa !84
-  br label %85
+_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15: ; preds = %74, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit, %.preheader.i8, %.thread, %82
+  %.015.i4 = phi double [ 0.000000e+00, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit ], [ %80, %82 ], [ %.3.i3, %.thread ], [ %.0.lcssa.i10, %.preheader.i8 ], [ 0.000000e+00, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread ], [ %75, %74 ]
+  store double %.015.i4, ptr %44, align 16, !tbaa !84
+  br label %83
 
-85:                                               ; preds = %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
+83:                                               ; preds = %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit15, %_ZN6open3d13visualization30ViewControlWithCustomAnimation20RegularizeFrameIndexEdmb.exit
   tail call void @_ZN6open3d13visualization30ViewControlWithCustomAnimation28SetViewControlFromTrajectoryEv(ptr noundef nonnull align 16 dereferenceable(816) %0)
-  br label %86
+  br label %84
 
-86:                                               ; preds = %2, %85
+84:                                               ; preds = %2, %83
   ret void
 }
 

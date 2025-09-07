@@ -686,8 +686,7 @@ calc_persistent_max.exit.i:                       ; preds = %315, %._crit_edge.i
 
 calc_max_draw.exit283.i:                          ; preds = %335, %330
   %.09.in.i281.i = phi float [ %334, %330 ], [ %338, %335 ]
-  %.09.i282.i = fptosi float %.09.in.i281.i to i32
-  %339 = icmp slt i32 %.09.i282.i, 1
+  %339 = fcmp olt float %.09.in.i281.i, 1.000000e+00
   br i1 %339, label %360, label %340
 
 340:                                              ; preds = %calc_max_draw.exit283.i
@@ -984,8 +983,7 @@ calc_persistent_max.exit302.i:                    ; preds = %500, %._crit_edge.i
 
 calc_max_draw.exit308.i:                          ; preds = %520, %515
   %.09.in.i306.i = phi float [ %519, %515 ], [ %523, %520 ]
-  %.09.i307.i = fptosi float %.09.in.i306.i to i32
-  %524 = icmp slt i32 %.09.i307.i, 1
+  %524 = fcmp olt float %.09.in.i306.i, 1.000000e+00
   br i1 %524, label %545, label %525
 
 525:                                              ; preds = %calc_max_draw.exit308.i

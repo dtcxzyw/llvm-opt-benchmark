@@ -5966,8 +5966,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
   %sub.i.i51 = add i64 %add.i.i.i50, %div.i.i.i49
   %conv.i.i52 = uitofp i64 %sub.i.i51 to float
   %sub.i53 = fsub nsz float 1.600000e+01, %conv.i.i52
-  %conv.i54 = fptosi float %sub.i53 to i32
-  %cmp12 = icmp slt i32 %conv.i54, 1
+  %cmp12 = fcmp olt float %sub.i53, 1.000000e+00
   br i1 %cmp12, label %cleanup, label %if.end15
 
 lpad.loopexit:                                    ; preds = %if.end.i42
