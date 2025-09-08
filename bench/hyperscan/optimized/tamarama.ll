@@ -290,8 +290,8 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   %.not = icmp ne i32 %.0.i.i, %.042
   %103 = icmp ne i32 %.0.i.i, %43
   %or.cond = and i1 %103, %76
-  %or.cond45 = select i1 %.not, i1 %or.cond, i1 false
-  br i1 %or.cond45, label %104, label %125
+  %or.cond46 = select i1 %.not, i1 %or.cond, i1 false
+  br i1 %or.cond46, label %104, label %125
 
 104:                                              ; preds = %findEngineForTop.exit
   %105 = zext i32 %80 to i64
@@ -335,8 +335,8 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   store ptr %135, ptr %2, align 8
   %136 = load i32, ptr %0, align 32
   %137 = icmp ne i32 %.0.i.i, %136
-  %.not.i46 = icmp eq i32 %.0.i.i, %.042
-  %or.cond.i = and i1 %.not.i46, %137
+  %.not.i47 = icmp eq i32 %.0.i.i, %.042
+  %or.cond.i = and i1 %.not.i47, %137
   br i1 %or.cond.i, label %140, label %138
 
 138:                                              ; preds = %125

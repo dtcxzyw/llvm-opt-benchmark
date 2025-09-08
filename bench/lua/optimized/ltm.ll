@@ -824,15 +824,15 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
-  %50 = load ptr, ptr %2, align 8, !tbaa !31
+  %49 = load ptr, ptr %2, align 8, !tbaa !31
   %sext = shl i64 %10, 28
-  %51 = ashr i64 %sext, 32
-  %52 = getelementptr inbounds %union.StackValue, ptr %50, i64 %51
-  store ptr %52, ptr %2, align 8, !tbaa !31
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !31
-  %55 = getelementptr inbounds %union.StackValue, ptr %54, i64 %51
-  store ptr %55, ptr %53, align 8, !tbaa !31
+  %50 = ashr i64 %sext, 32
+  %51 = getelementptr inbounds %union.StackValue, ptr %49, i64 %50
+  store ptr %51, ptr %2, align 8, !tbaa !31
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !31
+  %54 = getelementptr inbounds %union.StackValue, ptr %53, i64 %50
+  store ptr %54, ptr %52, align 8, !tbaa !31
   ret void
 }
 

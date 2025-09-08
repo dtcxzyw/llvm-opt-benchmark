@@ -466,19 +466,19 @@ define hidden void @nghttp2_frame_origin_init(ptr noundef captures(none) %0, ptr
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.012.lcssa = phi i64 [ 0, %3 ], [ %8, %.lr.ph ]
   store i64 %.012.lcssa, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 12, ptr %10, align 4, !tbaa !9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 0, ptr %11, align 1, !tbaa !11
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !12
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 0, ptr %13, align 2, !tbaa !13
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !46
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %1, ptr %16, align 8, !tbaa !57
-  store i64 %2, ptr %15, align 8, !tbaa !59
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 12, ptr %9, align 4, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 0, ptr %10, align 1, !tbaa !11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %11, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 0, ptr %12, align 2, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %1, ptr %15, align 8, !tbaa !57
+  store i64 %2, ptr %14, align 8, !tbaa !59
   ret void
 }
 

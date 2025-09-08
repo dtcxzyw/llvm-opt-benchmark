@@ -84,7 +84,7 @@ define hidden void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143584), align 8, !tbaa !3
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %37, label %6
+  br i1 %5, label %38, label %6
 
 6:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -92,7 +92,7 @@ define hidden void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #0 {
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %35
+.lr.ph:                                           ; preds = %6, %36
   %.01216 = phi i64 [ %14, %35 ], [ 0, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = getelementptr inbounds i8, ptr %1, i64 %.01216
@@ -104,7 +104,7 @@ define hidden void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = call i32 @regexec(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 143592), ptr noundef nonnull %15, i64 noundef 1, ptr noundef nonnull %2, i32 noundef 0) #13
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %35
+  br i1 %.not, label %17, label %36
 
 17:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -147,18 +147,18 @@ define hidden void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %26, %31, %24, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %.lr.ph, %.loopexit
+36:                                               ; preds = %.lr.ph, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %36 = icmp sgt i64 %7, %14
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  %37 = icmp sgt i64 %7, %14
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %35, %6
+._crit_edge:                                      ; preds = %36, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %0, %._crit_edge
+38:                                               ; preds = %0, %._crit_edge
   ret void
 }
 

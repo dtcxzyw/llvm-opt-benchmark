@@ -65,11 +65,11 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
   br label %17
 
 ._crit_edge:                                      ; preds = %9, %4
-  %16 = tail call i32 %3(i32 noundef %0) #7
-  br label %17
+  %15 = tail call i32 %3(i32 noundef %0) #7
+  br label %16
 
-17:                                               ; preds = %11, %._crit_edge
-  %.1 = phi i32 [ %16, %._crit_edge ], [ %15, %11 ]
+16:                                               ; preds = %11, %._crit_edge
+  %.1 = phi i32 [ %15, %._crit_edge ], [ %15, %11 ]
   ret i32 %.1
 }
 

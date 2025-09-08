@@ -1156,7 +1156,7 @@ define dso_local ptr @stable_get(ptr noundef readonly captures(none) %0, ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %31, label %5
+  br i1 %.not, label %30, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1191,7 +1191,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %5
   %24 = phi ptr [ %16, %5 ], [ %22, %.lr.ph.i ]
   %25 = phi i64 [ %14, %5 ], [ %20, %.lr.ph.i ]
   %26 = icmp eq ptr %24, null
-  br i1 %26, label %31, label %27
+  br i1 %26, label %30, label %27
 
 27:                                               ; preds = %sentry_find.exit
   %28 = getelementptr inbounds nuw %struct.SEntry, ptr %4, i64 %25
@@ -1199,7 +1199,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %5
   %30 = load ptr, ptr %29, align 8
   br label %31
 
-31:                                               ; preds = %27, %sentry_find.exit, %2
+30:                                               ; preds = %27, %sentry_find.exit, %2
   %.0 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %sentry_find.exit ]
   ret ptr %.0
 }

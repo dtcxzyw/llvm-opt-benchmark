@@ -6471,28 +6471,28 @@ define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$$LT$alloc..collect
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$h2..hpack..header..Header$GT$17h702def35b4d65f5dE"(ptr noalias noundef align 8 dereferenceable(72) %6)
           to label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i" unwind label %8
 
-"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i": ; preds = %10, %8
+"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i": ; preds = %9, %7
   %.1.i.i = phi i64 [ %5, %8 ], [ %12, %10 ]
-  %7 = icmp eq i64 %.1.i.i, %.8.val
-  br i1 %7, label %14, label %10
+  %6 = icmp eq i64 %.1.i.i, %.8.val
+  br i1 %6, label %12, label %9
 
-8:                                                ; preds = %3
-  %9 = landingpad { ptr, i32 }
+7:                                                ; preds = %3
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i"
 
-10:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i"
+9:                                                ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i"
   %11 = getelementptr inbounds { { i64, [1 x i64] }, { [64 x i8], i8, [7 x i8] }, i64 }, ptr %.0.val, i64 %.1.i.i
   %12 = add i64 %.1.i.i, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$h2..hpack..header..Header$GT$17h702def35b4d65f5dE"(ptr noalias noundef align 8 dereferenceable(72) %13)
           to label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i" unwind label %15
 
-14:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i"
-  resume { ptr, i32 } %9
+12:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i"
+  resume { ptr, i32 } %8
 
-15:                                               ; preds = %10
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
@@ -32274,56 +32274,56 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$h2..hpack..header..Header$GT$17h702def35b4d65f5dE"(ptr noalias noundef align 8 dereferenceable(72) %28)
           to label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i" unwind label %30
 
-"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i": ; preds = %32, %30
+"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i": ; preds = %31, %29
   %.1.i = phi i64 [ %27, %30 ], [ %34, %32 ]
-  %29 = icmp eq i64 %.1.i, %23
-  br i1 %29, label %.body, label %32
+  %28 = icmp eq i64 %.1.i, %23
+  br i1 %28, label %.body, label %31
 
-30:                                               ; preds = %25
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %25
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i"
 
-32:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i"
+31:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i"
   %33 = getelementptr inbounds { { i64, [1 x i64] }, { [64 x i8], i8, [7 x i8] }, i64 }, ptr %22, i64 %.1.i
   %34 = add i64 %.1.i, 1
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$h2..hpack..header..Header$GT$17h702def35b4d65f5dE"(ptr noalias noundef align 8 dereferenceable(72) %35)
           to label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i" unwind label %36
 
-36:                                               ; preds = %32
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %31
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i"
   invoke fastcc void @"_ZN4core3ptr159drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$h2..hpack..table..Slot$GT$$GT$17hfd1554317e53df06E"(ptr nonnull %21, i64 %.sroa.11.0.i) #28
-          to label %common.resume unwind label %52
+          to label %common.resume unwind label %48
 
-"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i.i": ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i", %39
+"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i.i": ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i", %37
   %.0.i.i.i4 = phi i64 [ %41, %39 ], [ 0, %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i" ]
-  %38 = icmp eq i64 %.0.i.i.i4, %.sroa.11.0.i
-  br i1 %38, label %"_ZN4core3ptr159drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$h2..hpack..table..Slot$GT$$GT$17hfd1554317e53df06E.exit", label %39
+  %36 = icmp eq i64 %.0.i.i.i4, %.sroa.11.0.i
+  br i1 %36, label %"_ZN4core3ptr159drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$h2..hpack..table..Slot$GT$$GT$17hfd1554317e53df06E.exit", label %37
 
-39:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i.i"
+37:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i.i"
   %40 = getelementptr inbounds { { i64, [1 x i64] }, { [64 x i8], i8, [7 x i8] }, i64 }, ptr %21, i64 %.0.i.i.i4
   %41 = add i64 %.0.i.i.i4, 1
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$h2..hpack..header..Header$GT$17h702def35b4d65f5dE"(ptr noalias noundef align 8 dereferenceable(72) %42)
           to label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i.i" unwind label %44
 
-"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i": ; preds = %46, %44
+"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i": ; preds = %43, %41
   %.1.i.i.i = phi i64 [ %41, %44 ], [ %48, %46 ]
-  %43 = icmp eq i64 %.1.i.i.i, %.sroa.11.0.i
-  br i1 %43, label %common.resume, label %46
+  %40 = icmp eq i64 %.1.i.i.i, %.sroa.11.0.i
+  br i1 %40, label %common.resume, label %43
 
-44:                                               ; preds = %39
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %37
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i"
 
-46:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i"
+43:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i"
   %47 = getelementptr inbounds { { i64, [1 x i64] }, { [64 x i8], i8, [7 x i8] }, i64 }, ptr %21, i64 %.1.i.i.i
   %48 = add i64 %.1.i.i.i, 1
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -32331,11 +32331,11 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
           to label %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i" unwind label %50
 
 common.resume:                                    ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i", %.body
-  %common.resume.op = phi { ptr, i32 } [ %31, %.body ], [ %45, %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %.body ], [ %42, %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit7.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
-50:                                               ; preds = %46
-  %51 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
@@ -32343,8 +32343,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr43drop
 "_ZN4core3ptr159drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$h2..hpack..table..Slot$GT$$GT$17hfd1554317e53df06E.exit": ; preds = %"_ZN4core3ptr43drop_in_place$LT$h2..hpack..table..Slot$GT$17h166d624631d40d6eE.exit.i.i.i"
   ret void
 
-52:                                               ; preds = %.body
-  %53 = landingpad { ptr, i32 }
+48:                                               ; preds = %.body
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable

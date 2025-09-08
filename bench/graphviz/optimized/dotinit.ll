@@ -433,7 +433,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
   store ptr null, ptr %9, align 8, !tbaa !95
   %10 = tail call ptr @agbindrec(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 1) #15
   %.not23 = icmp eq ptr %10, null
-  br i1 %.not23, label %50, label %11
+  br i1 %.not23, label %49, label %11
 
 11:                                               ; preds = %._crit_edge
   %12 = load ptr, ptr %4, align 8, !tbaa !3
@@ -452,7 +452,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load ptr, ptr %22, align 8, !tbaa !99
   %.not24 = icmp eq ptr %23, null
-  br i1 %.not24, label %44, label %24
+  br i1 %.not24, label %43, label %24
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 336
@@ -468,7 +468,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
   %indvars.iv = phi i64 [ %29, %.lr.ph32.preheader ], [ %indvars.iv.next, %.lr.ph32 ]
-  %30 = phi ptr [ %21, %.lr.ph32.preheader ], [ %36, %.lr.ph32 ]
+  %30 = phi ptr [ %21, %.lr.ph32.preheader ], [ %35, %.lr.ph32 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %32 = load ptr, ptr %31, align 8, !tbaa !99
   %33 = getelementptr inbounds %struct.rank_t, ptr %32, i64 %indvars.iv
@@ -476,42 +476,42 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
   %35 = load ptr, ptr %34, align 8, !tbaa !102
   tail call void @free(ptr noundef %35) #15
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %36 = load ptr, ptr %4, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 340
-  %38 = load i32, ptr %37, align 4, !tbaa !101
-  %39 = sext i32 %38 to i64
-  %.not25.not = icmp slt i64 %indvars.iv, %39
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 340
+  %37 = load i32, ptr %36, align 4, !tbaa !101
+  %38 = sext i32 %37 to i64
+  %.not25.not = icmp slt i64 %indvars.iv, %38
   br i1 %.not25.not, label %.lr.ph32, label %._crit_edge33.loopexit, !llvm.loop !105
 
 ._crit_edge33.loopexit:                           ; preds = %.lr.ph32
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %36, i64 336
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 336
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !100
   br label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %._crit_edge33.loopexit, %24
-  %40 = phi i32 [ %26, %24 ], [ %.pre, %._crit_edge33.loopexit ]
-  %.lcssa = phi ptr [ %21, %24 ], [ %36, %._crit_edge33.loopexit ]
-  %41 = icmp eq i32 %40, -1
-  %42 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 264
-  %43 = load ptr, ptr %42, align 8, !tbaa !99
-  %.sink.idx = select i1 %41, i64 -88, i64 0
-  %.sink = getelementptr inbounds i8, ptr %43, i64 %.sink.idx
+  %39 = phi i32 [ %26, %24 ], [ %.pre, %._crit_edge33.loopexit ]
+  %.lcssa = phi ptr [ %21, %24 ], [ %35, %._crit_edge33.loopexit ]
+  %40 = icmp eq i32 %39, -1
+  %41 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 264
+  %42 = load ptr, ptr %41, align 8, !tbaa !99
+  %.sink.idx = select i1 %40, i64 -88, i64 0
+  %.sink = getelementptr inbounds i8, ptr %42, i64 %.sink.idx
   tail call void @free(ptr noundef %.sink) #15
-  br label %44
+  br label %43
 
-44:                                               ; preds = %._crit_edge33, %11
-  %45 = tail call ptr @agroot(ptr noundef nonnull %0) #15
-  %.not26 = icmp eq ptr %0, %45
-  br i1 %.not26, label %50, label %46
+43:                                               ; preds = %._crit_edge33, %11
+  %44 = tail call ptr @agroot(ptr noundef nonnull %0) #15
+  %.not26 = icmp eq ptr %0, %44
+  br i1 %.not26, label %49, label %45
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %4, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !106
-  tail call void @free_label(ptr noundef %49) #15
-  br label %50
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !106
+  tail call void @free_label(ptr noundef %48) #15
+  br label %49
 
-50:                                               ; preds = %44, %46, %._crit_edge
+49:                                               ; preds = %43, %45, %._crit_edge
   ret void
 }
 

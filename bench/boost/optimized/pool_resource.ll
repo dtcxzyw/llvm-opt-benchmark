@@ -759,10 +759,10 @@ define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(p
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %29, i64 %27
   store i64 0, ptr %1, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !18
-  store ptr %32, ptr %1, align 8, !tbaa !18
-  store ptr %1, ptr %31, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  store ptr %31, ptr %1, align 8, !tbaa !18
+  store ptr %1, ptr %30, align 8, !tbaa !18
   br label %_ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE10deallocateEPvRNS1_15memory_resourceE.exit
 
 _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE10deallocateEPvRNS1_15memory_resourceE.exit: ; preds = %8, %24
@@ -841,7 +841,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_bl
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
   %8 = select i1 %.not, i1 %7, i1 false
-  br i1 %8, label %9, label %13, !prof !37
+  br i1 %8, label %9, label %12, !prof !37
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %4, i64 %1
@@ -849,7 +849,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_bl
   %12 = load i64, ptr %11, align 8, !tbaa !20
   br label %13
 
-13:                                               ; preds = %2, %9
+12:                                               ; preds = %2, %9
   %.0 = phi i64 [ %12, %9 ], [ 1, %2 ]
   ret i64 %.0
 }
@@ -876,15 +876,15 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %12
 
-12:                                               ; preds = %12, %9
-  %.04.i.i = phi i64 [ 0, %9 ], [ %14, %12 ]
+12:; preds = %12, %9
+  %.0.i.i = phi i64 [ 0, %9 ], [ %14, %12 ]
   %.0.i.i = phi ptr [ %11, %9 ], [ %13, %12 ]
   %13 = load ptr, ptr %.0.i.i, align 8, !tbaa !18
-  %14 = add i64 %.04.i.i, 1
+  %14 = add i64 %.0.i.i, 1
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, label %12, !llvm.loop !38
 
-_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit: ; preds = %12, %2
+_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit:; preds = %12, %2
   %.0 = phi i64 [ 0, %2 ], [ %.04.i.i, %12 ]
   ret i64 %.0
 }

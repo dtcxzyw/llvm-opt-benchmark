@@ -66,12 +66,12 @@ define hidden i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, ptr 
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
 
-19:                                               ; preds = %13
+19:; preds = %13
   %20 = tail call i32 %1(ptr noundef nonnull %17, ptr noundef %2) #12
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %.loopexit
 
-21:                                               ; preds = %19, %13
+21:; preds = %19, %13
   %22 = add nuw nsw i64 %.01316, 1
   %exitcond.not = icmp eq i64 %22, %12
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !16
@@ -397,7 +397,7 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %29
+.lr.ph:; preds = %29
   %21 = add nuw nsw i64 %.0151926, 1
   %22 = load i32, ptr %32, align 8, !tbaa !21
   %23 = zext i32 %22 to i64
@@ -407,23 +407,23 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
 .lr.ph.preheader:                                 ; preds = %6, %.lr.ph
   %.0161827 = phi i64 [ %31, %.lr.ph ], [ %13, %6 ]
   %.0151926 = phi i64 [ %21, %.lr.ph ], [ 0, %6 ]
-  %24 = phi ptr [ %34, %.lr.ph ], [ %19, %6 ]
-  %25 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %.0161827
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %23 = phi ptr [ %34, %.lr.ph ], [ %19, %6 ]
+  %24 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %.0161827
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !20
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %.loopexit, label %29
 
-29:                                               ; preds = %.lr.ph.preheader
+29:; preds = %.lr.ph.preheader
   %30 = add nuw nsw i64 %.0161827, 1
   %31 = and i64 %30, %15
-  %32 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %31 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %16, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %29, %.lr.ph.preheader, %6, %2
+.loopexit: ; preds = %.lr.ph, %29, %.lr.ph.preheader, %6, %2
   %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %.lr.ph ], [ null, %29 ], [ %24, %.lr.ph.preheader ]
   ret ptr %.0
 }

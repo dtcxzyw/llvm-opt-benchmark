@@ -142,7 +142,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
 for.body:                                         ; preds = %arrayctor.loop, %for.body
   %i.03046 = phi i64 [ %inc, %for.body ], [ 0, %arrayctor.loop ]
   %conv = trunc nuw nsw i64 %i.03046 to i32
-  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::SetWidget", ptr %swArray, i64 %i.03046
+  %mX = getelementptr inbounds nuw %"struct.(anonymous namespace)::SetWidget", ptr %swArray, i64 %i.03046
   %mX = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i32 %conv, ptr %mX, align 8
   %inc = add nuw nsw i64 %i.03046, 1

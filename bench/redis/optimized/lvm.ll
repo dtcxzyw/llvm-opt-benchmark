@@ -2811,7 +2811,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 952:                                              ; preds = %.lr.ph, %962
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %962 ]
   %953 = icmp slt i64 %indvars.iv, %950
-  br i1 %953, label %954, label %962
+  br i1 %953, label %954, label %963
 
 954:                                              ; preds = %952
   %955 = load ptr, ptr %918, align 8, !tbaa !76
@@ -2822,9 +2822,9 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   store i64 %959, ptr %958, align 8, !tbaa !9
   %960 = getelementptr inbounds nuw i8, ptr %957, i64 8
   %961 = load i32, ptr %960, align 8, !tbaa !4
-  br label %962
+  br label %963
 
-962:                                              ; preds = %952, %954
+963:                                              ; preds = %952, %954
   %.sink963 = phi i32 [ %961, %954 ], [ 0, %952 ]
   %963 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0729, i64 %indvars.iv
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 8

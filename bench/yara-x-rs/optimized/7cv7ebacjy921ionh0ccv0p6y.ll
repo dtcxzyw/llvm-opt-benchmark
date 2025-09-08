@@ -13177,7 +13177,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
@@ -13320,7 +13320,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
@@ -13463,7 +13463,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 

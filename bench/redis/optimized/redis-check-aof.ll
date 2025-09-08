@@ -220,7 +220,7 @@ define dso_local range(i32 0, 2) i32 @readString(ptr noundef captures(none) %0, 
   store ptr null, ptr %1, align 8, !tbaa !12
   %7 = call i32 @readLong(ptr noundef %0, i8 noundef signext 36, ptr noundef nonnull %5)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %39, label %8
+  br i1 %.not, label %43, label %8
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %5, align 8, !tbaa !8
@@ -233,7 +233,7 @@ define dso_local range(i32 0, 2) i32 @readString(ptr noundef captures(none) %0, 
   %12 = load i64, ptr @epos, align 8, !tbaa !8
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @error, i64 noundef 1044, ptr noundef nonnull @.str.2, i64 noundef %12, ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %39
+  br label %43
 
 14:                                               ; preds = %8
   %15 = add nuw nsw i64 %9, 2
@@ -254,7 +254,7 @@ define dso_local range(i32 0, 2) i32 @readString(ptr noundef captures(none) %0, 
   %23 = load ptr, ptr %1, align 8, !tbaa !12
   call void @zfree(ptr noundef %23) #16
   store ptr null, ptr %1, align 8, !tbaa !12
-  br label %39
+  br label %43
 
 readBytes.exit:                                   ; preds = %14
   %24 = load ptr, ptr %1, align 8, !tbaa !12
@@ -269,25 +269,25 @@ readBytes.exit:                                   ; preds = %14
 
 readBytes.exit._crit_edge:                        ; preds = %readBytes.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %30 = sext i8 %26 to i32
-  %31 = sext i8 %28 to i32
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.1, i32 noundef %30, i32 noundef %31) #16
-  %33 = load i64, ptr @epos, align 8, !tbaa !8
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @error, i64 noundef 1044, ptr noundef nonnull @.str.2, i64 noundef %33, ptr noundef nonnull %3) #16
+  %33 = sext i8 %26 to i32
+  %34 = sext i8 %28 to i32
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.1, i32 noundef %33, i32 noundef %34) #16
+  %36 = load i64, ptr @epos, align 8, !tbaa !8
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @error, i64 noundef 1044, ptr noundef nonnull @.str.2, i64 noundef %36, ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %35 = load ptr, ptr %1, align 8, !tbaa !12
-  call void @zfree(ptr noundef %35) #16
+  %38 = load ptr, ptr %1, align 8, !tbaa !12
+  call void @zfree(ptr noundef %38) #16
   store ptr null, ptr %1, align 8, !tbaa !12
-  br label %39
+  br label %43
 
-36:                                               ; preds = %readBytes.exit
-  %37 = load i64, ptr @line, align 8, !tbaa !10
-  %38 = add nsw i64 %37, 1
-  store i64 %38, ptr @line, align 8, !tbaa !10
+39:                                               ; preds = %readBytes.exit
+  %40 = load i64, ptr @line, align 8, !tbaa !10
+  %41 = add nsw i64 %40, 1
+  store i64 %41, ptr @line, align 8, !tbaa !10
   store i8 0, ptr %25, align 1, !tbaa !5
   br label %39
 
-39:                                               ; preds = %2, %36, %readBytes.exit._crit_edge, %19, %10
+43:                                               ; preds = %2, %39, %readBytes.exit._crit_edge, %19, %10
   %.0 = phi i32 [ 0, %10 ], [ 1, %36 ], [ 0, %readBytes.exit._crit_edge ], [ 0, %19 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

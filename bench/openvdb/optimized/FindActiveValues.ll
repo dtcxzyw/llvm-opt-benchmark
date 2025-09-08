@@ -178566,7 +178566,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   store i32 %iter36.sroa.0.0147, ptr %level, align 4
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -178978,7 +178978,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   store i32 %iter21.sroa.0.090, ptr %level, align 4
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -181585,7 +181585,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.471", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.471", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   store i32 %iter36.sroa.0.0147, ptr %level, align 4
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -181996,7 +181996,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.471", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.471", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   store i32 %iter21.sroa.0.090, ptr %level, align 4
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -184599,7 +184599,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.573", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.573", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   store i32 %iter36.sroa.0.0147, ptr %level, align 8
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -185010,7 +185010,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.573", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.573", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   store i32 %iter21.sroa.0.090, ptr %level, align 8
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -187613,7 +187613,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.623", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.623", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   store i32 %iter36.sroa.0.0147, ptr %level, align 4
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -188024,7 +188024,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.623", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.623", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 28
   store i32 %iter21.sroa.0.090, ptr %level, align 4
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -190627,7 +190627,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.679", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.679", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   store i32 %iter36.sroa.0.0147, ptr %level, align 8
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -191038,7 +191038,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.679", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.679", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   store i32 %iter21.sroa.0.090, ptr %level, align 8
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -193456,7 +193456,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.729", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.729", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
   store i32 %iter36.sroa.0.0147, ptr %level, align 4
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -193866,7 +193866,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.729", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.729", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
   store i32 %iter21.sroa.0.090, ptr %level, align 4
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -196284,7 +196284,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.788", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.788", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 48
   store i32 %iter36.sroa.0.0147, ptr %level, align 8
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -196694,7 +196694,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.788", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.788", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 48
   store i32 %iter21.sroa.0.090, ptr %level, align 8
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1
@@ -199112,7 +199112,7 @@ for.body44:                                       ; preds = %invoke.cont38, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ 0, %invoke.cont38 ]
   %iter36.sroa.0.0147 = phi i32 [ %retval.0.i.i.i99, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit117 ], [ %add.i.i77, %invoke.cont38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.839", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.839", ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
   store i32 %iter36.sroa.0.0147, ptr %level, align 4
   %add.i.i88 = add i32 %iter36.sroa.0.0147, 1
@@ -199522,7 +199522,7 @@ for.body29:                                       ; preds = %invoke.cont23, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ 0, %invoke.cont23 ]
   %iter21.sroa.0.090 = phi i32 [ %retval.0.i.i.i50, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit68 ], [ %add.i.i28, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.839", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
+  %level = getelementptr inbounds nuw %"struct.openvdb::v11_0::tools::TileData.839", ptr %call5.i.i.i.i2.i.i21, i64 %indvars.iv
   %level = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
   store i32 %iter21.sroa.0.090, ptr %level, align 4
   %add.i.i39 = add i32 %iter21.sroa.0.090, 1

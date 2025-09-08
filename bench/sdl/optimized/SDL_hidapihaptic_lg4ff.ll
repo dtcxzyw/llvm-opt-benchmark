@@ -277,16 +277,16 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
   br i1 %exitcond.not.i, label %SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit, label %6, !llvm.loop !6
 
 SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit:    ; preds = %6
-  %9 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #8
+  %8 = load ptr, ptr %4, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %8) #8
   tail call void @SDL_Delay_REAL(i32 noundef 50) #8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2672
-  store i8 1, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2680
-  %12 = load ptr, ptr %11, align 8
-  tail call void @SDL_WaitThread_REAL(ptr noundef %12, ptr noundef null) #8
-  %13 = load ptr, ptr %4, align 8
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %13) #8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2672
+  store i8 1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2680
+  %11 = load ptr, ptr %10, align 8
+  tail call void @SDL_WaitThread_REAL(ptr noundef %11, ptr noundef null) #8
+  %12 = load ptr, ptr %4, align 8
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %12) #8
   ret void
 }
 
@@ -853,11 +853,11 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
   store i32 0, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %9, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %8, label %6, !llvm.loop !6
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %10) #8
+8:                                                ; preds = %6
+  %9 = load ptr, ptr %4, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #8
   ret i1 true
 }
 

@@ -1614,7 +1614,7 @@ ffi_clib_index.exit:                              ; preds = %20
   %66 = or i32 %65, %.02635
   br label %67
 
-67:                                               ; preds = %62, %.lr.ph
+67: ; preds = %62, %.lr.ph
   %.127 = phi i32 [ %66, %62 ], [ %.02635, %.lr.ph ]
   %68 = and i32 %58, 65535
   %69 = zext nneg i32 %68 to i64
@@ -1623,16 +1623,16 @@ ffi_clib_index.exit:                              ; preds = %20
   %72 = icmp slt i32 %71, -1879048192
   br i1 %72, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %67, %.preheader
-  %.026.lcssa = phi i32 [ 0, %.preheader ], [ %.127, %67 ]
-  %.lcssa34 = phi ptr [ %55, %.preheader ], [ %70, %67 ]
+._crit_edge:; preds = %67, %.preheader
+  %.lcssa34 = phi i32 [ 0, %.preheader ], [ %.127, %67 ]
+  %.lcssa = phi ptr [ %55, %.preheader ], [ %70, %67 ]
   %.lcssa = phi i32 [ %56, %.preheader ], [ %71, %67 ]
-  %73 = or i32 %.lcssa, %.026.lcssa
+  %73 = or i32 %.lcssa, %.lcssa34
   %74 = and i32 %73, 33554432
   %.not.not = icmp eq i32 %74, 0
   br i1 %.not.not, label %75, label %.critedge33
 
-75:                                               ; preds = %._crit_edge
+75: ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !56
   tail call void @lj_cconv_ct_tv(ptr noundef nonnull %41, ptr noundef nonnull %.lcssa34, ptr noundef %77, ptr noundef nonnull %29, i32 noundef 0) #9

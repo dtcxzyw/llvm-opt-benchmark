@@ -2318,19 +2318,19 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal4prop16MinisatSatSolver7isFi
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %20
 
-12:                                               ; preds = %2
+12: ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i32, ptr %13, align 4, !tbaa !399
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
-16:                                               ; preds = %12
+16: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !397
   %19 = icmp eq i32 %18, 0
   br label %20
 
-20:                                               ; preds = %16, %12, %2
+20:; preds = %16, %12, %2
   %21 = phi i1 [ false, %12 ], [ false, %2 ], [ %19, %16 ]
   ret i1 %21
 }

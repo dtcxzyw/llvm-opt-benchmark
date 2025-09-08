@@ -3996,7 +3996,7 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
   %trunc = trunc nuw i32 %15 to i1
   br i1 %trunc, label %16, label %23
 
-16:                                               ; preds = %9
+16: ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %18 = load i32, ptr %17, align 4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -4007,7 +4007,7 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
   store i32 %20, ptr %22, align 4
   br label %23
 
-23:                                               ; preds = %9, %16
+23:; preds = %9, %16
   %storemerge = phi i32 [ 1, %16 ], [ 0, %9 ]
   store i32 %storemerge, ptr %0, align 4
   ret void

@@ -4002,24 +4002,24 @@ define internal { i64, ptr } @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.06 = phi ptr [ %11, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 16
-  %12 = load ptr, ptr %.sroa.0.06, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h9afd842f7e31638eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %12, ptr noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.64)
-  %16 = icmp eq ptr %11, %4
-  br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
+  %.sroa.0.06 = phi ptr [ %10, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 16
+  %11 = load ptr, ptr %.sroa.0.06, align 8, !noundef !4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
+  %13 = load i64, ptr %12, align 8, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h9afd842f7e31638eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %11, ptr noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.64)
+  %15 = icmp eq ptr %10, %4
+  br i1 %15, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %17 = inttoptr i64 %8 to ptr
+  %16 = inttoptr i64 %8 to ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fefea0aab1879d0E.exit.thread"
-  %.sroa.04.0.i8 = phi ptr [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fefea0aab1879d0E.exit.thread" ], [ %17, %._crit_edge.loopexit ]
-  %18 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.04.0.i8, 1
-  ret { i64, ptr } %18
+  %.sroa.04.0.i8 = phi ptr [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fefea0aab1879d0E.exit.thread" ], [ %16, %._crit_edge.loopexit ]
+  %17 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.04.0.i8, 1
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -4055,15 +4055,15 @@ define internal noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..W
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.sroa.0.06.i = phi ptr [ %11, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 16
-  %12 = load ptr, ptr %.sroa.0.06.i, align 8, !alias.scope !428, !noalias !431, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
-  %14 = load i64, ptr %13, align 8, !alias.scope !428, !noalias !431, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h9afd842f7e31638eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %12, ptr noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.64), !noalias !428
-  %16 = icmp eq ptr %11, %4
-  br i1 %16, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$14write_vectored17h7b4fa458f99376d2E.exit", label %.lr.ph.i
+  %.sroa.0.06.i = phi ptr [ %10, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 16
+  %11 = load ptr, ptr %.sroa.0.06.i, align 8, !alias.scope !428, !noalias !431, !noundef !4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
+  %13 = load i64, ptr %12, align 8, !alias.scope !428, !noalias !431, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h9afd842f7e31638eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %11, ptr noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.64), !noalias !428
+  %15 = icmp eq ptr %10, %4
+  br i1 %15, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$14write_vectored17h7b4fa458f99376d2E.exit", label %.lr.ph.i
 
 "_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$14write_vectored17h7b4fa458f99376d2E.exit": ; preds = %.lr.ph.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fefea0aab1879d0E.exit.thread.i"
   ret ptr null

@@ -557,14 +557,14 @@ define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) lo
   %56 = icmp eq i64 %.val, 0
   br i1 %56, label %fdt_mem_rsv.exit.thread.split, label %57
 
-57:                                               ; preds = %52
+57:; preds = %52
   %58 = add i32 %.09, 1
   %59 = shl i32 %58, 4
   %60 = add i32 %18, %59
   %61 = icmp ult i32 %60, %18
   br i1 %61, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !5
 
-fdt_mem_rsv.exit.thread.split:                    ; preds = %52, %57, %.split
+fdt_mem_rsv.exit.thread.split:; preds = %52, %57, %.split
   %.05.split.ph = phi i32 [ -8, %.split ], [ -8, %57 ], [ %.09, %52 ]
   ret i32 %.05.split.ph
 }

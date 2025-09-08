@@ -12014,18 +12014,18 @@ define void @_ZN8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8
   store i8 1, ptr %25, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %26, label %20, !llvm.loop !169
+  br i1 %exitcond.not, label %25, label %20, !llvm.loop !169
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 1, ptr %28, align 8, !tbaa !30
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 262
-  store i8 1, ptr %29, align 2, !tbaa !30
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 1, ptr %30, align 8, !tbaa !30
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i8 1, ptr %27, align 8, !tbaa !30
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 262
+  store i8 1, ptr %28, align 2, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i8 1, ptr %29, align 8, !tbaa !30
   store i8 0, ptr %17, align 8, !tbaa !12
-  store i32 1, ptr %27, align 8, !tbaa !170
+  store i32 1, ptr %26, align 8, !tbaa !170
   ret void
 }
 

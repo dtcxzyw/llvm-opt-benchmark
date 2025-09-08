@@ -251,8 +251,8 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_charset_
   br label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread
 
 _ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread: ; preds = %15, %16
-  %21 = phi i32 [ %20, %16 ], [ 0, %15 ]
-  ret i32 %21
+  %20 = phi i32 [ %20, %16 ], [ 0, %15 ]
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -299,8 +299,8 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_c
   br label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread
 
 _ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread: ; preds = %15, %16
-  %21 = phi i32 [ %20, %16 ], [ 0, %15 ]
-  ret i32 %21
+  %20 = phi i32 [ %20, %16 ], [ 0, %15 ]
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %43, label %6
+  br i1 %5, label %41, label %6
 
 6:                                                ; preds = %3
   %7 = icmp eq i64 %2, 0
@@ -53,7 +53,7 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
 19:                                               ; preds = %.loopexit
   %20 = udiv i64 %.028, 3
   %21 = add nuw nsw i64 %20, 1
-  br label %43
+  br label %41
 
 .lr.ph49:                                         ; preds = %.preheader, %36
   %.248 = phi i64 [ %39, %36 ], [ %.061, %.preheader ]
@@ -79,14 +79,14 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   store i64 %24, ptr %31, align 8
   br label %36
 
-32:                                               ; preds = %.lr.ph49
+32:; preds = %.lr.ph49
   %33 = trunc i64 %24 to i32
   %34 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %33, ptr %35, align 8
   br label %36
 
-36:                                               ; preds = %28, %32, %25
+36: ; preds = %28, %32, %25
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = add nuw i64 %.248, 1
@@ -98,11 +98,11 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
 
 .critedge:                                        ; preds = %36, %.preheader
   %.2.lcssa = phi i64 [ %.061, %.preheader ], [ %39, %36 ]
-  %42 = udiv i64 %.2.lcssa, 3
-  br label %43
+  %40 = udiv i64 %.2.lcssa, 3
+  br label %41
 
-43:                                               ; preds = %3, %.critedge, %19
-  %.031 = phi i64 [ %21, %19 ], [ %42, %.critedge ], [ -22, %3 ]
+41:                                               ; preds = %3, %.critedge, %19
+  %.031 = phi i64 [ %21, %19 ], [ %40, %.critedge ], [ -22, %3 ]
   ret i64 %.031
 }
 
@@ -177,14 +177,14 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
   store i64 %23, ptr %30, align 8
   br label %35
 
-31:                                               ; preds = %.lr.ph49.i
+31:; preds = %.lr.ph49.i
   %32 = trunc i64 %23 to i32
   %33 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %22
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %32, ptr %34, align 8
   br label %35
 
-35:                                               ; preds = %31, %27, %24
+35: ; preds = %31, %27, %24
   %36 = load ptr, ptr %2, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = add nuw i64 %.248.i, 1

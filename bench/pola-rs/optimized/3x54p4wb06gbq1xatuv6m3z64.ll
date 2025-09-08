@@ -20007,7 +20007,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %202 = getelementptr inbounds nuw i8, ptr %190, i64 12
   %203 = load i32, ptr %202, align 4, !alias.scope !4485, !noalias !4490, !noundef !30
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %201, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %206 = load ptr, ptr %205, align 8, !alias.scope !4491, !noalias !4494, !noundef !30
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 %204
   %.not98.i.i.i = icmp eq ptr %206, null

@@ -14887,32 +14887,32 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %._c
   %60 = icmp ult i64 %13, %59
   br i1 %60, label %61, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit
 
-61:                                               ; preds = %46
-  %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %13
-  %63 = load ptr, ptr %62, align 8, !tbaa !44
-  %.not.i.i.i = icmp eq ptr %63, null
+60:                                               ; preds = %46
+  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %13
+  %62 = load ptr, ptr %61, align 8, !tbaa !44
+  %.not.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %61
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %14
-  %65 = load i32, ptr %64, align 4, !tbaa !96
-  %66 = xor i32 %65, %15
-  %67 = icmp ult i32 %66, 1048575
-  br i1 %67, label %68, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %60
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %14
+  %64 = load i32, ptr %63, align 4, !tbaa !96
+  %65 = xor i32 %64, %15
+  %66 = icmp ult i32 %65, 1048575
+  br i1 %66, label %67, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit
 
-68:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  %69 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %70 = and i32 %65, 1048575
-  %narrow.i.i.i = add nuw nsw i32 %70, 1
-  %71 = zext nneg i32 %narrow.i.i.i to i64
-  %72 = zext nneg i32 %70 to i64
-  %73 = load ptr, ptr %51, align 8, !tbaa !4
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(80) %51, ptr nonnull %69, i64 %71, ptr nonnull %69, i64 %72)
+67:                                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %69 = and i32 %64, 1048575
+  %narrow.i.i.i = add nuw nsw i32 %69, 1
+  %70 = zext nneg i32 %narrow.i.i.i to i64
+  %71 = zext nneg i32 %69 to i64
+  %72 = load ptr, ptr %51, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(80) %51, ptr nonnull %68, i64 %70, ptr nonnull %68, i64 %71)
   br label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit
 
-_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit: ; preds = %46, %61, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %68
+_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit: ; preds = %46, %60, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %67
   %.not = icmp eq i64 %48, 0
   br i1 %.not, label %._crit_edge, label %46, !llvm.loop !311
 }

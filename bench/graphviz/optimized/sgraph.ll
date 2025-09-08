@@ -190,13 +190,13 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
 
 .lr.ph31:                                         ; preds = %.preheader.thread, %.preheader
   %.0.lcssa47 = phi ptr [ %49, %.preheader.thread ], [ %20, %.preheader ]
-  %.019.lcssa46 = phi i64 [ %50, %.preheader.thread ], [ 0, %.preheader ]
+  %.019.lcssa46 = phi i64 [ %49, %.preheader.thread ], [ 0, %.preheader ]
   %42 = add nsw i32 %3, 2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   %45 = sext i32 %1 to i64
   %wide.trip.count37 = zext nneg i32 %42 to i64
-  br label %51
+  br label %50
 
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
@@ -210,21 +210,21 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
   br i1 %exitcond.not, label %.preheader.thread, label %46, !llvm.loop !29
 
 .preheader.thread:                                ; preds = %46
-  %50 = zext nneg i32 %3 to i64
+  %49 = zext nneg i32 %3 to i64
   br label %.lr.ph31
 
-51:                                               ; preds = %.lr.ph31, %51
+50:                                               ; preds = %.lr.ph31, %50
   %indvars.iv34 = phi i64 [ %.019.lcssa46, %.lr.ph31 ], [ %indvars.iv.next35, %51 ]
   %.130 = phi ptr [ %.0.lcssa47, %.lr.ph31 ], [ %54, %51 ]
-  %52 = getelementptr inbounds nuw %struct.snode, ptr %44, i64 %indvars.iv34
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %51 = getelementptr inbounds nuw %struct.snode, ptr %44, i64 %indvars.iv34
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store ptr %.130, ptr %53, align 8, !tbaa !28
   %54 = getelementptr inbounds i32, ptr %.130, i64 %45
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge, label %51, !llvm.loop !30
+  br i1 %exitcond38.not, label %._crit_edge, label %50, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %51, %.preheader
+._crit_edge:                                      ; preds = %50, %.preheader
   ret void
 }
 

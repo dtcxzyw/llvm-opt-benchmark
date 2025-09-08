@@ -206,26 +206,26 @@ define { double, double } @PQ_min(ptr noundef captures(none) %0) local_unnamed_a
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %4, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %8 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %13, ptr %3, align 8, !tbaa !22
-  br label %14
+  %11 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %11, ptr %3, align 8, !tbaa !22
+  br label %12
 
-14:                                               ; preds = %._crit_edge, %1
+12:                                               ; preds = %._crit_edge, %1
   %.lcssa = phi ptr [ %11, %._crit_edge ], [ %7, %1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %17 = load double, ptr %16, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
-  %19 = load double, ptr %18, align 8, !tbaa !17
-  %.fca.0.insert = insertvalue { double, double } poison, double %17, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %19, 1
+  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
+  %15 = load double, ptr %14, align 8, !tbaa !24
+  %16 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
+  %17 = load double, ptr %16, align 8, !tbaa !17
+  %.fca.0.insert = insertvalue { double, double } poison, double %15, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %17, 1
   ret { double, double } %.fca.1.insert
 }
 

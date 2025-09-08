@@ -36,7 +36,7 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %51, !prof !11
+  br i1 %12, label %13, label %50, !prof !11
 
 13:                                               ; preds = %3
   %14 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #3
@@ -50,7 +50,7 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
   %16 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #3
   %17 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_TABLE, i64 noundef %16, ptr noundef nonnull %5, i32 noundef 128) #3
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %39, label %19
+  br i1 %18, label %38, label %19
 
 19:                                               ; preds = %15
   %20 = call i32 @H5SM__get_index(ptr noundef nonnull %17, i32 noundef %1, ptr noundef nonnull %6) #3
@@ -61,7 +61,7 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
   %23 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !3
   %24 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %25 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 90, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.2) #3
-  br label %43
+  br label %42
 
 26:                                               ; preds = %19
   %27 = load i64, ptr %6, align 8, !tbaa !3
@@ -72,7 +72,7 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
   %30 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !3
   %31 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 92, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.3) #3
-  br label %43
+  br label %42
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 264
@@ -85,35 +85,35 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
 
 .thread:                                          ; preds = %13
   store i64 0, ptr %2, align 8, !tbaa !3
-  br label %51
+  br label %50
 
-39:                                               ; preds = %15
-  %40 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !3
-  %41 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !3
-  %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 86, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.1) #3
+38:                                               ; preds = %15
+  %39 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !3
+  %40 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !3
+  %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 86, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.1) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %51
+  br label %50
 
-43:                                               ; preds = %22, %29, %33
+42:                                               ; preds = %22, %29, %33
   %.1.ph = phi i32 [ 0, %33 ], [ -1, %29 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %44 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #3
-  %45 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_TABLE, i64 noundef %44, ptr noundef nonnull %17, i32 noundef 0) #3
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %51
+  %43 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #3
+  %44 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_TABLE, i64 noundef %43, ptr noundef nonnull %17, i32 noundef 0) #3
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %43
-  %48 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !3
-  %49 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !3
-  %50 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 105, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.4) #3
-  br label %51
+46:                                               ; preds = %42
+  %47 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !3
+  %48 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !3
+  %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 105, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.4) #3
+  br label %50
 
-51:                                               ; preds = %3, %47, %43, %.thread, %39
+50:                                               ; preds = %3, %46, %42, %.thread, %38
   %.021 = phi i32 [ -1, %47 ], [ %.1.ph, %43 ], [ -1, %39 ], [ 0, %3 ], [ 0, %.thread ]
-  %52 = load i64, ptr %4, align 8, !tbaa !3
-  call void @H5AC_tag(i64 noundef %52, ptr noundef null) #3
+  %51 = load i64, ptr %4, align 8, !tbaa !3
+  call void @H5AC_tag(i64 noundef %51, ptr noundef null) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021
 }

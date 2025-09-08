@@ -989,44 +989,44 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %16 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %0, i64 noundef %15, i32 noundef 2)
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %.lr.ph34.preheader, label %.loopexit
+  %15 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %0, i64 noundef %15, i32 noundef 2)
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %.lr.ph34.preheader, label %.loopexit
 
 .lr.ph34.preheader:                               ; preds = %._crit_edge
   %wide.trip.count42 = zext nneg i32 %2 to i64
   br label %.lr.ph34
 
-.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %24
+.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %23
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next40, %24 ]
-  %.02333 = phi i64 [ 0, %.lr.ph34.preheader ], [ %26, %24 ]
-  %18 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv39
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = tail call i32 @evbuffer_add(ptr noundef nonnull %0, ptr noundef %19, i64 noundef %21)
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.loopexit, label %24
+  %.02333 = phi i64 [ 0, %.lr.ph34.preheader ], [ %25, %24 ]
+  %17 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv39
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = tail call i32 @evbuffer_add(ptr noundef nonnull %0, ptr noundef %18, i64 noundef %20)
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %.loopexit, label %23
 
-24:                                               ; preds = %.lr.ph34
-  %25 = load i64, ptr %20, align 8
-  %26 = add i64 %25, %.02333
+23:                                               ; preds = %.lr.ph34
+  %24 = load i64, ptr %19, align 8
+  %25 = add i64 %24, %.02333
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
   br i1 %exitcond43.not, label %.loopexit, label %.lr.ph34, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph34, %24, %._crit_edge.thread, %._crit_edge
-  %.1 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.02333, %.lr.ph34 ], [ %26, %24 ]
-  %27 = load ptr, ptr %4, align 8
-  %.not29 = icmp eq ptr %27, null
-  br i1 %.not29, label %31, label %28
+.loopexit:                                        ; preds = %.lr.ph34, %23, %._crit_edge.thread, %._crit_edge
+  %.1 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.02333, %.lr.ph34 ], [ %25, %24 ]
+  %26 = load ptr, ptr %4, align 8
+  %.not29 = icmp eq ptr %26, null
+  br i1 %.not29, label %30, label %27
 
-28:                                               ; preds = %.loopexit
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %30 = tail call i32 %29(i32 noundef 0, ptr noundef nonnull %27) #16
-  br label %31
+27:                                               ; preds = %.loopexit
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %29 = tail call i32 %29(i32 noundef 0, ptr noundef nonnull %26) #16
+  br label %30
 
-31:                                               ; preds = %28, %.loopexit
+30:                                               ; preds = %27, %.loopexit
   ret i64 %.1
 }
 
@@ -2478,10 +2478,10 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
   %90 = icmp ugt i64 %79, %89
   br i1 %90, label %.loopexit95, label %65
 
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %101
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %100
   %indvars.iv104 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next105, %101 ]
   %.167100 = phi i64 [ 0, %.lr.ph102.preheader ], [ %99, %101 ]
-  %.06999 = phi ptr [ %.070, %.lr.ph102.preheader ], [ %102, %101 ]
+  %.06999 = phi ptr [ %.070, %.lr.ph102.preheader ], [ %101, %101 ]
   %91 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv104
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8
@@ -2497,39 +2497,39 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
 
 100:                                              ; preds = %.lr.ph102
   store ptr %.06999, ptr %47, align 8
-  br label %101
+  br label %100
 
-101:                                              ; preds = %100, %.lr.ph102
-  %102 = load ptr, ptr %.06999, align 8
+100:                                              ; preds = %100, %.lr.ph102
+  %101 = load ptr, ptr %.06999, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
   br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !16
 
-.loopexit:                                        ; preds = %101, %63, %42, %45
+.loopexit:                                        ; preds = %100, %63, %42, %45
   %.066 = phi i64 [ %44, %45 ], [ 0, %42 ], [ 0, %63 ], [ %99, %101 ]
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, %.066
-  store i64 %105, ptr %103, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %107 = load i64, ptr %106, align 8
-  %108 = add i64 %107, %.066
-  store i64 %108, ptr %106, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, %.066
+  store i64 %104, ptr %102, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %106 = load i64, ptr %105, align 8
+  %107 = add i64 %106, %.066
+  store i64 %107, ptr %105, align 8
   tail call void @evbuffer_invoke_callbacks_(ptr noundef %0)
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %66, %88, %.lr.ph, %13, %46, %39, %9, %.loopexit
   %.068 = phi i32 [ -1, %9 ], [ -1, %39 ], [ 0, %.loopexit ], [ -1, %46 ], [ %2, %13 ], [ -1, %.lr.ph ], [ -1, %88 ], [ -1, %66 ]
-  %109 = load ptr, ptr %4, align 8
-  %.not89 = icmp eq ptr %109, null
-  br i1 %.not89, label %113, label %110
+  %108 = load ptr, ptr %4, align 8
+  %.not89 = icmp eq ptr %108, null
+  br i1 %.not89, label %112, label %109
 
-110:                                              ; preds = %.loopexit95
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %112 = tail call i32 %111(i32 noundef 0, ptr noundef nonnull %109) #16
-  br label %113
+109:                                              ; preds = %.loopexit95
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %111 = tail call i32 %111(i32 noundef 0, ptr noundef nonnull %108) #16
+  br label %112
 
-113:                                              ; preds = %110, %.loopexit95
+112:                                              ; preds = %109, %.loopexit95
   ret i32 %.068
 }
 

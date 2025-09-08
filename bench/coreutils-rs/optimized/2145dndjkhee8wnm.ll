@@ -1281,7 +1281,7 @@ define hidden noundef i64 @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$cl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !9
   %7 = icmp ult i64 %4, %6
-  br i1 %7, label %8, label %13, !prof !151
+  br i1 %7, label %8, label %12, !prof !151
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
@@ -1290,7 +1290,7 @@ define hidden noundef i64 @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$cl
   %12 = load i64, ptr %11, align 8, !noundef !9
   ret i64 %12
 
-13:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4729153cc5e57b06a2546f9cbb0a1cbf.10.llvm.4103517291658523209) #25
   unreachable
 }

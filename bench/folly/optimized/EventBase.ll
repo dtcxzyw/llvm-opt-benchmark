@@ -8336,21 +8336,21 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEm.exit.
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE10eraseBlankENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmE.exit
 
 .lr.ph.i:                                         ; preds = %57, %78
-  %72 = phi i64 [ %80, %78 ], [ %64, %57 ]
+  %71 = phi i64 [ %80, %78 ], [ %64, %57 ]
   %.01027.i = phi i64 [ %79, %78 ], [ %3, %57 ]
-  %73 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 15
+  %72 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 15
   %75 = load i8, ptr %74, align 1, !tbaa !454
   %.not.i17.i = icmp eq i8 %75, -2
   br i1 %.not.i17.i, label %78, label %76
 
-76:                                               ; preds = %.lr.ph.i
+76:; preds = %.lr.ph.i
   %77 = add i8 %75, -1
   store i8 %77, ptr %74, align 1, !tbaa !454
   br label %78
 
-78:                                               ; preds = %76, %.lr.ph.i
-  %79 = add i64 %59, %.01027.i
+78:; preds = %76, %.lr.ph.i
+  %79 = add i64 %57, %.01027.i
   %80 = and i64 %79, %63
   %81 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %80
   %82 = icmp eq ptr %81, %51
@@ -9439,9 +9439,9 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %26
   %45 = icmp eq ptr %44, %6
   br i1 %45, label %.thread.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %57, %37
+.thread.i.i:                                      ; preds = %55, %37
   %.011.lcssa.i.i = phi i8 [ 0, %37 ], [ -16, %57 ]
-  %46 = phi i64 [ %43, %37 ], [ %59, %57 ]
+  %46 = phi i64 [ %43, %37 ], [ %57, %57 ]
   %47 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 14
   %49 = load i8, ptr %48, align 2, !tbaa !455
@@ -9449,26 +9449,26 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %26
   store i8 %50, ptr %48, align 2, !tbaa !455
   br label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmE.exit
 
-.lr.ph.i.i:                                       ; preds = %37, %57
-  %51 = phi i64 [ %59, %57 ], [ %43, %37 ]
-  %.01027.i.i = phi i64 [ %58, %57 ], [ %.sroa.04.0, %37 ]
-  %52 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 15
+.lr.ph.i.i:                                       ; preds = %37, %55
+  %50 = phi i64 [ %57, %57 ], [ %43, %37 ]
+  %.01027.i.i = phi i64 [ %56, %57 ], [ %.sroa.04.0, %37 ]
+  %51 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %50
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 15
   %54 = load i8, ptr %53, align 1, !tbaa !497
   %.not.i17.i.i = icmp eq i8 %54, -2
   br i1 %.not.i17.i.i, label %57, label %55
 
-55:                                               ; preds = %.lr.ph.i.i
+55:; preds = %.lr.ph.i.i
   %56 = add i8 %54, -1
   store i8 %56, ptr %53, align 1, !tbaa !497
   br label %57
 
-57:                                               ; preds = %55, %.lr.ph.i.i
-  %58 = add i64 %.01027.i.i, %.sroa.5.0
-  %59 = and i64 %58, %42
-  %60 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %59
-  %61 = icmp eq ptr %60, %6
-  br i1 %61, label %.thread.i.i, label %.lr.ph.i.i
+55:                                               ; preds = %55, %.lr.ph.i.i
+  %56 = add i64 %.01027.i.i, %.sroa.5.0
+  %57 = and i64 %56, %42
+  %58 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %39, i64 %57
+  %59 = icmp eq ptr %58, %6
+  br i1 %59, label %.thread.i.i, label %.lr.ph.i.i
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmE.exit: ; preds = %_ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i, %.thread.i.i
   ret void

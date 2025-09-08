@@ -339,12 +339,12 @@ define dso_local noundef i32 @_ZNK26btMultiBodyFixedConstraint12getIslandIdAEv(p
 
 .thread.sink.split:                               ; preds = %14, %11, %1
   %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %20, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
-  %22 = load i32, ptr %21, align 4, !tbaa !58
+  %20 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
+  %21 = load i32, ptr %20, align 4, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %11, %4, %14
-  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
+  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %21, %.thread.sink.split ]
   ret i32 %.04
 }
 
@@ -385,12 +385,12 @@ define dso_local noundef i32 @_ZNK26btMultiBodyFixedConstraint12getIslandIdBEv(p
 
 .thread.sink.split:                               ; preds = %14, %11, %1
   %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %20, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
-  %22 = load i32, ptr %21, align 4, !tbaa !58
+  %20 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
+  %21 = load i32, ptr %20, align 4, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %11, %4, %14
-  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
+  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %21, %.thread.sink.split ]
   ret i32 %.04
 }
 

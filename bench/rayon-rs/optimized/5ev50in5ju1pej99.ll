@@ -2266,10 +2266,10 @@ define hidden void @_ZN10rayon_core8registry9main_loop17h1548e426449e3194E.llvm.
 .noexc:                                           ; preds = %7
   unreachable
 
-8:                                                ; preds = %44, %49, %9
+8:                                                ; preds = %41, %46, %9
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %49 ], [ %lpad.thr_comm.split-lp, %44 ], [ %10, %9 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$rayon_core..registry..WorkerThread$GT$17h3ecc8cb5b41cf5ceE"(ptr noalias noundef nonnull align 128 dereferenceable(384) %4) #22
-          to label %52 unwind label %50
+          to label %52 unwind label %47
 
 9:                                                ; preds = %19, %7, %20
   %10 = landingpad { ptr, i32 }
@@ -2305,17 +2305,17 @@ define hidden void @_ZN10rayon_core8registry9main_loop17h1548e426449e3194E.llvm.
   invoke fastcc void @"_ZN73_$LT$rayon_core..latch..LockLatch$u20$as$u20$rayon_core..latch..Latch$GT$3set17h4a937e1e37716d94E"(ptr noundef %23)
           to label %24 unwind label %9
 
-24:                                               ; preds = %20
+24: ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 432
   %26 = load ptr, ptr %25, align 16, !noundef !4
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %28, label %27
 
-27:                                               ; preds = %24
+27:; preds = %24
   invoke void @_ZN10rayon_core8registry8Registry12catch_unwind17h7201d1f7228249caE(ptr noundef nonnull align 128 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
           to label %28 unwind label %49
 
-28:                                               ; preds = %27, %24
+28:; preds = %27, %24
   %29 = load ptr, ptr %12, align 16, !nonnull !4, !noundef !4
   %30 = load i64, ptr %14, align 128, !noundef !4
   %31 = getelementptr i8, ptr %29, i64 512
@@ -2324,7 +2324,7 @@ define hidden void @_ZN10rayon_core8registry9main_loop17h1548e426449e3194E.llvm.
   %33 = icmp ult i64 %30, %.val3.i
   br i1 %33, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i", label %.invoke, !prof !253
 
-.invoke:                                          ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i, %28
+.invoke:; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i, %28
   %34 = phi i64 [ %.val3.i, %28 ], [ %.val1.i, %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i ]
   %35 = phi ptr [ @anon.d61528429f0bdeb9caa8633bd1eca0a2.58, %28 ], [ @anon.d61528429f0bdeb9caa8633bd1eca0a2.59, %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %30, i64 noundef %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35) #21
@@ -2335,62 +2335,62 @@ define hidden void @_ZN10rayon_core8registry9main_loop17h1548e426449e3194E.llvm.
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i": ; preds = %28
   %.val2.i = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val2.i, i64 %30
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %35 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val2.i, i64 %30
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load atomic i64, ptr %37 acquire, align 8
   %39 = icmp eq i64 %38, 3
   br i1 %39, label %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i, label %40
 
-40:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i"
+38:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i"
   invoke void @_ZN10rayon_core8registry12WorkerThread15wait_until_cold17hf6974e652baf1fc0E(ptr noundef nonnull align 128 %4, ptr noundef nonnull align 8 %37)
-          to label %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i unwind label %49
+          to label %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i unwind label %46
 
-_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i: ; preds = %40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i"
+_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i: ; preds = %38, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit.i"
   %.val1.i = load i64, ptr %32, align 8, !noundef !4
-  %41 = icmp ult i64 %30, %.val1.i
-  br i1 %41, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i", label %.invoke, !prof !253
+  %39 = icmp ult i64 %30, %.val1.i
+  br i1 %39, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i", label %.invoke, !prof !253
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i": ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17ha3b8b40015096664E.exit.i
   %.val.i = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val.i, i64 %30
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
+  %40 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %.val.i, i64 %30
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 36
   invoke fastcc void @"_ZN73_$LT$rayon_core..latch..LockLatch$u20$as$u20$rayon_core..latch..Latch$GT$3set17h4a937e1e37716d94E"(ptr noundef %43)
           to label %_ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit unwind label %49
 
-44:                                               ; preds = %47
+41:                                               ; preds = %44
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %8
 
 _ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i"
-  %45 = getelementptr inbounds nuw i8, ptr %13, i64 448
-  %46 = load ptr, ptr %45, align 64, !noundef !4
-  %.not4 = icmp eq ptr %46, null
-  br i1 %.not4, label %48, label %47
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 448
+  %43 = load ptr, ptr %42, align 64, !noundef !4
+  %.not4 = icmp eq ptr %43, null
+  br i1 %.not4, label %45, label %44
 
-47:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit
-  invoke void @_ZN10rayon_core8registry8Registry12catch_unwind17h0b46656f477527b3E(ptr noundef nonnull align 128 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %48 unwind label %44
+44:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit
+  invoke void @_ZN10rayon_core8registry8Registry12catch_unwind17h0b46656f477527b3E(ptr noundef nonnull align 128 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+          to label %48 unwind label %41
 
-48:                                               ; preds = %47, %_ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit
+45:                                               ; preds = %44, %_ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe23E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @"_ZN4core3ptr55drop_in_place$LT$rayon_core..registry..WorkerThread$GT$17h3ecc8cb5b41cf5ceE"(ptr noalias noundef nonnull align 128 dereferenceable(384) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-49:                                               ; preds = %.invoke, %27, %40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i"
+46:                                               ; preds = %.invoke, %27, %38, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfPanic$GT$17h981eb812ff12ac33E"(ptr noalias noundef nonnull align 1 %2) #22
-          to label %8 unwind label %50
+          to label %8 unwind label %47
 
-50:                                               ; preds = %49, %8
-  %51 = landingpad { ptr, i32 }
+47:                                               ; preds = %46, %8
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-52:                                               ; preds = %8
+49:                                               ; preds = %8
   resume { ptr, i32 } %.pn
 }
 

@@ -4648,31 +4648,31 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us26.
   br i1 %.not19, label %._crit_edge.split.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  br label %79
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  br label %77
 
-79:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us, %.lr.ph
-  %.sroa.015.020.us = phi ptr [ %75, %.lr.ph ], [ %89, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !127
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load i64, ptr %82, align 8, !tbaa !89
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %85 = load i64, ptr %84, align 8, !tbaa !91
-  %86 = mul nsw i64 %85, %83
-  %87 = icmp slt i64 %86, 1
-  br i1 %87, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.us
+77:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us, %.lr.ph
+  %.sroa.015.020.us = phi ptr [ %75, %.lr.ph ], [ %87, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.us, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !127
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load i64, ptr %80, align 8, !tbaa !89
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %83 = load i64, ptr %82, align 8, !tbaa !91
+  %84 = mul nsw i64 %83, %81
+  %85 = icmp slt i64 %84, 1
+  br i1 %85, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.us
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.us: ; preds = %79
-  %88 = load ptr, ptr %81, align 8, !tbaa !102
-  %.idx.i.i.i.i.i.i.i.i.i.i.i.us = shl nuw nsw i64 %86, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %88, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.us, i1 false), !tbaa !38
+_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.us: ; preds = %77
+  %86 = load ptr, ptr %79, align 8, !tbaa !102
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.us = shl nuw nsw i64 %84, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.us, i1 false), !tbaa !38
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us
 
-_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.us, %79
-  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020.us) #29
-  %.not.us = icmp eq ptr %89, %78
-  br i1 %.not.us, label %._crit_edge.split.us, label %79, !llvm.loop !169
+_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.us, %77
+  %87 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.020.us) #29
+  %.not.us = icmp eq ptr %87, %76
+  br i1 %.not.us, label %._crit_edge.split.us, label %77, !llvm.loop !169
 
 ._crit_edge.split.us:                             ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.us, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

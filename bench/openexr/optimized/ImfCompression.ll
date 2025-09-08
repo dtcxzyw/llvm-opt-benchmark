@@ -865,7 +865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN7Imf_3_426getCompressionNumScanlinesENS_11CompressionE(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ugt i32 %0, 9
-  br i1 %or.cond, label %7, label %2
+  br i1 %or.cond, label %6, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
@@ -874,7 +874,7 @@ define noundef i32 @_ZN7Imf_3_426getCompressionNumScanlinesENS_11CompressionE(i3
   %6 = load i32, ptr %5, align 8, !tbaa !35
   br label %7
 
-7:                                                ; preds = %1, %2
+6:                                                ; preds = %1, %2
   %.0 = phi i32 [ %6, %2 ], [ -1, %1 ]
   ret i32 %.0
 }
@@ -882,7 +882,7 @@ define noundef i32 @_ZN7Imf_3_426getCompressionNumScanlinesENS_11CompressionE(i3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN7Imf_3_418isLossyCompressionENS_11CompressionE(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 10
-  br i1 %or.cond, label %2, label %8
+  br i1 %or.cond, label %2, label %7
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
@@ -892,15 +892,15 @@ define noundef zeroext i1 @_ZN7Imf_3_418isLossyCompressionENS_11CompressionE(i32
   %7 = trunc nuw i8 %6 to i1
   br label %8
 
-8:                                                ; preds = %2, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %2 ]
-  ret i1 %9
+7:                                                ; preds = %2, %1
+  %8 = phi i1 [ false, %1 ], [ %6, %2 ]
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN7Imf_3_422isValidDeepCompressionENS_11CompressionE(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 10
-  br i1 %or.cond, label %2, label %8
+  br i1 %or.cond, label %2, label %7
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
@@ -910,9 +910,9 @@ define noundef zeroext i1 @_ZN7Imf_3_422isValidDeepCompressionENS_11CompressionE
   %7 = trunc nuw i8 %6 to i1
   br label %8
 
-8:                                                ; preds = %2, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %2 ]
-  ret i1 %9
+7:                                                ; preds = %2, %1
+  %8 = phi i1 [ false, %1 ], [ %6, %2 ]
+  ret i1 %8
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable

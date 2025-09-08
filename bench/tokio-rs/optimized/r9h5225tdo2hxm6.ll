@@ -11526,7 +11526,7 @@ define hidden void @"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !1862, !noundef !10
   %.not = icmp ult i64 %1, %4
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11536,7 +11536,7 @@ define hidden void @"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event1
   store atomic i8 1, ptr %9 seq_cst, align 1
   br label %10
 
-10:                                               ; preds = %5, %2
+9:                                                ; preds = %5, %2
   ret void
 }
 
@@ -11820,33 +11820,33 @@ define hidden void @_ZN5tokio6signal4unix6action17h1723847c55edb8b2E(ptr noalias
 
 _ZN5tokio6signal8registry7Globals12record_event17h1735c986523b981dE.llvm.11424388141523703806.exit: ; preds = %2, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %14, ptr %5, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %13, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN72_$LT$$RF$mio..net..uds..stream..UnixStream$u20$as$u20$std..io..Write$GT$5write17h5de4a20a2324d179E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 @anon.b9c08160b8d52b2f9d67197464302e31.66.llvm.11424388141523703806, i64 noundef 1)
   call void @llvm.experimental.noalias.scope.decl(metadata !1908)
-  %15 = load i64, ptr %4, align 8, !range !59, !alias.scope !1908, !noundef !10
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hfe11d3f28b9c5098E.llvm.11424388141523703806.exit", label %17
+  %14 = load i64, ptr %4, align 8, !range !59, !alias.scope !1908, !noundef !10
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hfe11d3f28b9c5098E.llvm.11424388141523703806.exit", label %16
 
-17:                                               ; preds = %_ZN5tokio6signal8registry7Globals12record_event17h1735c986523b981dE.llvm.11424388141523703806.exit
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+16:                                               ; preds = %_ZN5tokio6signal8registry7Globals12record_event17h1735c986523b981dE.llvm.11424388141523703806.exit
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1911)
   call void @llvm.experimental.noalias.scope.decl(metadata !1914)
   call void @llvm.experimental.noalias.scope.decl(metadata !1917)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1920
-  %19 = load ptr, ptr %18, align 8, !alias.scope !1920, !nonnull !10, !noundef !10
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %19), !noalias !1920
-  %20 = load i8, ptr %3, align 8, !range !70, !alias.scope !1921, !noalias !1920, !noundef !10
-  %switch.not.i.i.i.i.i = icmp eq i8 %20, 3
-  br i1 %switch.not.i.i.i.i.i, label %21, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit.i"
+  %18 = load ptr, ptr %17, align 8, !alias.scope !1920, !nonnull !10, !noundef !10
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %18), !noalias !1920
+  %19 = load i8, ptr %3, align 8, !range !70, !alias.scope !1921, !noalias !1920, !noundef !10
+  %switch.not.i.i.i.i.i = icmp eq i8 %19, 3
+  br i1 %switch.not.i.i.i.i.i, label %20, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit.i"
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22), !noalias !1920
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21), !noalias !1920
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit.i": ; preds = %21, %17
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit.i": ; preds = %20, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1920
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hfe11d3f28b9c5098E.llvm.11424388141523703806.exit"
 

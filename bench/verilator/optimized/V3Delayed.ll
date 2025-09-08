@@ -5120,7 +5120,7 @@ _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %20 = load i64, ptr %19, align 8, !tbaa !253
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %92, label %24
+  br i1 %21, label %91, label %24
 
 22:                                               ; preds = %2
   %23 = landingpad { ptr, i32 }
@@ -5187,11 +5187,11 @@ _ZNSt3setIP10AstSenTreeSt4lessIS1_ESaIS1_EE5clearEv.exit: ; preds = %._crit_edge
 
 ._crit_edge31:                                    ; preds = %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit, %_ZNSt3setIP10AstSenTreeSt4lessIS1_ESaIS1_EE5clearEv.exit
   tail call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.015.lcssa)
-  br label %92
+  br label %91
 
 52:                                               ; preds = %.lr.ph30, %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit
-  %53 = phi ptr [ %35, %.lr.ph30 ], [ %86, %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit ]
-  %.029 = phi i64 [ %10, %.lr.ph30 ], [ %84, %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit ]
+  %53 = phi ptr [ %35, %.lr.ph30 ], [ %85, %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit ]
+  %.029 = phi i64 [ %10, %.lr.ph30 ], [ %83, %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit ]
   %54 = getelementptr inbounds nuw %"struct.DelayedVisitor::NBA", ptr %53, i64 %.029
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !245
@@ -5206,53 +5206,53 @@ _ZNSt3setIP10AstSenTreeSt4lessIS1_ESaIS1_EE5clearEv.exit: ; preds = %._crit_edge
   %.not.i = select i1 %60, i1 true, i1 %.not7.i
   br i1 %.not.i, label %64, label %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit
 
-64:                                               ; preds = %52
+64:; preds = %52
   %65 = load ptr, ptr %41, align 8, !tbaa !197
   %66 = load ptr, ptr %42, align 8, !tbaa !198
   %67 = getelementptr inbounds i8, ptr %66, i64 -56
   %.not.i.i = icmp eq ptr %65, %67
   br i1 %.not.i.i, label %71, label %68
 
-68:                                               ; preds = %64
+68:; preds = %64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, i8 0, i64 56, i1 false)
   %69 = load ptr, ptr %41, align 8, !tbaa !197
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
   store ptr %70, ptr %41, align 8, !tbaa !197
   br label %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
 
-71:                                               ; preds = %64
+70:                                               ; preds = %64
   tail call void @_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE16_M_push_back_auxIJEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %40)
   %.pre.i = load ptr, ptr %41, align 8, !tbaa !199, !noalias !301
   br label %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
 
-_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i: ; preds = %71, %68
-  %72 = phi ptr [ %.pre.i, %71 ], [ %70, %68 ]
-  %73 = load ptr, ptr %43, align 8, !tbaa !203, !noalias !304
-  %74 = icmp eq ptr %72, %73
-  br i1 %74, label %75, label %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i
+_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i: ; preds = %70, %68
+  %71 = phi ptr [ %.pre.i, %71 ], [ %70, %68 ]
+  %72 = load ptr, ptr %43, align 8, !tbaa !203, !noalias !304
+  %73 = icmp eq ptr %71, %72
+  br i1 %73, label %74, label %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i
 
-75:                                               ; preds = %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
-  %76 = load ptr, ptr %44, align 8, !tbaa !207, !noalias !301
-  %77 = getelementptr inbounds i8, ptr %76, i64 -8
-  %78 = load ptr, ptr %77, align 8, !tbaa !83
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 504
+74:                                               ; preds = %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
+  %75 = load ptr, ptr %44, align 8, !tbaa !207, !noalias !301
+  %76 = getelementptr inbounds i8, ptr %75, i64 -8
+  %77 = load ptr, ptr %76, align 8, !tbaa !83
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 504
   br label %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i
 
-_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i: ; preds = %75, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
-  %80 = phi ptr [ %79, %75 ], [ %72, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 -56
-  %82 = ptrtoint ptr %81 to i64
-  store i64 %82, ptr %61, align 8, !tbaa !14
-  %83 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
-  store i32 %83, ptr %57, align 8, !tbaa !148
+_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i: ; preds = %74, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
+  %79 = phi ptr [ %78, %75 ], [ %71, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i ]
+  %80 = getelementptr inbounds i8, ptr %79, i64 -56
+  %81 = ptrtoint ptr %80 to i64
+  store i64 %81, ptr %61, align 8, !tbaa !14
+  %82 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
+  store i32 %82, ptr %57, align 8, !tbaa !148
   br label %_ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit
 
 _ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJEEERS2_PS0_DpOT_.exit: ; preds = %52, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i
-  %.0.i = phi ptr [ %63, %52 ], [ %81, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i ]
+  %.0.i = phi ptr [ %63, %52 ], [ %80, %_ZNSt5dequeIN14DelayedVisitor12VarScopeInfoESaIS1_EE4backEv.exit.i ]
   tail call void @_ZN14DelayedVisitor12VarScopeInfo14addSensitivityEP10AstSenItem(ptr noundef nonnull align 8 dereferenceable(56) %.0.i, ptr noundef %.015.lcssa)
-  %84 = add nuw i64 %.029, 1
-  %85 = load ptr, ptr %4, align 8, !tbaa !236
-  %86 = load ptr, ptr %3, align 8, !tbaa !68
+  %83 = add nuw i64 %.029, 1
+  %84 = load ptr, ptr %4, align 8, !tbaa !236
+  %85 = load ptr, ptr %3, align 8, !tbaa !68
   %87 = ptrtoint ptr %85 to i64
   %88 = ptrtoint ptr %86 to i64
   %89 = sub i64 %87, %88
@@ -5260,7 +5260,7 @@ _ZN20AstUserAllocatorBaseI11AstVarScopeN14DelayedVisitor12VarScopeInfoELi1EEclIJ
   %91 = icmp ult i64 %84, %90
   br i1 %91, label %52, label %._crit_edge31, !llvm.loop !307
 
-92:                                               ; preds = %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit, %._crit_edge31
+91:                                               ; preds = %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit, %._crit_edge31
   ret void
 }
 

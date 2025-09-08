@@ -16,7 +16,7 @@ define hidden i32 @SDL_GetKeyCodeFromKeySym(i32 noundef %0, i32 noundef %1, i16 
 5:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %12, label %.preheader, !llvm.loop !3
+  br i1 %exitcond, label %11, label %.preheader, !llvm.loop !3
 
 .preheader:                                       ; preds = %3, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %3 ]
@@ -31,17 +31,17 @@ define hidden i32 @SDL_GetKeyCodeFromKeySym(i32 noundef %0, i32 noundef %1, i16 
   %11 = load i32, ptr %10, align 4
   br label %.critedge
 
-12:                                               ; preds = %5
-  %13 = tail call i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) #2
-  %.not24 = icmp eq i32 %13, 0
-  br i1 %.not24, label %.critedge, label %14
+11:                                               ; preds = %5
+  %12 = tail call i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) #2
+  %.not24 = icmp eq i32 %12, 0
+  br i1 %.not24, label %.critedge, label %13
 
-14:                                               ; preds = %12
-  %15 = tail call i32 @SDL_GetKeymapKeycode(ptr noundef null, i32 noundef %13, i16 noundef zeroext %2) #2
+13:                                               ; preds = %11
+  %14 = tail call i32 @SDL_GetKeymapKeycode(ptr noundef null, i32 noundef %12, i16 noundef zeroext %2) #2
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %14, %12, %3
-  %.1 = phi i32 [ %15, %14 ], [ 0, %12 ], [ %4, %3 ], [ %11, %.thread ]
+.critedge:                                        ; preds = %.thread, %13, %11, %3
+  %.1 = phi i32 [ %14, %14 ], [ 0, %12 ], [ %4, %3 ], [ %11, %.thread ]
   ret i32 %.1
 }
 

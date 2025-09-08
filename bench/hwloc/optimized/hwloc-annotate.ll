@@ -3276,14 +3276,14 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
 
 46:                                               ; preds = %.split.us
   %.not85.us = icmp eq i32 %.064102.us, 0
-  br i1 %.not85.us, label %47, label %.split104.us
+  br i1 %.not85.us, label %46, label %.split104.us
 
-47:                                               ; preds = %46
+46:                                               ; preds = %46
   %48 = load i64, ptr %42, align 8, !tbaa !101
   %49 = or i64 %48, %.3100.us
   br label %50
 
-50:                                               ; preds = %47, %.split.us
+50:                                               ; preds = %46, %.split.us
   %.4.us = phi i64 [ %49, %47 ], [ %.3100.us, %.split.us ]
   %.165.us = phi i32 [ 1, %47 ], [ %.064102.us, %.split.us ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -3306,20 +3306,20 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
 
 59:                                               ; preds = %51
   %.not85 = icmp eq i32 %.064102, 0
-  br i1 %.not85, label %62, label %.split104.us
+  br i1 %.not85, label %61, label %.split104.us
 
 .split104.us:                                     ; preds = %59, %46
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.87, ptr noundef %3, ptr noundef nonnull %31) #31
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.87, ptr noundef %3, ptr noundef nonnull %31) #31
   tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %3, ptr noundef %1, i32 noundef %2)
   br label %.thread
 
-62:                                               ; preds = %59
+61:                                               ; preds = %59
   %63 = load i64, ptr %52, align 8, !tbaa !101
   %64 = or i64 %63, %.3100
   br label %65
 
-65:                                               ; preds = %51, %62
+65:                                               ; preds = %51, %61
   %.4 = phi i64 [ %.3100, %51 ], [ %64, %62 ]
   %.165 = phi i32 [ %.064102, %51 ], [ 1, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3384,9 +3384,9 @@ define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %0, ptr 
   %fputc = tail call i32 @fputc(i32 10, ptr %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %14, label %6, !llvm.loop !103
+  br i1 %exitcond.not, label %13, label %6, !llvm.loop !103
 
-14:                                               ; preds = %6
+13:                                               ; preds = %6
   ret void
 }
 

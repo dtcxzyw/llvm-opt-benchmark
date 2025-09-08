@@ -4147,7 +4147,7 @@ define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet8isSharedEm(pt
 entry:
   %mAttrs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mAttrs, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %0, i64 %pos
+  %_M_refcount.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %0, i64 %pos
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %1 = load ptr, ptr %_M_refcount.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null

@@ -11549,36 +11549,36 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   br i1 %53, label %26, label %._crit_edge, !llvm.loop !340
 
 ._crit_edge:                                      ; preds = %RSTRING_PTR.exit, %16
-  %54 = phi ptr [ %18, %16 ], [ %23, %RSTRING_PTR.exit ]
-  %55 = phi ptr [ %17, %16 ], [ %24, %RSTRING_PTR.exit ]
-  %56 = call ptr @rb_nogvl(ptr noundef nonnull @no_gvl_apply2files, ptr noundef nonnull %55, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null, i32 noundef 4) #22
-  %57 = load i32, ptr %54, align 8, !tbaa !26
-  %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %64, label %58
+  %55 = phi ptr [ %18, %16 ], [ %23, %RSTRING_PTR.exit ]
+  %56 = phi ptr [ %17, %16 ], [ %24, %RSTRING_PTR.exit ]
+  %57 = call ptr @rb_nogvl(ptr noundef nonnull @no_gvl_apply2files, ptr noundef nonnull %56, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null, i32 noundef 4) #22
+  %58 = load i32, ptr %55, align 8, !tbaa !26
+  %.not = icmp eq i32 %58, 0
+  br i1 %.not, label %65, label %59
 
-58:                                               ; preds = %._crit_edge
-  %59 = load i32, ptr %55, align 8, !tbaa !26
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr %struct.apply_filename, ptr %55, i64 %60
-  %62 = getelementptr i8, ptr %61, i64 40
-  %63 = load i64, ptr %62, align 8, !tbaa !339
-  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %57, i64 noundef %63) #24
+59:                                               ; preds = %._crit_edge
+  %60 = load i32, ptr %56, align 8, !tbaa !26
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr %struct.apply_filename, ptr %56, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 40
+  %64 = load i64, ptr %63, align 8, !tbaa !339
+  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %58, i64 noundef %64) #24
   unreachable
 
-64:                                               ; preds = %._crit_edge
-  %65 = load i64, ptr %6, align 8, !tbaa !12
-  %.not31 = icmp eq i64 %65, 0
-  br i1 %.not31, label %67, label %66
+65:                                               ; preds = %._crit_edge
+  %66 = load i64, ptr %6, align 8, !tbaa !12
+  %.not31 = icmp eq i64 %66, 0
+  br i1 %.not31, label %68, label %67
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #22
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %64
-  %68 = shl nsw i64 %7, 1
-  %69 = or disjoint i64 %68, 1
+68:                                               ; preds = %67, %65
+  %69 = shl nsw i64 %7, 1
+  %70 = or disjoint i64 %69, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %69
+  ret i64 %70
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

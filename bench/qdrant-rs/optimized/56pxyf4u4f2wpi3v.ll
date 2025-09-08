@@ -55,8 +55,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84f38ab7170006a3E.llvm.952538468121597485.exit": ; preds = %11, %3
   %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %16, %11 ]
-  %19 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !4
   ret void
 }
@@ -1519,31 +1519,31 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val14 = load i64, ptr %15, align 8, !alias.scope !369, !noundef !7
   store i64 %.val14, ptr %.val, align 8, !noalias !374
-  br label %25
+  br label %24
 
 16:                                               ; preds = %6, %16
-  %17 = phi i64 [ %.promoted, %6 ], [ %21, %16 ]
-  %.0 = phi i64 [ 0, %6 ], [ %22, %16 ]
+  %17 = phi i64 [ %.promoted, %6 ], [ %20, %16 ]
+  %.0 = phi i64 [ 0, %6 ], [ %21, %16 ]
   %18 = getelementptr inbounds { i32, float }, ptr %0, i64 %.0
   %19 = getelementptr i8, ptr %18, i64 4
   %.val19 = load float, ptr %19, align 4, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %20 = getelementptr inbounds float, ptr %12, i64 %17
-  store float %.val19, ptr %20, align 4, !noalias !362
-  %21 = add i64 %17, 1
-  %22 = add nuw i64 %.0, 1
-  %23 = icmp eq i64 %22, %10
-  br i1 %23, label %24, label %16
+  %19 = getelementptr inbounds float, ptr %12, i64 %17
+  store float %.val19, ptr %19, align 4, !noalias !362
+  %20 = add i64 %17, 1
+  %21 = add nuw i64 %.0, 1
+  %22 = icmp eq i64 %21, %10
+  br i1 %22, label %23, label %16
 
-24:                                               ; preds = %16
-  store i64 %21, ptr %13, align 8, !alias.scope !362
+23:                                               ; preds = %16
+  store i64 %20, ptr %13, align 8, !alias.scope !362
   %.val15 = load ptr, ptr %2, align 8, !alias.scope !369, !nonnull !7, !align !111, !noundef !7
-  store i64 %21, ptr %.val15, align 8, !noalias !382
-  br label %25
+  store i64 %20, ptr %.val15, align 8, !noalias !382
+  br label %24
 
-25:                                               ; preds = %14, %24
+24:                                               ; preds = %14, %23
   ret void
 }
 

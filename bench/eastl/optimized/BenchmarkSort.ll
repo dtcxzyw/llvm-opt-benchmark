@@ -7979,7 +7979,7 @@ if.end29.i:                                       ; preds = %if.then.i, %if.end7
   %length34.i = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %length34.i, align 8
   %sub35.i = add nsw i64 %stack_curr.addr.063.i34, -1
-  %arrayidx36.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
+  %length37.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
   %length37.i = getelementptr inbounds nuw i8, ptr %arrayidx36.i, i64 8
   %32 = load i64, ptr %length37.i, align 8
   %add38.i = add nsw i64 %32, %31
@@ -7995,7 +7995,7 @@ if.then42.i:                                      ; preds = %if.then40.i
   %arrayidx47.i = getelementptr i8, ptr %29, i64 -32
   %add52.i = add nsw i64 %31, %30
   store i64 %add52.i, ptr %length31.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx47.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx36.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx47.i, ptr noundef nonnull align 16 dereferenceable(16) %length37.i, i64 16, i1 false)
   br label %if.end79.i
 
 if.else56.i:                                      ; preds = %if.then40.i
@@ -8544,7 +8544,7 @@ if.end29.i:                                       ; preds = %if.then.i, %if.end7
   %length34.i = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %length34.i, align 8
   %sub35.i = add nsw i64 %stack_curr.addr.063.i32, -1
-  %arrayidx36.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
+  %length37.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
   %length37.i = getelementptr inbounds nuw i8, ptr %arrayidx36.i, i64 8
   %14 = load i64, ptr %length37.i, align 8
   %add38.i = add nsw i64 %14, %13
@@ -8560,7 +8560,7 @@ if.then42.i:                                      ; preds = %if.then40.i
   %arrayidx47.i = getelementptr i8, ptr %11, i64 -32
   %add52.i = add nsw i64 %13, %12
   store i64 %add52.i, ptr %length31.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx47.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx36.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx47.i, ptr noundef nonnull align 16 dereferenceable(16) %length37.i, i64 16, i1 false)
   br label %if.end79.i
 
 if.else56.i:                                      ; preds = %if.then40.i
@@ -25006,7 +25006,7 @@ if.end12:                                         ; preds = %_ZN5eastl8Internal3
   store i64 %15, ptr %arrayidx, align 8
   %17 = load i64, ptr %len, align 8
   %18 = load i64, ptr %stack_curr, align 8
-  %arrayidx13 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %18
+  %length = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %18
   %length = getelementptr inbounds nuw i8, ptr %arrayidx13, i64 8
   store i64 %17, ptr %length, align 8
   %19 = load i64, ptr %stack_curr, align 8
@@ -25072,7 +25072,7 @@ if.end29:                                         ; preds = %while.body.preheade
   %length34 = getelementptr i8, ptr %2, i64 -24
   %4 = load i64, ptr %length34, align 8
   %sub35 = add nsw i64 %stack_curr.addr.06369, -1
-  %arrayidx36 = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35
+  %length37 = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35
   %length37 = getelementptr inbounds nuw i8, ptr %arrayidx36, i64 8
   %5 = load i64, ptr %length37, align 8
   %add38 = add nsw i64 %5, %4
@@ -25090,7 +25090,7 @@ if.then42:                                        ; preds = %if.then40
   %7 = load i64, ptr %length31, align 8
   %add52 = add nsw i64 %7, %6
   store i64 %add52, ptr %length31, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx36, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(16) %length37, i64 16, i1 false)
   br label %if.end79
 
 if.else56:                                        ; preds = %if.then40
@@ -28261,7 +28261,7 @@ if.end12:                                         ; preds = %_ZN5eastl8Internal3
   store i64 %46, ptr %arrayidx, align 8
   %48 = load i64, ptr %len, align 8
   %49 = load i64, ptr %stack_curr, align 8
-  %arrayidx13 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %49
+  %length = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %49
   %length = getelementptr inbounds nuw i8, ptr %arrayidx13, i64 8
   store i64 %48, ptr %length, align 8
   %50 = load i64, ptr %stack_curr, align 8
@@ -31691,7 +31691,7 @@ if.end12:                                         ; preds = %_ZN5eastl8Internal3
   store i64 %5, ptr %arrayidx, align 8
   %7 = load i64, ptr %len, align 8
   %8 = load i64, ptr %stack_curr, align 8
-  %arrayidx13 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %8
+  %length = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %8
   %length = getelementptr inbounds nuw i8, ptr %arrayidx13, i64 8
   store i64 %7, ptr %length, align 8
   %9 = load i64, ptr %stack_curr, align 8

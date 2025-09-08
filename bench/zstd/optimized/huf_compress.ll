@@ -635,13 +635,13 @@ HUF_sort.exit:                                    ; preds = %64
   %117 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i16 %115, ptr %117, align 4, !tbaa !32
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next111.i, %85
-  br i1 %exitcond64.not, label %.lr.ph100.preheader.i, label %.lr.ph96.i, !llvm.loop !34
+  %exitcond78.not = icmp eq i64 %indvars.iv.next111.i, %85
+  br i1 %exitcond78.not, label %.lr.ph100.preheader.i, label %.lr.ph96.i, !llvm.loop !34
 
 .lr.ph100.preheader.i:                            ; preds = %.lr.ph96.i
   %118 = sext i32 %76 to i64
   %119 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 7
+  %119 = getelementptr inbounds nuw i8, ptr %119, i64 7
   store i8 0, ptr %120, align 1, !tbaa !35
   %121 = zext i32 %indvars.iv113.i to i64
   br label %.lr.ph100.i
@@ -650,7 +650,7 @@ HUF_sort.exit:                                    ; preds = %64
   store i32 -2147483648, ptr %13, align 4, !tbaa !26
   %.pre.i29 = sext i32 %76 to i64
   %122 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %.pre.i29
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 7
+  %122 = getelementptr inbounds nuw i8, ptr %122, i64 7
   store i8 0, ptr %123, align 1, !tbaa !35
   %.not84101.i = icmp slt i64 %indvars.iv.i24, 0
   br i1 %.not84101.i, label %HUF_buildTree.exit, label %.lr.ph103.preheader.i
@@ -706,7 +706,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %sext = shl i64 %indvars.iv.i24, 32
   %151 = ashr exact i64 %sext, 32
   %152 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %151
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 7
+  %152 = getelementptr inbounds nuw i8, ptr %152, i64 7
   %154 = load i8, ptr %153, align 1, !tbaa !35
   %155 = zext i8 %154 to i32
   %156 = icmp samesign ult i32 %spec.store.select, %155
@@ -740,7 +740,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   store i8 %157, ptr %161, align 1, !tbaa !35
   %indvars.iv.next.i37 = add nsw i64 %indvars.iv.i36, -1
   %165 = getelementptr %struct.nodeElt_s, ptr %.0.i, i64 %indvars.iv.i36
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 7
+  %165 = getelementptr inbounds nuw i8, ptr %165, i64 7
   %167 = load i8, ptr %166, align 1, !tbaa !35
   %168 = zext i8 %167 to i32
   %169 = icmp samesign ult i32 %spec.store.select, %168
@@ -750,7 +750,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %indvars.iv161.i = phi i32 [ %indvars.iv.next162.i, %170 ], [ %.088.lcssa.i, %.preheader119.i ]
   %indvars.iv158.i = phi i64 [ %indvars.iv.next159.i, %170 ], [ %.pre-phi.i, %.preheader119.i ]
   %171 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv158.i
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 7
+  %171 = getelementptr inbounds nuw i8, ptr %171, i64 7
   %173 = load i8, ptr %172, align 1, !tbaa !35
   %174 = zext i8 %173 to i32
   %175 = icmp eq i32 %spec.store.select, %174
@@ -927,7 +927,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 248:                                              ; preds = %248, %.preheader.i32
   %indvars.iv173.i = phi i64 [ %indvars.iv.next174.i, %248 ], [ %247, %.preheader.i32 ]
   %249 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv173.i
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 7
+  %249 = getelementptr inbounds nuw i8, ptr %249, i64 7
   %251 = load i8, ptr %250, align 1, !tbaa !35
   %252 = zext i8 %251 to i32
   %253 = icmp eq i32 %spec.store.select, %252
@@ -939,7 +939,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %255 = add nsw i32 %254, 1
   %256 = sext i32 %255 to i64
   %257 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %256
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 7
+  %257 = getelementptr inbounds nuw i8, ptr %257, i64 7
   %259 = load i8, ptr %258, align 1, !tbaa !35
   %260 = add i8 %259, -1
   store i8 %260, ptr %258, align 1, !tbaa !35

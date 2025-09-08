@@ -78,34 +78,34 @@ define internal fastcc void @"_ZN4core3ptr150drop_in_place$LT$alloc..vec..Vec$LT
   %9 = icmp eq i64 %.sroa.0.1.i.i, %.val1
   br i1 %9, label %.body, label %12
 
-10:                                               ; preds = %5
+10:; preds = %5
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr127drop_in_place$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$17h7778c0c1a1a16810E.exit7.i.i"
 
-12:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$17h7778c0c1a1a16810E.exit7.i.i"
+11:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$17h7778c0c1a1a16810E.exit7.i.i"
   %13 = getelementptr inbounds nuw { i32, [1 x i32], { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.0.1.i.i
   %14 = add i64 %.sroa.0.1.i.i, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h740b8a06a0521140E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 8, i64 noundef 16)
           to label %"_ZN4core3ptr127drop_in_place$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$17h7778c0c1a1a16810E.exit7.i.i" unwind label %16
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr127drop_in_place$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$17h7778c0c1a1a16810E.exit7.i.i"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h740b8a06a0521140E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
-          to label %"_ZN4core3ptr157drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$$GT$17h742cf873e9f7d9a2E.exit" unwind label %18
+          to label %"_ZN4core3ptr157drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$$GT$17h742cf873e9f7d9a2E.exit" unwind label %16
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8f770e3a4e150701E.exit": ; preds = %"_ZN4core3ptr127drop_in_place$LT$$LP$u32$C$alloc..vec..Vec$LT$$LP$usize$C$wasmparser..readers..core..branch_hinting..BranchHint$RP$$GT$$RP$$GT$17h7778c0c1a1a16810E.exit.i.i"
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h740b8a06a0521140E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
   ret void
 
-18:                                               ; preds = %.body
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %.body
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9
   unreachable

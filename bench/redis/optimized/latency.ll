@@ -187,12 +187,12 @@ define dso_local void @latencyAddSample(ptr noundef %0, i64 noundef %1) local_un
   %31 = load i32, ptr %30, align 4, !tbaa !43
   %32 = zext i32 %31 to i64
   %33 = icmp sgt i64 %1, %32
-  br i1 %33, label %34, label %44
+  br i1 %33, label %34, label %45
 
 34:                                               ; preds = %29
   %35 = trunc i64 %1 to i32
   store i32 %35, ptr %30, align 4, !tbaa !43
-  br label %44
+  br label %45
 
 36:                                               ; preds = %19
   %37 = trunc i64 %5 to i32
@@ -206,9 +206,9 @@ define dso_local void @latencyAddSample(ptr noundef %0, i64 noundef %1) local_un
   %43 = icmp eq i32 %42, 160
   %spec.select = select i1 %43, i32 0, i32 %42
   store i32 %spec.select, ptr %.0, align 4, !tbaa !40
-  br label %44
+  br label %45
 
-44:                                               ; preds = %29, %34, %36
+45:                                               ; preds = %29, %34, %36
   ret void
 }
 

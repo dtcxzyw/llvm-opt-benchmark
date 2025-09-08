@@ -193,7 +193,7 @@ define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %0,
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = getelementptr inbounds nuw %struct.ossl_algorithm_st, ptr %33, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %.04677, i64 32, i1 false), !tbaa.struct !29
   %.pr = load ptr, ptr %.04677, align 8, !tbaa !24

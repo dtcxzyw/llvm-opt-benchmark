@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal noundef i32 @flex128_init() #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8, !tbaa !3
   %or.cond = icmp ult i32 %1, 64
-  br i1 %or.cond, label %2, label %9
+  br i1 %or.cond, label %2, label %8
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
@@ -50,11 +50,11 @@ define internal noundef i32 @flex128_init() #0 {
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %9
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1) #6
-  br label %9
+  br label %8
 
-9:                                                ; preds = %8, %2, %0
+8:                                                ; preds = %7, %2, %0
   ret i32 0
 }
 
@@ -62,7 +62,7 @@ define internal noundef i32 @flex128_init() #0 {
 define internal void @flex128_finalize() #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8, !tbaa !3
   %or.cond = icmp ult i32 %1, 64
-  br i1 %or.cond, label %2, label %9
+  br i1 %or.cond, label %2, label %8
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
@@ -72,11 +72,11 @@ define internal void @flex128_finalize() #0 {
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %9
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.2) #6
-  br label %9
+  br label %8
 
-9:                                                ; preds = %8, %2, %0
+8:                                                ; preds = %7, %2, %0
   ret void
 }
 

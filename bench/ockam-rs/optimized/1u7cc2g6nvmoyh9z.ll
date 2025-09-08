@@ -3984,7 +3984,7 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$crossbeam_queue..array_queu
   br label %30
 
 30:                                               ; preds = %.noexc, %.lr.ph.i
-  %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %.noexc ]
+  %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %.noexc ]
   %31 = add i64 %.sroa.0.015.i, %8
   %32 = icmp ult i64 %31, %27
   %33 = select i1 %32, i64 0, i64 %27
@@ -3995,29 +3995,29 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$crossbeam_queue..array_queu
           to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %30
-  %36 = add nuw i64 %.sroa.0.015.i, 1
-  %exitcond.not.i = icmp eq i64 %36, %.0.i
+  %35 = add nuw i64 %.sroa.0.015.i, 1
+  %exitcond.not.i = icmp eq i64 %35, %.0.i
   br i1 %exitcond.not.i, label %"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h661ce6b668efd7b3E.llvm.9153531805506995525.exit", label %30
 
-37:                                               ; preds = %30
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %30
+  %37 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h6896f457f36f7534E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #33
-  resume { ptr, i32 } %38
+  resume { ptr, i32 } %37
 
 "_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h661ce6b668efd7b3E.llvm.9153531805506995525.exit": ; preds = %.noexc, %25, %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1145)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %40 = load i64, ptr %39, align 8, !alias.scope !1148, !noundef !4
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h6896f457f36f7534E.llvm.9153531805506995525.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %39 = load i64, ptr %38, align 8, !alias.scope !1148, !noundef !4
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h6896f457f36f7534E.llvm.9153531805506995525.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i": ; preds = %"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h661ce6b668efd7b3E.llvm.9153531805506995525.exit"
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %43 = mul nsw i64 %40, 80
-  %44 = load ptr, ptr %42, align 16, !alias.scope !1148, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %43, i64 noundef 8) #35, !noalias !1148
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %42 = mul nsw i64 %39, 80
+  %43 = load ptr, ptr %41, align 16, !alias.scope !1148, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %42, i64 noundef 8) #35, !noalias !1148
   br label %"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h6896f457f36f7534E.llvm.9153531805506995525.exit"
 
 "_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h6896f457f36f7534E.llvm.9153531805506995525.exit": ; preds = %"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h661ce6b668efd7b3E.llvm.9153531805506995525.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
@@ -29944,7 +29944,7 @@ define hidden void @"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$
   %34 = select i1 %33, i64 0, i64 %27
   %.05 = sub nuw i64 %32, %34
   %35 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %35, i64 16
   tail call void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hd327e693c66ac7f2E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
   %exitcond.not = icmp eq i64 %31, %.0
   br i1 %exitcond.not, label %._crit_edge, label %30

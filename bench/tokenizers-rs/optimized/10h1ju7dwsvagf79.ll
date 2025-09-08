@@ -3183,11 +3183,11 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %31 = icmp ult i64 %30, %4
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds { ptr, ptr, double, double }, ptr %6, i64 %30
-  %33 = getelementptr i8, ptr %29, i64 16
-  %.val = load double, ptr %33, align 8, !alias.scope !871, !noalias !876, !noundef !4
+  %32 = getelementptr i8, ptr %29, i64 16
+  %.val27 = load double, ptr %32, align 8, !alias.scope !871, !noalias !876, !noundef !4
   %34 = getelementptr i8, ptr %32, i64 16
   %.val27 = load double, ptr %34, align 8, !alias.scope !876, !noalias !871, !noundef !4
-  %35 = fcmp olt double %.val, %.val27
+  %35 = fcmp olt double %.val27, %.val27
   %36 = zext i1 %35 to i64
   %37 = add nuw i64 %.042, %36
   %38 = getelementptr inbounds { ptr, ptr, double, double }, ptr %6, i64 %37
@@ -3282,7 +3282,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc42f6b1d48abf21fE.llvm.11083375685992158394.exit.thread": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc42f6b1d48abf21fE.llvm.11083375685992158394.exit"
   store ptr null, ptr %0, align 8
-  br label %50
+  br label %48
 
 14:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc42f6b1d48abf21fE.llvm.11083375685992158394.exit"
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3365,12 +3365,12 @@ _ZN4core3ptr19swap_nonoverlapping17h52a53e9c3d3177a6E.llvm.11083375685992158394.
   %40 = icmp ult i64 %39, %7
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds { ptr, ptr, double, double }, ptr %11, i64 %39
-  %42 = getelementptr i8, ptr %38, i64 16
-  %.val.i.i = load double, ptr %42, align 8, !alias.scope !927, !noalias !932, !noundef !4
+  %41 = getelementptr i8, ptr %38, i64 16
+  %.val27.i.i = load double, ptr %41, align 8, !alias.scope !927, !noalias !932, !noundef !4
   %43 = getelementptr i8, ptr %41, i64 16
   %.val27.i.i = load double, ptr %43, align 8, !alias.scope !935, !noalias !936, !noundef !4
-  %44 = fcmp olt double %.val.i.i, %.val27.i.i
-  %45 = zext i1 %44 to i64
+  %44 = fcmp olt double %.val27.i.i, %.val27.i.i
+  %45 = zext i1 %41 to i64
   %46 = add nuw i64 %.042.i.i, %45
   %47 = getelementptr inbounds { ptr, ptr, double, double }, ptr %11, i64 %46
   %48 = getelementptr inbounds { ptr, ptr, double, double }, ptr %11, i64 %.sroa.12.040.i.i
@@ -3382,20 +3382,20 @@ _ZN4core3ptr19swap_nonoverlapping17h52a53e9c3d3177a6E.llvm.11083375685992158394.
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h888a9726d8fba5caE.llvm.11083375685992158394.exit.i": ; preds = %36, %.lr.ph.i.i.i, %27
   %.sroa.1315.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ 0, %36 ], [ %.sroa.1315.020.i.i.i, %.lr.ph.i.i.i ]
-  %49 = getelementptr inbounds { ptr, ptr, double, double }, ptr %11, i64 %.sroa.1315.0.lcssa.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i.i, i64 16, i1 false), !noalias !903
-  %.sroa.12.16..sroa_idx7.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %47 = getelementptr inbounds { ptr, ptr, double, double }, ptr %11, i64 %.sroa.1315.0.lcssa.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i.i, i64 16, i1 false), !noalias !903
+  %.sroa.12.16..sroa_idx7.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 16
   store double %.sroa.12.16.copyload.i.i.i, ptr %.sroa.12.16..sroa_idx7.i.i.i, align 8, !noalias !913
-  %.sroa.13.16..sroa_idx11.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %.sroa.13.16..sroa_idx11.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 24
   store double %.sroa.13.16.copyload.i.i.i, ptr %.sroa.13.16..sroa_idx11.i.i.i, align 8, !noalias !913
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h175b4a1067778b33E.llvm.11083375685992158394.exit"
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h175b4a1067778b33E.llvm.11083375685992158394.exit": ; preds = %14, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h888a9726d8fba5caE.llvm.11083375685992158394.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  br label %50
+  br label %48
 
-50:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h175b4a1067778b33E.llvm.11083375685992158394.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc42f6b1d48abf21fE.llvm.11083375685992158394.exit.thread"
+48:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h175b4a1067778b33E.llvm.11083375685992158394.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc42f6b1d48abf21fE.llvm.11083375685992158394.exit.thread"
   ret void
 }
 
@@ -3527,11 +3527,11 @@ _ZN4core3ptr19swap_nonoverlapping17h52a53e9c3d3177a6E.llvm.11083375685992158394.
   %35 = icmp ult i64 %34, %5
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds { ptr, ptr, double, double }, ptr %10, i64 %34
-  %37 = getelementptr i8, ptr %33, i64 16
-  %.val.i = load double, ptr %37, align 8, !alias.scope !980, !noalias !985, !noundef !4
+  %36 = getelementptr i8, ptr %33, i64 16
+  %.val27.i = load double, ptr %36, align 8, !alias.scope !980, !noalias !985, !noundef !4
   %38 = getelementptr i8, ptr %36, i64 16
   %.val27.i = load double, ptr %38, align 8, !alias.scope !988, !noalias !989, !noundef !4
-  %39 = fcmp olt double %.val.i, %.val27.i
+  %39 = fcmp olt double %.val27.i, %.val27.i
   %40 = zext i1 %39 to i64
   %41 = add nuw i64 %.042.i, %40
   %42 = getelementptr inbounds { ptr, ptr, double, double }, ptr %10, i64 %41
@@ -3544,11 +3544,11 @@ _ZN4core3ptr19swap_nonoverlapping17h52a53e9c3d3177a6E.llvm.11083375685992158394.
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h888a9726d8fba5caE.llvm.11083375685992158394.exit": ; preds = %.lr.ph.i.i, %31, %22
   %.sroa.1315.0.lcssa.i.i = phi i64 [ 0, %22 ], [ %.sroa.1315.020.i.i, %.lr.ph.i.i ], [ 0, %31 ]
-  %44 = getelementptr inbounds { ptr, ptr, double, double }, ptr %10, i64 %.sroa.1315.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i, i64 16, i1 false), !noalias !956
-  %.sroa.12.16..sroa_idx7.i.i = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %42 = getelementptr inbounds { ptr, ptr, double, double }, ptr %10, i64 %.sroa.1315.0.lcssa.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i, i64 16, i1 false), !noalias !956
+  %.sroa.12.16..sroa_idx7.i.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   store double %.sroa.12.16.copyload.i.i, ptr %.sroa.12.16..sroa_idx7.i.i, align 8, !noalias !966
-  %.sroa.13.16..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %.sroa.13.16..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %42, i64 24
   store double %.sroa.13.16.copyload.i.i, ptr %.sroa.13.16..sroa_idx11.i.i, align 8, !noalias !966
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   br label %7
