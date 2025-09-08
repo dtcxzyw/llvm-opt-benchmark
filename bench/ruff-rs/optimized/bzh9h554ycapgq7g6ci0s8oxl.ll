@@ -10667,8 +10667,8 @@ define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_semanti
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_ast..comparable..ComparableExpr$GT$17h4ae3884cbbfd40f7E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !1039, !noundef !9
-  %3 = add i64 %2, 9223372036854775807
-  %4 = icmp ult i64 %3, 33
+  %3 = add nsw i64 %2, 9223372036854775807
+  %4 = icmp ugt i64 %2, -9223372036854775808
   %5 = select i1 %4, i64 %3, i64 4
   switch i64 %5, label %6 [
     i64 0, label %7
@@ -21390,12 +21390,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr = phi ptr [ %0, %2 ], [ %.tr.be833, %tailrecurse.backedge832 ]
   %.tr190 = phi ptr [ %1, %2 ], [ %.tr190.be, %tailrecurse.backedge832 ]
   %3 = load i64, ptr %.tr, align 8, !range !1039, !noundef !9
-  %4 = add i64 %3, 9223372036854775807
-  %5 = icmp ult i64 %4, 33
+  %4 = add nsw i64 %3, 9223372036854775807
+  %5 = icmp ugt i64 %3, -9223372036854775808
   %6 = select i1 %5, i64 %4, i64 4
   %7 = load i64, ptr %.tr190, align 8, !range !1039, !noundef !9
-  %8 = add i64 %7, 9223372036854775807
-  %9 = icmp ult i64 %8, 33
+  %8 = add nsw i64 %7, 9223372036854775807
+  %9 = icmp ugt i64 %7, -9223372036854775808
   %10 = select i1 %9, i64 %8, i64 4
   %11 = icmp eq i64 %6, %10
   br i1 %11, label %.lr.ph, label %"_ZN81_$LT$ruff_python_ast..comparable..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf66a176db741fb4E.exit"
@@ -21526,12 +21526,12 @@ tailrecurse.backedge:                             ; preds = %15, %.lr.ph, %.lr.p
   %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr76, i64 8
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !noalias !9, !nonnull !9, !noundef !9
   %55 = load i64, ptr %.tr.be, align 8, !range !1039, !noundef !9
-  %56 = add i64 %55, 9223372036854775807
-  %57 = icmp ult i64 %56, 33
+  %56 = add nsw i64 %55, 9223372036854775807
+  %57 = icmp ugt i64 %55, -9223372036854775808
   %58 = select i1 %57, i64 %56, i64 4
   %59 = load i64, ptr %.tr21.be, align 8, !range !1039, !noundef !9
-  %60 = add i64 %59, 9223372036854775807
-  %61 = icmp ult i64 %60, 33
+  %60 = add nsw i64 %59, 9223372036854775807
+  %61 = icmp ugt i64 %59, -9223372036854775808
   %62 = select i1 %61, i64 %60, i64 4
   %63 = icmp eq i64 %58, %62
   br i1 %63, label %.lr.ph, label %"_ZN81_$LT$ruff_python_ast..comparable..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf66a176db741fb4E.exit"
@@ -59671,7 +59671,7 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules8pyflakes5rules13unused_
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #29
-          to label %54 unwind label %52
+          to label %55 unwind label %53
 
 20:                                               ; preds = %2
   %21 = invoke noundef zeroext i1 @_ZN15ruff_python_ast4name13QualifiedName20is_unresolved_import17hedc5c1466ccbcd9eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %17)
@@ -59717,20 +59717,19 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules8pyflakes5rules13unused_
   %.not = icmp eq i64 %49, -9223372036854775808
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load i8, ptr %50, align 8, !range !2678
-  %.off = add nsw i8 %51, -3
-  %switch = icmp ult i8 %.off, 2
-  %.sroa.0.0 = select i1 %.not, i1 %switch, i1 false
+  %52 = icmp samesign ugt i8 %51, 2
+  %.sroa.0.0 = select i1 %.not, i1 %52, i1 false
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
-52:                                               ; preds = %18
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %18
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #30
   unreachable
 
-54:                                               ; preds = %18
+55:                                               ; preds = %18
   resume { ptr, i32 } %19
 }
 
@@ -87735,7 +87734,7 @@ define void @"_ZN123_$LT$ruff_linter..rules..pyflakes..rules..unused_import..Unu
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load i8, ptr %10, align 8, !range !2678, !noundef !9
   %12 = add nsw i8 %11, -2
-  %13 = icmp ult i8 %12, 3
+  %13 = icmp samesign ugt i8 %11, 1
   %narrow = select i1 %13, i8 %12, i8 1
   switch i8 %narrow, label %14 [
     i8 0, label %15

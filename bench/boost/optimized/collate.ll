@@ -1167,39 +1167,41 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale10impl_posix8collatorIc
   br i1 %.not5.i.i, label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
-  %.07.i.i = phi i32 [ %20, %.lr.ph.i.i ], [ 0, %3 ]
+  %.07.i.i = phi i32 [ %.0.i.i.i, %.lr.ph.i.i ], [ 0, %3 ]
   %.046.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %8, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %.046.i.i, i64 1
   %13 = load i8, ptr %.046.i.i, align 1, !tbaa !20
   %14 = shl i32 %.07.i.i, 4
   %15 = zext i8 %13 to i32
   %16 = add i32 %14, %15
-  %17 = lshr i32 %16, 24
-  %18 = and i32 %17, 240
-  %19 = and i32 %16, 268435455
-  %20 = xor i32 %18, %19
+  %17 = icmp ugt i32 %16, 268435455
+  %18 = lshr i32 %16, 24
+  %19 = and i32 %18, 240
+  %20 = and i32 %16, 268435455
+  %21 = xor i32 %19, %20
+  %.0.i.i.i = select i1 %17, i32 %21, i32 %16
   %.not.i.i = icmp eq ptr %12, %11
   br i1 %.not.i.i, label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !37
 
 _ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit: ; preds = %.lr.ph.i.i
-  %21 = zext nneg i32 %20 to i64
+  %22 = zext i32 %.0.i.i.i to i64
   br label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit
 
 _ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit: ; preds = %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit, %3
-  %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %21, %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit ]
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %23 = icmp eq ptr %8, %22
-  br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %22, %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit ]
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %24 = icmp eq ptr %8, %23
+  br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit
-  %24 = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %24)
+  %25 = icmp ult i64 %10, 16
+  call void @llvm.assume(i1 %25)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit
-  %25 = load i64, ptr %22, align 8, !tbaa !20
-  %26 = add i64 %25, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %26) #19
+  %26 = load i64, ptr %23, align 8, !tbaa !20
+  %27 = add i64 %26, 1
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %27) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1978,40 +1980,42 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale10impl_posix8collatorIw
   br i1 %.not5.i.i, label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
-  %.07.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ 0, %3 ]
+  %.07.i.i = phi i32 [ %.0.i.i.i, %.lr.ph.i.i ], [ 0, %3 ]
   %.046.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %8, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %.046.i.i, i64 1
   %14 = load i8, ptr %.046.i.i, align 1, !tbaa !20
   %15 = shl i32 %.07.i.i, 4
   %16 = zext i8 %14 to i32
   %17 = add i32 %15, %16
-  %18 = lshr i32 %17, 24
-  %19 = and i32 %18, 240
-  %20 = and i32 %17, 268435455
-  %21 = xor i32 %19, %20
+  %18 = icmp ugt i32 %17, 268435455
+  %19 = lshr i32 %17, 24
+  %20 = and i32 %19, 240
+  %21 = and i32 %17, 268435455
+  %22 = xor i32 %20, %21
+  %.0.i.i.i = select i1 %18, i32 %22, i32 %17
   %.not.i.i = icmp eq ptr %13, %12
   br i1 %.not.i.i, label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !37
 
 _ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit: ; preds = %.lr.ph.i.i
-  %22 = zext nneg i32 %21 to i64
+  %23 = zext i32 %.0.i.i.i to i64
   br label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit
 
 _ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit: ; preds = %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit, %3
-  %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %22, %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit ]
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %24 = icmp eq ptr %8, %23
-  br i1 %24, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
+  %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %23, %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit.loopexit ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %25 = icmp eq ptr %8, %24
+  br i1 %25, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit
-  %25 = icmp ult i64 %10, 4
-  call void @llvm.assume(i1 %25)
+  %26 = icmp ult i64 %10, 4
+  call void @llvm.assume(i1 %26)
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i: ; preds = %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit
-  %26 = load i64, ptr %23, align 8, !tbaa !20
-  %27 = shl i64 %26, 2
-  %28 = add i64 %27, 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %28) #19
+  %27 = load i64, ptr %24, align 8, !tbaa !20
+  %28 = shl i64 %27, 2
+  %29 = add i64 %28, 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %29) #19
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i

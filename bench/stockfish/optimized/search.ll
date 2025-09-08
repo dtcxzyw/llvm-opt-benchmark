@@ -3333,9 +3333,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %138, %131, %_Z
 
 252:                                              ; preds = %232
   %253 = load i16, ptr %61, align 2
-  %254 = and i16 %253, -16384
-  %.not500 = icmp eq i16 %254, 16384
-  br i1 %.not500, label %274, label %255
+  %254 = icmp sgt i16 %253, 16383
+  br i1 %254, label %274, label %255
 
 255:                                              ; preds = %252
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8423424
@@ -7139,9 +7138,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
 
 373:                                              ; preds = %353
   %374 = load i16, ptr %98, align 2
-  %375 = and i16 %374, -16384
-  %.not734 = icmp eq i16 %375, 16384
-  br i1 %.not734, label %395, label %376
+  %375 = icmp sgt i16 %374, 16383
+  br i1 %375, label %395, label %376
 
 376:                                              ; preds = %373
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 8423424
@@ -8966,9 +8964,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish
 
 325:                                              ; preds = %305
   %326 = load i16, ptr %99, align 2
-  %327 = and i16 %326, -16384
-  %.not568 = icmp eq i16 %327, 16384
-  br i1 %.not568, label %347, label %328
+  %327 = icmp sgt i16 %326, 16383
+  br i1 %327, label %347, label %328
 
 328:                                              ; preds = %325
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 8423424

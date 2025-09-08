@@ -871,7 +871,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
 
 20:                                               ; preds = %2
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #10
-          to label %.noexc unwind label %172
+          to label %.noexc unwind label %174
 
 .noexc:                                           ; preds = %20
   unreachable
@@ -949,14 +949,14 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
 72:                                               ; preds = %.lr.ph, %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit
   %indvars.iv80 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next81, %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit ]
-  %.01076 = phi i32 [ 0, %.lr.ph ], [ %171, %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit ]
+  %.01076 = phi i32 [ 0, %.lr.ph ], [ %173, %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %exitcond85.not = icmp eq i32 %.01076, %11
   br i1 %exitcond85.not, label %73, label %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
 
 73:                                               ; preds = %72
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #10
-          to label %.noexc11 unwind label %168
+          to label %.noexc11 unwind label %170
 
 .noexc11:                                         ; preds = %73
   unreachable
@@ -1041,7 +1041,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
 120:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i
   %indvars.iv78 = phi i64 [ %indvars.iv, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %indvars.iv.next79, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
   %.035.i73 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %.136.i, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
-  %.037.i72 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %167, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
+  %.037.i72 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %169, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
   %.038.i71 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %.139.i, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
   %121 = phi i8 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %138, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
   %.lhs.trunc = trunc nuw nsw i32 %.037.i72 to i8
@@ -1119,23 +1119,24 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
 
 _ZNK8rawspeed10Array2DRefItEclEii.exit.i:         ; preds = %162, %161, %155
   %.pre-phi = phi i32 [ %.pre, %162 ], [ %159, %161 ], [ %156, %155 ]
-  %164 = add nsw i32 %.pre-phi, -15
+  %164 = icmp samesign ugt i32 %.pre-phi, 14
   %165 = icmp samesign ult i64 %indvars.iv78, %71
   tail call void @llvm.assume(i1 %165)
   %166 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv78
-  %.sink91 = tail call i32 @llvm.umin.i32(i32 %164, i32 65536)
-  %.sink = trunc i32 %.sink91 to i16
+  %167 = trunc nuw i32 %.pre-phi to i16
+  %168 = add i16 %167, -15
+  %.sink = select i1 %164, i16 %168, i16 0
   store i16 %.sink, ptr %166, align 2, !tbaa !132
-  %167 = add nuw nsw i32 %.037.i72, 1
+  %169 = add nuw nsw i32 %.037.i72, 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond.not = icmp eq i32 %167, 11
+  %exitcond.not = icmp eq i32 %169, 11
   br i1 %exitcond.not, label %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit, label %120, !llvm.loop !142
 
-168:                                              ; preds = %73
-  %169 = landingpad { ptr, i32 }
+170:                                              ; preds = %73
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %170 = extractvalue { ptr, i32 } %169, 0
-  tail call void @__clang_call_terminate(ptr %170) #21
+  %172 = extractvalue { ptr, i32 } %171, 0
+  tail call void @__clang_call_terminate(ptr %172) #21
   unreachable
 
 _ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit: ; preds = %_ZNK8rawspeed10Array2DRefItEclEii.exit.i
@@ -1143,16 +1144,16 @@ _ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBloc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %171 = add nuw nsw i32 %.01076, 1
+  %173 = add nuw nsw i32 %.01076, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 11
-  %exitcond86.not = icmp eq i32 %171, %11
+  %exitcond86.not = icmp eq i32 %173, %11
   br i1 %exitcond86.not, label %._crit_edge, label %72, !llvm.loop !143
 
-172:                                              ; preds = %20
-  %173 = landingpad { ptr, i32 }
+174:                                              ; preds = %20
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  tail call void @__clang_call_terminate(ptr %174) #21
+  %176 = extractvalue { ptr, i32 } %175, 0
+  tail call void @__clang_call_terminate(ptr %176) #21
   unreachable
 }
 
@@ -1164,9 +1165,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { cold mustprogress noinline noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

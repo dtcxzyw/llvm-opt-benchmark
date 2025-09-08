@@ -10075,8 +10075,8 @@ define dso_local void @SerializeGUCState(i64 noundef %0, ptr noundef %1) local_u
   br i1 %.not921, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %serialize_variable.exit
-  %8 = phi i64 [ %98, %serialize_variable.exit ], [ %6, %2 ]
-  %.sroa.0.022 = phi ptr [ %100, %serialize_variable.exit ], [ %7, %2 ]
+  %8 = phi i64 [ %97, %serialize_variable.exit ], [ %6, %2 ]
+  %.sroa.0.022 = phi ptr [ %99, %serialize_variable.exit ], [ %7, %2 ]
   %9 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 -88
   %10 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 -80
   %11 = load i32, ptr %10, align 8
@@ -10237,55 +10237,54 @@ do_serialize_binary.exit51.i:                     ; preds = %72
   %78 = load ptr, ptr %3, align 8
   %79 = load i32, ptr %12, align 1
   store i32 %79, ptr %78, align 1
-  %80 = and i64 %73, -4
-  %81 = icmp eq i64 %80, 4
-  br i1 %81, label %82, label %do_serialize_binary.exit52.i
+  %80 = icmp ult i64 %73, 8
+  br i1 %80, label %81, label %do_serialize_binary.exit52.i
 
-82:                                               ; preds = %do_serialize_binary.exit51.i
-  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
-  tail call void @llvm.assume(i1 %83)
-  %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.139) #29
+81:                                               ; preds = %do_serialize_binary.exit51.i
+  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
+  tail call void @llvm.assume(i1 %82)
+  %83 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.139) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6012, ptr noundef nonnull @__func__.do_serialize_binary) #29
   unreachable
 
 do_serialize_binary.exit52.i:                     ; preds = %do_serialize_binary.exit51.i
-  %85 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 -36
-  %87 = load i32, ptr %86, align 1
-  store i32 %87, ptr %85, align 1
-  %88 = and i64 %73, -4
-  %89 = icmp eq i64 %88, 8
-  br i1 %89, label %90, label %do_serialize_binary.exit53.i
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %85 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 -36
+  %86 = load i32, ptr %85, align 1
+  store i32 %86, ptr %84, align 1
+  %87 = and i64 %73, -4
+  %88 = icmp eq i64 %87, 8
+  br i1 %88, label %89, label %do_serialize_binary.exit53.i
 
-90:                                               ; preds = %do_serialize_binary.exit52.i
-  %91 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
-  tail call void @llvm.assume(i1 %91)
-  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.139) #29
+89:                                               ; preds = %do_serialize_binary.exit52.i
+  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
+  tail call void @llvm.assume(i1 %90)
+  %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.139) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6012, ptr noundef nonnull @__func__.do_serialize_binary) #29
   unreachable
 
 do_serialize_binary.exit53.i:                     ; preds = %do_serialize_binary.exit52.i
-  %93 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %94 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 -28
-  %95 = load i32, ptr %94, align 1
-  store i32 %95, ptr %93, align 1
-  %96 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  store ptr %96, ptr %3, align 8
-  %97 = add i64 %73, -12
-  store i64 %97, ptr %4, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %93 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 -28
+  %94 = load i32, ptr %93, align 1
+  store i32 %94, ptr %92, align 1
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  store ptr %95, ptr %3, align 8
+  %96 = add i64 %73, -12
+  store i64 %96, ptr %4, align 8
   br label %serialize_variable.exit
 
 serialize_variable.exit:                          ; preds = %.lr.ph, %can_skip_gucvar.exit.i, %do_serialize_binary.exit53.i
-  %98 = phi i64 [ %8, %.lr.ph ], [ %8, %can_skip_gucvar.exit.i ], [ %97, %do_serialize_binary.exit53.i ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.022, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %.not9 = icmp eq ptr %100, @guc_nondef_list
+  %97 = phi i64 [ %8, %.lr.ph ], [ %8, %can_skip_gucvar.exit.i ], [ %96, %do_serialize_binary.exit53.i ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.022, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %.not9 = icmp eq ptr %99, @guc_nondef_list
   br i1 %.not9, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !56
 
 select.unfold._crit_edge:                         ; preds = %serialize_variable.exit, %2
-  %101 = phi i64 [ %6, %2 ], [ %98, %serialize_variable.exit ]
-  %102 = sub i64 %6, %101
-  store i64 %102, ptr %1, align 1
+  %100 = phi i64 [ %6, %2 ], [ %97, %serialize_variable.exit ]
+  %101 = sub i64 %6, %100
+  store i64 %101, ptr %1, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

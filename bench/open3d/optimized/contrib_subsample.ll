@@ -2248,8 +2248,7 @@ _ZNSt12_Vector_baseIN6open3d2ml7contrib8PointXYZESaIS3_EE11_M_allocateEm.exit.i.
   br label %_ZNSt6vectorIN6open3d2ml7contrib8PointXYZESaIS3_EEC2IPS3_vEET_S8_RKS4_.exit
 
 253:                                              ; preds = %.noexc4.i
-  %.off556 = add i64 %242, -3
-  %254 = icmp ult i64 %.off556, 3
+  %254 = icmp sgt i64 %242, 2
   br i1 %254, label %255, label %_ZNSt6vectorIN6open3d2ml7contrib8PointXYZESaIS3_EEC2IPS3_vEET_S8_RKS4_.exit
 
 255:                                              ; preds = %253
@@ -8724,8 +8723,7 @@ _ZNSt12_Vector_baseIN6open3d2ml7contrib8PointXYZESaIS3_EE11_M_allocateEm.exit.i.
   br label %_ZNSt6vectorIN6open3d2ml7contrib8PointXYZESaIS3_EEC2IPS3_vEET_S8_RKS4_.exit
 
 208:                                              ; preds = %.noexc4.i
-  %.off404 = add i64 %197, -3
-  %209 = icmp ult i64 %.off404, 3
+  %209 = icmp sgt i64 %197, 2
   br i1 %209, label %210, label %_ZNSt6vectorIN6open3d2ml7contrib8PointXYZESaIS3_EEC2IPS3_vEET_S8_RKS4_.exit
 
 210:                                              ; preds = %208

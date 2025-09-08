@@ -1528,43 +1528,42 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captur
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.015.in25 = load i8, ptr %8, align 1, !tbaa !35
-  %.01526 = and i8 %.015.in25, -4
-  %.not1727 = icmp eq i8 %.01526, 0
-  br i1 %.not1727, label %.thread, label %.lr.ph
+  %9 = icmp ult i8 %.015.in25, 4
+  br i1 %9, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %20
-  %.01528 = phi i8 [ %.015, %20 ], [ %.01526, %7 ]
-  %9 = zext i8 %.01528 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
-  %11 = load i8, ptr %10, align 4, !tbaa !35
-  %.not18 = icmp eq i8 %11, 0
-  br i1 %.not18, label %12, label %.thread
+.lr.ph:                                           ; preds = %7, %21
+  %.01528.in = phi i8 [ %.015.in, %21 ], [ %.015.in25, %7 ]
+  %.01528 = and i8 %.01528.in, -4
+  %10 = zext i8 %.01528 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
+  %12 = load i8, ptr %11, align 4, !tbaa !35
+  %.not18 = icmp eq i8 %12, 0
+  br i1 %.not18, label %13, label %.thread
 
-12:                                               ; preds = %.lr.ph
-  store i8 1, ptr %10, align 4, !tbaa !35
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %9
-  %14 = load i8, ptr %13, align 1, !tbaa !35
-  %15 = zext i8 %14 to i32
-  %16 = icmp eq i32 %1, %15
-  br i1 %16, label %.thread21, label %18
+13:                                               ; preds = %.lr.ph
+  store i8 1, ptr %11, align 4, !tbaa !35
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  %15 = load i8, ptr %14, align 1, !tbaa !35
+  %16 = zext i8 %15 to i32
+  %17 = icmp eq i32 %1, %16
+  br i1 %17, label %.thread21, label %19
 
-.thread21:                                        ; preds = %12
-  %17 = zext i8 %.01528 to i32
+.thread21:                                        ; preds = %13
+  %18 = zext i8 %.01528 to i32
   br label %.thread
 
-18:                                               ; preds = %12
-  %19 = icmp eq i8 %14, -1
-  br i1 %19, label %.thread, label %20
+19:                                               ; preds = %13
+  %20 = icmp eq i8 %15, -1
+  br i1 %20, label %.thread, label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %.015.in = load i8, ptr %21, align 1, !tbaa !35
-  %.015 = and i8 %.015.in, -4
-  %.not17 = icmp eq i8 %.015, 0
-  br i1 %.not17, label %.thread, label %.lr.ph, !llvm.loop !96
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %.015.in = load i8, ptr %22, align 1, !tbaa !35
+  %23 = icmp ult i8 %.015.in, 4
+  br i1 %23, label %.thread, label %.lr.ph, !llvm.loop !96
 
-.thread:                                          ; preds = %20, %.lr.ph, %18, %7, %.thread21, %2
-  %.0 = phi i32 [ 0, %2 ], [ %17, %.thread21 ], [ 0, %7 ], [ 0, %18 ], [ 0, %.lr.ph ], [ 0, %20 ]
+.thread:                                          ; preds = %21, %.lr.ph, %19, %7, %.thread21, %2
+  %.0 = phi i32 [ 0, %2 ], [ %18, %.thread21 ], [ 0, %7 ], [ 0, %19 ], [ 0, %.lr.ph ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -9281,12 +9281,11 @@ default.unreachable77:                            ; preds = %7
   %26 = add nuw i32 %.sroa.030.0, 30
   %27 = sdiv i32 %26, 60
   %28 = srem i32 %27, 60
-  %29 = icmp ne i8 %10, 3
-  %30 = icmp ne i32 %28, 0
-  %or.cond2.not = select i1 %29, i1 true, i1 %30
+  %29 = icmp eq i8 %10, 3
+  %30 = icmp eq i32 %28, 0
+  %or.cond2.not.not = select i1 %29, i1 %30, i1 false
   %31 = trunc nsw i32 %28 to i8
-  %spec.select = select i1 %or.cond2.not, i8 %31, i8 0
-  %spec.select38 = zext i1 %or.cond2.not to i64
+  %spec.select = select i1 %or.cond2.not.not, i8 0, i8 %31
   br label %39
 
 32:                                               ; preds = %7, %7, %7
@@ -9304,7 +9303,7 @@ default.unreachable77:                            ; preds = %7
   %.sroa.021.0 = phi i8 [ %36, %45 ], [ %10, %7 ], [ %., %47 ], [ %spec.select, %25 ]
   %.sroa.016.0.in.in = phi i32 [ %.sroa.030.0, %45 ], [ %.sroa.030.0, %7 ], [ %.sroa.030.0, %47 ], [ %26, %25 ]
   %40 = phi i1 [ true, %45 ], [ false, %7 ], [ false, %47 ], [ false, %25 ]
-  %.sroa.08.0 = phi i64 [ 2, %45 ], [ 0, %7 ], [ %.37, %47 ], [ %spec.select38, %25 ]
+  %.sroa.08.0 = phi i1 [ false, %45 ], [ true, %7 ], [ %or.cond6.not.not, %47 ], [ %or.cond2.not.not, %25 ]
   %.sroa.016.0.in = sdiv i32 %.sroa.016.0.in.in, 3600
   %.sroa.016.0 = trunc i32 %.sroa.016.0.in to i8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9318,11 +9317,10 @@ default.unreachable77:                            ; preds = %7
   br label %39
 
 47:                                               ; preds = %32
-  %48 = icmp ne i8 %10, 5
-  %49 = icmp ne i32 %35, 0
-  %or.cond6.not = or i1 %49, %48
-  %. = select i1 %or.cond6.not, i8 %36, i8 0
-  %.37 = zext i1 %or.cond6.not to i64
+  %48 = icmp eq i8 %10, 5
+  %49 = icmp eq i32 %35, 0
+  %or.cond6.not.not = and i1 %49, %48
+  %. = select i1 %or.cond6.not.not, i8 0, i8 %36
   br label %39
 
 50:                                               ; preds = %39
@@ -9362,9 +9360,7 @@ default.unreachable77:                            ; preds = %7
   br i1 %68, label %72, label %._crit_edge
 
 71:                                               ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit41", %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit49"
-  %.sroa.08.0.off = add nsw i64 %.sroa.08.0, -1
-  %switch = icmp ult i64 %.sroa.08.0.off, 2
-  br i1 %switch, label %120, label %119
+  br i1 %.sroa.08.0, label %119, label %120
 
 72:                                               ; preds = %65
   %73 = icmp sgt i64 %70, -1

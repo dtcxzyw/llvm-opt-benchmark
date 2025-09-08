@@ -5753,21 +5753,11 @@ declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 -1, 103) i32 @slurm_hex_to_char(i32 noundef %0) local_unnamed_addr #13 {
   %or.cond = icmp ult i32 %0, 10
-  br i1 %or.cond, label %2, label %4
-
-2:                                                ; preds = %1
-  %3 = or disjoint i32 %0, 48
-  br label %7
-
-4:                                                ; preds = %1
-  %5 = add i32 %0, -10
-  %or.cond3 = icmp ult i32 %5, 6
-  %6 = add nuw nsw i32 %0, 87
-  %spec.select = select i1 %or.cond3, i32 %6, i32 -1
-  br label %7
-
-7:                                                ; preds = %4, %2
-  %.0 = phi i32 [ %3, %2 ], [ %spec.select, %4 ]
+  %2 = or disjoint i32 %0, 48
+  %3 = icmp ult i32 %0, 16
+  %4 = add nuw nsw i32 %0, 87
+  %spec.select = select i1 %3, i32 %4, i32 -1
+  %.0 = select i1 %or.cond, i32 %2, i32 %spec.select
   ret i32 %.0
 }
 

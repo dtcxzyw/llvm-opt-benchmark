@@ -1382,49 +1382,61 @@ define hidden noundef nonnull align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$6as_ref17h5a3d45433cb896c1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !noundef !13
-  %3 = and i64 %2, -8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
+  %3 = icmp ult i64 %2, 8
+  %4 = and i64 %2, -8
+  %5 = inttoptr i64 %4 to ptr
+  %.0 = select i1 %3, ptr null, ptr %5
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$6as_ref17h70da1c97ddeaa8e9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !noundef !13
-  %3 = and i64 %2, -8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
+  %3 = icmp ult i64 %2, 8
+  %4 = and i64 %2, -8
+  %5 = inttoptr i64 %4 to ptr
+  %.0 = select i1 %3, ptr null, ptr %5
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$6as_ref17h7ba47a09e8c56a09E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !noundef !13
-  %3 = and i64 %2, -8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
+  %3 = icmp ult i64 %2, 8
+  %4 = and i64 %2, -8
+  %5 = inttoptr i64 %4 to ptr
+  %.0 = select i1 %3, ptr null, ptr %5
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$6as_ref17h8e9343b488c8404bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !noundef !13
-  %3 = and i64 %2, -8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
+  %3 = icmp ult i64 %2, 8
+  %4 = and i64 %2, -8
+  %5 = inttoptr i64 %4 to ptr
+  %.0 = select i1 %3, ptr null, ptr %5
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$6as_ref17hc8bcab783f709a00E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !noundef !13
-  %3 = and i64 %2, -8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
+  %3 = icmp ult i64 %2, 8
+  %4 = and i64 %2, -8
+  %5 = inttoptr i64 %4 to ptr
+  %.0 = select i1 %3, ptr null, ptr %5
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef align 8 ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$6as_ref17hfedde5e2f8e62290E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !noundef !13
-  %3 = and i64 %2, -8
-  %4 = inttoptr i64 %3 to ptr
-  ret ptr %4
+  %3 = icmp ult i64 %2, 8
+  %4 = and i64 %2, -8
+  %5 = inttoptr i64 %4 to ptr
+  %.0 = select i1 %3, ptr null, ptr %5
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

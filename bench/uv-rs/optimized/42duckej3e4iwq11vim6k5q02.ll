@@ -160,9 +160,8 @@ define internal fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17
 
 38:                                               ; preds = %33
   %39 = load i32, ptr %2, align 8, !range !20, !alias.scope !16, !noalias !13, !noundef !3
-  %.off.i = add nsw i32 %39, -1
-  %switch10.i = icmp ult i32 %.off.i, 2
-  br i1 %switch10.i, label %44, label %40
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %40, label %44
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 60
@@ -878,12 +877,12 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h7f18e92
   %10 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %2, ptr %.sroa.415.0..sroa_idx, align 8
-  %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %3, ptr %.sroa.516.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx17, align 8
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %2, ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 %3, ptr %.sroa.517.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx18, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -960,9 +959,9 @@ _ZN4core3ops8function6FnOnce9call_once17h559ed13574d9f19aE.exit.i.i: ; preds = %
 
 42:                                               ; preds = %.noexc
   invoke void @_ZN3std6thread5local18panic_access_error17h1cbe5b7716798dd3E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f56bfafc72d4ec4823dd27ff5665fae4.11.llvm.12114542096407622323) #15
-          to label %.noexc10 unwind label %92
+          to label %.noexc11 unwind label %92
 
-.noexc10:                                         ; preds = %42
+.noexc11:                                         ; preds = %42
   unreachable
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h20e8b5d7b621ccfbE.exit.i.i": ; preds = %.noexc, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread.i
@@ -1071,9 +1070,9 @@ _ZN4core3ops8function6FnOnce9call_once17h559ed13574d9f19aE.exit.i.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !165
   store ptr null, ptr %5, align 8, !noalias !165
   invoke void @_ZN4core9panicking13assert_failed17h078dd15f75a47e13E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h7aeb48974d2c32d6E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ccb1aa6bfdb48df66f63ba2306db1af5.6) #15
-          to label %.noexc13 unwind label %92
+          to label %.noexc14 unwind label %92
 
-.noexc13:                                         ; preds = %.noexc7.i
+.noexc14:                                         ; preds = %.noexc7.i
   unreachable
 
 .noexc8.i:                                        ; preds = %81

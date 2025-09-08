@@ -1813,8 +1813,7 @@ define hidden void @_ZN10CodeBuffer23finalize_oop_referencesERK12methodHandle(pt
   %.sroa.34.2167 = phi ptr [ %.sroa.34.3, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit ], [ %.sroa.34.0179, %29 ]
   store i16 0, ptr %8, align 8
   %35 = load i16, ptr %34, align 2
-  %.mask.i.i = and i16 %35, -2048
-  %36 = icmp eq i16 %.mask.i.i, 30720
+  %36 = icmp sgt i16 %35, 30719
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %.lr.ph
@@ -2064,16 +2063,16 @@ _ZN11OopRecorder9is_unusedEv.exit.preheader:      ; preds = %136, %128
 _ZN11OopRecorder14metadata_countEv.exit:          ; preds = %_ZN11OopRecorder9is_unusedEv.exit.preheader, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52
   %146 = phi ptr [ %215, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %144, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
   %147 = phi ptr [ %214, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %143, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
-  %.034218 = phi i32 [ %213, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ 0, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
-  %.sroa.0.5217 = phi i32 [ %.sroa.0.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.0.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
-  %.sroa.19.5216 = phi i32 [ %.sroa.19.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.19.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
-  %.sroa.34.5215 = phi ptr [ %.sroa.34.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.34.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
+  %.034219 = phi i32 [ %213, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ 0, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
+  %.sroa.0.5218 = phi i32 [ %.sroa.0.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.0.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
+  %.sroa.19.5217 = phi i32 [ %.sroa.19.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.19.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
+  %.sroa.34.5216 = phi ptr [ %.sroa.34.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.34.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ]
   %148 = load i32, ptr %146, align 4
-  %.not211 = icmp sgt i32 %.034218, %148
-  br i1 %.not211, label %.loopexit, label %149
+  %.not212 = icmp sgt i32 %.034219, %148
+  br i1 %.not212, label %.loopexit, label %149
 
 149:                                              ; preds = %_ZN11OopRecorder14metadata_countEv.exit
-  %150 = call noundef ptr @_ZN13ValueRecorderIP8MetadataE2atEi(ptr noundef nonnull align 8 dereferenceable(33) %147, i32 noundef %.034218) #16
+  %150 = call noundef ptr @_ZN13ValueRecorderIP8MetadataE2atEi(ptr noundef nonnull align 8 dereferenceable(33) %147, i32 noundef %.034219) #16
   %.not.i.i39 = icmp eq ptr %150, null
   br i1 %.not.i.i39, label %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52, label %_ZN11OopRecorder7is_realEP8Metadata.exit40
 
@@ -2127,11 +2126,11 @@ _ZN11OopRecorder7is_realEP8Metadata.exit40:       ; preds = %149
   br i1 %.not.i41, label %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52, label %180
 
 180:                                              ; preds = %177
-  %181 = icmp sgt i32 %.sroa.0.5217, 0
+  %181 = icmp sgt i32 %.sroa.0.5218, 0
   br i1 %181, label %.lr.ph.i.i47, label %.loopexit.i42
 
 .lr.ph.i.i47:                                     ; preds = %180
-  %wide.trip.count.i.i48 = zext nneg i32 %.sroa.0.5217 to i64
+  %wide.trip.count.i.i48 = zext nneg i32 %.sroa.0.5218 to i64
   br label %183
 
 182:                                              ; preds = %183
@@ -2141,18 +2140,18 @@ _ZN11OopRecorder7is_realEP8Metadata.exit40:       ; preds = %149
 
 183:                                              ; preds = %182, %.lr.ph.i.i47
   %indvars.iv.i.i49 = phi i64 [ 0, %.lr.ph.i.i47 ], [ %indvars.iv.next.i.i50, %182 ]
-  %184 = getelementptr inbounds nuw ptr, ptr %.sroa.34.5215, i64 %indvars.iv.i.i49
+  %184 = getelementptr inbounds nuw ptr, ptr %.sroa.34.5216, i64 %indvars.iv.i.i49
   %185 = load ptr, ptr %184, align 8
   %186 = icmp eq ptr %185, %179
   br i1 %186, label %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52, label %182
 
 .loopexit.i42:                                    ; preds = %182, %180
-  %187 = icmp eq i32 %.sroa.0.5217, %.sroa.19.5216
+  %187 = icmp eq i32 %.sroa.0.5218, %.sroa.19.5217
   br i1 %187, label %_ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71, label %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43
 
 _ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71: ; preds = %.loopexit.i42
-  %188 = add nsw i32 %.sroa.19.5216, 1
-  %189 = icmp sgt i32 %.sroa.19.5216, -1
+  %188 = add nsw i32 %.sroa.19.5217, 1
+  %189 = icmp sgt i32 %.sroa.19.5217, -1
   %190 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %188)
   %191 = icmp samesign ult i32 %190, 2
   %or.cond.i.i.i.i.i44 = select i1 %189, i1 %191, i1 false
@@ -2164,11 +2163,11 @@ _ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71: ; preds = %.loopexit.i42
   br i1 %181, label %.lr.ph.i82.preheader, label %.preheader16.i73
 
 .lr.ph.i82.preheader:                             ; preds = %_ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71
-  %196 = zext nneg i32 %.sroa.19.5216 to i64
+  %196 = zext nneg i32 %.sroa.19.5217 to i64
   br label %.lr.ph.i82
 
 .preheader16.i73:                                 ; preds = %.lr.ph.i82, %_ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71
-  %.0.lcssa.i74 = phi i32 [ 0, %_ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71 ], [ %.sroa.19.5216, %.lr.ph.i82 ]
+  %.0.lcssa.i74 = phi i32 [ 0, %_ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71 ], [ %.sroa.19.5217, %.lr.ph.i82 ]
   %197 = icmp slt i32 %.0.lcssa.i74, %.0.i.i.i.i.i45
   br i1 %197, label %.lr.ph19.preheader.i78, label %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43
 
@@ -2187,7 +2186,7 @@ _ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71: ; preds = %.loopexit.i42
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82.preheader, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i82 ], [ 0, %.lr.ph.i82.preheader ]
   %205 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i83
-  %206 = getelementptr inbounds nuw ptr, ptr %.sroa.34.5215, i64 %indvars.iv.i83
+  %206 = getelementptr inbounds nuw ptr, ptr %.sroa.34.5216, i64 %indvars.iv.i83
   %207 = load ptr, ptr %206, align 8
   store ptr %207, ptr %205, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
@@ -2195,10 +2194,10 @@ _ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i71: ; preds = %.loopexit.i42
   br i1 %exitcond190.not, label %.preheader16.i73, label %.lr.ph.i82, !llvm.loop !34
 
 _ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43: ; preds = %.lr.ph19.preheader.i78, %.preheader16.i73, %.loopexit.i42
-  %.sroa.34.9 = phi ptr [ %.sroa.34.5215, %.loopexit.i42 ], [ %195, %.preheader16.i73 ], [ %195, %.lr.ph19.preheader.i78 ]
-  %.sroa.19.9 = phi i32 [ %.sroa.19.5216, %.loopexit.i42 ], [ %.0.i.i.i.i.i45, %.preheader16.i73 ], [ %.0.i.i.i.i.i45, %.lr.ph19.preheader.i78 ]
-  %208 = add nsw i32 %.sroa.0.5217, 1
-  %209 = sext i32 %.sroa.0.5217 to i64
+  %.sroa.34.9 = phi ptr [ %.sroa.34.5216, %.loopexit.i42 ], [ %195, %.preheader16.i73 ], [ %195, %.lr.ph19.preheader.i78 ]
+  %.sroa.19.9 = phi i32 [ %.sroa.19.5217, %.loopexit.i42 ], [ %.0.i.i.i.i.i45, %.preheader16.i73 ], [ %.0.i.i.i.i.i45, %.lr.ph19.preheader.i78 ]
+  %208 = add nsw i32 %.sroa.0.5218, 1
+  %209 = sext i32 %.sroa.0.5218 to i64
   %210 = getelementptr inbounds ptr, ptr %.sroa.34.9, i64 %209
   store ptr %179, ptr %210, align 8
   br label %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52
@@ -2211,10 +2210,10 @@ _ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit
   unreachable
 
 _ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52: ; preds = %183, %149, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43, %177, %_ZN11OopRecorder7is_realEP8Metadata.exit40
-  %.sroa.34.6 = phi ptr [ %.sroa.34.5215, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.34.5215, %177 ], [ %.sroa.34.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.34.5215, %149 ], [ %.sroa.34.5215, %183 ]
-  %.sroa.19.6 = phi i32 [ %.sroa.19.5216, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.19.5216, %177 ], [ %.sroa.19.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.19.5216, %149 ], [ %.sroa.19.5216, %183 ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.5217, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.0.5217, %177 ], [ %208, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.0.5217, %149 ], [ %.sroa.0.5217, %183 ]
-  %213 = add nuw nsw i32 %.034218, 1
+  %.sroa.34.6 = phi ptr [ %.sroa.34.5216, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.34.5216, %177 ], [ %.sroa.34.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.34.5216, %149 ], [ %.sroa.34.5216, %183 ]
+  %.sroa.19.6 = phi i32 [ %.sroa.19.5217, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.19.5217, %177 ], [ %.sroa.19.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.19.5217, %149 ], [ %.sroa.19.5217, %183 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.5218, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.0.5218, %177 ], [ %208, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.0.5218, %149 ], [ %.sroa.0.5218, %183 ]
+  %213 = add nuw nsw i32 %.034219, 1
   %.pre = load ptr, ptr %129, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %215 = load ptr, ptr %214, align 8
@@ -2222,9 +2221,9 @@ _ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52: ; preds = %
   br i1 %216, label %.loopexit, label %_ZN11OopRecorder14metadata_countEv.exit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN11OopRecorder14metadata_countEv.exit, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52, %_ZN11OopRecorder9is_unusedEv.exit.preheader, %136
-  %.sroa.34.4 = phi ptr [ %.sroa.34.1, %136 ], [ %.sroa.34.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ], [ %.sroa.34.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.34.5215, %_ZN11OopRecorder14metadata_countEv.exit ]
-  %.sroa.19.4 = phi i32 [ %.sroa.19.1, %136 ], [ %.sroa.19.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ], [ %.sroa.19.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.19.5216, %_ZN11OopRecorder14metadata_countEv.exit ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.1, %136 ], [ %.sroa.0.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ], [ %.sroa.0.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.0.5217, %_ZN11OopRecorder14metadata_countEv.exit ]
+  %.sroa.34.4 = phi ptr [ %.sroa.34.1, %136 ], [ %.sroa.34.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ], [ %.sroa.34.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.34.5216, %_ZN11OopRecorder14metadata_countEv.exit ]
+  %.sroa.19.4 = phi i32 [ %.sroa.19.1, %136 ], [ %.sroa.19.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ], [ %.sroa.19.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.19.5217, %_ZN11OopRecorder14metadata_countEv.exit ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.1, %136 ], [ %.sroa.0.1, %_ZN11OopRecorder9is_unusedEv.exit.preheader ], [ %.sroa.0.6, %_ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52 ], [ %.sroa.0.5218, %_ZN11OopRecorder14metadata_countEv.exit ]
   %217 = load ptr, ptr %1, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load ptr, ptr %218, align 8
@@ -3108,8 +3107,7 @@ _ZN11CodeSection20initialize_locs_fromEPKS_.exit: ; preds = %_ZN11CodeSection22i
   %147 = phi ptr [ %164, %158 ], [ %144, %142 ]
   store i16 0, ptr %13, align 8
   %148 = load i16, ptr %147, align 2
-  %.mask.i.i = and i16 %148, -2048
-  %149 = icmp eq i16 %.mask.i.i, 30720
+  %149 = icmp sgt i16 %148, 30719
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %.lr.ph
