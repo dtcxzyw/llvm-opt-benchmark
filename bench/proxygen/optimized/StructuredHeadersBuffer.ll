@@ -2885,7 +2885,7 @@ lor.lhs.false22.i.i:                              ; preds = %if.end17.i.i
 
 if.end28.i.i:                                     ; preds = %lor.lhs.false22.i.i, %if.then9.i.i
   %storemerge28.i.i = select i1 %cmp1.i.i, double 0xFFF8000000000000, double 0x7FF8000000000000
-  br label %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit
+  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
 if.else35.i.i:                                    ; preds = %land.lhs.true.i.i.i
   switch i64 %sub.ptr.sub.i.i, label %if.end.i.i.i.i [
@@ -2935,9 +2935,9 @@ for.inc.i51.i.i:                                  ; preds = %land.lhs.true.i47.i
 
 if.then48.i.i:                                    ; preds = %for.inc.i51.i.i, %for.inc.i38.i.i
   %storemerge.i.i = select i1 %cmp1.i.i, double 0xFFF0000000000000, double 0x7FF0000000000000
-  br label %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit
+  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit: ; preds = %if.end28.i.i, %if.then48.i.i
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %if.end28.i.i, %if.then48.i.i
   %storemerge.sink.i.i = phi double [ %storemerge.i.i, %if.then48.i.i ], [ %storemerge28.i.i, %if.end28.i.i ]
   store double %storemerge.sink.i.i, ptr %result, align 8
   br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
@@ -2957,14 +2957,14 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   %14 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %switch.tableidx.i.i.i.i = add i8 %14, -43
   %15 = icmp ult i8 %switch.tableidx.i.i.i.i, 59
-  br i1 %15, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
+  br i1 %15, label %if.then, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit, %land.lhs.true.i.i.i.i
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5: ; preds = %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit, %land.lhs.true.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
   br label %if.end
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit: ; preds = %land.lhs.true.i.i.i.i
+if.then:                                          ; preds = %land.lhs.true.i.i.i.i
   %switch.maskindex.i.i.i.i = zext nneg i8 %switch.tableidx.i.i.i.i to i64
   %switch.shifted.i.i.i.i = lshr i64 288230376218820613, %switch.maskindex.i.i.i.i
   %switch.lobit.i.i.i.i = trunc i64 %switch.shifted.i.i.i.i to i1
@@ -2986,12 +2986,12 @@ invoke.cont.i:                                    ; preds = %if.then
   unreachable
 
 lpad.i:                                           ; preds = %if.then
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i) #29
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %15
 
-if.end:                                           ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
+if.end:                                           ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
   %17 = load double, ptr %result, align 8
   ret double %17
 }

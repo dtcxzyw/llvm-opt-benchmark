@@ -547,21 +547,21 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly 
   %narrow.i = or i1 %narrow.i.i, %or.cond.i
   br i1 %narrow.i, label %63, label %74
 
-63:                                               ; preds = %27
+63:     ; preds = %27
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !23
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %63 = load i32, ptr %62, align 4, !tbaa !24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %67 = load i32, ptr %66, align 4, !tbaa !24
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %69 = load ptr, ptr %68, align 8, !tbaa !23
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %71 = load i32, ptr %70, align 4, !tbaa !24
   %72 = load i32, ptr %3, align 4, !tbaa !35
-  %73 = load i32, ptr %6, align 8, !tbaa !10
+  %69 = load i32, ptr %6, align 8, !tbaa !10
   tail call void @WebPCopyPlane(ptr noundef %65, i32 noundef %67, ptr noundef %69, i32 noundef %71, i32 noundef %72, i32 noundef %73) #10
   br label %74
 
-74:                                               ; preds = %17, %63, %27, %2
+74:; preds = %17, %63, %27, %2
   %.0 = phi i32 [ 2, %2 ], [ 0, %27 ], [ 0, %63 ], [ 0, %17 ]
   ret i32 %.0
 }

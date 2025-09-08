@@ -236,7 +236,7 @@ define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr 
   %or.cond60 = or i1 %19, %or.cond59
   br i1 %or.cond60, label %switch.lookup, label %20
 
-20:                                               ; preds = %17
+20:  ; preds = %17
   %21 = icmp eq i16 %14, 0
   br i1 %21, label %22, label %23
 
@@ -246,16 +246,16 @@ define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr 
     i32 4, label %23
   ]
 
-23:                                               ; preds = %22, %22, %20
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  tail call void @avifGetPixelFormatInfo(i32 noundef %7, ptr noundef nonnull %24) #10
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @avifCalcYUVCoefficients(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull %26) #10
-  %27 = load i32, ptr %3, align 8
-  %28 = icmp ugt i32 %27, 8
-  %29 = select i1 %28, i32 2, i32 1
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
+.thread60:                                        ; preds = %22, %22, %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  tail call void @avifGetPixelFormatInfo(i32 noundef %7, ptr noundef nonnull %22) #10
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @avifCalcYUVCoefficients(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %23, ptr noundef nonnull %24) #10
+  %25 = load i32, ptr %3, align 8
+  %26 = icmp ugt i32 %25, 8
+  %27 = select i1 %26, i32 2, i32 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %29, ptr %30, align 4
   %31 = load i32, ptr %3, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -271,7 +271,7 @@ define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr 
   %38 = icmp eq i32 %33, 0
   br i1 %38, label %39, label %46
 
-39:                                               ; preds = %23
+39:; preds = %.thread60
   %40 = add i32 %31, -8
   %41 = shl i32 16, %40
   %42 = sitofp i32 %41 to float
@@ -280,21 +280,21 @@ define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr 
   %45 = shl i32 224, %40
   br label %48
 
-46:                                               ; preds = %23
+46:; preds = %23
   %47 = uitofp nneg i32 %36 to float
   br label %48
 
-48:                                               ; preds = %46, %39
-  %.sink63 = phi float [ %42, %39 ], [ 0.000000e+00, %46 ]
+48:; preds = %46, %39
+  %47 = phi float [ %42, %39 ], [ 0.000000e+00, %46 ]
   %.sink = phi float [ %44, %39 ], [ %47, %46 ]
   %49 = phi i32 [ %45, %39 ], [ %36, %46 ]
   %.pn = add i32 %31, -1
   %.sink62.in = shl nuw i32 1, %.pn
   %.sink62 = sitofp i32 %.sink62.in to float
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store float %.sink63, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store float %.sink62, ptr %51, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store float %.sink63, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store float %.sink62, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store float %.sink, ptr %52, align 4
   %53 = sitofp i32 %49 to float

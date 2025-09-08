@@ -952,16 +952,16 @@ define hidden void @"_ZN206_$LT$ruff_linter..rules..pylint..settings.._..$LT$imp
   %.not = icmp eq i64 %4, 2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
-  br i1 %.not, label %switch.lookup, label %8
+  br i1 %.not, label %7, label %9
 
-switch.lookup:                                    ; preds = %2
+7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %6, ptr %8, align 8
   store i64 2, ptr %0, align 8
-  br label %9
+  br label %10
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.69.0..sroa_idx, i64 87, i1 false)
@@ -969,9 +969,9 @@ switch.lookup:                                    ; preds = %2
   store i64 %4, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %6, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %switch.lookup
+10:                                               ; preds = %9, %7
   ret void
 }
 
@@ -20944,33 +20944,33 @@ default.unreachable1.i.i.i:                       ; preds = %22
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN95_$LT$ruff_workspace..settings..FormatterSettings$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17he9768a1bc190cdfeE"(ptr noalias noundef readonly align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   tail call void @"_ZN96_$LT$ruff_linter..settings..types..FilePatternSet$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8d01fdca38420624E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @"_ZN98_$LT$ruff_linter..settings..types..ExtensionMapping$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hf81ad4bd0b9cd744E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 126
-  tail call void @"_ZN95_$LT$ruff_python_formatter..options..PreviewMode$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h97e0ac5c2bd7b6dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 122
-  tail call void @"_ZN98_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hbe7ed751a10a594cE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @"_ZN114_$LT$ruff_linter..settings..types..CompiledPerFileTargetVersionList$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h71137e758e88bc4bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @"_ZN77_$LT$ruff_formatter..LineWidth$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h594e5a00d3bb55cbE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 127
-  tail call void @"_ZN79_$LT$ruff_formatter..IndentStyle$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hb8d8f9205363199eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  tail call void @"_ZN79_$LT$ruff_formatter..IndentWidth$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h2b08659720245297E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  tail call void @"_ZN94_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h312eddcadb2bceafE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @"_ZN102_$LT$ruff_python_formatter..options..MagicTrailingComma$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hd70929d7ab6f67efE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %11, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 131
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @"_ZN98_$LT$ruff_linter..settings..types..ExtensionMapping$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hf81ad4bd0b9cd744E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 126
+  tail call void @"_ZN95_$LT$ruff_python_formatter..options..PreviewMode$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h97e0ac5c2bd7b6dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 122
+  tail call void @"_ZN98_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hbe7ed751a10a594cE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @"_ZN114_$LT$ruff_linter..settings..types..CompiledPerFileTargetVersionList$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h71137e758e88bc4bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @"_ZN77_$LT$ruff_formatter..LineWidth$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h594e5a00d3bb55cbE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 127
+  tail call void @"_ZN79_$LT$ruff_formatter..IndentStyle$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hb8d8f9205363199eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void @"_ZN79_$LT$ruff_formatter..IndentWidth$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h2b08659720245297E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  tail call void @"_ZN94_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h312eddcadb2bceafE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @"_ZN102_$LT$ruff_python_formatter..options..MagicTrailingComma$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hd70929d7ab6f67efE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 131
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1593)
-  %13 = load i8, ptr %12, align 1, !range !631, !alias.scope !1593, !noalias !1596, !noundef !3
-  %switch.idx.cast.i = zext nneg i8 %13 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast.i), !noalias !1593
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  tail call void @"_ZN97_$LT$ruff_python_formatter..options..DocstringCode$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17he1d38df164460a81E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  tail call void @"_ZN106_$LT$ruff_python_formatter..options..DocstringCodeLineWidth$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h04ae5a868f4e152bE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %15, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %12 = load i8, ptr %11, align 1, !range !631, !alias.scope !1593, !noalias !1596, !noundef !3
+  %switch.idx.cast = zext nneg i8 %12 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast), !noalias !1593
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  tail call void @"_ZN97_$LT$ruff_python_formatter..options..DocstringCode$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17he1d38df164460a81E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  tail call void @"_ZN106_$LT$ruff_python_formatter..options..DocstringCodeLineWidth$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h04ae5a868f4e152bE"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %14, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 
