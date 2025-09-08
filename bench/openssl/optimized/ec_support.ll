@@ -148,28 +148,28 @@ define i32 @ossl_ec_curve_name2nid(ptr noundef %0) local_unnamed_addr #1 {
   %5 = load ptr, ptr %4, align 16, !tbaa !12
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #5
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.loopexit.sink.split, label %2
+  br i1 %7, label %16, label %2
 
-8:                                                ; preds = %.preheader
+ossl_ec_curve_nist2nid_int.exit:                  ; preds = %.preheader
   %9 = add nuw nsw i64 %.0815, 1
   %exitcond.not = icmp eq i64 %9, 82
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %2, %8
   %.0815 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @curve_list, i64 %.0815
-  %11 = load ptr, ptr %10, align 16, !tbaa !12
-  %12 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %11, ptr noundef nonnull %0) #6
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit.sink.split, label %8
+  %12 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @curve_list, i64 %.0815
+  %13 = load ptr, ptr %12, align 16, !tbaa !12
+  %14 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %13, ptr noundef nonnull %0) #6
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %8
 
-.loopexit.sink.split:                             ; preds = %.preheader12, %.preheader
-  %.sink30 = phi ptr [ %10, %.preheader ], [ %4, %.preheader12 ]
+16:                                               ; preds = %.preheader12, %.preheader
+  %.sink30 = phi ptr [ %12, %.preheader ], [ %4, %.preheader12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %.loopexit.sink.split, %1
+.loopexit:                                        ; preds = %ossl_ec_curve_nist2nid_int.exit, %16, %1
   %.0 = phi i32 [ 0, %1 ], [ %15, %.loopexit.sink.split ], [ 0, %8 ]
   ret i32 %.0
 }

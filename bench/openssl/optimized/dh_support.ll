@@ -41,35 +41,35 @@ define ptr @ossl_dh_gen_type_id2name(i32 noundef %0) local_unnamed_addr #0 {
 define i32 @ossl_dh_gen_type_name2id(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %3
 
-3:                                                ; preds = %2, %17
-  %.010 = phi i64 [ 0, %2 ], [ %18, %17 ]
+3:                                                ; preds = %2, %16
+  %.010 = phi i64 [ 0, %2 ], [ %17, %17 ]
   %4 = getelementptr inbounds nuw %struct.dh_name2id_st, ptr @dhtype2id, i64 %.010
   %5 = icmp eq i64 %.010, 0
   br i1 %5, label %10, label %6
 
-6:                                                ; preds = %3
+6:; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !13
   %9 = icmp eq i32 %1, %8
   br i1 %9, label %10, label %17
 
-10:                                               ; preds = %6, %3
+10:; preds = %6, %3
   %11 = load ptr, ptr %4, align 16, !tbaa !12
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %0) #3
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %17
 
-14:                                               ; preds = %10
+14:; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !5
   br label %.loopexit
 
-17:                                               ; preds = %6, %10
-  %18 = add nuw nsw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %18, 4
+16:                                               ; preds = %6, %10
+  %17 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %17, 4
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !14
 
-.loopexit:                                        ; preds = %17, %14
+.loopexit:                                        ; preds = %16, %14
   %.08 = phi i32 [ %16, %14 ], [ -1, %17 ]
   ret i32 %.08
 }

@@ -20,14 +20,14 @@ define void @_ZN6LibRaw19setPhaseOneFeaturesEy(ptr noundef nonnull align 8 deref
   %.not12 = icmp eq i8 %6, 0
   br i1 %.not12, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %4, %25
+7:                                                ; preds = %4, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %4 ]
   %7 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw19setPhaseOneFeaturesEyE9p1_unique, i64 %indvars.iv
   %8 = load i64, ptr %7, align 16, !tbaa !72
   %9 = icmp eq i64 %1, %8
   br i1 %9, label %10, label %25
 
-10:                                               ; preds = %.preheader
+.preheader:                                       ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %11) #2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 44
@@ -43,14 +43,14 @@ define void @_ZN6LibRaw19setPhaseOneFeaturesEy(ptr noundef nonnull align 8 deref
   %21 = icmp eq i64 %indvars.iv, 132
   br i1 %21, label %22, label %.loopexit
 
-22:                                               ; preds = %10
+11:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i16 1, ptr %23, align 4, !tbaa !78
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1338
   store i16 %19, ptr %24, align 2, !tbaa !79
   br label %.loopexit
 
-25:                                               ; preds = %.preheader
+.loopexit:                                        ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 138
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !80

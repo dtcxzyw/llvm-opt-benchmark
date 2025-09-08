@@ -2081,8 +2081,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br i1 %.not354, label %.thread431.loopexit, label %.lr.ph488.preheader
 
 .lr.ph488.preheader:                              ; preds = %583
-  %.idx628 = shl nsw i64 %587, 7
-  %590 = getelementptr i8, ptr %26, i64 %.idx628
+  %.idx629 = shl nsw i64 %587, 7
+  %590 = getelementptr i8, ptr %26, i64 %.idx629
   %591 = getelementptr i8, ptr %590, i64 88
   store i32 %581, ptr %591, align 8, !tbaa !17
   %wide.trip.count590 = zext nneg i32 %581 to i64
@@ -2234,8 +2234,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br i1 %.not369, label %.thread431.loopexit, label %.lr.ph482.preheader
 
 .lr.ph482.preheader:                              ; preds = %667
-  %.idx626 = shl nsw i64 %672, 7
-  %675 = getelementptr i8, ptr %26, i64 %.idx626
+  %.idx627 = shl nsw i64 %672, 7
+  %675 = getelementptr i8, ptr %26, i64 %.idx627
   %676 = getelementptr i8, ptr %675, i64 112
   store i32 %665, ptr %676, align 8, !tbaa !15
   %wide.trip.count580 = zext nneg i32 %665 to i64
@@ -2266,8 +2266,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %690 = getelementptr i8, ptr %689, i64 112
   store i32 %665, ptr %690, align 8, !tbaa !15
   %691 = load i64, ptr %687, align 8, !tbaa !19
-  %.idx627 = shl nsw i64 %684, 7
-  %692 = getelementptr i8, ptr %26, i64 %.idx627
+  %.idx628 = shl nsw i64 %684, 7
+  %692 = getelementptr i8, ptr %26, i64 %.idx628
   %693 = getelementptr i8, ptr %692, i64 64
   store i64 %691, ptr %693, align 8, !tbaa !28
   br label %.thread451thread-pre-split

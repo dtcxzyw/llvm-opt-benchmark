@@ -3514,15 +3514,15 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 67
   br label %42
 
-42:                                               ; preds = %165, %4
+42:                                               ; preds = %166, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %165 ]
-  %.05464.i = phi i32 [ 65536, %4 ], [ %.2.i, %165 ]
-  %.05563.i = phi i32 [ 0, %4 ], [ %.257.i, %165 ]
+  %.05463.i = phi i32 [ 65536, %4 ], [ %.2.i, %165 ]
+  %.05562.i = phi i32 [ 0, %4 ], [ %.257.i, %165 ]
   %43 = getelementptr inbounds nuw %struct.anon, ptr @png_sRGB_checks, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i32, ptr %44, align 4, !noalias !57
   %46 = icmp eq i32 %22, %45
-  br i1 %46, label %47, label %165
+  br i1 %46, label %47, label %166
 
 47:                                               ; preds = %42
   %48 = load i8, ptr %23, align 1, !noalias !57
@@ -3542,7 +3542,7 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %63 = load i32, ptr %62, align 16, !noalias !57
   %64 = icmp eq i32 %61, %63
-  br i1 %64, label %65, label %165
+  br i1 %64, label %65, label %166
 
 65:                                               ; preds = %47
   %66 = load i8, ptr %27, align 1, !noalias !57
@@ -3562,7 +3562,7 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   %80 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %81 = load i32, ptr %80, align 4, !noalias !57
   %82 = icmp eq i32 %79, %81
-  br i1 %82, label %83, label %165
+  br i1 %82, label %83, label %166
 
 83:                                               ; preds = %65
   %84 = load i8, ptr %31, align 1, !noalias !57
@@ -3582,10 +3582,10 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   %98 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %99 = load i32, ptr %98, align 8, !noalias !57
   %100 = icmp eq i32 %97, %99
-  br i1 %100, label %101, label %165
+  br i1 %100, label %101, label %166
 
 101:                                              ; preds = %83
-  %102 = icmp eq i32 %.05563.i, 0
+  %102 = icmp eq i32 %.05562.i, 0
   br i1 %102, label %103, label %132
 
 103:                                              ; preds = %101
@@ -3620,19 +3620,19 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   br label %132
 
 132:                                              ; preds = %103, %101
-  %.156.i = phi i32 [ %117, %103 ], [ %.05563.i, %101 ]
-  %.1.i = phi i32 [ %131, %103 ], [ %.05464.i, %101 ]
+  %.156.i = phi i32 [ %117, %103 ], [ %.05562.i, %101 ]
+  %.1.i = phi i32 [ %131, %103 ], [ %.05463.i, %101 ]
   %133 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %134 = load i32, ptr %133, align 8, !noalias !57
   %135 = icmp eq i32 %.156.i, %134
-  br i1 %135, label %136, label %165
+  br i1 %135, label %136, label %166
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %43, i64 30
   %138 = load i16, ptr %137, align 2, !noalias !57
   %139 = zext i16 %138 to i32
   %140 = icmp eq i32 %.1.i, %139
-  br i1 %140, label %141, label %165
+  br i1 %140, label %141, label %166
 
 141:                                              ; preds = %136
   %142 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -3668,22 +3668,22 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef 2) #30
   br label %png_compare_ICC_profile_with_sRGB.exit
 
-160:                                              ; preds = %158
+143:                                              ; preds = %158
   %161 = add nsw i32 %142, -4
   %162 = icmp ult i32 %161, 3
-  br i1 %162, label %163, label %png_compare_ICC_profile_with_sRGB.exit
+  br i1 %162, label %146, label %png_compare_ICC_profile_with_sRGB.exit
 
-163:                                              ; preds = %160
+146:                                              ; preds = %143
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef 0) #30
   br label %png_compare_ICC_profile_with_sRGB.exit
 
-164:                                              ; preds = %151, %147
+165:                                              ; preds = %151, %147
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef 0) #30
   br label %png_compare_ICC_profile_with_sRGB.exit.thread
 
-165:                                              ; preds = %136, %132, %83, %65, %47, %42
-  %.257.i = phi i32 [ %.156.i, %136 ], [ %.156.i, %132 ], [ %.05563.i, %83 ], [ %.05563.i, %65 ], [ %.05563.i, %47 ], [ %.05563.i, %42 ]
-  %.2.i = phi i32 [ %.1.i, %136 ], [ %.1.i, %132 ], [ %.05464.i, %83 ], [ %.05464.i, %65 ], [ %.05464.i, %47 ], [ %.05464.i, %42 ]
+166:                                              ; preds = %136, %132, %83, %65, %47, %42
+  %.257.i = phi i32 [ %.156.i, %136 ], [ %.156.i, %132 ], [ %.05562.i, %83 ], [ %.05562.i, %65 ], [ %.05562.i, %47 ], [ %.05562.i, %42 ]
+  %.2.i = phi i32 [ %.1.i, %136 ], [ %.1.i, %132 ], [ %.05463.i, %83 ], [ %.05463.i, %65 ], [ %.05463.i, %47 ], [ %.05463.i, %42 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
   br i1 %exitcond.not.i, label %png_compare_ICC_profile_with_sRGB.exit.thread, label %42, !llvm.loop !60
@@ -3696,17 +3696,17 @@ png_compare_ICC_profile_with_sRGB.exit:           ; preds = %159, %160, %163
   %170 = zext i8 %169 to i32
   %171 = shl nuw nsw i32 %170, 16
   %172 = or disjoint i32 %171, %168
-  %173 = load i8, ptr %40, align 1
-  %174 = zext i8 %173 to i32
-  %175 = shl nuw nsw i32 %174, 8
-  %176 = or disjoint i32 %172, %175
-  %177 = load i8, ptr %41, align 1
-  %178 = zext i8 %177 to i32
+  %170 = load i8, ptr %40, align 1
+  %171 = zext i8 %170 to i32
+  %172 = shl nuw nsw i32 %171, 8
+  %173 = or disjoint i32 %172, %175
+  %174 = load i8, ptr %41, align 1
+  %175 = zext i8 %174 to i32
   %179 = or disjoint i32 %176, %178
   %180 = tail call i32 @png_colorspace_set_sRGB(ptr noundef %0, ptr noundef %1, i32 noundef %179)
   br label %png_compare_ICC_profile_with_sRGB.exit.thread
 
-png_compare_ICC_profile_with_sRGB.exit.thread:    ; preds = %165, %164, %png_compare_ICC_profile_with_sRGB.exit
+png_compare_ICC_profile_with_sRGB.exit.thread:    ; preds = %166, %165, %png_compare_ICC_profile_with_sRGB.exit
   ret void
 }
 

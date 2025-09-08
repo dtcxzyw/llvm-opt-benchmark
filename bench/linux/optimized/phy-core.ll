@@ -407,9 +407,9 @@ define dso_local i64 @phy_speeds(ptr noundef captures(none) %0, i64 noundef %1, 
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %24, label %15
+  br i1 %14, label %19, label %15
 
-15:                                               ; preds = %.preheader
+15:; preds = %.preheader
   %16 = icmp eq i64 %7, 0
   %.pre = load i32, ptr %8, align 8
   br i1 %16, label %21, label %17
@@ -426,15 +426,15 @@ define dso_local i64 @phy_speeds(ptr noundef captures(none) %0, i64 noundef %1, 
   store i32 %.pre, ptr %23, align 4
   br label %24
 
-24:                                               ; preds = %21, %17, %.preheader
+19:                                               ; preds = %21, %17, %.preheader
   %25 = phi i64 [ %22, %21 ], [ %7, %17 ], [ %7, %.preheader ]
   %26 = add nuw nsw i64 %6, 1
-  %27 = icmp samesign ult i64 %6, 88
+  %22 = icmp samesign ult i64 %6, 88
   %28 = icmp ult i64 %25, %1
   %29 = select i1 %27, i1 %28, i1 false
   br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %24, %3
+.loopexit:; preds = %24, %3
   %30 = phi i64 [ 0, %3 ], [ %25, %24 ]
   ret i64 %30
 }

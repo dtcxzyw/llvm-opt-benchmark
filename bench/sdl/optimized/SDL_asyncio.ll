@@ -32,7 +32,7 @@ define hidden noundef ptr @SDL_AsyncIOFromFile_REAL(ptr noundef %0, ptr noundef 
 
 3:                                                ; preds = %2
   %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
-  br label %25
+  br label %26
 
 5:                                                ; preds = %2
   %.not19 = icmp eq ptr %1, null
@@ -40,7 +40,7 @@ define hidden noundef ptr @SDL_AsyncIOFromFile_REAL(ptr noundef %0, ptr noundef 
 
 6:                                                ; preds = %5
   %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #5
-  br label %25
+  br label %26
 
 8:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -63,31 +63,31 @@ AsyncFileModeValid.exit:                          ; preds = %.preheader
   br i1 %.not21, label %25, label %17
 
 AsyncFileModeValid.exit.thread:                   ; preds = %8
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #5
-  br label %25
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #5
+  br label %26
 
-17:                                               ; preds = %AsyncFileModeValid.exit
-  %18 = tail call ptr @SDL_CreateMutex_REAL() #5
+16:                                               ; preds = %AsyncFileModeValid.exit
+  %17 = tail call ptr @SDL_CreateMutex_REAL() #6
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %18, ptr %19, align 8
   %.not22 = icmp eq ptr %18, null
   br i1 %.not22, label %20, label %21
 
-20:                                               ; preds = %17
-  tail call void @SDL_free_REAL(ptr noundef nonnull %15) #5
-  br label %25
-
 21:                                               ; preds = %17
-  %22 = tail call zeroext i1 @SDL_SYS_AsyncIOFromFile(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %15) #5
-  br i1 %22, label %25, label %23
-
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %19, align 8
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %24) #5
   tail call void @SDL_free_REAL(ptr noundef nonnull %15) #5
-  br label %25
+  br label %26
 
-25:                                               ; preds = %AsyncFileModeValid.exit.thread, %21, %AsyncFileModeValid.exit, %23, %20, %6, %3
+22:                                               ; preds = %17
+  %23 = tail call zeroext i1 @SDL_SYS_AsyncIOFromFile(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %15) #5
+  br i1 %23, label %26, label %24
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %19, align 8
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %25) #5
+  tail call void @SDL_free_REAL(ptr noundef nonnull %15) #5
+  br label %26
+
+26:                                               ; preds = %AsyncFileModeValid.exit.thread, %22, %AsyncFileModeValid.exit, %24, %21, %6, %3
   %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %AsyncFileModeValid.exit.thread ], [ null, %23 ], [ null, %20 ], [ null, %AsyncFileModeValid.exit ], [ %15, %21 ]
   ret ptr %.0
 }

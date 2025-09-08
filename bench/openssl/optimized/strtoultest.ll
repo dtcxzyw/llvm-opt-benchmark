@@ -65,8 +65,8 @@ define internal range(i32 0, 2) i32 @test_strtoul(i32 noundef %0) #0 {
   %.not10 = icmp eq i64 %21, 0
   br i1 %.not10, label %27, label %22
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr %2, align 8, !tbaa !16
+22: ; preds = %19
+  %24 = load i64, ptr %2, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !17
   %26 = call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %23, i64 noundef %25) #3

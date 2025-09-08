@@ -394,29 +394,29 @@ define internal i32 @dissect_mikey(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not77, label %.thread.us.preheader, label %.split
 
 .thread.us.preheader:                             ; preds = %13, %14
-  %.058126 = phi ptr [ %16, %14 ], [ null, %13 ]
+  %.058125 = phi ptr [ %16, %14 ], [ null, %13 ]
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %32
-  %.065103.us = phi i32 [ %21, %32 ], [ -1, %.thread.us.preheader ]
-  %.067102.us = phi i32 [ %34, %32 ], [ 2, %.thread.us.preheader ]
-  %.069101.us = phi i32 [ %34, %32 ], [ 0, %.thread.us.preheader ]
-  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.067102.us)
+  %.065102.us = phi i32 [ %21, %32 ], [ -1, %.thread.us.preheader ]
+  %.067101.us = phi i32 [ %34, %32 ], [ 2, %.thread.us.preheader ]
+  %.069100.us = phi i32 [ %34, %32 ], [ 0, %.thread.us.preheader ]
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.067101.us)
   %21 = zext i8 %20 to i32
-  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.069101.us)
+  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.069100.us)
   br label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %26, %.thread.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %26 ], [ 0, %.thread.us ]
   %23 = getelementptr %struct.mikey_dissector_entry, ptr @payload_map, i64 %indvars.iv.i.us
   %24 = load i32, ptr %23, align 16
-  %25 = icmp eq i32 %24, %.065103.us
+  %25 = icmp eq i32 %24, %.065102.us
   br i1 %25, label %mikey_dissector_lookup.exit.i.us, label %26
 
 26:                                               ; preds = %.lr.ph.i.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %.not.i.i.us = icmp eq i64 %indvars.iv.next.i.us, 16
-  br i1 %.not.i.i.us, label %.thread86.sink.split, label %.lr.ph.i.i.us, !llvm.loop !6
+  %exitcond.i.us = icmp eq i64 %indvars.iv.next.i.us, 16
+  br i1 %exitcond.i.us, label %.thread86.sink.split, label %.lr.ph.i.i.us, !llvm.loop !6
 
 mikey_dissector_lookup.exit.i.us:                 ; preds = %.lr.ph.i.i.us
   %.not.i.us = icmp eq ptr %23, null
@@ -425,7 +425,7 @@ mikey_dissector_lookup.exit.i.us:                 ; preds = %.lr.ph.i.i.us
   %or.cond.i.us = or i1 %.not.i.us, %.not10.i.us
   br i1 %or.cond.i.us, label %.thread86.sink.split, label %dissect_payload.exit.us
 
-dissect_payload.exit.us:                          ; preds = %mikey_dissector_lookup.exit.i.us
+27:                                               ; preds = %mikey_dissector_lookup.exit.i.us
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef %.064, ptr noundef %22, ptr noundef %1, ptr noundef null)
@@ -433,25 +433,25 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
   br i1 %31, label %.thread86.sink.split, label %32
 
 32:                                               ; preds = %dissect_payload.exit.us
-  %33 = icmp eq i32 %.065103.us, 4
-  %34 = add i32 %30, %.069101.us
+  %33 = icmp eq i32 %.065102.us, 4
+  %34 = add i32 %30, %.069100.us
   %.not76.us = icmp eq i8 %20, 0
   %or.cond = select i1 %33, i1 true, i1 %.not76.us
   br i1 %or.cond, label %.thread92, label %.thread.us
 
 .split:                                           ; preds = %14, %63
-  %.065103 = phi i32 [ %36, %63 ], [ -1, %14 ]
-  %.067102 = phi i32 [ %65, %63 ], [ 2, %14 ]
-  %.069101 = phi i32 [ %65, %63 ], [ 0, %14 ]
-  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.067102)
+  %.065102 = phi i32 [ %36, %63 ], [ -1, %14 ]
+  %.067101 = phi i32 [ %65, %63 ], [ 2, %14 ]
+  %.069100 = phi i32 [ %65, %63 ], [ 0, %14 ]
+  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.067101)
   %36 = zext i8 %35 to i32
-  %37 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.069101)
-  %38 = icmp sgt i32 %.065103, 26
+  %37 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.069100)
+  %38 = icmp sgt i32 %.065102, 26
   br i1 %38, label %.thread86, label %39
 
 39:                                               ; preds = %.split
-  %40 = icmp eq i32 %.065103, -1
-  %spec.store.select = select i1 %40, i32 0, i32 %.065103
+  %40 = icmp eq i32 %.065102, -1
+  %spec.store.select = select i1 %40, i32 0, i32 %.065102
   %41 = sext i32 %spec.store.select to i64
   %42 = getelementptr i32, ptr @hf_mikey_pl, i64 %41
   %43 = load i32, ptr %42, align 4
@@ -462,14 +462,14 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
   %46 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %19, i32 noundef %43, ptr noundef %37, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %47 = load i32, ptr @ett_mikey_payload, align 4
   %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47)
-  switch i32 %.065103, label %49 [
+  switch i32 %.065102, label %49 [
     i32 -1, label %.lr.ph.i.i.preheader
     i32 4, label %.lr.ph.i.i.preheader
   ]
 
 49:                                               ; preds = %45
   %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 276), align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %50, ptr noundef %0, i32 noundef %.067102, i32 noundef 1, i32 noundef 0)
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %50, ptr noundef %0, i32 noundef %.067101, i32 noundef 1, i32 noundef 0)
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %49, %45, %45
@@ -477,14 +477,14 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
 
 52:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %.not.i.i, label %.thread86.sink.split, label %.lr.ph.i.i, !llvm.loop !6
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.i, label %.thread86.sink.split, label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.lr.ph.i.i.preheader ]
   %53 = getelementptr %struct.mikey_dissector_entry, ptr @payload_map, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 16
-  %55 = icmp eq i32 %54, %.065103
+  %55 = icmp eq i32 %54, %.065102
   br i1 %55, label %mikey_dissector_lookup.exit.i, label %52
 
 mikey_dissector_lookup.exit.i:                    ; preds = %.lr.ph.i.i
@@ -494,7 +494,7 @@ mikey_dissector_lookup.exit.i:                    ; preds = %.lr.ph.i.i
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %.thread86.sink.split, label %dissect_payload.exit
 
-dissect_payload.exit:                             ; preds = %mikey_dissector_lookup.exit.i
+56:                                               ; preds = %mikey_dissector_lookup.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 %58(ptr noundef %.064, ptr noundef %37, ptr noundef %1, ptr noundef %48)
@@ -510,22 +510,22 @@ dissect_payload.exit:                             ; preds = %mikey_dissector_loo
   br label %63
 
 63:                                               ; preds = %62, %61
-  %64 = icmp eq i32 %.065103, 4
-  %65 = add i32 %59, %.069101
+  %64 = icmp eq i32 %.065102, 4
+  %65 = add i32 %59, %.069100
   %.not76 = icmp eq i8 %35, 0
-  %or.cond104 = select i1 %64, i1 true, i1 %.not76
-  br i1 %or.cond104, label %.thread92, label %.split
+  %or.cond103 = select i1 %64, i1 true, i1 %.not76
+  br i1 %or.cond103, label %.thread92, label %.split
 
 .thread92:                                        ; preds = %63, %32
-  %.058125 = phi ptr [ %.058126, %32 ], [ %16, %63 ]
-  %.not79 = icmp eq ptr %.058125, null
+  %.058124 = phi ptr [ %.058125, %32 ], [ %16, %63 ]
+  %.not79 = icmp eq ptr %.058124, null
   br i1 %.not79, label %70, label %66
 
 66:                                               ; preds = %.thread92
   %67 = load i8, ptr %.064, align 1
   %68 = zext i8 %67 to i32
   %69 = tail call ptr @val_to_str_ext_const(i32 noundef %68, ptr noundef nonnull @data_type_vals_ext, ptr noundef nonnull @.str.301)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.058125, ptr noundef nonnull @.str.300, ptr noundef %69)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.058124, ptr noundef nonnull @.str.300, ptr noundef %69)
   br label %70
 
 70:                                               ; preds = %66, %.thread92

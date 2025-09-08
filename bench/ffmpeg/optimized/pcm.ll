@@ -1695,7 +1695,7 @@ define internal noundef i32 @pcm_decode_init(ptr noundef captures(none) %0) #0 {
   %.not = icmp eq i64 %21, 0
   br i1 %.not, label %.loopexit, label %22
 
-22:                                               ; preds = %11
+22:; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %24 = load i8, ptr %23, align 2, !tbaa !122
   %25 = zext i8 %24 to i32

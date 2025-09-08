@@ -3043,19 +3043,19 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i: ; preds = %24
   %or.cond.i = icmp ult i32 %30, -39
   br i1 %or.cond.i, label %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10, label %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit
 
-_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i
+_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.thread.i: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i
   %31 = zext nneg i32 %29 to i64
   %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %31
   %.val.i.i = load ptr, ptr %32, align 16, !tbaa !17
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val.i.i, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
-  %33 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %33, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i
+  %35 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %35, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i
 
-_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i
+_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit.thread: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i
   %34 = icmp samesign ugt i32 %29, 39
   br i1 %34, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread, label %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i
 
-_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i: ; preds = %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit, %24, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10
+_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i:; preds = %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit, %24, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10
   %spec.select.i3.i = phi i32 [ %29, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10 ], [ 0, %24 ], [ %29, %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit ]
   %35 = zext nneg i32 %spec.select.i3.i to i64
   %36 = shl nuw nsw i64 1, %35
@@ -3144,17 +3144,17 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
   %or.cond = icmp ult i32 %7, -39
   br i1 %or.cond, label %_ZNK4llvm9StringRef11starts_withES0_.exit, label %8
 
-8:                                                ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit
-  %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %9
-  %.val.i = load ptr, ptr %10, align 16, !tbaa !17
+8: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit
+  %8 = zext nneg i32 %6 to i64
+  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %8
+  %.val.i = load ptr, ptr %9, align 16, !tbaa !17
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.val.i, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
-  %11 = icmp eq i32 %bcmp.i, 0
+  %13 = icmp eq i32 %bcmp.i, 0
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %1, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit, %8
-  %12 = phi i1 [ %11, %8 ], [ false, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit ], [ false, %1 ]
-  ret i1 %12
+  %14 = phi i1 [ %13, %8 ], [ false, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit ], [ false, %1 ]
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3175,7 +3175,7 @@ _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit: ; preds = %_ZN5clang13Di
   %spec.select.i3 = phi i32 [ %6, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit ], [ 0, %1 ]
   %8 = zext nneg i32 %spec.select.i3 to i64
   %9 = shl nuw nsw i64 1, %8
-  %10 = and i64 %9, 67174656
+  %10 = and i64 %8, 67174656
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %11
 

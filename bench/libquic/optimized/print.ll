@@ -72,12 +72,12 @@ find_method.exit:                                 ; preds = %9
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #5
   br label %18
 
-find_method.exit.thread:                          ; preds = %7
+15:                                               ; preds = %7
   %16 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #5
   %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str) #5
   br label %18
 
-18:                                               ; preds = %find_method.exit.thread, %find_method.exit
+19:                                               ; preds = %find_method.exit.thread, %find_method.exit
   %.0 = phi i32 [ %15, %find_method.exit ], [ 1, %find_method.exit.thread ]
   ret i32 %.0
 }
@@ -106,12 +106,12 @@ find_method.exit:                                 ; preds = %9
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #5
   br label %18
 
-find_method.exit.thread:                          ; preds = %7
+15:                                               ; preds = %7
   %16 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #5
   %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.1) #5
   br label %18
 
-18:                                               ; preds = %find_method.exit.thread, %find_method.exit
+19:                                               ; preds = %find_method.exit.thread, %find_method.exit
   %.0 = phi i32 [ %15, %find_method.exit ], [ 1, %find_method.exit.thread ]
   ret i32 %.0
 }
@@ -136,9 +136,9 @@ define hidden i32 @EVP_PKEY_print_params(ptr noundef %0, ptr noundef %1, i32 nou
 
 find_method.exit:                                 ; preds = %9
   %.not13 = icmp eq i64 %.06.i, 0
-  br i1 %.not13, label %find_method.exit.thread, label %13
+  br i1 %.not13, label %15, label %13
 
-13:                                               ; preds = %find_method.exit
+15:                                               ; preds = %find_method.exit
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #5
@@ -149,7 +149,7 @@ find_method.exit.thread:                          ; preds = %7, %find_method.exi
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.2) #5
   br label %19
 
-19:                                               ; preds = %find_method.exit.thread, %13
+19:                                               ; preds = %find_method.exit.thread, %15
   %.0 = phi i32 [ %16, %13 ], [ 1, %find_method.exit.thread ]
   ret i32 %.0
 }

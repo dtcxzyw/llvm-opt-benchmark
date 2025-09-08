@@ -3494,7 +3494,7 @@ declare i64 @SSL_set_options(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_protocol_version(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 123, 125) %2) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %17, label %.preheader
+  br i1 %.not, label %19, label %.preheader
 
 4:                                                ; preds = %.preheader
   %5 = add nuw nsw i64 %.067.i, 1
@@ -3509,12 +3509,12 @@ define internal fastcc i32 @set_protocol_version(ptr noundef %0, ptr noundef non
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %protocol_from_string.exit, label %4
 
-protocol_from_string.exit.thread:                 ; preds = %4
+protocol_from_string.exit:                        ; preds = %4
   %10 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.111, ptr noundef nonnull %0) #23
   br label %17
 
-protocol_from_string.exit:                        ; preds = %.preheader
+15:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !40
   %14 = zext nneg i32 %13 to i64
@@ -3522,7 +3522,7 @@ protocol_from_string.exit:                        ; preds = %.preheader
   %16 = trunc i64 %15 to i32
   br label %17
 
-17:                                               ; preds = %3, %protocol_from_string.exit.thread, %protocol_from_string.exit
+19:                                               ; preds = %3, %protocol_from_string.exit.thread, %15
   %.1 = phi i32 [ 0, %protocol_from_string.exit.thread ], [ %16, %protocol_from_string.exit ], [ 1, %3 ]
   ret i32 %.1
 }

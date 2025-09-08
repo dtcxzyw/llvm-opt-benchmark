@@ -64205,38 +64205,38 @@ _ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_
   %21 = icmp sgt i64 %.1.i.i.i.i, 0
   br i1 %21, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i, label %_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit, !llvm.loop !6966
 
-_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit: ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i
+_ZNK8WasmEdge12SpareEnumMapILm126ENS_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEEixES2_.exit:; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm126ENS0_7ErrCode5ValueESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i
   %22 = getelementptr inbounds %"struct.std::pair.519", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %.sroa.4.1.i.i.i.i
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %spec.select.i
   %spec.select.i.i = select i1 %24, i64 %.sroa.4.1.i.i.i.i, i64 126
   %25 = getelementptr inbounds %"struct.std::pair.519", ptr @_ZN8WasmEdgeL10ErrCodeStrE, i64 %spec.select.i.i, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6967)
-  %26 = ptrtoint ptr %6 to i64
+  %30 = ptrtoint ptr %6 to i64
   %.sroa.039.0.copyload.i = load i64, ptr %25, align 8, !noalias !6967
   %.sroa.240.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.240.0.copyload.i = load ptr, ptr %.sroa.240.0..sroa_idx.i, align 8, !noalias !6967
-  %27 = ptrtoint ptr %.sroa.240.0.copyload.i to i64
+  %31 = ptrtoint ptr %.sroa.240.0.copyload.i to i64
   %.sroa.059.0.insert.ext.i = zext nneg i32 %13 to i64
-  store i64 %26, ptr %4, align 16, !alias.scope !6967
+  store i64 %30, ptr %4, align 16, !alias.scope !6967
   %.sroa.254.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN8WasmEdge9WasmPhaseENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %.sroa.254.0..sroa_idx.i, align 8, !alias.scope !6967
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %27, ptr %28, align 16, !alias.scope !6967
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %31, ptr %32, align 16, !alias.scope !6967
   %.sroa.256.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.039.0.copyload.i, ptr %.sroa.256.0..sroa_idx.i, align 8, !alias.scope !6967
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %.sroa.059.0.insert.ext.i, ptr %29, align 16, !alias.scope !6967
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 %.sroa.059.0.insert.ext.i, ptr %33, align 16, !alias.scope !6967
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @.str.168, i64 29, i64 735, ptr nonnull %4) #16
-  %30 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  %31 = extractvalue { i64, ptr } %30, 0
-  store i64 %31, ptr %7, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %33 = extractvalue { i64, ptr } %30, 1
-  store ptr %33, ptr %32, align 8
-  %34 = call ptr @_ZNK3fmt2v89formatterISt17basic_string_viewIcSt11char_traitsIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %34 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
+  %35 = extractvalue { i64, ptr } %34, 0
+  store i64 %35, ptr %7, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %37 = extractvalue { i64, ptr } %34, 1
+  store ptr %37, ptr %36, align 8
+  %38 = call ptr @_ZNK3fmt2v89formatterISt17basic_string_viewIcSt11char_traitsIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  ret ptr %34
+  ret ptr %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1038,8 +1038,8 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %29 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv.next45.i, i32 1
   %30 = load ptr, ptr %29, align 8
-  %.not31.i = icmp eq i64 %indvars.iv.next45.i, 9
-  br i1 %.not31.i, label %31, label %24, !llvm.loop !12
+  %exitcond.i = icmp eq i64 %indvars.iv.next45.i, 9
+  br i1 %exitcond.i, label %31, label %24, !llvm.loop !12
 
 31:                                               ; preds = %24
   %.not36.i = icmp eq ptr %spec.select51, null

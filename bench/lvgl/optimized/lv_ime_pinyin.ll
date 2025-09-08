@@ -774,7 +774,7 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
 
 26:                                               ; preds = %40, %17
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %40 ], [ 0, %17 ]
-  %27 = phi ptr [ %42, %40 ], [ @.str.23, %17 ]
+  %27 = phi ptr [ %44, %40 ], [ @.str.23, %17 ]
   %.02840.i = phi i16 [ %.1.i, %40 ], [ 0, %17 ]
   %.02939.i = phi i16 [ %.130.i, %40 ], [ 0, %17 ]
   %.03138.i = phi i16 [ %.132.i, %40 ], [ 0, %17 ]
@@ -783,7 +783,7 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
   %29 = icmp eq i8 %.03337.i, %28
   br i1 %29, label %30, label %32
 
-30:                                               ; preds = %26
+30:; preds = %26
   %31 = add i16 %.02939.i, 1
   br label %40
 
@@ -799,16 +799,16 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
   store i16 %37, ptr %39, align 2, !tbaa !26
   br label %40
 
-40:                                               ; preds = %32, %30
+40: ; preds = %32, %30
   %.134.i = phi i8 [ %.03337.i, %30 ], [ %28, %32 ]
   %.132.i = phi i16 [ %.03138.i, %30 ], [ %37, %32 ]
   %.130.i = phi i16 [ %31, %30 ], [ 1, %32 ]
   %.1.i = phi i16 [ %.02840.i, %30 ], [ %36, %32 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %41 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr @lv_ime_pinyin_def_dict, i64 %indvars.iv.next59
-  %42 = load ptr, ptr %41, align 16, !tbaa !27
-  %43 = icmp eq i64 %indvars.iv.next59, 321
-  br i1 %43, label %init_pinyin_dict.exit, label %26
+  %43 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr @lv_ime_pinyin_def_dict, i64 %indvars.iv.next59
+  %44 = load ptr, ptr %43, align 16, !tbaa !27
+  %45 = icmp eq i64 %indvars.iv.next59, 321
+  br i1 %45, label %init_pinyin_dict.exit, label %26
 
 init_pinyin_dict.exit:                            ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 206
@@ -835,8 +835,8 @@ init_pinyin_dict.exit:                            ; preds = %40
   tail call void @lv_obj_set_style_pad_right(ptr noundef %54, i32 noundef 8, i32 noundef 0) #6
   tail call void @lv_obj_set_style_pad_top(ptr noundef %54, i32 noundef 8, i32 noundef 0) #6
   tail call void @lv_obj_set_style_pad_bottom(ptr noundef %54, i32 noundef 8, i32 noundef 0) #6
-  %55 = load ptr, ptr %47, align 8, !tbaa !29
-  tail call void @lv_obj_set_style_pad_row(ptr noundef %55, i32 noundef 0, i32 noundef 0) #6
+  %62 = load ptr, ptr %47, align 8, !tbaa !29
+  tail call void @lv_obj_set_style_pad_row(ptr noundef %62, i32 noundef 0, i32 noundef 0) #6
   tail call void @lv_obj_set_style_pad_column(ptr noundef %55, i32 noundef 0, i32 noundef 0) #6
   %56 = load ptr, ptr %47, align 8, !tbaa !29
   tail call void @lv_obj_set_style_radius(ptr noundef %56, i32 noundef 0, i32 noundef 0) #6
@@ -847,20 +847,20 @@ init_pinyin_dict.exit:                            ; preds = %40
   tail call void @lv_obj_set_style_base_dir(ptr noundef %58, i32 noundef 0, i32 noundef 0) #6
   %59 = load ptr, ptr %47, align 8, !tbaa !29
   tail call void @lv_obj_set_style_radius(ptr noundef %59, i32 noundef 12, i32 noundef 327680) #6
-  %60 = load ptr, ptr %47, align 8, !tbaa !29
+  %66 = load ptr, ptr %47, align 8, !tbaa !29
   %61 = tail call i24 @lv_color_white() #6
   tail call void @lv_obj_set_style_bg_color(ptr noundef %60, i24 %61, i32 noundef 327680) #6
   %62 = load ptr, ptr %47, align 8, !tbaa !29
   tail call void @lv_obj_set_style_bg_opa(ptr noundef %62, i8 noundef zeroext 0, i32 noundef 327680) #6
-  %63 = load ptr, ptr %47, align 8, !tbaa !29
-  tail call void @lv_obj_set_style_shadow_opa(ptr noundef %63, i8 noundef zeroext 0, i32 noundef 327680) #6
-  %64 = load ptr, ptr %47, align 8, !tbaa !29
-  tail call void @lv_obj_set_style_bg_opa(ptr noundef %64, i8 noundef zeroext -1, i32 noundef 327712) #6
-  %65 = load ptr, ptr %47, align 8, !tbaa !29
-  %66 = tail call i24 @lv_color_white() #6
-  tail call void @lv_obj_set_style_bg_color(ptr noundef %65, i24 %66, i32 noundef 327712) #6
-  %67 = load ptr, ptr %47, align 8, !tbaa !29
-  %68 = tail call ptr @lv_obj_add_event_cb(ptr noundef %67, ptr noundef nonnull @lv_ime_pinyin_cand_panel_event, i32 noundef 35, ptr noundef %1) #6
+  %68 = load ptr, ptr %47, align 8, !tbaa !29
+  tail call void @lv_obj_set_style_shadow_opa(ptr noundef %68, i8 noundef zeroext 0, i32 noundef 327680) #6
+  %69 = load ptr, ptr %47, align 8, !tbaa !29
+  tail call void @lv_obj_set_style_bg_opa(ptr noundef %69, i8 noundef zeroext -1, i32 noundef 327712) #6
+  %70 = load ptr, ptr %47, align 8, !tbaa !29
+  %71 = tail call i24 @lv_color_white() #6
+  tail call void @lv_obj_set_style_bg_color(ptr noundef %70, i24 %71, i32 noundef 327712) #6
+  %72 = load ptr, ptr %47, align 8, !tbaa !29
+  %68 = tail call ptr @lv_obj_add_event_cb(ptr noundef %72, ptr noundef nonnull @lv_ime_pinyin_cand_panel_event, i32 noundef 35, ptr noundef %1) #6
   %69 = tail call ptr @lv_obj_add_event_cb(ptr noundef %1, ptr noundef nonnull @lv_ime_pinyin_style_change_event, i32 noundef 50, ptr noundef null) #6
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i16 0, ptr %70, align 4, !tbaa !30
@@ -872,17 +872,17 @@ init_pinyin_dict.exit:                            ; preds = %40
   tail call void @lv_memset(ptr noundef nonnull %73, i8 noundef zeroext 0, i64 noundef 7) #6
   br label %74
 
-74:                                               ; preds = %74, %init_pinyin_dict.exit
+74:  ; preds = %74, %init_pinyin_dict.exit
   %indvars.iv3.i = phi i64 [ 0, %init_pinyin_dict.exit ], [ %indvars.iv.next4.i, %74 ]
   %indvars.iv.i = phi i64 [ 19, %init_pinyin_dict.exit ], [ %indvars.iv.next.i, %74 ]
-  %75 = getelementptr inbounds nuw [7 x i8], ptr @lv_pinyin_k9_cand_str, i64 %indvars.iv3.i
+  %82 = getelementptr inbounds nuw [7 x i8], ptr @lv_pinyin_k9_cand_str, i64 %indvars.iv3.i
   %switch.selectcmp.i = icmp eq i64 %indvars.iv3.i, 4
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.18, ptr @.str.681
   %switch.selectcmp8.i = icmp eq i64 %indvars.iv3.i, 3
   %switch.select9.i = select i1 %switch.selectcmp8.i, ptr @.str.660, ptr %switch.select.i
-  %76 = tail call ptr @lv_strcpy(ptr noundef nonnull %75, ptr noundef nonnull %switch.select9.i) #6
-  %77 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_k9_map, i64 %indvars.iv.i
-  store ptr %75, ptr %77, align 8, !tbaa !3
+  %86 = tail call ptr @lv_strcpy(ptr noundef nonnull %75, ptr noundef nonnull %switch.select9.i) #6
+  %87 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_k9_map, i64 %indvars.iv.i
+  store ptr %75, ptr %87, align 8, !tbaa !3
   %indvars.iv.next4.i = add nuw nsw i64 %indvars.iv3.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next4.i, 5
@@ -898,8 +898,8 @@ pinyin_k9_init_data.exit:                         ; preds = %74
   store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 56), align 8, !tbaa !34
   store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 60), align 4, !tbaa !34
   store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 76), align 4, !tbaa !34
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  tail call void @lv_ll_init(ptr noundef nonnull %78, i32 noundef 7) #6
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void @lv_ll_init(ptr noundef nonnull %88, i32 noundef 7) #6
   ret void
 }
 

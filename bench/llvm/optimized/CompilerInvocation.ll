@@ -56154,7 +56154,7 @@ _ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %8
   %15 = zext i32 %.val1141 to i64
   br label %.lr.ph.split.us.i.preheader
 
-_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %8
+.lr.ph.i:                                         ; preds = %8
   %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #25
   %.val = load ptr, ptr %10, align 16
   %17 = getelementptr i8, ptr %10, i64 8
@@ -56163,14 +56163,14 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %8
   %19 = zext i32 %.val11 to i64
   br i1 %18, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i
 
-.lr.ph.split.us.i.preheader:                      ; preds = %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit
+.lr.ph.split.us.i.preheader:                      ; preds = %_ZN4llvm9StringRefC2EPKc.exit.thread, %.lr.ph.i
   %20 = phi i64 [ %15, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %19, %_ZN4llvm9StringRefC2EPKc.exit ]
-  %.val42 = phi ptr [ %.val40, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.val, %_ZN4llvm9StringRefC2EPKc.exit ]
+  %.val4348 = phi ptr [ %.val40, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.val, %_ZN4llvm9StringRefC2EPKc.exit ]
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.us.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %21 = getelementptr inbounds nuw %struct.SimpleEnumValue, ptr %.val42, i64 %indvars.iv18.i
+  %21 = getelementptr inbounds nuw %struct.SimpleEnumValue, ptr %.val4348, i64 %indvars.iv18.i
   %22 = load ptr, ptr %21, align 8, !tbaa !1680, !noalias !1681
   %.not.i.us.i = icmp eq ptr %22, null
   br i1 %.not.i.us.i, label %.loopexit, label %_ZN4llvm9StringRefC2EPKc.exit.us.i
@@ -56185,7 +56185,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2.us.i:   ; preds = %_ZN4llvm9StringRefC
   %.not.us.i = icmp eq i64 %indvars.iv.next19.i, %20
   br i1 %.not.us.i, label %.critedge, label %.lr.ph.split.us.i, !llvm.loop !1684
 
-.lr.ph.split.i:                                   ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit ]
   %24 = getelementptr inbounds nuw %struct.SimpleEnumValue, ptr %.val, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !1680, !noalias !1681
@@ -56208,9 +56208,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.i12, label %.critedge, label %.lr.ph.split.i, !llvm.loop !1684
 
 .loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.us.i, %.lr.ph.split.us.i
-  %.val43 = phi ptr [ %.val42, %.lr.ph.split.us.i ], [ %.val42, %_ZN4llvm9StringRefC2EPKc.exit.us.i ], [ %.val, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.val44 = phi ptr [ %.val4348, %.lr.ph.split.us.i ], [ %.val4348, %_ZN4llvm9StringRefC2EPKc.exit.us.i ], [ %.val, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %29 = phi i64 [ %indvars.iv18.i, %.lr.ph.split.us.i ], [ %indvars.iv18.i, %_ZN4llvm9StringRefC2EPKc.exit.us.i ], [ %indvars.iv.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.sroa.4.0..us-phi.i.sroa_idx = getelementptr inbounds nuw %struct.SimpleEnumValue, ptr %.val43, i64 %29, i32 1
+  %.sroa.4.0..us-phi.i.sroa_idx = getelementptr inbounds nuw %struct.SimpleEnumValue, ptr %.val44, i64 %29, i32 1
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..us-phi.i.sroa_idx, align 8, !tbaa !296
   %30 = zext i32 %.sroa.4.0.copyload to i64
   br label %66

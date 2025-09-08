@@ -1949,13 +1949,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared
   %or.cond = icmp eq i64 %18, 0
   %19 = shl nuw i64 1, %13
   %20 = and i64 %19, 100892729
-  %21 = icmp ne i64 %20, 0
+  %20 = icmp ne i64 %20, 0
   %or.cond5 = select i1 %or.cond, i1 %21, i1 false
   %22 = icmp ne i64 %2, 0
   %or.cond7 = and i1 %22, %or.cond5
   br i1 %or.cond7, label %23, label %28
 
-23:                                               ; preds = %12
+23:; preds = %12
   %24 = getelementptr inbounds nuw %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 %13
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8

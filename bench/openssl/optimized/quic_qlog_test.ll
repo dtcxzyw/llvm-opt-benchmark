@@ -260,10 +260,10 @@ define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
   %.not11 = icmp eq i32 %22, 0
   br i1 %.not11, label %24, label %23
 
-23:                                               ; preds = %16, %14
+23:; preds = %16, %14
   br label %24
 
-24:                                               ; preds = %16, %6, %1, %23
+24:; preds = %16, %6, %1, %23
   %.0 = phi i32 [ 1, %23 ], [ 0, %16 ], [ 0, %6 ], [ 0, %1 ]
   call void @ossl_qlog_free(ptr noundef %4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

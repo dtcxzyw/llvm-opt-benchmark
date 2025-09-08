@@ -41,9 +41,9 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 11:                                               ; preds = %9
   %.not66 = icmp samesign ult i64 %indvars.iv, 3
-  br i1 %.not66, label %16, label %12
+  br i1 %.not66, label %16, label %14
 
-12:                                               ; preds = %11
+14:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str, ptr noundef nonnull %8, ptr noundef %14) #5
@@ -51,7 +51,7 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %.not67.not = icmp eq ptr %15, null
   br i1 %.not67.not, label %checkhome.exit, label %16
 
-16:                                               ; preds = %12, %11
+16:                                               ; preds = %14, %11
   %.051 = phi ptr [ %15, %12 ], [ %8, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load i8, ptr %17, align 8, !tbaa !13, !range !14, !noundef !15
@@ -121,7 +121,7 @@ checkhome.exit.sink.split:                        ; preds = %33, %.split30.us.i
   tail call void @curl_free(ptr noundef nonnull %32) #5
   br label %checkhome.exit
 
-checkhome.exit:                                   ; preds = %21, %12, %checkhome.exit.sink.split, %.split.i.preheader, %24, %30, %27, %2
+checkhome.exit:                                   ; preds = %21, %14, %checkhome.exit.sink.split, %.split.i.preheader, %24, %30, %27, %2
   %.0 = phi ptr [ null, %2 ], [ null, %24 ], [ null, %30 ], [ null, %27 ], [ null, %.split.i.preheader ], [ %.0.ph, %checkhome.exit.sink.split ], [ %.fr, %21 ], [ null, %12 ]
   ret ptr %.0
 }

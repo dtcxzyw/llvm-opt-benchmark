@@ -150,7 +150,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %0) #0 {
 
 30:                                               ; preds = %27, %25, %23, %8, %10, %17, %29
   %.015 = phi ptr [ %.1, %29 ], [ %19, %23 ], [ %19, %25 ], [ %19, %17 ], [ null, %10 ], [ null, %8 ], [ null, %27 ]
-  %.0 = phi i32 [ 1, %29 ], [ 0, %23 ], [ 0, %25 ], [ 0, %17 ], [ 0, %10 ], [ 0, %8 ], [ 0, %27 ]
+  %.015 = phi i32 [ 1, %29 ], [ 0, %23 ], [ 0, %25 ], [ 0, %17 ], [ 0, %10 ], [ 0, %8 ], [ 0, %27 ]
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.3, i32 noundef 108) #4
   call void @CRYPTO_free(ptr noundef %.015, ptr noundef nonnull @.str.3, i32 noundef 109) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

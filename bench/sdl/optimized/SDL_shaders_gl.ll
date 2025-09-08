@@ -255,7 +255,7 @@ declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -2147483648, 11) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca [10 x i8], align 1
   %5 = icmp eq i32 %1, 0
-  br i1 %5, label %66, label %6
+  br i1 %5, label %63, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
@@ -270,12 +270,12 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   %.not = icmp ult i32 %14, -2
   br i1 %.not, label %18, label %15
 
-15:                                               ; preds = %6
+15: ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   br label %18
 
-18:                                               ; preds = %15, %6
+18:; preds = %15, %6
   %.042 = phi ptr [ %17, %15 ], [ @.str.28, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
@@ -290,13 +290,13 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   %27 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %24, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.28, ptr noundef %26)
   br i1 %27, label %28, label %66
 
-28:                                               ; preds = %18
+28:; preds = %18
   %29 = load ptr, ptr %22, align 8
   %30 = tail call i32 %29(i32 noundef 35632) #5
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %33 = load ptr, ptr %32, align 8
+  %35 = load ptr, ptr %32, align 8
   %34 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %30, ptr noundef %.042, ptr noundef nonnull %.str.29..str.30, ptr noundef %33)
   br i1 %34, label %35, label %66
 
@@ -325,34 +325,34 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
 51:                                               ; preds = %35, %59
   %.04147 = phi i32 [ 0, %35 ], [ %60, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %52 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.31, i32 noundef %.04147) #5
-  %53 = load ptr, ptr %49, align 8
-  %54 = load i32, ptr %2, align 4
-  %55 = call i32 %53(i32 noundef %54, ptr noundef nonnull %4) #5
-  %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %57, label %59
+  %49 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.31, i32 noundef %.04147) #5
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i32, ptr %2, align 4
+  %52 = call i32 %53(i32 noundef %51, ptr noundef nonnull %4) #5
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %54, label %56
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %50, align 8
-  call void %58(i32 noundef %55, i32 noundef %.04147) #5
-  br label %59
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %50, align 8
+  call void %58(i32 noundef %52, i32 noundef %.04147) #5
+  br label %56
 
-59:                                               ; preds = %57, %51
+56:                                               ; preds = %54, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %60 = add nuw nsw i32 %.04147, 1
-  %exitcond.not = icmp eq i32 %60, 4
-  br i1 %exitcond.not, label %61, label %51, !llvm.loop !7
+  %57 = add nuw nsw i32 %.04147, 1
+  %exitcond.not = icmp eq i32 %57, 4
+  br i1 %exitcond.not, label %58, label %51, !llvm.loop !7
 
-61:                                               ; preds = %59
-  %62 = load ptr, ptr %46, align 8
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %46, align 8
   call void %62(i32 noundef 0) #5
-  %63 = load ptr, ptr %0, align 8
-  %64 = call i32 %63() #5
-  %65 = icmp eq i32 %64, 0
-  br label %66
+  %60 = load ptr, ptr %0, align 8
+  %61 = call i32 %63() #5
+  %62 = icmp eq i32 %61, 0
+  br label %63
 
-66:                                               ; preds = %28, %18, %3, %61
-  %.0 = phi i1 [ %65, %61 ], [ true, %3 ], [ false, %18 ], [ false, %28 ]
+63:                                               ; preds = %28, %18, %3, %58
+  %.0 = phi i1 [ %62, %61 ], [ true, %3 ], [ false, %18 ], [ false, %28 ]
   ret i1 %.0
 }
 

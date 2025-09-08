@@ -226,16 +226,16 @@ define i64 @gvusershape_size(ptr noundef readonly captures(none) %0, ptr noundef
   %11 = load ptr, ptr @gvusershape_size.oldpath, align 8, !tbaa !31
   %12 = load ptr, ptr @Gvimagepath, align 8, !tbaa !31
   %.not12 = icmp eq ptr %11, %12
-  %.pre23 = load ptr, ptr @ImageDict, align 8, !tbaa !3
+  %.pre21 = load ptr, ptr @ImageDict, align 8, !tbaa !3
   br i1 %.not12, label %23, label %13
 
 13:                                               ; preds = %10
   store ptr %12, ptr @gvusershape_size.oldpath, align 8, !tbaa !31
-  %.not13 = icmp eq ptr %.pre23, null
+  %.not13 = icmp eq ptr %.pre21, null
   br i1 %.not13, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call i32 @dtclose(ptr noundef nonnull %.pre23) #21
+  %15 = tail call i32 @dtclose(ptr noundef nonnull %.pre21) #21
   store ptr null, ptr @ImageDict, align 8, !tbaa !3
   br label %.thread
 
@@ -247,11 +247,11 @@ define i64 @gvusershape_size(ptr noundef readonly captures(none) %0, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load double, ptr %20, align 8, !tbaa !53
   %22 = fcmp ult double %21, 1.000000e+00
-  %.36 = select i1 %22, double 9.600000e+01, double %21
+  %.34 = select i1 %22, double 9.600000e+01, double %21
   br label %32
 
 23:                                               ; preds = %._crit_edge, %10
-  %24 = phi ptr [ %.pre, %._crit_edge ], [ %.pre23, %10 ]
+  %24 = phi ptr [ %.pre, %._crit_edge ], [ %.pre21, %10 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -264,7 +264,7 @@ define i64 @gvusershape_size(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not.i, label %32, label %gvusershape_find.exit.i
 
 32:                                               ; preds = %.thread, %23
-  %.41 = phi double [ %.36, %.thread ], [ %., %23 ]
+  %.39 = phi double [ %.34, %.thread ], [ %., %23 ]
   %33 = load ptr, ptr @Dttree, align 8, !tbaa !55
   %34 = tail call ptr @dtopen(ptr noundef nonnull @ImageDictDisc, ptr noundef %33) #21
   store ptr %34, ptr @ImageDict, align 8, !tbaa !3
@@ -272,7 +272,7 @@ define i64 @gvusershape_size(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not.i.i, label %gvusershape_find.exit.thread.i, label %gvusershape_find.exit.i
 
 gvusershape_find.exit.i:                          ; preds = %32, %23
-  %.39 = phi double [ %.41, %32 ], [ %., %23 ]
+  %.37 = phi double [ %.39, %32 ], [ %., %23 ]
   %35 = phi ptr [ %34, %32 ], [ %24, %23 ]
   %36 = load ptr, ptr %35, align 8, !tbaa !8
   %37 = tail call ptr %36(ptr noundef nonnull %35, ptr noundef nonnull %1, i32 noundef 512) #21
@@ -280,7 +280,7 @@ gvusershape_find.exit.i:                          ; preds = %32, %23
   br i1 %.not26.i, label %gvusershape_find.exit.thread.i, label %111
 
 gvusershape_find.exit.thread.i:                   ; preds = %gvusershape_find.exit.i, %32
-  %.40 = phi double [ %.39, %gvusershape_find.exit.i ], [ %.41, %32 ]
+  %.38 = phi double [ %.37, %gvusershape_find.exit.i ], [ %.39, %32 ]
   %38 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #23
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %gv_alloc.exit.i
@@ -324,7 +324,7 @@ freeUsershape.exit.i:                             ; preds = %48, %46
   %55 = icmp eq i64 %54, 20
   br i1 %55, label %.preheader59.i.i, label %imagetype.exit.thread.i
 
-.preheader59.i.i:                                 ; preds = %53, %80
+56:                                               ; preds = %53, %80
   %.03361.i.i = phi i64 [ %81, %80 ], [ 0, %53 ]
   %56 = getelementptr inbounds nuw %struct.knowntype_t, ptr @knowntypes, i64 %.03361.i.i
   %57 = load ptr, ptr %56, align 16, !tbaa !57
@@ -332,87 +332,87 @@ freeUsershape.exit.i:                             ; preds = %48, %46
   %59 = load i64, ptr %58, align 8, !tbaa !59
   %bcmp.i.i = call i32 @bcmp(ptr nonnull %3, ptr %57, i64 %59)
   %.not42.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not42.i.i, label %60, label %80
+  br i1 %.not42.i.i, label %62, label %80
 
-60:                                               ; preds = %.preheader59.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !60
-  %63 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  store ptr %62, ptr %63, align 8, !tbaa !61
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %65 = load i32, ptr %64, align 16, !tbaa !62
-  %66 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  store i32 %65, ptr %66, align 8, !tbaa !63
+62:                                               ; preds = %.preheader59.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !62
+  %65 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  store ptr %64, ptr %65, align 8, !tbaa !61
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %67 = load i32, ptr %66, align 16, !tbaa !62
+  %68 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store i32 %67, ptr %68, align 8, !tbaa !63
   switch i64 %.03361.i.i, label %imagetype.exit.i [
-    i64 7, label %67
-    i64 8, label %78
+    i64 7, label %69
+    i64 8, label %80
   ]
 
-67:                                               ; preds = %60
-  %68 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 62, i64 noundef 20) #26
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %.preheader58.i.i, label %.thread49.i.i
+69:                                               ; preds = %62
+  %70 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 62, i64 noundef 20) #26
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %.preheader58.i.i, label %.thread49.i.i
 
-.preheader58.i.i:                                 ; preds = %67, %.preheader58.i.i
-  %70 = call i32 @fgetc(ptr noundef nonnull %52)
-  switch i32 %70, label %.preheader58.i.i [
+.preheader58.i.i:                                 ; preds = %69, %.preheader58.i.i
+  %72 = call i32 @fgetc(ptr noundef nonnull %52)
+  switch i32 %72, label %.preheader58.i.i [
     i32 -1, label %imagetype.exit.i
     i32 62, label %.thread49.i.i
   ]
 
-.thread49.i.i:                                    ; preds = %.preheader58.i.i, %67
+imagetype.exit.thread53.i:                        ; preds = %.preheader58.i.i, %67
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %71 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %52)
-  %.not44.i.i = icmp eq i64 %71, 4
+  %73 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %52)
+  %.not44.i.i = icmp eq i64 %73, 4
   br i1 %.not44.i.i, label %.preheader.i.i, label %.thread52.i.i
 
 .preheader.i.i:                                   ; preds = %.thread49.i.i
   %lhsv = load i32, ptr %4, align 4
-  %.not46 = icmp eq i32 %lhsv, 1735815996
-  br i1 %.not46, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not42 = icmp eq i32 %lhsv, 1735815996
+  br i1 %.not42, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  br label %74
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  br label %76
 
-._crit_edge.i.i:                                  ; preds = %76, %.preheader.i.i
-  store ptr @.str.8, ptr %63, align 8, !tbaa !61
-  store i32 8, ptr %66, align 8, !tbaa !63
+._crit_edge.i.i:                                  ; preds = %78, %.preheader.i.i
+  store ptr @.str.8, ptr %65, align 8, !tbaa !61
+  store i32 8, ptr %68, align 8, !tbaa !63
   br label %.thread52.i.i
 
-74:                                               ; preds = %76, %.lr.ph.i.i
-  %75 = call i32 @fgetc(ptr noundef nonnull %52)
-  %.not46.i.i = icmp eq i32 %75, -1
-  br i1 %.not46.i.i, label %.thread52.i.i, label %76
+76:                                               ; preds = %78, %.lr.ph.i.i
+  %77 = call i32 @fgetc(ptr noundef nonnull %52)
+  %.not46.i.i = icmp eq i32 %77, -1
+  br i1 %.not46.i.i, label %.thread52.i.i, label %78
 
-76:                                               ; preds = %74
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) %72, i64 3, i1 false)
-  %77 = trunc i32 %75 to i8
-  store i8 %77, ptr %73, align 1, !tbaa !30
-  %lhsv47 = load i32, ptr %4, align 4
-  %.not48 = icmp eq i32 %lhsv47, 1735815996
-  br i1 %.not48, label %._crit_edge.i.i, label %74
+78:                                               ; preds = %76
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) %74, i64 3, i1 false)
+  %79 = trunc i32 %77 to i8
+  store i8 %79, ptr %75, align 1, !tbaa !30
+  %lhsv43 = load i32, ptr %4, align 4
+  %.not44 = icmp eq i32 %lhsv43, 1735815996
+  br i1 %.not44, label %._crit_edge.i.i, label %76
 
-.thread52.i.i:                                    ; preds = %74, %._crit_edge.i.i, %.thread49.i.i
+.thread52.i.i:                                    ; preds = %76, %._crit_edge.i.i, %.thread49.i.i
   %.4.i.i = phi i32 [ 8, %._crit_edge.i.i ], [ %65, %.thread49.i.i ], [ %65, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imagetype.exit.i
 
-78:                                               ; preds = %60
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %lhsv.i.i = load i32, ptr %79, align 8
+80:                                               ; preds = %62
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %lhsv.i.i = load i32, ptr %81, align 8
   %.not43.i.i = icmp eq i32 %lhsv.i.i, 1346520407
   br i1 %.not43.i.i, label %imagetype.exit.thread37.i, label %imagetype.exit.i
 
-imagetype.exit.thread37.i:                        ; preds = %78
+imagetype.exit.thread.i:                          ; preds = %80
   store ptr @.str.10, ptr %63, align 8, !tbaa !61
   store i32 11, ptr %66, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
-80:                                               ; preds = %.preheader59.i.i
+imagetype.exit.thread37.i:                        ; preds = %56
   %81 = add nuw nsw i64 %.03361.i.i, 1
   %exitcond.i.i = icmp eq i64 %81, 10
   br i1 %exitcond.i.i, label %imagetype.exit.thread.i, label %.preheader59.i.i, !llvm.loop !64
@@ -425,7 +425,7 @@ imagetype.exit.thread.i:                          ; preds = %80, %53, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %84
 
-imagetype.exit.i:                                 ; preds = %.preheader58.i.i, %78, %.thread52.i.i, %60
+imagetype.exit.i:                                 ; preds = %.preheader58.i.i, %78, %.thread52.i.i, %62
   %.7.i.i = phi i32 [ %65, %78 ], [ %65, %60 ], [ %.4.i.i, %.thread52.i.i ], [ %65, %.preheader58.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.7.i.i, label %100 [
@@ -538,13 +538,13 @@ gvusershape_file_release.exit.i:                  ; preds = %106, %104, %100
   br label %120
 
 120:                                              ; preds = %gvusershape_file_release.exit.i, %111, %115, %118
-  %.38 = phi double [ %.39, %118 ], [ %.39, %115 ], [ %.39, %111 ], [ %.40, %gvusershape_file_release.exit.i ]
+  %.36 = phi double [ %.37, %118 ], [ %.37, %115 ], [ %.37, %111 ], [ %.38, %gvusershape_file_release.exit.i ]
   %.0.i.ph = phi ptr [ %37, %118 ], [ %37, %115 ], [ %37, %111 ], [ %38, %gvusershape_file_release.exit.i ]
   %121 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 88
   %122 = load i32, ptr %121, align 8, !tbaa !27
   %.not8.i = icmp eq i32 %122, 0
   %123 = sitofp i32 %122 to double
-  %.sroa.3.0.i = select i1 %.not8.i, double %.38, double %123
+  %.sroa.3.0.i = select i1 %.not8.i, double %.36, double %123
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 72
   %125 = load double, ptr %124, align 8, !tbaa !28
   %126 = fmul double %125, 7.200000e+01

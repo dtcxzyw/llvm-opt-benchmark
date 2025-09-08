@@ -2335,9 +2335,9 @@ zend_hash_str_find_ptr.exit39.thread:             ; preds = %php_disable_classes
   store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !111
   %126 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #30
   %127 = icmp eq i32 %126, 0
-  br i1 %127, label %.lr.ph, label %.loopexit
+  br i1 %127, label %.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %124, %._crit_edge
+.preheader:                                       ; preds = %124, %._crit_edge
   %128 = phi i1 [ false, %._crit_edge ], [ true, %124 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ 0, %124 ]
   %129 = getelementptr inbounds nuw %struct.anon.10, ptr @__const.php_module_startup.directives, i64 %indvars.iv
@@ -2372,7 +2372,7 @@ zend_hash_str_find_ptr.exit39.thread:             ; preds = %php_disable_classes
   br i1 %.not36, label %._crit_edge, label %133
 
 ._crit_edge:                                      ; preds = %143
-  br i1 %128, label %.lr.ph, label %.loopexit
+  br i1 %128, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %124
   %.024 = phi i32 [ -1, %124 ], [ 0, %._crit_edge ]

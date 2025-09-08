@@ -1317,8 +1317,8 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_shost_state
   br label %.thread
 
 .thread:                                          ; preds = %6, %14
-  %19 = phi i64 [ %18, %14 ], [ -22, %6 ]
-  ret i64 %19
+  %21 = phi i64 [ %18, %14 ], [ -22, %6 ]
+  ret i64 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2412,8 +2412,8 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_state_field
   br label %.thread
 
 .thread:                                          ; preds = %6, %14
-  %19 = phi i64 [ %18, %14 ], [ -22, %6 ]
-  ret i64 %19
+  %21 = phi i64 [ %18, %14 ], [ -22, %6 ]
+  ret i64 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -223,7 +223,7 @@ define internal i32 @test_allocate_from_text(i32 noundef %0) #0 {
   store i64 0, ptr %3, align 8, !tbaa !18
   %6 = call i32 @OSSL_PARAM_allocate_from_text(ptr noundef nonnull %2, ptr noundef nonnull @params_from_text, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i64 noundef 0, ptr noundef null) #7
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %7, label %13
+  br i1 %.not.i, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = shl nuw i64 1, %4
@@ -231,61 +231,61 @@ define internal i32 @test_allocate_from_text(i32 noundef %0) #0 {
   %.not7.i = icmp ne i64 %9, 0
   br i1 %.not7.i, label %11, label %10
 
-10:                                               ; preds = %7
+8:                                                ; preds = %7
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 626, ptr noundef nonnull @.str.87, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload) #7
-  br label %11
+  br label %9
 
-11:                                               ; preds = %10, %7
-  %12 = zext i1 %.not7.i to i32
+9:                                                ; preds = %8, %7
+  %10 = zext i1 %.not7.i to i32
   br label %check_int_from_text.exit
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !20
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %20
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %13 = load i64, ptr %12, align 8, !tbaa !20
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.3, i32 noundef 632) #7
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.3, i32 noundef 632) #7
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 634, ptr noundef nonnull @.str.88, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload) #7
   br label %check_int_from_text.exit
 
-20:                                               ; preds = %13
-  %21 = call i32 @OSSL_PARAM_get_long(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.3, i32 noundef 638) #7
-  %.not9.i = icmp eq i32 %21, %.sroa.6.0.copyload
-  br i1 %.not9.i, label %25, label %24
+18:                                               ; preds = %11
+  %19 = call i32 @OSSL_PARAM_get_long(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.3, i32 noundef 638) #7
+  %.not9.i = icmp eq i32 %19, %.sroa.6.0.copyload
+  br i1 %.not9.i, label %23, label %22
 
-24:                                               ; preds = %20
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @.str.89, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i32 noundef %.sroa.6.0.copyload, i32 noundef %21) #7
+22:                                               ; preds = %18
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @.str.89, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i32 noundef %.sroa.6.0.copyload, i32 noundef %19) #7
   br label %check_int_from_text.exit
 
-25:                                               ; preds = %20
-  %26 = load i64, ptr %3, align 8, !tbaa !18
-  %.not10.i = icmp eq i64 %26, %.sroa.5.0.copyload
-  br i1 %.not10.i, label %28, label %27
+23:                                               ; preds = %18
+  %24 = load i64, ptr %3, align 8, !tbaa !18
+  %.not10.i = icmp eq i64 %24, %.sroa.5.0.copyload
+  br i1 %.not10.i, label %26, label %25
 
-27:                                               ; preds = %25
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 647, ptr noundef nonnull @.str.90, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, i64 noundef %26) #7
+25:                                               ; preds = %23
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 647, ptr noundef nonnull @.str.90, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, i64 noundef %24) #7
   br label %check_int_from_text.exit
 
-28:                                               ; preds = %25
-  %29 = load i64, ptr %14, align 8, !tbaa !20
-  %.not11.i = icmp eq i64 %29, %.sroa.82.0.copyload
-  br i1 %.not11.i, label %check_int_from_text.exit, label %30
+26:                                               ; preds = %23
+  %27 = load i64, ptr %12, align 8, !tbaa !20
+  %.not11.i = icmp eq i64 %27, %.sroa.82.0.copyload
+  br i1 %.not11.i, label %check_int_from_text.exit, label %28
 
-30:                                               ; preds = %28
-  %31 = trunc i64 %.sroa.82.0.copyload to i32
-  %32 = trunc i64 %29 to i32
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 653, ptr noundef nonnull @.str.91, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i32 noundef %31, i32 noundef %32) #7
+28:                                               ; preds = %26
+  %29 = trunc i64 %.sroa.82.0.copyload to i32
+  %30 = trunc i64 %27 to i32
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 653, ptr noundef nonnull @.str.91, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i32 noundef %29, i32 noundef %30) #7
   br label %check_int_from_text.exit
 
-check_int_from_text.exit:                         ; preds = %11, %17, %24, %27, %28, %30
-  %.0.i = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ %12, %11 ], [ %.sroa.6.0.copyload, %28 ]
+check_int_from_text.exit:                         ; preds = %9, %15, %22, %25, %26, %28
+  %.0.i = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ %10, %11 ], [ %.sroa.6.0.copyload, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i

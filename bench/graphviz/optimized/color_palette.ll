@@ -589,19 +589,19 @@ define noundef zeroext i1 @knownColorScheme(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str) #5
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %20, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.1) #5
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %20, label %10
+  br i1 %9, label %22, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.2) #5
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %20, label %.preheader
+  br i1 %12, label %22, label %.preheader
 
-.preheader:                                       ; preds = %10, %.preheader
+13:                                               ; preds = %10, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %10 ]
   %13 = getelementptr inbounds nuw [2 x ptr], ptr @color_palettes, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 16, !tbaa !5
@@ -615,17 +615,17 @@ define noundef zeroext i1 @knownColorScheme(ptr noundef readonly captures(none) 
 color_palettes_Q.exit:                            ; preds = %.preheader
   br i1 %16, label %20, label %17
 
-17:                                               ; preds = %color_palettes_Q.exit
-  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
-  %19 = icmp eq i32 %18, 3
-  br label %20
+color_palettes_Q.exit.thread:                     ; preds = %color_palettes_Q.exit
+  %20 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %21 = icmp eq i32 %20, 3
+  br label %22
 
-20:                                               ; preds = %17, %color_palettes_Q.exit, %10, %7, %1
-  %21 = phi i1 [ true, %color_palettes_Q.exit ], [ true, %10 ], [ true, %7 ], [ true, %1 ], [ %19, %17 ]
+22:                                               ; preds = %color_palettes_Q.exit.thread, %color_palettes_Q.exit, %10, %7, %1
+  %23 = phi i1 [ true, %color_palettes_Q.exit ], [ true, %10 ], [ true, %7 ], [ true, %1 ], [ %21, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %21
+  ret i1 %23
 }
 
 ; Function Attrs: nofree nounwind

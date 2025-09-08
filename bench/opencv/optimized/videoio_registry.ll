@@ -892,7 +892,7 @@ define void @_ZN2cv16videoio_registry14getBackendNameB5cxx11ENS_16VideoCaptureAP
   store i64 7, ptr %7, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %8, align 1, !tbaa !15
-  br label %53
+  br label %55
 
 9:                                                ; preds = %.critedge
   %10 = add nuw nsw i64 %.02446, 1
@@ -956,7 +956,7 @@ define void @_ZN2cv16videoio_registry14getBackendNameB5cxx11ENS_16VideoCaptureAP
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   store i8 0, ptr %31, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %53
+  br label %55
 
 .critedge30:                                      ; preds = %.critedge30.preheader
   %32 = add nuw nsw i64 %.047, 1
@@ -978,18 +978,18 @@ define void @_ZN2cv16videoio_registry14getBackendNameB5cxx11ENS_16VideoCaptureAP
   %40 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %40, ptr %3, align 8, !tbaa !63
-  %41 = icmp ugt i64 %40, 15
-  br i1 %41, label %.noexc.i39, label %._crit_edge.i.i38
+  %43 = icmp ugt i64 %40, 15
+  br i1 %43, label %.noexc.i39, label %._crit_edge.i.i38
 
 .noexc.i39:                                       ; preds = %36
-  %42 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %42, ptr %0, align 8, !tbaa !64
-  %43 = load i64, ptr %3, align 8, !tbaa !63
-  store i64 %43, ptr %39, align 8, !tbaa !15
+  %44 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %44, ptr %0, align 8, !tbaa !64
+  %45 = load i64, ptr %3, align 8, !tbaa !63
+  store i64 %45, ptr %39, align 8, !tbaa !15
   br label %._crit_edge.i.i38
 
 ._crit_edge.i.i38:                                ; preds = %.noexc.i39, %36
-  %44 = phi ptr [ %42, %.noexc.i39 ], [ %39, %36 ]
+  %46 = phi ptr [ %44, %.noexc.i39 ], [ %39, %36 ]
   switch i64 %40, label %47 [
     i64 1, label %45
     i64 0, label %48
@@ -1012,13 +1012,13 @@ define void @_ZN2cv16videoio_registry14getBackendNameB5cxx11ENS_16VideoCaptureAP
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   store i8 0, ptr %52, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %53
+  br label %55
 
 .critedge32:                                      ; preds = %.critedge30
   tail call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.10, i32 noundef %1)
-  br label %53
+  br label %55
 
-53:                                               ; preds = %48, %27, %.critedge32, %._crit_edge.i.i
+55:                                               ; preds = %48, %27, %.critedge32, %._crit_edge.i.i
   ret void
 }
 

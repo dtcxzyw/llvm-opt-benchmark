@@ -3273,14 +3273,14 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = icmp ugt i16 %11, 40
-  br i1 %12, label %97, label %13
+  br i1 %12, label %99, label %13
 
 13:                                               ; preds = %3
   %14 = zext nneg i16 %11 to i64
   %15 = add nsw i64 %14, -16
   %16 = getelementptr %struct.xfrm_link, ptr @xfrm_dispatch, i64 %15
   %17 = tail call zeroext i1 @netlink_net_capable(ptr noundef %0, i32 noundef 12) #16
-  br i1 %17, label %18, label %97
+  br i1 %17, label %18, label %99
 
 18:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !8
@@ -3290,7 +3290,7 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %97
+  br i1 %24, label %25, label %99
 
 25:                                               ; preds = %18
   switch i16 %11, label %49 [
@@ -3382,7 +3382,7 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %.not7 = icmp eq i64 %77, 0
   br i1 %.not7, label %78, label %.thread
 
-78:                                               ; preds = %75
+78: ; preds = %75
   %79 = load ptr, ptr %16, align 16
   %80 = call i32 %79(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %2) #16
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3396,7 +3396,7 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.thread, label %90
 
-90:                                               ; preds = %78
+90: ; preds = %78
   call void @kfree_skb_reason(ptr noundef nonnull %88, i32 noundef 2) #16
   %91 = load ptr, ptr %81, align 8
   %92 = load i32, ptr %83, align 4
@@ -3407,14 +3407,14 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %55, %57, %90, %78, %75, %58, %47
-  %96 = phi i32 [ %48, %47 ], [ %73, %58 ], [ %80, %90 ], [ %80, %78 ], [ -22, %75 ], [ -22, %57 ], [ -22, %55 ]
+  %98 = phi i32 [ %48, %47 ], [ %73, %58 ], [ %80, %90 ], [ %80, %78 ], [ -22, %75 ], [ -22, %57 ], [ -22, %55 ]
   call void @kvfree(ptr noundef null) #16
-  br label %97
+  br label %99
 
-97:                                               ; preds = %.thread, %18, %13, %3
-  %98 = phi i32 [ %96, %.thread ], [ -22, %3 ], [ -1, %13 ], [ -95, %18 ]
+99:                                               ; preds = %.thread, %18, %13, %3
+  %100 = phi i32 [ %98, %.thread ], [ -22, %3 ], [ -1, %13 ], [ -95, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %98
+  ret i32 %100
 }
 
 ; Function Attrs: null_pointer_is_valid

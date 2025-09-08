@@ -504,10 +504,10 @@ cb_lookup_vals.exit.i.i:                          ; preds = %87, %85, %82
   %indvar.i = phi i64 [ %indvar.next.i, %._crit_edge320.i ], [ 0, %.preheader297.i ]
   %209 = load ptr, ptr %206, align 8, !tbaa !82
   %210 = getelementptr inbounds nuw %struct.vorbis_enc_floor_class, ptr %209, i64 %indvar.i
-  %211 = getelementptr inbounds nuw %struct.anon.1, ptr @floor_classes, i64 %indvar.i
-  %212 = load i32, ptr %211, align 4, !tbaa !83
+  %scevgep.i = getelementptr inbounds nuw %struct.anon.1, ptr @floor_classes, i64 %indvar.i
+  %211 = load i32, ptr %211, align 4, !tbaa !83
   store i32 %212, ptr %210, align 8, !tbaa !85
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %scevgep.i, i64 4
   %214 = load i32, ptr %213, align 4, !tbaa !87
   %215 = getelementptr inbounds nuw i8, ptr %210, i64 4
   store i32 %214, ptr %215, align 4, !tbaa !88
@@ -523,7 +523,7 @@ cb_lookup_vals.exit.i.i:                          ; preds = %87, %85, %82
   %.not273.not.i = icmp eq ptr %221, null
   br i1 %.not273.not.i, label %create_vorbis_context.exit.thread, label %._crit_edge320.i
 
-._crit_edge320.i:                                 ; preds = %.lr.ph322.i
+._crit_edge320.i:; preds = %.lr.ph322.i
   %223 = mul nuw nsw i64 %indvar.i, 28
   %224 = getelementptr i8, ptr @floor_classes, i64 %223
   %scevgep.i = getelementptr i8, ptr %224, i64 12

@@ -2034,7 +2034,7 @@ moduleConvertKeySpecsFlags.exit:                  ; preds = %35
 define dso_local void @RM_KeyAtPos(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   br label %3
 
-3:                                                ; preds = %10, %2
+3:                                                ; preds = %11, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %10 ]
   %.01113.i = phi i64 [ 0, %2 ], [ %.1.i, %10 ]
   %4 = shl nuw i64 1, %indvars.iv.i
@@ -2042,88 +2042,88 @@ define dso_local void @RM_KeyAtPos(ptr noundef readonly captures(none) %0, i32 n
   %.not12.i.not = icmp eq i64 %5, 0
   br i1 %.not12.i.not, label %6, label %10
 
-6:                                                ; preds = %3
+8:                                                ; preds = %3
   %7 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 16, !tbaa !24
   %9 = or i64 %8, %.01113.i
   br label %10
 
-10:                                               ; preds = %6, %3
+11:                                               ; preds = %8, %3
   %.1.i = phi i64 [ %9, %6 ], [ %.01113.i, %3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %.not.i, label %moduleConvertKeySpecsFlags.exit, label %3, !llvm.loop !152
 
-moduleConvertKeySpecsFlags.exit:                  ; preds = %10
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i32, ptr %11, align 8, !tbaa !87
-  %13 = and i32 %12, 2
-  %.not.i2 = icmp eq i32 %13, 0
-  br i1 %.not.i2, label %RM_KeyAtPosWithFlags.exit, label %14
+moduleConvertKeySpecsFlags.exit:                  ; preds = %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = load i32, ptr %12, align 8, !tbaa !87
+  %14 = and i32 %13, 2
+  %.not.i2 = icmp eq i32 %14, 0
+  br i1 %.not.i2, label %RM_KeyAtPosWithFlags.exit, label %15
 
-14:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = load ptr, ptr %15, align 8, !tbaa !145
-  %17 = icmp eq ptr %16, null
-  %18 = icmp slt i32 %1, 1
-  %or.cond.i = or i1 %18, %17
-  br i1 %or.cond.i, label %RM_KeyAtPosWithFlags.exit, label %19
+15:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %17 = load ptr, ptr %16, align 8, !tbaa !145
+  %18 = icmp eq ptr %17, null
+  %19 = icmp slt i32 %1, 1
+  %or.cond.i = or i1 %19, %18
+  br i1 %or.cond.i, label %RM_KeyAtPosWithFlags.exit, label %20
 
-19:                                               ; preds = %14
-  %20 = load i32, ptr %16, align 8, !tbaa !146
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !148
-  %23 = icmp eq i32 %20, %22
-  br i1 %23, label %24, label %27
+20:                                               ; preds = %15
+  %21 = load i32, ptr %17, align 8, !tbaa !146
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !148
+  %24 = icmp eq i32 %21, %23
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %19
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %20, i32 8192)
-  %25 = add nsw i32 %spec.select.i, %20
-  %26 = tail call ptr @getKeysPrepareResult(ptr noundef nonnull %16, i32 noundef %25) #35
-  %.pre.i = load i32, ptr %16, align 8, !tbaa !146
-  br label %27
+25:                                               ; preds = %20
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %21, i32 8192)
+  %26 = add nsw i32 %spec.select.i, %21
+  %27 = tail call ptr @getKeysPrepareResult(ptr noundef nonnull %17, i32 noundef %26) #35
+  %.pre.i = load i32, ptr %17, align 8, !tbaa !146
+  br label %28
 
-27:                                               ; preds = %24, %19
-  %28 = phi i32 [ %.pre.i, %24 ], [ %20, %19 ]
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !149
-  %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds %struct.keyReference, ptr %30, i64 %31
-  store i32 %1, ptr %32, align 4, !tbaa !150
+28:                                               ; preds = %25, %20
+  %29 = phi i32 [ %.pre.i, %24 ], [ %21, %19 ]
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %31 = load ptr, ptr %30, align 8, !tbaa !149
+  %32 = sext i32 %29 to i64
+  %33 = getelementptr inbounds %struct.keyReference, ptr %31, i64 %32
+  store i32 %1, ptr %33, align 4, !tbaa !150
   %sext = shl i64 %.1.i, 32
-  %33 = ashr exact i64 %sext, 32
-  br label %34
+  %34 = ashr exact i64 %sext, 32
+  br label %35
 
-34:                                               ; preds = %42, %27
+35:                                               ; preds = %43, %28
   %indvars.iv.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.i, %42 ]
   %.01113.i.i = phi i64 [ 0, %27 ], [ %.1.i.i, %42 ]
-  %35 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i.i
-  %36 = load i64, ptr %35, align 16, !tbaa !24
-  %37 = and i64 %36, %33
-  %.not12.i.i = icmp eq i64 %37, 0
-  br i1 %.not12.i.i, label %42, label %38
+  %36 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i.i
+  %37 = load i64, ptr %36, align 16, !tbaa !24
+  %38 = and i64 %37, %34
+  %.not12.i.i = icmp eq i64 %38, 0
+  br i1 %.not12.i.i, label %43, label %39
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !24
-  %41 = or i64 %40, %.01113.i.i
-  br label %42
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !24
+  %42 = or i64 %41, %.01113.i.i
+  br label %43
 
-42:                                               ; preds = %38, %34
-  %.1.i.i = phi i64 [ %41, %38 ], [ %.01113.i.i, %34 ]
+43:                                               ; preds = %39, %35
+  %.1.i.i = phi i64 [ %42, %38 ], [ %.01113.i.i, %34 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %.not.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %34, !llvm.loop !152
+  br i1 %.not.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %35, !llvm.loop !152
 
-moduleConvertKeySpecsFlags.exit.i:                ; preds = %42
-  %43 = trunc i64 %.1.i.i to i32
-  %44 = getelementptr inbounds %struct.keyReference, ptr %30, i64 %31, i32 1
-  store i32 %43, ptr %44, align 4, !tbaa !153
-  %45 = add nsw i32 %28, 1
-  store i32 %45, ptr %16, align 8, !tbaa !146
+moduleConvertKeySpecsFlags.exit.i:                ; preds = %43
+  %44 = trunc i64 %.1.i.i to i32
+  %45 = getelementptr inbounds %struct.keyReference, ptr %31, i64 %32, i32 1
+  store i32 %44, ptr %45, align 4, !tbaa !153
+  %46 = add nsw i32 %29, 1
+  store i32 %46, ptr %17, align 8, !tbaa !146
   br label %RM_KeyAtPosWithFlags.exit
 
-RM_KeyAtPosWithFlags.exit:                        ; preds = %moduleConvertKeySpecsFlags.exit, %14, %moduleConvertKeySpecsFlags.exit.i
+RM_KeyAtPosWithFlags.exit:                        ; preds = %moduleConvertKeySpecsFlags.exit, %15, %moduleConvertKeySpecsFlags.exit.i
   ret void
 }
 

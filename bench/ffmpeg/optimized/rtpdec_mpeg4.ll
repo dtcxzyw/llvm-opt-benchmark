@@ -704,96 +704,96 @@ parse_fmtp_config.exit:                           ; preds = %10
   %20 = icmp eq i32 %19, 86018
   br i1 %20, label %.preheader, label %parse_fmtp_config.exit.thread
 
-.preheader:                                       ; preds = %17, %51
+.preheader:                                       ; preds = %17, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %17 ]
   %21 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = tail call i32 @av_strcasecmp(ptr noundef nonnull %3, ptr noundef %22) #7
   %.not52 = icmp eq i32 %23, 0
-  br i1 %.not52, label %24, label %51
+  br i1 %.not52, label %24, label %54
 
 24:                                               ; preds = %.preheader
   %.not53 = icmp eq i64 %indvars.iv, 6
   br i1 %.not53, label %45, label %25
 
-25:                                               ; preds = %24
+25: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !26
-  %26 = call i64 @strtoll(ptr noundef %4, ptr noundef nonnull %6, i32 noundef 10) #7
-  %27 = load ptr, ptr %6, align 8, !tbaa !26
-  %28 = icmp eq ptr %27, %4
-  br i1 %28, label %31, label %29
+  %28 = call i64 @strtoll(ptr noundef %4, ptr noundef nonnull %6, i32 noundef 10) #7
+  %29 = load ptr, ptr %6, align 8, !tbaa !26
+  %30 = icmp eq ptr %29, %4
+  br i1 %30, label %33, label %31
 
-29:                                               ; preds = %25
-  %30 = load i8, ptr %27, align 1, !tbaa !45
-  %.not55 = icmp eq i8 %30, 0
-  br i1 %.not55, label %32, label %31
+31:                                               ; preds = %25
+  %32 = load i8, ptr %29, align 1, !tbaa !45
+  %.not54 = icmp eq i8 %32, 0
+  br i1 %.not54, label %34, label %33
 
-31:                                               ; preds = %29, %25
+33:                                               ; preds = %31, %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef %4) #7
   br label %.thread
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !64
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %26, %35
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %36 = load i32, ptr %35, align 8, !tbaa !64
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %28, %37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !65
-  %37 = sext i32 %.pre to i64
-  %38 = icmp sgt i64 %26, %37
-  %or.cond = select i1 %36, i1 true, i1 %38
-  br i1 %or.cond, label %split, label %39
+  %39 = sext i32 %.pre to i64
+  %40 = icmp sgt i64 %28, %39
+  %or.cond = select i1 %38, i1 true, i1 %40
+  br i1 %or.cond, label %split, label %41
 
-split:                                            ; preds = %32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, i32 noundef %34, i32 noundef %.pre, i64 noundef %26) #7
+split:                                            ; preds = %34
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, i32 noundef %36, i32 noundef %.pre, i64 noundef %28) #7
   br label %.thread
 
-.thread:                                          ; preds = %31, %split
+.thread:                                          ; preds = %33, %split
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %parse_fmtp_config.exit.thread
 
-39:                                               ; preds = %32
-  %40 = trunc nsw i64 %26 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !66
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
-  store i32 %40, ptr %44, align 4, !tbaa !53
+41:                                               ; preds = %34
+  %42 = trunc nsw i64 %28 to i32
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !66
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 %45
+  store i32 %42, ptr %46, align 4, !tbaa !53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %51
+  br label %54
 
-45:                                               ; preds = %24
-  %46 = tail call noalias ptr @av_strdup(ptr noundef %4) #7
-  %.not54.not = icmp eq ptr %46, null
-  br i1 %.not54.not, label %parse_fmtp_config.exit.thread, label %.thread79
+47:                                               ; preds = %24
+  %48 = tail call noalias ptr @av_strdup(ptr noundef %4) #7
+  %.not53.not = icmp eq ptr %48, null
+  br i1 %.not53.not, label %parse_fmtp_config.exit.thread, label %49
 
-.thread79:                                        ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !66
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
-  store ptr %46, ptr %50, align 8, !tbaa !26
-  br label %.loopexit
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %51 = load i32, ptr %50, align 4, !tbaa !66
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %52
+  store ptr %48, ptr %53, align 8, !tbaa !26
+  br label %55
 
-51:                                               ; preds = %39, %.preheader
+54:                                               ; preds = %41, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not50 = icmp eq i64 %indvars.iv.next, 7
-  br i1 %.not50, label %.loopexit, label %.preheader, !llvm.loop !67
+  br i1 %.not50, label %55, label %.preheader, !llvm.loop !67
 
-.loopexit:                                        ; preds = %51, %.thread79
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.6) #8
-  %.not51 = icmp eq i32 %52, 0
-  br i1 %.not51, label %53, label %parse_fmtp_config.exit.thread
+55:                                               ; preds = %51, %49
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.6) #8
+  %.not51 = icmp eq i32 %56, 0
+  br i1 %.not51, label %57, label %parse_fmtp_config.exit.thread
 
-53:                                               ; preds = %.loopexit
-  %54 = load i32, ptr %2, align 8, !tbaa !68
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %55, ptr %56, align 8, !tbaa !69
+57:                                               ; preds = %55
+  %58 = load i32, ptr %2, align 8, !tbaa !68
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 %59, ptr %60, align 8, !tbaa !69
   br label %parse_fmtp_config.exit.thread
 
-parse_fmtp_config.exit.thread:                    ; preds = %45, %10, %.thread, %17, %53, %.loopexit
+parse_fmtp_config.exit.thread:                    ; preds = %47, %10, %.thread, %17, %57, %55
   %.0 = phi i32 [ 0, %.loopexit ], [ 0, %53 ], [ 0, %17 ], [ -1094995529, %.thread ], [ %12, %10 ], [ -12, %45 ]
   ret i32 %.0
 }

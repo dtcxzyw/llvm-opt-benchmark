@@ -3069,9 +3069,9 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
     i32 0, label %125
     i32 1, label %HeadMatchesArray.exit
     i32 2, label %131
-    i32 3, label %147
-    i32 4, label %163
-    i32 5, label %179
+    i32 3, label %148
+    i32 4, label %165
+    i32 5, label %182
   ]
 
 125:                                              ; preds = %.preheader151
@@ -3088,230 +3088,230 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
   %134 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %135 = load ptr, ptr %134, align 8
   %136 = icmp slt i32 %.072102.i, %133
-  br i1 %136, label %.critedge.thread, label %.lr.ph.preheader.i
+  br i1 %136, label %.critedge.thread, label %.preheader.i94
 
-.lr.ph.preheader.i:                               ; preds = %131
+.preheader.i94:                                   ; preds = %131
   %wide.trip.count.i = zext nneg i32 %133 to i64
   br label %.lr.ph.i95
 
-137:                                              ; preds = %.lr.ph.i95
+138:                                              ; preds = %.lr.ph.i95
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i95, !llvm.loop !9
 
-.lr.ph.i95:                                       ; preds = %137, %.lr.ph.preheader.i
+.lr.ph.i95:                                       ; preds = %138, %.lr.ph.preheader.i
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i97, %137 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i96
-  %139 = load ptr, ptr %138, align 8
-  %140 = trunc i64 %indvars.iv.i96 to i32
-  %141 = xor i32 %140, -1
-  %142 = add i32 %.072102.i, %141
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds ptr, ptr %43, i64 %143
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call fastcc zeroext i1 @word_matches(ptr noundef %139, ptr noundef %145, i1 noundef zeroext false)
-  br i1 %146, label %137, label %.critedge.thread
+  %139 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i96
+  %140 = load ptr, ptr %139, align 8
+  %141 = trunc i64 %indvars.iv.i96 to i32
+  %142 = xor i32 %141, -1
+  %143 = add i32 %.072102.i, %142
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds ptr, ptr %43, i64 %144
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call fastcc zeroext i1 @word_matches(ptr noundef %140, ptr noundef %146, i1 noundef zeroext false)
+  br i1 %147, label %138, label %.critedge.thread
 
-147:                                              ; preds = %.preheader151
-  %148 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %149 = load i32, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %151 = load ptr, ptr %150, align 8
-  %152 = icmp slt i32 %.072102.i, %149
-  br i1 %152, label %.critedge.thread, label %.lr.ph.preheader.i99
+148:                                              ; preds = %.preheader151
+  %149 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %150 = load i32, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp slt i32 %.072102.i, %150
+  br i1 %153, label %.critedge.thread, label %.preheader.i98
 
-.lr.ph.preheader.i99:                             ; preds = %147
-  %wide.trip.count.i100 = zext nneg i32 %149 to i64
+.preheader.i98:                                   ; preds = %148
+  %wide.trip.count.i100 = zext nneg i32 %150 to i64
   br label %.lr.ph.i101
 
-153:                                              ; preds = %.lr.ph.i101
+155:                                              ; preds = %.lr.ph.i101
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i100
   br i1 %exitcond.not.i105, label %.critedge, label %.lr.ph.i101, !llvm.loop !9
 
-.lr.ph.i101:                                      ; preds = %153, %.lr.ph.preheader.i99
+.lr.ph.i101:                                      ; preds = %155, %.lr.ph.preheader.i99
   %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.preheader.i99 ], [ %indvars.iv.next.i104, %153 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i102
-  %155 = load ptr, ptr %154, align 8
-  %156 = trunc i64 %indvars.iv.i102 to i32
-  %157 = xor i32 %156, -1
-  %158 = add i32 %.072102.i, %157
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %43, i64 %159
-  %161 = load ptr, ptr %160, align 8
-  %162 = tail call fastcc zeroext i1 @word_matches(ptr noundef %155, ptr noundef %161, i1 noundef zeroext true)
-  br i1 %162, label %153, label %.critedge.thread
+  %156 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv.i102
+  %157 = load ptr, ptr %156, align 8
+  %158 = trunc i64 %indvars.iv.i102 to i32
+  %159 = xor i32 %158, -1
+  %160 = add i32 %.072102.i, %159
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds ptr, ptr %43, i64 %161
+  %163 = load ptr, ptr %162, align 8
+  %164 = tail call fastcc zeroext i1 @word_matches(ptr noundef %157, ptr noundef %163, i1 noundef zeroext true)
+  br i1 %164, label %155, label %.critedge.thread
 
-163:                                              ; preds = %.preheader151
-  %164 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %165 = load i32, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %167 = load ptr, ptr %166, align 8
-  %168 = icmp slt i32 %.072102.i, %165
-  br i1 %168, label %.critedge.thread, label %.lr.ph.preheader.i108
+165:                                              ; preds = %.preheader151
+  %166 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %167 = load i32, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %169 = load ptr, ptr %168, align 8
+  %170 = icmp slt i32 %.072102.i, %167
+  br i1 %170, label %.critedge.thread, label %.preheader.i107
 
-.lr.ph.preheader.i108:                            ; preds = %163
-  %wide.trip.count.i109 = zext nneg i32 %165 to i64
+.preheader.i107:                                  ; preds = %165
+  %wide.trip.count.i109 = zext nneg i32 %167 to i64
   br label %.lr.ph.i110
 
-169:                                              ; preds = %.lr.ph.i110
+172:                                              ; preds = %.lr.ph.i110
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i109
   br i1 %exitcond.not.i114, label %.critedge, label %.lr.ph.i110, !llvm.loop !10
 
-.lr.ph.i110:                                      ; preds = %169, %.lr.ph.preheader.i108
+.lr.ph.i110:                                      ; preds = %172, %.lr.ph.preheader.i108
   %indvars.iv.i111 = phi i64 [ 0, %.lr.ph.preheader.i108 ], [ %indvars.iv.next.i113, %169 ]
-  %170 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv.i111
-  %171 = load ptr, ptr %170, align 8
-  %172 = trunc i64 %indvars.iv.i111 to i32
-  %173 = xor i32 %172, -1
-  %174 = add i32 %165, %173
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr %43, i64 %175
-  %177 = load ptr, ptr %176, align 8
-  %178 = tail call fastcc zeroext i1 @word_matches(ptr noundef %171, ptr noundef %177, i1 noundef zeroext false)
-  br i1 %178, label %169, label %.critedge.thread
+  %173 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.i111
+  %174 = load ptr, ptr %173, align 8
+  %175 = trunc i64 %indvars.iv.i111 to i32
+  %176 = xor i32 %175, -1
+  %177 = add i32 %167, %176
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds ptr, ptr %43, i64 %178
+  %180 = load ptr, ptr %179, align 8
+  %181 = tail call fastcc zeroext i1 @word_matches(ptr noundef %174, ptr noundef %180, i1 noundef zeroext false)
+  br i1 %181, label %172, label %.critedge.thread
 
-179:                                              ; preds = %.preheader151
-  %180 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %181 = load i32, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %184 = icmp slt i32 %.072102.i, %181
-  br i1 %184, label %.critedge.thread, label %.lr.ph.preheader.i116
+182:                                              ; preds = %.preheader151
+  %183 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %184 = load i32, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %186 = load ptr, ptr %185, align 8
+  %187 = icmp slt i32 %.072102.i, %184
+  br i1 %187, label %.critedge.thread, label %.preheader.i115
 
-.lr.ph.preheader.i116:                            ; preds = %179
-  %wide.trip.count.i117 = zext nneg i32 %181 to i64
+.preheader.i115:                                  ; preds = %182
+  %wide.trip.count.i117 = zext nneg i32 %184 to i64
   br label %.lr.ph.i118
 
-185:                                              ; preds = %.lr.ph.i118
+189:                                              ; preds = %.lr.ph.i118
   %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i122 = icmp eq i64 %indvars.iv.next.i121, %wide.trip.count.i117
   br i1 %exitcond.not.i122, label %.critedge, label %.lr.ph.i118, !llvm.loop !10
 
-.lr.ph.i118:                                      ; preds = %185, %.lr.ph.preheader.i116
+.lr.ph.i118:                                      ; preds = %189, %.lr.ph.preheader.i116
   %indvars.iv.i119 = phi i64 [ 0, %.lr.ph.preheader.i116 ], [ %indvars.iv.next.i121, %185 ]
-  %186 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv.i119
-  %187 = load ptr, ptr %186, align 8
-  %188 = trunc i64 %indvars.iv.i119 to i32
-  %189 = xor i32 %188, -1
-  %190 = add i32 %181, %189
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds ptr, ptr %43, i64 %191
-  %193 = load ptr, ptr %192, align 8
-  %194 = tail call fastcc zeroext i1 @word_matches(ptr noundef %187, ptr noundef %193, i1 noundef zeroext true)
-  br i1 %194, label %185, label %.critedge.thread
+  %190 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv.i119
+  %191 = load ptr, ptr %190, align 8
+  %192 = trunc i64 %indvars.iv.i119 to i32
+  %193 = xor i32 %192, -1
+  %194 = add i32 %184, %193
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds ptr, ptr %43, i64 %195
+  %197 = load ptr, ptr %196, align 8
+  %198 = tail call fastcc zeroext i1 @word_matches(ptr noundef %191, ptr noundef %197, i1 noundef zeroext true)
+  br i1 %198, label %189, label %.critedge.thread
 
 HeadMatchesArray.exit:                            ; preds = %.preheader151
-  %195 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %198 = load ptr, ptr %197, align 8
-  %199 = tail call fastcc zeroext i1 @MatchesArray(i1 noundef zeroext true, i32 noundef %.072102.i, ptr noundef %43, i32 noundef %196, ptr noundef %198)
-  br i1 %199, label %.critedge, label %.critedge.thread
+  %199 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %200 = load i32, ptr %199, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %202 = load ptr, ptr %201, align 8
+  %203 = tail call fastcc zeroext i1 @MatchesArray(i1 noundef zeroext true, i32 noundef %.072102.i, ptr noundef %43, i32 noundef %200, ptr noundef %202)
+  br i1 %203, label %.critedge, label %.critedge.thread
 
-.critedge:                                        ; preds = %185, %169, %153, %137, %HeadMatchesArray.exit, %125
-  %200 = load i32, ptr %122, align 8
-  %201 = tail call fastcc ptr @match_previous_words(i32 noundef %200, ptr noundef nonnull %9, i32 noundef %1, ptr noundef %43, i32 noundef %.072102.i)
-  %.not88 = icmp eq ptr %201, null
+.critedge:                                        ; preds = %189, %172, %155, %137, %HeadMatchesArray.exit, %125
+  %204 = load i32, ptr %122, align 8
+  %205 = tail call fastcc ptr @match_previous_words(i32 noundef %204, ptr noundef nonnull %9, i32 noundef %1, ptr noundef %43, i32 noundef %.072102.i)
+  %.not88 = icmp eq ptr %205, null
   br i1 %.not88, label %.critedge.thread, label %.thread.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph.i118, %.lr.ph.i110, %.lr.ph.i101, %.lr.ph.i95, %179, %163, %147, %131, %125, %HeadMatchesArray.exit, %.preheader151, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph.i118, %.lr.ph.i110, %.lr.ph.i101, %.lr.ph.i95, %182, %165, %148, %131, %125, %HeadMatchesArray.exit, %.preheader151, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 904
   br i1 %exitcond.not, label %.loopexit, label %.preheader151, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.critedge.thread, %109, %117, %115, %107, %102
   %.078 = phi ptr [ %103, %102 ], [ %108, %107 ], [ %110, %109 ], [ %116, %115 ], [ %118, %117 ], [ null, %.critedge.thread ]
-  %202 = icmp eq ptr %.078, null
-  %203 = icmp sgt i32 %.072102.i, 0
-  %or.cond = select i1 %202, i1 %203, i1 false
+  %206 = icmp eq ptr %.078, null
+  %207 = icmp sgt i32 %.072102.i, 0
+  %or.cond = select i1 %206, i1 %207, i1 false
   br i1 %or.cond, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %.loopexit, %226
-  %204 = phi ptr [ %228, %226 ], [ @.str.1465, %.loopexit ]
-  %.0164 = phi ptr [ %227, %226 ], [ @words_after_create, %.loopexit ]
-  %205 = load ptr, ptr %43, align 8
-  %206 = tail call i32 @pg_strcasecmp(ptr noundef %205, ptr noundef nonnull %204) #11
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %226
+.preheader:                                       ; preds = %.loopexit, %230
+  %208 = phi ptr [ %232, %226 ], [ @.str.1465, %.loopexit ]
+  %.0164 = phi ptr [ %231, %226 ], [ @words_after_create, %.loopexit ]
+  %209 = load ptr, ptr %43, align 8
+  %210 = tail call i32 @pg_strcasecmp(ptr noundef %209, ptr noundef nonnull %208) #11
+  %211 = icmp eq i32 %210, 0
+  br i1 %211, label %212, label %230
 
-208:                                              ; preds = %.preheader
-  %209 = getelementptr inbounds nuw i8, ptr %.0164, i64 8
-  %210 = load ptr, ptr %209, align 8
-  %.not90 = icmp eq ptr %210, null
-  br i1 %.not90, label %214, label %211
+212:                                              ; preds = %.preheader
+  %213 = getelementptr inbounds nuw i8, ptr %.0164, i64 8
+  %214 = load ptr, ptr %213, align 8
+  %.not90 = icmp eq ptr %214, null
+  br i1 %.not90, label %218, label %215
 
-211:                                              ; preds = %208
-  store ptr %210, ptr @completion_charp, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %.0164, i64 32
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr @completion_charpp, align 8
+215:                                              ; preds = %212
+  store ptr %214, ptr @completion_charp, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %.0164, i64 32
+  %217 = load ptr, ptr %216, align 8
+  store ptr %217, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
   br label %.thread.sink.split
 
-214:                                              ; preds = %208
-  %215 = getelementptr inbounds nuw i8, ptr %.0164, i64 16
-  %216 = load ptr, ptr %215, align 8
-  %.not91 = icmp eq ptr %216, null
-  br i1 %.not91, label %220, label %217
+218:                                              ; preds = %212
+  %219 = getelementptr inbounds nuw i8, ptr %.0164, i64 16
+  %220 = load ptr, ptr %219, align 8
+  %.not91 = icmp eq ptr %220, null
+  br i1 %.not91, label %224, label %221
 
-217:                                              ; preds = %214
-  store ptr %216, ptr @completion_vquery, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %.0164, i64 32
-  %219 = load ptr, ptr %218, align 8
-  store ptr %219, ptr @completion_charpp, align 8
+221:                                              ; preds = %218
+  store ptr %220, ptr @completion_vquery, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %.0164, i64 32
+  %223 = load ptr, ptr %222, align 8
+  store ptr %223, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
   br label %.thread.sink.split
 
-220:                                              ; preds = %214
-  %221 = getelementptr inbounds nuw i8, ptr %.0164, i64 24
-  %222 = load ptr, ptr %221, align 8
-  %.not92 = icmp eq ptr %222, null
-  br i1 %.not92, label %.thread142, label %223
+224:                                              ; preds = %218
+  %225 = getelementptr inbounds nuw i8, ptr %.0164, i64 24
+  %226 = load ptr, ptr %225, align 8
+  %.not92 = icmp eq ptr %226, null
+  br i1 %.not92, label %.thread142, label %227
 
-223:                                              ; preds = %220
-  store ptr %222, ptr @completion_squery, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %.0164, i64 32
-  %225 = load ptr, ptr %224, align 8
-  store ptr %225, ptr @completion_charpp, align 8
+227:                                              ; preds = %224
+  store ptr %226, ptr @completion_squery, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %.0164, i64 32
+  %229 = load ptr, ptr %228, align 8
+  store ptr %229, ptr @completion_charpp, align 8
   store i1 false, ptr @completion_verbatim, align 1
   br label %.thread.sink.split
 
-226:                                              ; preds = %.preheader
-  %227 = getelementptr inbounds nuw i8, ptr %.0164, i64 48
-  %228 = load ptr, ptr %227, align 8
-  %.not89 = icmp eq ptr %228, null
+230:                                              ; preds = %.preheader
+  %231 = getelementptr inbounds nuw i8, ptr %.0164, i64 48
+  %232 = load ptr, ptr %231, align 8
+  %.not89 = icmp eq ptr %232, null
   br i1 %.not89, label %.thread142, label %.preheader, !llvm.loop !12
 
-.thread.sink.split:                               ; preds = %211, %223, %217, %121
+.thread.sink.split:                               ; preds = %215, %227, %221, %121
   %complete_from_list.sink = phi ptr [ @complete_from_list, %121 ], [ @complete_from_versioned_query, %217 ], [ @complete_from_versioned_schema_query, %223 ], [ @complete_from_query, %211 ]
-  %229 = tail call ptr @rl_completion_matches(ptr noundef nonnull %9, ptr noundef nonnull %complete_from_list.sink) #11
+  %233 = tail call ptr @rl_completion_matches(ptr noundef nonnull %9, ptr noundef nonnull %complete_from_list.sink) #11
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.loopexit
-  %.5 = phi ptr [ %.078, %.loopexit ], [ %229, %.thread.sink.split ]
-  %230 = icmp eq ptr %.5, null
-  br i1 %230, label %.thread142, label %.thread.thread
+  %.5 = phi ptr [ %.078, %.loopexit ], [ %233, %.thread.sink.split ]
+  %234 = icmp eq ptr %.5, null
+  br i1 %234, label %.thread142, label %.thread.thread
 
-.thread142:                                       ; preds = %226, %220, %.thread
+.thread142:                                       ; preds = %230, %224, %.thread
   store i1 true, ptr @completion_case_sensitive, align 1
   store ptr @.str.119, ptr @completion_charp, align 8
-  %231 = tail call ptr @rl_completion_matches(ptr noundef nonnull %9, ptr noundef nonnull @complete_from_const) #11
+  %235 = tail call ptr @rl_completion_matches(ptr noundef nonnull %9, ptr noundef nonnull @complete_from_const) #11
   store i32 0, ptr @rl_completion_append_character, align 4
   store i32 1, ptr @rl_completion_suppress_quote, align 4
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.critedge, %.thread142, %.thread
-  %.7 = phi ptr [ %231, %.thread142 ], [ %.5, %.thread ], [ %201, %.critedge ]
+  %.7 = phi ptr [ %235, %.thread142 ], [ %.5, %.thread ], [ %205, %.critedge ]
   tail call void @free(ptr noundef %43) #11
   tail call void @free(ptr noundef %46) #11
   tail call void @free(ptr noundef %9) #11
-  %232 = load ptr, ptr @completion_ref_object, align 8
-  tail call void @free(ptr noundef %232) #11
+  %236 = load ptr, ptr @completion_ref_object, align 8
+  tail call void @free(ptr noundef %236) #11
   store ptr null, ptr @completion_ref_object, align 8
-  %233 = load ptr, ptr @completion_ref_schema, align 8
-  tail call void @free(ptr noundef %233) #11
+  %237 = load ptr, ptr @completion_ref_schema, align 8
+  tail call void @free(ptr noundef %237) #11
   store ptr null, ptr @completion_ref_schema, align 8
   ret ptr %.7
 }

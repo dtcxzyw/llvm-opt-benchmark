@@ -977,33 +977,33 @@ _ZN4llvm6BitsetILj129EEaNERKS1_.exit:             ; preds = %_ZNK4llvm6BitsetILj
   %.val11 = load i64, ptr %52, align 8
   %.0.val.pn.i = getelementptr inbounds nuw i8, ptr %.val10, i64 %.0.val.pn.idx.i
   %.8.val.pn.i = sub i64 %.val11, %.0.val.pn.idx.i
-  %53 = icmp eq i64 %.val11, %.0.val.pn.idx.i
-  br i1 %53, label %.critedge, label %54
+  %54 = icmp eq i64 %.val11, %.0.val.pn.idx.i
+  br i1 %54, label %.critedge, label %55
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr %38, align 8, !tbaa !23
-  %56 = load i32, ptr %39, align 4, !tbaa !25
-  %.not.i.i.not.i = icmp ult i32 %55, %56
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %57, !prof !26
+55:                                               ; preds = %50
+  %56 = load i32, ptr %38, align 8, !tbaa !23
+  %57 = load i32, ptr %39, align 4, !tbaa !25
+  %.not.i.i.not.i = icmp ult i32 %56, %57
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %58, !prof !26
 
-57:                                               ; preds = %54
-  %58 = zext i32 %55 to i64
-  %59 = add nuw nsw i64 %58, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %40, i64 noundef %59, i64 noundef 16) #10
+58:                                               ; preds = %55
+  %59 = zext i32 %56 to i64
+  %60 = add nuw nsw i64 %59, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %40, i64 noundef %60, i64 noundef 16) #10
   %.pre.i = load i32, ptr %38, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %54, %57
-  %60 = phi i32 [ %55, %54 ], [ %.pre.i, %57 ]
-  %61 = load ptr, ptr %2, align 8, !tbaa !27
-  %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %61, i64 %62
-  store ptr %.0.val.pn.i, ptr %63, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
+_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %55, %58
+  %61 = phi i32 [ %56, %54 ], [ %.pre.i, %57 ]
+  %62 = load ptr, ptr %2, align 8, !tbaa !27
+  %63 = zext i32 %61 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %62, i64 %63
+  store ptr %.0.val.pn.i, ptr %64, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %.8.val.pn.i, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %64 = load i32, ptr %38, align 8, !tbaa !23
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %38, align 8, !tbaa !23
+  %65 = load i32, ptr %38, align 8, !tbaa !23
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %38, align 8, !tbaa !23
   br label %.critedge
 
 .critedge:                                        ; preds = %42, %50, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit

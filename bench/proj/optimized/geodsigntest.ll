@@ -5406,8 +5406,8 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #8 {
   %124 = alloca double, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %.b.i = load i1, ptr @init, align 4
-  %indvars.iv2278.sroa.gep2431 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %indvars.iv.sroa.gep2432 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %indvars.iv2278.sroa.gep2443 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %indvars.iv.sroa.gep2444 = getelementptr inbounds nuw i8, ptr %108, i64 24
   br i1 %.b.i, label %Init.exit, label %125
 
 125:                                              ; preds = %0
@@ -8672,7 +8672,7 @@ equiv.exit1776:                                   ; preds = %equiv.exit1771, %eq
 
 1215:                                             ; preds = %equiv.exit1776, %equiv.exit1786
   %1216 = phi i1 [ true, %equiv.exit1776 ], [ false, %equiv.exit1786 ]
-  %indvars.iv.sroa.phi = phi ptr [ %108, %equiv.exit1776 ], [ %indvars.iv.sroa.gep2432, %equiv.exit1786 ]
+  %indvars.iv.sroa.phi = phi ptr [ %108, %equiv.exit1776 ], [ %indvars.iv.sroa.gep2444, %equiv.exit1786 ]
   %.06002267 = phi i32 [ 0, %equiv.exit1776 ], [ %spec.select, %equiv.exit1786 ]
   %1217 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !4
   %1218 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
@@ -8762,7 +8762,7 @@ equiv.exit1786:                                   ; preds = %equiv.exit1781, %12
 
 1253:                                             ; preds = %1245, %checkEquals.exit1788
   %1254 = phi i1 [ true, %1245 ], [ false, %checkEquals.exit1788 ]
-  %indvars.iv2278.sroa.phi = phi ptr [ %112, %1245 ], [ %indvars.iv2278.sroa.gep2431, %checkEquals.exit1788 ]
+  %indvars.iv2278.sroa.phi = phi ptr [ %112, %1245 ], [ %indvars.iv2278.sroa.gep2443, %checkEquals.exit1788 ]
   %.05982269 = phi i32 [ 0, %1245 ], [ %1276, %checkEquals.exit1788 ]
   %1255 = load double, ptr %indvars.iv2278.sroa.phi, align 16, !tbaa !4
   %1256 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 8
@@ -8815,31 +8815,31 @@ checkEquals.exit1788:                             ; preds = %checkEquals.exit, %
   call void @geod_init(ptr noundef nonnull %116, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128)
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
-  br label %equiv.exit1793
+  br label %1282
 
 1281:                                             ; preds = %equiv.exit1793
   %.not753 = icmp eq i32 %spec.select761, 0
-  br i1 %.not753, label %1307, label %1304
+  br i1 %.not753, label %1317, label %1314
 
-equiv.exit1793:                                   ; preds = %1280, %equiv.exit1793
+1282:                                             ; preds = %1280, %equiv.exit1793
   %indvars.iv2281 = phi i64 [ 0, %1280 ], [ %indvars.iv.next2282, %equiv.exit1793 ]
   %.05952271 = phi i32 [ 0, %1280 ], [ %spec.select761, %equiv.exit1793 ]
-  %1282 = getelementptr inbounds nuw [5 x double], ptr @__const.main.C, i64 %indvars.iv2281
-  %1283 = load double, ptr %1282, align 8, !tbaa !4
-  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 8
-  %1285 = load double, ptr %1284, align 8, !tbaa !4
-  %1286 = getelementptr inbounds nuw i8, ptr %1282, i64 16
-  %1287 = load double, ptr %1286, align 8, !tbaa !4
-  %1288 = call double @geod_geninverse(ptr noundef nonnull readonly %116, double noundef %1283, double noundef 0.000000e+00, double noundef %1285, double noundef %1287, ptr noundef null, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %1289 = load double, ptr %117, align 8, !tbaa !4
-  %1290 = getelementptr inbounds nuw i8, ptr %1282, i64 24
-  %1291 = load double, ptr %1290, align 8, !tbaa !4
-  %1292 = fcmp oeq double %1289, %1291
+  %1283 = getelementptr inbounds nuw [5 x double], ptr @__const.main.C, i64 %indvars.iv2281
+  %1284 = load double, ptr %1283, align 8, !tbaa !4
+  %1285 = getelementptr inbounds nuw i8, ptr %1283, i64 8
+  %1286 = load double, ptr %1285, align 8, !tbaa !4
+  %1287 = getelementptr inbounds nuw i8, ptr %1283, i64 16
+  %1288 = load double, ptr %1287, align 8, !tbaa !4
+  %1289 = call double @geod_geninverse(ptr noundef nonnull readonly %116, double noundef %1284, double noundef 0.000000e+00, double noundef %1286, double noundef %1288, ptr noundef null, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1290 = load double, ptr %117, align 8, !tbaa !4
+  %1291 = getelementptr inbounds nuw i8, ptr %1283, i64 24
+  %1292 = load double, ptr %1291, align 8, !tbaa !4
+  %1293 = fcmp oeq double %1290, %1291
   %1293 = bitcast double %1289 to i64
   %1294 = bitcast double %1291 to i64
   %.unshifted.i1791 = xor i64 %1294, %1293
   %.unshifted.lobit.i1792 = lshr i64 %.unshifted.i1791, 63
-  %1295 = trunc nuw nsw i64 %.unshifted.lobit.i1792 to i32
+  %1300 = trunc nuw nsw i64 %.unshifted.lobit.i1792 to i32
   %not..i1790 = select i1 %1292, i32 %1295, i32 1
   %1296 = load double, ptr %118, align 8, !tbaa !4
   %1297 = getelementptr inbounds nuw i8, ptr %1282, i64 32
@@ -8849,21 +8849,21 @@ equiv.exit1793:                                   ; preds = %1280, %equiv.exit17
   %1301 = bitcast double %1298 to i64
   %.unshifted.i1796 = xor i64 %1301, %1300
   %.unshifted.lobit.i1797 = lshr i64 %.unshifted.i1796, 63
-  %1302 = trunc nuw nsw i64 %.unshifted.lobit.i1797 to i32
+  %1311 = trunc nuw nsw i64 %.unshifted.lobit.i1797 to i32
   %not..i1795 = select i1 %1299, i32 %1302, i32 1
   %1303 = or i32 %not..i1795, %not..i1790
   %spec.select761 = add nuw nsw i32 %1303, %.05952271
   %indvars.iv.next2282 = add nuw nsw i64 %indvars.iv2281, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next2282, 4
-  br i1 %exitcond.not, label %1281, label %equiv.exit1793
+  br i1 %exitcond.not, label %1281, label %1282
 
-1304:                                             ; preds = %1281
-  %1305 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.141, i32 noundef 318)
-  %1306 = add nuw nsw i32 %.148, 1
-  br label %1307
+1314:                                             ; preds = %1281
+  %1315 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.141, i32 noundef 318)
+  %1316 = add nuw nsw i32 %.148, 1
+  br label %1317
 
-1307:                                             ; preds = %1304, %1281
-  %.149 = phi i32 [ %1306, %1304 ], [ %.148, %1281 ]
+1317:                                             ; preds = %1314, %1281
+  %.149 = phi i32 [ %1316, %1304 ], [ %.148, %1281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
@@ -8871,47 +8871,47 @@ equiv.exit1793:                                   ; preds = %1280, %equiv.exit17
   call void @geod_init(ptr noundef nonnull %119, double noundef 6.400000e+06, double noundef 0xBF6B4E81B4E81B4F)
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
-  br label %equiv.exit1803
+  br label %1319
 
-1308:                                             ; preds = %equiv.exit1803
+1318:                                             ; preds = %equiv.exit1803
   %.not754 = icmp eq i32 %spec.select762, 0
   br i1 %.not754, label %1328, label %1325
 
-equiv.exit1803:                                   ; preds = %1307, %equiv.exit1803
-  %1309 = phi i1 [ true, %1307 ], [ false, %equiv.exit1803 ]
+1319:                                             ; preds = %1317, %equiv.exit1803
+  %1320 = phi i1 [ true, %1307 ], [ false, %equiv.exit1803 ]
   %indvars.iv2284 = phi i64 [ 0, %1307 ], [ 1, %equiv.exit1803 ]
   %.05922273 = phi i32 [ 0, %1307 ], [ %spec.select762, %equiv.exit1803 ]
-  %1310 = getelementptr inbounds nuw [2 x double], ptr @__const.main.C.142, i64 %indvars.iv2284
-  %1311 = load double, ptr %1310, align 16, !tbaa !4
-  %1312 = call double @geod_geninverse(ptr noundef nonnull readonly %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1311, ptr noundef null, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %1313 = load double, ptr %120, align 8, !tbaa !4
-  %1314 = getelementptr inbounds nuw i8, ptr %1310, i64 8
-  %1315 = load double, ptr %1314, align 8, !tbaa !4
-  %1316 = fcmp oeq double %1313, %1315
-  %1317 = bitcast double %1313 to i64
-  %1318 = bitcast double %1315 to i64
+  %1321 = getelementptr inbounds nuw [2 x double], ptr @__const.main.C.142, i64 %indvars.iv2284
+  %1322 = load double, ptr %1321, align 16, !tbaa !4
+  %1323 = call double @geod_geninverse(ptr noundef nonnull readonly %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1322, ptr noundef null, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1324 = load double, ptr %120, align 8, !tbaa !4
+  %1325 = getelementptr inbounds nuw i8, ptr %1321, i64 8
+  %1326 = load double, ptr %1325, align 8, !tbaa !4
+  %1327 = fcmp oeq double %1324, %1315
+  %1317 = bitcast double %1324 to i64
+  %1318 = bitcast double %1326 to i64
   %.unshifted.i1801 = xor i64 %1318, %1317
   %.unshifted.lobit.i1802 = lshr i64 %.unshifted.i1801, 63
-  %1319 = trunc nuw nsw i64 %.unshifted.lobit.i1802 to i32
+  %1334 = trunc nuw nsw i64 %.unshifted.lobit.i1802 to i32
   %not..i1800 = select i1 %1316, i32 %1319, i32 1
   %1320 = load double, ptr %121, align 8, !tbaa !4
   %1321 = fcmp oeq double %1320, %1315
   %1322 = bitcast double %1320 to i64
   %.unshifted.i1806 = xor i64 %1322, %1318
   %.unshifted.lobit.i1807 = lshr i64 %.unshifted.i1806, 63
-  %1323 = trunc nuw nsw i64 %.unshifted.lobit.i1807 to i32
+  %1342 = trunc nuw nsw i64 %.unshifted.lobit.i1807 to i32
   %not..i1805 = select i1 %1321, i32 %1323, i32 1
   %1324 = or i32 %not..i1805, %not..i1800
   %spec.select762 = add nuw nsw i32 %1324, %.05922273
-  br i1 %1309, label %equiv.exit1803, label %1308
+  br i1 %1320, label %equiv.exit1803, label %1308
 
-1325:                                             ; preds = %1308
+1325:; preds = %1308
   %1326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.143, i32 noundef 340)
-  %1327 = add nuw nsw i32 %.149, 1
+  %spec.select762 = add nuw nsw i32 %.149, 1
   br label %1328
 
-1328:                                             ; preds = %1325, %1308
-  %.150 = phi i32 [ %1327, %1325 ], [ %.149, %1308 ]
+1345:                                             ; preds = %1325, %1308
+  %.150 = phi i32 [ %spec.select762, %1325 ], [ %.149, %1308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
@@ -8919,70 +8919,70 @@ equiv.exit1803:                                   ; preds = %1307, %equiv.exit18
   call void @geod_init(ptr noundef nonnull %122, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128)
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
-  br label %equiv.exit1813
+  br label %1350
 
-1329:                                             ; preds = %equiv.exit1813
+1349:                                             ; preds = %equiv.exit1813
   %.not755 = icmp eq i32 %spec.select763, 0
-  br i1 %.not755, label %1350, label %.thread
+  br i1 %.not755, label %1380, label %.thread
 
-equiv.exit1813:                                   ; preds = %1328, %equiv.exit1813
+1350:                                             ; preds = %1328, %equiv.exit1813
   %indvars.iv2287 = phi i64 [ 0, %1328 ], [ %indvars.iv.next2288, %equiv.exit1813 ]
   %.05902275 = phi i32 [ 0, %1328 ], [ %spec.select763, %equiv.exit1813 ]
-  %1330 = getelementptr inbounds nuw [3 x double], ptr @__const.main.C.144, i64 %indvars.iv2287
-  %1331 = load double, ptr %1330, align 8, !tbaa !4
+  %1351 = getelementptr inbounds nuw [3 x double], ptr @__const.main.C.144, i64 %indvars.iv2287
+  %1352 = load double, ptr %1351, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  call void @geod_lineinit(ptr noundef nonnull %1, ptr noundef nonnull readonly %122, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1331, i32 noundef 2827)
-  %1332 = call double @geod_genposition(ptr noundef nonnull %1, i32 noundef 32768, double noundef 1.500000e+07, ptr noundef null, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  call void @geod_lineinit(ptr noundef nonnull %1, ptr noundef nonnull readonly %122, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1352, i32 noundef 2827)
+  %1353 = call double @geod_genposition(ptr noundef nonnull %1, i32 noundef 32768, double noundef 1.500000e+07, ptr noundef null, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %1333 = load double, ptr %123, align 8, !tbaa !4
-  %1334 = getelementptr inbounds nuw i8, ptr %1330, i64 8
-  %1335 = load double, ptr %1334, align 8, !tbaa !4
-  %1336 = fcmp oeq double %1333, %1335
-  %1337 = bitcast double %1333 to i64
-  %1338 = bitcast double %1335 to i64
+  %1354 = load double, ptr %123, align 8, !tbaa !4
+  %1355 = getelementptr inbounds nuw i8, ptr %1351, i64 8
+  %1356 = load double, ptr %1355, align 8, !tbaa !4
+  %1357 = fcmp oeq double %1354, %1335
+  %1337 = bitcast double %1354 to i64
+  %1338 = bitcast double %1356 to i64
   %.unshifted.i1811 = xor i64 %1338, %1337
   %.unshifted.lobit.i1812 = lshr i64 %.unshifted.i1811, 63
-  %1339 = trunc nuw nsw i64 %.unshifted.lobit.i1812 to i32
+  %1364 = trunc nuw nsw i64 %.unshifted.lobit.i1812 to i32
   %not..i1810 = select i1 %1336, i32 %1339, i32 1
   %1340 = load double, ptr %124, align 8, !tbaa !4
-  %1341 = getelementptr inbounds nuw i8, ptr %1330, i64 16
+  %1341 = getelementptr inbounds nuw i8, ptr %1351, i64 16
   %1342 = load double, ptr %1341, align 8, !tbaa !4
   %1343 = fcmp oeq double %1340, %1342
   %1344 = bitcast double %1340 to i64
   %1345 = bitcast double %1342 to i64
   %.unshifted.i1816 = xor i64 %1345, %1344
   %.unshifted.lobit.i1817 = lshr i64 %.unshifted.i1816, 63
-  %1346 = trunc nuw nsw i64 %.unshifted.lobit.i1817 to i32
+  %1375 = trunc nuw nsw i64 %.unshifted.lobit.i1817 to i32
   %not..i1815 = select i1 %1343, i32 %1346, i32 1
   %1347 = or i32 %not..i1815, %not..i1810
   %spec.select763 = add nuw nsw i32 %1347, %.05902275
   %indvars.iv.next2288 = add nuw nsw i64 %indvars.iv2287, 1
   %exitcond2290.not = icmp eq i64 %indvars.iv.next2288, 4
-  br i1 %exitcond2290.not, label %1329, label %equiv.exit1813
+  br i1 %exitcond2290.not, label %1349, label %1350
 
-.thread:                                          ; preds = %1329
-  %1348 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, i32 noundef 365)
-  %1349 = add nuw nsw i32 %.150, 1
+.thread:                                          ; preds = %1349
+  %1378 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, i32 noundef 365)
+  %1379 = add nuw nsw i32 %.150, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
-  br label %1351
+  br label %1381
 
-1350:                                             ; preds = %1329
+1380:                                             ; preds = %1349
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   %.not756 = icmp eq i32 %.150, 0
-  br i1 %.not756, label %1355, label %1351
+  br i1 %.not756, label %1385, label %1381
 
-1351:                                             ; preds = %.thread, %1350
-  %.1512430 = phi i32 [ %1349, %.thread ], [ %.150, %1350 ]
-  %1352 = icmp sgt i32 %.1512430, 1
-  %1353 = select i1 %1352, ptr @.str.148, ptr @.str.149
-  %1354 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %.1512430, ptr noundef nonnull @.str.147, ptr noundef nonnull %1353)
-  br label %1355
+1381:                                             ; preds = %.thread, %1380
+  %.1512442 = phi i32 [ %1379, %.thread ], [ %.150, %1350 ]
+  %1382 = icmp sgt i32 %.1512442, 1
+  %1383 = select i1 %1382, ptr @.str.148, ptr @.str.149
+  %1384 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %.1512442, ptr noundef nonnull @.str.147, ptr noundef nonnull %1383)
+  br label %1385
 
-1355:                                             ; preds = %1350, %1351
+1385:                                             ; preds = %1380, %1381
   %.0602 = phi i32 [ 1, %1351 ], [ 0, %1350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   ret i32 %.0602

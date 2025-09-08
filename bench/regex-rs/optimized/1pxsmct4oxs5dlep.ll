@@ -5854,7 +5854,7 @@ define hidden void @_ZN12regex_syntax7unicode5class17hba1203253af89ceeE(ptr noal
     i32 2, label %86
   ]
 
-default.unreachable232:                           ; preds = %251, %2
+default.unreachable233:                           ; preds = %251, %2
   unreachable
 
 33:                                               ; preds = %2
@@ -5887,8 +5887,8 @@ default.unreachable232:                           ; preds = %251, %2
   %47 = trunc i32 %35 to i8
   %48 = and i8 %47, 63
   %49 = or disjoint i8 %48, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx285 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %49, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx285, align 1, !alias.scope !144, !noalias !143
+  %.sroa.0.i.1.i.1.i.1..sroa_idx286 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %49, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx286, align 1, !alias.scope !144, !noalias !143
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 50:                                               ; preds = %39
@@ -5905,8 +5905,8 @@ default.unreachable232:                           ; preds = %251, %2
   %58 = trunc i32 %35 to i8
   %59 = and i8 %58, 63
   %60 = or disjoint i8 %59, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx286 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %60, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx286, align 2, !alias.scope !144, !noalias !143
+  %.sroa.0.i.2.i.2.i.2..sroa_idx287 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %60, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx287, align 2, !alias.scope !144, !noalias !143
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 61:                                               ; preds = %39
@@ -5918,8 +5918,8 @@ default.unreachable232:                           ; preds = %251, %2
   %66 = trunc i32 %65 to i8
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx284 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %68, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx284, align 1, !alias.scope !144, !noalias !143
+  %.sroa.0.i.1.i.1.i.1..sroa_idx285 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %68, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx285, align 1, !alias.scope !144, !noalias !143
   %69 = lshr i32 %35, 6
   %70 = trunc i32 %69 to i8
   %71 = and i8 %70, 63

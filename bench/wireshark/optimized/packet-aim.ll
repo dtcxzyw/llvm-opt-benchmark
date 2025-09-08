@@ -3860,20 +3860,20 @@ define internal range(i32 10, 13) i32 @dissect_aim_tlv_value_icq(ptr noundef %0,
   %.not = icmp eq i64 %indvars.iv.next, 51
   br i1 %.not, label %.thread57, label %26, !llvm.loop !35
 
-.thread57:                                        ; preds = %23
+.thread57:; preds = %23
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.767)
   br label %35
 
-26:                                               ; preds = %19, %23
+26:; preds = %19, %23
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %23 ]
   %27 = getelementptr %struct.anon.0, ptr @icq_calls, i64 %indvars.iv
   %28 = load i16, ptr %27, align 8
   %29 = icmp eq i16 %28, %20
   br i1 %29, label %30, label %23
 
-30:                                               ; preds = %26
+._crit_edge63:                                    ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -3881,12 +3881,12 @@ define internal range(i32 10, 13) i32 @dissect_aim_tlv_value_icq(ptr noundef %0,
   tail call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef %34)
   br label %35
 
-35:                                               ; preds = %.thread57, %30
+35:; preds = %.thread57, %30
   %36 = phi ptr [ %34, %30 ], [ @.str.110, %.thread57 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.768, ptr noundef %36)
   br label %37
 
-37:                                               ; preds = %4, %35, %16
+37:; preds = %4, %35, %16
   %.0 = phi i32 [ 11, %16 ], [ 10, %4 ], [ 12, %35 ]
   ret i32 %.0
 }

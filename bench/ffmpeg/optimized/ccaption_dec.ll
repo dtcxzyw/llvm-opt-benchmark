@@ -290,10 +290,10 @@ get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
   br i1 %.not.i.i, label %process_cc608.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %111
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %118, i64 2
   %123 = load i8, ptr %122, align 1, !tbaa !42
-  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 528
-  %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1584
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 528
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1584
   %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1056
   %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2112
   %128 = call i8 @llvm.umax.i8(i8 %123, i8 1)

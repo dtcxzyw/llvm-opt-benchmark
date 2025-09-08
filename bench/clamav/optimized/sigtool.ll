@@ -2448,8 +2448,8 @@ getdbname.exit:                                   ; preds = %49, %51
   %125 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4096, ptr noundef nonnull @.str.172, ptr noundef nonnull %17, ptr noundef %124) #24
   %126 = shl nuw i64 1, %indvars.iv489
   %127 = and i64 %126, 1151336479
-  %.not385.not = icmp eq i64 %127, 0
-  br i1 %.not385.not, label %128, label %133
+  %.not385 = icmp eq i64 %127, 0
+  br i1 %.not385, label %128, label %133
 
 128:                                              ; preds = %.preheader398
   %129 = call i32 @access(ptr noundef nonnull %18, i32 noundef 4) #24

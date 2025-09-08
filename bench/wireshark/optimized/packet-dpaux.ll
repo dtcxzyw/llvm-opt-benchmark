@@ -429,8 +429,8 @@ dissect_dpaux_register.exit.i:                    ; preds = %149, %155, %154
   br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %137, !llvm.loop !10
 
 dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.exit.i, %133, %128, %114, %72, %67
-  %162 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %162
+  %165 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %165
 }
 
 ; Function Attrs: null_pointer_is_valid

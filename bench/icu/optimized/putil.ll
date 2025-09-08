@@ -1171,14 +1171,14 @@ _ZL18remapShortTimeZonePKcS0_ii.exit.thread:      ; preds = %94
   br label %_ZL16skipZoneIDPrefixPPKc.exit
 
 _ZL18remapShortTimeZonePKcS0_ii.exit:             ; preds = %89
-  %98 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !36
+  %95 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %96 = load ptr, ptr %95, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZL16skipZoneIDPrefixPPKc.exit
 
 _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %_ZL18remapShortTimeZonePKcS0_ii.exit, %62, %46, %15, %12, %17, %_ZL18remapShortTimeZonePKcS0_ii.exit.thread
-  %.026 = phi ptr [ %97, %_ZL18remapShortTimeZonePKcS0_ii.exit.thread ], [ %99, %_ZL18remapShortTimeZonePKcS0_ii.exit ], [ %18, %17 ], [ %16, %15 ], [ %spec.select, %12 ], [ %.161, %46 ], [ %61, %62 ]
+  %.026 = phi ptr [ %97, %_ZL18remapShortTimeZonePKcS0_ii.exit.thread ], [ %96, %_ZL18remapShortTimeZonePKcS0_ii.exit ], [ %18, %17 ], [ %16, %15 ], [ %spec.select, %12 ], [ %.161, %46 ], [ %61, %62 ]
   ret ptr %.026
 }
 

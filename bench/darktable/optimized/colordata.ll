@@ -856,12 +856,12 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %36 = add i32 %35, %21
   br label %37
 
-37:                                               ; preds = %33, %95
+37:                                               ; preds = %33, %97
   %indvars.iv79 = phi i64 [ 0, %33 ], [ %indvars.iv.next80, %95 ]
   %38 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw11adobe_coeffEjPKciE5table, i64 %indvars.iv79
   %39 = load i32, ptr %38, align 8, !tbaa !75
   %40 = icmp eq i32 %39, %1
-  br i1 %40, label %41, label %95
+  br i1 %40, label %41, label %97
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -873,7 +873,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 45:                                               ; preds = %41
   %46 = tail call i32 @strncasecmp(ptr noundef %2, ptr noundef nonnull %43, i64 noundef %44) #9
   %.not53 = icmp eq i32 %46, 0
-  br i1 %.not53, label %47, label %95
+  br i1 %.not53, label %47, label %97
 
 47:                                               ; preds = %45, %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 532
@@ -922,59 +922,59 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 381484
   store i32 0, ptr %69, align 4, !tbaa !82
   %.not58 = icmp eq i32 %3, 0
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 153352
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 153352
   br i1 %.not58, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %67, %.split.us
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.split.us ], [ 0, %67 ]
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv87
-  %72 = load i32, ptr %71, align 4, !tbaa !71
-  %73 = sitofp i32 %72 to float
-  %74 = fmul reassoc nsz arcp contract afn float %73, 0x3F1A36E2E0000000
+  %73 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv87
+  %74 = load i32, ptr %73, align 4, !tbaa !71
+  %75 = sitofp i32 %74 to float
+  %76 = fmul reassoc nsz arcp contract afn float %75, 0x3F1A36E2E0000000
   %.lhs.trunc.us = trunc i64 %indvars.iv87 to i8
-  %75 = udiv i8 %.lhs.trunc.us, 3
-  %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds nuw [3 x float], ptr %70, i64 %76
-  %78 = urem i8 %.lhs.trunc.us, 3
-  %79 = zext nneg i8 %78 to i64
-  %80 = getelementptr inbounds nuw float, ptr %77, i64 %79
-  store float %74, ptr %80, align 4, !tbaa !83
-  %81 = fpext reassoc nsz arcp contract afn float %74 to double
-  %82 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv87
-  store double %81, ptr %82, align 8, !tbaa !84
+  %77 = udiv i8 %.lhs.trunc.us, 3
+  %78 = zext nneg i8 %77 to i64
+  %79 = getelementptr inbounds nuw [3 x float], ptr %72, i64 %78
+  %80 = urem i8 %.lhs.trunc.us, 3
+  %81 = zext nneg i8 %80 to i64
+  %82 = getelementptr inbounds nuw float, ptr %79, i64 %81
+  store float %76, ptr %82, align 4, !tbaa !83
+  %83 = fpext reassoc nsz arcp contract afn float %76 to double
+  %84 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv87
+  store double %83, ptr %84, align 8, !tbaa !84
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 12
-  br i1 %exitcond90.not, label %93, label %.split.us, !llvm.loop !85
+  br i1 %exitcond90.not, label %95, label %.split.us, !llvm.loop !85
 
 .split:                                           ; preds = %67, %.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.split ], [ 0, %67 ]
-  %83 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv83
-  %84 = load i32, ptr %83, align 4, !tbaa !71
-  %85 = sitofp i32 %84 to float
-  %86 = fmul reassoc nsz arcp contract afn float %85, 0x3F1A36E2E0000000
+  %85 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv83
+  %86 = load i32, ptr %85, align 4, !tbaa !71
+  %87 = sitofp i32 %86 to float
+  %88 = fmul reassoc nsz arcp contract afn float %87, 0x3F1A36E2E0000000
   %.lhs.trunc64 = trunc i64 %indvars.iv83 to i8
-  %87 = udiv i8 %.lhs.trunc64, 3
-  %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds nuw [3 x float], ptr %70, i64 %88
-  %90 = urem i8 %.lhs.trunc64, 3
-  %91 = zext nneg i8 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr %89, i64 %91
-  store float %86, ptr %92, align 4, !tbaa !83
+  %89 = udiv i8 %.lhs.trunc64, 3
+  %90 = zext nneg i8 %89 to i64
+  %91 = getelementptr inbounds nuw [3 x float], ptr %72, i64 %90
+  %92 = urem i8 %.lhs.trunc64, 3
+  %93 = zext nneg i8 %92 to i64
+  %94 = getelementptr inbounds nuw float, ptr %91, i64 %93
+  store float %88, ptr %94, align 4, !tbaa !83
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 12
   br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !85
 
-93:                                               ; preds = %.split.us
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 153304
-  call void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %94, ptr noundef nonnull %5)
+95:                                               ; preds = %.split.us
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 153304
+  call void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %96, ptr noundef nonnull %5)
   br label %.critedge61
 
-95:                                               ; preds = %45, %37
+97:                                               ; preds = %45, %37
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 792
   br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !86
 
-.critedge61:                                      ; preds = %95, %.split, %93, %4
+.critedge61:                                      ; preds = %97, %.split, %95, %4
   %.0 = phi i32 [ 1, %4 ], [ 1, %93 ], [ 1, %.split ], [ 0, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

@@ -4177,8 +4177,8 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %8, %19
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr %struct._value_string, ptr @ansi_map_opr_code_strings, i64 %indvars.iv
+  %20 = phi i64 [ 0, %8 ], [ %23, %19 ]
+  %20 = getelementptr %struct._value_string, ptr @ansi_map_opr_code_strings, i64 %20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %2, align 16
   %22 = load i32, ptr %20, align 16
@@ -4193,8 +4193,8 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   store i32 4, ptr %17, align 16
   store double 0.000000e+00, ptr %18, align 8
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %22, i32 noundef 5, ptr noundef nonnull %2)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not18 = icmp eq i64 %indvars.iv.next, 112
+  %23 = add nuw nsw i64 %20, 1
+  %.not18 = icmp eq i64 %23, 112
   br i1 %.not18, label %.loopexit, label %19, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %4, %7

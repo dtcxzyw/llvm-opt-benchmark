@@ -203,7 +203,7 @@ define internal range(i32 0, 2) i32 @test_object_group_attr(i32 noundef %0) #1 {
   %4 = tail call ptr @BIO_new_fp(ptr noundef %3, i32 noundef 0) #4
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 128, ptr noundef nonnull @.str.23, ptr noundef %4) #4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %23, label %6
+  br i1 %.not, label %24, label %6
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
@@ -229,23 +229,23 @@ define internal range(i32 0, 2) i32 @test_object_group_attr(i32 noundef %0) #1 {
 
 18:                                               ; preds = %14, %16
   %.not19 = icmp eq ptr %12, null
-  br i1 %.not19, label %23, label %19
+  br i1 %.not19, label %24, label %20
 
-19:                                               ; preds = %18
-  %20 = call i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef %4, ptr noundef nonnull %12, i32 noundef 4) #4
-  %21 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 140, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.26, i32 noundef %20, i32 noundef 1) #4
-  %.not20 = icmp eq i32 %21, 0
-  br i1 %.not20, label %22, label %23
+20:                                               ; preds = %18
+  %21 = call i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef %4, ptr noundef nonnull %12, i32 noundef 4) #4
+  %22 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 140, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.26, i32 noundef %21, i32 noundef 1) #4
+  %.not20 = icmp eq i32 %22, 0
+  br i1 %.not20, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   call void @OSSL_IETF_ATTR_SYNTAX_free(ptr noundef nonnull %12) #4
-  br label %23
+  br label %24
 
-23:                                               ; preds = %18, %19, %14, %16, %1, %22
+24:                                               ; preds = %18, %20, %14, %16, %1, %23
   %.013 = phi ptr [ %12, %22 ], [ %12, %16 ], [ %12, %14 ], [ null, %1 ], [ %12, %19 ], [ null, %18 ]
   %.0 = phi i32 [ 0, %22 ], [ 0, %16 ], [ 0, %14 ], [ 0, %1 ], [ 1, %19 ], [ 1, %18 ]
   call void @OSSL_IETF_ATTR_SYNTAX_free(ptr noundef %.013) #4
-  %24 = call i32 @BIO_free(ptr noundef %4) #4
+  %25 = call i32 @BIO_free(ptr noundef %4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

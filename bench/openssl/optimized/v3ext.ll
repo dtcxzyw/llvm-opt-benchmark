@@ -683,8 +683,8 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
   call void @X509V3_set_nconf(ptr noundef nonnull %1, ptr noundef %11) #6
   %20 = shl nuw nsw i64 1, %.02033
   %21 = and i64 %20, 66586608
-  %.not26.not = icmp eq i64 %21, 0
-  br i1 %.not26.not, label %22, label %28
+  %.not26 = icmp eq i64 %21, 0
+  br i1 %.not26, label %22, label %28
 
 22:                                               ; preds = %19
   %23 = call i32 @X509V3_EXT_add_nconf(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @.str.98, ptr noundef null) #6

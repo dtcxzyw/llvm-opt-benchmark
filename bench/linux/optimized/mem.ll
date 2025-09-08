@@ -128,12 +128,12 @@ define internal i32 @memory_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 11:                                               ; preds = %7
   %12 = getelementptr %struct.memdev, ptr @devlist, i64 %8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = load i32, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %18 = load i32, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, %17
@@ -143,11 +143,11 @@ define internal i32 @memory_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %23 = icmp eq ptr %22, null
   br i1 %23, label %26, label %24
 
-24:                                               ; preds = %11
+24:; preds = %11
   %25 = tail call i32 %22(ptr noundef %0, ptr noundef %1) #12
   br label %26
 
-26:                                               ; preds = %24, %11, %7, %2
+26:; preds = %24, %11, %7, %2
   %27 = phi i32 [ %25, %24 ], [ -6, %2 ], [ -6, %7 ], [ 0, %11 ]
   ret i32 %27
 }

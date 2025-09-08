@@ -62,13 +62,13 @@ define dso_local ptr @stack_type_name(i32 noundef %0) local_unnamed_addr #0 alig
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 section ".noinstr.text" align 16 {
   %4 = tail call zeroext i1 @in_task_stack(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
-  br i1 %4, label %60, label %5
+  br i1 %4, label %59, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !5
   %7 = inttoptr i64 %6 to ptr
   %8 = icmp eq ptr %1, %7
-  br i1 %8, label %9, label %60
+  br i1 %8, label %9, label %59
 
 9:                                                ; preds = %5
   %10 = ptrtoint ptr %0 to i64
@@ -97,8 +97,8 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i16, ptr %26, align 4
   %28 = load i32, ptr %25, align 8
-  %29 = zext i32 %28 to i64
-  %30 = add i64 %11, %29
+  %30 = zext i32 %28 to i64
+  %31 = add i64 %11, %30
   %31 = zext i16 %27 to i64
   %32 = add i64 %30, %31
   %33 = inttoptr i64 %32 to ptr
@@ -116,9 +116,9 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %42, ptr %43, align 8
-  br label %60
+  br label %59
 
-44:                                               ; preds = %18, %13, %9
+44:; preds = %18, %13, %9
   %45 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 32)) #5, !srcloc !7
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr i8, ptr %46, i64 8
@@ -130,23 +130,23 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %44
   store i32 2, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %48, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %47, ptr %54, align 8
-  %55 = load i64, ptr %46, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %56, ptr %57, align 8
-  br label %60
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %48, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %47, ptr %53, align 8
+  %54 = load i64, ptr %46, align 8
+  %55 = inttoptr i64 %54 to ptr
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %55, ptr %56, align 8
+  br label %59
 
-58:                                               ; preds = %44
-  %59 = tail call zeroext i1 @in_entry_stack(ptr noundef %0, ptr noundef %2) #5
-  br label %60
+57:                                               ; preds = %44
+  %58 = tail call zeroext i1 @in_entry_stack(ptr noundef %0, ptr noundef %2) #5
+  br label %59
 
-60:                                               ; preds = %58, %52, %24, %5, %3
-  %61 = phi i1 [ true, %3 ], [ false, %5 ], [ %59, %58 ], [ true, %24 ], [ true, %52 ]
-  ret i1 %61
+59:                                               ; preds = %57, %52, %24, %5, %3
+  %60 = phi i1 [ true, %3 ], [ false, %5 ], [ %58, %58 ], [ true, %24 ], [ true, %52 ]
+  ret i1 %60
 }
 
 ; Function Attrs: null_pointer_is_valid

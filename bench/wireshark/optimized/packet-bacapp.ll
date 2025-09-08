@@ -18694,39 +18694,39 @@ define internal fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr no
 
 15:                                               ; preds = %4
   %16 = tail call fastcc i32 @fBooleanTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %34
+  br label %35
 
 17:                                               ; preds = %4
   %18 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %34
+  br label %35
 
 19:                                               ; preds = %4
   %20 = tail call fastcc i32 @fSignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %34
+  br label %35
 
 21:                                               ; preds = %4
   %22 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %34
+  br label %35
 
-23:                                               ; preds = %.preheader
+29:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 56
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !159
 
-.preheader:                                       ; preds = %4, %23
+30:                                               ; preds = %4, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %4 ]
   %24 = getelementptr %struct._value_string_enum, ptr @BACnetPropertyStatesEnums, i64 %indvars.iv
   %25 = load i8, ptr %24, align 16
   %26 = icmp eq i8 %25, %11
   br i1 %26, label %27, label %23
 
-27:                                               ; preds = %.preheader
+.thread:                                          ; preds = %30
   %28 = icmp eq ptr %24, null
-  br i1 %28, label %.thread, label %30
+  br i1 %28, label %33, label %30
 
-.thread:                                          ; preds = %23, %27
-  %29 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef null, i32 noundef 0)
-  br label %34
+33:                                               ; preds = %23, %27
+  %34 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef null, i32 noundef 0)
+  br label %35
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -18734,7 +18734,7 @@ define internal fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr no
   %33 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef %32, i32 noundef 64)
   br label %34
 
-34:                                               ; preds = %.thread, %30, %21, %19, %17, %15
+35:                                               ; preds = %.thread, %30, %21, %19, %17, %15
   %.041 = phi i32 [ %29, %.thread ], [ %33, %30 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

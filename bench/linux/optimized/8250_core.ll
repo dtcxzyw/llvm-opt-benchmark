@@ -346,11 +346,11 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
   %.pre5 = load ptr, ptr @serial8250_isa_config, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %68
-  %33 = phi i32 [ %69, %68 ], [ %27, %.preheader.preheader ]
-  %34 = phi ptr [ %70, %68 ], [ %.pre5, %.preheader.preheader ]
-  %35 = phi i64 [ %71, %68 ], [ 0, %.preheader.preheader ]
-  %36 = phi ptr [ %72, %68 ], [ @serial8250_ports, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %70
+  %33 = phi i32 [ %71, %68 ], [ %27, %.preheader.preheader ]
+  %34 = phi ptr [ %72, %68 ], [ %.pre5, %.preheader.preheader ]
+  %35 = phi i64 [ %73, %68 ], [ 0, %.preheader.preheader ]
+  %36 = phi ptr [ %74, %68 ], [ @serial8250_ports, %.preheader.preheader ]
   %37 = getelementptr %struct.old_serial_port, ptr @old_serial_port, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
@@ -361,55 +361,55 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 168
   store i32 %43, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 176
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 176
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, 4
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 184
   store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %51 = load i64, ptr %50, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %51 = load i64, ptr %51, align 16
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 272
   store i64 %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %36, i64 371
-  store i8 0, ptr %53, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %55 = load ptr, ptr %54, align 16
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 371
+  store i8 0, ptr %54, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %55 = load ptr, ptr %55, align 16
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %58 = load i8, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %58 = load i8, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 194
   store i8 %58, ptr %59, align 2
-  %60 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %61 = load i16, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %61 = load i16, ptr %61, align 8
   %62 = trunc i16 %61 to i8
   %63 = getelementptr inbounds nuw i8, ptr %36, i64 193
   store i8 %62, ptr %63, align 1
-  store i64 %31, ptr %45, align 8
+  store i64 %31, ptr %46, align 8
   %64 = icmp eq ptr %34, null
   br i1 %64, label %68, label %65
 
-65:                                               ; preds = %.preheader
+65:; preds = %.preheader
   %66 = getelementptr inbounds nuw i8, ptr %36, i64 584
   %67 = trunc nuw nsw i64 %35 to i32
   tail call void %34(i32 noundef %67, ptr noundef %36, ptr noundef nonnull %66) #12
   %.pre4 = load ptr, ptr @serial8250_isa_config, align 8
   %.pre6 = load i32, ptr @nr_uarts, align 4
-  br label %68
+  br label %70
 
-68:                                               ; preds = %65, %.preheader
-  %69 = phi i32 [ %.pre6, %65 ], [ %33, %.preheader ]
-  %70 = phi ptr [ %.pre4, %65 ], [ null, %.preheader ]
-  %71 = add nuw nsw i64 %35, 1
-  %72 = getelementptr i8, ptr %36, i64 784
-  %73 = icmp samesign ult i64 %35, 3
-  %74 = zext i32 %69 to i64
-  %75 = icmp samesign ult i64 %71, %74
-  %76 = select i1 %73, i1 %75, i1 false
-  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !8
+70:                                               ; preds = %65, %.preheader
+  %71 = phi i32 [ %.pre6, %65 ], [ %33, %.preheader ]
+  %72 = phi ptr [ %.pre4, %65 ], [ null, %.preheader ]
+  %73 = add nuw nsw i64 %35, 1
+  %74 = getelementptr i8, ptr %36, i64 784
+  %75 = icmp samesign ult i64 %35, 3
+  %76 = zext i32 %71 to i64
+  %77 = icmp samesign ult i64 %73, %76
+  %78 = select i1 %75, i1 %77, i1 false
+  br i1 %78, label %.preheader, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %68, %.loopexit3, %0
+.loopexit:                                        ; preds = %70, %.loopexit3, %0
   ret void
 }
 

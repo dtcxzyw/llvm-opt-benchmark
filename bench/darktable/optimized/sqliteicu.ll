@@ -41,8 +41,8 @@ define i32 @sqlite3IcuInit(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = shl nuw nsw i64 1, %indvars.iv
   %11 = and i64 %10, 3278
-  %.not.not = icmp eq i64 %11, 0
-  %12 = select i1 %.not.not, ptr %0, ptr null
+  %.not = icmp eq i64 %11, 0
+  %12 = select i1 %.not, ptr %0, ptr null
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef %4, i32 noundef %7, i32 noundef %9, ptr noundef %12, ptr noundef %14, ptr noundef null, ptr noundef null) #3

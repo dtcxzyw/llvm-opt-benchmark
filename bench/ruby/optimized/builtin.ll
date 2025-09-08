@@ -107,18 +107,18 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef nonnull %0) #7
   unreachable
 
-22:                                               ; preds = %builtin_lookup.exit
+builtin_lookup.exit.thread:                       ; preds = %builtin_lookup.exit
   %23 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1328
-  %25 = load ptr, ptr %24, align 8, !tbaa !22
-  %.not10 = icmp eq ptr %25, null
+  %22 = load ptr, ptr %24, align 8, !tbaa !22
+  %.not10 = icmp eq ptr %22, null
   br i1 %.not10, label %27, label %26
 
-26:                                               ; preds = %22
+25:                                               ; preds = %builtin_lookup.exit.thread
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #7
   unreachable
 
-27:                                               ; preds = %22
+26:                                               ; preds = %builtin_lookup.exit.thread
   store ptr %1, ptr %24, align 8, !tbaa !22
   %28 = tail call ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #8
   %29 = icmp ne ptr %28, null

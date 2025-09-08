@@ -282,48 +282,48 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define void @ff_dnxhd_print_profiles(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %3
 
-3:                                                ; preds = %2, %24
-  %indvars.iv25 = phi i64 [ 0, %2 ], [ %indvars.iv.next26, %24 ]
-  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv25
+3:                                                ; preds = %2, %27
+  %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %24 ]
+  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %9 = shl nuw nsw i64 1, %indvars.iv25
+  %9 = shl nuw nsw i64 1, %indvars.iv28
   %10 = and i64 %9, 2185
   %.not21 = icmp eq i64 %10, 0
   %11 = select i1 %.not21, ptr @.str.4, ptr @.str.3
   br label %12
 
-12:                                               ; preds = %3, %15
+12:; preds = %3, %15
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %15 ]
   %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %24, label %15
 
-15:                                               ; preds = %12
+15:; preds = %12
   %16 = load i32, ptr %6, align 4, !tbaa !37
   %17 = load i32, ptr %7, align 8, !tbaa !39
   %18 = load i16, ptr %8, align 4, !tbaa !36
   %19 = zext i16 %18 to i32
   %20 = and i32 %19, 1
-  %.not19 = icmp eq i32 %20, 0
-  %21 = select i1 %.not19, i32 112, i32 105
+  %.not20 = icmp eq i32 %20, 0
+  %21 = select i1 %.not20, i32 112, i32 105
   %22 = and i32 %19, 4
   %.not20 = icmp eq i32 %22, 0
   %23 = select i1 %.not20, ptr %11, ptr @.str.2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, i32 noundef %16, i32 noundef %17, i32 noundef %21, i32 noundef %14, ptr noundef nonnull %23) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %24, label %12, !llvm.loop !47
+  br i1 %exitcond.not, label %27, label %12, !llvm.loop !47
 
-24:                                               ; preds = %12, %15
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 20
-  br i1 %exitcond28.not, label %25, label %3, !llvm.loop !48
+27:                                               ; preds = %12, %15
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
+  %exitcond27.not = icmp eq i64 %indvars.iv.next25, 20
+  br i1 %exitcond27.not, label %28, label %3, !llvm.loop !48
 
-25:                                               ; preds = %24
+28:                                               ; preds = %27
   ret void
 }
 

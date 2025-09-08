@@ -6985,8 +6985,8 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
   tail call void @wmem_tree_insert_string(ptr noundef %5, ptr noundef %4, ptr noundef %7, i32 noundef 0)
   %8 = shl nuw i64 1, %indvars.iv
   %9 = and i64 %8, 39764173385
-  %.not10.not = icmp eq i64 %9, 0
-  br i1 %.not10.not, label %10, label %15
+  %.not10 = icmp eq i64 %9, 0
+  br i1 %.not10, label %10, label %15
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16

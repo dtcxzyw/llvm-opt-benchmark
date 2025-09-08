@@ -18121,60 +18121,60 @@ validate_attr_arguments.exit.thread:              ; preds = %18, %39, %._crit_ed
   %97 = add i64 %96, %92
   br label %98
 
-98:                                               ; preds = %90, %87
+96:                                               ; preds = %90, %87
   %.269.i = phi i64 [ %97, %90 ], [ %.067.i, %87 ]
   %.065.i = phi i64 [ %spec.store.select.i, %90 ], [ 0, %87 ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call ptr %100(i64 noundef %.269.i) #51
-  %.not82.i = icmp eq ptr %101, null
-  br i1 %.not82.i, label %create_attr_block.exit, label %102
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call ptr %100(i64 noundef %.269.i) #51
+  %.not82.i = icmp eq ptr %99, null
+  br i1 %.not82.i, label %create_attr_block.exit, label %100
 
-102:                                              ; preds = %98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, i8 0, i64 32, i1 false)
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  br i1 %.not.i95, label %109, label %104
+100:                                              ; preds = %96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 32, i1 false)
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  br i1 %.not.i95, label %107, label %102
 
-104:                                              ; preds = %102
-  %105 = add nuw nsw i64 %59, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %103, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %105, i1 false)
-  store ptr %103, ptr %101, align 8
-  %106 = trunc nuw i64 %59 to i8
-  %107 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store i8 %106, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 %105
-  br label %109
+102:                                              ; preds = %100
+  %103 = add nuw nsw i64 %59, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %101, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %103, i1 false)
+  store ptr %101, ptr %99, align 8
+  %104 = trunc nuw i64 %59 to i8
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  store i8 %104, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 %103
+  br label %107
 
-109:                                              ; preds = %104, %102
-  %.066.i = phi ptr [ %108, %104 ], [ %103, %102 ]
+107:                                              ; preds = %102, %100
+  %.066.i = phi ptr [ %106, %104 ], [ %101, %102 ]
   br i1 %.not81.i.not, label %110, label %create_attr_block.exit.thread
 
-110:                                              ; preds = %109
-  %111 = getelementptr inbounds nuw i8, ptr %.066.i, i64 %.065.i
-  %112 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr %111, ptr %112, align 8
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %.066.i, i64 %.065.i
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  store ptr %109, ptr %110, align 8
   br label %create_attr_block.exit.thread
 
-create_attr_block.exit:                           ; preds = %98
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %114 = load ptr, ptr %113, align 8
-  %115 = tail call i32 %114(ptr noundef nonnull %0, i32 noundef 1) #51
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %create_attr_block.exit.thread, label %.thread15
+create_attr_block.exit:                           ; preds = %96
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %112 = load ptr, ptr %111, align 8
+  %113 = tail call i32 %114(ptr noundef nonnull %0, i32 noundef 1) #51
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %create_attr_block.exit.thread, label %.thread15
 
-create_attr_block.exit.thread:                    ; preds = %109, %110, %create_attr_block.exit
-  %117 = getelementptr inbounds nuw i8, ptr %101, i64 8
+125:                                              ; preds = %109, %110, %create_attr_block.exit
+  %117 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %84, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %119 = load i32, ptr %118, align 8
   %120 = trunc i32 %119 to i8
-  %121 = getelementptr inbounds nuw i8, ptr %101, i64 17
+  %121 = getelementptr inbounds nuw i8, ptr %99, i64 17
   store i8 %120, ptr %121, align 1
   %122 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %123 = load i32, ptr %122, align 4
   br label %129
 
-124:                                              ; preds = %81
+131:                                              ; preds = %81
   %125 = call fastcc i32 @create_attr_block(ptr noundef %0, ptr noundef %6, i64 noundef 56, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2, i32 noundef %71, ptr noundef nonnull %3, i32 noundef %80)
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %.thread15
@@ -18198,7 +18198,7 @@ create_attr_block.exit.thread:                    ; preds = %109, %110, %create_
   br label %.thread15
 
 .thread15:                                        ; preds = %124, %create_attr_block.exit, %133, %129, %47, %49, %5, %74, %65, %54, %10
-  %.076 = phi i32 [ %13, %10 ], [ %58, %54 ], [ %69, %65 ], [ %78, %74 ], [ 2, %5 ], [ 0, %49 ], [ %46, %47 ], [ %131, %129 ], [ 0, %133 ], [ %125, %124 ], [ %115, %create_attr_block.exit ]
+  %.076 = phi i32 [ %13, %10 ], [ %58, %54 ], [ %69, %65 ], [ %78, %74 ], [ 2, %5 ], [ 0, %49 ], [ %46, %47 ], [ %131, %129 ], [ 0, %133 ], [ %125, %124 ], [ %113, %create_attr_block.exit ]
   ret i32 %.076
 }
 
