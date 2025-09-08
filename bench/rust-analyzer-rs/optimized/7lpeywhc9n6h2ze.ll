@@ -83218,8 +83218,9 @@ define internal fastcc void @_ZN6hir_ty3mir5lower13MirLowerError15unresolved_pat
           to label %.noexc.i unwind label %29, !noalias !22739
 
 .noexc.i:                                         ; preds = %4
-  %or.cond.not.i.i = icmp samesign ult i8 %23, 3
-  br i1 %or.cond.not.i.i, label %24, label %31
+  %.off.i.i = add nsw i8 %23, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %31, label %24
 
 24:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !22740
@@ -92738,8 +92739,9 @@ define internal fastcc void @"_ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_p
           to label %.noexc.i unwind label %37, !noalias !24042
 
 .noexc.i:                                         ; preds = %13
-  %or.cond.not.i.i = icmp samesign ult i8 %31, 3
-  br i1 %or.cond.not.i.i, label %32, label %39
+  %.off.i.i = add nsw i8 %31, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %39, label %32
 
 32:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !24043

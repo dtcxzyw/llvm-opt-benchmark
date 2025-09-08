@@ -2383,8 +2383,9 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %2
-  %or.cond.not.i = icmp samesign ult i8 %13, 3
-  br i1 %or.cond.not.i, label %14, label %21
+  %.off.i = add nsw i8 %13, -3
+  %switch.i = icmp ult i8 %.off.i, 2
+  br i1 %switch.i, label %21, label %14
 
 14:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !202
@@ -103884,8 +103885,9 @@ define noundef ptr @_ZN6hir_ty18known_const_to_ast17h1f86839cf5a52709E(ptr noali
           to label %.noexc.i unwind label %42, !noalias !19322
 
 .noexc.i:                                         ; preds = %22
-  %or.cond.not.i.i = icmp samesign ult i8 %36, 3
-  br i1 %or.cond.not.i.i, label %37, label %44
+  %.off.i.i = add nsw i8 %36, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %44, label %37
 
 37:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !19323

@@ -23746,8 +23746,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc.i.i unwind label %108, !noalias !2432
 
 .noexc.i.i:                                       ; preds = %88
-  %or.cond.not.i.i.i = icmp samesign ult i8 %102, 3
-  br i1 %or.cond.not.i.i.i, label %103, label %110
+  %.off.i.i.i = add nsw i8 %102, -3
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, 2
+  br i1 %switch.i.i.i, label %110, label %103
 
 103:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2433
@@ -26631,8 +26632,9 @@ define internal fastcc void @_ZN14ide_completion6render10type_alias6render17hccc
           to label %.noexc.i unwind label %75, !noalias !2923
 
 .noexc.i:                                         ; preds = %55
-  %or.cond.not.i.i = icmp samesign ult i8 %69, 3
-  br i1 %or.cond.not.i.i, label %70, label %77
+  %.off.i.i = add nsw i8 %69, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %77, label %70
 
 70:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2924

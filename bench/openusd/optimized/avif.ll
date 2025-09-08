@@ -2574,8 +2574,8 @@ declare ptr @avifArrayPush(ptr noundef) local_unnamed_addr #4
 define hidden ptr @avifCodecName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #11 {
 findAvailableCodec.exit.thread:
   %2 = or i32 %0, %1
-  %3 = icmp ult i32 %2, 2
-  %.0 = select i1 %3, ptr @.str.64, ptr null
+  %or.cond = icmp ult i32 %2, 2
+  %.0 = select i1 %or.cond, ptr @.str.64, ptr null
   ret ptr %.0
 }
 
@@ -2583,8 +2583,8 @@ findAvailableCodec.exit.thread:
 define hidden i32 @avifCodecTypeFromChoice(i32 noundef %0, i32 noundef %1) local_unnamed_addr #11 {
 findAvailableCodec.exit.thread:
   %2 = or i32 %0, %1
-  %narrow = icmp ult i32 %2, 2
-  %.0 = zext i1 %narrow to i32
+  %or.cond = icmp ult i32 %2, 2
+  %.0 = zext i1 %or.cond to i32
   ret i32 %.0
 }
 
@@ -2600,15 +2600,14 @@ define hidden i32 @avifCodecChoiceFromName(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 27) i32 @avifCodecCreate(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   store ptr null, ptr %2, align 8
-  %or.cond.i = icmp ult i32 %0, 2
-  %.not17.i = icmp ult i32 %1, 2
-  %or.cond = and i1 %or.cond.i, %.not17.i
+  %4 = or i32 %0, %1
+  %or.cond = icmp ult i32 %4, 2
   br i1 %or.cond, label %findAvailableCodec.exit, label %findAvailableCodec.exit.thread
 
 findAvailableCodec.exit:                          ; preds = %3
-  %4 = tail call ptr @avifCodecCreateAOM() #14
-  store ptr %4, ptr %2, align 8
-  %.not8 = icmp eq ptr %4, null
+  %5 = tail call ptr @avifCodecCreateAOM() #14
+  store ptr %5, ptr %2, align 8
+  %.not8 = icmp eq ptr %5, null
   %. = select i1 %.not8, i32 26, i32 0
   br label %findAvailableCodec.exit.thread
 

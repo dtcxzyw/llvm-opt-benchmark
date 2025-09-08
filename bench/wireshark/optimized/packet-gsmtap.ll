@@ -494,14 +494,13 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %17 = shl i8 %16, 2
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %.fr.i = freeze i8 %18
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 14)
-  %24 = zext i8 %.fr.i to i32
-  %25 = icmp ne i8 %.fr.i, 1
+  %24 = zext i8 %18 to i32
+  %25 = icmp ne i8 %18, 1
   %.not.i = icmp sgt i8 %22, -1
   %or.cond.i = select i1 %25, i1 true, i1 %.not.i
   %26 = zext i8 %17 to i32
@@ -581,7 +580,7 @@ switch.lookup:                                    ; preds = %55
   br i1 %.not258.i, label %106, label %66
 
 66:                                               ; preds = %59
-  %67 = icmp eq i8 %.fr.i, 4
+  %67 = icmp eq i8 %18, 4
   br i1 %67, label %.thread.i, label %70
 
 .thread.i:                                        ; preds = %66
@@ -591,11 +590,11 @@ switch.lookup:                                    ; preds = %55
 
 70:                                               ; preds = %66
   %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
-  %72 = icmp eq i8 %.fr.i, 5
+  %72 = icmp eq i8 %18, 5
   %73 = zext i8 %71 to i32
-  %switch.selectcmp.i = icmp eq i8 %.fr.i, 13
+  %switch.selectcmp.i = icmp eq i8 %18, 13
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @gsmtap_lte_rrc_channels, ptr @gsmtap_channels
-  %switch.selectcmp38.i = icmp eq i8 %.fr.i, 10
+  %switch.selectcmp38.i = icmp eq i8 %18, 10
   %switch.select39.i = select i1 %switch.selectcmp38.i, ptr @gsmtap_gmr1_channels, ptr %switch.select.i
   %gsmtap_gmr1_channels.sink.i = select i1 %72, ptr @gsmtap_tetra_channels, ptr %switch.select39.i
   %74 = tail call ptr @val_to_str(i32 noundef %73, ptr noundef nonnull %gsmtap_gmr1_channels.sink.i, ptr noundef nonnull @.str.362)
@@ -620,15 +619,13 @@ switch.lookup:                                    ; preds = %55
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %91, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %93 = load i32, ptr @hf_gsmtap_frame_nr, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %93, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  %.not43.i = icmp eq i8 %.fr.i, 3
+  %.not43.i = icmp eq i8 %18, 3
   %hf_gsmtap_burst_type.mux.i = select i1 %25, ptr @hf_gsmtap_tetra_channel_type, ptr @hf_gsmtap_channel_type
   %hf_gsmtap_burst_type.mux.mux.i = select i1 %.not43.i, ptr @hf_gsmtap_burst_type, ptr %hf_gsmtap_burst_type.mux.i
-  br i1 %25, label %switch.early.test.i, label %.sink.split.i
-
-switch.early.test.i:                              ; preds = %70
-  switch i8 %.fr.i, label %101 [
+  switch i8 %18, label %101 [
     i8 5, label %.sink.split.i
     i8 3, label %.sink.split.i
+    i8 1, label %.sink.split.i
     i8 7, label %.sink.split.fold.split.i
     i8 10, label %95
     i8 13, label %96
@@ -636,28 +633,28 @@ switch.early.test.i:                              ; preds = %70
     i8 19, label %98
   ]
 
-95:                                               ; preds = %switch.early.test.i
+95:                                               ; preds = %70
   br label %.sink.split.i
 
-96:                                               ; preds = %switch.early.test.i
+96:                                               ; preds = %70
   br label %.sink.split.i
 
-97:                                               ; preds = %switch.early.test.i
+97:                                               ; preds = %70
   br label %.sink.split.i
 
-98:                                               ; preds = %switch.early.test.i
+98:                                               ; preds = %70
   br label %.sink.split.i
 
-.sink.split.fold.split.i:                         ; preds = %switch.early.test.i
+.sink.split.fold.split.i:                         ; preds = %70
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.sink.split.fold.split.i, %98, %97, %96, %95, %switch.early.test.i, %switch.early.test.i, %70
-  %hf_gsmtap_channel_type.sink.i = phi ptr [ @hf_gsmtap_lte_rrc_channel_type, %96 ], [ @hf_gsmtap_e1t1_sub_type, %98 ], [ @hf_gsmtap_rrc_sub_type, %97 ], [ @hf_gsmtap_gmr1_channel_type, %95 ], [ %hf_gsmtap_burst_type.mux.mux.i, %switch.early.test.i ], [ %hf_gsmtap_burst_type.mux.mux.i, %70 ], [ %hf_gsmtap_burst_type.mux.mux.i, %switch.early.test.i ], [ @hf_gsmtap_burst_type, %.sink.split.fold.split.i ]
+.sink.split.i:                                    ; preds = %.sink.split.fold.split.i, %98, %97, %96, %95, %70, %70, %70
+  %hf_gsmtap_channel_type.sink.i = phi ptr [ @hf_gsmtap_lte_rrc_channel_type, %96 ], [ @hf_gsmtap_e1t1_sub_type, %98 ], [ @hf_gsmtap_rrc_sub_type, %97 ], [ @hf_gsmtap_gmr1_channel_type, %95 ], [ %hf_gsmtap_burst_type.mux.mux.i, %70 ], [ %hf_gsmtap_burst_type.mux.mux.i, %70 ], [ %hf_gsmtap_burst_type.mux.mux.i, %70 ], [ @hf_gsmtap_burst_type, %.sink.split.fold.split.i ]
   %99 = load i32, ptr %hf_gsmtap_channel_type.sink.i, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %99, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   br label %101
 
-101:                                              ; preds = %.sink.split.i, %switch.early.test.i
+101:                                              ; preds = %.sink.split.i, %70
   %102 = load i32, ptr @hf_gsmtap_antenna, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %102, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
   %104 = load i32, ptr @hf_gsmtap_subslot, align 4
@@ -665,7 +662,7 @@ switch.early.test.i:                              ; preds = %70
   br label %106
 
 106:                                              ; preds = %101, %59
-  switch i8 %.fr.i, label %213 [
+  switch i8 %18, label %213 [
     i8 4, label %214
     i8 12, label %107
     i8 13, label %110
@@ -806,9 +803,9 @@ handle_tetra.exit.i:                              ; preds = %149, %145, %142
   br label %dissect_gsmtap_v2.exit
 
 153:                                              ; preds = %106
-  %switch.tableidx28 = add i8 %22, -16
-  %154 = icmp ult i8 %switch.tableidx28, 6
-  br i1 %154, label %switch.lookup29, label %select.unfold.i
+  %switch.tableidx29 = add i8 %22, -16
+  %154 = icmp ult i8 %switch.tableidx29, 6
+  br i1 %154, label %switch.lookup30, label %select.unfold.i
 
 155:                                              ; preds = %106
   switch i8 %22, label %159 [
@@ -984,13 +981,13 @@ handle_tetra.exit.i:                              ; preds = %149, %145, %142
   %229 = load ptr, ptr %228, align 8
   br label %.sink.split36.i
 
-switch.lookup29:                                  ; preds = %153
-  %230 = or disjoint i8 %switch.tableidx28, 8
+switch.lookup30:                                  ; preds = %153
+  %230 = or disjoint i8 %switch.tableidx29, 8
   %switch.offset = zext nneg i8 %230 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %153, %switch.lookup29, %213, %212, %211, %160, %159, %158, %157, %156, %155, %141, %140, %139, %132, %127, %122, %116, %116, %116, %116, %112, %110, %107, %106
-  %.0246.ph.i = phi i64 [ 25, %160 ], [ 16, %155 ], [ 7, %106 ], [ 0, %127 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 27, %212 ], [ 0, %211 ], [ 19, %158 ], [ 18, %157 ], [ 17, %156 ], [ 0, %159 ], [ 6, %141 ], [ 5, %140 ], [ 14, %132 ], [ 0, %139 ], [ 0, %213 ], [ 0, %107 ], [ 0, %110 ], [ 0, %112 ], [ %spec.select.i, %122 ], [ %switch.offset, %switch.lookup29 ], [ 0, %153 ]
+select.unfold.i:                                  ; preds = %153, %switch.lookup30, %213, %212, %211, %160, %159, %158, %157, %156, %155, %141, %140, %139, %132, %127, %122, %116, %116, %116, %116, %112, %110, %107, %106
+  %.0246.ph.i = phi i64 [ 25, %160 ], [ 16, %155 ], [ 7, %106 ], [ 0, %127 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 27, %212 ], [ 0, %211 ], [ 19, %158 ], [ 18, %157 ], [ 17, %156 ], [ 0, %159 ], [ 6, %141 ], [ 5, %140 ], [ 14, %132 ], [ 0, %139 ], [ 0, %213 ], [ 0, %107 ], [ 0, %110 ], [ 0, %112 ], [ %spec.select.i, %122 ], [ %switch.offset, %switch.lookup30 ], [ 0, %153 ]
   %231 = getelementptr ptr, ptr @sub_handles, i64 %.0246.ph.i
   %232 = load ptr, ptr %231, align 8
   %.not265.i = icmp eq ptr %232, null

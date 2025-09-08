@@ -18312,8 +18312,9 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i26: ; preds = %81, %78
 define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h09d2f2acaf6b76edE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call noundef i8 @"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17h6e4efce6411cb4fbE.llvm.15125219604780613101"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !3557
-  %or.cond.not = icmp samesign ult i8 %4, 3
-  br i1 %or.cond.not, label %7, label %5
+  %.off = add nsw i8 %4, -3
+  %switch = icmp ult i8 %.off, 2
+  br i1 %switch, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = icmp ne i8 %4, 4

@@ -73509,9 +73509,9 @@ ma_resource_manager_data_buffer_bst_unlock.exit:  ; preds = %ma_resource_manager
 300:                                              ; preds = %297
   %301 = call fastcc i32 @ma_resource_manager_data_buffer_node_init_supply_encoded(ptr noundef nonnull %0, ptr noundef nonnull %.0126, ptr noundef %1, ptr noundef %2)
   %.not90 = icmp eq i32 %301, 0
-  br i1 %.not90, label %.thread187, label %.sink.split
+  br i1 %.not90, label %.thread188, label %.sink.split
 
-.thread187:                                       ; preds = %300
+.thread188:                                       ; preds = %300
   %302 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %303 = atomicrmw xchg ptr %302, i32 0 seq_cst, align 8
   br label %ma_free.exit116.thread
@@ -73575,12 +73575,12 @@ ma_free.exit:                                     ; preds = %304
   br i1 %328, label %ma_free.exit116.thread, label %329
 
 .sink.split:                                      ; preds = %ma_free.exit, %300, %321
-  %.1186192.ph = phi i32 [ %307, %321 ], [ %301, %300 ], [ %305, %ma_free.exit ]
+  %.1187193.ph = phi i32 [ %307, %321 ], [ %301, %300 ], [ %305, %ma_free.exit ]
   call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %0, ptr noundef nonnull %.0126)
   br label %329
 
 329:                                              ; preds = %.sink.split, %324
-  %.1186192 = phi i32 [ -3, %324 ], [ %.1186192.ph, %.sink.split ]
+  %.1187193 = phi i32 [ -3, %324 ], [ %.1187193.ph, %.sink.split ]
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %331 = load ptr, ptr %330, align 8, !tbaa !26
   %.not9.i115 = icmp eq ptr %331, null
@@ -73591,8 +73591,8 @@ ma_free.exit:                                     ; preds = %304
   call void %331(ptr noundef nonnull %.0126, ptr noundef %333) #65
   br label %ma_free.exit116.thread
 
-ma_free.exit116.thread:                           ; preds = %.thread187, %291, %318, %320, %321, %324, %329, %332
-  %.1132135 = phi i32 [ %.1186192, %332 ], [ %.1186192, %329 ], [ -3, %324 ], [ 0, %321 ], [ 0, %320 ], [ 0, %318 ], [ 0, %291 ], [ 0, %.thread187 ]
+ma_free.exit116.thread:                           ; preds = %.thread188, %291, %318, %320, %321, %324, %329, %332
+  %.1132135 = phi i32 [ %.1187193, %332 ], [ %.1187193, %329 ], [ -3, %324 ], [ 0, %321 ], [ 0, %320 ], [ 0, %318 ], [ 0, %291 ], [ 0, %.thread188 ]
   %334 = getelementptr inbounds nuw i8, ptr %.0126, i64 20
   %335 = load i32, ptr %334, align 4, !tbaa !1587
   %.not91 = icmp eq i32 %335, 0

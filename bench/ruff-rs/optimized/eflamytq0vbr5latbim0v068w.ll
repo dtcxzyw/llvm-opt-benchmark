@@ -34632,9 +34632,9 @@ define internal fastcc noundef zeroext i1 @"_ZN18ty_python_semantic5types5infer2
 3:                                                ; preds = %3, %1
   %4 = call i64 @"_ZN102_$LT$ty_python_semantic..types..mro..MroIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3f20ba5638ef73bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
   %5 = and i64 %4, 4294967295
-  %6 = add nsw i64 %5, -7
-  %or.cond.not.i = icmp ult i64 %6, -2
-  br i1 %or.cond.not.i, label %3, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h58beaedcd7219d58E.exit
+  %.off.i = add nsw i64 %5, -5
+  %switch.i = icmp ult i64 %.off.i, 2
+  br i1 %switch.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h58beaedcd7219d58E.exit, label %3
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h58beaedcd7219d58E.exit: ; preds = %3
   %.not.i = icmp ne i64 %5, 6

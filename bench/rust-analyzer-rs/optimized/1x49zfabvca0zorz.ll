@@ -56281,8 +56281,9 @@ define void @_ZN3hir7Closure15display_with_id17h07909204a781142aE(ptr noalias no
           to label %.noexc.i unwind label %33, !noalias !12736
 
 .noexc.i:                                         ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbcfdefe9a188ece7E.exit"
-  %or.cond.not.i.i = icmp samesign ult i8 %27, 3
-  br i1 %or.cond.not.i.i, label %28, label %35
+  %.off.i.i = add nsw i8 %27, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %35, label %28
 
 28:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !12737
@@ -56459,8 +56460,9 @@ define void @_ZN3hir7Closure17display_with_impl17hb9789da5c57972c6E(ptr noalias 
           to label %.noexc.i unwind label %33, !noalias !12770
 
 .noexc.i:                                         ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbcfdefe9a188ece7E.exit"
-  %or.cond.not.i.i = icmp samesign ult i8 %27, 3
-  br i1 %or.cond.not.i.i, label %28, label %35
+  %.off.i.i = add nsw i8 %27, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %35, label %28
 
 28:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !12771

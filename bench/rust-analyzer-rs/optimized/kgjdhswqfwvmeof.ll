@@ -8959,8 +8959,9 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3544
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3542
-  %or.cond.not = icmp samesign ult i8 %39, 3
-  br i1 %or.cond.not, label %56, label %54
+  %.off = add nsw i8 %39, -3
+  %switch = icmp ult i8 %.off, 2
+  br i1 %switch, label %54, label %56
 
 54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit"
   %55 = icmp ne i8 %39, 4
