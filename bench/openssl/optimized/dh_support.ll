@@ -41,34 +41,36 @@ define ptr @ossl_dh_gen_type_id2name(i32 noundef %0) local_unnamed_addr #0 {
 define i32 @ossl_dh_gen_type_name2id(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %3
 
-3:                                                ; preds = %2, %16
-  %.010 = phi i64 [ 0, %2 ], [ %17, %16 ]
+3:                                                ; preds = %2, %17
+  %.010 = phi i64 [ 0, %2 ], [ %18, %17 ]
   %4 = getelementptr inbounds nuw %struct.dh_name2id_st, ptr @dhtype2id, i64 %.010
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !13
-  %7 = icmp eq i32 %6, -1
-  %8 = icmp eq i32 %1, %6
-  %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %9, label %16
+  %5 = icmp eq i64 %.010, 0
+  br i1 %5, label %10, label %6
 
-9:                                                ; preds = %3
-  %10 = load ptr, ptr %4, align 16, !tbaa !12
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #3
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %16
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %8 = load i32, ptr %7, align 4, !tbaa !13
+  %9 = icmp eq i32 %1, %8
+  br i1 %9, label %10, label %17
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !5
+10:                                               ; preds = %6, %3
+  %11 = load ptr, ptr %4, align 16, !tbaa !12
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %0) #3
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = load i32, ptr %15, align 8, !tbaa !5
   br label %.loopexit
 
-16:                                               ; preds = %3, %9
-  %17 = add nuw nsw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %17, 4
+17:                                               ; preds = %6, %10
+  %18 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %18, 4
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !14
 
-.loopexit:                                        ; preds = %16, %13
-  %.08 = phi i32 [ %15, %13 ], [ -1, %16 ]
+.loopexit:                                        ; preds = %17, %14
+  %.08 = phi i32 [ %16, %14 ], [ -1, %17 ]
   ret i32 %.08
 }
 

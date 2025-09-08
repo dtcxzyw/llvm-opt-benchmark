@@ -176,58 +176,57 @@ define dso_local i32 @whitespace_rule(ptr noundef %0, ptr noundef %1) local_unna
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = icmp eq ptr %12, @git_attr__true
-  br i1 %13, label %14, label %27
+  br i1 %13, label %14, label %24
 
 14:                                               ; preds = %6
   %15 = load i32, ptr @whitespace_rule_cfg, align 4, !tbaa !26
   %16 = and i32 %15, 63
   br label %17
 
-17:                                               ; preds = %14, %26
-  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %26 ]
-  %.01319 = phi i32 [ %16, %14 ], [ %.1, %26 ]
-  %18 = getelementptr inbounds nuw %struct.whitespace_rule, ptr @whitespace_rule_names, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 3
-  %or.cond = icmp eq i8 %21, 0
-  br i1 %or.cond, label %22, label %26
+17:                                               ; preds = %14, %23
+  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %23 ]
+  %.01319 = phi i32 [ %16, %14 ], [ %.1, %23 ]
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %18, label %19 [
+    i32 3, label %23
+    i32 6, label %23
+  ]
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !14
-  %25 = or i32 %24, %.01319
-  br label %26
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw %struct.whitespace_rule, ptr @whitespace_rule_names, i64 %indvars.iv, i32 1
+  %21 = load i32, ptr %20, align 8, !tbaa !14
+  %22 = or i32 %21, %.01319
+  br label %23
 
-26:                                               ; preds = %17, %22
-  %.1 = phi i32 [ %.01319, %17 ], [ %25, %22 ]
+23:                                               ; preds = %17, %17, %19
+  %.1 = phi i32 [ %.01319, %17 ], [ %22, %19 ], [ %.01319, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !27
 
-27:                                               ; preds = %6
-  %28 = icmp eq ptr %12, @git_attr__false
-  br i1 %28, label %29, label %32
+24:                                               ; preds = %6
+  %25 = icmp eq ptr %12, @git_attr__false
+  br i1 %25, label %26, label %29
 
-29:                                               ; preds = %27
-  %30 = load i32, ptr @whitespace_rule_cfg, align 4, !tbaa !26
-  %31 = and i32 %30, 63
+26:                                               ; preds = %24
+  %27 = load i32, ptr @whitespace_rule_cfg, align 4, !tbaa !26
+  %28 = and i32 %27, 63
   br label %.loopexit
 
-32:                                               ; preds = %27
-  %33 = icmp eq ptr %12, null
-  br i1 %33, label %34, label %36
+29:                                               ; preds = %24
+  %30 = icmp eq ptr %12, null
+  br i1 %30, label %31, label %33
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr @whitespace_rule_cfg, align 4, !tbaa !26
+31:                                               ; preds = %29
+  %32 = load i32, ptr @whitespace_rule_cfg, align 4, !tbaa !26
   br label %.loopexit
 
-36:                                               ; preds = %32
-  %37 = tail call i32 @parse_whitespace_rule(ptr noundef nonnull %12)
+33:                                               ; preds = %29
+  %34 = tail call i32 @parse_whitespace_rule(ptr noundef nonnull %12)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %36, %34, %29
-  %.014 = phi i32 [ %31, %29 ], [ %35, %34 ], [ %37, %36 ], [ %.1, %26 ]
+.loopexit:                                        ; preds = %23, %33, %31, %26
+  %.014 = phi i32 [ %28, %26 ], [ %32, %31 ], [ %34, %33 ], [ %.1, %23 ]
   ret i32 %.014
 }
 

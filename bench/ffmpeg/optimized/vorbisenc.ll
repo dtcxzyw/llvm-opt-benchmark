@@ -502,42 +502,35 @@ cb_lookup_vals.exit.i.i:                          ; preds = %87, %85, %82
 
 .lr.ph322.i:                                      ; preds = %.preheader297.i, %._crit_edge320.i
   %indvar.i = phi i64 [ %indvar.next.i, %._crit_edge320.i ], [ 0, %.preheader297.i ]
-  %209 = mul nuw nsw i64 %indvar.i, 28
-  %210 = getelementptr i8, ptr @floor_classes, i64 %209
-  %scevgep.i = getelementptr i8, ptr %210, i64 12
-  %211 = load ptr, ptr %206, align 8, !tbaa !82
-  %212 = getelementptr inbounds nuw %struct.vorbis_enc_floor_class, ptr %211, i64 %indvar.i
-  %213 = getelementptr inbounds nuw %struct.anon.1, ptr @floor_classes, i64 %indvar.i
-  %214 = load i32, ptr %213, align 4, !tbaa !83
-  store i32 %214, ptr %212, align 8, !tbaa !85
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %216 = load i32, ptr %215, align 4, !tbaa !87
-  %217 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store i32 %216, ptr %217, align 4, !tbaa !88
-  %218 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %219 = load i32, ptr %218, align 4, !tbaa !89
-  %220 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store i32 %219, ptr %220, align 8, !tbaa !90
-  %221 = shl nuw i32 1, %216
-  %222 = sext i32 %221 to i64
-  %223 = tail call ptr @av_malloc_array(i64 noundef %222, i64 noundef 4) #12
-  %224 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  store ptr %223, ptr %224, align 8, !tbaa !91
-  %.not273.not.i = icmp eq ptr %223, null
-  br i1 %.not273.not.i, label %create_vorbis_context.exit.thread, label %.preheader296.i
+  %209 = load ptr, ptr %206, align 8, !tbaa !82
+  %210 = getelementptr inbounds nuw %struct.vorbis_enc_floor_class, ptr %209, i64 %indvar.i
+  %211 = getelementptr inbounds nuw %struct.anon.1, ptr @floor_classes, i64 %indvar.i
+  %212 = load i32, ptr %211, align 4, !tbaa !83
+  store i32 %212, ptr %210, align 8, !tbaa !85
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  %214 = load i32, ptr %213, align 4, !tbaa !87
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 4
+  store i32 %214, ptr %215, align 4, !tbaa !88
+  %216 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %217 = load i32, ptr %216, align 4, !tbaa !89
+  %218 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store i32 %217, ptr %218, align 8, !tbaa !90
+  %219 = shl nuw i32 1, %214
+  %220 = sext i32 %219 to i64
+  %221 = tail call ptr @av_malloc_array(i64 noundef %220, i64 noundef 4) #12
+  %222 = getelementptr inbounds nuw i8, ptr %210, i64 16
+  store ptr %221, ptr %222, align 8, !tbaa !91
+  %.not273.not.i = icmp eq ptr %221, null
+  br i1 %.not273.not.i, label %create_vorbis_context.exit.thread, label %._crit_edge320.i
 
-.preheader296.i:                                  ; preds = %.lr.ph322.i
-  %.not340.i = icmp eq i32 %216, 31
-  br i1 %.not340.i, label %._crit_edge320.i, label %.lr.ph319.i
-
-.lr.ph319.i:                                      ; preds = %.preheader296.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %221, i32 1)
+._crit_edge320.i:                                 ; preds = %.lr.ph322.i
+  %223 = mul nuw nsw i64 %indvar.i, 28
+  %224 = getelementptr i8, ptr @floor_classes, i64 %223
+  %scevgep.i = getelementptr i8, ptr %224, i64 12
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %219, i32 1)
   %225 = zext nneg i32 %smax.i to i64
   %226 = shl nuw nsw i64 %225, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %223, ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i64 %226, i1 false), !tbaa !44
-  br label %._crit_edge320.i
-
-._crit_edge320.i:                                 ; preds = %.lr.ph319.i, %.preheader296.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %221, ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i64 %226, i1 false), !tbaa !44
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %227 = load i32, ptr %192, align 8, !tbaa !81
   %228 = sext i32 %227 to i64

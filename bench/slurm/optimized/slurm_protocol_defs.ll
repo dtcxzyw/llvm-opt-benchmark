@@ -1104,10 +1104,9 @@ node_state_flag_string_single.exit:               ; preds = %.preheader.i
   %10 = xor i32 %7, -1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %node_state_flag_string_single.exit.thread.loopexit, label %13
+  br label %13
 
-13:                                               ; preds = %node_state_flag_string_single.exit.thread4, %node_state_flag_string_single.exit
+13:                                               ; preds = %node_state_flag_string_single.exit, %node_state_flag_string_single.exit.thread4
   %.014.i9 = phi ptr [ @.str.91, %node_state_flag_string_single.exit.thread4 ], [ %12, %node_state_flag_string_single.exit ]
   %.pn = phi i32 [ %9, %node_state_flag_string_single.exit.thread4 ], [ %10, %node_state_flag_string_single.exit ]
   %.18 = and i32 %.pn, %.014
@@ -1116,7 +1115,7 @@ node_state_flag_string_single.exit:               ; preds = %.preheader.i
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %node_state_flag_string_single.exit.thread.loopexit, label %.preheader.i.preheader, !llvm.loop !15
 
-node_state_flag_string_single.exit.thread.loopexit: ; preds = %13, %node_state_flag_string_single.exit
+node_state_flag_string_single.exit.thread.loopexit: ; preds = %13
   %.pre = load ptr, ptr %2, align 8
   br label %node_state_flag_string_single.exit.thread
 
@@ -1901,8 +1900,7 @@ node_state_flag_string_single.exit.i:             ; preds = %.preheader.i.i
   %22 = xor i32 %19, -1
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %node_state_flag_string.exit, label %25
+  br label %25
 
 25:                                               ; preds = %node_state_flag_string_single.exit.i, %node_state_flag_string_single.exit.thread4.i
   %.014.i9.i = phi ptr [ @.str.91, %node_state_flag_string_single.exit.thread4.i ], [ %24, %node_state_flag_string_single.exit.i ]
@@ -1913,7 +1911,7 @@ node_state_flag_string_single.exit.i:             ; preds = %.preheader.i.i
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %node_state_flag_string.exit, label %.preheader.i.preheader.i, !llvm.loop !15
 
-node_state_flag_string.exit:                      ; preds = %node_state_flag_string_single.exit.i, %25
+node_state_flag_string.exit:                      ; preds = %25
   %.pre.i = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %.pre.i, ptr %4, align 8

@@ -1690,18 +1690,20 @@ define internal noundef i32 @pcm_decode_init(ptr noundef captures(none) %0) #0 {
   %18 = sext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 %18, ptr %19, align 4, !tbaa !34
-  %20 = icmp eq i8 %17, 2
-  br i1 %20, label %21, label %.loopexit
+  %20 = shl nuw nsw i64 1, %indvars.iv
+  %21 = and i64 %20, 7867776
+  %.not = icmp eq i64 %21, 0
+  br i1 %.not, label %.loopexit, label %22
 
-21:                                               ; preds = %11
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %23 = load i8, ptr %22, align 2, !tbaa !122
-  %24 = zext i8 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  store i32 %24, ptr %25, align 4, !tbaa !123
+22:                                               ; preds = %11
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 6
+  %24 = load i8, ptr %23, align 2, !tbaa !122
+  %25 = zext i8 %24 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  store i32 %25, ptr %26, align 4, !tbaa !123
   br label %.loopexit
 
-.loopexit:                                        ; preds = %6, %11, %21
+.loopexit:                                        ; preds = %6, %11, %22
   ret i32 0
 }
 

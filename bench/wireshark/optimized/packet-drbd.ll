@@ -1091,7 +1091,7 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
   %11 = call fastcc ptr @decode_header(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %4)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %100, label %12
+  br i1 %.not, label %101, label %12
 
 12:                                               ; preds = %3
   %13 = load i16, ptr %4, align 2
@@ -1223,46 +1223,45 @@ find_payload_decoder.exit:                        ; preds = %77
   %85 = and i16 %84, 8
   %86 = icmp eq i16 %85, 0
   %87 = icmp ne ptr %78, null
-  %or.cond = and i1 %87, %86
-  br i1 %or.cond, label %88, label %92
+  %88 = and i64 %indvars.iv.i, 2305843009213693950
+  %.not48.not = icmp eq i64 %88, 28
+  %89 = and i1 %86, %.not48.not
+  %or.cond58 = and i1 %89, %87
+  br i1 %or.cond58, label %90, label %93
 
-88:                                               ; preds = %find_payload_decoder.exit
-  %89 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %.not48 = icmp eq ptr %90, null
-  br i1 %.not48, label %92, label %91
+90:                                               ; preds = %find_payload_decoder.exit
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %92 = load ptr, ptr %91, align 8
+  tail call void %92(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %.0)
+  br label %93
 
-91:                                               ; preds = %88
-  tail call void %90(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %.0)
-  br label %92
-
-92:                                               ; preds = %91, %88, %find_payload_decoder.exit
-  %93 = icmp eq ptr %2, null
-  br i1 %93, label %100, label %95
+93:                                               ; preds = %90, %find_payload_decoder.exit
+  %94 = icmp eq ptr %2, null
+  br i1 %94, label %101, label %96
 
 .thread:                                          ; preds = %76
-  %94 = icmp eq ptr %2, null
-  br i1 %94, label %100, label %.thread55
+  %95 = icmp eq ptr %2, null
+  br i1 %95, label %101, label %.thread55
 
 .thread55:                                        ; preds = %.thread
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %8, ptr noundef nonnull @.str.380, ptr noundef %15)
-  br label %100
+  br label %101
 
-95:                                               ; preds = %92
+96:                                               ; preds = %93
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %8, ptr noundef nonnull @.str.380, ptr noundef %15)
-  br i1 %87, label %96, label %100
+  br i1 %87, label %97, label %101
 
-96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %.not49 = icmp eq ptr %98, null
-  br i1 %.not49, label %100, label %99
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %.not49 = icmp eq ptr %99, null
+  br i1 %.not49, label %101, label %100
 
-99:                                               ; preds = %96
-  tail call void %98(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %.0)
-  br label %100
+100:                                              ; preds = %97
+  tail call void %99(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %.0)
+  br label %101
 
-100:                                              ; preds = %.thread55, %.thread, %92, %99, %96, %95, %3
+101:                                              ; preds = %.thread55, %.thread, %93, %100, %97, %96, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

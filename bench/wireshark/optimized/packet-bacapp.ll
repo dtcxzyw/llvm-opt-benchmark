@@ -18694,52 +18694,48 @@ define internal fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr no
 
 15:                                               ; preds = %4
   %16 = tail call fastcc i32 @fBooleanTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %35
+  br label %34
 
 17:                                               ; preds = %4
   %18 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %35
+  br label %34
 
 19:                                               ; preds = %4
   %20 = tail call fastcc i32 @fSignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %35
+  br label %34
 
 21:                                               ; preds = %4
   %22 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14)
-  br label %35
+  br label %34
 
-.preheader:                                       ; preds = %4, %29
-  %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %4 ]
-  %23 = getelementptr %struct._value_string_enum, ptr @BACnetPropertyStatesEnums, i64 %indvars.iv
-  %24 = load i8, ptr %23, align 16
-  %25 = icmp eq i8 %24, %11
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %.preheader
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %30
-
-29:                                               ; preds = %26, %.preheader
+23:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 56
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !159
 
-30:                                               ; preds = %26
-  %31 = icmp eq ptr %23, null
-  br i1 %31, label %.thread, label %33
+.preheader:                                       ; preds = %4, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %4 ]
+  %24 = getelementptr %struct._value_string_enum, ptr @BACnetPropertyStatesEnums, i64 %indvars.iv
+  %25 = load i8, ptr %24, align 16
+  %26 = icmp eq i8 %25, %11
+  br i1 %26, label %27, label %23
 
-.thread:                                          ; preds = %29, %30
-  %32 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef null, i32 noundef 0)
-  br label %35
+27:                                               ; preds = %.preheader
+  %28 = icmp eq ptr %24, null
+  br i1 %28, label %.thread, label %30
 
-33:                                               ; preds = %30
-  %34 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef nonnull %28, i32 noundef 64)
-  br label %35
+.thread:                                          ; preds = %23, %27
+  %29 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef null, i32 noundef 0)
+  br label %34
 
-35:                                               ; preds = %.thread, %33, %21, %19, %17, %15
-  %.041 = phi i32 [ %32, %.thread ], [ %34, %33 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %14, ptr noundef %32, i32 noundef 64)
+  br label %34
+
+34:                                               ; preds = %.thread, %30, %21, %19, %17, %15
+  %.041 = phi i32 [ %29, %.thread ], [ %33, %30 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

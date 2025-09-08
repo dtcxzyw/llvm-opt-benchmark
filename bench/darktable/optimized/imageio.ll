@@ -792,17 +792,17 @@ define range(i32 0, 2) i32 @dt_imageio_is_ldr(ptr noundef readonly captures(addr
 define internal fastcc ptr @_find_signature(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #8 {
   %2 = alloca [512 x i8], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %73, label %3
+  br i1 %.not, label %74, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1, !tbaa !53
   %.not36 = icmp eq i8 %4, 0
-  br i1 %.not36, label %73, label %5
+  br i1 %.not36, label %74, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.127)
   %.not37 = icmp eq ptr %6, null
-  br i1 %.not37, label %73, label %7
+  br i1 %.not37, label %74, label %7
 
 7:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -826,8 +826,8 @@ define internal fastcc ptr @_find_signature(ptr noundef readonly captures(addres
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %_memfind.exit.thread.us
-  %.03059.us = phi i64 [ %37, %_memfind.exit.thread.us ], [ 0, %.preheader.split.us.preheader ]
-  %12 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03059.us
+  %.03061.us = phi i64 [ %38, %_memfind.exit.thread.us ], [ 0, %.preheader.split.us.preheader ]
+  %12 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03061.us
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !92
   %15 = zext i32 %14 to i64
@@ -841,123 +841,121 @@ define internal fastcc ptr @_find_signature(ptr noundef readonly captures(addres
   br i1 %21, label %22, label %_memfind.exit.thread.us
 
 22:                                               ; preds = %.preheader.split.us
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !94
-  %.not38.us = icmp eq ptr %24, null
-  br i1 %.not38.us, label %.thread57, label %25
+  %23 = add nsw i64 %.03061.us, -45
+  %.not38.us = icmp ult i64 %23, -10
+  br i1 %.not38.us, label %.thread57, label %24
 
-25:                                               ; preds = %22
-  %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #19
-  %27 = sub i64 512, %26
-  %.not17.not.i.us = icmp eq i64 %26, 512
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %26 = load ptr, ptr %25, align 8, !tbaa !94
+  %27 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #19
+  %28 = sub i64 512, %27
+  %.not17.not.i.us = icmp eq i64 %27, 512
   br i1 %.not17.not.i.us, label %_memfind.exit.thread.us, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %25
-  %28 = load i8, ptr %24, align 1, !tbaa !53
-  br label %29
+.lr.ph.i.us:                                      ; preds = %24
+  %29 = load i8, ptr %26, align 1, !tbaa !53
+  br label %30
 
-29:                                               ; preds = %35, %.lr.ph.i.us
-  %.01418.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %36, %35 ]
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %.01418.i.us
-  %31 = load i8, ptr %30, align 1, !tbaa !53
-  %32 = icmp eq i8 %31, %28
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %36, %.lr.ph.i.us
+  %.01418.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %36 ]
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.01418.i.us
+  %32 = load i8, ptr %31, align 1, !tbaa !53
+  %33 = icmp eq i8 %32, %29
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
-  %bcmp.i.us = call i32 @bcmp(ptr nonnull readonly %30, ptr nonnull readonly %24, i64 %26)
-  %34 = icmp eq i32 %bcmp.i.us, 0
-  br i1 %34, label %.thread57, label %35
+34:                                               ; preds = %30
+  %bcmp.i.us = call i32 @bcmp(ptr nonnull readonly %31, ptr nonnull readonly %26, i64 %27)
+  %35 = icmp eq i32 %bcmp.i.us, 0
+  br i1 %35, label %.thread57, label %36
 
-35:                                               ; preds = %33, %29
-  %36 = add nuw i64 %.01418.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %36, %27
-  br i1 %exitcond.not.i.us, label %_memfind.exit.thread.us, label %29
+36:                                               ; preds = %34, %30
+  %37 = add nuw i64 %.01418.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %37, %28
+  br i1 %exitcond.not.i.us, label %_memfind.exit.thread.us, label %30
 
-_memfind.exit.thread.us:                          ; preds = %35, %25, %.preheader.split.us
-  %37 = add nuw nsw i64 %.03059.us, 1
-  %exitcond = icmp eq i64 %37, 100
+_memfind.exit.thread.us:                          ; preds = %36, %24, %.preheader.split.us
+  %38 = add nuw nsw i64 %.03061.us, 1
+  %exitcond = icmp eq i64 %38, 100
   br i1 %exitcond, label %.thread52, label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %_memfind.exit.thread
-  %.03059 = phi i64 [ %65, %_memfind.exit.thread ], [ 0, %.preheader ]
-  %38 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03059
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !92
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !93
-  %46 = zext i32 %45 to i64
-  %bcmp = call i32 @bcmp(ptr nonnull %42, ptr nonnull %43, i64 %46)
-  %47 = icmp eq i32 %bcmp, 0
-  br i1 %47, label %48, label %_memfind.exit.thread
+  %.03061 = phi i64 [ %66, %_memfind.exit.thread ], [ 0, %.preheader ]
+  %39 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03061
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 8, !tbaa !92
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %46 = load i32, ptr %45, align 4, !tbaa !93
+  %47 = zext i32 %46 to i64
+  %bcmp = call i32 @bcmp(ptr nonnull %43, ptr nonnull %44, i64 %47)
+  %48 = icmp eq i32 %bcmp, 0
+  br i1 %48, label %49, label %_memfind.exit.thread
 
-48:                                               ; preds = %.preheader.split
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %50 = load ptr, ptr %49, align 8, !tbaa !94
-  %.not38 = icmp eq ptr %50, null
+49:                                               ; preds = %.preheader.split
+  %50 = add nsw i64 %.03061, -45
+  %.not38 = icmp ult i64 %50, -10
   br i1 %.not38, label %_memfind.exit.thread56, label %51
 
-51:                                               ; preds = %48
-  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #19
-  %53 = sub i64 512, %52
-  %.not17.not.i = icmp eq i64 %52, 512
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 56
+  %53 = load ptr, ptr %52, align 8, !tbaa !94
+  %54 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %53) #19
+  %55 = sub i64 512, %54
+  %.not17.not.i = icmp eq i64 %54, 512
   br i1 %.not17.not.i, label %_memfind.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51
-  %54 = load i8, ptr %50, align 1, !tbaa !53
-  br label %55
+  %56 = load i8, ptr %53, align 1, !tbaa !53
+  br label %57
 
-55:                                               ; preds = %61, %.lr.ph.i
-  %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %61 ]
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 %.01418.i
-  %57 = load i8, ptr %56, align 1, !tbaa !53
-  %58 = icmp eq i8 %57, %54
-  br i1 %58, label %59, label %61
+57:                                               ; preds = %63, %.lr.ph.i
+  %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %63 ]
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %.01418.i
+  %59 = load i8, ptr %58, align 1, !tbaa !53
+  %60 = icmp eq i8 %59, %56
+  br i1 %60, label %61, label %63
 
-59:                                               ; preds = %55
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %56, ptr nonnull readonly %50, i64 %52)
-  %60 = icmp eq i32 %bcmp.i, 0
-  br i1 %60, label %_memfind.exit, label %61
+61:                                               ; preds = %57
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %58, ptr nonnull readonly %53, i64 %54)
+  %62 = icmp eq i32 %bcmp.i, 0
+  br i1 %62, label %.thread57, label %63
 
-61:                                               ; preds = %59, %55
-  %62 = add nuw i64 %.01418.i, 1
-  %exitcond.not.i = icmp eq i64 %62, %53
-  br i1 %exitcond.not.i, label %_memfind.exit.thread, label %55
+63:                                               ; preds = %61, %57
+  %64 = add nuw i64 %.01418.i, 1
+  %exitcond.not.i = icmp eq i64 %64, %55
+  br i1 %exitcond.not.i, label %_memfind.exit.thread, label %57
 
-_memfind.exit:                                    ; preds = %59
-  %63 = icmp eq i64 %.03059, 64
-  br i1 %63, label %_memfind.exit.thread, label %.thread57
+_memfind.exit.thread56:                           ; preds = %49
+  %65 = icmp eq i64 %.03061, 64
+  br i1 %65, label %_memfind.exit.thread, label %.thread57
 
-_memfind.exit.thread56:                           ; preds = %48
-  %64 = icmp eq i64 %.03059, 64
-  br i1 %64, label %_memfind.exit.thread, label %.thread57
-
-_memfind.exit.thread:                             ; preds = %61, %_memfind.exit, %_memfind.exit.thread56, %51, %.preheader.split
-  %65 = add nuw nsw i64 %.03059, 1
-  %exitcond73 = icmp eq i64 %65, 100
-  br i1 %exitcond73, label %.thread52, label %.preheader.split
+_memfind.exit.thread:                             ; preds = %63, %_memfind.exit.thread56, %51, %.preheader.split
+  %66 = add nuw nsw i64 %.03061, 1
+  %exitcond76 = icmp eq i64 %66, 100
+  br i1 %exitcond76, label %.thread52, label %.preheader.split
 
 .thread52:                                        ; preds = %_memfind.exit.thread.us, %_memfind.exit.thread
-  %66 = load i8, ptr %2, align 16, !tbaa !53
-  %67 = icmp eq i8 %66, 40
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %69 = load i8, ptr %68, align 1
-  %70 = icmp eq i8 %69, 0
-  %or.cond = select i1 %67, i1 %70, i1 false
-  %71 = and i32 %lhsv.fr, 65535
-  %72 = icmp eq i32 %71, 1
-  %or.cond11 = and i1 %or.cond, %72
+  %67 = load i8, ptr %2, align 16, !tbaa !53
+  %68 = icmp eq i8 %67, 40
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, 0
+  %or.cond = select i1 %68, i1 %71, i1 false
+  %72 = and i32 %lhsv.fr, 65535
+  %73 = icmp eq i32 %72, 1
+  %or.cond11 = and i1 %or.cond, %73
   %_windows_BMP_signature. = select i1 %or.cond11, ptr @_windows_BMP_signature, ptr null
   br label %.thread57
 
-.thread57:                                        ; preds = %22, %33, %_memfind.exit.thread56, %_memfind.exit, %.thread52, %7
-  %.2 = phi ptr [ null, %7 ], [ %_windows_BMP_signature., %.thread52 ], [ %38, %_memfind.exit ], [ %38, %_memfind.exit.thread56 ], [ %12, %33 ], [ %12, %22 ]
+.thread57:                                        ; preds = %22, %34, %_memfind.exit.thread56, %61, %.thread52, %7
+  %.2 = phi ptr [ null, %7 ], [ %_windows_BMP_signature., %.thread52 ], [ %39, %61 ], [ %39, %_memfind.exit.thread56 ], [ %12, %34 ], [ %12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %73
+  br label %74
 
-73:                                               ; preds = %.thread57, %5, %1, %3
+74:                                               ; preds = %.thread57, %5, %1, %3
   %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %.2, %.thread57 ], [ null, %5 ]
   ret ptr %.0
 }

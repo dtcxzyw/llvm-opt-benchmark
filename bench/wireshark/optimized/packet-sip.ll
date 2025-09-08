@@ -1699,21 +1699,19 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
 
 38:                                               ; preds = %34, %38
   %indvars.iv44 = phi i64 [ 1, %34 ], [ %indvars.iv.next45, %38 ]
-  %39 = phi ptr [ @.str.2, %34 ], [ %47, %38 ]
-  %40 = phi ptr [ getelementptr inbounds nuw (i8, ptr @sip_response_code_vals, i64 16), %34 ], [ %45, %38 ]
-  %41 = load i32, ptr %40, align 16
-  %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.960, i32 noundef %41, ptr noundef nonnull %39)
-  store ptr %42, ptr %36, align 8
-  store i32 %41, ptr %37, align 16
-  %43 = trunc i64 %indvars.iv44 to i32
-  %44 = add i32 %43, -1
-  call void @stat_tap_init_table_row(ptr noundef %35, i32 noundef %44, i32 noundef 6, ptr noundef nonnull %2)
+  %39 = getelementptr %struct._value_string, ptr @sip_response_code_vals, i64 %indvars.iv44
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %39, align 16
+  %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.960, i32 noundef %42, ptr noundef %41)
+  store ptr %43, ptr %36, align 8
+  store i32 %42, ptr %37, align 16
+  %44 = trunc i64 %indvars.iv44 to i32
+  %45 = add i32 %44, -1
+  call void @stat_tap_init_table_row(ptr noundef %35, i32 noundef %45, i32 noundef 6, ptr noundef nonnull %2)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %45 = getelementptr %struct._value_string, ptr @sip_response_code_vals, i64 %indvars.iv.next45
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %exitcond47 = icmp eq i64 %indvars.iv.next45, 75
-  br i1 %exitcond47, label %.loopexit, label %38, !llvm.loop !9
+  %.not38 = icmp eq i64 %indvars.iv.next45, 75
+  br i1 %.not38, label %.loopexit, label %38, !llvm.loop !9
 
 .loopexit:                                        ; preds = %38, %30, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

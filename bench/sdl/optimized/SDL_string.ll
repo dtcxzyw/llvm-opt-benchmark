@@ -420,164 +420,163 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
   %9 = icmp ult i32 %0, 65536
   %10 = lshr i32 %0, 8
   %11 = xor i32 %10, %0
-  br i1 %9, label %12, label %66
+  br i1 %9, label %12, label %.critedge114.lr.ph
 
 12:                                               ; preds = %8
+  %trunc = trunc i32 %11 to i8
+  switch i8 %trunc, label %.critedge.lr.ph [
+    i8 125, label %.lr.ph
+    i8 123, label %.lr.ph
+  ]
+
+.critedge.lr.ph:                                  ; preds = %12
   %.mask = and i32 %11, 255
   %13 = zext nneg i32 %.mask to i64
   %14 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_16, ptr @case_fold_hash1_16, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
-  %.not108141.not = icmp eq i8 %16, 0
-  br i1 %.not108141.not, label %._crit_edge, label %.critedge.lr.ph
-
-.critedge.lr.ph:                                  ; preds = %12
   %17 = load ptr, ptr %14, align 16
-  %wide.trip.count165 = zext i8 %16 to i64
+  %18 = tail call i8 @llvm.umax.i8(i8 %16, i8 1)
+  %wide.trip.count166 = zext i8 %18 to i64
   br label %.critedge
 
-18:                                               ; preds = %.critedge
+19:                                               ; preds = %.critedge
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge, label %.critedge, !llvm.loop !3
+  %exitcond167.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count166
+  br i1 %exitcond167.not, label %.lr.ph, label %.critedge, !llvm.loop !3
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %18
-  %indvars.iv162 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next163, %18 ]
-  %19 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv162
-  %20 = load i16, ptr %19, align 2
-  %21 = zext i16 %20 to i32
-  %.not107 = icmp eq i32 %0, %21
-  br i1 %.not107, label %.thread, label %18
+.critedge:                                        ; preds = %.critedge.lr.ph, %19
+  %indvars.iv162 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next163, %19 ]
+  %20 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv162
+  %21 = load i16, ptr %20, align 2
+  %22 = zext i16 %21 to i32
+  %.not107 = icmp eq i32 %0, %22
+  br i1 %.not107, label %.thread, label %19
 
 .thread:                                          ; preds = %.critedge
-  %22 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv162, i32 1
-  %23 = load i16, ptr %22, align 2
-  %24 = zext i16 %23 to i32
-  store i32 %24, ptr %1, align 4
+  %23 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv162, i32 1
+  %24 = load i16, ptr %23, align 2
+  %25 = zext i16 %24 to i32
+  store i32 %25, ptr %1, align 4
   br label %.thread125
 
-._crit_edge:                                      ; preds = %18, %12
-  %25 = and i32 %11, 15
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.CaseFoldHashBucket2_16, ptr @case_fold_hash2_16, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i8, ptr %28, align 8
-  %.not110143.not = icmp eq i8 %29, 0
-  br i1 %.not110143.not, label %._crit_edge146, label %.lr.ph
+.lr.ph:                                           ; preds = %19, %12, %12
+  %26 = and i32 %11, 15
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw %struct.CaseFoldHashBucket2_16, ptr @case_fold_hash2_16, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i8, ptr %29, align 8
+  %31 = load ptr, ptr %28, align 16
+  %32 = tail call i8 @llvm.umax.i8(i8 %30, i8 1)
+  %wide.trip.count172 = zext i8 %32 to i64
+  br label %34
 
-.lr.ph:                                           ; preds = %._crit_edge
-  %30 = load ptr, ptr %27, align 16
-  %wide.trip.count170 = zext i8 %29 to i64
-  br label %32
+33:                                               ; preds = %34
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond173.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count172
+  br i1 %exitcond173.not, label %._crit_edge146, label %34, !llvm.loop !5
 
-31:                                               ; preds = %32
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %._crit_edge146, label %32, !llvm.loop !5
+34:                                               ; preds = %.lr.ph, %33
+  %indvars.iv168 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next169, %33 ]
+  %35 = getelementptr inbounds nuw %struct.CaseFoldMapping2_16, ptr %31, i64 %indvars.iv168
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  %.not109 = icmp eq i32 %0, %37
+  br i1 %.not109, label %.thread120, label %33
 
-32:                                               ; preds = %.lr.ph, %31
-  %indvars.iv167 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next168, %31 ]
-  %33 = getelementptr inbounds nuw %struct.CaseFoldMapping2_16, ptr %30, i64 %indvars.iv167
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i32
-  %.not109 = icmp eq i32 %0, %35
-  br i1 %.not109, label %.thread120, label %31
-
-.thread120:                                       ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 2
-  %37 = load i16, ptr %36, align 2
-  %38 = zext i16 %37 to i32
-  store i32 %38, ptr %1, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %40 = load i16, ptr %39, align 2
-  %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %41, ptr %42, align 4
+.thread120:                                       ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  store i32 %40, ptr %1, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %42 = load i16, ptr %41, align 2
+  %43 = zext i16 %42 to i32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %43, ptr %44, align 4
   br label %.thread125
 
-._crit_edge146:                                   ; preds = %31, %._crit_edge
-  %43 = and i32 %11, 3
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.CaseFoldHashBucket3_16, ptr @case_fold_hash3_16, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i8, ptr %46, align 8
-  %.not112149.not = icmp eq i8 %47, 0
+._crit_edge146:                                   ; preds = %33
+  %45 = and i32 %11, 3
+  %.not112149.not = icmp eq i32 %45, 2
   br i1 %.not112149.not, label %.thread129, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %._crit_edge146
-  %48 = load ptr, ptr %45, align 16
-  %wide.trip.count175 = zext i8 %47 to i64
-  br label %50
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw %struct.CaseFoldHashBucket3_16, ptr @case_fold_hash3_16, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load i8, ptr %48, align 8
+  %50 = load ptr, ptr %47, align 16
+  %51 = tail call i8 @llvm.umax.i8(i8 %49, i8 1)
+  %wide.trip.count178 = zext i8 %51 to i64
+  br label %53
 
-49:                                               ; preds = %50
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %.thread129, label %50, !llvm.loop !6
+52:                                               ; preds = %53
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count178
+  br i1 %exitcond179.not, label %.thread129, label %53, !llvm.loop !6
 
-50:                                               ; preds = %.lr.ph152, %49
-  %indvars.iv172 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next173, %49 ]
-  %51 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %48, i64 %indvars.iv172
-  %52 = load i16, ptr %51, align 2
-  %53 = zext i16 %52 to i32
-  %.not111 = icmp eq i32 %0, %53
-  br i1 %.not111, label %.thread123, label %49
+53:                                               ; preds = %.lr.ph152, %52
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next175, %52 ]
+  %54 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %50, i64 %indvars.iv174
+  %55 = load i16, ptr %54, align 2
+  %56 = zext i16 %55 to i32
+  %.not111 = icmp eq i32 %0, %56
+  br i1 %.not111, label %.thread123, label %52
 
-.thread123:                                       ; preds = %50
-  %54 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %48, i64 %indvars.iv172
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  store i32 %57, ptr %1, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 4
+.thread123:                                       ; preds = %53
+  %57 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %50, i64 %indvars.iv174
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 6
-  %63 = load i16, ptr %62, align 2
-  %64 = zext i16 %63 to i32
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %64, ptr %65, align 4
+  store i32 %60, ptr %1, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %63, ptr %64, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 6
+  %66 = load i16, ptr %65, align 2
+  %67 = zext i16 %66 to i32
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %67, ptr %68, align 4
   br label %.thread125
 
-66:                                               ; preds = %8
-  %67 = and i32 %11, 15
-  %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_32, ptr @case_fold_hash1_32, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load i8, ptr %70, align 8
-  %.not106137.not = icmp eq i8 %71, 0
-  br i1 %.not106137.not, label %.thread129, label %.critedge114.lr.ph
-
-.critedge114.lr.ph:                               ; preds = %66
-  %72 = load ptr, ptr %69, align 16
-  %wide.trip.count = zext i8 %71 to i64
+.critedge114.lr.ph:                               ; preds = %8
+  %69 = and i32 %11, 15
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_32, ptr @case_fold_hash1_32, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load i8, ptr %72, align 8
+  %74 = load ptr, ptr %71, align 16
+  %75 = tail call i8 @llvm.umax.i8(i8 %73, i8 1)
+  %wide.trip.count = zext i8 %75 to i64
   br label %.critedge114
 
-73:                                               ; preds = %.critedge114
+76:                                               ; preds = %.critedge114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread129, label %.critedge114, !llvm.loop !7
 
-.critedge114:                                     ; preds = %.critedge114.lr.ph, %73
-  %indvars.iv = phi i64 [ 0, %.critedge114.lr.ph ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw %struct.CaseFoldMapping1_32, ptr %72, i64 %indvars.iv
-  %75 = load i32, ptr %74, align 4
-  %.not = icmp eq i32 %75, %0
-  br i1 %.not, label %76, label %73
-
-76:                                               ; preds = %.critedge114
-  %77 = getelementptr inbounds nuw %struct.CaseFoldMapping1_32, ptr %72, i64 %indvars.iv, i32 1
+.critedge114:                                     ; preds = %.critedge114.lr.ph, %76
+  %indvars.iv = phi i64 [ 0, %.critedge114.lr.ph ], [ %indvars.iv.next, %76 ]
+  %77 = getelementptr inbounds nuw %struct.CaseFoldMapping1_32, ptr %74, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %1, align 4
+  %.not = icmp eq i32 %78, %0
+  br i1 %.not, label %79, label %76
+
+79:                                               ; preds = %.critedge114
+  %80 = getelementptr inbounds nuw %struct.CaseFoldMapping1_32, ptr %74, i64 %indvars.iv, i32 1
+  %81 = load i32, ptr %80, align 4
+  store i32 %81, ptr %1, align 4
   br label %.thread125
 
-.thread129:                                       ; preds = %73, %49, %66, %._crit_edge146, %4
+.thread129:                                       ; preds = %76, %52, %._crit_edge146, %4
   store i32 %0, ptr %1, align 4
   br label %.thread125
 
-.thread125:                                       ; preds = %.thread123, %.thread120, %.thread, %76, %.thread129, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %.thread129 ], [ 1, %76 ], [ 3, %.thread123 ], [ 2, %.thread120 ], [ 1, %.thread ]
+.thread125:                                       ; preds = %.thread123, %.thread120, %.thread, %79, %.thread129, %6
+  %.0 = phi i32 [ 1, %6 ], [ 1, %.thread129 ], [ 1, %79 ], [ 3, %.thread123 ], [ 2, %.thread120 ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -2515,6 +2514,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

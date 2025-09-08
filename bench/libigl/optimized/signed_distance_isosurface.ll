@@ -66128,15 +66128,11 @@ _ZNK4CGAL30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28R
   %.sroa.0.0.copyload.i = load ptr, ptr %60, align 8, !tbaa !98
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !160
-  %or.cond.i45 = icmp ult i32 %62, 4
-  tail call void @llvm.assume(i1 %or.cond.i45)
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %58, i64 %63
   %.sroa.0.0.copyload.i46 = load ptr, ptr %64, align 8, !tbaa !98
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %66 = load i32, ptr %65, align 4, !tbaa !160
-  %or.cond.i47 = icmp ult i32 %66, 4
-  tail call void @llvm.assume(i1 %or.cond.i47)
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %58, i64 %67
   %.sroa.0.0.copyload.i48 = load ptr, ptr %68, align 8, !tbaa !98

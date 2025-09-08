@@ -39,12 +39,12 @@ define i32 @sqlite3IcuInit(ptr noundef %0) local_unnamed_addr #0 {
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !14
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load i8, ptr %10, align 16, !tbaa !15
-  %.not = icmp eq i8 %11, 0
-  %12 = select i1 %.not, ptr null, ptr %0
+  %10 = shl nuw nsw i64 1, %indvars.iv
+  %11 = and i64 %10, 3278
+  %.not.not = icmp eq i64 %11, 0
+  %12 = select i1 %.not.not, ptr %0, ptr null
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef %4, i32 noundef %7, i32 noundef %9, ptr noundef %12, ptr noundef %14, ptr noundef null, ptr noundef null) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp eq i32 %15, 0
@@ -62,11 +62,11 @@ define internal void @icuLoadCollation(ptr noundef %0, i32 %1, ptr noundef reado
   %5 = alloca i32, align 4
   %6 = tail call ptr @sqlite3_user_data(ptr noundef %0) #3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 0, ptr %5, align 4, !tbaa !17
-  %7 = load ptr, ptr %2, align 8, !tbaa !18
+  store i32 0, ptr %5, align 4, !tbaa !16
+  %7 = load ptr, ptr %2, align 8, !tbaa !17
   %8 = tail call ptr @sqlite3_value_text(ptr noundef %7) #3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = tail call ptr @sqlite3_value_text(ptr noundef %10) #3
   %12 = icmp ne ptr %8, null
   %13 = icmp ne ptr %11, null
@@ -75,7 +75,7 @@ define internal void @icuLoadCollation(ptr noundef %0, i32 %1, ptr noundef reado
 
 14:                                               ; preds = %3
   %15 = call ptr @ucol_open_70(ptr noundef nonnull %8, ptr noundef nonnull %5) #3
-  %16 = load i32, ptr %5, align 4, !tbaa !17
+  %16 = load i32, ptr %5, align 4, !tbaa !16
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %22, label %18
 
@@ -84,7 +84,7 @@ define internal void @icuLoadCollation(ptr noundef %0, i32 %1, ptr noundef reado
   %19 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %16) #3
   %20 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %19) #3
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 127
-  store i8 0, ptr %21, align 1, !tbaa !20
+  store i8 0, ptr %21, align 1, !tbaa !19
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
@@ -111,9 +111,9 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %6 = alloca [128 x i8], align 16
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i32 0, ptr %7, align 4, !tbaa !17
+  store i32 0, ptr %7, align 4, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = tail call ptr @sqlite3_value_text16(ptr noundef %9) #3
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
@@ -124,14 +124,14 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   br i1 %.not26, label %13, label %25
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr %2, align 8, !tbaa !18
+  %14 = load ptr, ptr %2, align 8, !tbaa !17
   %15 = tail call ptr @sqlite3_value_text16(ptr noundef %14) #3
   %.not27 = icmp eq ptr %15, null
   br i1 %.not27, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = call ptr @uregex_open_70(ptr noundef nonnull %15, i32 noundef -1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %7) #3
-  %18 = load i32, ptr %7, align 4, !tbaa !17
+  %18 = load i32, ptr %7, align 4, !tbaa !16
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %20, label %21
 
@@ -144,7 +144,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %22 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %18) #3
   %23 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %22) #3
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 127
-  store i8 0, ptr %24, align 1, !tbaa !20
+  store i8 0, ptr %24, align 1, !tbaa !19
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %6, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
@@ -152,7 +152,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
 25:                                               ; preds = %20, %11
   %.0 = phi ptr [ %12, %11 ], [ %17, %20 ]
   call void @uregex_setText_70(ptr noundef %.0, ptr noundef nonnull %10, i32 noundef -1, ptr noundef nonnull %7) #3
-  %26 = load i32, ptr %7, align 4, !tbaa !17
+  %26 = load i32, ptr %7, align 4, !tbaa !16
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %32, label %28
 
@@ -161,14 +161,14 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %29 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %26) #3
   %30 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %29) #3
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 127
-  store i8 0, ptr %31, align 1, !tbaa !20
+  store i8 0, ptr %31, align 1, !tbaa !19
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %5, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 32:                                               ; preds = %25
   %33 = call signext i8 @uregex_matches_70(ptr noundef %.0, i32 noundef 0, ptr noundef nonnull %7) #3
-  %34 = load i32, ptr %7, align 4, !tbaa !17
+  %34 = load i32, ptr %7, align 4, !tbaa !16
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %40, label %36
 
@@ -177,7 +177,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %37 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %34) #3
   %38 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %37) #3
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 127
-  store i8 0, ptr %39, align 1, !tbaa !20
+  store i8 0, ptr %39, align 1, !tbaa !19
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
@@ -207,19 +207,19 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = tail call ptr @sqlite3_value_text(ptr noundef %10) #3
   br label %12
 
 12:                                               ; preds = %8, %3
   %.033 = phi ptr [ %11, %8 ], [ null, %3 ]
-  %13 = load ptr, ptr %2, align 8, !tbaa !18
+  %13 = load ptr, ptr %2, align 8, !tbaa !17
   %14 = tail call ptr @sqlite3_value_text16(ptr noundef %13) #3
   %.not41 = icmp eq ptr %14, null
   br i1 %.not41, label %.critedge, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %2, align 8, !tbaa !18
+  %16 = load ptr, ptr %2, align 8, !tbaa !17
   %17 = tail call i32 @sqlite3_value_bytes16(ptr noundef %16) #3
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %31, label %.preheader
@@ -240,11 +240,11 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %20, label %.preheader.split.us, label %.critedge
 
 24:                                               ; preds = %.preheader.split.us
-  store i32 0, ptr %5, align 4, !tbaa !17
+  store i32 0, ptr %5, align 4, !tbaa !16
   %25 = sdiv i32 %.03451.us, 2
   %26 = call i32 @u_strToLower_70(ptr noundef nonnull %21, i32 noundef %25, ptr noundef nonnull %14, i32 noundef %19, ptr noundef %.033, ptr noundef nonnull %5) #3
   %.2.us = shl nsw i32 %26, 1
-  %27 = load i32, ptr %5, align 4, !tbaa !17
+  %27 = load i32, ptr %5, align 4, !tbaa !16
   %28 = icmp slt i32 %27, 1
   br i1 %28, label %.split54.us, label %29
 
@@ -274,11 +274,11 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.critedge
 
 36:                                               ; preds = %.preheader.split
-  store i32 0, ptr %5, align 4, !tbaa !17
+  store i32 0, ptr %5, align 4, !tbaa !16
   %37 = sdiv i32 %.03451, 2
   %38 = call i32 @u_strToUpper_70(ptr noundef nonnull %34, i32 noundef %37, ptr noundef nonnull %14, i32 noundef %19, ptr noundef %.033, ptr noundef nonnull %5) #3
   %.2 = shl nsw i32 %38, 1
-  %39 = load i32, ptr %5, align 4, !tbaa !17
+  %39 = load i32, ptr %5, align 4, !tbaa !16
   %40 = icmp slt i32 %39, 1
   br i1 %40, label %.split54.us, label %41
 
@@ -299,7 +299,7 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
   %44 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %.us-phi59) #3
   %45 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull %43, ptr noundef %44) #3
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 127
-  store i8 0, ptr %46, align 1, !tbaa !20
+  store i8 0, ptr %46, align 1, !tbaa !19
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
@@ -311,12 +311,12 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !18
+  %4 = load ptr, ptr %2, align 8, !tbaa !17
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %4) #3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = tail call ptr @sqlite3_value_text(ptr noundef %7) #3
-  %9 = load ptr, ptr %2, align 8, !tbaa !18
+  %9 = load ptr, ptr %2, align 8, !tbaa !17
   %10 = tail call i32 @sqlite3_value_bytes(ptr noundef %9) #3
   %11 = icmp sgt i32 %10, 50000
   br i1 %11, label %12, label %13
@@ -331,15 +331,15 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !18
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = tail call i32 @sqlite3_value_bytes(ptr noundef %17) #3
-  %19 = load ptr, ptr %16, align 8, !tbaa !18
+  %19 = load ptr, ptr %16, align 8, !tbaa !17
   %20 = tail call ptr @sqlite3_value_text(ptr noundef %19) #3
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %15
-  %23 = load i8, ptr %20, align 1, !tbaa !20
+  %23 = load i8, ptr %20, align 1, !tbaa !19
   %24 = zext i8 %23 to i32
   %25 = icmp sgt i8 %23, -1
   br i1 %25, label %87, label %26
@@ -360,10 +360,10 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %32 = and i32 %24, 15
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !20
+  %35 = load i8, ptr %34, align 1, !tbaa !19
   %36 = zext i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !20
+  %38 = load i8, ptr %37, align 1, !tbaa !19
   %39 = lshr i8 %38, 5
   %40 = zext nneg i8 %39 to i32
   %41 = shl nuw nsw i32 1, %40
@@ -382,12 +382,12 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !20
+  %50 = load i8, ptr %49, align 1, !tbaa !19
   %51 = zext i8 %50 to i32
   %52 = lshr i32 %51, 4
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !20
+  %55 = load i8, ptr %54, align 1, !tbaa !19
   %56 = sext i8 %55 to i32
   %57 = shl nuw nsw i32 1, %46
   %58 = and i32 %57, %56
@@ -403,7 +403,7 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %62 = and i32 %51, 63
   %63 = or disjoint i32 %62, %61
   %64 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  %65 = load i8, ptr %64, align 1, !tbaa !20
+  %65 = load i8, ptr %64, align 1, !tbaa !19
   %66 = xor i8 %65, -128
   %67 = icmp ult i8 %66, 64
   br i1 %67, label %68, label %87
@@ -431,7 +431,7 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %.2 = phi i32 [ %.1, %68 ], [ 1, %74 ]
   %77 = zext nneg i32 %.2 to i64
   %78 = getelementptr inbounds nuw i8, ptr %20, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !20
+  %79 = load i8, ptr %78, align 1, !tbaa !19
   %80 = xor i8 %79, -128
   %81 = icmp ult i8 %80, 64
   br i1 %81, label %82, label %87
@@ -566,7 +566,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %.067 = phi ptr [ %.168, %65 ], [ %.067.ph, %select.unfold.outer ]
   %4 = phi i1 [ true, %65 ], [ false, %select.unfold.outer ]
   %5 = getelementptr inbounds nuw i8, ptr %.067, i64 1
-  %6 = load i8, ptr %.067, align 1, !tbaa !20
+  %6 = load i8, ptr %.067, align 1, !tbaa !19
   %7 = zext i8 %6 to i32
   %8 = icmp ugt i8 %6, -65
   br i1 %8, label %9, label %.loopexit112
@@ -575,9 +575,9 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %10 = zext i8 %6 to i64
   %11 = getelementptr i8, ptr @icuUtf8Trans1, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -192
-  %13 = load i8, ptr %12, align 1, !tbaa !20
+  %13 = load i8, ptr %12, align 1, !tbaa !19
   %14 = zext i8 %13 to i32
-  %15 = load i8, ptr %5, align 1, !tbaa !20
+  %15 = load i8, ptr %5, align 1, !tbaa !19
   %16 = zext i8 %15 to i32
   %17 = and i32 %16, 192
   %18 = icmp eq i32 %17, 128
@@ -591,7 +591,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %21 = getelementptr inbounds nuw i8, ptr %.269120, i64 1
   %22 = and i32 %19, 63
   %23 = or disjoint i32 %22, %20
-  %24 = load i8, ptr %21, align 1, !tbaa !20
+  %24 = load i8, ptr %21, align 1, !tbaa !19
   %25 = zext i8 %24 to i32
   %26 = and i32 %25, 192
   %27 = icmp eq i32 %26, 128
@@ -612,7 +612,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 .preheader107:                                    ; preds = %29, %.loopexit106
   %.274 = phi ptr [ %.375, %.loopexit106 ], [ %.072.ph, %29 ]
   %.471 = phi ptr [ %43, %.loopexit106 ], [ %.168, %29 ]
-  %32 = load i8, ptr %.471, align 1, !tbaa !20
+  %32 = load i8, ptr %.471, align 1, !tbaa !19
   switch i8 %32, label %.preheader104 [
     i8 95, label %34
     i8 37, label %.loopexit106
@@ -620,12 +620,12 @@ select.unfold:                                    ; preds = %select.unfold.outer
   ]
 
 .preheader104:                                    ; preds = %.preheader107
-  %33 = load i8, ptr %.274, align 1, !tbaa !20
+  %33 = load i8, ptr %.274, align 1, !tbaa !19
   %.not86128 = icmp eq i8 %33, 0
   br i1 %.not86128, label %.thread, label %.lr.ph130
 
 34:                                               ; preds = %.preheader107
-  %35 = load i8, ptr %.274, align 1, !tbaa !20
+  %35 = load i8, ptr %.274, align 1, !tbaa !19
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %.thread, label %37
 
@@ -636,7 +636,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 .preheader105:                                    ; preds = %37, %.preheader105
   %.577 = phi ptr [ %42, %.preheader105 ], [ %38, %37 ]
-  %40 = load i8, ptr %.577, align 1, !tbaa !20
+  %40 = load i8, ptr %.577, align 1, !tbaa !19
   %41 = icmp slt i8 %40, -64
   %42 = getelementptr inbounds nuw i8, ptr %.577, i64 1
   br i1 %41, label %.preheader105, label %.loopexit106
@@ -654,17 +654,17 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 45:                                               ; preds = %.lr.ph130
   %46 = getelementptr inbounds nuw i8, ptr %.6129, i64 1
-  %47 = load i8, ptr %.6129, align 1, !tbaa !20
+  %47 = load i8, ptr %.6129, align 1, !tbaa !19
   %48 = icmp ugt i8 %47, -65
   br i1 %48, label %.preheader, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %45
-  %.pre = load i8, ptr %46, align 1, !tbaa !20
+  %.pre = load i8, ptr %46, align 1, !tbaa !19
   br label %.loopexit
 
 .preheader:                                       ; preds = %45, %.preheader
   %.8 = phi ptr [ %51, %.preheader ], [ %46, %45 ]
-  %49 = load i8, ptr %.8, align 1, !tbaa !20
+  %49 = load i8, ptr %.8, align 1, !tbaa !19
   %50 = icmp slt i8 %49, -64
   %51 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   br i1 %50, label %.preheader, label %.loopexit
@@ -682,7 +682,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %or.cond91, label %65, label %56
 
 56:                                               ; preds = %53
-  %57 = load i8, ptr %.072.ph, align 1, !tbaa !20
+  %57 = load i8, ptr %.072.ph, align 1, !tbaa !19
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %.thread, label %59
 
@@ -697,7 +697,7 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
 
 .preheader111:                                    ; preds = %59, %.preheader111
   %.9 = phi ptr [ %64, %.preheader111 ], [ %60, %59 ]
-  %62 = load i8, ptr %.9, align 1, !tbaa !20
+  %62 = load i8, ptr %.9, align 1, !tbaa !19
   %63 = icmp slt i8 %62, -64
   %64 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   br i1 %63, label %.preheader111, label %select.unfold.outer.backedge
@@ -709,7 +709,7 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %.072.ph, i64 1
-  %69 = load i8, ptr %.072.ph, align 1, !tbaa !20
+  %69 = load i8, ptr %.072.ph, align 1, !tbaa !19
   %70 = zext i8 %69 to i32
   %71 = icmp ugt i8 %69, -65
   br i1 %71, label %72, label %.loopexit110
@@ -718,9 +718,9 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   %73 = zext i8 %69 to i64
   %74 = getelementptr i8, ptr @icuUtf8Trans1, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -192
-  %76 = load i8, ptr %75, align 1, !tbaa !20
+  %76 = load i8, ptr %75, align 1, !tbaa !19
   %77 = zext i8 %76 to i32
-  %78 = load i8, ptr %68, align 1, !tbaa !20
+  %78 = load i8, ptr %68, align 1, !tbaa !19
   %79 = zext i8 %78 to i32
   %80 = and i32 %79, 192
   %81 = icmp eq i32 %80, 128
@@ -734,7 +734,7 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   %84 = getelementptr inbounds nuw i8, ptr %.11123, i64 1
   %85 = and i32 %82, 63
   %86 = or disjoint i32 %85, %83
-  %87 = load i8, ptr %84, align 1, !tbaa !20
+  %87 = load i8, ptr %84, align 1, !tbaa !19
   %88 = zext i8 %87 to i32
   %89 = and i32 %88, 192
   %90 = icmp eq i32 %89, 128
@@ -749,7 +749,7 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   br i1 %.not89, label %select.unfold.outer.backedge, label %.thread
 
 93:                                               ; preds = %.loopexit112
-  %94 = load i8, ptr %.072.ph, align 1, !tbaa !20
+  %94 = load i8, ptr %.072.ph, align 1, !tbaa !19
   %95 = icmp eq i8 %94, 0
   %96 = zext i1 %95 to i32
   br label %.thread
@@ -789,9 +789,8 @@ attributes #3 = { nounwind }
 !12 = !{!"int", !10, i64 0}
 !13 = !{!7, !10, i64 8}
 !14 = !{!7, !12, i64 12}
-!15 = !{!7, !10, i64 16}
-!16 = !{!7, !9, i64 24}
-!17 = !{!12, !12, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS13sqlite3_value", !9, i64 0}
-!20 = !{!10, !10, i64 0}
+!15 = !{!7, !9, i64 24}
+!16 = !{!12, !12, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS13sqlite3_value", !9, i64 0}
+!19 = !{!10, !10, i64 0}

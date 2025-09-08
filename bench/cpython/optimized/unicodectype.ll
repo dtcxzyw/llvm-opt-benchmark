@@ -2659,68 +2659,63 @@ gettyperecord.exit:                               ; preds = %1, %3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 -1, 256) i32 @_PyUnicode_ToDecimalDigit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 1114111
-  br i1 %2, label %gettyperecord.exit, label %3
+  br i1 %2, label %gettyperecord.exit.thread, label %gettyperecord.exit
 
-3:                                                ; preds = %1
-  %4 = lshr i32 %0, 6
-  %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !4
-  %8 = zext i16 %7 to i32
-  %9 = shl nuw nsw i32 %8, 6
-  %10 = and i32 %0, 63
-  %11 = or disjoint i32 %9, %10
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
-  %14 = load i16, ptr %13, align 2, !tbaa !4
-  %15 = zext i16 %14 to i64
-  br label %gettyperecord.exit
+gettyperecord.exit:                               ; preds = %1
+  %3 = lshr i32 %0, 6
+  %4 = zext nneg i32 %3 to i64
+  %5 = getelementptr i16, ptr @index1, i64 %4
+  %6 = load i16, ptr %5, align 2, !tbaa !4
+  %7 = zext i16 %6 to i32
+  %8 = shl nuw nsw i32 %7, 6
+  %9 = and i32 %0, 63
+  %10 = or disjoint i32 %8, %9
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr i16, ptr @index2, i64 %11
+  %13 = load i16, ptr %12, align 2, !tbaa !4
+  %14 = add i16 %13, -16
+  %.not = icmp ult i16 %14, -10
+  br i1 %.not, label %gettyperecord.exit.thread, label %15
 
-gettyperecord.exit:                               ; preds = %1, %3
-  %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
-  %18 = load i16, ptr %17, align 2, !tbaa !8
-  %19 = and i16 %18, 2
-  %.not = icmp eq i16 %19, 0
-  br i1 %.not, label %24, label %20
+15:                                               ; preds = %gettyperecord.exit
+  %16 = zext nneg i16 %13 to i64
+  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %16, i32 3
+  %18 = load i8, ptr %17, align 4, !tbaa !13
+  %19 = zext i8 %18 to i32
+  br label %gettyperecord.exit.thread
 
-20:                                               ; preds = %gettyperecord.exit
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %22 = load i8, ptr %21, align 4, !tbaa !13
-  %23 = zext i8 %22 to i32
-  br label %24
-
-24:                                               ; preds = %gettyperecord.exit, %20
-  %25 = phi i32 [ %23, %20 ], [ -1, %gettyperecord.exit ]
-  ret i32 %25
+gettyperecord.exit.thread:                        ; preds = %1, %gettyperecord.exit, %15
+  %20 = phi i32 [ %19, %15 ], [ -1, %gettyperecord.exit ], [ -1, %1 ]
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDecimalDigit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 1114111
-  br i1 %2, label %gettyperecord.exit.i, label %3
+  br i1 %2, label %_PyUnicode_ToDecimalDigit.exit.thread, label %gettyperecord.exit.i
 
-3:                                                ; preds = %1
-  %4 = lshr i32 %0, 6
-  %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !4
-  %8 = zext i16 %7 to i32
-  %9 = shl nuw nsw i32 %8, 6
-  %10 = and i32 %0, 63
-  %11 = or disjoint i32 %9, %10
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
-  %14 = load i16, ptr %13, align 2, !tbaa !4
-  %15 = add i16 %14, -6
-  %16 = icmp ult i16 %15, 10
-  %17 = zext i1 %16 to i32
-  br label %gettyperecord.exit.i
+gettyperecord.exit.i:                             ; preds = %1
+  %3 = lshr i32 %0, 6
+  %4 = zext nneg i32 %3 to i64
+  %5 = getelementptr i16, ptr @index1, i64 %4
+  %6 = load i16, ptr %5, align 2, !tbaa !4
+  %7 = zext i16 %6 to i32
+  %8 = shl nuw nsw i32 %7, 6
+  %9 = and i32 %0, 63
+  %10 = or disjoint i32 %8, %9
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr i16, ptr @index2, i64 %11
+  %13 = load i16, ptr %12, align 2, !tbaa !4
+  %14 = add i16 %13, -16
+  %.not.i = icmp ult i16 %14, -10
+  br i1 %.not.i, label %_PyUnicode_ToDecimalDigit.exit.thread, label %_PyUnicode_ToDecimalDigit.exit
 
-gettyperecord.exit.i:                             ; preds = %3, %1
-  %.0.i.i = phi i32 [ %17, %3 ], [ 0, %1 ]
-  ret i32 %.0.i.i
+_PyUnicode_ToDecimalDigit.exit.thread:            ; preds = %1, %gettyperecord.exit.i
+  br label %_PyUnicode_ToDecimalDigit.exit
+
+_PyUnicode_ToDecimalDigit.exit:                   ; preds = %gettyperecord.exit.i, %_PyUnicode_ToDecimalDigit.exit.thread
+  %15 = phi i32 [ 0, %_PyUnicode_ToDecimalDigit.exit.thread ], [ 1, %gettyperecord.exit.i ]
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

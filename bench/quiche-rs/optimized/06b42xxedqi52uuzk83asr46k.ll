@@ -4301,9 +4301,9 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit: ; preds = %
   br i1 %.not203, label %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit.thread, label %179
 
 179:                                              ; preds = %_ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit
-  %.sroa.0.0.copyload = load ptr, ptr %177, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 16
-  %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8, !nonnull !3, !noundef !3
+  %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.0.0.copyload = load ptr, ptr %177, align 8
   invoke void @_ZN6quiche2h36Header3new17h685f88f534bc95f1E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %36, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.8.0.copyload, i64 noundef %.sroa.9219.0.copyload)
           to label %180 unwind label %.loopexit
 

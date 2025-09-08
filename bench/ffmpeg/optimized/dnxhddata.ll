@@ -282,54 +282,48 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define void @ff_dnxhd_print_profiles(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %3
 
-3:                                                ; preds = %2, %27
-  %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %27 ]
-  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv24
+3:                                                ; preds = %2, %24
+  %indvars.iv25 = phi i64 [ 0, %2 ], [ %indvars.iv.next26, %24 ]
+  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  br label %10
+  %9 = shl nuw nsw i64 1, %indvars.iv25
+  %10 = and i64 %9, 2185
+  %.not21 = icmp eq i64 %10, 0
+  %11 = select i1 %.not21, ptr @.str.4, ptr @.str.3
+  br label %12
 
-10:                                               ; preds = %3, %25
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %25 ]
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !45
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %27, label %13
+12:                                               ; preds = %3, %15
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %15 ]
+  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !45
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %24, label %15
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %6, align 4, !tbaa !37
-  %15 = load i32, ptr %7, align 8, !tbaa !39
-  %16 = load i16, ptr %8, align 4, !tbaa !36
-  %17 = zext i16 %16 to i32
-  %18 = and i32 %17, 1
-  %.not19 = icmp eq i32 %18, 0
-  %19 = select i1 %.not19, i32 112, i32 105
-  %20 = and i32 %17, 4
-  %.not20 = icmp eq i32 %20, 0
-  br i1 %.not20, label %21, label %25
-
-21:                                               ; preds = %13
-  %22 = load i32, ptr %9, align 4, !tbaa !42
-  %23 = icmp eq i32 %22, 10
-  %24 = select i1 %23, ptr @.str.3, ptr @.str.4
-  br label %25
-
-25:                                               ; preds = %13, %21
-  %26 = phi ptr [ %24, %21 ], [ @.str.2, %13 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, i32 noundef %14, i32 noundef %15, i32 noundef %19, i32 noundef %12, ptr noundef nonnull %26) #4
+15:                                               ; preds = %12
+  %16 = load i32, ptr %6, align 4, !tbaa !37
+  %17 = load i32, ptr %7, align 8, !tbaa !39
+  %18 = load i16, ptr %8, align 4, !tbaa !36
+  %19 = zext i16 %18 to i32
+  %20 = and i32 %19, 1
+  %.not19 = icmp eq i32 %20, 0
+  %21 = select i1 %.not19, i32 112, i32 105
+  %22 = and i32 %19, 4
+  %.not20 = icmp eq i32 %22, 0
+  %23 = select i1 %.not20, ptr %11, ptr @.str.2
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, i32 noundef %16, i32 noundef %17, i32 noundef %21, i32 noundef %14, ptr noundef nonnull %23) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %27, label %10, !llvm.loop !47
+  br i1 %exitcond.not, label %24, label %12, !llvm.loop !47
 
-27:                                               ; preds = %10, %25
-  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %exitcond27.not = icmp eq i64 %indvars.iv.next25, 20
-  br i1 %exitcond27.not, label %28, label %3, !llvm.loop !48
+24:                                               ; preds = %12, %15
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 20
+  br i1 %exitcond28.not, label %25, label %3, !llvm.loop !48
 
-28:                                               ; preds = %27
+25:                                               ; preds = %24
   ret void
 }
 

@@ -1016,7 +1016,7 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
 .loopexit.i:                                      ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
+  %22 = icmp eq i64 %indvars.iv.i, 34
   br i1 %22, label %.preheader.i, label %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
 
 .preheader.i.loopexit:                            ; preds = %19
@@ -1038,8 +1038,8 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %29 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv.next45.i, i32 1
   %30 = load ptr, ptr %29, align 8
-  %exitcond.i = icmp eq i64 %indvars.iv.next45.i, 9
-  br i1 %exitcond.i, label %31, label %24, !llvm.loop !12
+  %.not31.i = icmp eq i64 %indvars.iv.next45.i, 9
+  br i1 %.not31.i, label %31, label %24, !llvm.loop !12
 
 31:                                               ; preds = %24
   %.not36.i = icmp eq ptr %spec.select51, null
@@ -1049,7 +1049,7 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
 _ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit: ; preds = %31, %.loopexit.i
   %32 = phi i32 [ %16, %.loopexit.i ], [ %23, %31 ]
   %.12534.sink.i = phi ptr [ %21, %.loopexit.i ], [ %spec.select, %31 ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %32, ptr noundef nonnull %.12534.sink.i) #20
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %32, ptr noundef %.12534.sink.i) #20
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %.not50 = icmp eq i32 %34, 0

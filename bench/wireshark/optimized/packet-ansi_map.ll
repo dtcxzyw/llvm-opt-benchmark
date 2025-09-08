@@ -4177,14 +4177,15 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %8, %19
-  %20 = phi ptr [ @.str, %8 ], [ %27, %19 ]
-  %21 = phi ptr [ @ansi_map_opr_code_strings, %8 ], [ %25, %19 ]
-  %.020 = phi i32 [ 0, %8 ], [ %23, %19 ]
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr %struct._value_string, ptr @ansi_map_opr_code_strings, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %2, align 16
-  %22 = load i32, ptr %21, align 16
+  %22 = load i32, ptr %20, align 16
   store i32 %22, ptr %10, align 8
   store i32 3, ptr %11, align 8
-  store ptr %20, ptr %12, align 16
+  %23 = load ptr, ptr %21, align 8
+  store ptr %23, ptr %12, align 16
   store i32 1, ptr %13, align 16
   store i32 0, ptr %14, align 8
   store i32 1, ptr %15, align 8
@@ -4192,12 +4193,8 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   store i32 4, ptr %17, align 16
   store double 0.000000e+00, ptr %18, align 8
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %22, i32 noundef 5, ptr noundef nonnull %2)
-  %23 = add i32 %.020, 1
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct._value_string, ptr @ansi_map_opr_code_strings, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not18 = icmp eq ptr %27, null
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not18 = icmp eq i64 %indvars.iv.next, 112
   br i1 %.not18, label %.loopexit, label %19, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %4, %7

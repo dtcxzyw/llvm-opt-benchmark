@@ -396,51 +396,47 @@ define dso_local i64 @phy_speeds(ptr noundef captures(none) %0, i64 noundef %1, 
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3, %26
-  %6 = phi i64 [ %28, %26 ], [ 0, %3 ]
-  %7 = phi i64 [ %27, %26 ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %24
+  %6 = phi i64 [ %26, %24 ], [ 0, %3 ]
+  %7 = phi i64 [ %25, %24 ], [ 0, %3 ]
   %8 = getelementptr %struct.phy_setting, ptr @settings, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %10 = load i8, ptr %9, align 1
-  %11 = icmp ult i8 %10, 102
-  br i1 %11, label %12, label %26
+  %11 = zext nneg i8 %10 to i64
+  %12 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %11) #9, !srcloc !11
+  %13 = icmp ult i8 %12, 2
+  tail call void @llvm.assume(i1 %13)
+  %14 = icmp eq i8 %12, 0
+  br i1 %14, label %24, label %15
 
-12:                                               ; preds = %.preheader
-  %13 = zext nneg i8 %10 to i64
-  %14 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %13) #9, !srcloc !11
-  %15 = icmp ult i8 %14, 2
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp eq i8 %14, 0
-  br i1 %16, label %26, label %17
-
-17:                                               ; preds = %12
-  %18 = icmp eq i64 %7, 0
+15:                                               ; preds = %.preheader
+  %16 = icmp eq i64 %7, 0
   %.pre = load i32, ptr %8, align 8
-  br i1 %18, label %23, label %19
+  br i1 %16, label %21, label %17
 
-19:                                               ; preds = %17
-  %20 = getelementptr i32, ptr %4, i64 %7
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %.pre
-  br i1 %22, label %26, label %23
+17:                                               ; preds = %15
+  %18 = getelementptr i32, ptr %4, i64 %7
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, %.pre
+  br i1 %20, label %24, label %21
 
-23:                                               ; preds = %19, %17
-  %24 = add i64 %7, 1
-  %25 = getelementptr i32, ptr %0, i64 %7
-  store i32 %.pre, ptr %25, align 4
-  br label %26
+21:                                               ; preds = %17, %15
+  %22 = add i64 %7, 1
+  %23 = getelementptr i32, ptr %0, i64 %7
+  store i32 %.pre, ptr %23, align 4
+  br label %24
 
-26:                                               ; preds = %23, %19, %12, %.preheader
-  %27 = phi i64 [ %24, %23 ], [ %7, %19 ], [ %7, %12 ], [ %7, %.preheader ]
-  %28 = add nuw nsw i64 %6, 1
-  %29 = icmp samesign ult i64 %6, 88
-  %30 = icmp ult i64 %27, %1
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !15
+24:                                               ; preds = %21, %17, %.preheader
+  %25 = phi i64 [ %22, %21 ], [ %7, %17 ], [ %7, %.preheader ]
+  %26 = add nuw nsw i64 %6, 1
+  %27 = icmp samesign ult i64 %6, 88
+  %28 = icmp ult i64 %25, %1
+  %29 = select i1 %27, i1 %28, i1 false
+  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %26, %3
-  %32 = phi i64 [ 0, %3 ], [ %27, %26 ]
-  ret i64 %32
+.loopexit:                                        ; preds = %24, %3
+  %30 = phi i64 [ 0, %3 ], [ %25, %24 ]
+  ret i64 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

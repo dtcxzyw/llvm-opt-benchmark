@@ -3273,14 +3273,14 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = icmp ugt i16 %11, 40
-  br i1 %12, label %99, label %13
+  br i1 %12, label %97, label %13
 
 13:                                               ; preds = %3
   %14 = zext nneg i16 %11 to i64
   %15 = add nsw i64 %14, -16
   %16 = getelementptr %struct.xfrm_link, ptr @xfrm_dispatch, i64 %15
   %17 = tail call zeroext i1 @netlink_net_capable(ptr noundef %0, i32 noundef 12) #16
-  br i1 %17, label %18, label %99
+  br i1 %17, label %18, label %97
 
 18:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !8
@@ -3290,7 +3290,7 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %99
+  br i1 %24, label %25, label %97
 
 25:                                               ; preds = %18
   switch i16 %11, label %49 [
@@ -3321,17 +3321,20 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %42 = icmp eq ptr %37, null
+  %42 = and i64 %15, 1152921504606846975
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %41, i8 0, i64 28, i1 false)
-  br i1 %42, label %47, label %43
+  switch i64 %42, label %47 [
+    i64 5, label %43
+    i64 2, label %43
+  ]
 
-43:                                               ; preds = %31
+43:                                               ; preds = %31, %31
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 2936
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @__netlink_dump_start(ptr noundef %45, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #16
   br label %47
 
-47:                                               ; preds = %43, %31
+47:                                               ; preds = %31, %43
   %48 = phi i32 [ %46, %43 ], [ -22, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
@@ -3356,63 +3359,62 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 58:                                               ; preds = %49
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %60 = load ptr, ptr %59, align 16
-  %61 = icmp eq ptr %60, null
-  %62 = select i1 %61, ptr @xfrma_policy, ptr %60
+  %61 = and i64 %15, 1152921504606846975
+  %.not = icmp eq i64 %61, 20
+  %62 = select i1 %.not, ptr %60, ptr @xfrma_policy
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  %66 = select i1 %65, i32 32, i32 %64
-  %67 = getelementptr i8, ptr %1, i64 16
-  %68 = add i32 %51, 3
-  %69 = and i32 %68, -4
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr i8, ptr %67, i64 %70
-  %72 = add i32 %52, -16
-  %73 = sub i32 %72, %69
-  %74 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef %66, ptr noundef %71, i32 noundef %73, ptr noundef nonnull %62, i32 noundef 0, ptr noundef %2) #16
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %.thread, label %76
+  %65 = select i1 %.not, i32 %64, i32 32
+  %66 = getelementptr i8, ptr %1, i64 16
+  %67 = add i32 %51, 3
+  %68 = and i32 %67, -4
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr i8, ptr %66, i64 %69
+  %71 = add i32 %52, -16
+  %72 = sub i32 %71, %68
+  %73 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef %65, ptr noundef %70, i32 noundef %72, ptr noundef nonnull %62, i32 noundef 0, ptr noundef %2) #16
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %.thread, label %75
 
-76:                                               ; preds = %58
-  %77 = and i64 %15, 1152921504606846975
-  %78 = shl nuw i64 1, %77
-  %79 = and i64 %78, 4521984
-  %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %80, label %.thread
+75:                                               ; preds = %58
+  %76 = shl nuw i64 1, %61
+  %77 = and i64 %76, 4521984
+  %.not7 = icmp eq i64 %77, 0
+  br i1 %.not7, label %78, label %.thread
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %16, align 16
-  %82 = call i32 %81(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %2) #16
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %86 = load i32, ptr %85, align 4
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr i8, ptr %84, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread, label %92
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %16, align 16
+  %80 = call i32 %79(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %2) #16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %84 = load i32, ptr %83, align 4
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr i8, ptr %82, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.thread, label %90
 
-92:                                               ; preds = %80
-  call void @kfree_skb_reason(ptr noundef nonnull %90, i32 noundef 2) #16
-  %93 = load ptr, ptr %83, align 8
-  %94 = load i32, ptr %85, align 4
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr i8, ptr %93, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr null, ptr %97, align 8
+90:                                               ; preds = %78
+  call void @kfree_skb_reason(ptr noundef nonnull %88, i32 noundef 2) #16
+  %91 = load ptr, ptr %81, align 8
+  %92 = load i32, ptr %83, align 4
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr i8, ptr %91, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr null, ptr %95, align 8
   br label %.thread
 
-.thread:                                          ; preds = %55, %57, %92, %80, %76, %58, %47
-  %98 = phi i32 [ %48, %47 ], [ %74, %58 ], [ %82, %92 ], [ %82, %80 ], [ -22, %76 ], [ -22, %57 ], [ -22, %55 ]
+.thread:                                          ; preds = %55, %57, %90, %78, %75, %58, %47
+  %96 = phi i32 [ %48, %47 ], [ %73, %58 ], [ %80, %90 ], [ %80, %78 ], [ -22, %75 ], [ -22, %57 ], [ -22, %55 ]
   call void @kvfree(ptr noundef null) #16
-  br label %99
+  br label %97
 
-99:                                               ; preds = %.thread, %18, %13, %3
-  %100 = phi i32 [ %98, %.thread ], [ -22, %3 ], [ -1, %13 ], [ -95, %18 ]
+97:                                               ; preds = %.thread, %18, %13, %3
+  %98 = phi i32 [ %96, %.thread ], [ -22, %3 ], [ -1, %13 ], [ -95, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %100
+  ret i32 %98
 }
 
 ; Function Attrs: null_pointer_is_valid

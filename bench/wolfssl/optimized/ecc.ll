@@ -2083,7 +2083,7 @@ define range(i32 6, 5) i32 @wc_ecc_get_curve_idx_from_name(ptr noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw %struct.ecc_set_type, ptr @ecc_sets, i64 %indvars.iv, i32 2
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = tail call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull %0) #20
+  %5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull %0) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit.loopexit.split.loop.exit14, label %7
 
@@ -2113,7 +2113,7 @@ define i32 @wc_ecc_get_curve_size_from_name(ptr noundef readonly captures(addres
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw %struct.ecc_set_type, ptr @ecc_sets, i64 %indvars.iv.i, i32 2
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = tail call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull readonly %0) #20
+  %5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull readonly %0) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %wc_ecc_get_curve_idx_from_name.exit, label %7
 
@@ -2142,7 +2142,7 @@ define i32 @wc_ecc_get_curve_id_from_name(ptr noundef readonly captures(address_
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw %struct.ecc_set_type, ptr @ecc_sets, i64 %indvars.iv.i, i32 2
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = tail call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull readonly %0) #20
+  %5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull readonly %0) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %wc_ecc_get_curve_idx_from_name.exit, label %7
 
@@ -2372,89 +2372,83 @@ define i32 @wc_ecc_get_curve_id_from_dp_params(ptr noundef readonly captures(add
   %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = load ptr, ptr %4, align 8, !tbaa !34
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #20
-  %38 = icmp eq ptr %35, null
-  br i1 %38, label %wc_ecc_cmp_param.exit.thread, label %39
-
-39:                                               ; preds = %33
-  %40 = trunc i64 %37 to i32
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #20
-  %42 = trunc i64 %41 to i32
-  %.not24.i = icmp eq i32 %40, %42
+  %38 = trunc i64 %37 to i32
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #20
+  %40 = trunc i64 %39 to i32
+  %.not24.i = icmp eq i32 %38, %40
   br i1 %.not24.i, label %wc_ecc_cmp_param.exit, label %wc_ecc_cmp_param.exit.thread
 
-wc_ecc_cmp_param.exit:                            ; preds = %39
-  %43 = and i64 %37, 4294967295
-  %44 = tail call i32 @strncmp(ptr noundef nonnull %35, ptr noundef nonnull %36, i64 noundef %43) #20
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %45, label %wc_ecc_cmp_param.exit.thread
+wc_ecc_cmp_param.exit:                            ; preds = %33
+  %41 = and i64 %37, 4294967295
+  %42 = tail call i32 @strncmp(ptr noundef nonnull %35, ptr noundef nonnull %36, i64 noundef %41) #20
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %43, label %wc_ecc_cmp_param.exit.thread
 
-45:                                               ; preds = %wc_ecc_cmp_param.exit
-  %46 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !35
-  %48 = load ptr, ptr %8, align 8, !tbaa !35
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #20
-  %50 = icmp eq ptr %47, null
-  br i1 %50, label %wc_ecc_cmp_param.exit.thread, label %51
-
-51:                                               ; preds = %45
-  %52 = trunc i64 %49 to i32
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
-  %54 = trunc i64 %53 to i32
-  %.not24.i37 = icmp eq i32 %52, %54
+43:                                               ; preds = %wc_ecc_cmp_param.exit
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !35
+  %46 = load ptr, ptr %8, align 8, !tbaa !35
+  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #20
+  %48 = trunc i64 %47 to i32
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #20
+  %50 = trunc i64 %49 to i32
+  %.not24.i37 = icmp eq i32 %48, %50
   br i1 %.not24.i37, label %wc_ecc_cmp_param.exit39, label %wc_ecc_cmp_param.exit.thread
 
-wc_ecc_cmp_param.exit39:                          ; preds = %51
-  %55 = and i64 %49, 4294967295
-  %56 = tail call i32 @strncmp(ptr noundef nonnull %47, ptr noundef nonnull %48, i64 noundef %55) #20
-  %.not59 = icmp eq i32 %56, 0
-  br i1 %.not59, label %57, label %wc_ecc_cmp_param.exit.thread
+wc_ecc_cmp_param.exit39:                          ; preds = %43
+  %51 = and i64 %47, 4294967295
+  %52 = tail call i32 @strncmp(ptr noundef nonnull %45, ptr noundef nonnull %46, i64 noundef %51) #20
+  %.not59 = icmp eq i32 %52, 0
+  br i1 %.not59, label %53, label %wc_ecc_cmp_param.exit.thread
 
-57:                                               ; preds = %wc_ecc_cmp_param.exit39
-  %58 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !36
-  %60 = load ptr, ptr %12, align 8, !tbaa !36
-  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #20
-  %62 = icmp eq ptr %59, null
-  br i1 %62, label %wc_ecc_cmp_param.exit.thread, label %63
-
-63:                                               ; preds = %57
-  %64 = trunc i64 %61 to i32
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #20
-  %66 = trunc i64 %65 to i32
-  %.not24.i41 = icmp eq i32 %64, %66
+53:                                               ; preds = %wc_ecc_cmp_param.exit39
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %55 = load ptr, ptr %54, align 8, !tbaa !36
+  %56 = load ptr, ptr %12, align 8, !tbaa !36
+  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #20
+  %58 = trunc i64 %57 to i32
+  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #20
+  %60 = trunc i64 %59 to i32
+  %.not24.i41 = icmp eq i32 %58, %60
   br i1 %.not24.i41, label %wc_ecc_cmp_param.exit43, label %wc_ecc_cmp_param.exit.thread
 
-wc_ecc_cmp_param.exit43:                          ; preds = %63
-  %67 = and i64 %61, 4294967295
-  %68 = tail call i32 @strncmp(ptr noundef nonnull %59, ptr noundef nonnull %60, i64 noundef %67) #20
-  %.not60 = icmp eq i32 %68, 0
-  br i1 %.not60, label %69, label %wc_ecc_cmp_param.exit.thread
+wc_ecc_cmp_param.exit43:                          ; preds = %53
+  %61 = and i64 %57, 4294967295
+  %62 = tail call i32 @strncmp(ptr noundef nonnull %55, ptr noundef nonnull %56, i64 noundef %61) #20
+  %.not60 = icmp eq i32 %62, 0
+  br i1 %.not60, label %63, label %wc_ecc_cmp_param.exit.thread
 
-69:                                               ; preds = %wc_ecc_cmp_param.exit43
-  %70 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !37
-  %72 = load ptr, ptr %16, align 8, !tbaa !37
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #20
-  %74 = icmp eq ptr %71, null
-  br i1 %74, label %wc_ecc_cmp_param.exit.thread, label %75
-
-75:                                               ; preds = %69
-  %76 = trunc i64 %73 to i32
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #20
-  %78 = trunc i64 %77 to i32
-  %.not24.i45 = icmp eq i32 %76, %78
+63:                                               ; preds = %wc_ecc_cmp_param.exit43
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %65 = load ptr, ptr %64, align 8, !tbaa !37
+  %66 = load ptr, ptr %16, align 8, !tbaa !37
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #20
+  %68 = trunc i64 %67 to i32
+  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #20
+  %70 = trunc i64 %69 to i32
+  %.not24.i45 = icmp eq i32 %68, %70
   br i1 %.not24.i45, label %wc_ecc_cmp_param.exit47, label %wc_ecc_cmp_param.exit.thread
 
-wc_ecc_cmp_param.exit47:                          ; preds = %75
-  %79 = and i64 %73, 4294967295
-  %80 = tail call i32 @strncmp(ptr noundef nonnull %71, ptr noundef nonnull %72, i64 noundef %79) #20
-  %.not61 = icmp eq i32 %80, 0
-  br i1 %.not61, label %81, label %wc_ecc_cmp_param.exit.thread
+wc_ecc_cmp_param.exit47:                          ; preds = %63
+  %71 = and i64 %67, 4294967295
+  %72 = tail call i32 @strncmp(ptr noundef nonnull %65, ptr noundef nonnull %66, i64 noundef %71) #20
+  %.not61 = icmp eq i32 %72, 0
+  br i1 %.not61, label %73, label %wc_ecc_cmp_param.exit.thread
 
-81:                                               ; preds = %wc_ecc_cmp_param.exit47
-  %82 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %83 = load ptr, ptr %82, align 8, !tbaa !38
-  %84 = load ptr, ptr %20, align 8, !tbaa !38
+73:                                               ; preds = %wc_ecc_cmp_param.exit47
+  %74 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %75 = load ptr, ptr %74, align 8, !tbaa !38
+  %76 = load ptr, ptr %20, align 8, !tbaa !38
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #20
+  %78 = trunc i64 %77 to i32
+  %79 = tail call fastcc i32 @wc_ecc_cmp_param(ptr noundef %75, ptr noundef nonnull %76, i32 noundef %78, i32 noundef 1)
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %wc_ecc_cmp_param.exit.thread
+
+81:                                               ; preds = %73
+  %82 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %83 = load ptr, ptr %82, align 8, !tbaa !39
+  %84 = load ptr, ptr %24, align 8, !tbaa !39
   %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #20
   %86 = trunc i64 %85 to i32
   %87 = tail call fastcc i32 @wc_ecc_cmp_param(ptr noundef %83, ptr noundef nonnull %84, i32 noundef %86, i32 noundef 1)
@@ -2462,34 +2456,24 @@ wc_ecc_cmp_param.exit47:                          ; preds = %75
   br i1 %88, label %89, label %wc_ecc_cmp_param.exit.thread
 
 89:                                               ; preds = %81
-  %90 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %91 = load ptr, ptr %90, align 8, !tbaa !39
-  %92 = load ptr, ptr %24, align 8, !tbaa !39
-  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #20
-  %94 = trunc i64 %93 to i32
-  %95 = tail call fastcc i32 @wc_ecc_cmp_param(ptr noundef %91, ptr noundef nonnull %92, i32 noundef %94, i32 noundef 1)
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %wc_ecc_cmp_param.exit.thread
+  %90 = load i32, ptr %27, align 8, !tbaa !40
+  %91 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %92 = load i32, ptr %91, align 8, !tbaa !40
+  %93 = icmp eq i32 %90, %92
+  br i1 %93, label %94, label %wc_ecc_cmp_param.exit.thread
 
-97:                                               ; preds = %89
-  %98 = load i32, ptr %27, align 8, !tbaa !40
-  %99 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %100 = load i32, ptr %99, align 8, !tbaa !40
-  %101 = icmp eq i32 %98, %100
-  br i1 %101, label %102, label %wc_ecc_cmp_param.exit.thread
-
-wc_ecc_cmp_param.exit.thread:                     ; preds = %75, %69, %63, %57, %51, %45, %39, %33, %28, %97, %89, %81, %wc_ecc_cmp_param.exit47, %wc_ecc_cmp_param.exit43, %wc_ecc_cmp_param.exit39, %wc_ecc_cmp_param.exit
+wc_ecc_cmp_param.exit.thread:                     ; preds = %63, %53, %43, %33, %28, %89, %81, %73, %wc_ecc_cmp_param.exit47, %wc_ecc_cmp_param.exit43, %wc_ecc_cmp_param.exit39, %wc_ecc_cmp_param.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 5
   br i1 %cond, label %.loopexit, label %28, !llvm.loop !42
 
-102:                                              ; preds = %97
-  %103 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %104 = load i32, ptr %103, align 4, !tbaa !3
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %96 = load i32, ptr %95, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %wc_ecc_cmp_param.exit.thread, %1, %3, %7, %11, %15, %19, %23, %102
-  %.033 = phi i32 [ %104, %102 ], [ -173, %23 ], [ -173, %19 ], [ -173, %15 ], [ -173, %11 ], [ -173, %7 ], [ -173, %3 ], [ -173, %1 ], [ -1, %wc_ecc_cmp_param.exit.thread ]
+.loopexit:                                        ; preds = %wc_ecc_cmp_param.exit.thread, %1, %3, %7, %11, %15, %19, %23, %94
+  %.033 = phi i32 [ %96, %94 ], [ -173, %23 ], [ -173, %19 ], [ -173, %15 ], [ -173, %11 ], [ -173, %7 ], [ -173, %3 ], [ -173, %1 ], [ -1, %wc_ecc_cmp_param.exit.thread ]
   ret i32 %.033
 }
 
@@ -2509,37 +2493,33 @@ define i32 @wc_ecc_get_curve_id_from_oid(ptr noundef readonly captures(address_i
   %6 = zext i32 %1 to i64
   br label %7
 
-7:                                                ; preds = %.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
+7:                                                ; preds = %.preheader, %16
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
   %8 = getelementptr inbounds nuw %struct.ecc_set_type, ptr @ecc_sets, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !43
-  %.not16 = icmp eq ptr %10, null
-  br i1 %.not16, label %17, label %11
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %10 = load i32, ptr %9, align 8, !tbaa !43
+  %11 = icmp eq i32 %10, %1
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %13 = load i32, ptr %12, align 8, !tbaa !44
-  %14 = icmp eq i32 %13, %1
-  br i1 %14, label %15, label %17
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %bcmp = tail call i32 @bcmp(ptr %14, ptr nonnull %0, i64 %6)
+  %15 = icmp eq i32 %bcmp, 0
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %11
-  %bcmp = tail call i32 @bcmp(ptr nonnull %10, ptr nonnull %0, i64 %6)
-  %16 = icmp eq i32 %bcmp, 0
-  br i1 %16, label %18, label %17
-
-17:                                               ; preds = %7, %11, %15
+16:                                               ; preds = %7, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 5
   br i1 %cond, label %.loopexit, label %7, !llvm.loop !45
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !3
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %4, %2, %18
-  %.012 = phi i32 [ %20, %18 ], [ -173, %2 ], [ -1, %4 ], [ -1, %17 ]
+.loopexit:                                        ; preds = %16, %4, %2, %17
+  %.012 = phi i32 [ %19, %17 ], [ -173, %2 ], [ -1, %4 ], [ -1, %16 ]
   ret i32 %.012
 }
 
@@ -7267,7 +7247,7 @@ define i32 @wc_ecc_get_oid(i32 noundef %0, ptr noundef writeonly captures(addres
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %13 = load i32, ptr %12, align 8, !tbaa !44
+  %13 = load i32, ptr %12, align 8, !tbaa !43
   store i32 %13, ptr %2, align 4, !tbaa !56
   br label %14
 
@@ -7277,7 +7257,7 @@ define i32 @wc_ecc_get_oid(i32 noundef %0, ptr noundef writeonly captures(addres
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !43
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   store ptr %17, ptr %1, align 8, !tbaa !79
   br label %18
 
@@ -7473,8 +7453,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !40 = !{!4, !5, i64 80}
 !41 = distinct !{!41, !11}
 !42 = distinct !{!42, !11}
-!43 = !{!4, !8, i64 64}
-!44 = !{!4, !5, i64 72}
+!43 = !{!4, !5, i64 72}
+!44 = !{!4, !8, i64 64}
 !45 = distinct !{!45, !11}
 !46 = !{!14, !5, i64 0}
 !47 = !{!14, !5, i64 8}

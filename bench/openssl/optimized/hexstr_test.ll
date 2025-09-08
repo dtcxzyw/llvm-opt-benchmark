@@ -97,62 +97,61 @@ define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %0) #0 {
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !12
-  %.not = icmp eq i8 %6, 95
-  %7 = load ptr, ptr %4, align 16, !tbaa !8
-  %8 = call ptr @OPENSSL_hexstr2buf(ptr noundef %7, ptr noundef nonnull %2) #4
-  br i1 %.not, label %28, label %9
+  %5 = and i32 %0, -2
+  %.not = icmp eq i32 %5, 2
+  %6 = load ptr, ptr %4, align 16, !tbaa !8
+  %7 = call ptr @OPENSSL_hexstr2buf(ptr noundef %6, ptr noundef nonnull %2) #4
+  br i1 %.not, label %27, label %8
 
-9:                                                ; preds = %1
-  %10 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 92, ptr noundef nonnull @.str.17, ptr noundef %8) #4
-  %.not19 = icmp eq i32 %10, 0
-  br i1 %.not19, label %31, label %11
+8:                                                ; preds = %1
+  %9 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 92, ptr noundef nonnull @.str.17, ptr noundef %7) #4
+  %.not19 = icmp eq i32 %9, 0
+  br i1 %.not19, label %30, label %10
 
-11:                                               ; preds = %9
-  %12 = load i64, ptr %2, align 8, !tbaa !4
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load i64, ptr %15, align 16, !tbaa !14
-  %17 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 93, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %8, i64 noundef %12, ptr noundef %14, i64 noundef %16) #4
-  %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %31, label %18
+10:                                               ; preds = %8
+  %11 = load i64, ptr %2, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = load i64, ptr %14, align 16, !tbaa !14
+  %16 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 93, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %7, i64 noundef %11, ptr noundef %13, i64 noundef %15) #4
+  %.not20 = icmp eq i32 %16, 0
+  br i1 %.not20, label %30, label %17
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %2, align 8, !tbaa !4
-  %20 = call ptr @OPENSSL_buf2hexstr(ptr noundef %8, i64 noundef %19) #4
-  %21 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @.str.18, ptr noundef %20) #4
-  %.not21 = icmp eq i32 %21, 0
-  br i1 %.not21, label %31, label %22
+17:                                               ; preds = %10
+  %18 = load i64, ptr %2, align 8, !tbaa !4
+  %19 = call ptr @OPENSSL_buf2hexstr(ptr noundef %7, i64 noundef %18) #4
+  %20 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @.str.18, ptr noundef %19) #4
+  %.not21 = icmp eq i32 %20, 0
+  br i1 %.not21, label %30, label %21
 
-22:                                               ; preds = %18
-  %23 = icmp eq i8 %6, 58
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %17
+  %22 = icmp ult i32 %0, 2
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %22
-  %25 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 97, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %20, ptr noundef %7) #4
-  %.not23 = icmp eq i32 %25, 0
-  br i1 %.not23, label %31, label %30
+23:                                               ; preds = %21
+  %24 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 97, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %19, ptr noundef %6) #4
+  %.not23 = icmp eq i32 %24, 0
+  br i1 %.not23, label %30, label %29
 
-26:                                               ; preds = %22
-  %27 = call i32 @test_str_ne(ptr noundef nonnull @.str.3, i32 noundef 99, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %20, ptr noundef %7) #4
-  %.not22 = icmp eq i32 %27, 0
-  br i1 %.not22, label %31, label %30
+25:                                               ; preds = %21
+  %26 = call i32 @test_str_ne(ptr noundef nonnull @.str.3, i32 noundef 99, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %19, ptr noundef %6) #4
+  %.not22 = icmp eq i32 %26, 0
+  br i1 %.not22, label %30, label %29
 
-28:                                               ; preds = %1
-  %29 = call i32 @test_ptr_null(ptr noundef nonnull @.str.3, i32 noundef 103, ptr noundef nonnull @.str.17, ptr noundef %8) #4
-  %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %31, label %30
+27:                                               ; preds = %1
+  %28 = call i32 @test_ptr_null(ptr noundef nonnull @.str.3, i32 noundef 103, ptr noundef nonnull @.str.17, ptr noundef %7) #4
+  %.not18 = icmp eq i32 %28, 0
+  br i1 %.not18, label %30, label %29
 
-30:                                               ; preds = %28, %24, %26
-  %.1 = phi ptr [ %20, %24 ], [ %20, %26 ], [ null, %28 ]
-  br label %31
+29:                                               ; preds = %27, %23, %25
+  %.1 = phi ptr [ %19, %23 ], [ %19, %25 ], [ null, %27 ]
+  br label %30
 
-31:                                               ; preds = %28, %26, %24, %9, %11, %18, %30
-  %.015 = phi ptr [ %.1, %30 ], [ %20, %24 ], [ %20, %26 ], [ %20, %18 ], [ null, %11 ], [ null, %9 ], [ null, %28 ]
-  %.0 = phi i32 [ 1, %30 ], [ 0, %24 ], [ 0, %26 ], [ 0, %18 ], [ 0, %11 ], [ 0, %9 ], [ 0, %28 ]
-  call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.3, i32 noundef 108) #4
+30:                                               ; preds = %27, %25, %23, %8, %10, %17, %29
+  %.015 = phi ptr [ %.1, %29 ], [ %19, %23 ], [ %19, %25 ], [ %19, %17 ], [ null, %10 ], [ null, %8 ], [ null, %27 ]
+  %.0 = phi i32 [ 1, %29 ], [ 0, %23 ], [ 0, %25 ], [ 0, %17 ], [ 0, %10 ], [ 0, %8 ], [ 0, %27 ]
+  call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.3, i32 noundef 108) #4
   call void @CRYPTO_free(ptr noundef %.015, ptr noundef nonnull @.str.3, i32 noundef 109) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

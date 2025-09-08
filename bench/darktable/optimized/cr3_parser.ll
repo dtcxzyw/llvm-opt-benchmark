@@ -1240,10 +1240,9 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 6
   %134 = load i16, ptr %133, align 2, !tbaa !141
-  %.not298 = icmp eq i16 %134, 0
-  br i1 %.not298, label %.thread, label %139
+  br label %139
 
-.thread:                                          ; preds = %128, %132
+.thread:                                          ; preds = %128
   %135 = load i16, ptr %3, align 2, !tbaa !138
   %136 = icmp eq i16 %135, 0
   br i1 %136, label %137, label %139
@@ -1258,7 +1257,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   %.not301 = icmp eq i32 %bcmp300, 0
   br i1 %.not301, label %.thread431.loopexit, label %139
 
-139:                                              ; preds = %.thread, %138, %132
+139:                                              ; preds = %132, %.thread, %138
   %.0250429 = phi i16 [ %134, %132 ], [ 0, %138 ], [ 0, %.thread ]
   %.1257 = phi i32 [ 0, %132 ], [ 1, %138 ], [ 1, %.thread ]
   switch i32 %104, label %156 [
@@ -2082,8 +2081,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br i1 %.not354, label %.thread431.loopexit, label %.lr.ph488.preheader
 
 .lr.ph488.preheader:                              ; preds = %583
-  %.idx629 = shl nsw i64 %587, 7
-  %590 = getelementptr i8, ptr %26, i64 %.idx629
+  %.idx628 = shl nsw i64 %587, 7
+  %590 = getelementptr i8, ptr %26, i64 %.idx628
   %591 = getelementptr i8, ptr %590, i64 88
   store i32 %581, ptr %591, align 8, !tbaa !17
   %wide.trip.count590 = zext nneg i32 %581 to i64
@@ -2235,8 +2234,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br i1 %.not369, label %.thread431.loopexit, label %.lr.ph482.preheader
 
 .lr.ph482.preheader:                              ; preds = %667
-  %.idx627 = shl nsw i64 %672, 7
-  %675 = getelementptr i8, ptr %26, i64 %.idx627
+  %.idx626 = shl nsw i64 %672, 7
+  %675 = getelementptr i8, ptr %26, i64 %.idx626
   %676 = getelementptr i8, ptr %675, i64 112
   store i32 %665, ptr %676, align 8, !tbaa !15
   %wide.trip.count580 = zext nneg i32 %665 to i64
@@ -2267,8 +2266,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %690 = getelementptr i8, ptr %689, i64 112
   store i32 %665, ptr %690, align 8, !tbaa !15
   %691 = load i64, ptr %687, align 8, !tbaa !19
-  %.idx628 = shl nsw i64 %684, 7
-  %692 = getelementptr i8, ptr %26, i64 %.idx628
+  %.idx627 = shl nsw i64 %684, 7
+  %692 = getelementptr i8, ptr %26, i64 %.idx627
   %693 = getelementptr i8, ptr %692, i64 64
   store i64 %691, ptr %693, align 8, !tbaa !28
   br label %.thread451thread-pre-split
