@@ -41,7 +41,7 @@ define internal noundef i32 @dxt5ys_block(ptr noundef writeonly captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %32
+.preheader:                                       ; preds = %3, %35
   %indvars.iv18 = phi i64 [ 0, %3 ], [ %indvars.iv.next19, %32 ]
   %5 = shl nuw nsw i64 %indvars.iv18, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 %5
@@ -72,14 +72,14 @@ define internal noundef i32 @dxt5ys_block(ptr noundef writeonly captures(none) %
   %24 = ashr i32 %23, 1
   %25 = add nsw i32 %24, 128
   %.0.i16.i = tail call i32 @llvm.umin.i32(i32 %25, i32 255)
-  %.0.i.i = trunc nuw i32 %.0.i16.i to i8
+  %26 = trunc nuw i32 %.0.i16.i to i8
   store i8 %.0.i.i, ptr %gep, align 4, !tbaa !11
-  %26 = add nuw nsw i32 %15, 128
-  %27 = sub nuw nsw i32 %26, %21
-  %.0.i1417.i = tail call i32 @llvm.umin.i32(i32 %27, i32 255)
-  %.0.i14.i = trunc nuw i32 %.0.i1417.i to i8
+  %27 = add nuw nsw i32 %15, 128
+  %28 = sub nuw nsw i32 %27, %21
+  %.0.i1417.i = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %29 = trunc nuw i32 %.0.i1417.i to i8
   %28 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  store i8 %.0.i14.i, ptr %28, align 1, !tbaa !11
+  store i8 %29, ptr %28, align 1, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %gep, i64 2
   store i8 0, ptr %29, align 2, !tbaa !11
   %30 = add nuw nsw i32 %21, %15
@@ -89,17 +89,17 @@ define internal noundef i32 @dxt5ys_block(ptr noundef writeonly captures(none) %
   store i8 %.0.i15.i, ptr %31, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %32, label %7, !llvm.loop !12
+  br i1 %exitcond.not, label %35, label %7, !llvm.loop !12
 
-32:                                               ; preds = %7
+35:                                               ; preds = %7
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, 4
-  br i1 %exitcond21.not, label %33, label %.preheader, !llvm.loop !14
+  br i1 %exitcond21.not, label %36, label %.preheader, !llvm.loop !14
 
-33:                                               ; preds = %32
+36:                                               ; preds = %35
   call fastcc void @compress_alpha(ptr noundef %0, i64 noundef 16, ptr noundef nonnull %4)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @compress_color(ptr noundef nonnull %34, i64 noundef 16, ptr noundef nonnull %4)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call fastcc void @compress_color(ptr noundef nonnull %37, i64 noundef 16, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 16
 }

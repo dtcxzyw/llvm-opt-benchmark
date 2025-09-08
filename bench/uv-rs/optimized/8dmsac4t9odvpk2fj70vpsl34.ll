@@ -7355,12 +7355,12 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h7f18e92
   %11 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 8
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %2, ptr %.sroa.417.0..sroa_idx, align 8
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %3, ptr %.sroa.518.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx19, align 8
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %2, ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 %3, ptr %.sroa.517.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx18, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -7439,7 +7439,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1dc76bef10138ec4E.exit.i.i: ; preds = %
   invoke void @_ZN3std6thread5local18panic_access_error17h1cbe5b7716798dd3E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2d9ec6da5e6c2c4a0792c5a1d269d378.6.llvm.15847308902018506185) #42
           to label %.noexc11 unwind label %158
 
-.noexc11:                                         ; preds = %43
+.noexc10:                                         ; preds = %43
   unreachable
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h9504d4f0d536a0a5E.exit.i.i": ; preds = %.noexc, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread.i
@@ -7658,14 +7658,14 @@ _ZN4core3ops8function6FnOnce9call_once17h1dc76bef10138ec4E.exit.i.i: ; preds = %
   %140 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hd758f1b9d3b19a22E()
           to label %.noexc13 unwind label %158
 
-.noexc13:                                         ; preds = %.noexc17.i.i
+.noexc12:                                         ; preds = %.noexc17.i.i
   br i1 %140, label %_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i, label %141
 
-141:                                              ; preds = %.noexc13
+141:                                              ; preds = %.noexc12
   store atomic i8 1, ptr %134 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i
 
-_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i: ; preds = %141, %.noexc13, %136, %129
+_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i: ; preds = %141, %.noexc12, %136, %129
   %142 = atomicrmw xchg ptr %116, i32 0 release, align 4
   %143 = icmp eq i32 %142, 2
   br i1 %143, label %144, label %160, !prof !184
@@ -7723,7 +7723,7 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i: ; preds = %141, 
   invoke void @_ZN4core9panicking13assert_failed17h078dd15f75a47e13E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h7aeb48974d2c32d6E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.be360845690a7974eca65cf19609f225.11) #42
           to label %.noexc15 unwind label %158
 
-.noexc15:                                         ; preds = %.noexc7.i
+.noexc14:                                         ; preds = %.noexc7.i
   unreachable
 
 .noexc8.i:                                        ; preds = %82

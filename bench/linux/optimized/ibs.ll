@@ -222,7 +222,7 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %9 = select i1 %8, ptr @perf_ibs_op, ptr null
   %10 = select i1 %6, ptr @perf_ibs_fetch, ptr %9
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit8, label %12
+  br i1 %11, label %.loopexit9, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -230,7 +230,7 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %10
-  br i1 %17, label %18, label %.loopexit8
+  br i1 %17, label %18, label %.loopexit9
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 312
@@ -238,14 +238,14 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %21 = xor i64 %20, -1
   %22 = and i64 %14, %21
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.loopexit8
+  br i1 %23, label %24, label %.loopexit9
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 2048
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %.loopexit8
+  br i1 %28, label %29, label %.loopexit9
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -257,7 +257,7 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %10
-  br i1 %36, label %.loopexit8, label %37
+  br i1 %36, label %.loopexit9, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 144
@@ -279,7 +279,7 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %48 = getelementptr i8, ptr %45, i64 136
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %10
-  br i1 %50, label %.loopexit8, label %43, !llvm.loop !9
+  br i1 %50, label %.loopexit9, label %43, !llvm.loop !9
 
 .loopexit:                                        ; preds = %43, %29, %37
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -292,7 +292,7 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
 
 57:                                               ; preds = %.loopexit
   %58 = icmp eq i64 %56, 0
-  br i1 %58, label %59, label %.loopexit8
+  br i1 %58, label %59, label %.loopexit9
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -301,9 +301,9 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %63 = and i64 %52, 15
   %64 = icmp eq i64 %63, 0
   %65 = or i1 %64, %62
-  br i1 %65, label %.thread7, label %.loopexit8
+  br i1 %65, label %.thread8, label %.loopexit9
 
-.thread7:                                         ; preds = %59
+.thread8:                                         ; preds = %59
   %66 = tail call i64 @llvm.umax.i64(i64 %52, i64 16)
   %67 = and i64 %66, -16
   store i64 %67, ptr %51, align 8
@@ -317,9 +317,9 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   store i64 %71, ptr %72, align 8
   store i64 %71, ptr %51, align 8
   %73 = icmp eq i64 %71, 0
-  br i1 %73, label %.loopexit8, label %74
+  br i1 %73, label %.loopexit9, label %74
 
-74:                                               ; preds = %.thread7, %68
+74:                                               ; preds = %.thread8, %68
   %75 = phi i64 [ %14, %.thread7 ], [ %70, %68 ]
   %76 = phi i64 [ %67, %.thread7 ], [ %71, %68 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -332,9 +332,9 @@ define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #4 
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %81, ptr %82, align 8
   store i64 %75, ptr %2, align 8
-  br label %.loopexit8
+  br label %.loopexit9
 
-.loopexit8:                                       ; preds = %47, %33, %74, %68, %59, %57, %24, %18, %12, %1
+.loopexit9:                                       ; preds = %47, %33, %74, %68, %59, %57, %24, %18, %12, %1
   %83 = phi i32 [ 0, %74 ], [ -2, %1 ], [ -2, %12 ], [ -22, %18 ], [ -95, %24 ], [ -22, %57 ], [ -22, %59 ], [ -22, %68 ], [ -22, %33 ], [ -22, %47 ]
   ret i32 %83
 }
