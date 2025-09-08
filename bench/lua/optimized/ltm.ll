@@ -816,22 +816,23 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i8 %45, ptr %46, align 8, !tbaa !24
   %47 = load ptr, ptr %2, align 8, !tbaa !31
-  %48 = getelementptr inbounds nuw %union.StackValue, ptr %47, i64 %indvars.iv, i32 0, i32 1
-  store i8 0, ptr %48, align 8, !tbaa !31
+  %48 = getelementptr inbounds nuw %union.StackValue, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i8 0, ptr %49, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
-  %49 = load ptr, ptr %2, align 8, !tbaa !31
+  %50 = load ptr, ptr %2, align 8, !tbaa !31
   %sext = shl i64 %10, 28
-  %50 = ashr i64 %sext, 32
-  %51 = getelementptr inbounds %union.StackValue, ptr %49, i64 %50
-  store ptr %51, ptr %2, align 8, !tbaa !31
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !31
-  %54 = getelementptr inbounds %union.StackValue, ptr %53, i64 %50
-  store ptr %54, ptr %52, align 8, !tbaa !31
+  %51 = ashr i64 %sext, 32
+  %52 = getelementptr inbounds %union.StackValue, ptr %50, i64 %51
+  store ptr %52, ptr %2, align 8, !tbaa !31
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !31
+  %55 = getelementptr inbounds %union.StackValue, ptr %54, i64 %51
+  store ptr %55, ptr %53, align 8, !tbaa !31
   ret void
 }
 
@@ -916,8 +917,9 @@ define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly capture
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %indvars.iv42 = phi i64 [ %34, %.lr.ph40.preheader ], [ %indvars.iv.next43, %.lr.ph40 ]
-  %44 = getelementptr inbounds nuw %union.StackValue, ptr %.0, i64 %indvars.iv42, i32 0, i32 1
-  store i8 0, ptr %44, align 8, !tbaa !31
+  %44 = getelementptr inbounds nuw %union.StackValue, ptr %.0, i64 %indvars.iv42
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i8 0, ptr %45, align 8, !tbaa !31
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph40

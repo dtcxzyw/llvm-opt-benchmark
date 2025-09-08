@@ -6823,29 +6823,28 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; 
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not24.i = icmp eq ptr %75, null
-  br i1 %.not24.i, label %.thread.i, label %76
+  br i1 %.not24.i, label %.thread29.i, label %76
 
 76:                                               ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1028) %75, ptr noundef nonnull align 4 dereferenceable(1028) %2, i64 1028, i1 false)
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
-.thread.i:                                        ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+.thread29.i:                                      ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+  %.pre.i = load i32, ptr %2, align 4
   %77 = tail call noalias noundef nonnull dereferenceable(1028) ptr @_Znwm(i64 noundef 1028) #30
-  %78 = load i32, ptr %2, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %79, i8 0, i64 1024, i1 false)
-  %spec.select.i28.i = tail call i32 @llvm.umin.i32(i32 %78, i32 1023)
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %78, i8 0, i64 1024, i1 false)
+  %spec.select.i28.i = tail call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   store i32 %spec.select.i28.i, ptr %77, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %81 = zext nneg i32 %spec.select.i28.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %79, ptr nonnull align 4 %80, i64 %81, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
-  store i8 0, ptr %82, align 1
-  %83 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %52, i64 %65, i32 1
-  store ptr %77, ptr %83, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %80 = zext nneg i32 %spec.select.i28.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %78, ptr nonnull align 4 %79, i64 %80, i1 false)
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %80
+  store i8 0, ptr %81, align 1
+  store ptr %77, ptr %74, align 8
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
-_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %57, %60, %76, %.thread.i
+_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %57, %60, %76, %.thread29.i
   ret void
 }
 

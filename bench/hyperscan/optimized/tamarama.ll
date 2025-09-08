@@ -210,8 +210,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
-  %.idx = mul nuw nsw i64 %65, 24
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
+  %66 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -291,13 +290,12 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   %.not = icmp ne i32 %.0.i.i, %.042
   %103 = icmp ne i32 %.0.i.i, %43
   %or.cond = and i1 %103, %76
-  %or.cond46 = select i1 %.not, i1 %or.cond, i1 false
-  br i1 %or.cond46, label %104, label %125
+  %or.cond45 = select i1 %.not, i1 %or.cond, i1 false
+  br i1 %or.cond45, label %104, label %125
 
 104:                                              ; preds = %findEngineForTop.exit
   %105 = zext i32 %80 to i64
-  %.idx45 = mul nuw nsw i64 %105, 24
-  %106 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx45
+  %106 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8
   %109 = load i32, ptr %4, align 4, !alias.scope !8
@@ -337,8 +335,8 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   store ptr %135, ptr %2, align 8
   %136 = load i32, ptr %0, align 32
   %137 = icmp ne i32 %.0.i.i, %136
-  %.not.i47 = icmp eq i32 %.0.i.i, %.042
-  %or.cond.i = and i1 %.not.i47, %137
+  %.not.i46 = icmp eq i32 %.0.i.i, %.042
+  %or.cond.i = and i1 %.not.i46, %137
   br i1 %or.cond.i, label %140, label %138
 
 138:                                              ; preds = %125

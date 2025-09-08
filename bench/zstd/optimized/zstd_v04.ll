@@ -6186,8 +6186,8 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
 
 22:                                               ; preds = %16, %34
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %34 ]
-  %.06985 = phi i16 [ 1, %16 ], [ %.271, %34 ]
-  %.07284 = phi i32 [ %8, %16 ], [ %.173, %34 ]
+  %.06984 = phi i16 [ 1, %16 ], [ %.271, %34 ]
+  %.07283 = phi i32 [ %8, %16 ], [ %.173, %34 ]
   %23 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2, !tbaa !58
   %25 = icmp eq i16 %24, -1
@@ -6195,10 +6195,9 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
 
 26:                                               ; preds = %22
   %27 = trunc i64 %indvars.iv to i8
-  %28 = add i32 %.07284, -1
-  %29 = zext i32 %.07284 to i64
-  %.idx81 = shl nuw nsw i64 %29, 2
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx81
+  %28 = add i32 %.07283, -1
+  %29 = zext i32 %.07283 to i64
+  %30 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %6, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i8 %27, ptr %31, align 2, !tbaa !55
   br label %34
@@ -6206,59 +6205,58 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
 32:                                               ; preds = %22
   %33 = sext i16 %24 to i32
   %.not80 = icmp sgt i32 %20, %33
-  %spec.select = select i1 %.not80, i16 %.06985, i16 0
+  %spec.select = select i1 %.not80, i16 %.06984, i16 0
   br label %34
 
 34:                                               ; preds = %26, %32
   %.sink = phi i16 [ 1, %26 ], [ %24, %32 ]
-  %.173 = phi i32 [ %28, %26 ], [ %.07284, %32 ]
-  %.271 = phi i16 [ %.06985, %26 ], [ %spec.select, %32 ]
+  %.173 = phi i32 [ %28, %26 ], [ %.07283, %32 ]
+  %.271 = phi i16 [ %.06984, %26 ], [ %spec.select, %32 ]
   %35 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   store i16 %.sink, ptr %35, align 2, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader82, label %22, !llvm.loop !93
+  br i1 %exitcond.not, label %.preheader81, label %22, !llvm.loop !93
 
-.preheader82:                                     ; preds = %34, %._crit_edge
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %._crit_edge ], [ 0, %34 ]
-  %.06490 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %34 ]
-  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv93
+.preheader81:                                     ; preds = %34, %._crit_edge
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %._crit_edge ], [ 0, %34 ]
+  %.06489 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %34 ]
+  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv92
   %37 = load i16, ptr %36, align 2, !tbaa !58
   %38 = sext i16 %37 to i32
   %39 = icmp sgt i16 %37, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader82
-  %40 = trunc i64 %indvars.iv93 to i8
+.lr.ph:                                           ; preds = %.preheader81
+  %40 = trunc i64 %indvars.iv92 to i8
   br label %41
 
 41:                                               ; preds = %.lr.ph, %47
-  %.188 = phi i32 [ %.06490, %.lr.ph ], [ %.2, %47 ]
-  %.06687 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
-  %42 = zext nneg i32 %.188 to i64
-  %.idx = shl nuw nsw i64 %42, 2
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %.187 = phi i32 [ %.06489, %.lr.ph ], [ %.2, %47 ]
+  %.06686 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
+  %42 = zext nneg i32 %.187 to i64
+  %43 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %6, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store i8 %40, ptr %44, align 2, !tbaa !55
   br label %45
 
 45:                                               ; preds = %45, %41
-  %.1.pn = phi i32 [ %.188, %41 ], [ %.2, %45 ]
+  %.1.pn = phi i32 [ %.187, %41 ], [ %.2, %45 ]
   %.pn = add nuw i32 %12, %.1.pn
   %.2 = and i32 %.pn, %8
   %46 = icmp ugt i32 %.2, %.173
   br i1 %46, label %45, label %47, !llvm.loop !94
 
 47:                                               ; preds = %45
-  %48 = add nuw nsw i32 %.06687, 1
-  %exitcond92.not = icmp eq i32 %48, %38
-  br i1 %exitcond92.not, label %._crit_edge, label %41, !llvm.loop !95
+  %48 = add nuw nsw i32 %.06686, 1
+  %exitcond91.not = icmp eq i32 %48, %38
+  br i1 %exitcond91.not, label %._crit_edge, label %41, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %47, %.preheader82
-  %.1.lcssa = phi i32 [ %.06490, %.preheader82 ], [ %.2, %47 ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond97.not, label %49, label %.preheader82, !llvm.loop !96
+._crit_edge:                                      ; preds = %47, %.preheader81
+  %.1.lcssa = phi i32 [ %.06489, %.preheader81 ], [ %.2, %47 ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
+  br i1 %exitcond96.not, label %49, label %.preheader81, !llvm.loop !96
 
 49:                                               ; preds = %._crit_edge
   %50 = trunc nuw nsw i32 %3 to i16
@@ -6266,12 +6264,12 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
   br i1 %.not79, label %.preheader.preheader, label %69
 
 .preheader.preheader:                             ; preds = %49
-  %wide.trip.count101 = zext nneg i32 %7 to i64
+  %wide.trip.count100 = zext nneg i32 %7 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv98 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next99, %.preheader ]
-  %51 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %6, i64 %indvars.iv98
+  %indvars.iv97 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next98, %.preheader ]
+  %51 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %6, i64 %indvars.iv97
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %53 = load i8, ptr %52, align 2, !tbaa !55
   %54 = zext i8 %53 to i64
@@ -6291,9 +6289,9 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
   %66 = sub i32 %65, %7
   %67 = trunc i32 %66 to i16
   store i16 %67, ptr %51, align 2, !tbaa !53
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %68, label %.preheader, !llvm.loop !97
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
+  br i1 %exitcond101.not, label %68, label %.preheader, !llvm.loop !97
 
 68:                                               ; preds = %.preheader
   store i16 %50, ptr %0, align 4

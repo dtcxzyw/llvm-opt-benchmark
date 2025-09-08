@@ -233,7 +233,7 @@ define void @_ZN5faiss11MatrixStatsC2EmmPKf(ptr noundef nonnull align 8 derefere
 28:                                               ; preds = %4
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %298
+  br label %299
 
 30:                                               ; preds = %27, %23
   %31 = mul i64 %2, %1
@@ -825,28 +825,29 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
 
 ._crit_edge202:                                   ; preds = %288
   %.not118 = icmp eq i64 %.189, 0
-  br i1 %.not118, label %._crit_edge202.thread, label %294
+  br i1 %.not118, label %._crit_edge202.thread, label %295
 
 288:                                              ; preds = %.lr.ph201, %288
-  %.087199 = phi i64 [ 0, %.lr.ph201 ], [ %293, %288 ]
+  %.087199 = phi i64 [ 0, %.lr.ph201 ], [ %294, %288 ]
   %.088198 = phi i64 [ 0, %.lr.ph201 ], [ %.189, %288 ]
-  %289 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %286, i64 %.087199, i32 10
-  %290 = load double, ptr %289, align 8, !tbaa !20
-  %291 = fcmp olt double %290, %287
-  %292 = zext i1 %291 to i64
-  %.189 = add i64 %.088198, %292
-  %293 = add nuw i64 %.087199, 1
-  %exitcond221.not = icmp eq i64 %293, %2
+  %289 = getelementptr inbounds nuw %"struct.faiss::MatrixStats::PerDimStats", ptr %286, i64 %.087199
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 72
+  %291 = load double, ptr %290, align 8, !tbaa !20
+  %292 = fcmp olt double %291, %287
+  %293 = zext i1 %292 to i64
+  %.189 = add i64 %.088198, %293
+  %294 = add nuw i64 %.087199, 1
+  %exitcond221.not = icmp eq i64 %294, %2
   br i1 %exitcond221.not, label %._crit_edge202, label %288, !llvm.loop !74
 
-294:                                              ; preds = %._crit_edge202
+295:                                              ; preds = %._crit_edge202
   tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.19, i64 noundef %.189)
   br label %._crit_edge202.thread
 
-._crit_edge202.thread:                            ; preds = %285, %294, %._crit_edge202
-  %295 = load i64, ptr %6, align 8, !tbaa !40
-  %296 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
-  %297 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %295, ptr noundef nonnull %22, i64 noundef %296)
+._crit_edge202.thread:                            ; preds = %285, %295, %._crit_edge202
+  %296 = load i64, ptr %6, align 8, !tbaa !40
+  %297 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
+  %298 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %296, ptr noundef nonnull %22, i64 noundef %297)
           to label %_ZNSt6vectorIcSaIcEED2Ev.exit unwind label %56
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge202.thread
@@ -857,39 +858,39 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge202.thre
 _ZNSt6vectorIcSaIcEED2Ev.exit137:                 ; preds = %170, %172, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i, %56, %54
   %.pn122.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ], [ %171, %170 ], [ %173, %172 ], [ %169, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 10000) #23
-  br label %298
+  br label %299
 
-298:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit137, %28
+299:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit137, %28
   %.pn122.pn.pn.pn = phi { ptr, i32 } [ %.pn122.pn.pn, %_ZNSt6vectorIcSaIcEED2Ev.exit137 ], [ %29, %28 ]
   tail call void @_ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImESaISt4pairIKmS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #21
-  %299 = load ptr, ptr %15, align 8, !tbaa !50
-  %.not.i.i.i138 = icmp eq ptr %299, null
-  br i1 %.not.i.i.i138, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit, label %300
+  %300 = load ptr, ptr %15, align 8, !tbaa !50
+  %.not.i.i.i138 = icmp eq ptr %300, null
+  br i1 %.not.i.i.i138, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit, label %301
 
-300:                                              ; preds = %298
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %302 = load ptr, ptr %301, align 8, !tbaa !75
-  %303 = ptrtoint ptr %302 to i64
-  %304 = ptrtoint ptr %299 to i64
-  %305 = sub i64 %303, %304
-  tail call void @_ZdlPvm(ptr noundef nonnull %299, i64 noundef %305) #23
+301:                                              ; preds = %299
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %303 = load ptr, ptr %302, align 8, !tbaa !75
+  %304 = ptrtoint ptr %303 to i64
+  %305 = ptrtoint ptr %300 to i64
+  %306 = sub i64 %304, %305
+  tail call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef %306) #23
   br label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit: ; preds = %298, %300
-  %306 = load ptr, ptr %0, align 8, !tbaa !76
-  %307 = icmp eq ptr %306, %5
-  br i1 %307, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit: ; preds = %299, %301
+  %307 = load ptr, ptr %0, align 8, !tbaa !76
+  %308 = icmp eq ptr %307, %5
+  br i1 %308, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit
-  %308 = load i64, ptr %6, align 8, !tbaa !40
-  %309 = icmp ult i64 %308, 16
-  tail call void @llvm.assume(i1 %309)
+  %309 = load i64, ptr %6, align 8, !tbaa !40
+  %310 = icmp ult i64 %309, 16
+  tail call void @llvm.assume(i1 %310)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EED2Ev.exit
-  %310 = load i64, ptr %5, align 8, !tbaa !41
-  %311 = add i64 %310, 1
-  tail call void @_ZdlPvm(ptr noundef %306, i64 noundef %311) #23
+  %311 = load i64, ptr %5, align 8, !tbaa !41
+  %312 = add i64 %311, 1
+  tail call void @_ZdlPvm(ptr noundef %307, i64 noundef %312) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

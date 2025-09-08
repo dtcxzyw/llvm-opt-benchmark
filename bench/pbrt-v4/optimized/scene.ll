@@ -24049,7 +24049,7 @@ _ZNSt12shared_mutex11lock_sharedEv.exit._crit_edge: ; preds = %_ZNSt12shared_mut
 _ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit: ; preds = %31
   %.sroa.03.0.copyload = load i64, ptr %33, align 8, !tbaa !156
   %37 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.02.0.copyload
-  br i1 %37, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32, label %72
+  br i1 %37, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32, label %74
 
 38:                                               ; preds = %31
   %39 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
@@ -24077,81 +24077,79 @@ _ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit: ; pred
   %48 = load ptr, ptr %47, align 8, !tbaa !635
   %49 = call ptr %48(ptr noundef nonnull align 8 dereferenceable(32) %46)
   %50 = load ptr, ptr %10, align 8, !tbaa !632
-  %51 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %50, i64 %32, i32 1
-  %52 = load i8, ptr %51, align 8, !tbaa !633, !range !168, !noundef !169
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %.preheader, label %.loopexit
+  %51 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %50, i64 %32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load i8, ptr %52, align 8, !tbaa !633, !range !168, !noundef !169
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %.preheader, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33
 
 .preheader:                                       ; preds = %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit
-  %54 = load ptr, ptr %11, align 8, !tbaa !631
-  %55 = ptrtoint ptr %54 to i64
-  %56 = ptrtoint ptr %50 to i64
-  %57 = sub i64 %55, %56
-  %58 = sdiv exact i64 %57, 24
-  %.rhs.trunc36 = trunc i64 %58 to i32
-  br label %59
+  %55 = load ptr, ptr %11, align 8, !tbaa !631
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %50 to i64
+  %58 = sub i64 %56, %57
+  %59 = sdiv exact i64 %58, 24
+  %.rhs.trunc36 = trunc i64 %59 to i32
+  br label %60
 
-59:                                               ; preds = %.preheader, %65
-  %.127 = phi i32 [ %61, %65 ], [ %indvars58, %.preheader ]
-  %.2 = phi i32 [ %.3, %65 ], [ %.02546, %.preheader ]
-  %60 = add i32 %.2, %.127
-  %61 = add nuw nsw i32 %.127, 1
-  %62 = zext i32 %60 to i64
-  %.not = icmp ugt i64 %58, %62
-  br i1 %.not, label %65, label %63
+60:                                               ; preds = %.preheader, %66
+  %.127 = phi i32 [ %62, %66 ], [ %indvars58, %.preheader ]
+  %.2 = phi i32 [ %.3, %66 ], [ %.02546, %.preheader ]
+  %61 = add i32 %.2, %.127
+  %62 = add nuw nsw i32 %.127, 1
+  %63 = zext i32 %61 to i64
+  %.not = icmp ugt i64 %59, %63
+  br i1 %.not, label %66, label %64
 
-63:                                               ; preds = %59
-  %64 = urem i32 %60, %.rhs.trunc36
-  %.pre = zext i32 %64 to i64
-  br label %65
+64:                                               ; preds = %60
+  %65 = urem i32 %61, %.rhs.trunc36
+  %.pre = zext i32 %65 to i64
+  br label %66
 
-65:                                               ; preds = %63, %59
-  %.pre-phi = phi i64 [ %.pre, %63 ], [ %62, %59 ]
-  %.3 = phi i32 [ %64, %63 ], [ %60, %59 ]
-  %66 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %50, i64 %.pre-phi, i32 1
-  %67 = load i8, ptr %66, align 8, !tbaa !633, !range !168, !noundef !169
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %59, label %.loopexit.loopexit, !llvm.loop !636
+66:                                               ; preds = %64, %60
+  %.pre-phi = phi i64 [ %.pre, %64 ], [ %63, %60 ]
+  %.3 = phi i32 [ %65, %64 ], [ %61, %60 ]
+  %67 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %50, i64 %.pre-phi
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load i8, ptr %68, align 8, !tbaa !633, !range !168, !noundef !169
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %60, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33, !llvm.loop !636
 
-.loopexit.loopexit:                               ; preds = %65
-  %.pre59 = zext i32 %.3 to i64
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit
-  %.pre-phi60 = phi i64 [ %.pre59, %.loopexit.loopexit ], [ %32, %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit ]
-  %69 = load i64, ptr %2, align 8, !tbaa !156
-  %70 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %50, i64 %.pre-phi60
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i64 %69, ptr %70, align 8, !tbaa !156
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
+_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33: ; preds = %66, %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit
+  %.pre-phi59 = phi i64 [ %32, %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit ], [ %.pre-phi, %66 ]
+  %71 = getelementptr inbounds nuw %"class.pstd::optional.475", ptr %50, i64 %.pre-phi59
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load i64, ptr %2, align 8, !tbaa !156
+  store i64 %73, ptr %71, align 8, !tbaa !156
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %49, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !53
-  store i8 1, ptr %71, align 8, !tbaa !633
+  store i8 1, ptr %72, align 8, !tbaa !633
   br label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32
 
-72:                                               ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit
-  %73 = add i32 %.02546, %indvars58
+74:                                               ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit
+  %75 = add i32 %.02546, %indvars58
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %74 = zext i32 %73 to i64
-  %.not31 = icmp ugt i64 %28, %74
-  br i1 %.not31, label %_ZNSt12shared_mutex11lock_sharedEv.exit, label %75
+  %76 = zext i32 %75 to i64
+  %.not31 = icmp ugt i64 %28, %76
+  br i1 %.not31, label %_ZNSt12shared_mutex11lock_sharedEv.exit, label %77
 
-75:                                               ; preds = %72
-  %76 = urem i32 %73, %.rhs.trunc
+77:                                               ; preds = %74
+  %78 = urem i32 %75, %.rhs.trunc
   br label %_ZNSt12shared_mutex11lock_sharedEv.exit
 
-_ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %75, %72
-  %.4 = phi i32 [ %76, %75 ], [ %73, %72 ]
+_ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %77, %74
+  %.4 = phi i32 [ %78, %77 ], [ %75, %74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %77 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %77, ptr %3, align 4, !tbaa !158
+  %79 = trunc nuw i64 %indvars.iv.next to i32
+  store i32 %79, ptr %3, align 4, !tbaa !158
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %28, ptr %4, align 8, !tbaa !156
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %_ZNSt12shared_mutex11lock_sharedEv.exit._crit_edge, label %31, !llvm.loop !637
 
-_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32: ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit, %.loopexit
-  %.pn = phi ptr [ %70, %.loopexit ], [ %33, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit ]
-  %78 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
+_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit32: ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33
+  %.pn = phi ptr [ %71, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit33 ], [ %33, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit ]
+  %80 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0

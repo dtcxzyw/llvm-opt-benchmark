@@ -642,28 +642,29 @@ define noundef zeroext i1 @_ZNK3g2o13VertexEllipse5writeERSo(ptr noundef nonnull
   ret i1 %51
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %52 = phi ptr [ %66, %.lr.ph ], [ %44, %2 ]
-  %.08 = phi i64 [ %64, %.lr.ph ], [ 0, %2 ]
+  %52 = phi ptr [ %67, %.lr.ph ], [ %44, %2 ]
+  %.08 = phi i64 [ %65, %.lr.ph ], [ 0, %2 ]
   %53 = getelementptr inbounds nuw %"class.Eigen::Matrix.13", ptr %52, i64 %.08
   %54 = load float, ptr %53, align 4, !tbaa !6
   %55 = fpext float %54 to double
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %55)
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull @.str, i64 noundef 1)
   %58 = load ptr, ptr %33, align 16, !tbaa !9
-  %59 = getelementptr inbounds nuw %"class.Eigen::Matrix.13", ptr %58, i64 %.08, i32 0, i32 0, i32 0, i32 0, i64 1
-  %60 = load float, ptr %59, align 4, !tbaa !6
-  %61 = fpext float %60 to double
-  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %56, double noundef %61)
-  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str, i64 noundef 1)
-  %64 = add nuw i64 %.08, 1
-  %65 = load ptr, ptr %34, align 8, !tbaa !54
-  %66 = load ptr, ptr %33, align 16, !tbaa !9
-  %67 = ptrtoint ptr %65 to i64
+  %59 = getelementptr inbounds nuw %"class.Eigen::Matrix.13", ptr %58, i64 %.08
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %61 = load float, ptr %60, align 4, !tbaa !6
+  %62 = fpext float %61 to double
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %56, double noundef %62)
+  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str, i64 noundef 1)
+  %65 = add nuw i64 %.08, 1
+  %66 = load ptr, ptr %34, align 8, !tbaa !54
+  %67 = load ptr, ptr %33, align 16, !tbaa !9
   %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 3
-  %71 = icmp ult i64 %64, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = ashr exact i64 %70, 3
+  %72 = icmp ult i64 %65, %71
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

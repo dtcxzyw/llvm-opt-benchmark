@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %41, label %6
+  br i1 %5, label %43, label %6
 
 6:                                                ; preds = %3
   %7 = icmp eq i64 %2, 0
@@ -53,15 +53,15 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
 19:                                               ; preds = %.loopexit
   %20 = udiv i64 %.028, 3
   %21 = add nuw nsw i64 %20, 1
-  br label %41
+  br label %43
 
-.lr.ph49:                                         ; preds = %.preheader, %34
-  %.248 = phi i64 [ %37, %34 ], [ %.061, %.preheader ]
-  %.03247 = phi ptr [ %36, %34 ], [ %0, %.preheader ]
+.lr.ph49:                                         ; preds = %.preheader, %36
+  %.248 = phi i64 [ %39, %36 ], [ %.061, %.preheader ]
+  %.03247 = phi ptr [ %38, %36 ], [ %0, %.preheader ]
   %22 = urem i64 %.248, 3
   %23 = udiv i64 %.248, 3
   %24 = call i64 @strtoul(ptr noundef nonnull %.03247, ptr noundef nonnull %4, i32 noundef 0)
-  switch i64 %22, label %31 [
+  switch i64 %22, label %32 [
     i64 0, label %25
     i64 1, label %28
   ]
@@ -70,37 +70,39 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   %26 = udiv i64 %.248, 3
   %27 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %26
   store i64 %24, ptr %27, align 8
-  br label %34
+  br label %36
 
 28:                                               ; preds = %.lr.ph49
   %29 = udiv i64 %.248, 3
-  %30 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %29, i32 1
-  store i64 %24, ptr %30, align 8
-  br label %34
+  %30 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 %24, ptr %31, align 8
+  br label %36
 
-31:                                               ; preds = %.lr.ph49
-  %32 = trunc i64 %24 to i32
-  %33 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %23, i32 2
-  store i32 %32, ptr %33, align 8
-  br label %34
+32:                                               ; preds = %.lr.ph49
+  %33 = trunc i64 %24 to i32
+  %34 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %23
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store i32 %33, ptr %35, align 8
+  br label %36
 
-34:                                               ; preds = %28, %31, %25
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %37 = add nuw i64 %.248, 1
-  %38 = load i8, ptr %36, align 1
-  %.not37 = icmp ne i8 %38, 0
-  %39 = icmp ult i64 %37, %16
-  %or.cond39 = select i1 %.not37, i1 %39, i1 false
+36:                                               ; preds = %28, %32, %25
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %39 = add nuw i64 %.248, 1
+  %40 = load i8, ptr %38, align 1
+  %.not37 = icmp ne i8 %40, 0
+  %41 = icmp ult i64 %39, %16
+  %or.cond39 = select i1 %.not37, i1 %41, i1 false
   br i1 %or.cond39, label %.lr.ph49, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %34, %.preheader
-  %.2.lcssa = phi i64 [ %.061, %.preheader ], [ %37, %34 ]
-  %40 = udiv i64 %.2.lcssa, 3
-  br label %41
+.critedge:                                        ; preds = %36, %.preheader
+  %.2.lcssa = phi i64 [ %.061, %.preheader ], [ %39, %36 ]
+  %42 = udiv i64 %.2.lcssa, 3
+  br label %43
 
-41:                                               ; preds = %3, %.critedge, %19
-  %.031 = phi i64 [ %21, %19 ], [ %40, %.critedge ], [ -22, %3 ]
+43:                                               ; preds = %3, %.critedge, %19
+  %.031 = phi i64 [ %21, %19 ], [ %42, %.critedge ], [ -22, %3 ]
   ret i64 %.031
 }
 
@@ -151,13 +153,13 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
   %.not3745.i.not = icmp eq i8 %20, 0
   br i1 %.not3745.i.not, label %parse_memory_region.exit20, label %.lr.ph49.i
 
-.lr.ph49.i:                                       ; preds = %.preheader.i, %33
-  %.248.i = phi i64 [ %36, %33 ], [ 0, %.preheader.i ]
-  %.03247.i = phi ptr [ %35, %33 ], [ %0, %.preheader.i ]
+.lr.ph49.i:                                       ; preds = %.preheader.i, %35
+  %.248.i = phi i64 [ %38, %35 ], [ 0, %.preheader.i ]
+  %.03247.i = phi ptr [ %37, %35 ], [ %0, %.preheader.i ]
   %21 = urem i64 %.248.i, 3
   %22 = udiv i64 %.248.i, 3
   %23 = call i64 @strtoul(ptr noundef nonnull %.03247.i, ptr noundef nonnull %2, i32 noundef 0)
-  switch i64 %21, label %30 [
+  switch i64 %21, label %31 [
     i64 0, label %24
     i64 1, label %27
   ]
@@ -166,31 +168,33 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
   %25 = udiv i64 %.248.i, 3
   %26 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %25
   store i64 %23, ptr %26, align 8
-  br label %33
+  br label %35
 
 27:                                               ; preds = %.lr.ph49.i
   %28 = udiv i64 %.248.i, 3
-  %29 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %28, i32 1
-  store i64 %23, ptr %29, align 8
-  br label %33
+  %29 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i64 %23, ptr %30, align 8
+  br label %35
 
-30:                                               ; preds = %.lr.ph49.i
-  %31 = trunc i64 %23 to i32
-  %32 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %22, i32 2
-  store i32 %31, ptr %32, align 8
-  br label %33
+31:                                               ; preds = %.lr.ph49.i
+  %32 = trunc i64 %23 to i32
+  %33 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %22
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 %32, ptr %34, align 8
+  br label %35
 
-33:                                               ; preds = %30, %27, %24
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %36 = add nuw i64 %.248.i, 1
-  %37 = load i8, ptr %35, align 1
-  %.not37.i = icmp ne i8 %37, 0
-  %38 = icmp ult i64 %36, %19
-  %or.cond39.i = select i1 %.not37.i, i1 %38, i1 false
+35:                                               ; preds = %31, %27, %24
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  %38 = add nuw i64 %.248.i, 1
+  %39 = load i8, ptr %37, align 1
+  %.not37.i = icmp ne i8 %39, 0
+  %40 = icmp ult i64 %38, %19
+  %or.cond39.i = select i1 %.not37.i, i1 %40, i1 false
   br i1 %or.cond39.i, label %.lr.ph49.i, label %parse_memory_region.exit20, !llvm.loop !8
 
-parse_memory_region.exit20:                       ; preds = %33, %.preheader.i
+parse_memory_region.exit20:                       ; preds = %35, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %parse_memory_region.exit.thread
 

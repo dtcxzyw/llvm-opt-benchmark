@@ -542,29 +542,30 @@ define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) lo
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   br label %.split
 
-.split:                                           ; preds = %.split.preheader, %56
-  %49 = phi i32 [ %59, %56 ], [ %18, %.split.preheader ]
-  %.09 = phi i32 [ %57, %56 ], [ 0, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %57
+  %49 = phi i32 [ %60, %57 ], [ %18, %.split.preheader ]
+  %.09 = phi i32 [ %58, %57 ], [ 0, %.split.preheader ]
   %50 = zext i32 %49 to i64
   %51 = icmp ult i64 %37, %50
   br i1 %51, label %fdt_mem_rsv.exit.thread.split, label %52
 
 52:                                               ; preds = %.split
   %53 = sext i32 %.09 to i64
-  %54 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %48, i64 %53, i32 1
-  %.val = load i64, ptr %54, align 8
-  %55 = icmp eq i64 %.val, 0
-  br i1 %55, label %fdt_mem_rsv.exit.thread.split, label %56
+  %54 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %48, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %.val = load i64, ptr %55, align 8
+  %56 = icmp eq i64 %.val, 0
+  br i1 %56, label %fdt_mem_rsv.exit.thread.split, label %57
 
-56:                                               ; preds = %52
-  %57 = add i32 %.09, 1
-  %58 = shl i32 %57, 4
-  %59 = add i32 %18, %58
-  %60 = icmp ult i32 %59, %18
-  br i1 %60, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !5
+57:                                               ; preds = %52
+  %58 = add i32 %.09, 1
+  %59 = shl i32 %58, 4
+  %60 = add i32 %18, %59
+  %61 = icmp ult i32 %60, %18
+  br i1 %61, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !5
 
-fdt_mem_rsv.exit.thread.split:                    ; preds = %52, %56, %.split
-  %.05.split.ph = phi i32 [ -8, %.split ], [ -8, %56 ], [ %.09, %52 ]
+fdt_mem_rsv.exit.thread.split:                    ; preds = %52, %57, %.split
+  %.05.split.ph = phi i32 [ -8, %.split ], [ -8, %57 ], [ %.09, %52 ]
   ret i32 %.05.split.ph
 }
 

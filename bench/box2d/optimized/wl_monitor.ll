@@ -235,7 +235,7 @@ define hidden void @_glfwGetMonitorWorkareaWayland(ptr noundef readonly captures
 
 22:                                               ; preds = %14, %13
   %.not19 = icmp eq ptr %4, null
-  br i1 %.not19, label %31, label %23
+  br i1 %.not19, label %32, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -243,12 +243,13 @@ define hidden void @_glfwGetMonitorWorkareaWayland(ptr noundef readonly captures
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %27 = load i32, ptr %26, align 4, !tbaa !117
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.GLFWvidmode, ptr %25, i64 %28, i32 1
-  %30 = load i32, ptr %29, align 4, !tbaa !119
-  store i32 %30, ptr %4, align 4, !tbaa !113
-  br label %31
+  %29 = getelementptr inbounds %struct.GLFWvidmode, ptr %25, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %31 = load i32, ptr %30, align 4, !tbaa !119
+  store i32 %31, ptr %4, align 4, !tbaa !113
+  br label %32
 
-31:                                               ; preds = %23, %22
+32:                                               ; preds = %23, %22
   ret void
 }
 

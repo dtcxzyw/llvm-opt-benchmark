@@ -240,13 +240,14 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_e
   ret i64 %9
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.08 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08
-  store ptr %11, ptr %12, align 8, !tbaa !20
-  %13 = add nuw i64 %.08, 1
-  %.not = icmp eq i64 %13, %5
+  %.08 = phi i64 [ %14, %.lr.ph ], [ 0, %2 ]
+  %10 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08
+  store ptr %12, ptr %13, align 8, !tbaa !20
+  %14 = add nuw i64 %.08, 1
+  %.not = icmp eq i64 %14, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 }
 
@@ -262,29 +263,30 @@ define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEE
   br i1 %.not7.i, label %_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.08.i = phi i64 [ %9, %.lr.ph.i ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08.i, i32 1
-  %7 = load ptr, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08.i
-  store ptr %7, ptr %8, align 8, !tbaa !20
-  %9 = add nuw i64 %.08.i, 1
-  %.not.i = icmp eq i64 %9, %5
+  %.08.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %2 ]
+  %6 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08.i
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08.i
+  store ptr %8, ptr %9, align 8, !tbaa !20
+  %10 = add nuw i64 %.08.i, 1
+  %.not.i = icmp eq i64 %10, %5
   br i1 %.not.i, label %_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit: ; preds = %.lr.ph.i, %2
   %.tr.i = trunc i64 %5 to i32
-  %10 = shl i32 %.tr.i, 3
-  %11 = sext i32 %10 to i64
-  %12 = call noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef nonnull %3, i64 noundef %11)
-  %13 = zext i32 %12 to i64
+  %11 = shl i32 %.tr.i, 3
+  %12 = sext i32 %11 to i64
+  %13 = call noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef nonnull %3, i64 noundef %12)
+  %14 = zext i32 %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = ptrtoint ptr %15 to i64
-  %17 = mul i64 %16, 2654435761
-  %18 = mul nuw nsw i64 %13, 3
-  %19 = add i64 %17, %18
-  ret i64 %19
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 776
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %17 = ptrtoint ptr %16 to i64
+  %18 = mul i64 %17, 2654435761
+  %19 = mul nuw nsw i64 %14, 3
+  %20 = add i64 %18, %19
+  ret i64 %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

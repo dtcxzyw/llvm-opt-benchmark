@@ -7193,13 +7193,13 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
-  br i1 %7, label %32, label %8
+  br i1 %7, label %33, label %8
 
 8:                                                ; preds = %3
   %trunc = trunc i16 %5 to i8
-  switch i8 %trunc, label %31 [
+  switch i8 %trunc, label %32 [
     i8 9, label %9
-    i8 47, label %17
+    i8 47, label %18
   ]
 
 9:                                                ; preds = %8
@@ -7207,46 +7207,47 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr @expr_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %12, i64 %13, i32 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %16, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
-  store i64 %.sroa.0.0.copyload, ptr %16, align 8
+  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)
+  store i64 %.sroa.0.0.copyload, ptr %17, align 8
   tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext false)
-  br label %33
+  br label %34
 
-17:                                               ; preds = %8
-  %18 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %19 = load i16, ptr %4, align 8
-  %20 = and i16 %19, -256
-  %21 = or disjoint i16 %20, 9
-  store i16 %21, ptr %4, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 33, ptr %22, align 8
-  %23 = load ptr, ptr @expr_arena, align 8
-  %24 = ptrtoint ptr %18 to i64
-  %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
-  %27 = sdiv exact i64 %26, 56
-  %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %30, align 8
+18:                                               ; preds = %8
+  %19 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
+  %20 = load i16, ptr %4, align 8
+  %21 = and i16 %20, -256
+  %22 = or disjoint i16 %21, 9
+  store i16 %22, ptr %4, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 33, ptr %23, align 8
+  %24 = load ptr, ptr @expr_arena, align 8
+  %25 = ptrtoint ptr %19 to i64
+  %26 = ptrtoint ptr %24 to i64
+  %27 = sub i64 %25, %26
+  %28 = sdiv exact i64 %27, 56
+  %29 = trunc i64 %28 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 0, ptr %31, align 8
   store ptr %2, ptr %1, align 8
-  br label %33
+  br label %34
 
-31:                                               ; preds = %8
+32:                                               ; preds = %8
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cast_sa_to_vecarr, ptr noundef nonnull @.str.4, i32 noundef 1889) #11
   unreachable
 
-32:                                               ; preds = %3
+33:                                               ; preds = %3
   store ptr %2, ptr %1, align 8
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %17, %9
+34:                                               ; preds = %33, %18, %9
   ret void
 }
 

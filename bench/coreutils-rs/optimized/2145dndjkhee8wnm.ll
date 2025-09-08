@@ -565,11 +565,12 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core4iter6traits8iterator8Iterator10min_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h8c0afec8b61d0f5dE.llvm.4103517291658523209.exit": ; preds = %2
   %8 = load ptr, ptr %0, align 8, !alias.scope !149, !noalias !150, !nonnull !9, !align !10, !noundef !9
-  %9 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %3, i32 2
-  %10 = load i64, ptr %9, align 8, !noalias !152, !noundef !9
-  %11 = insertvalue { i64, ptr } poison, i64 %10, 0
-  %12 = insertvalue { i64, ptr } %11, ptr %1, 1
-  ret { i64, ptr } %12
+  %9 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !noalias !152, !noundef !9
+  %12 = insertvalue { i64, ptr } poison, i64 %11, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %1, 1
+  ret { i64, ptr } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -784,11 +785,12 @@ define hidden { i64, ptr } @"_ZN4core4iter6traits8iterator8Iterator10min_by_key3
 
 "_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$closure$u7d$$u7d$17h16aa7e90a7292ba9E.llvm.4103517291658523209.exit": ; preds = %2
   %8 = load ptr, ptr %0, align 8, !alias.scope !208, !noalias !213, !nonnull !9, !align !10, !noundef !9
-  %9 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %3, i32 2
-  %10 = load i64, ptr %9, align 8, !noalias !211, !noundef !9
-  %11 = insertvalue { i64, ptr } poison, i64 %10, 0
-  %12 = insertvalue { i64, ptr } %11, ptr %1, 1
-  ret { i64, ptr } %12
+  %9 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !noalias !211, !noundef !9
+  %12 = insertvalue { i64, ptr } poison, i64 %11, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %1, 1
+  ret { i64, ptr } %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -1279,15 +1281,16 @@ define hidden noundef i64 @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$cl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !9
   %7 = icmp ult i64 %4, %6
-  br i1 %7, label %8, label %12, !prof !151
+  br i1 %7, label %8, label %13, !prof !151
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
-  %10 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %9, i64 %4, i32 2
-  %11 = load i64, ptr %10, align 8, !noundef !9
-  ret i64 %11
+  %10 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %9, i64 %4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i64, ptr %11, align 8, !noundef !9
+  ret i64 %12
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4729153cc5e57b06a2546f9cbb0a1cbf.10.llvm.4103517291658523209) #25
   unreachable
 }

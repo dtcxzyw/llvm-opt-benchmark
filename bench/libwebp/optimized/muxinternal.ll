@@ -94,12 +94,13 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !20
+  %9 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %8
-  %.06 = phi i32 [ %10, %8 ], [ 9, %2 ]
+  %.06 = phi i32 [ %11, %8 ], [ 9, %2 ]
   ret i32 %.06
 }
 
@@ -662,9 +663,9 @@ define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) 
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %24
-  %.021 = phi i32 [ %.3, %24 ], [ 0, %2 ]
-  %.01219 = phi ptr [ %26, %24 ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %25
+  %.021 = phi i32 [ %.3, %25 ], [ 0, %2 ]
+  %.01219 = phi ptr [ %27, %25 ], [ %0, %2 ]
   switch i32 %1, label %9 [
     i32 10, label %3
     i32 3, label %GetChunkListFromId.exit
@@ -674,7 +675,7 @@ define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) 
 
 3:                                                ; preds = %.lr.ph
   %4 = add nsw i32 %.021, 1
-  br label %24
+  br label %25
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 8
@@ -691,7 +692,7 @@ GetChunkListFromId.exit:                          ; preds = %.lr.ph, %5, %7
   %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ %.01219, %.lr.ph ]
   %10 = load ptr, ptr %.0.i, align 8, !tbaa !28
   %.not15 = icmp eq ptr %10, null
-  br i1 %.not15, label %24, label %11
+  br i1 %.not15, label %25, label %11
 
 11:                                               ; preds = %GetChunkListFromId.exit
   %12 = load i32, ptr %10, align 8, !tbaa !22
@@ -711,26 +712,27 @@ GetChunkListFromId.exit:                          ; preds = %.lr.ph, %5, %7
   br i1 %18, label %19, label %13
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.i, i32 1
-  %21 = load i32, ptr %20, align 4, !tbaa !20
+  %20 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = load i32, ptr %21, align 4, !tbaa !20
   br label %ChunkGetIdFromTag.exit
 
 ChunkGetIdFromTag.exit:                           ; preds = %13, %19
-  %.06.i = phi i32 [ %21, %19 ], [ 9, %13 ]
-  %22 = icmp eq i32 %.06.i, %1
-  %23 = zext i1 %22 to i32
-  %spec.select = add nsw i32 %.021, %23
-  br label %24
+  %.06.i = phi i32 [ %22, %19 ], [ 9, %13 ]
+  %23 = icmp eq i32 %.06.i, %1
+  %24 = zext i1 %23 to i32
+  %spec.select = add nsw i32 %.021, %24
+  br label %25
 
-24:                                               ; preds = %GetChunkListFromId.exit, %ChunkGetIdFromTag.exit, %3
+25:                                               ; preds = %GetChunkListFromId.exit, %ChunkGetIdFromTag.exit, %3
   %.3 = phi i32 [ %4, %3 ], [ %spec.select, %ChunkGetIdFromTag.exit ], [ %.021, %GetChunkListFromId.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.01219, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
-  %.not = icmp eq ptr %26, null
+  %26 = getelementptr inbounds nuw i8, ptr %.01219, i64 48
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
+  %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %24, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.3, %24 ]
+._crit_edge:                                      ; preds = %25, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.3, %25 ]
   ret i32 %.0.lcssa
 }
 

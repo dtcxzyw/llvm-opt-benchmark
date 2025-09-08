@@ -6285,7 +6285,7 @@ backref_number_check.exit:                        ; preds = %10
 
 21:                                               ; preds = %backref_number_check.exit
   %22 = tail call i64 @rb_assoc_new(i64 noundef 4, i64 noundef 4) #29
-  br label %44
+  br label %45
 
 23:                                               ; preds = %backref_number_check.exit
   tail call fastcc void @update_char_offset(i64 noundef %0)
@@ -6310,28 +6310,29 @@ backref_number_check.exit:                        ; preds = %10
 rb_long2num_inline.exit:                          ; preds = %29, %32
   %34 = phi ptr [ %25, %29 ], [ %.pre, %32 ]
   %.0.i = phi i64 [ %31, %29 ], [ %33, %32 ]
-  %35 = getelementptr %struct.rmatch_offset, ptr %34, i64 %17, i32 1
-  %36 = load i64, ptr %35, align 8, !tbaa !232
-  %37 = add i64 %36, 4611686018427387904
-  %or.cond.i14 = icmp sgt i64 %37, -1
-  br i1 %or.cond.i14, label %38, label %41
+  %35 = getelementptr %struct.rmatch_offset, ptr %34, i64 %17
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !232
+  %38 = add i64 %37, 4611686018427387904
+  %or.cond.i14 = icmp sgt i64 %38, -1
+  br i1 %or.cond.i14, label %39, label %42
 
-38:                                               ; preds = %rb_long2num_inline.exit
-  %39 = shl nsw i64 %36, 1
-  %40 = or disjoint i64 %39, 1
+39:                                               ; preds = %rb_long2num_inline.exit
+  %40 = shl nsw i64 %37, 1
+  %41 = or disjoint i64 %40, 1
   br label %rb_long2num_inline.exit16
 
-41:                                               ; preds = %rb_long2num_inline.exit
-  %42 = tail call i64 @rb_int2big(i64 noundef %36) #29
+42:                                               ; preds = %rb_long2num_inline.exit
+  %43 = tail call i64 @rb_int2big(i64 noundef %37) #29
   br label %rb_long2num_inline.exit16
 
-rb_long2num_inline.exit16:                        ; preds = %38, %41
-  %.0.i15 = phi i64 [ %40, %38 ], [ %42, %41 ]
-  %43 = tail call i64 @rb_assoc_new(i64 noundef %.0.i, i64 noundef %.0.i15) #29
-  br label %44
+rb_long2num_inline.exit16:                        ; preds = %39, %42
+  %.0.i15 = phi i64 [ %41, %39 ], [ %43, %42 ]
+  %44 = tail call i64 @rb_assoc_new(i64 noundef %.0.i, i64 noundef %.0.i15) #29
+  br label %45
 
-44:                                               ; preds = %rb_long2num_inline.exit16, %21
-  %.0 = phi i64 [ %22, %21 ], [ %43, %rb_long2num_inline.exit16 ]
+45:                                               ; preds = %rb_long2num_inline.exit16, %21
+  %.0 = phi i64 [ %22, %21 ], [ %44, %rb_long2num_inline.exit16 ]
   ret i64 %.0
 }
 
@@ -6642,23 +6643,24 @@ backref_number_check.exit:                        ; preds = %10
   tail call fastcc void @update_char_offset(i64 noundef %0)
   %22 = getelementptr i8, ptr %4, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !224
-  %24 = getelementptr %struct.rmatch_offset, ptr %23, i64 %17, i32 1
-  %25 = load i64, ptr %24, align 8, !tbaa !232
-  %26 = add i64 %25, 4611686018427387904
-  %or.cond.i = icmp sgt i64 %26, -1
-  br i1 %or.cond.i, label %27, label %30
+  %24 = getelementptr %struct.rmatch_offset, ptr %23, i64 %17
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !232
+  %27 = add i64 %26, 4611686018427387904
+  %or.cond.i = icmp sgt i64 %27, -1
+  br i1 %or.cond.i, label %28, label %31
 
-27:                                               ; preds = %21
-  %28 = shl nsw i64 %25, 1
-  %29 = or disjoint i64 %28, 1
+28:                                               ; preds = %21
+  %29 = shl nsw i64 %26, 1
+  %30 = or disjoint i64 %29, 1
   br label %rb_long2num_inline.exit
 
-30:                                               ; preds = %21
-  %31 = tail call i64 @rb_int2big(i64 noundef %25) #29
+31:                                               ; preds = %21
+  %32 = tail call i64 @rb_int2big(i64 noundef %26) #29
   br label %rb_long2num_inline.exit
 
-rb_long2num_inline.exit:                          ; preds = %30, %27, %backref_number_check.exit
-  %.0 = phi i64 [ 4, %backref_number_check.exit ], [ %29, %27 ], [ %31, %30 ]
+rb_long2num_inline.exit:                          ; preds = %31, %28, %backref_number_check.exit
+  %.0 = phi i64 [ 4, %backref_number_check.exit ], [ %30, %28 ], [ %32, %31 ]
   ret i64 %.0
 }
 
@@ -10985,7 +10987,7 @@ define internal fastcc void @update_char_offset(i64 noundef %0) unnamed_addr #1 
   store i64 %28, ptr %29, align 8, !tbaa !230
   %30 = getelementptr i64, ptr %25, i64 %indvars.iv127
   %31 = load i64, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr %struct.rmatch_offset, ptr %23, i64 %indvars.iv127, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %31, ptr %32, align 8, !tbaa !232
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
@@ -11179,7 +11181,7 @@ bsearch.exit94:                                   ; preds = %110
   %115 = getelementptr i8, ptr %39, i64 %105
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !tbaa !298
-  %118 = getelementptr %struct.rmatch_offset, ptr %98, i64 %indvars.iv122, i32 1
+  %118 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 %117, ptr %118, align 8, !tbaa !232
   br label %119
 
@@ -11724,7 +11726,7 @@ define internal noundef i32 @match_inspect_name_iter(ptr noundef %0, ptr noundef
   %14 = sext i32 %13 to i64
   %15 = getelementptr %struct.backref_name_tag, ptr %5, i64 %14
   store ptr %0, ptr %15, align 8, !tbaa !239
-  %16 = getelementptr %struct.backref_name_tag, ptr %5, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %10, ptr %16, align 8, !tbaa !241
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

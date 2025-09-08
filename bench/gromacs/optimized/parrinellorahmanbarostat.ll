@@ -2009,11 +2009,11 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat20scaleBoxAndPositionsEv(ptr nound
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv56
   br i1 %exitcond.not, label %28, label %29, !llvm.loop !265
 
-._crit_edge:                                      ; preds = %116, %10
+._crit_edge:                                      ; preds = %117, %10
   ret void
 
-36:                                               ; preds = %.lr.ph, %116
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next65, %116 ]
+36:                                               ; preds = %.lr.ph, %117
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next65, %117 ]
   %37 = load ptr, ptr %16, align 8, !tbaa !195
   %38 = load ptr, ptr %37, align 8, !tbaa !227
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 520
@@ -2052,7 +2052,7 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat20scaleBoxAndPositionsEv(ptr nound
   %67 = fmul float %57, %66
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %45, align 4
   store float %67, ptr %56, align 4, !tbaa !156
-  br label %116
+  br label %117
 
 68:                                               ; preds = %36
   %69 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv64
@@ -2108,19 +2108,20 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat20scaleBoxAndPositionsEv(ptr nound
   %107 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %108 = load i32, ptr %107, align 4, !tbaa !269
   %.not36 = icmp eq i32 %108, 0
-  br i1 %.not36, label %109, label %116
+  br i1 %.not36, label %109, label %117
 
 109:                                              ; preds = %106
   %110 = load ptr, ptr %27, align 8, !tbaa !150
   %111 = getelementptr i8, ptr %110, i64 32
   %112 = load float, ptr %111, align 4, !tbaa !153
-  %113 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %22, i64 %indvars.iv64, i32 0, i64 2
-  %114 = load float, ptr %113, align 4, !tbaa !153
-  %115 = fmul float %112, %114
-  store float %115, ptr %113, align 4, !tbaa !153
-  br label %116
+  %113 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %22, i64 %indvars.iv64
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load float, ptr %114, align 4, !tbaa !153
+  %116 = fmul float %112, %115
+  store float %116, ptr %114, align 4, !tbaa !153
+  br label %117
 
-116:                                              ; preds = %106, %109, %44
+117:                                              ; preds = %106, %109, %44
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
   br i1 %exitcond67.not, label %._crit_edge, label %36, !llvm.loop !270

@@ -7991,55 +7991,56 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h389bfb9fa4bb76ffE"
   br i1 %.not1.i11.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i", label %.lr.ph.i
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr { i32, i32, i32, i32, i8, i8, i8, [1 x i8] }, ptr %8, i64 %14, i32 5
-  %.val.i.i = load i8, ptr %11, align 1, !range !1139, !noalias !1140, !noundef !3
+  %11 = getelementptr inbounds nuw { i32, i32, i32, i32, i8, i8, i8, [1 x i8] }, ptr %8, i64 %15
+  %12 = getelementptr i8, ptr %11, i64 17
+  %.val.i.i = load i8, ptr %12, align 1, !range !1139, !noalias !1140, !noundef !3
   %.not1.i.i = icmp eq i8 %.val.i.i, 10
   br i1 %.not1.i.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %10
-  %12 = add nuw i64 %13, 2
+  %13 = add nuw i64 %14, 2
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i"
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %10
-  %13 = phi i64 [ %14, %10 ], [ 0, %.lr.ph.i.i ]
-  %14 = add nuw nsw i64 %13, 1
-  %.not.i.i = icmp eq i64 %14, %4
+  %14 = phi i64 [ %15, %10 ], [ 0, %.lr.ph.i.i ]
+  %15 = add nuw nsw i64 %14, 1
+  %.not.i.i = icmp eq i64 %15, %4
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha618c2a0832af060E.exit.i", label %10
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i": ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
-  %.sroa.4.0.i = phi i64 [ 1, %.lr.ph.i.i ], [ %12, %._crit_edge.loopexit.i ]
+  %.sroa.4.0.i = phi i64 [ 1, %.lr.ph.i.i ], [ %13, %._crit_edge.loopexit.i ]
   %.not2.i.i = icmp eq i64 %.sroa.4.0.i, %4
   br i1 %.not2.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha618c2a0832af060E.exit.i", label %.lr.ph.i3.i
 
 .lr.ph.i3.i:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i", %.backedge.i.i
-  %15 = phi i64 [ %22, %.backedge.i.i ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ]
   %16 = phi i64 [ %23, %.backedge.i.i ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ]
-  %17 = phi i64 [ %.sink.i.i, %.backedge.i.i ], [ %.sroa.4.0.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ]
-  %18 = getelementptr inbounds nuw { i32, i32, i32, i32, i8, i8, i8, [1 x i8] }, ptr %8, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 17
-  %.val.i4.i = load i8, ptr %19, align 1, !range !1139, !noalias !1141, !noundef !3
+  %17 = phi i64 [ %24, %.backedge.i.i ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ]
+  %18 = phi i64 [ %.sink.i.i, %.backedge.i.i ], [ %.sroa.4.0.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ]
+  %19 = getelementptr inbounds nuw { i32, i32, i32, i32, i8, i8, i8, [1 x i8] }, ptr %8, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 17
+  %.val.i4.i = load i8, ptr %20, align 1, !range !1139, !noalias !1141, !noundef !3
   %.not1.i5.i = icmp eq i8 %.val.i4.i, 10
-  br i1 %.not1.i5.i, label %20, label %24
+  br i1 %.not1.i5.i, label %21, label %25
 
-20:                                               ; preds = %.lr.ph.i3.i
-  %21 = add i64 %16, 1
+21:                                               ; preds = %.lr.ph.i3.i
+  %22 = add i64 %17, 1
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %24, %20
-  %22 = phi i64 [ %21, %20 ], [ %15, %24 ]
-  %23 = phi i64 [ %21, %20 ], [ %16, %24 ]
-  %.sink.i.i = add i64 %17, 1
+.backedge.i.i:                                    ; preds = %25, %21
+  %23 = phi i64 [ %22, %21 ], [ %16, %25 ]
+  %24 = phi i64 [ %22, %21 ], [ %17, %25 ]
+  %.sink.i.i = add i64 %18, 1
   %.not.i6.i = icmp eq i64 %.sink.i.i, %4
   br i1 %.not.i6.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha618c2a0832af060E.exit.i", label %.lr.ph.i3.i
 
-24:                                               ; preds = %.lr.ph.i3.i
-  %25 = sub i64 %17, %16
-  %26 = getelementptr inbounds nuw { i32, i32, i32, i32, i8, i8, i8, [1 x i8] }, ptr %8, i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 4 dereferenceable(20) %18, i64 20, i1 false), !noalias !1141
+25:                                               ; preds = %.lr.ph.i3.i
+  %26 = sub i64 %18, %17
+  %27 = getelementptr inbounds nuw { i32, i32, i32, i32, i8, i8, i8, [1 x i8] }, ptr %8, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %27, ptr noundef nonnull align 4 dereferenceable(20) %19, i64 20, i1 false), !noalias !1141
   br label %.backedge.i.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha618c2a0832af060E.exit.i": ; preds = %.lr.ph.i, %.backedge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i"
-  %.sroa.9.1.i = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ], [ %22, %.backedge.i.i ], [ 0, %.lr.ph.i ]
+  %.sroa.9.1.i = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h35d6f920834ec6f2E.exit.i" ], [ %23, %.backedge.i.i ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1133
   store ptr %0, ptr %2, align 8, !noalias !1133
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8

@@ -230,7 +230,7 @@ define noundef zeroext i1 @_ZN6open3d6camera23PinholeCameraTrajectory20ConvertFr
 
 12:                                               ; preds = %2
   tail call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.7, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d6camera23PinholeCameraTrajectory20ConvertFromJsonValueERKN4Json5ValueE, ptr noundef nonnull @.str.8)
-  br label %123
+  br label %125
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -334,7 +334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d6camera23PinholeCameraTrajectory20ConvertFromJsonValueERKN4Json5ValueE, ptr noundef nonnull @.str.8)
-  br label %123
+  br label %125
 
 38:                                               ; preds = %13
   %39 = landingpad { ptr, i32 }
@@ -430,7 +430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %124
+  br label %126
 
 67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -450,7 +450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
 73:                                               ; preds = %88, %75, %72, %67
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %122
+  br label %124
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -499,8 +499,8 @@ _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.
 _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader: ; preds = %88, %90, %92, %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i.i
   br label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader, %120
-  %.034 = phi i64 [ %121, %120 ], [ 0, %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader ]
+_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader, %122
+  %.034 = phi i64 [ %123, %122 ], [ 0, %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader ]
   %97 = invoke noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %98 unwind label %100
 
@@ -512,63 +512,65 @@ _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; 
 100:                                              ; preds = %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit
   %101 = landingpad { ptr, i32 }
           cleanup
-  br label %122
+  br label %124
 
 102:                                              ; preds = %98
   %103 = trunc nuw i64 %.034 to i32
   %104 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %103)
-          to label %105 unwind label %112
+          to label %105 unwind label %113
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %76, align 8, !tbaa !20
   %107 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull @.str.11)
-          to label %108 unwind label %112
+          to label %108 unwind label %113
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %106, i64 %.034, i32 1
-  %110 = invoke noundef zeroext i1 @_ZN6open3d6camera22PinholeCameraIntrinsic20ConvertFromJsonValueERKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(88) %109, ptr noundef nonnull align 8 dereferenceable(40) %107)
-          to label %111 unwind label %112
+  %109 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %106, i64 %.034
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = invoke noundef zeroext i1 @_ZN6open3d6camera22PinholeCameraIntrinsic20ConvertFromJsonValueERKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(88) %110, ptr noundef nonnull align 8 dereferenceable(40) %107)
+          to label %112 unwind label %113
 
-111:                                              ; preds = %108
-  br i1 %110, label %114, label %.critedge82
+112:                                              ; preds = %108
+  br i1 %111, label %115, label %.critedge82
 
-112:                                              ; preds = %117, %114, %108, %105, %102
-  %113 = landingpad { ptr, i32 }
+113:                                              ; preds = %118, %115, %108, %105, %102
+  %114 = landingpad { ptr, i32 }
           cleanup
-  br label %122
-
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %76, align 8, !tbaa !20
-  %116 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull @.str.12)
-          to label %117 unwind label %112
-
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %115, i64 %.034, i32 2
-  %119 = invoke noundef zeroext i1 @_ZN6open3d7utility16IJsonConvertible26EigenMatrix4dFromJsonArrayERN5Eigen6MatrixIdLi4ELi4ELi2ELi4ELi4EEERKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %118, ptr noundef nonnull align 8 dereferenceable(40) %116)
-          to label %120 unwind label %112
-
-120:                                              ; preds = %117
-  %121 = add nuw nsw i64 %.034, 1
-  br i1 %119, label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit, label %.critedge82, !llvm.loop !23
-
-.critedge82:                                      ; preds = %120, %98, %111, %72
-  %.1 = phi i1 [ false, %72 ], [ %.not71.not.not.not, %111 ], [ %.not71.not.not.not, %98 ], [ %.not71.not.not.not, %120 ]
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #18
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %123
-
-122:                                              ; preds = %100, %112, %73
-  %.pn72 = phi { ptr, i32 } [ %74, %73 ], [ %113, %112 ], [ %101, %100 ]
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #18
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %124
 
-123:                                              ; preds = %.critedge82, %37, %12
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %76, align 8, !tbaa !20
+  %117 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull @.str.12)
+          to label %118 unwind label %113
+
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %116, i64 %.034
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 96
+  %121 = invoke noundef zeroext i1 @_ZN6open3d7utility16IJsonConvertible26EigenMatrix4dFromJsonArrayERN5Eigen6MatrixIdLi4ELi4ELi2ELi4ELi4EEERKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %120, ptr noundef nonnull align 8 dereferenceable(40) %117)
+          to label %122 unwind label %113
+
+122:                                              ; preds = %118
+  %123 = add nuw nsw i64 %.034, 1
+  br i1 %121, label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit, label %.critedge82, !llvm.loop !23
+
+.critedge82:                                      ; preds = %122, %98, %112, %72
+  %.1 = phi i1 [ false, %72 ], [ %.not71.not.not.not, %112 ], [ %.not71.not.not.not, %98 ], [ %.not71.not.not.not, %122 ]
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %125
+
+124:                                              ; preds = %100, %113, %73
+  %.pn72 = phi { ptr, i32 } [ %74, %73 ], [ %114, %113 ], [ %101, %100 ]
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %126
+
+125:                                              ; preds = %.critedge82, %37, %12
   %.0 = phi i1 [ false, %37 ], [ %.1, %.critedge82 ], [ false, %12 ]
   ret i1 %.0
 
-124:                                              ; preds = %122, %66
-  %.pn72.pn = phi { ptr, i32 } [ %.pn72, %122 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %66 ]
+126:                                              ; preds = %124, %66
+  %.pn72.pn = phi { ptr, i32 } [ %.pn72, %124 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %66 ]
   resume { ptr, i32 } %.pn72.pn
 }
 

@@ -1269,12 +1269,13 @@ define i32 @logg_facility(ptr noundef readonly captures(none) %0) local_unnamed_
   br i1 %.not7, label %8, label %2
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !27
+  %9 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %8
-  %.05 = phi i32 [ %10, %8 ], [ -1, %2 ]
+  %.05 = phi i32 [ %11, %8 ], [ -1, %2 ]
   ret i32 %.05
 }
 

@@ -452,32 +452,33 @@ define hidden void @nghttp2_frame_origin_init(ptr noundef captures(none) %0, ptr
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.015 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
-  %.01214 = phi i64 [ %7, %.lr.ph ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %1, i64 %.015, i32 1
-  %5 = load i64, ptr %4, align 8, !tbaa !53
-  %6 = add i64 %.01214, 2
-  %7 = add i64 %6, %5
-  %8 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %8, %2
+  %.015 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
+  %.01214 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
+  %4 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %1, i64 %.015
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !53
+  %7 = add i64 %.01214, 2
+  %8 = add i64 %7, %6
+  %9 = add nuw i64 %.015, 1
+  %exitcond.not = icmp eq i64 %9, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.012.lcssa = phi i64 [ 0, %3 ], [ %7, %.lr.ph ]
+  %.012.lcssa = phi i64 [ 0, %3 ], [ %8, %.lr.ph ]
   store i64 %.012.lcssa, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 12, ptr %9, align 4, !tbaa !9
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 0, ptr %10, align 1, !tbaa !11
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %11, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 0, ptr %12, align 2, !tbaa !13
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !46
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %1, ptr %15, align 8, !tbaa !57
-  store i64 %2, ptr %14, align 8, !tbaa !59
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 12, ptr %10, align 4, !tbaa !9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 0, ptr %11, align 1, !tbaa !11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %12, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 0, ptr %13, align 2, !tbaa !13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %1, ptr %16, align 8, !tbaa !57
+  store i64 %2, ptr %15, align 8, !tbaa !59
   ret void
 }
 

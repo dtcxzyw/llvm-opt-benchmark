@@ -58,17 +58,18 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01117, i32 1
-  %13 = load i16, ptr %12, align 2, !tbaa !10
-  %14 = sext i16 %13 to i32
-  br label %16
+  %12 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01117
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %14 = load i16, ptr %13, align 2, !tbaa !10
+  %15 = sext i16 %14 to i32
+  br label %17
 
 ._crit_edge:                                      ; preds = %9, %4
-  %15 = tail call i32 %3(i32 noundef %0) #7
-  br label %16
+  %16 = tail call i32 %3(i32 noundef %0) #7
+  br label %17
 
-16:                                               ; preds = %11, %._crit_edge
-  %.1 = phi i32 [ %15, %._crit_edge ], [ %14, %11 ]
+17:                                               ; preds = %11, %._crit_edge
+  %.1 = phi i32 [ %16, %._crit_edge ], [ %15, %11 ]
   ret i32 %.1
 }
 

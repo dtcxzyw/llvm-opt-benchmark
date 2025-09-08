@@ -13173,11 +13173,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 "_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit": ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21, i32 1
+  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %8
@@ -13225,7 +13226,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 45:                                               ; preds = %.noexc6
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !976, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41, i32 1
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !976
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13315,11 +13316,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 "_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit": ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21, i32 1
+  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %8
@@ -13367,7 +13369,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 45:                                               ; preds = %.noexc6
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !988, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41, i32 1
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !988
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13457,11 +13459,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 "_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit": ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21, i32 1
+  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %8
@@ -13509,7 +13512,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 45:                                               ; preds = %.noexc6
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !1000, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41, i32 1
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1000
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

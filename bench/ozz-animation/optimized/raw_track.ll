@@ -113,17 +113,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %4, i64 %.01523, i32 1
-  %10 = load float, ptr %9, align 4, !tbaa !11
-  %11 = fcmp uge float %10, 0.000000e+00
-  %12 = fcmp ule float %10, 1.000000e+00
-  %or.cond.not29 = and i1 %11, %12
-  %13 = fcmp ugt float %10, %.01622
-  %or.cond20 = and i1 %13, %or.cond.not29
-  %14 = add nuw i64 %.01523, 1
-  %exitcond.not = icmp ne i64 %14, %8
+  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %4, i64 %.01523
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !11
+  %12 = fcmp uge float %11, 0.000000e+00
+  %13 = fcmp ule float %11, 1.000000e+00
+  %or.cond.not29 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01622
+  %or.cond20 = and i1 %14, %or.cond.not29
+  %15 = add nuw i64 %.01523, 1
+  %exitcond.not = icmp ne i64 %15, %8
   %or.cond.not = select i1 %or.cond20, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !15
 
@@ -164,17 +165,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %4, i64 %.01523, i32 1
-  %10 = load float, ptr %9, align 4, !tbaa !21
-  %11 = fcmp uge float %10, 0.000000e+00
-  %12 = fcmp ule float %10, 1.000000e+00
-  %or.cond.not29 = and i1 %11, %12
-  %13 = fcmp ugt float %10, %.01622
-  %or.cond20 = and i1 %13, %or.cond.not29
-  %14 = add nuw i64 %.01523, 1
-  %exitcond.not = icmp ne i64 %14, %8
+  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %4, i64 %.01523
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !21
+  %12 = fcmp uge float %11, 0.000000e+00
+  %13 = fcmp ule float %11, 1.000000e+00
+  %or.cond.not29 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01622
+  %or.cond20 = and i1 %14, %or.cond.not29
+  %15 = add nuw i64 %.01523, 1
+  %exitcond.not = icmp ne i64 %15, %8
   %or.cond.not = select i1 %or.cond20, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !24
 
@@ -301,17 +303,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %4, i64 %.01523, i32 1
-  %10 = load float, ptr %9, align 4, !tbaa !44
-  %11 = fcmp uge float %10, 0.000000e+00
-  %12 = fcmp ule float %10, 1.000000e+00
-  %or.cond.not29 = and i1 %11, %12
-  %13 = fcmp ugt float %10, %.01622
-  %or.cond20 = and i1 %13, %or.cond.not29
-  %14 = add nuw i64 %.01523, 1
-  %exitcond.not = icmp ne i64 %14, %8
+  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %4, i64 %.01523
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !44
+  %12 = fcmp uge float %11, 0.000000e+00
+  %13 = fcmp ule float %11, 1.000000e+00
+  %or.cond.not29 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01622
+  %or.cond20 = and i1 %14, %or.cond.not29
+  %15 = add nuw i64 %.01523, 1
+  %exitcond.not = icmp ne i64 %15, %8
   %or.cond.not = select i1 %or.cond20, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !47
 
@@ -438,17 +441,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %4, i64 %.01523, i32 1
-  %10 = load float, ptr %9, align 4, !tbaa !54
-  %11 = fcmp uge float %10, 0.000000e+00
-  %12 = fcmp ule float %10, 1.000000e+00
-  %or.cond.not29 = and i1 %11, %12
-  %13 = fcmp ugt float %10, %.01622
-  %or.cond20 = and i1 %13, %or.cond.not29
-  %14 = add nuw i64 %.01523, 1
-  %exitcond.not = icmp ne i64 %14, %8
+  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %4, i64 %.01523
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !54
+  %12 = fcmp uge float %11, 0.000000e+00
+  %13 = fcmp ule float %11, 1.000000e+00
+  %or.cond.not29 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01622
+  %or.cond20 = and i1 %14, %or.cond.not29
+  %15 = add nuw i64 %.01523, 1
+  %exitcond.not = icmp ne i64 %15, %8
   %or.cond.not = select i1 %or.cond20, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !57
 
@@ -575,17 +579,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %4, i64 %.01523, i32 1
-  %10 = load float, ptr %9, align 4, !tbaa !64
-  %11 = fcmp uge float %10, 0.000000e+00
-  %12 = fcmp ule float %10, 1.000000e+00
-  %or.cond.not29 = and i1 %11, %12
-  %13 = fcmp ugt float %10, %.01622
-  %or.cond20 = and i1 %13, %or.cond.not29
-  %14 = add nuw i64 %.01523, 1
-  %exitcond.not = icmp ne i64 %14, %8
+  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %4, i64 %.01523
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !64
+  %12 = fcmp uge float %11, 0.000000e+00
+  %13 = fcmp ule float %11, 1.000000e+00
+  %or.cond.not29 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01622
+  %or.cond20 = and i1 %14, %or.cond.not29
+  %15 = add nuw i64 %.01523, 1
+  %exitcond.not = icmp ne i64 %15, %8
   %or.cond.not = select i1 %or.cond20, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !67
 
