@@ -189,9 +189,10 @@ switch.lookup:                                    ; preds = %37
           to label %47 unwind label %44
 
 47:                                               ; preds = %switch.lookup
+  %switch.idx.cast40 = trunc nuw i32 %switch.tableidx to i8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %49 = load i8, ptr %48, align 4
-  %.not = icmp eq i8 %49, %switch.idx.cast
+  %.not = icmp eq i8 %49, %switch.idx.cast40
   br i1 %.not, label %55, label %50
 
 50:                                               ; preds = %47

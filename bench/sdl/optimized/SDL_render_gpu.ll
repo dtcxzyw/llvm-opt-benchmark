@@ -246,31 +246,38 @@ declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GPU_SupportsBlendMode(ptr readnone captures(none) %0, i32 noundef %1) #0 {
-GPU_ConvertBlendFactor.exit:
-  %2 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #11
-  %3 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #11
-  %4 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #11
-  %5 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #11
-  %6 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #11
-  %7 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #11
-  %.off = add i32 %2, -1
+  %3 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #11
+  %4 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #11
+  %5 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #11
+  %6 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #11
+  %7 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #11
+  %8 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #11
+  %.off = add i32 %3, -1
   %switch = icmp ult i32 %.off, 10
-  %.off27 = add i32 %3, -1
+  %.off25 = add i32 %4, -1
+  %switch26 = icmp ult i32 %.off25, 10
+  %or.cond = select i1 %switch, i1 %switch26, i1 false
+  br i1 %or.cond, label %9, label %GPU_ConvertBlendFactor.exit
+
+9:                                                ; preds = %2
+  %switch.tableidx.i = add i32 %5, -1
+  %10 = icmp ult i32 %switch.tableidx.i, 5
+  %.off27 = add i32 %6, -1
   %switch28 = icmp ult i32 %.off27, 10
-  %or.cond = select i1 %switch, i1 %switch28, i1 false
-  %.off29 = add i32 %4, -1
-  %switch30 = icmp ult i32 %.off29, 5
-  %or.cond31 = select i1 %or.cond, i1 %switch30, i1 false
-  %.off32 = add i32 %5, -1
-  %switch33 = icmp ult i32 %.off32, 10
-  %or.cond34 = select i1 %or.cond31, i1 %switch33, i1 false
-  %.off35 = add i32 %6, -1
-  %switch36 = icmp ult i32 %.off35, 10
-  %or.cond37 = select i1 %or.cond34, i1 %switch36, i1 false
-  %.off38 = add i32 %7, -1
-  %switch39 = icmp ult i32 %.off38, 5
-  %or.cond40 = select i1 %or.cond37, i1 %switch39, i1 false
-  ret i1 %or.cond40
+  %or.cond29 = select i1 %10, i1 %switch28, i1 false
+  %.off30 = add i32 %7, -1
+  %switch31 = icmp ult i32 %.off30, 10
+  %or.cond32 = select i1 %or.cond29, i1 %switch31, i1 false
+  br i1 %or.cond32, label %11, label %GPU_ConvertBlendFactor.exit
+
+11:                                               ; preds = %9
+  %12 = add i32 %8, -1
+  %13 = icmp ult i32 %12, 5
+  br label %GPU_ConvertBlendFactor.exit
+
+GPU_ConvertBlendFactor.exit:                      ; preds = %2, %11, %9
+  %.0 = phi i1 [ false, %9 ], [ %13, %11 ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -475,7 +475,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly 
   store i32 %7, ptr %8, align 8, !tbaa !10
   %9 = tail call fastcc i32 @CheckDecBuffer(ptr noundef %1)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %72
+  br i1 %.not, label %10, label %74
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %0, align 8, !tbaa !3
@@ -497,7 +497,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly 
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %4, %25
   tail call void @WebPCopyPlane(ptr noundef %15, i32 noundef %19, ptr noundef %16, i32 noundef %21, i32 noundef %26, i32 noundef %7) #10
-  br label %72
+  br label %74
 
 27:                                               ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -536,35 +536,33 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly 
   %59 = sdiv i32 %58, 2
   tail call void @WebPCopyPlane(ptr noundef %47, i32 noundef %49, ptr noundef %51, i32 noundef %53, i32 noundef %56, i32 noundef %59) #10
   %60 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %60, label %WebPIsAlphaMode.exit [
-    i32 12, label %WebPIsAlphaMode.exit.thread
-    i32 5, label %WebPIsAlphaMode.exit.thread
-    i32 4, label %WebPIsAlphaMode.exit.thread
-    i32 3, label %WebPIsAlphaMode.exit.thread
-    i32 1, label %WebPIsAlphaMode.exit.thread
-  ]
+  %switch.tableidx.i = add i32 %60, -1
+  %61 = icmp ult i32 %switch.tableidx.i, 12
+  %switch.maskindex.i = trunc i32 %switch.tableidx.i to i16
+  %switch.shifted.i = lshr i16 2077, %switch.maskindex.i
+  %switch.lobit.i = trunc i16 %switch.shifted.i to i1
+  %or.cond.i = select i1 %61, i1 %switch.lobit.i, i1 false
+  %62 = add i32 %60, -7
+  %narrow.i.i = icmp ult i32 %62, 4
+  %narrow.i = or i1 %narrow.i.i, %or.cond.i
+  br i1 %narrow.i, label %63, label %74
 
-WebPIsAlphaMode.exit:                             ; preds = %27
-  %61 = add i32 %60, -11
-  %narrow.i.i = icmp ult i32 %61, -4
-  br i1 %narrow.i.i, label %72, label %WebPIsAlphaMode.exit.thread
+63:                                               ; preds = %27
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %67 = load i32, ptr %66, align 4, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %69 = load ptr, ptr %68, align 8, !tbaa !23
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %71 = load i32, ptr %70, align 4, !tbaa !24
+  %72 = load i32, ptr %3, align 4, !tbaa !35
+  %73 = load i32, ptr %6, align 8, !tbaa !10
+  tail call void @WebPCopyPlane(ptr noundef %65, i32 noundef %67, ptr noundef %69, i32 noundef %71, i32 noundef %72, i32 noundef %73) #10
+  br label %74
 
-WebPIsAlphaMode.exit.thread:                      ; preds = %27, %27, %27, %27, %27, %WebPIsAlphaMode.exit
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %63 = load ptr, ptr %62, align 8, !tbaa !23
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %65 = load i32, ptr %64, align 4, !tbaa !24
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %67 = load ptr, ptr %66, align 8, !tbaa !23
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %69 = load i32, ptr %68, align 4, !tbaa !24
-  %70 = load i32, ptr %3, align 4, !tbaa !35
-  %71 = load i32, ptr %6, align 8, !tbaa !10
-  tail call void @WebPCopyPlane(ptr noundef %63, i32 noundef %65, ptr noundef %67, i32 noundef %69, i32 noundef %70, i32 noundef %71) #10
-  br label %72
-
-72:                                               ; preds = %17, %WebPIsAlphaMode.exit.thread, %WebPIsAlphaMode.exit, %2
-  %.0 = phi i32 [ 2, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 0, %WebPIsAlphaMode.exit.thread ], [ 0, %17 ]
+74:                                               ; preds = %17, %63, %27, %2
+  %.0 = phi i32 [ 2, %2 ], [ 0, %27 ], [ 0, %63 ], [ 0, %17 ]
   ret i32 %.0
 }
 

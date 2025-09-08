@@ -9837,33 +9837,25 @@ stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2size
   %23 = add nsw i32 %22, %2
   %.11170198 = add i32 %3, -1
   %24 = icmp sgt i32 %.11170198, -1
-  switch i32 %23, label %.critedge [
-    i32 10, label %.lr.ph258.split
-    i32 11, label %.lr.ph258.split
-    i32 12, label %.lr.ph258.split
-    i32 17, label %.lr.ph258.split
-    i32 19, label %.lr.ph258.split
-    i32 20, label %.lr.ph258.split
-    i32 28, label %.lr.ph258.split
-    i32 25, label %.lr.ph258.split
-    i32 26, label %.lr.ph258.split
-    i32 33, label %.lr.ph258.split
-    i32 34, label %.lr.ph258.split
-    i32 35, label %.lr.ph258.split
-  ]
+  %switch.tableidx = add i32 %23, -10
+  %25 = icmp ult i32 %switch.tableidx, 26
+  %switch.shifted = lshr i32 59082375, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %25, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup.preheader, label %.critedge
 
-.lr.ph258.split:                                  ; preds = %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258, %.lr.ph258
+switch.lookup.preheader:                          ; preds = %.lr.ph258
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %26
+  br label %switch.lookup
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread16.i.i, %7, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
   tail call void @free(ptr noundef %0) #37
-  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.1, ptr %25, align 8, !tbaa !22
+  %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.1, ptr %26, align 8, !tbaa !22
   br label %158
 
-26:                                               ; preds = %.lr.ph258.split, %.loopexit
-  %indvars.iv = phi i64 [ 0, %.lr.ph258.split ], [ %indvars.iv.next, %.loopexit ]
+switch.lookup:                                    ; preds = %switch.lookup.preheader, %.loopexit
+  %indvars.iv = phi i64 [ 0, %switch.lookup.preheader ], [ %indvars.iv.next, %.loopexit ]
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = mul i32 %3, %27
   %29 = mul i32 %28, %1
@@ -9886,40 +9878,40 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
     i32 34, label %.preheader193
   ]
 
-.preheader195:                                    ; preds = %26
+.preheader195:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph, label %.loopexit
 
-.preheader193:                                    ; preds = %26
+.preheader193:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph206, label %.loopexit
 
-.preheader191:                                    ; preds = %26
+.preheader191:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph211, label %.loopexit
 
-.preheader189:                                    ; preds = %26
+.preheader189:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph216, label %.loopexit
 
-.preheader187:                                    ; preds = %26
+.preheader187:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph221, label %.loopexit
 
-.preheader185:                                    ; preds = %26
+.preheader185:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph226, label %.loopexit
 
-.preheader183:                                    ; preds = %26
+.preheader183:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph231, label %.loopexit
 
-.preheader181:                                    ; preds = %26
+.preheader181:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph236, label %.loopexit
 
-.preheader179:                                    ; preds = %26
+.preheader179:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph241, label %.loopexit
 
-.preheader177:                                    ; preds = %26
+.preheader177:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph246, label %.loopexit
 
-.preheader175:                                    ; preds = %26
+.preheader175:                                    ; preds = %switch.lookup
   br i1 %24, label %.lr.ph251, label %.loopexit
 
-.preheader:                                       ; preds = %26
+.preheader:                                       ; preds = %switch.lookup
   br i1 %24, label %.lr.ph256, label %.loopexit
 
 .lr.ph256:                                        ; preds = %.preheader, %.lr.ph256
@@ -10180,7 +10172,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 .loopexit:                                        ; preds = %.lr.ph206, %.lr.ph211, %.lr.ph216, %.lr.ph221, %.lr.ph226, %.lr.ph231, %.lr.ph236, %.lr.ph241, %.lr.ph246, %.lr.ph251, %.lr.ph256, %.lr.ph, %.preheader195, %.preheader193, %.preheader191, %.preheader189, %.preheader187, %.preheader185, %.preheader183, %.preheader181, %.preheader179, %.preheader177, %.preheader175, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %switch.lookup, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader197
   tail call void @free(ptr noundef %0) #37
@@ -10215,7 +10207,7 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
   %11 = zext i32 %10 to i64
   %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #38
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %18, label %.preheader196
+  br i1 %13, label %19, label %.preheader196
 
 .preheader196:                                    ; preds = %7
   %14 = icmp sgt i32 %4, 0
@@ -10226,33 +10218,25 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
   %16 = add nsw i32 %15, %2
   %.11170197 = add i32 %3, -1
   %17 = icmp sgt i32 %.11170197, -1
-  switch i32 %16, label %.critedge [
-    i32 10, label %.lr.ph257.split
-    i32 11, label %.lr.ph257.split
-    i32 12, label %.lr.ph257.split
-    i32 17, label %.lr.ph257.split
-    i32 19, label %.lr.ph257.split
-    i32 20, label %.lr.ph257.split
-    i32 28, label %.lr.ph257.split
-    i32 25, label %.lr.ph257.split
-    i32 26, label %.lr.ph257.split
-    i32 33, label %.lr.ph257.split
-    i32 34, label %.lr.ph257.split
-    i32 35, label %.lr.ph257.split
-  ]
+  %switch.tableidx = add i32 %16, -10
+  %18 = icmp ult i32 %switch.tableidx, 26
+  %switch.shifted = lshr i32 59082375, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup.preheader, label %.critedge
 
-.lr.ph257.split:                                  ; preds = %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257, %.lr.ph257
+switch.lookup.preheader:                          ; preds = %.lr.ph257
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %20
+  br label %switch.lookup
 
-18:                                               ; preds = %7
+19:                                               ; preds = %7
   tail call void @free(ptr noundef %0) #37
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.1, ptr %19, align 8, !tbaa !22
+  %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.1, ptr %20, align 8, !tbaa !22
   br label %152
 
-20:                                               ; preds = %.lr.ph257.split, %.loopexit
-  %indvars.iv = phi i64 [ 0, %.lr.ph257.split ], [ %indvars.iv.next, %.loopexit ]
+switch.lookup:                                    ; preds = %switch.lookup.preheader, %.loopexit
+  %indvars.iv = phi i64 [ 0, %switch.lookup.preheader ], [ %indvars.iv.next, %.loopexit ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = mul i32 %3, %21
   %23 = mul i32 %22, %1
@@ -10275,40 +10259,40 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
     i32 34, label %.preheader192
   ]
 
-.preheader194:                                    ; preds = %20
+.preheader194:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph, label %.loopexit
 
-.preheader192:                                    ; preds = %20
+.preheader192:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph205, label %.loopexit
 
-.preheader190:                                    ; preds = %20
+.preheader190:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph210, label %.loopexit
 
-.preheader188:                                    ; preds = %20
+.preheader188:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph215, label %.loopexit
 
-.preheader186:                                    ; preds = %20
+.preheader186:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph220, label %.loopexit
 
-.preheader184:                                    ; preds = %20
+.preheader184:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph225, label %.loopexit
 
-.preheader182:                                    ; preds = %20
+.preheader182:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph230, label %.loopexit
 
-.preheader180:                                    ; preds = %20
+.preheader180:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph235, label %.loopexit
 
-.preheader178:                                    ; preds = %20
+.preheader178:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph240, label %.loopexit
 
-.preheader176:                                    ; preds = %20
+.preheader176:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph245, label %.loopexit
 
-.preheader174:                                    ; preds = %20
+.preheader174:                                    ; preds = %switch.lookup
   br i1 %17, label %.lr.ph250, label %.loopexit
 
-.preheader:                                       ; preds = %20
+.preheader:                                       ; preds = %switch.lookup
   br i1 %17, label %.lr.ph255, label %.loopexit
 
 .lr.ph255:                                        ; preds = %.preheader, %.lr.ph255
@@ -10569,14 +10553,14 @@ define noundef ptr @stbi__convert_format16(ptr noundef captures(ret: address, pr
 .loopexit:                                        ; preds = %.lr.ph205, %.lr.ph210, %.lr.ph215, %.lr.ph220, %.lr.ph225, %.lr.ph230, %.lr.ph235, %.lr.ph240, %.lr.ph245, %.lr.ph250, %.lr.ph255, %.lr.ph, %.preheader194, %.preheader192, %.preheader190, %.preheader188, %.preheader186, %.preheader184, %.preheader182, %.preheader180, %.preheader178, %.preheader176, %.preheader174, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge, label %switch.lookup, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader196
   tail call void @free(ptr noundef %0) #37
   br label %152
 
-152:                                              ; preds = %.critedge, %5, %._crit_edge, %18
-  %.0155 = phi ptr [ null, %18 ], [ %12, %._crit_edge ], [ %0, %5 ], [ null, %.critedge ]
+152:                                              ; preds = %.critedge, %5, %._crit_edge, %19
+  %.0155 = phi ptr [ null, %19 ], [ %12, %._crit_edge ], [ %0, %5 ], [ null, %.critedge ]
   ret ptr %.0155
 }
 

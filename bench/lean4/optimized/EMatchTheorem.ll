@@ -8651,14 +8651,13 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   %14 = lshr i64 %2, 1
   %15 = trunc i64 %14 to i8
-  %16 = icmp ult i8 %15, 9
-  %switch.idx.cast = and i64 %14, 255
-  %.0.i = select i1 %16, i64 %switch.idx.cast, i64 9
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %narrow.i = tail call i8 @llvm.umin.i8(i8 %15, i8 9)
+  %.0.i = zext nneg i8 %narrow.i to i64
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %11, align 4, !tbaa !4
-  store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.0.i, ptr %18, align 8, !tbaa !12
+  store i32 16, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.0.i, ptr %17, align 8, !tbaa !12
   ret ptr %11
 }
 
@@ -243929,11 +243928,11 @@ lean_alloc_ctor.exit:                             ; preds = %0
 
 declare i64 @l_Lean_Meta_TransparencyMode_toUInt64(i8 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #8
+declare i8 @llvm.umin.i8(i8, i8) #7
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -243942,8 +243941,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 

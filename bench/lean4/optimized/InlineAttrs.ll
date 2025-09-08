@@ -515,16 +515,15 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
   unreachable
 
 lean_box_uint64.exit:                             ; preds = %lean_dec.exit
-  %14 = and i64 %2, 504
-  %15 = icmp eq i64 %14, 0
-  %16 = lshr i64 %2, 1
-  %switch.idx.cast = and i64 %16, 255
-  %.0.i = select i1 %15, i64 %switch.idx.cast, i64 4
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = lshr i64 %2, 1
+  %15 = trunc i64 %14 to i8
+  %narrow.i = tail call i8 @llvm.umin.i8(i8 %15, i8 4)
+  %.0.i = zext nneg i8 %narrow.i to i64
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %11, align 4, !tbaa !4
-  store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.0.i, ptr %18, align 8, !tbaa !15
+  store i32 16, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.0.i, ptr %17, align 8, !tbaa !15
   ret ptr %11
 }
 

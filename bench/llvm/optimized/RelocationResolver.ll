@@ -1085,12 +1085,26 @@ define internal noundef i64 @_ZN4llvm6objectL13resolveWasm32Emmmml(i64 %0, i64 %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm64Em(i64 noundef %0) #1 {
-_ZN4llvm6objectL14supportsWasm32Em.exit:
-  %1 = icmp ult i64 %0, 24
-  %switch.cast = trunc i64 %0 to i24
-  %switch.downshift = lshr i24 -2234369, %switch.cast
+  %switch.tableidx = add i64 %0, -14
+  %2 = icmp ult i64 %switch.tableidx, 9
+  %switch.maskindex = trunc i64 %switch.tableidx to i16
+  %switch.shifted = lshr i16 311, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
+
+3:                                                ; preds = %1
+  %4 = icmp ult i64 %0, 24
+  br i1 %4, label %switch.lookup2, label %switch.lookup
+
+switch.lookup2:                                   ; preds = %3
+  %switch.cast = trunc nuw i64 %0 to i24
+  %switch.downshift = lshr i24 -7329793, %switch.cast
   %switch.masked = trunc i24 %switch.downshift to i1
-  %.0 = select i1 %1, i1 %switch.masked, i1 false
+  br label %switch.lookup
+
+switch.lookup:                                    ; preds = %3, %switch.lookup2, %1
+  %.0 = phi i1 [ true, %1 ], [ %switch.masked, %switch.lookup2 ], [ false, %3 ]
   ret i1 %.0
 }
 

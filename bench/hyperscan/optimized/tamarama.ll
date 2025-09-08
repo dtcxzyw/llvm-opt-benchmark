@@ -1469,22 +1469,23 @@ define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) 
   %19 = phi i32 [ %17, %13 ], [ -1, %5 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, -2
+  %.fr = freeze i8 %21
+  %22 = and i8 %.fr, -2
   switch i8 %22, label %23 [
     i8 6, label %isMultiTopType.exit
     i8 8, label %isMultiTopType.exit
   ]
 
 23:                                               ; preds = %18
-  %switch.tableidx = add i8 %21, -17
+  %switch.tableidx = add i8 %.fr, -17
   %24 = icmp ult i8 %switch.tableidx, 8
   %switch.shifted = lshr i8 -3, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond69 = select i1 %24, i1 %switch.lobit, i1 false
-  br i1 %or.cond69, label %isMultiTopType.exit, label %25
+  %or.cond47 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond47, label %isMultiTopType.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = add i8 %21, -11
+  %26 = add i8 %.fr, -11
   %narrow = icmp ult i8 %26, 5
   br label %isMultiTopType.exit
 

@@ -15374,10 +15374,9 @@ define noundef range(i32 0, 3) i32 @"_ZN88_$LT$raft_proto..protos..eraftpb..Entr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @"_ZN88_$LT$raft_proto..protos..eraftpb..EntryType$u20$as$u20$protobuf..enums..ProtobufEnum$GT$8from_i3217h063ac7819a05ee77E"(i32 noundef %0) unnamed_addr #3 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -15435,10 +15434,9 @@ define noundef range(i32 0, 19) i32 @"_ZN90_$LT$raft_proto..protos..eraftpb..Mes
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 20) i8 @"_ZN90_$LT$raft_proto..protos..eraftpb..MessageType$u20$as$u20$protobuf..enums..ProtobufEnum$GT$8from_i3217hc7651054bad52fe4E"(i32 noundef %0) unnamed_addr #3 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 19)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 19)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -15496,10 +15494,9 @@ define noundef range(i32 0, 3) i32 @"_ZN99_$LT$raft_proto..protos..eraftpb..Conf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @"_ZN99_$LT$raft_proto..protos..eraftpb..ConfChangeTransition$u20$as$u20$protobuf..enums..ProtobufEnum$GT$8from_i3217h964f62e70c1e4cdeE"(i32 noundef %0) unnamed_addr #3 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -15557,10 +15554,9 @@ define noundef range(i32 0, 3) i32 @"_ZN93_$LT$raft_proto..protos..eraftpb..Conf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @"_ZN93_$LT$raft_proto..protos..eraftpb..ConfChangeType$u20$as$u20$protobuf..enums..ProtobufEnum$GT$8from_i3217h0b2303e053e446b0E"(i32 noundef %0) unnamed_addr #3 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
