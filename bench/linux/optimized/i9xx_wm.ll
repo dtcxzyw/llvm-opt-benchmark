@@ -1016,19 +1016,19 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
 .preheader.i:                                     ; preds = %177, %214
   %194 = phi i64 [ %215, %214 ], [ 0, %177 ]
   %195 = getelementptr %struct.cxsr_latency, ptr @cxsr_latency_table, i64 %194
-  %196 = load i8, ptr %195, align 2
-  %197 = and i8 %196, 1
-  %198 = icmp eq i8 %197, 0
-  %199 = xor i1 %183, %198
-  br i1 %199, label %200, label %214
+  %196 = add nsw i64 %194, -15
+  %197 = icmp ult i64 %196, 15
+  %198 = xor i1 %183, %197
+  br i1 %198, label %199, label %214
 
-200:                                              ; preds = %.preheader.i
-  %201 = and i8 %196, 2
-  %202 = icmp eq i8 %201, 0
+199:                                              ; preds = %.preheader.i
+  %200 = shl nuw i64 1, %194
+  %201 = and i64 %200, 242457831
+  %202 = icmp ne i64 %201, 0
   %203 = xor i1 %186, %202
   br i1 %203, label %204, label %214
 
-204:                                              ; preds = %200
+204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %195, i64 2
   %206 = load i16, ptr %205, align 2
   %207 = zext i16 %206 to i32
@@ -1042,7 +1042,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %213 = icmp eq i32 %190, %212
   br i1 %213, label %intel_get_cxsr_latency.exit, label %214
 
-214:                                              ; preds = %209, %204, %200, %.preheader.i
+214:                                              ; preds = %209, %204, %199, %.preheader.i
   %215 = add nuw nsw i64 %194, 1
   %216 = icmp eq i64 %215, 30
   br i1 %216, label %217, label %.preheader.i, !llvm.loop !42
@@ -7746,19 +7746,19 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
 .preheader8:                                      ; preds = %1, %38
   %18 = phi i64 [ %39, %38 ], [ 0, %1 ]
   %19 = getelementptr %struct.cxsr_latency, ptr @cxsr_latency_table, i64 %18
-  %20 = load i8, ptr %19, align 2
-  %21 = and i8 %20, 1
-  %22 = icmp eq i8 %21, 0
-  %23 = xor i1 %7, %22
-  br i1 %23, label %24, label %38
+  %20 = add nsw i64 %18, -15
+  %21 = icmp ult i64 %20, 15
+  %22 = xor i1 %7, %21
+  br i1 %22, label %23, label %38
 
-24:                                               ; preds = %.preheader8
-  %25 = and i8 %20, 2
-  %26 = icmp eq i8 %25, 0
+23:                                               ; preds = %.preheader8
+  %24 = shl nuw i64 1, %18
+  %25 = and i64 %24, 242457831
+  %26 = icmp ne i64 %25, 0
   %27 = xor i1 %10, %26
   br i1 %27, label %28, label %38
 
-28:                                               ; preds = %24
+28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
@@ -7772,7 +7772,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %37 = icmp eq i32 %14, %36
   br i1 %37, label %42, label %38
 
-38:                                               ; preds = %33, %28, %24, %.preheader8
+38:                                               ; preds = %33, %28, %23, %.preheader8
   %39 = add nuw nsw i64 %18, 1
   %40 = icmp eq i64 %39, 30
   br i1 %40, label %41, label %.preheader8, !llvm.loop !42

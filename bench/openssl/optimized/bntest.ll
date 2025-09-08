@@ -6920,11 +6920,12 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 
 .preheader51.i:                                   ; preds = %21
   %.not56.i = icmp eq i32 %5, 0
-  br i1 %.not56.i, label %.preheader.i, label %.lr.ph.i
+  br i1 %.not56.i, label %.lr.ph55.preheader.i, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %34, %.preheader51.i
-  %.not57.i = icmp eq i32 %3, 0
-  br i1 %.not57.i, label %._crit_edge.i, label %.lr.ph55.i
+.lr.ph55.preheader.i:                             ; preds = %34, %.preheader51.i
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
+  %wide.trip.count.i = zext i32 %umax.i to i64
+  br label %.lr.ph55.i
 
 .lr.ph.i:                                         ; preds = %.preheader51.i, %34
   %.04052.i = phi i32 [ %39, %34 ], [ 0, %.preheader51.i ]
@@ -6950,23 +6951,22 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   store i64 %38, ptr %36, align 8, !tbaa !66
   %39 = add nuw i32 %.04052.i, 1
   %exitcond.not.i = icmp eq i32 %39, %5
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %.lr.ph55.preheader.i, label %.lr.ph.i, !llvm.loop !67
 
-.lr.ph55.i:                                       ; preds = %.preheader.i, %.lr.ph55.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph55.i ], [ 0, %.preheader.i ]
-  %.054.i = phi double [ %44, %.lr.ph55.i ], [ 0.000000e+00, %.preheader.i ]
+.lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.lr.ph55.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph55.preheader.i ], [ %indvars.iv.next.i, %.lr.ph55.i ]
+  %.054.i = phi double [ 0.000000e+00, %.lr.ph55.preheader.i ], [ %44, %.lr.ph55.i ]
   %40 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
   %41 = load i64, ptr %40, align 8, !tbaa !66
   %42 = uitofp i64 %41 to double
   %43 = fsub double %42, %10
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %.054.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next.i, %11
+  %exitcond59.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph55.i, !llvm.loop !68
 
-._crit_edge.i:                                    ; preds = %.lr.ph55.i, %.preheader.i
-  %.0.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %44, %.lr.ph55.i ]
-  %45 = fdiv double %.0.lcssa.i, %10
+._crit_edge.i:                                    ; preds = %.lr.ph55.i
+  %45 = fdiv double %44, %10
   %46 = fcmp ogt double %45, %7
   br i1 %46, label %47, label %test_rand_range_single.exit
 
@@ -9236,6 +9236,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

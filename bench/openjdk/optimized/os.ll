@@ -3707,42 +3707,48 @@ declare i32 @jio_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2os8strerrorEi(i32 noundef %0) local_unnamed_addr #14 align 2 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
-  %4 = load i32, ptr %3, align 8
-  %.not.i = icmp eq i32 %4, -1
-  %.not8.i = icmp eq i32 %4, %0
-  %or.cond.i = or i1 %.not.i, %.not8.i
+2:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %or.cond.i, label %_ZL15errno_to_stringib.exit, label %2, !llvm.loop !28
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 79
+  br i1 %.not.i, label %_ZL15errno_to_stringib.exit, label %3, !llvm.loop !28
 
-_ZL15errno_to_stringib.exit:                      ; preds = %2
-  %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %.in.i, align 8
-  ret ptr %5
+3:                                                ; preds = %2, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
+  %4 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
+  %5 = load i32, ptr %4, align 8
+  %.not8.i = icmp eq i32 %5, %0
+  br i1 %.not8.i, label %_ZL15errno_to_stringib.exit, label %2
+
+_ZL15errno_to_stringib.exit:                      ; preds = %2, %3
+  %.lcssa.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZL15errno_to_stringibE5table, i64 1896), %2 ], [ %4, %3 ]
+  %.in.i = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 16
+  %6 = load ptr, ptr %.in.i, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2os10errno_nameEi(i32 noundef %0) local_unnamed_addr #14 align 2 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
-  %4 = load i32, ptr %3, align 8
-  %.not.i = icmp eq i32 %4, -1
-  %.not8.i = icmp eq i32 %4, %0
-  %or.cond.i = or i1 %.not.i, %.not8.i
+2:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %or.cond.i, label %_ZL15errno_to_stringib.exit, label %2, !llvm.loop !28
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 79
+  br i1 %.not.i, label %_ZL15errno_to_stringib.exit, label %3, !llvm.loop !28
 
-_ZL15errno_to_stringib.exit:                      ; preds = %2
-  %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %.in.i, align 8
-  ret ptr %5
+3:                                                ; preds = %2, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
+  %4 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
+  %5 = load i32, ptr %4, align 8
+  %.not8.i = icmp eq i32 %5, %0
+  br i1 %.not8.i, label %_ZL15errno_to_stringib.exit, label %2
+
+_ZL15errno_to_stringib.exit:                      ; preds = %2, %3
+  %.lcssa.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZL15errno_to_stringibE5table, i64 1896), %2 ], [ %4, %3 ]
+  %.in.i = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 8
+  %6 = load ptr, ptr %.in.i, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

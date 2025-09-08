@@ -1165,57 +1165,58 @@ define i64 @ggml_nrows(ptr noundef readonly captures(none) %0) local_unnamed_add
 define i64 @ggml_nbytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %5 = load i64, ptr %4, align 8, !tbaa !44
-  %6 = icmp eq i64 %5, 1
-  br i1 %6, label %7, label %20
+  %4 = shl nuw i64 1, %3
+  %5 = and i64 %4, 1593835523
+  %.not = icmp eq i64 %5, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %9 = load i64, ptr %8, align 8, !tbaa !47
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %12
+  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %11
 
-12:                                               ; preds = %7, %12
-  %indvars.iv31 = phi i64 [ 0, %7 ], [ %indvars.iv.next32, %12 ]
-  %.02126 = phi i64 [ %9, %7 ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv31
-  %14 = load i64, ptr %13, align 8, !tbaa !39
-  %15 = add nsw i64 %14, -1
-  %16 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv31
-  %17 = load i64, ptr %16, align 8, !tbaa !39
-  %18 = mul i64 %15, %17
-  %19 = add i64 %18, %.02126
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 4
-  br i1 %exitcond34.not, label %.loopexit, label %12, !llvm.loop !48
+11:                                               ; preds = %7, %11
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
+  %.02124 = phi i64 [ %9, %7 ], [ %18, %11 ]
+  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %13 = load i64, ptr %12, align 8, !tbaa !39
+  %14 = add nsw i64 %13, -1
+  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %16 = load i64, ptr %15, align 8, !tbaa !39
+  %17 = mul i64 %14, %16
+  %18 = add i64 %17, %.02124
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !47
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !39
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !48
+  %22 = load i64, ptr %6, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i64, ptr %23, align 8, !tbaa !39
   %25 = mul i64 %24, %22
-  %26 = udiv i64 %25, %5
+  %26 = udiv i64 %25, %21
   br label %27
 
-27:                                               ; preds = %20, %27
-  %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %27 ]
-  %.224 = phi i64 [ %26, %20 ], [ %34, %27 ]
-  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+27:                                               ; preds = %19, %27
+  %indvars.iv31 = phi i64 [ 1, %19 ], [ %indvars.iv.next32, %27 ]
+  %.226 = phi i64 [ %26, %19 ], [ %34, %27 ]
+  %28 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv31
   %29 = load i64, ptr %28, align 8, !tbaa !39
   %30 = add nsw i64 %29, -1
-  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv31
   %32 = load i64, ptr %31, align 8, !tbaa !39
   %33 = mul i64 %30, %32
-  %34 = add i64 %33, %.224
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !49
+  %34 = add i64 %33, %.226
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 4
+  br i1 %exitcond34.not, label %.loopexit, label %27, !llvm.loop !49
 
-.loopexit:                                        ; preds = %27, %12
-  %.1 = phi i64 [ %19, %12 ], [ %34, %27 ]
+.loopexit:                                        ; preds = %11, %27
+  %.1 = phi i64 [ %34, %27 ], [ %18, %11 ]
   ret i64 %.1
 }
 
@@ -1223,7 +1224,7 @@ define i64 @ggml_nbytes(ptr noundef readonly captures(none) %0) local_unnamed_ad
 define i64 @ggml_blck_size(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %2, i32 1
-  %4 = load i64, ptr %3, align 8, !tbaa !44
+  %4 = load i64, ptr %3, align 8, !tbaa !48
   ret i64 %4
 }
 
@@ -1231,7 +1232,7 @@ define i64 @ggml_blck_size(i32 noundef %0) local_unnamed_addr #8 {
 define i64 @ggml_type_size(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %2, i32 3
-  %4 = load i64, ptr %3, align 8, !tbaa !47
+  %4 = load i64, ptr %3, align 8, !tbaa !44
   ret i64 %4
 }
 
@@ -1239,57 +1240,58 @@ define i64 @ggml_type_size(i32 noundef %0) local_unnamed_addr #8 {
 define range(i64 0, -15) i64 @ggml_nbytes_pad(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %5 = load i64, ptr %4, align 8, !tbaa !44
-  %6 = icmp eq i64 %5, 1
-  br i1 %6, label %7, label %20
+  %4 = shl nuw i64 1, %3
+  %5 = and i64 %4, 1593835523
+  %.not.i = icmp eq i64 %5, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.not.i, label %19, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %9 = load i64, ptr %8, align 8, !tbaa !47
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %12
+  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %11
 
-12:                                               ; preds = %12, %7
-  %indvars.iv31.i = phi i64 [ 0, %7 ], [ %indvars.iv.next32.i, %12 ]
-  %.02126.i = phi i64 [ %9, %7 ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv31.i
-  %14 = load i64, ptr %13, align 8, !tbaa !39
-  %15 = add nsw i64 %14, -1
-  %16 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv31.i
-  %17 = load i64, ptr %16, align 8, !tbaa !39
-  %18 = mul i64 %15, %17
-  %19 = add i64 %18, %.02126.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
-  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %12, !llvm.loop !48
+11:                                               ; preds = %11, %7
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %11 ]
+  %.02124.i = phi i64 [ %9, %7 ], [ %18, %11 ]
+  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
+  %13 = load i64, ptr %12, align 8, !tbaa !39
+  %14 = add nsw i64 %13, -1
+  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
+  %16 = load i64, ptr %15, align 8, !tbaa !39
+  %17 = mul i64 %14, %16
+  %18 = add i64 %17, %.02124.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %11, !llvm.loop !47
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !39
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !48
+  %22 = load i64, ptr %6, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i64, ptr %23, align 8, !tbaa !39
   %25 = mul i64 %24, %22
-  %26 = udiv i64 %25, %5
+  %26 = udiv i64 %25, %21
   br label %27
 
-27:                                               ; preds = %27, %20
-  %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %27 ]
-  %.224.i = phi i64 [ %26, %20 ], [ %34, %27 ]
-  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i
+27:                                               ; preds = %27, %19
+  %indvars.iv31.i = phi i64 [ 1, %19 ], [ %indvars.iv.next32.i, %27 ]
+  %.226.i = phi i64 [ %26, %19 ], [ %34, %27 ]
+  %28 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv31.i
   %29 = load i64, ptr %28, align 8, !tbaa !39
   %30 = add nsw i64 %29, -1
-  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv31.i
   %32 = load i64, ptr %31, align 8, !tbaa !39
   %33 = mul i64 %30, %32
-  %34 = add i64 %33, %.224.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %27, !llvm.loop !49
+  %34 = add i64 %33, %.226.i
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
+  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
+  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %27, !llvm.loop !49
 
-ggml_nbytes.exit:                                 ; preds = %27, %12
-  %.1.i = phi i64 [ %19, %12 ], [ %34, %27 ]
+ggml_nbytes.exit:                                 ; preds = %11, %27
+  %.1.i = phi i64 [ %34, %27 ], [ %18, %11 ]
   %35 = add i64 %.1.i, 15
   %36 = and i64 %35, -16
   ret i64 %36
@@ -1299,10 +1301,10 @@ ggml_nbytes.exit:                                 ; preds = %27, %12
 define i64 @ggml_row_size(i32 noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   %6 = mul i64 %5, %1
   %7 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %8 = load i64, ptr %7, align 8, !tbaa !44
+  %8 = load i64, ptr %7, align 8, !tbaa !48
   %9 = udiv i64 %6, %8
   ret i64 %9
 }
@@ -1312,10 +1314,10 @@ define double @ggml_type_sizef(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   %6 = uitofp i64 %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !44
+  %8 = load i64, ptr %7, align 8, !tbaa !48
   %9 = sitofp i64 %8 to double
   %10 = fdiv double %6, %9
   ret double %10
@@ -1413,7 +1415,7 @@ define i64 @ggml_element_size(ptr noundef readonly captures(none) %0) local_unna
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   ret i64 %5
 }
 
@@ -1563,11 +1565,11 @@ define noundef zeroext i1 @ggml_is_contiguous(ptr noundef readonly captures(none
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %.not.i.i = icmp eq i64 %7, %9
   br i1 %.not.i.i, label %13, label %10
 
@@ -1617,11 +1619,11 @@ define noundef zeroext i1 @ggml_is_contiguous_0(ptr noundef readonly captures(no
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %.not.i = icmp eq i64 %7, %9
   br i1 %.not.i, label %13, label %10
 
@@ -1671,11 +1673,11 @@ define noundef zeroext i1 @ggml_is_contiguous_1(ptr noundef readonly captures(no
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %.not.i = icmp eq i64 %7, %9
   br i1 %.not.i, label %13, label %10
 
@@ -1733,11 +1735,11 @@ define noundef zeroext i1 @ggml_is_contiguous_2(ptr noundef readonly captures(no
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 3
-  %5 = load i64, ptr %4, align 8, !tbaa !47
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %3, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !48
   %.not.i = icmp eq i64 %7, %9
   br i1 %.not.i, label %13, label %10
 
@@ -2230,89 +2232,90 @@ define i64 @ggml_get_max_tensor_size(ptr noundef readonly captures(none) %0) loc
   br i1 %.not.i, label %._crit_edge, label %.lr.ph.i, !llvm.loop !71
 
 ggml_get_first_tensor.exit:                       ; preds = %.lr.ph.i
-  %.not17 = icmp eq ptr %4, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %4, null
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %ggml_nbytes.exit, %48, %1, %ggml_get_first_tensor.exit
   %.0.lcssa = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ 0, %1 ], [ %43, %48 ], [ %43, %ggml_nbytes.exit ], [ 0, %8 ]
   ret i64 %.0.lcssa
 
-.lr.ph:                                           ; preds = %.lr.ph.i10, %ggml_get_first_tensor.exit
-  %.019 = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ %43, %.lr.ph.i10 ]
-  %.pn.in = phi ptr [ %.0812.i, %ggml_get_first_tensor.exit ], [ %.0913.i, %.lr.ph.i10 ]
+.lr.ph:                                           ; preds = %.lr.ph.i11, %ggml_get_first_tensor.exit
+  %.020 = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ %43, %.lr.ph.i11 ]
+  %.pn.in = phi ptr [ %.0812.i, %ggml_get_first_tensor.exit ], [ %.0913.i, %.lr.ph.i11 ]
   %.pn = load i64, ptr %.pn.in, align 8, !tbaa !32
-  %.0918 = getelementptr inbounds nuw i8, ptr %4, i64 %.pn
-  %10 = load i32, ptr %.0918, align 8, !tbaa !40
+  %.0919 = getelementptr inbounds nuw i8, ptr %4, i64 %.pn
+  %10 = load i32, ptr %.0919, align 8, !tbaa !40
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %11, i32 1
-  %13 = load i64, ptr %12, align 8, !tbaa !44
-  %14 = icmp eq i64 %13, 1
-  br i1 %14, label %15, label %28
+  %12 = shl nuw i64 1, %11
+  %13 = and i64 %12, 1593835523
+  %.not.i10 = icmp eq i64 %13, 0
+  %14 = getelementptr inbounds nuw i8, ptr %.0919, i64 16
+  br i1 %.not.i10, label %27, label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %11, i32 3
-  %17 = load i64, ptr %16, align 8, !tbaa !47
-  %18 = getelementptr inbounds nuw i8, ptr %.0918, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %.0918, i64 48
-  br label %20
+  %17 = load i64, ptr %16, align 8, !tbaa !44
+  %18 = getelementptr inbounds nuw i8, ptr %.0919, i64 48
+  br label %19
 
-20:                                               ; preds = %20, %15
-  %indvars.iv31.i = phi i64 [ 0, %15 ], [ %indvars.iv.next32.i, %20 ]
-  %.02126.i = phi i64 [ %17, %15 ], [ %27, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv31.i
-  %22 = load i64, ptr %21, align 8, !tbaa !39
-  %23 = add nsw i64 %22, -1
-  %24 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv31.i
-  %25 = load i64, ptr %24, align 8, !tbaa !39
-  %26 = mul i64 %23, %25
-  %27 = add i64 %26, %.02126.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
-  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %20, !llvm.loop !48
-
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %.0918, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !39
-  %31 = getelementptr inbounds nuw i8, ptr %.0918, i64 48
-  %32 = load i64, ptr %31, align 8, !tbaa !39
-  %33 = mul i64 %32, %30
-  %34 = udiv i64 %33, %13
-  br label %35
-
-35:                                               ; preds = %35, %28
-  %indvars.iv.i = phi i64 [ 1, %28 ], [ %indvars.iv.next.i, %35 ]
-  %.224.i = phi i64 [ %34, %28 ], [ %42, %35 ]
-  %36 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv.i
-  %37 = load i64, ptr %36, align 8, !tbaa !39
-  %38 = add nsw i64 %37, -1
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i
-  %40 = load i64, ptr %39, align 8, !tbaa !39
-  %41 = mul i64 %38, %40
-  %42 = add i64 %41, %.224.i
+19:                                               ; preds = %19, %15
+  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %19 ]
+  %.02124.i = phi i64 [ %17, %15 ], [ %26, %19 ]
+  %20 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i
+  %21 = load i64, ptr %20, align 8, !tbaa !39
+  %22 = add nsw i64 %21, -1
+  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i
+  %24 = load i64, ptr %23, align 8, !tbaa !39
+  %25 = mul i64 %22, %24
+  %26 = add i64 %25, %.02124.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %35, !llvm.loop !49
+  br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %19, !llvm.loop !47
 
-ggml_nbytes.exit:                                 ; preds = %35, %20
-  %.1.i = phi i64 [ %27, %20 ], [ %42, %35 ]
-  %43 = tail call i64 @llvm.umax.i64(i64 %.019, i64 %.1.i)
-  %44 = getelementptr inbounds i8, ptr %.0918, i64 -16
+27:                                               ; preds = %.lr.ph
+  %28 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %11, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !48
+  %30 = load i64, ptr %14, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %.0919, i64 48
+  %32 = load i64, ptr %31, align 8, !tbaa !39
+  %33 = mul i64 %32, %30
+  %34 = udiv i64 %33, %29
+  br label %35
+
+35:                                               ; preds = %35, %27
+  %indvars.iv31.i = phi i64 [ 1, %27 ], [ %indvars.iv.next32.i, %35 ]
+  %.226.i = phi i64 [ %34, %27 ], [ %42, %35 ]
+  %36 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv31.i
+  %37 = load i64, ptr %36, align 8, !tbaa !39
+  %38 = add nsw i64 %37, -1
+  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv31.i
+  %40 = load i64, ptr %39, align 8, !tbaa !39
+  %41 = mul i64 %38, %40
+  %42 = add i64 %41, %.226.i
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
+  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
+  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %35, !llvm.loop !49
+
+ggml_nbytes.exit:                                 ; preds = %19, %35
+  %.1.i = phi i64 [ %42, %35 ], [ %26, %19 ]
+  %43 = tail call i64 @llvm.umax.i64(i64 %.020, i64 %.1.i)
+  %44 = getelementptr inbounds i8, ptr %.0919, i64 -16
   %.0911.i = load ptr, ptr %44, align 8, !tbaa !34
   %.not12.i = icmp eq ptr %.0911.i, null
-  br i1 %.not12.i, label %._crit_edge, label %.lr.ph.i10
+  br i1 %.not12.i, label %._crit_edge, label %.lr.ph.i11
 
-.lr.ph.i10:                                       ; preds = %ggml_nbytes.exit, %48
+.lr.ph.i11:                                       ; preds = %ggml_nbytes.exit, %48
   %.0913.i = phi ptr [ %.09.i, %48 ], [ %.0911.i, %ggml_nbytes.exit ]
   %45 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !29
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.lr.ph, label %48, !llvm.loop !72
 
-48:                                               ; preds = %.lr.ph.i10
+48:                                               ; preds = %.lr.ph.i11
   %49 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 16
   %.09.i = load ptr, ptr %49, align 8, !tbaa !34
-  %.not.i11 = icmp eq ptr %.09.i, null
-  br i1 %.not.i11, label %._crit_edge, label %.lr.ph.i10, !llvm.loop !73
+  %.not.i12 = icmp eq ptr %.09.i, null
+  br i1 %.not.i12, label %._crit_edge, label %.lr.ph.i11, !llvm.loop !73
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -2426,10 +2429,10 @@ define internal fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef captures(no
   %21 = load i64, ptr %3, align 8, !tbaa !39
   %22 = zext nneg i32 %1 to i64
   %23 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %22, i32 3
-  %24 = load i64, ptr %23, align 8, !tbaa !47
+  %24 = load i64, ptr %23, align 8, !tbaa !44
   %25 = mul i64 %24, %21
   %26 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %22, i32 1
-  %27 = load i64, ptr %26, align 8, !tbaa !44
+  %27 = load i64, ptr %26, align 8, !tbaa !48
   %28 = udiv i64 %25, %27
   %29 = icmp samesign ugt i32 %2, 1
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
@@ -2459,57 +2462,58 @@ define internal fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef captures(no
   %36 = add i64 %.076.lcssa, %.072
   %37 = load i32, ptr %.071, align 8, !tbaa !40
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %38, i32 1
-  %40 = load i64, ptr %39, align 8, !tbaa !44
-  %41 = icmp eq i64 %40, 1
-  br i1 %41, label %42, label %55
+  %39 = shl nuw i64 1, %38
+  %40 = and i64 %39, 1593835523
+  %.not.i = icmp eq i64 %40, 0
+  %41 = getelementptr inbounds nuw i8, ptr %.071, i64 16
+  br i1 %.not.i, label %54, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %38, i32 3
-  %44 = load i64, ptr %43, align 8, !tbaa !47
-  %45 = getelementptr inbounds nuw i8, ptr %.071, i64 16
-  %46 = getelementptr inbounds nuw i8, ptr %.071, i64 48
-  br label %47
+  %44 = load i64, ptr %43, align 8, !tbaa !44
+  %45 = getelementptr inbounds nuw i8, ptr %.071, i64 48
+  br label %46
 
-47:                                               ; preds = %47, %42
-  %indvars.iv31.i = phi i64 [ 0, %42 ], [ %indvars.iv.next32.i, %47 ]
-  %.02126.i = phi i64 [ %44, %42 ], [ %54, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv31.i
-  %49 = load i64, ptr %48, align 8, !tbaa !39
-  %50 = add nsw i64 %49, -1
-  %51 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv31.i
-  %52 = load i64, ptr %51, align 8, !tbaa !39
-  %53 = mul i64 %50, %52
-  %54 = add i64 %53, %.02126.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
-  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %47, !llvm.loop !48
+46:                                               ; preds = %46, %42
+  %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %46 ]
+  %.02124.i = phi i64 [ %44, %42 ], [ %53, %46 ]
+  %47 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i
+  %48 = load i64, ptr %47, align 8, !tbaa !39
+  %49 = add nsw i64 %48, -1
+  %50 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv.i
+  %51 = load i64, ptr %50, align 8, !tbaa !39
+  %52 = mul i64 %49, %51
+  %53 = add i64 %52, %.02124.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %46, !llvm.loop !47
 
-55:                                               ; preds = %35
-  %56 = getelementptr inbounds nuw i8, ptr %.071, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !39
+54:                                               ; preds = %35
+  %55 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %38, i32 1
+  %56 = load i64, ptr %55, align 8, !tbaa !48
+  %57 = load i64, ptr %41, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %.071, i64 48
   %59 = load i64, ptr %58, align 8, !tbaa !39
   %60 = mul i64 %59, %57
-  %61 = udiv i64 %60, %40
+  %61 = udiv i64 %60, %56
   br label %62
 
-62:                                               ; preds = %62, %55
-  %indvars.iv.i = phi i64 [ 1, %55 ], [ %indvars.iv.next.i, %62 ]
-  %.224.i = phi i64 [ %61, %55 ], [ %69, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv.i
+62:                                               ; preds = %62, %54
+  %indvars.iv31.i = phi i64 [ 1, %54 ], [ %indvars.iv.next32.i, %62 ]
+  %.226.i = phi i64 [ %61, %54 ], [ %69, %62 ]
+  %63 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv31.i
   %64 = load i64, ptr %63, align 8, !tbaa !39
   %65 = add nsw i64 %64, -1
-  %66 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv31.i
   %67 = load i64, ptr %66, align 8, !tbaa !39
   %68 = mul i64 %65, %67
-  %69 = add i64 %68, %.224.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %62, !llvm.loop !49
+  %69 = add i64 %68, %.226.i
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
+  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
+  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %62, !llvm.loop !49
 
-ggml_nbytes.exit:                                 ; preds = %62, %47
-  %.1.i = phi i64 [ %54, %47 ], [ %69, %62 ]
+ggml_nbytes.exit:                                 ; preds = %46, %62
+  %.1.i = phi i64 [ %69, %62 ], [ %53, %46 ]
   %.not85 = icmp ugt i64 %36, %.1.i
   br i1 %.not85, label %70, label %.thread
 
@@ -3268,7 +3272,7 @@ ggml_is_scalar.exit.thread:                       ; preds = %4, %8, %12, %ggml_i
   %22 = load i32, ptr %1, align 8, !tbaa !40
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %23, i32 3
-  %25 = load i64, ptr %24, align 8, !tbaa !47
+  %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = icmp eq i64 %21, %25
   br i1 %26, label %27, label %ggml_is_padded_1d.exit.thread
 
@@ -3379,9 +3383,9 @@ define internal fastcc noundef ptr @ggml_acc_impl(ptr noundef captures(none) %0,
   %33 = load i32, ptr %1, align 8, !tbaa !40
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 3
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 1
-  %38 = load i64, ptr %37, align 8, !tbaa !44
+  %38 = load i64, ptr %37, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %21, %38
   br i1 %.not.i.i.i, label %42, label %39
 
@@ -4452,11 +4456,11 @@ define noundef ptr @ggml_abs(ptr noundef captures(none) %0, ptr noundef %1) loca
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -4524,11 +4528,11 @@ define noundef ptr @ggml_unary(ptr noundef captures(none) %0, ptr noundef %1, i3
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %5, i32 3
-  %7 = load i64, ptr %6, align 8, !tbaa !47
+  %7 = load i64, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %5, i32 1
-  %11 = load i64, ptr %10, align 8, !tbaa !44
+  %11 = load i64, ptr %10, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %9, %11
   br i1 %.not.i.i.i, label %15, label %12
 
@@ -4602,11 +4606,11 @@ define noundef ptr @ggml_unary_inplace(ptr noundef captures(none) %0, ptr nounde
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %5, i32 3
-  %7 = load i64, ptr %6, align 8, !tbaa !47
+  %7 = load i64, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %5, i32 1
-  %11 = load i64, ptr %10, align 8, !tbaa !44
+  %11 = load i64, ptr %10, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %9, %11
   br i1 %.not.i.i.i, label %15, label %12
 
@@ -4690,11 +4694,11 @@ define noundef ptr @ggml_sgn(ptr noundef captures(none) %0, ptr noundef %1) loca
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -4768,11 +4772,11 @@ define noundef ptr @ggml_neg(ptr noundef captures(none) %0, ptr noundef %1) loca
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -4846,11 +4850,11 @@ define noundef ptr @ggml_step(ptr noundef captures(none) %0, ptr noundef %1) loc
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -4924,11 +4928,11 @@ define noundef ptr @ggml_tanh(ptr noundef captures(none) %0, ptr noundef %1) loc
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5002,11 +5006,11 @@ define noundef ptr @ggml_elu(ptr noundef captures(none) %0, ptr noundef %1) loca
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5080,11 +5084,11 @@ define noundef ptr @ggml_relu(ptr noundef captures(none) %0, ptr noundef %1) loc
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5202,11 +5206,11 @@ define noundef ptr @ggml_sigmoid(ptr noundef captures(none) %0, ptr noundef %1) 
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5280,11 +5284,11 @@ define noundef ptr @ggml_gelu(ptr noundef captures(none) %0, ptr noundef %1) loc
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5358,11 +5362,11 @@ define noundef ptr @ggml_gelu_quick(ptr noundef captures(none) %0, ptr noundef %
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5436,11 +5440,11 @@ define noundef ptr @ggml_silu(ptr noundef captures(none) %0, ptr noundef %1) loc
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5528,11 +5532,11 @@ define noundef ptr @ggml_hardswish(ptr noundef captures(none) %0, ptr noundef %1
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5600,11 +5604,11 @@ define noundef ptr @ggml_hardsigmoid(ptr noundef captures(none) %0, ptr noundef 
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -5672,11 +5676,11 @@ define noundef ptr @ggml_exp(ptr noundef captures(none) %0, ptr noundef %1) loca
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 3
-  %6 = load i64, ptr %5, align 8, !tbaa !47
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %4, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq i64 %8, %10
   br i1 %.not.i.i.i.i, label %14, label %11
 
@@ -6204,7 +6208,7 @@ define nonnull ptr @ggml_scale(ptr noundef captures(none) %0, ptr noundef %1, fl
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %7, i32 3
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !44
   %10 = icmp eq i64 %5, %9
   br i1 %10, label %11, label %ggml_is_padded_1d.exit.thread.i
 
@@ -6259,7 +6263,7 @@ define noundef ptr @ggml_scale_inplace(ptr noundef captures(none) %0, ptr nounde
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %7, i32 3
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !44
   %10 = icmp eq i64 %5, %9
   br i1 %10, label %11, label %ggml_is_padded_1d.exit.thread.i
 
@@ -6752,11 +6756,11 @@ define noundef ptr @ggml_reshape(ptr noundef captures(none) %0, ptr noundef %1, 
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %5, i32 3
-  %7 = load i64, ptr %6, align 8, !tbaa !47
+  %7 = load i64, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %5, i32 1
-  %11 = load i64, ptr %10, align 8, !tbaa !44
+  %11 = load i64, ptr %10, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %9, %11
   br i1 %.not.i.i.i, label %15, label %12
 
@@ -6845,11 +6849,11 @@ define noundef ptr @ggml_reshape_1d(ptr noundef captures(none) %0, ptr noundef %
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %6, i32 3
-  %8 = load i64, ptr %7, align 8, !tbaa !47
+  %8 = load i64, ptr %7, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %6, i32 1
-  %12 = load i64, ptr %11, align 8, !tbaa !44
+  %12 = load i64, ptr %11, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %10, %12
   br i1 %.not.i.i.i, label %16, label %13
 
@@ -6930,11 +6934,11 @@ define noundef ptr @ggml_reshape_2d(ptr noundef captures(none) %0, ptr noundef %
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %7, i32 3
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %7, i32 1
-  %13 = load i64, ptr %12, align 8, !tbaa !44
+  %13 = load i64, ptr %12, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %11, %13
   br i1 %.not.i.i.i, label %17, label %14
 
@@ -7018,11 +7022,11 @@ define noundef ptr @ggml_reshape_3d(ptr noundef captures(none) %0, ptr noundef %
   %7 = load i32, ptr %1, align 8, !tbaa !40
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %8, i32 3
-  %10 = load i64, ptr %9, align 8, !tbaa !47
+  %10 = load i64, ptr %9, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %8, i32 1
-  %14 = load i64, ptr %13, align 8, !tbaa !44
+  %14 = load i64, ptr %13, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %12, %14
   br i1 %.not.i.i.i, label %18, label %15
 
@@ -7109,11 +7113,11 @@ define noundef ptr @ggml_reshape_4d(ptr noundef captures(none) %0, ptr noundef %
   %8 = load i32, ptr %1, align 8, !tbaa !40
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %9, i32 3
-  %11 = load i64, ptr %10, align 8, !tbaa !47
+  %11 = load i64, ptr %10, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %9, i32 1
-  %15 = load i64, ptr %14, align 8, !tbaa !44
+  %15 = load i64, ptr %14, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %13, %15
   br i1 %.not.i.i.i, label %19, label %16
 
@@ -7880,11 +7884,11 @@ define internal fastcc noundef ptr @ggml_soft_max_impl(ptr noundef captures(none
   %7 = load i32, ptr %1, align 8, !tbaa !40
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %8, i32 3
-  %10 = load i64, ptr %9, align 8, !tbaa !47
+  %10 = load i64, ptr %9, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %8, i32 1
-  %14 = load i64, ptr %13, align 8, !tbaa !44
+  %14 = load i64, ptr %13, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %12, %14
   br i1 %.not.i.i.i, label %18, label %15
 
@@ -7944,11 +7948,11 @@ ggml_is_contiguous.exit:                          ; preds = %30
 34:                                               ; preds = %31
   %35 = zext nneg i32 %32 to i64
   %36 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %35, i32 3
-  %37 = load i64, ptr %36, align 8, !tbaa !47
+  %37 = load i64, ptr %36, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %35, i32 1
-  %41 = load i64, ptr %40, align 8, !tbaa !44
+  %41 = load i64, ptr %40, align 8, !tbaa !48
   %.not.i.i.i27 = icmp eq i64 %39, %41
   br i1 %.not.i.i.i27, label %45, label %42
 
@@ -9459,9 +9463,9 @@ define nonnull ptr @ggml_pad_reflect_1d(ptr noundef captures(none) %0, ptr nound
   %22 = load i32, ptr %1, align 8, !tbaa !40
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %23, i32 3
-  %25 = load i64, ptr %24, align 8, !tbaa !47
+  %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %23, i32 1
-  %27 = load i64, ptr %26, align 8, !tbaa !44
+  %27 = load i64, ptr %26, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %14, %27
   br i1 %.not.i.i.i, label %31, label %28
 
@@ -9745,11 +9749,11 @@ ggml_can_mul_mat.exit.thread:                     ; preds = %8, %15, %ggml_can_m
   %30 = load i32, ptr %4, align 8, !tbaa !40
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %31, i32 3
-  %33 = load i64, ptr %32, align 8, !tbaa !47
+  %33 = load i64, ptr %32, align 8, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !39
   %36 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %31, i32 1
-  %37 = load i64, ptr %36, align 8, !tbaa !44
+  %37 = load i64, ptr %36, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %35, %37
   br i1 %.not.i.i.i, label %41, label %38
 
@@ -9999,11 +10003,11 @@ define noundef ptr @ggml_ssm_scan(ptr noundef captures(none) %0, ptr noundef %1,
   %9 = load i32, ptr %1, align 8, !tbaa !40
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %10, i32 3
-  %12 = load i64, ptr %11, align 8, !tbaa !47
+  %12 = load i64, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %10, i32 1
-  %16 = load i64, ptr %15, align 8, !tbaa !44
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %14, %16
   br i1 %.not.i.i.i, label %20, label %17
 
@@ -10051,11 +10055,11 @@ ggml_is_contiguous.exit:                          ; preds = %32
   %33 = load i32, ptr %2, align 8, !tbaa !40
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 3
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 1
-  %40 = load i64, ptr %39, align 8, !tbaa !44
+  %40 = load i64, ptr %39, align 8, !tbaa !48
   %.not.i.i.i51 = icmp eq i64 %38, %40
   br i1 %.not.i.i.i51, label %44, label %41
 
@@ -10103,11 +10107,11 @@ ggml_is_contiguous.exit61:                        ; preds = %56
   %57 = load i32, ptr %3, align 8, !tbaa !40
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %58, i32 3
-  %60 = load i64, ptr %59, align 8, !tbaa !47
+  %60 = load i64, ptr %59, align 8, !tbaa !44
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !39
   %63 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %58, i32 1
-  %64 = load i64, ptr %63, align 8, !tbaa !44
+  %64 = load i64, ptr %63, align 8, !tbaa !48
   %.not.i.i.i62 = icmp eq i64 %62, %64
   br i1 %.not.i.i.i62, label %68, label %65
 
@@ -10155,11 +10159,11 @@ ggml_is_contiguous.exit72:                        ; preds = %80
   %81 = load i32, ptr %4, align 8, !tbaa !40
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %82, i32 3
-  %84 = load i64, ptr %83, align 8, !tbaa !47
+  %84 = load i64, ptr %83, align 8, !tbaa !44
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !39
   %87 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %82, i32 1
-  %88 = load i64, ptr %87, align 8, !tbaa !44
+  %88 = load i64, ptr %87, align 8, !tbaa !48
   %.not.i.i.i73 = icmp eq i64 %86, %88
   br i1 %.not.i.i.i73, label %92, label %89
 
@@ -10245,7 +10249,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %ggml_is_contiguous.
   %124 = load i32, ptr %5, align 8, !tbaa !40
   %125 = zext i32 %124 to i64
   %126 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %125, i32 3
-  %127 = load i64, ptr %126, align 8, !tbaa !47
+  %127 = load i64, ptr %126, align 8, !tbaa !44
   %128 = icmp eq i64 %123, %127
   br i1 %128, label %130, label %129
 
@@ -10259,7 +10263,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %ggml_is_contiguous.
   %133 = load i32, ptr %6, align 8, !tbaa !40
   %134 = zext i32 %133 to i64
   %135 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %134, i32 3
-  %136 = load i64, ptr %135, align 8, !tbaa !47
+  %136 = load i64, ptr %135, align 8, !tbaa !44
   %137 = icmp eq i64 %132, %136
   br i1 %137, label %139, label %138
 
@@ -10632,11 +10636,11 @@ ggml_are_same_shape.exit.thread:                  ; preds = %5, %11, %17, %ggml_
   %29 = load i32, ptr %1, align 8, !tbaa !40
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %30, i32 3
-  %32 = load i64, ptr %31, align 8, !tbaa !47
+  %32 = load i64, ptr %31, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !39
   %35 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %30, i32 1
-  %36 = load i64, ptr %35, align 8, !tbaa !44
+  %36 = load i64, ptr %35, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %34, %36
   br i1 %.not.i.i.i, label %40, label %37
 
@@ -10684,9 +10688,9 @@ ggml_is_contiguous.exit:                          ; preds = %52
   %53 = load i32, ptr %2, align 8, !tbaa !40
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %54, i32 3
-  %56 = load i64, ptr %55, align 8, !tbaa !47
+  %56 = load i64, ptr %55, align 8, !tbaa !44
   %57 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %54, i32 1
-  %58 = load i64, ptr %57, align 8, !tbaa !44
+  %58 = load i64, ptr %57, align 8, !tbaa !48
   %.not.i.i.i29 = icmp eq i64 %7, %58
   br i1 %.not.i.i.i29, label %62, label %59
 
@@ -10734,9 +10738,9 @@ ggml_is_contiguous.exit39:                        ; preds = %74
   %75 = load i32, ptr %3, align 8, !tbaa !40
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %76, i32 3
-  %78 = load i64, ptr %77, align 8, !tbaa !47
+  %78 = load i64, ptr %77, align 8, !tbaa !44
   %79 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %76, i32 1
-  %80 = load i64, ptr %79, align 8, !tbaa !44
+  %80 = load i64, ptr %79, align 8, !tbaa !48
   %.not.i.i.i40 = icmp eq i64 %7, %80
   br i1 %.not.i.i.i40, label %84, label %81
 
@@ -10878,11 +10882,11 @@ define noundef ptr @ggml_rwkv_wkv6(ptr noundef captures(none) %0, ptr noundef %1
   %9 = load i32, ptr %1, align 8, !tbaa !40
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %10, i32 3
-  %12 = load i64, ptr %11, align 8, !tbaa !47
+  %12 = load i64, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %10, i32 1
-  %16 = load i64, ptr %15, align 8, !tbaa !44
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %14, %16
   br i1 %.not.i.i.i, label %20, label %17
 
@@ -10930,11 +10934,11 @@ ggml_is_contiguous.exit:                          ; preds = %32
   %33 = load i32, ptr %2, align 8, !tbaa !40
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 3
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 1
-  %40 = load i64, ptr %39, align 8, !tbaa !44
+  %40 = load i64, ptr %39, align 8, !tbaa !48
   %.not.i.i.i54 = icmp eq i64 %38, %40
   br i1 %.not.i.i.i54, label %44, label %41
 
@@ -10982,11 +10986,11 @@ ggml_is_contiguous.exit64:                        ; preds = %56
   %57 = load i32, ptr %3, align 8, !tbaa !40
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %58, i32 3
-  %60 = load i64, ptr %59, align 8, !tbaa !47
+  %60 = load i64, ptr %59, align 8, !tbaa !44
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !39
   %63 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %58, i32 1
-  %64 = load i64, ptr %63, align 8, !tbaa !44
+  %64 = load i64, ptr %63, align 8, !tbaa !48
   %.not.i.i.i65 = icmp eq i64 %62, %64
   br i1 %.not.i.i.i65, label %68, label %65
 
@@ -11034,11 +11038,11 @@ ggml_is_contiguous.exit75:                        ; preds = %80
   %81 = load i32, ptr %4, align 8, !tbaa !40
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %82, i32 3
-  %84 = load i64, ptr %83, align 8, !tbaa !47
+  %84 = load i64, ptr %83, align 8, !tbaa !44
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !39
   %87 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %82, i32 1
-  %88 = load i64, ptr %87, align 8, !tbaa !44
+  %88 = load i64, ptr %87, align 8, !tbaa !48
   %.not.i.i.i76 = icmp eq i64 %86, %88
   br i1 %.not.i.i.i76, label %92, label %89
 
@@ -11086,11 +11090,11 @@ ggml_is_contiguous.exit86:                        ; preds = %104
   %105 = load i32, ptr %5, align 8, !tbaa !40
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %106, i32 3
-  %108 = load i64, ptr %107, align 8, !tbaa !47
+  %108 = load i64, ptr %107, align 8, !tbaa !44
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %110 = load i64, ptr %109, align 8, !tbaa !39
   %111 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %106, i32 1
-  %112 = load i64, ptr %111, align 8, !tbaa !44
+  %112 = load i64, ptr %111, align 8, !tbaa !48
   %.not.i.i.i87 = icmp eq i64 %110, %112
   br i1 %.not.i.i.i87, label %116, label %113
 
@@ -11138,11 +11142,11 @@ ggml_is_contiguous.exit97:                        ; preds = %128
   %129 = load i32, ptr %6, align 8, !tbaa !40
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %130, i32 3
-  %132 = load i64, ptr %131, align 8, !tbaa !47
+  %132 = load i64, ptr %131, align 8, !tbaa !44
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !39
   %135 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %130, i32 1
-  %136 = load i64, ptr %135, align 8, !tbaa !44
+  %136 = load i64, ptr %135, align 8, !tbaa !48
   %.not.i.i.i98 = icmp eq i64 %134, %136
   br i1 %.not.i.i.i98, label %140, label %137
 
@@ -11307,11 +11311,11 @@ define noundef ptr @ggml_gated_linear_attn(ptr noundef captures(none) %0, ptr no
   %9 = load i32, ptr %1, align 8, !tbaa !40
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %10, i32 3
-  %12 = load i64, ptr %11, align 8, !tbaa !47
+  %12 = load i64, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %10, i32 1
-  %16 = load i64, ptr %15, align 8, !tbaa !44
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %.not.i.i.i = icmp eq i64 %14, %16
   br i1 %.not.i.i.i, label %20, label %17
 
@@ -11359,11 +11363,11 @@ ggml_is_contiguous.exit:                          ; preds = %32
   %33 = load i32, ptr %2, align 8, !tbaa !40
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 3
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %34, i32 1
-  %40 = load i64, ptr %39, align 8, !tbaa !44
+  %40 = load i64, ptr %39, align 8, !tbaa !48
   %.not.i.i.i53 = icmp eq i64 %38, %40
   br i1 %.not.i.i.i53, label %44, label %41
 
@@ -11411,11 +11415,11 @@ ggml_is_contiguous.exit63:                        ; preds = %56
   %57 = load i32, ptr %3, align 8, !tbaa !40
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %58, i32 3
-  %60 = load i64, ptr %59, align 8, !tbaa !47
+  %60 = load i64, ptr %59, align 8, !tbaa !44
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !39
   %63 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %58, i32 1
-  %64 = load i64, ptr %63, align 8, !tbaa !44
+  %64 = load i64, ptr %63, align 8, !tbaa !48
   %.not.i.i.i64 = icmp eq i64 %62, %64
   br i1 %.not.i.i.i64, label %68, label %65
 
@@ -11463,11 +11467,11 @@ ggml_is_contiguous.exit74:                        ; preds = %80
   %81 = load i32, ptr %4, align 8, !tbaa !40
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %82, i32 3
-  %84 = load i64, ptr %83, align 8, !tbaa !47
+  %84 = load i64, ptr %83, align 8, !tbaa !44
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !39
   %87 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %82, i32 1
-  %88 = load i64, ptr %87, align 8, !tbaa !44
+  %88 = load i64, ptr %87, align 8, !tbaa !48
   %.not.i.i.i75 = icmp eq i64 %86, %88
   br i1 %.not.i.i.i75, label %92, label %89
 
@@ -11515,11 +11519,11 @@ ggml_is_contiguous.exit85:                        ; preds = %104
   %105 = load i32, ptr %5, align 8, !tbaa !40
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %106, i32 3
-  %108 = load i64, ptr %107, align 8, !tbaa !47
+  %108 = load i64, ptr %107, align 8, !tbaa !44
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %110 = load i64, ptr %109, align 8, !tbaa !39
   %111 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %106, i32 1
-  %112 = load i64, ptr %111, align 8, !tbaa !44
+  %112 = load i64, ptr %111, align 8, !tbaa !48
   %.not.i.i.i86 = icmp eq i64 %110, %112
   br i1 %.not.i.i.i86, label %116, label %113
 
@@ -13670,7 +13674,7 @@ ggml_are_same_shape.exit664.thread.i:             ; preds = %ggml_are_same_shape
   %459 = load i32, ptr %456, align 8, !tbaa !40
   %460 = zext i32 %459 to i64
   %461 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %460, i32 3
-  %462 = load i64, ptr %461, align 8, !tbaa !47
+  %462 = load i64, ptr %461, align 8, !tbaa !44
   %463 = icmp eq i64 %458, %462
   br i1 %463, label %464, label %ggml_is_padded_1d.exit.thread.i.i157
 
@@ -13728,7 +13732,7 @@ ggml_scale.exit160:                               ; preds = %479
   %491 = load i32, ptr %488, align 8, !tbaa !40
   %492 = zext i32 %491 to i64
   %493 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %492, i32 3
-  %494 = load i64, ptr %493, align 8, !tbaa !47
+  %494 = load i64, ptr %493, align 8, !tbaa !44
   %495 = icmp eq i64 %490, %494
   br i1 %495, label %496, label %ggml_is_padded_1d.exit.thread.i.i
 
@@ -13842,7 +13846,7 @@ ggml_scale.exit:                                  ; preds = %511
   %550 = load i32, ptr %206, align 8, !tbaa !40
   %551 = zext i32 %550 to i64
   %552 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %551, i32 3
-  %553 = load i64, ptr %552, align 8, !tbaa !47
+  %553 = load i64, ptr %552, align 8, !tbaa !44
   %554 = icmp eq i64 %549, %553
   br i1 %554, label %555, label %ggml_is_padded_1d.exit.thread.i152
 
@@ -14112,7 +14116,7 @@ ggml_transpose.exit148:                           ; preds = %665
   %687 = load i32, ptr %206, align 8, !tbaa !40
   %688 = zext i32 %687 to i64
   %689 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %688, i32 3
-  %690 = load i64, ptr %689, align 8, !tbaa !47
+  %690 = load i64, ptr %689, align 8, !tbaa !44
   %691 = icmp eq i64 %686, %690
   br i1 %691, label %692, label %ggml_is_padded_1d.exit.thread.i
 
@@ -14266,11 +14270,11 @@ ggml_view_4d.exit:                                ; preds = %747
   %768 = load i32, ptr %.0630.i, align 8, !tbaa !40
   %769 = zext i32 %768 to i64
   %770 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %769, i32 3
-  %771 = load i64, ptr %770, align 8, !tbaa !47
+  %771 = load i64, ptr %770, align 8, !tbaa !44
   %772 = getelementptr inbounds nuw i8, ptr %.0630.i, i64 16
   %773 = load i64, ptr %772, align 8, !tbaa !39
   %774 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %769, i32 1
-  %775 = load i64, ptr %774, align 8, !tbaa !44
+  %775 = load i64, ptr %774, align 8, !tbaa !48
   %.not.i.i.i.i.i = icmp eq i64 %773, %775
   br i1 %.not.i.i.i.i.i, label %779, label %776
 
@@ -14371,11 +14375,11 @@ ggml_neg.exit:                                    ; preds = %795
   %818 = load i32, ptr %816, align 8, !tbaa !40
   %819 = zext i32 %818 to i64
   %820 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %819, i32 3
-  %821 = load i64, ptr %820, align 8, !tbaa !47
+  %821 = load i64, ptr %820, align 8, !tbaa !44
   %822 = getelementptr inbounds nuw i8, ptr %816, i64 16
   %823 = load i64, ptr %822, align 8, !tbaa !39
   %824 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %819, i32 1
-  %825 = load i64, ptr %824, align 8, !tbaa !44
+  %825 = load i64, ptr %824, align 8, !tbaa !48
   %.not.i.i.i132 = icmp eq i64 %823, %825
   br i1 %.not.i.i.i132, label %829, label %826
 
@@ -14423,11 +14427,11 @@ ggml_is_contiguous.exit142:                       ; preds = %841, %814
   %842 = load i32, ptr %206, align 8, !tbaa !40
   %843 = zext i32 %842 to i64
   %844 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %843, i32 3
-  %845 = load i64, ptr %844, align 8, !tbaa !47
+  %845 = load i64, ptr %844, align 8, !tbaa !44
   %846 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %847 = load i64, ptr %846, align 8, !tbaa !39
   %848 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %843, i32 1
-  %849 = load i64, ptr %848, align 8, !tbaa !44
+  %849 = load i64, ptr %848, align 8, !tbaa !48
   %.not.i.i.i121 = icmp eq i64 %847, %849
   br i1 %.not.i.i.i121, label %853, label %850
 
@@ -14527,11 +14531,11 @@ ggml_are_same_shape.exit666.thread.i:             ; preds = %890
   %900 = load i32, ptr %206, align 8, !tbaa !40
   %901 = zext i32 %900 to i64
   %902 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %901, i32 3
-  %903 = load i64, ptr %902, align 8, !tbaa !47
+  %903 = load i64, ptr %902, align 8, !tbaa !44
   %904 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %905 = load i64, ptr %904, align 8, !tbaa !39
   %906 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %901, i32 1
-  %907 = load i64, ptr %906, align 8, !tbaa !44
+  %907 = load i64, ptr %906, align 8, !tbaa !48
   %.not.i.i.i120 = icmp eq i64 %905, %907
   br i1 %.not.i.i.i120, label %911, label %908
 
@@ -14607,10 +14611,10 @@ ggml_is_contiguous.exit:                          ; preds = %923, %.loopexit192
 941:                                              ; preds = %938
   %942 = zext i32 %940 to i64
   %943 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %942, i32 3
-  %944 = load i64, ptr %943, align 8, !tbaa !47
+  %944 = load i64, ptr %943, align 8, !tbaa !44
   %945 = zext i32 %939 to i64
   %946 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %945, i32 3
-  %947 = load i64, ptr %946, align 8, !tbaa !47
+  %947 = load i64, ptr %946, align 8, !tbaa !44
   %948 = urem i64 %.0.copyload85.i, %947
   %949 = udiv i64 %.0.copyload85.i, %947
   %950 = icmp eq i64 %948, 0
@@ -14691,7 +14695,7 @@ ggml_is_contiguous.exit:                          ; preds = %923, %.loopexit192
   %986 = load i32, ptr %976, align 8, !tbaa !40
   %987 = zext i32 %986 to i64
   %988 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %987, i32 3
-  %989 = load i64, ptr %988, align 8, !tbaa !47
+  %989 = load i64, ptr %988, align 8, !tbaa !44
   %990 = icmp eq i64 %985, %989
   br i1 %990, label %991, label %ggml_is_padded_1d.exit.thread.i.i.i
 
@@ -16072,135 +16076,139 @@ define noundef ptr @ggml_set_zero(ptr noundef returned %0) local_unnamed_addr #3
   br i1 %or.cond.i, label %ggml_is_empty.exit, label %3, !llvm.loop !58
 
 ggml_is_empty.exit:                               ; preds = %3
-  br i1 %6, label %78, label %7
+  br i1 %6, label %80, label %7
 
 7:                                                ; preds = %ggml_is_empty.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !122
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %42, label %10
+  br i1 %.not, label %43, label %10
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %0, align 8, !tbaa !40
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %12, i32 1
-  %14 = load i64, ptr %13, align 8, !tbaa !44
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %28
+  %13 = shl nuw i64 1, %12
+  %14 = and i64 %13, 1593835523
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %27, label %15
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %12, i32 3
-  %18 = load i64, ptr %17, align 8, !tbaa !47
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %20
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %12, i32 3
+  %17 = load i64, ptr %16, align 8, !tbaa !44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %19
 
-20:                                               ; preds = %20, %16
-  %indvars.iv31.i = phi i64 [ 0, %16 ], [ %indvars.iv.next32.i, %20 ]
-  %.02126.i = phi i64 [ %18, %16 ], [ %27, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv31.i
-  %22 = load i64, ptr %21, align 8, !tbaa !39
-  %23 = add nsw i64 %22, -1
-  %24 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv31.i
-  %25 = load i64, ptr %24, align 8, !tbaa !39
-  %26 = mul i64 %23, %25
-  %27 = add i64 %26, %.02126.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
-  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %20, !llvm.loop !48
-
-28:                                               ; preds = %10
-  %29 = load i64, ptr %2, align 8, !tbaa !39
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load i64, ptr %30, align 8, !tbaa !39
-  %32 = mul i64 %31, %29
-  %33 = udiv i64 %32, %14
-  br label %34
-
-34:                                               ; preds = %34, %28
-  %indvars.iv.i11 = phi i64 [ 1, %28 ], [ %indvars.iv.next.i12, %34 ]
-  %.224.i = phi i64 [ %33, %28 ], [ %41, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i11
-  %36 = load i64, ptr %35, align 8, !tbaa !39
-  %37 = add nsw i64 %36, -1
-  %38 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i11
-  %39 = load i64, ptr %38, align 8, !tbaa !39
-  %40 = mul i64 %37, %39
-  %41 = add i64 %40, %.224.i
+19:                                               ; preds = %19, %15
+  %indvars.iv.i11 = phi i64 [ 0, %15 ], [ %indvars.iv.next.i12, %19 ]
+  %.02124.i = phi i64 [ %17, %15 ], [ %26, %19 ]
+  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i11
+  %21 = load i64, ptr %20, align 8, !tbaa !39
+  %22 = add nsw i64 %21, -1
+  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i11
+  %24 = load i64, ptr %23, align 8, !tbaa !39
+  %25 = mul i64 %22, %24
+  %26 = add i64 %25, %.02124.i
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 4
-  br i1 %exitcond.not.i13, label %ggml_nbytes.exit, label %34, !llvm.loop !49
+  br i1 %exitcond.not.i13, label %ggml_nbytes.exit, label %19, !llvm.loop !47
 
-ggml_nbytes.exit:                                 ; preds = %34, %20
-  %.1.i = phi i64 [ %27, %20 ], [ %41, %34 ]
+27:                                               ; preds = %10
+  %28 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %12, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !48
+  %30 = load i64, ptr %2, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !tbaa !39
+  %33 = mul i64 %32, %30
+  %34 = udiv i64 %33, %29
+  br label %35
+
+35:                                               ; preds = %35, %27
+  %indvars.iv31.i = phi i64 [ 1, %27 ], [ %indvars.iv.next32.i, %35 ]
+  %.226.i = phi i64 [ %34, %27 ], [ %42, %35 ]
+  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv31.i
+  %37 = load i64, ptr %36, align 8, !tbaa !39
+  %38 = add nsw i64 %37, -1
+  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv31.i
+  %40 = load i64, ptr %39, align 8, !tbaa !39
+  %41 = mul i64 %38, %40
+  %42 = add i64 %41, %.226.i
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
+  %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 4
+  br i1 %exitcond34.not.i, label %ggml_nbytes.exit, label %35, !llvm.loop !49
+
+ggml_nbytes.exit:                                 ; preds = %19, %35
+  %.1.i = phi i64 [ %42, %35 ], [ %26, %19 ]
   tail call void @ggml_backend_tensor_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 0, i64 noundef %.1.i) #43
-  br label %78
+  br label %80
 
-42:                                               ; preds = %7
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %44 = load ptr, ptr %43, align 8, !tbaa !77
-  %.not10 = icmp eq ptr %44, null
-  br i1 %.not10, label %45, label %46
+43:                                               ; preds = %7
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %45 = load ptr, ptr %44, align 8, !tbaa !77
+  %.not10 = icmp eq ptr %45, null
+  br i1 %.not10, label %46, label %47
 
-45:                                               ; preds = %42
+46:                                               ; preds = %43
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 6048, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.170) #47
   unreachable
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %0, align 8, !tbaa !40
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %48, i32 1
-  %50 = load i64, ptr %49, align 8, !tbaa !44
-  %51 = icmp eq i64 %50, 1
-  br i1 %51, label %52, label %64
+47:                                               ; preds = %43
+  %48 = load i32, ptr %0, align 8, !tbaa !40
+  %49 = zext i32 %48 to i64
+  %50 = shl nuw i64 1, %49
+  %51 = and i64 %50, 1593835523
+  %.not.i14 = icmp eq i64 %51, 0
+  br i1 %.not.i14, label %64, label %52
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %48, i32 3
-  %54 = load i64, ptr %53, align 8, !tbaa !47
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %49, i32 3
+  %54 = load i64, ptr %53, align 8, !tbaa !44
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %56
 
 56:                                               ; preds = %56, %52
-  %indvars.iv31.i19 = phi i64 [ 0, %52 ], [ %indvars.iv.next32.i21, %56 ]
-  %.02126.i20 = phi i64 [ %54, %52 ], [ %63, %56 ]
-  %57 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv31.i19
+  %indvars.iv.i15 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i17, %56 ]
+  %.02124.i16 = phi i64 [ %54, %52 ], [ %63, %56 ]
+  %57 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i15
   %58 = load i64, ptr %57, align 8, !tbaa !39
   %59 = add nsw i64 %58, -1
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv31.i19
+  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv.i15
   %61 = load i64, ptr %60, align 8, !tbaa !39
   %62 = mul i64 %59, %61
-  %63 = add i64 %62, %.02126.i20
-  %indvars.iv.next32.i21 = add nuw nsw i64 %indvars.iv31.i19, 1
-  %exitcond34.not.i22 = icmp eq i64 %indvars.iv.next32.i21, 4
-  br i1 %exitcond34.not.i22, label %ggml_nbytes.exit23, label %56, !llvm.loop !48
+  %63 = add i64 %62, %.02124.i16
+  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
+  %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
+  br i1 %exitcond.not.i18, label %ggml_nbytes.exit24, label %56, !llvm.loop !47
 
-64:                                               ; preds = %46
-  %65 = load i64, ptr %2, align 8, !tbaa !39
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %67 = load i64, ptr %66, align 8, !tbaa !39
-  %68 = mul i64 %67, %65
-  %69 = udiv i64 %68, %50
-  br label %70
+64:                                               ; preds = %47
+  %65 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %49, i32 1
+  %66 = load i64, ptr %65, align 8, !tbaa !48
+  %67 = load i64, ptr %2, align 8, !tbaa !39
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %69 = load i64, ptr %68, align 8, !tbaa !39
+  %70 = mul i64 %69, %67
+  %71 = udiv i64 %70, %66
+  br label %72
 
-70:                                               ; preds = %70, %64
-  %indvars.iv.i14 = phi i64 [ 1, %64 ], [ %indvars.iv.next.i16, %70 ]
-  %.224.i15 = phi i64 [ %69, %64 ], [ %77, %70 ]
-  %71 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i14
-  %72 = load i64, ptr %71, align 8, !tbaa !39
-  %73 = add nsw i64 %72, -1
-  %74 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv.i14
-  %75 = load i64, ptr %74, align 8, !tbaa !39
-  %76 = mul i64 %73, %75
-  %77 = add i64 %76, %.224.i15
-  %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i14, 1
-  %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, 4
-  br i1 %exitcond.not.i17, label %ggml_nbytes.exit23, label %70, !llvm.loop !49
+72:                                               ; preds = %72, %64
+  %indvars.iv31.i20 = phi i64 [ 1, %64 ], [ %indvars.iv.next32.i22, %72 ]
+  %.226.i21 = phi i64 [ %71, %64 ], [ %79, %72 ]
+  %73 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv31.i20
+  %74 = load i64, ptr %73, align 8, !tbaa !39
+  %75 = add nsw i64 %74, -1
+  %76 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv31.i20
+  %77 = load i64, ptr %76, align 8, !tbaa !39
+  %78 = mul i64 %75, %77
+  %79 = add i64 %78, %.226.i21
+  %indvars.iv.next32.i22 = add nuw nsw i64 %indvars.iv31.i20, 1
+  %exitcond34.not.i23 = icmp eq i64 %indvars.iv.next32.i22, 4
+  br i1 %exitcond34.not.i23, label %ggml_nbytes.exit24, label %72, !llvm.loop !49
 
-ggml_nbytes.exit23:                               ; preds = %70, %56
-  %.1.i18 = phi i64 [ %63, %56 ], [ %77, %70 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 0, i64 %.1.i18, i1 false)
-  br label %78
+ggml_nbytes.exit24:                               ; preds = %56, %72
+  %.1.i19 = phi i64 [ %79, %72 ], [ %63, %56 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %45, i8 0, i64 %.1.i19, i1 false)
+  br label %80
 
-78:                                               ; preds = %ggml_nbytes.exit, %ggml_nbytes.exit23, %ggml_is_empty.exit
+80:                                               ; preds = %ggml_nbytes.exit, %ggml_nbytes.exit24, %ggml_is_empty.exit
   ret ptr %0
 }
 
@@ -17666,7 +17674,7 @@ define i64 @ggml_quantize_chunk(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 13:                                               ; preds = %7
   %14 = zext i32 %0 to i64
   %15 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %14, i32 1
-  %16 = load i64, ptr %15, align 8, !tbaa !44
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %17 = srem i64 %3, %16
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -17706,7 +17714,7 @@ ggml_quantize_init.exit.thread:                   ; preds = %25
   tail call void @ggml_critical_section_end() #43
   %27 = sdiv i64 %3, %5
   %28 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %14, i32 3
-  %29 = load i64, ptr %28, align 8, !tbaa !47
+  %29 = load i64, ptr %28, align 8, !tbaa !44
   %30 = mul i64 %29, %5
   %31 = udiv i64 %30, %16
   br label %111
@@ -17716,7 +17724,7 @@ ggml_quantize_init.exit.thread211:                ; preds = %25
   tail call void @ggml_critical_section_end() #43
   %32 = sdiv i64 %3, %5
   %33 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %14, i32 3
-  %34 = load i64, ptr %33, align 8, !tbaa !47
+  %34 = load i64, ptr %33, align 8, !tbaa !44
   %35 = mul i64 %34, %5
   %36 = udiv i64 %35, %16
   br label %118
@@ -17724,7 +17732,7 @@ ggml_quantize_init.exit.thread211:                ; preds = %25
 ggml_quantize_init.exit:                          ; preds = %25, %26
   tail call void @ggml_critical_section_end() #43
   %37 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %14, i32 3
-  %38 = load i64, ptr %37, align 8, !tbaa !47
+  %38 = load i64, ptr %37, align 8, !tbaa !44
   %39 = mul i64 %38, %5
   %40 = udiv i64 %39, %16
   switch i32 %0, label %207 [
@@ -18520,11 +18528,11 @@ define internal fastcc void @ggml_sub_or_set(ptr noundef captures(none) %0, ptr 
   %23 = load i32, ptr %3, align 8, !tbaa !40
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %24, i32 3
-  %26 = load i64, ptr %25, align 8, !tbaa !47
+  %26 = load i64, ptr %25, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %24, i32 1
-  %30 = load i64, ptr %29, align 8, !tbaa !44
+  %30 = load i64, ptr %29, align 8, !tbaa !48
   %.not.i.i.i.i.i = icmp eq i64 %28, %30
   br i1 %.not.i.i.i.i.i, label %34, label %31
 
@@ -18808,11 +18816,11 @@ attributes #49 = { nounwind willreturn memory(read) }
 !41 = !{!"ggml_tensor", !9, i64 0, !42, i64 8, !6, i64 16, !6, i64 48, !9, i64 80, !6, i64 84, !9, i64 148, !6, i64 152, !43, i64 232, !27, i64 240, !5, i64 248, !6, i64 256, !5, i64 320, !6, i64 328}
 !42 = !{!"p1 _ZTS19ggml_backend_buffer", !5, i64 0}
 !43 = !{!"p1 _ZTS11ggml_tensor", !5, i64 0}
-!44 = !{!45, !27, i64 8}
+!44 = !{!45, !27, i64 24}
 !45 = !{!"ggml_type_traits", !46, i64 0, !27, i64 8, !27, i64 16, !27, i64 24, !37, i64 32, !5, i64 40, !5, i64 48}
 !46 = !{!"p1 omnipotent char", !5, i64 0}
-!47 = !{!45, !27, i64 24}
-!48 = distinct !{!48, !20}
+!47 = distinct !{!47, !20}
+!48 = !{!45, !27, i64 8}
 !49 = distinct !{!49, !20}
 !50 = !{!45, !46, i64 0}
 !51 = !{!45, !37, i64 32}

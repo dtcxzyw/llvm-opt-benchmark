@@ -3961,56 +3961,57 @@ _ZN8rawspeed8OptionalItE5resetEv.exit:            ; preds = %_ZNSt10unique_ptrIN
   %106 = or i32 %105, %25
   store i32 %106, ptr %23, align 8, !tbaa !6
   %107 = icmp eq i32 %106, 15
-  br i1 %107, label %108, label %127
+  br i1 %107, label %108, label %128
 
 108:                                              ; preds = %_ZN8rawspeed8OptionalItE5resetEv.exit
-  %109 = icmp eq i32 %13, 0
-  %110 = zext i1 %109 to i8
-  %111 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #31, !noalias !294
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store ptr %22, ptr %112, align 8, !tbaa !281, !noalias !294
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 80
-  store i8 0, ptr %113, align 8, !tbaa !73, !noalias !294
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandE, i64 16), ptr %111, align 8, !tbaa !76, !noalias !294
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 88
-  store i8 %110, ptr %114, align 8, !tbaa !80, !noalias !294
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 89
-  store i8 %110, ptr %115, align 1, !tbaa !297, !noalias !294
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 160
-  store i8 0, ptr %116, align 8, !tbaa !73, !noalias !294
-  %117 = getelementptr inbounds nuw i8, ptr %111, i64 232
+  %109 = add i16 %10, -7
+  %110 = icmp ult i16 %109, 3
+  %111 = zext i1 %110 to i8
+  %112 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #31, !noalias !294
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  store ptr %22, ptr %113, align 8, !tbaa !281, !noalias !294
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 80
+  store i8 0, ptr %114, align 8, !tbaa !73, !noalias !294
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandE, i64 16), ptr %112, align 8, !tbaa !76, !noalias !294
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 88
+  store i8 %111, ptr %115, align 8, !tbaa !80, !noalias !294
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 89
+  store i8 %111, ptr %116, align 1, !tbaa !297, !noalias !294
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 160
   store i8 0, ptr %117, align 8, !tbaa !73, !noalias !294
-  %118 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %119 = load ptr, ptr %118, align 8, !tbaa !70
-  %120 = load ptr, ptr %119, align 8, !tbaa !71
-  store ptr %111, ptr %119, align 8, !tbaa !71
-  %.not.i.i.i29 = icmp eq ptr %120, null
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 232
+  store i8 0, ptr %118, align 8, !tbaa !73, !noalias !294
+  %119 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %120 = load ptr, ptr %119, align 8, !tbaa !70
+  %121 = load ptr, ptr %120, align 8, !tbaa !71
+  store ptr %112, ptr %120, align 8, !tbaa !71
+  %.not.i.i.i29 = icmp eq ptr %121, null
   br i1 %.not.i.i.i29, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30
 
 _ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30: ; preds = %108
-  %121 = load ptr, ptr %120, align 8, !tbaa !76
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef nonnull align 8 dereferenceable(88) %120) #33
+  %122 = load ptr, ptr %121, align 8, !tbaa !76
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %124 = load ptr, ptr %123, align 8
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(88) %121) #33
   br label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30, %108
-  %124 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %125 = load i32, ptr %124, align 8, !tbaa !6
-  %126 = or i32 %125, 1
-  store i32 %126, ptr %124, align 8, !tbaa !6
-  br label %127
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %126 = load i32, ptr %125, align 8, !tbaa !6
+  %127 = or i32 %126, 1
+  store i32 %127, ptr %125, align 8, !tbaa !6
+  br label %128
 
-127:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, %_ZN8rawspeed8OptionalItE5resetEv.exit
-  %128 = load i8, ptr %3, align 4, !tbaa !103, !range !60, !noundef !21
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %130, label %_ZN8rawspeed8OptionalItE5resetEv.exit32
+128:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, %_ZN8rawspeed8OptionalItE5resetEv.exit
+  %129 = load i8, ptr %3, align 4, !tbaa !103, !range !60, !noundef !21
+  %130 = trunc nuw i8 %129 to i1
+  br i1 %130, label %131, label %_ZN8rawspeed8OptionalItE5resetEv.exit32
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   store i8 0, ptr %3, align 4, !tbaa !103
   br label %_ZN8rawspeed8OptionalItE5resetEv.exit32
 
-_ZN8rawspeed8OptionalItE5resetEv.exit32:          ; preds = %127, %130
+_ZN8rawspeed8OptionalItE5resetEv.exit32:          ; preds = %128, %131
   ret void
 }
 

@@ -6135,8 +6135,8 @@ _ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit: ; preds = %38, %.sink.spl
 
 64:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %.critedge48, label %.critedge, !llvm.loop !76
+  %.not45 = icmp eq i64 %indvars.iv.next, 3
+  br i1 %.not45, label %.critedge48, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
@@ -8054,8 +8054,8 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat30parseOffsetDefaultLocalizedGMTE
 
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, label %8, !llvm.loop !97
+  %.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %.not, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, label %8, !llvm.loop !97
 
 8:                                                ; preds = %4, %7
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]

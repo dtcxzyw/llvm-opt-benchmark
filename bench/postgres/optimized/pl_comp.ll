@@ -3396,17 +3396,20 @@ declare i32 @get_array_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  br i1 %1, label %3, label %42
+  br i1 %1, label %3, label %.preheader
+
+.preheader:                                       ; preds = %3, %6, %2
+  br label %43
 
 3:                                                ; preds = %2
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %5 = icmp eq i64 %4, 5
-  br i1 %5, label %6, label %42
+  br i1 %5, label %6, label %.preheader
 
 6:                                                ; preds = %3
   %7 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #11
   %8 = icmp eq i64 %7, 5
-  br i1 %8, label %9, label %42
+  br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %0, align 1
@@ -3441,43 +3444,36 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   %39 = zext nneg i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 24
   %41 = or disjoint i32 %34, %40
-  br label %58
+  br label %55
 
-42:                                               ; preds = %3, %6, %2
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(31) @.str.58) #11
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %._crit_edge, label %.lr.ph
+42:                                               ; preds = %43
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 251
+  br i1 %.not, label %51, label %43, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %42, %49
-  %.01721 = phi i32 [ %45, %49 ], [ 0, %42 ]
-  %45 = add i32 %.01721, 1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %46
-  %48 = load ptr, ptr %47, align 16
-  %.not = icmp eq ptr %48, null
-  br i1 %.not, label %54, label %49, !llvm.loop !11
+43:                                               ; preds = %.preheader, %42
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
+  %44 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %indvars.iv
+  %45 = load ptr, ptr %44, align 16
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %45) #11
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %42
 
-49:                                               ; preds = %.lr.ph
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %48) #11
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %50 = load i32, ptr %49, align 8
+  br label %55
 
-._crit_edge:                                      ; preds = %49, %42
-  %.lcssa = phi ptr [ @exception_label_map, %42 ], [ %47, %49 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %53 = load i32, ptr %52, align 8
-  br label %58
-
-54:                                               ; preds = %.lr.ph
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #9
+51:                                               ; preds = %42
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
+  tail call void @llvm.assume(i1 %52)
+  %53 = tail call i32 @errcode(i32 noundef 67137668) #9
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #9
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2253, ptr noundef nonnull @__func__.plpgsql_recognize_err_condition) #9
   unreachable
 
-58:                                               ; preds = %._crit_edge, %9
-  %.014 = phi i32 [ %41, %9 ], [ %53, %._crit_edge ]
+55:                                               ; preds = %48, %9
+  %.014 = phi i32 [ %41, %9 ], [ %50, %48 ]
   ret i32 %.014
 }
 
@@ -3500,20 +3496,20 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %7, align 8
-  br label %28
+  br label %24
 
 .preheader:                                       ; preds = %1, %18
-  %8 = phi ptr [ %22, %18 ], [ @.str.58, %1 ]
-  %9 = phi ptr [ %21, %18 ], [ @exception_label_map, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
   %.025 = phi ptr [ %.1, %18 ], [ null, %1 ]
-  %.02024 = phi i32 [ %19, %18 ], [ 0, %1 ]
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8) #11
+  %8 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #11
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.preheader
   %13 = tail call ptr @palloc(i64 noundef 24) #9
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3524,27 +3520,24 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
 
 18:                                               ; preds = %.preheader, %12
   %.1 = phi ptr [ %13, %12 ], [ %.025, %.preheader ]
-  %19 = add i32 %.02024, 1
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %20
-  %22 = load ptr, ptr %21, align 16
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %23, label %.preheader, !llvm.loop !12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 251
+  br i1 %.not, label %19, label %.preheader, !llvm.loop !12
 
-23:                                               ; preds = %18
+19:                                               ; preds = %18
   %.not23 = icmp eq ptr %.1, null
-  br i1 %.not23, label %24, label %28
+  br i1 %.not23, label %20, label %24
 
-24:                                               ; preds = %23
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #9
+20:                                               ; preds = %19
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call i32 @errcode(i32 noundef 67137668) #9
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #9
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2306, ptr noundef nonnull @__func__.plpgsql_parse_err_condition) #9
   unreachable
 
-28:                                               ; preds = %23, %4
-  %.021 = phi ptr [ %5, %4 ], [ %.1, %23 ]
+24:                                               ; preds = %19, %4
+  %.021 = phi ptr [ %5, %4 ], [ %.1, %19 ]
   ret ptr %.021
 }
 

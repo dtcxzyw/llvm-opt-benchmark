@@ -924,7 +924,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
 
 4:                                                ; preds = %0
   %5 = load i8, ptr @boot_cpu_data, align 8
-  switch i8 %5, label %762 [
+  switch i8 %5, label %746 [
     i8 6, label %6
     i8 11, label %8
     i8 15, label %10
@@ -932,15 +932,15 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
 
 6:                                                ; preds = %4
   %7 = tail call i32 @p6_pmu_init() #22
-  br label %762
+  br label %746
 
 8:                                                ; preds = %4
   %9 = tail call i32 @knc_pmu_init() #22
-  br label %762
+  br label %746
 
 10:                                               ; preds = %4
   %11 = tail call i32 @p4_pmu_init() #22
-  br label %762
+  br label %746
 
 12:                                               ; preds = %0
   %13 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 10, i32 0) #22, !srcloc !12
@@ -949,7 +949,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %16 = extractvalue { i32, i32, i32, i32 } %13, 2
   %17 = extractvalue { i32, i32, i32, i32 } %13, 3
   %18 = icmp ult i32 %14, 117440512
-  br i1 %18, label %762, label %19
+  br i1 %18, label %746, label %19
 
 19:                                               ; preds = %12
   %20 = and i32 %14, 255
@@ -1014,21 +1014,21 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %54 = and i64 %53, 32768
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.thread36, label %56
+  br i1 %55, label %.thread39, label %56
 
 56:                                               ; preds = %51
   %57 = tail call fastcc i64 @native_read_msr()
   store i64 %57, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
   %58 = and i64 %57, 63
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.thread36, label %60
+  br i1 %59, label %.thread39, label %60
 
-.thread36:                                        ; preds = %51, %56
+.thread39:                                        ; preds = %51, %56
   store ptr @intel_pmu_lbr_reset_32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 496), align 8
   store ptr @intel_pmu_lbr_read_32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 504), align 8
   br label %60
 
-60:                                               ; preds = %.thread36, %56
+60:                                               ; preds = %.thread39, %56
   %61 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 112), align 8
   %62 = and i64 %61, 524288
   %63 = icmp eq i64 %62, 0
@@ -1063,8 +1063,8 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
 
 78:                                               ; preds = %76, %68, %65
   %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 2), align 2
-  switch i8 %79, label %597 [
-    i8 14, label %609
+  switch i8 %79, label %581 [
+    i8 14, label %593
     i8 15, label %80
     i8 22, label %82
     i8 23, label %82
@@ -1131,8 +1131,8 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
     i8 -73, label %258
     i8 -70, label %258
     i8 -65, label %258
-    i8 -84, label %445
-    i8 -86, label %445
+    i8 -84, label %437
+    i8 -86, label %437
   ]
 
 80:                                               ; preds = %78
@@ -1146,7 +1146,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   tail call void @intel_pmu_lbr_init_core() #22
   store ptr @intel_core2_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
   store ptr @intel_core2_pebs_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400), align 8
-  br label %609
+  br label %593
 
 83:                                               ; preds = %78, %78, %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @nehalem_hw_cache_event_ids, i64 336, i1 false)
@@ -1166,7 +1166,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %85 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
   %86 = or i16 %85, 64
   store i16 %86, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  br label %609
+  br label %593
 
 87:                                               ; preds = %78, %78, %78, %78, %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @atom_hw_cache_event_ids, i64 336, i1 false)
@@ -1174,7 +1174,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store ptr @intel_gen_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
   store ptr @intel_atom_pebs_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400), align 8
   store ptr @intel_pebs_aliases_core2, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 408), align 8
-  br label %609
+  br label %593
 
 88:                                               ; preds = %78, %78, %78, %78, %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @slm_hw_cache_event_ids, i64 336, i1 false)
@@ -1186,7 +1186,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   %90 = or i32 %89, 2
   store i32 %90, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  br label %609
+  br label %593
 
 91:                                               ; preds = %78, %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @glm_hw_cache_event_ids, i64 336, i1 false)
@@ -1203,7 +1203,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   %95 = or i32 %94, 2
   store i32 %95, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  br label %609
+  br label %593
 
 96:                                               ; preds = %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @glp_hw_cache_event_ids, i64 336, i1 false)
@@ -1222,7 +1222,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   store ptr @glp_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
   store ptr @.str.15, ptr getelementptr inbounds nuw (i8, ptr @event_attr_td_total_slots_scale_glm, i64 40), align 8
-  br label %609
+  br label %593
 
 101:                                              ; preds = %78, %78, %78
   %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
@@ -1243,7 +1243,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %107 = or i32 %106, 2
   store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   store ptr @tnt_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
-  br label %609
+  br label %593
 
 108:                                              ; preds = %78
   %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
@@ -1301,7 +1301,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   tail call void @intel_pmu_pebs_data_source_grt() #22
   store ptr @adl_latency_data_small, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 416), align 8
   store ptr @tnt_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
-  br label %609
+  br label %593
 
 126:                                              ; preds = %78, %78
   %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
@@ -1359,7 +1359,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   tail call void @intel_pmu_pebs_data_source_cmt() #22
   store ptr @mtl_latency_data_small, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 416), align 8
   store ptr @cmt_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
-  br label %609
+  br label %593
 
 144:                                              ; preds = %78, %78, %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @westmere_hw_cache_event_ids, i64 336, i1 false)
@@ -1375,7 +1375,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store i64 25166094, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 56), align 8
   store i64 25182129, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 64), align 16
   tail call void @intel_pmu_pebs_data_source_nhm() #22
-  br label %609
+  br label %593
 
 147:                                              ; preds = %78, %78
   %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 248), align 8
@@ -1397,7 +1397,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store i32 %153, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   store i64 25166094, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 56), align 8
   store i64 25166257, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 64), align 16
-  br label %609
+  br label %593
 
 154:                                              ; preds = %78, %78
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 248), align 8
@@ -1421,7 +1421,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %162 = or i32 %161, 3
   store i32 %162, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   store i64 25166094, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 56), align 8
-  br label %609
+  br label %593
 
 163:                                              ; preds = %78, %78, %78, %78
   %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 248), align 8
@@ -1451,7 +1451,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %172 = and i64 %171, 8796093022208
   %173 = icmp eq i64 %172, 0
   %174 = select i1 %173, ptr @nhm_format_attr, ptr @hsw_format_attr
-  br label %609
+  br label %593
 
 175:                                              ; preds = %78, %78, %78, %78
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 248), align 8
@@ -1484,7 +1484,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %184 = and i64 %183, 8796093022208
   %185 = icmp eq i64 %184, 0
   %186 = select i1 %185, ptr @nhm_format_attr, ptr @hsw_format_attr
-  br label %609
+  br label %593
 
 187:                                              ; preds = %78, %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) @hw_cache_event_ids, ptr noundef nonnull align 16 dereferenceable(336) @slm_hw_cache_event_ids, i64 336, i1 false)
@@ -1496,7 +1496,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %188 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   %189 = or i32 %188, 3
   store i32 %189, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  br label %609
+  br label %593
 
 190:                                              ; preds = %78
   br label %191
@@ -1534,13 +1534,13 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %204 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 112), align 8
   %205 = and i64 %204, 8192
   %206 = icmp eq i64 %205, 0
-  br i1 %206, label %609, label %207
+  br i1 %206, label %593, label %207
 
 207:                                              ; preds = %191
   %208 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 112), align 8
   %209 = and i64 %208, 2048
   %210 = icmp eq i64 %209, 0
-  br i1 %210, label %211, label %609
+  br i1 %210, label %211, label %593
 
 211:                                              ; preds = %207
   %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
@@ -1549,7 +1549,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store ptr @tfa_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
   store ptr @intel_tfa_pmu_enable_all, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 32), align 8
   store ptr @intel_tfa_commit_scheduling, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 224), align 8
-  br label %609
+  br label %593
 
 214:                                              ; preds = %78, %78
   %215 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
@@ -1588,7 +1588,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 540), align 4
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__intel_pmu_update_topdown_event, ptr noundef nonnull @__SCT__intel_pmu_update_topdown_event, ptr noundef nonnull @icl_update_topdown_event) #22
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__intel_pmu_set_topdown_event_period, ptr noundef nonnull @__SCT__intel_pmu_set_topdown_event_period, ptr noundef nonnull @icl_set_topdown_event_period) #22
-  br label %609
+  br label %593
 
 229:                                              ; preds = %78, %78
   %230 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
@@ -1663,7 +1663,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %256 = icmp eq i64 %255, 0
   %257 = select i1 %256, ptr @nhm_format_attr, ptr @hsw_format_attr
   tail call void @intel_pmu_pebs_data_source_skl(i1 noundef zeroext true) #22
-  br label %609
+  br label %593
 
 258:                                              ; preds = %78, %78, %78, %78, %78
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 616), align 8
@@ -1678,9 +1678,9 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   store ptr @intel_pmu_filter, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 608), align 8
   br label %263
 
-263:                                              ; preds = %262, %314
-  %264 = phi i64 [ 0, %262 ], [ %316, %314 ]
-  %265 = phi i32 [ 0, %262 ], [ %274, %314 ]
+263:                                              ; preds = %262, %272
+  %264 = phi i64 [ 0, %262 ], [ %308, %272 ]
+  %265 = phi i32 [ 0, %262 ], [ %274, %272 ]
   %266 = shl nsw i64 -1, %264
   %267 = and i64 %266, 3
   %268 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %267) #24, !srcloc !14
@@ -1729,881 +1729,857 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %298 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
   %299 = getelementptr inbounds nuw i8, ptr %276, i64 328
   store i64 %298, ptr %299, align 8
-  %300 = and i32 %278, 1
-  %301 = icmp eq i32 %300, 0
-  %302 = trunc i64 %298 to i32
-  br i1 %301, label %303, label %306
+  %300 = icmp eq i64 %269, 4294967296
+  %spec.select = select i1 %300, i32 32768, i32 65536
+  %spec.select14 = select i1 %300, i8 1, i8 2
+  %301 = trunc i64 %298 to i32
+  %302 = and i32 %301, -98305
+  %303 = or disjoint i32 %302, %spec.select
+  store i32 %303, ptr %299, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %276, i64 1096
+  %305 = load i8, ptr %304, align 8
+  %306 = or i8 %305, %spec.select14
+  store i8 %306, ptr %304, align 8
+  %307 = add i64 %269, 4294967296
+  %308 = ashr exact i64 %307, 32
+  %309 = icmp ult i64 %308, 2
+  br i1 %309, label %263, label %.thread.loopexit, !prof !15, !llvm.loop !16
 
-303:                                              ; preds = %272
-  %304 = and i32 %278, 2
-  %305 = icmp eq i32 %304, 0
-  br i1 %305, label %314, label %306
-
-306:                                              ; preds = %303, %272
-  %307 = phi i32 [ 65536, %272 ], [ 32768, %303 ]
-  %308 = phi i8 [ 2, %272 ], [ 1, %303 ]
-  %309 = and i32 %302, -98305
-  %310 = or disjoint i32 %309, %307
-  store i32 %310, ptr %299, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %276, i64 1096
-  %312 = load i8, ptr %311, align 8
-  %313 = or i8 %312, %308
-  store i8 %313, ptr %311, align 8
-  br label %314
-
-314:                                              ; preds = %306, %303
-  %315 = add i64 %269, 4294967296
-  %316 = ashr exact i64 %315, 32
-  %317 = icmp ult i64 %316, 2
-  br i1 %317, label %263, label %.thread.loopexit, !prof !15, !llvm.loop !16
-
-.thread.loopexit:                                 ; preds = %263, %314
-  %.pre22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
+.thread.loopexit:                                 ; preds = %263, %272
+  %.pre25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %258
-  %318 = phi ptr [ %.pre22, %.thread.loopexit ], [ null, %258 ]
+  %310 = phi ptr [ %.pre25, %.thread.loopexit ], [ null, %258 ]
   store ptr @adl_latency_data_small, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 416), align 8
   store ptr @adl_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
   store ptr @adl_hw_config, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 104), align 8
   store ptr @adl_get_hybrid_cpu_type, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 632), align 8
-  %319 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 72), align 8
-  %320 = and i64 %319, 8796093022208
-  %321 = icmp eq i64 %320, 0
-  %322 = select i1 %321, ptr @adl_hybrid_extra_attr, ptr @adl_hybrid_extra_attr_rtm
-  %323 = getelementptr i8, ptr %318, i64 1232
-  %324 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
-  %325 = or i8 %324, 1
-  store i8 %325, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+  %311 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 72), align 8
+  %312 = and i64 %311, 8796093022208
+  %313 = icmp eq i64 %312, 0
+  %314 = select i1 %313, ptr @adl_hybrid_extra_attr, ptr @adl_hybrid_extra_attr_rtm
+  %315 = getelementptr i8, ptr %310, i64 1232
+  %316 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+  %317 = or i8 %316, 1
+  store i8 %317, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
   store ptr @glc_limit_period, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 256), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 408), align 8
-  %326 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  %327 = or i16 %326, 288
-  store i16 %327, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  %328 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  %329 = or i32 %328, 131
-  store i32 %329, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %318 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %319 = or i16 %318, 288
+  store i16 %319, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %320 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %321 = or i32 %320, 131
+  store i32 %321, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   store i64 1225, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 432), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 489), align 1
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 540), align 4
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__intel_pmu_update_topdown_event, ptr noundef nonnull @__SCT__intel_pmu_update_topdown_event, ptr noundef nonnull @icl_update_topdown_event) #22
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__intel_pmu_set_topdown_event_period, ptr noundef nonnull @__SCT__intel_pmu_set_topdown_event_period, ptr noundef nonnull @icl_set_topdown_event_period) #22
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %331 [label %330], !srcloc !7
+          to label %323 [label %322], !srcloc !7
 
-330:                                              ; preds = %.thread
-  br label %331
+322:                                              ; preds = %.thread
+  br label %323
 
-331:                                              ; preds = %330, %.thread
-  %332 = phi i1 [ true, %330 ], [ false, %.thread ]
-  %333 = icmp ne ptr %323, null
-  %334 = and i1 %333, %332
-  %335 = getelementptr i8, ptr %318, i64 1632
-  %336 = select i1 %334, ptr %335, ptr @hw_cache_event_ids
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %336, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_event_ids, i64 336, i1 false)
+323:                                              ; preds = %322, %.thread
+  %324 = phi i1 [ true, %322 ], [ false, %.thread ]
+  %325 = icmp ne ptr %315, null
+  %326 = and i1 %325, %324
+  %327 = getelementptr i8, ptr %310, i64 1632
+  %328 = select i1 %326, ptr %327, ptr @hw_cache_event_ids
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %328, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_event_ids, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %338 [label %337], !srcloc !7
+          to label %330 [label %329], !srcloc !7
 
-337:                                              ; preds = %331
-  br label %338
+329:                                              ; preds = %323
+  br label %330
 
-338:                                              ; preds = %337, %331
-  %339 = phi i1 [ true, %337 ], [ false, %331 ]
-  %340 = and i1 %333, %339
-  %341 = getelementptr i8, ptr %318, i64 1968
-  %342 = select i1 %340, ptr %341, ptr @hw_cache_extra_regs
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %342, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_extra_regs, i64 336, i1 false)
+330:                                              ; preds = %329, %323
+  %331 = phi i1 [ true, %329 ], [ false, %323 ]
+  %332 = and i1 %325, %331
+  %333 = getelementptr i8, ptr %310, i64 1968
+  %334 = select i1 %332, ptr %333, ptr @hw_cache_extra_regs
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %334, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_extra_regs, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %344 [label %343], !srcloc !7
+          to label %336 [label %335], !srcloc !7
 
-343:                                              ; preds = %338
-  br label %344
+335:                                              ; preds = %330
+  br label %336
 
-344:                                              ; preds = %343, %338
-  %345 = phi i1 [ true, %343 ], [ false, %338 ]
-  %346 = and i1 %333, %345
-  %347 = getelementptr i8, ptr %318, i64 2304
-  %348 = select i1 %346, ptr %347, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
-  store ptr @intel_glc_event_constraints, ptr %348, align 8
+336:                                              ; preds = %335, %330
+  %337 = phi i1 [ true, %335 ], [ false, %330 ]
+  %338 = and i1 %325, %337
+  %339 = getelementptr i8, ptr %310, i64 2304
+  %340 = select i1 %338, ptr %339, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
+  store ptr @intel_glc_event_constraints, ptr %340, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %350 [label %349], !srcloc !7
+          to label %342 [label %341], !srcloc !7
 
-349:                                              ; preds = %344
-  br label %350
+341:                                              ; preds = %336
+  br label %342
 
-350:                                              ; preds = %349, %344
-  %351 = phi i1 [ true, %349 ], [ false, %344 ]
-  %352 = and i1 %333, %351
-  %353 = getelementptr i8, ptr %318, i64 2312
-  %354 = select i1 %352, ptr %353, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
-  store ptr @intel_glc_pebs_event_constraints, ptr %354, align 8
-  %355 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
-  %356 = and i64 %355, 4
-  %357 = icmp eq i64 %356, 0
-  br i1 %357, label %358, label %359
+342:                                              ; preds = %341, %336
+  %343 = phi i1 [ true, %341 ], [ false, %336 ]
+  %344 = and i1 %325, %343
+  %345 = getelementptr i8, ptr %310, i64 2312
+  %346 = select i1 %344, ptr %345, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
+  store ptr @intel_glc_pebs_event_constraints, ptr %346, align 8
+  %347 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
+  %348 = and i64 %347, 4
+  %349 = icmp eq i64 %348, 0
+  br i1 %349, label %350, label %351
 
-358:                                              ; preds = %350
+350:                                              ; preds = %342
   store i64 316, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 72), align 8
-  br label %359
+  br label %351
 
-359:                                              ; preds = %358, %350
+351:                                              ; preds = %350, %342
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 591, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 113)) #22
-          to label %364 [label %364, label %360], !srcloc !17
+          to label %356 [label %356, label %352], !srcloc !17
 
-360:                                              ; preds = %359
-  %361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
-  %362 = getelementptr i8, ptr %318, i64 1580
-  store i32 %361, ptr %362, align 4
-  %363 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
-  br label %370
+352:                                              ; preds = %351
+  %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
+  %354 = getelementptr i8, ptr %310, i64 1580
+  store i32 %353, ptr %354, align 4
+  %355 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  br label %362
 
-364:                                              ; preds = %359, %359
-  %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
-  %366 = add i32 %365, 2
-  %367 = getelementptr i8, ptr %318, i64 1580
-  store i32 %366, ptr %367, align 4
-  %368 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
-  %369 = add i32 %368, 1
-  br label %370
+356:                                              ; preds = %351, %351
+  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
+  %358 = add i32 %357, 2
+  %359 = getelementptr i8, ptr %310, i64 1580
+  store i32 %358, ptr %359, align 4
+  %360 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  %361 = add i32 %360, 1
+  br label %362
 
-370:                                              ; preds = %364, %360
-  %371 = phi i32 [ %361, %360 ], [ %366, %364 ]
-  %372 = phi i32 [ %363, %360 ], [ %369, %364 ]
-  %373 = getelementptr i8, ptr %318, i64 1584
-  store i32 %372, ptr %373, align 8
-  %374 = icmp sgt i32 %371, 8
-  %375 = icmp sgt i32 %372, 4
-  %or.cond = select i1 %374, i1 true, i1 %375
-  br i1 %or.cond, label %376, label %380
+362:                                              ; preds = %356, %352
+  %363 = phi i32 [ %353, %352 ], [ %358, %356 ]
+  %364 = phi i32 [ %355, %352 ], [ %361, %356 ]
+  %365 = getelementptr i8, ptr %310, i64 1584
+  store i32 %364, ptr %365, align 8
+  %366 = icmp sgt i32 %363, 8
+  %367 = icmp sgt i32 %364, 4
+  %or.cond = select i1 %366, i1 true, i1 %367
+  br i1 %or.cond, label %368, label %372
 
-376:                                              ; preds = %370
-  %377 = getelementptr i8, ptr %318, i64 1580
-  %378 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
-  store i32 %378, ptr %377, align 4
-  %379 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
-  store i32 %379, ptr %373, align 8
-  br label %380
+368:                                              ; preds = %362
+  %369 = getelementptr i8, ptr %310, i64 1580
+  %370 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
+  store i32 %370, ptr %369, align 4
+  %371 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  store i32 %371, ptr %365, align 8
+  br label %372
 
-380:                                              ; preds = %370, %376
-  %381 = phi i32 [ %371, %370 ], [ %378, %376 ]
-  %382 = tail call i32 @llvm.umin.i32(i32 %381, i32 32)
-  %383 = getelementptr i8, ptr %318, i64 1576
-  store i32 %382, ptr %383, align 8
-  %384 = getelementptr i8, ptr %318, i64 1592
-  %385 = zext nneg i32 %381 to i64
-  %386 = shl nsw i64 -1, %385
-  %387 = xor i64 %386, -1
-  store i64 %387, ptr %384, align 8
-  %388 = getelementptr i8, ptr %318, i64 1600
-  %389 = getelementptr i8, ptr %318, i64 1616
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %388, i8 0, i64 16, i1 false)
-  store i32 %381, ptr %389, align 8
-  %390 = getelementptr i8, ptr %318, i64 1620
-  store i32 0, ptr %390, align 4
-  %391 = getelementptr i8, ptr %318, i64 1624
-  store i32 0, ptr %391, align 8
-  %392 = getelementptr i8, ptr %318, i64 1628
-  store i32 0, ptr %392, align 4
-  %393 = getelementptr i8, ptr %318, i64 2320
-  store ptr @intel_glc_extra_regs, ptr %393, align 8
-  %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
-  %395 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
-  %396 = or i8 %395, 2
-  store i8 %396, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+372:                                              ; preds = %362, %368
+  %373 = phi i32 [ %363, %362 ], [ %370, %368 ]
+  %374 = tail call i32 @llvm.umin.i32(i32 %373, i32 32)
+  %375 = getelementptr i8, ptr %310, i64 1576
+  store i32 %374, ptr %375, align 8
+  %376 = getelementptr i8, ptr %310, i64 1592
+  %377 = zext nneg i32 %373 to i64
+  %378 = shl nsw i64 -1, %377
+  %379 = xor i64 %378, -1
+  store i64 %379, ptr %376, align 8
+  %380 = getelementptr i8, ptr %310, i64 1600
+  %381 = getelementptr i8, ptr %310, i64 1616
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %380, i8 0, i64 16, i1 false)
+  store i32 %373, ptr %381, align 8
+  %382 = getelementptr i8, ptr %310, i64 1620
+  store i32 0, ptr %382, align 4
+  %383 = getelementptr i8, ptr %310, i64 1624
+  store i32 0, ptr %383, align 8
+  %384 = getelementptr i8, ptr %310, i64 1628
+  store i32 0, ptr %384, align 4
+  %385 = getelementptr i8, ptr %310, i64 2320
+  store ptr @intel_glc_extra_regs, ptr %385, align 8
+  %386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
+  %387 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+  %388 = or i8 %387, 2
+  store i8 %388, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
   store ptr @glc_limit_period, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 256), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 408), align 8
-  %397 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  %398 = or i16 %397, 288
-  store i16 %398, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %389 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %390 = or i16 %389, 288
+  store i16 %390, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 489), align 1
-  %399 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  %400 = or i32 %399, 130
-  store i32 %400, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %392 = or i32 %391, 130
+  store i32 %392, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %402 [label %401], !srcloc !7
+          to label %394 [label %393], !srcloc !7
 
-401:                                              ; preds = %380
-  br label %402
+393:                                              ; preds = %372
+  br label %394
 
-402:                                              ; preds = %401, %380
-  %403 = phi i1 [ true, %401 ], [ false, %380 ]
-  %404 = icmp ne ptr %394, null
-  %405 = and i1 %404, %403
-  %406 = getelementptr inbounds nuw i8, ptr %394, i64 400
-  %407 = select i1 %405, ptr %406, ptr @hw_cache_event_ids
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %407, ptr noundef nonnull align 16 dereferenceable(336) @glp_hw_cache_event_ids, i64 336, i1 false)
+394:                                              ; preds = %393, %372
+  %395 = phi i1 [ true, %393 ], [ false, %372 ]
+  %396 = icmp ne ptr %386, null
+  %397 = and i1 %396, %395
+  %398 = getelementptr inbounds nuw i8, ptr %386, i64 400
+  %399 = select i1 %397, ptr %398, ptr @hw_cache_event_ids
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %399, ptr noundef nonnull align 16 dereferenceable(336) @glp_hw_cache_event_ids, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %409 [label %408], !srcloc !7
+          to label %401 [label %400], !srcloc !7
 
-408:                                              ; preds = %402
-  br label %409
+400:                                              ; preds = %394
+  br label %401
 
-409:                                              ; preds = %408, %402
-  %410 = phi i1 [ true, %408 ], [ false, %402 ]
-  %411 = and i1 %404, %410
-  %412 = getelementptr inbounds nuw i8, ptr %394, i64 736
-  %413 = select i1 %411, ptr %412, ptr @hw_cache_extra_regs
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %413, ptr noundef nonnull align 16 dereferenceable(336) @tnt_hw_cache_extra_regs, i64 336, i1 false)
+401:                                              ; preds = %400, %394
+  %402 = phi i1 [ true, %400 ], [ false, %394 ]
+  %403 = and i1 %396, %402
+  %404 = getelementptr inbounds nuw i8, ptr %386, i64 736
+  %405 = select i1 %403, ptr %404, ptr @hw_cache_extra_regs
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %405, ptr noundef nonnull align 16 dereferenceable(336) @tnt_hw_cache_extra_regs, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %415 [label %414], !srcloc !7
+          to label %407 [label %406], !srcloc !7
 
-414:                                              ; preds = %409
-  br label %415
+406:                                              ; preds = %401
+  br label %407
 
-415:                                              ; preds = %414, %409
-  %416 = phi i1 [ true, %414 ], [ false, %409 ]
-  %417 = and i1 %404, %416
-  %418 = select i1 %417, ptr %406, ptr @hw_cache_event_ids
-  %419 = getelementptr i8, ptr %418, i64 192
-  store i64 -1, ptr %419, align 8
+407:                                              ; preds = %406, %401
+  %408 = phi i1 [ true, %406 ], [ false, %401 ]
+  %409 = and i1 %396, %408
+  %410 = select i1 %409, ptr %398, ptr @hw_cache_event_ids
+  %411 = getelementptr i8, ptr %410, i64 192
+  store i64 -1, ptr %411, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %421 [label %420], !srcloc !7
+          to label %413 [label %412], !srcloc !7
 
-420:                                              ; preds = %415
-  br label %421
+412:                                              ; preds = %407
+  br label %413
 
-421:                                              ; preds = %420, %415
-  %422 = phi i1 [ true, %420 ], [ false, %415 ]
-  %423 = and i1 %404, %422
-  %424 = getelementptr inbounds nuw i8, ptr %394, i64 1072
-  %425 = select i1 %423, ptr %424, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
-  store ptr @intel_grt_event_constraints, ptr %425, align 8
+413:                                              ; preds = %412, %407
+  %414 = phi i1 [ true, %412 ], [ false, %407 ]
+  %415 = and i1 %396, %414
+  %416 = getelementptr inbounds nuw i8, ptr %386, i64 1072
+  %417 = select i1 %415, ptr %416, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
+  store ptr @intel_grt_event_constraints, ptr %417, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %427 [label %426], !srcloc !7
+          to label %419 [label %418], !srcloc !7
 
-426:                                              ; preds = %421
-  br label %427
+418:                                              ; preds = %413
+  br label %419
 
-427:                                              ; preds = %426, %421
-  %428 = phi i1 [ true, %426 ], [ false, %421 ]
-  %429 = and i1 %404, %428
-  %430 = getelementptr inbounds nuw i8, ptr %394, i64 1080
-  %431 = select i1 %429, ptr %430, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
-  store ptr @intel_grt_pebs_event_constraints, ptr %431, align 8
+419:                                              ; preds = %418, %413
+  %420 = phi i1 [ true, %418 ], [ false, %413 ]
+  %421 = and i1 %396, %420
+  %422 = getelementptr inbounds nuw i8, ptr %386, i64 1080
+  %423 = select i1 %421, ptr %422, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
+  store ptr @intel_grt_pebs_event_constraints, ptr %423, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %433 [label %432], !srcloc !7
+          to label %425 [label %424], !srcloc !7
 
-432:                                              ; preds = %427
-  br label %433
+424:                                              ; preds = %419
+  br label %425
 
-433:                                              ; preds = %432, %427
-  %434 = phi i1 [ true, %432 ], [ false, %427 ]
-  %435 = and i1 %404, %434
-  %436 = getelementptr inbounds nuw i8, ptr %394, i64 1088
-  %437 = select i1 %435, ptr %436, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 568)
-  store ptr @intel_grt_extra_regs, ptr %437, align 8
-  %438 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
-  %439 = and i64 %438, 4
-  %440 = icmp eq i64 %439, 0
-  br i1 %440, label %441, label %442
+425:                                              ; preds = %424, %419
+  %426 = phi i1 [ true, %424 ], [ false, %419 ]
+  %427 = and i1 %396, %426
+  %428 = getelementptr inbounds nuw i8, ptr %386, i64 1088
+  %429 = select i1 %427, ptr %428, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 568)
+  store ptr @intel_grt_extra_regs, ptr %429, align 8
+  %430 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
+  %431 = and i64 %430, 4
+  %432 = icmp eq i64 %431, 0
+  br i1 %432, label %433, label %434
 
-441:                                              ; preds = %433
+433:                                              ; preds = %425
   store i64 316, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 72), align 8
-  br label %442
+  br label %434
 
-442:                                              ; preds = %441, %433
-  %443 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  %444 = or i32 %443, 256
-  store i32 %444, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+434:                                              ; preds = %433, %425
+  %435 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %436 = or i32 %435, 256
+  store i32 %436, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   tail call void @intel_pmu_pebs_data_source_adl() #22
-  br label %609
+  br label %593
 
-445:                                              ; preds = %78, %78
+437:                                              ; preds = %78, %78
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 616), align 8
-  %446 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
-  %447 = tail call noalias noundef align 8 dereferenceable_or_null(2464) ptr @kmalloc_trace(ptr noundef %446, i32 noundef 3520, i64 noundef 2464) #26
-  store ptr %447, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
-  %448 = icmp eq ptr %447, null
-  br i1 %448, label %.thread14, label %449
+  %438 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
+  %439 = tail call noalias noundef align 8 dereferenceable_or_null(2464) ptr @kmalloc_trace(ptr noundef %438, i32 noundef 3520, i64 noundef 2464) #26
+  store ptr %439, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
+  %440 = icmp eq ptr %439, null
+  br i1 %440, label %.thread17, label %441
 
-449:                                              ; preds = %445
+441:                                              ; preds = %437
   tail call void @static_key_enable(ptr noundef nonnull @perf_is_hybrid) #22
   store ptr @intel_pmu_filter, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 608), align 8
-  br label %450
+  br label %442
 
-450:                                              ; preds = %449, %501
-  %451 = phi i64 [ 0, %449 ], [ %503, %501 ]
-  %452 = phi i32 [ 0, %449 ], [ %461, %501 ]
-  %453 = shl nsw i64 -1, %451
-  %454 = and i64 %453, 3
-  %455 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %454) #24, !srcloc !14
-  %456 = shl i64 %455, 32
-  %457 = ashr exact i64 %456, 32
-  %458 = icmp ult i64 %457, 2
-  br i1 %458, label %459, label %.thread14.loopexit
+442:                                              ; preds = %441, %451
+  %443 = phi i64 [ 0, %441 ], [ %487, %451 ]
+  %444 = phi i32 [ 0, %441 ], [ %453, %451 ]
+  %445 = shl nsw i64 -1, %443
+  %446 = and i64 %445, 3
+  %447 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %446) #24, !srcloc !14
+  %448 = shl i64 %447, 32
+  %449 = ashr exact i64 %448, 32
+  %450 = icmp ult i64 %449, 2
+  br i1 %450, label %451, label %.thread17.loopexit
 
-459:                                              ; preds = %450
-  %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
-  %461 = add i32 %452, 1
-  %462 = sext i32 %452 to i64
-  %463 = getelementptr %struct.x86_hybrid_pmu, ptr %460, i64 %462
-  %464 = getelementptr %struct.anon.39, ptr @intel_hybrid_pmu_type_map, i64 %457
-  %465 = load i32, ptr %464, align 16
-  %466 = getelementptr inbounds nuw i8, ptr %463, i64 312
-  store i32 %465, ptr %466, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %464, i64 8
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds nuw i8, ptr %463, i64 304
-  store ptr %468, ptr %469, align 8
-  %470 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
-  %471 = getelementptr inbounds nuw i8, ptr %463, i64 348
-  store i32 %470, ptr %471, align 4
-  %472 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
-  %473 = getelementptr inbounds nuw i8, ptr %463, i64 352
-  store i32 %472, ptr %473, align 8
-  %474 = tail call i32 @llvm.umin.i32(i32 %470, i32 32)
-  %475 = getelementptr inbounds nuw i8, ptr %463, i64 344
-  store i32 %474, ptr %475, align 8
-  %476 = getelementptr inbounds nuw i8, ptr %463, i64 360
-  %477 = zext nneg i32 %470 to i64
-  %478 = shl nsw i64 -1, %477
-  %479 = xor i64 %478, -1
-  store i64 %479, ptr %476, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %463, i64 368
-  %481 = getelementptr inbounds nuw i8, ptr %463, i64 384
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %480, i8 0, i64 16, i1 false)
-  store i32 %470, ptr %481, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %463, i64 388
-  store i32 0, ptr %482, align 4
-  %483 = getelementptr inbounds nuw i8, ptr %463, i64 392
-  store i32 0, ptr %483, align 8
-  %484 = getelementptr inbounds nuw i8, ptr %463, i64 396
-  store i32 0, ptr %484, align 4
-  %485 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %486 = getelementptr inbounds nuw i8, ptr %463, i64 328
-  store i64 %485, ptr %486, align 8
-  %487 = and i32 %465, 1
-  %488 = icmp eq i32 %487, 0
-  %489 = trunc i64 %485 to i32
-  br i1 %488, label %490, label %493
+451:                                              ; preds = %442
+  %452 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
+  %453 = add i32 %444, 1
+  %454 = sext i32 %444 to i64
+  %455 = getelementptr %struct.x86_hybrid_pmu, ptr %452, i64 %454
+  %456 = getelementptr %struct.anon.39, ptr @intel_hybrid_pmu_type_map, i64 %449
+  %457 = load i32, ptr %456, align 16
+  %458 = getelementptr inbounds nuw i8, ptr %455, i64 312
+  store i32 %457, ptr %458, align 8
+  %459 = getelementptr inbounds nuw i8, ptr %456, i64 8
+  %460 = load ptr, ptr %459, align 8
+  %461 = getelementptr inbounds nuw i8, ptr %455, i64 304
+  store ptr %460, ptr %461, align 8
+  %462 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
+  %463 = getelementptr inbounds nuw i8, ptr %455, i64 348
+  store i32 %462, ptr %463, align 4
+  %464 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  %465 = getelementptr inbounds nuw i8, ptr %455, i64 352
+  store i32 %464, ptr %465, align 8
+  %466 = tail call i32 @llvm.umin.i32(i32 %462, i32 32)
+  %467 = getelementptr inbounds nuw i8, ptr %455, i64 344
+  store i32 %466, ptr %467, align 8
+  %468 = getelementptr inbounds nuw i8, ptr %455, i64 360
+  %469 = zext nneg i32 %462 to i64
+  %470 = shl nsw i64 -1, %469
+  %471 = xor i64 %470, -1
+  store i64 %471, ptr %468, align 8
+  %472 = getelementptr inbounds nuw i8, ptr %455, i64 368
+  %473 = getelementptr inbounds nuw i8, ptr %455, i64 384
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %472, i8 0, i64 16, i1 false)
+  store i32 %462, ptr %473, align 8
+  %474 = getelementptr inbounds nuw i8, ptr %455, i64 388
+  store i32 0, ptr %474, align 4
+  %475 = getelementptr inbounds nuw i8, ptr %455, i64 392
+  store i32 0, ptr %475, align 8
+  %476 = getelementptr inbounds nuw i8, ptr %455, i64 396
+  store i32 0, ptr %476, align 4
+  %477 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  %478 = getelementptr inbounds nuw i8, ptr %455, i64 328
+  store i64 %477, ptr %478, align 8
+  %479 = icmp eq i64 %448, 4294967296
+  %spec.select15 = select i1 %479, i32 32768, i32 65536
+  %spec.select16 = select i1 %479, i8 1, i8 2
+  %480 = trunc i64 %477 to i32
+  %481 = and i32 %480, -98305
+  %482 = or disjoint i32 %481, %spec.select15
+  store i32 %482, ptr %478, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %455, i64 1096
+  %484 = load i8, ptr %483, align 8
+  %485 = or i8 %484, %spec.select16
+  store i8 %485, ptr %483, align 8
+  %486 = add i64 %448, 4294967296
+  %487 = ashr exact i64 %486, 32
+  %488 = icmp ult i64 %487, 2
+  br i1 %488, label %442, label %.thread17.loopexit, !prof !15, !llvm.loop !16
 
-490:                                              ; preds = %459
-  %491 = and i32 %465, 2
-  %492 = icmp eq i32 %491, 0
-  br i1 %492, label %501, label %493
-
-493:                                              ; preds = %490, %459
-  %494 = phi i32 [ 65536, %459 ], [ 32768, %490 ]
-  %495 = phi i8 [ 2, %459 ], [ 1, %490 ]
-  %496 = and i32 %489, -98305
-  %497 = or disjoint i32 %496, %494
-  store i32 %497, ptr %486, align 8
-  %498 = getelementptr inbounds nuw i8, ptr %463, i64 1096
-  %499 = load i8, ptr %498, align 8
-  %500 = or i8 %499, %495
-  store i8 %500, ptr %498, align 8
-  br label %501
-
-501:                                              ; preds = %493, %490
-  %502 = add i64 %456, 4294967296
-  %503 = ashr exact i64 %502, 32
-  %504 = icmp ult i64 %503, 2
-  br i1 %504, label %450, label %.thread14.loopexit, !prof !15, !llvm.loop !16
-
-.thread14.loopexit:                               ; preds = %450, %501
+.thread17.loopexit:                               ; preds = %442, %451
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
-  br label %.thread14
+  br label %.thread17
 
-.thread14:                                        ; preds = %.thread14.loopexit, %445
-  %505 = phi ptr [ %.pre, %.thread14.loopexit ], [ null, %445 ]
+.thread17:                                        ; preds = %.thread17.loopexit, %437
+  %489 = phi ptr [ %.pre, %.thread17.loopexit ], [ null, %437 ]
   store ptr @mtl_latency_data_small, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 416), align 8
   store ptr @mtl_get_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 200), align 8
   store ptr @adl_hw_config, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 104), align 8
-  %506 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 72), align 8
-  %507 = and i64 %506, 8796093022208
-  %508 = icmp eq i64 %507, 0
-  %509 = select i1 %508, ptr @mtl_hybrid_extra_attr, ptr @mtl_hybrid_extra_attr_rtm
-  %510 = getelementptr i8, ptr %505, i64 1232
-  %511 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
-  %512 = or i8 %511, 1
-  store i8 %512, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+  %490 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 72), align 8
+  %491 = and i64 %490, 8796093022208
+  %492 = icmp eq i64 %491, 0
+  %493 = select i1 %492, ptr @mtl_hybrid_extra_attr, ptr @mtl_hybrid_extra_attr_rtm
+  %494 = getelementptr i8, ptr %489, i64 1232
+  %495 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+  %496 = or i8 %495, 1
+  store i8 %496, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
   store ptr @glc_limit_period, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 256), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 408), align 8
-  %513 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  %514 = or i16 %513, 288
-  store i16 %514, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  %515 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  %516 = or i32 %515, 131
-  store i32 %516, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %497 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %498 = or i16 %497, 288
+  store i16 %498, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %499 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %500 = or i32 %499, 131
+  store i32 %500, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   store i64 1225, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 432), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 489), align 1
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 540), align 4
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__intel_pmu_update_topdown_event, ptr noundef nonnull @__SCT__intel_pmu_update_topdown_event, ptr noundef nonnull @icl_update_topdown_event) #22
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__intel_pmu_set_topdown_event_period, ptr noundef nonnull @__SCT__intel_pmu_set_topdown_event_period, ptr noundef nonnull @icl_set_topdown_event_period) #22
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %518 [label %517], !srcloc !7
+          to label %502 [label %501], !srcloc !7
 
-517:                                              ; preds = %.thread14
-  br label %518
+501:                                              ; preds = %.thread17
+  br label %502
 
-518:                                              ; preds = %517, %.thread14
-  %519 = phi i1 [ true, %517 ], [ false, %.thread14 ]
-  %520 = icmp ne ptr %510, null
-  %521 = and i1 %520, %519
-  %522 = getelementptr i8, ptr %505, i64 1632
-  %523 = select i1 %521, ptr %522, ptr @hw_cache_event_ids
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %523, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_event_ids, i64 336, i1 false)
+502:                                              ; preds = %501, %.thread17
+  %503 = phi i1 [ true, %501 ], [ false, %.thread17 ]
+  %504 = icmp ne ptr %494, null
+  %505 = and i1 %504, %503
+  %506 = getelementptr i8, ptr %489, i64 1632
+  %507 = select i1 %505, ptr %506, ptr @hw_cache_event_ids
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %507, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_event_ids, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %525 [label %524], !srcloc !7
+          to label %509 [label %508], !srcloc !7
 
-524:                                              ; preds = %518
-  br label %525
+508:                                              ; preds = %502
+  br label %509
 
-525:                                              ; preds = %524, %518
-  %526 = phi i1 [ true, %524 ], [ false, %518 ]
-  %527 = and i1 %520, %526
-  %528 = getelementptr i8, ptr %505, i64 1968
-  %529 = select i1 %527, ptr %528, ptr @hw_cache_extra_regs
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %529, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_extra_regs, i64 336, i1 false)
+509:                                              ; preds = %508, %502
+  %510 = phi i1 [ true, %508 ], [ false, %502 ]
+  %511 = and i1 %504, %510
+  %512 = getelementptr i8, ptr %489, i64 1968
+  %513 = select i1 %511, ptr %512, ptr @hw_cache_extra_regs
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %513, ptr noundef nonnull align 16 dereferenceable(336) @glc_hw_cache_extra_regs, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %531 [label %530], !srcloc !7
+          to label %515 [label %514], !srcloc !7
 
-530:                                              ; preds = %525
-  br label %531
+514:                                              ; preds = %509
+  br label %515
 
-531:                                              ; preds = %530, %525
-  %532 = phi i1 [ true, %530 ], [ false, %525 ]
-  %533 = and i1 %520, %532
-  %534 = getelementptr i8, ptr %505, i64 2304
-  %535 = select i1 %533, ptr %534, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
-  store ptr @intel_glc_event_constraints, ptr %535, align 8
+515:                                              ; preds = %514, %509
+  %516 = phi i1 [ true, %514 ], [ false, %509 ]
+  %517 = and i1 %504, %516
+  %518 = getelementptr i8, ptr %489, i64 2304
+  %519 = select i1 %517, ptr %518, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
+  store ptr @intel_glc_event_constraints, ptr %519, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %537 [label %536], !srcloc !7
+          to label %521 [label %520], !srcloc !7
 
-536:                                              ; preds = %531
-  br label %537
+520:                                              ; preds = %515
+  br label %521
 
-537:                                              ; preds = %536, %531
-  %538 = phi i1 [ true, %536 ], [ false, %531 ]
-  %539 = and i1 %520, %538
-  %540 = getelementptr i8, ptr %505, i64 2312
-  %541 = select i1 %539, ptr %540, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
-  store ptr @intel_glc_pebs_event_constraints, ptr %541, align 8
-  %542 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
-  %543 = and i64 %542, 4
-  %544 = icmp eq i64 %543, 0
-  br i1 %544, label %545, label %546
+521:                                              ; preds = %520, %515
+  %522 = phi i1 [ true, %520 ], [ false, %515 ]
+  %523 = and i1 %504, %522
+  %524 = getelementptr i8, ptr %489, i64 2312
+  %525 = select i1 %523, ptr %524, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
+  store ptr @intel_glc_pebs_event_constraints, ptr %525, align 8
+  %526 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
+  %527 = and i64 %526, 4
+  %528 = icmp eq i64 %527, 0
+  br i1 %528, label %529, label %530
 
-545:                                              ; preds = %537
+529:                                              ; preds = %521
   store i64 316, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 72), align 8
-  br label %546
+  br label %530
 
-546:                                              ; preds = %545, %537
-  %547 = getelementptr i8, ptr %505, i64 2320
-  store ptr @intel_rwc_extra_regs, ptr %547, align 8
-  %548 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
-  %549 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
-  %550 = or i8 %549, 2
-  store i8 %550, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+530:                                              ; preds = %529, %521
+  %531 = getelementptr i8, ptr %489, i64 2320
+  store ptr @intel_rwc_extra_regs, ptr %531, align 8
+  %532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
+  %533 = load i8, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
+  %534 = or i8 %533, 2
+  store i8 %534, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 264), align 8
   store ptr @glc_limit_period, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 256), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 408), align 8
-  %551 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
-  %552 = or i16 %551, 288
-  store i16 %552, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %535 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
+  %536 = or i16 %535, 288
+  store i16 %536, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 489), align 1
-  %553 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  %554 = or i32 %553, 130
-  store i32 %554, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %537 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %538 = or i32 %537, 130
+  store i32 %538, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %556 [label %555], !srcloc !7
+          to label %540 [label %539], !srcloc !7
 
-555:                                              ; preds = %546
-  br label %556
+539:                                              ; preds = %530
+  br label %540
 
-556:                                              ; preds = %555, %546
-  %557 = phi i1 [ true, %555 ], [ false, %546 ]
-  %558 = icmp ne ptr %548, null
-  %559 = and i1 %558, %557
-  %560 = getelementptr inbounds nuw i8, ptr %548, i64 400
-  %561 = select i1 %559, ptr %560, ptr @hw_cache_event_ids
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %561, ptr noundef nonnull align 16 dereferenceable(336) @glp_hw_cache_event_ids, i64 336, i1 false)
+540:                                              ; preds = %539, %530
+  %541 = phi i1 [ true, %539 ], [ false, %530 ]
+  %542 = icmp ne ptr %532, null
+  %543 = and i1 %542, %541
+  %544 = getelementptr inbounds nuw i8, ptr %532, i64 400
+  %545 = select i1 %543, ptr %544, ptr @hw_cache_event_ids
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %545, ptr noundef nonnull align 16 dereferenceable(336) @glp_hw_cache_event_ids, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %563 [label %562], !srcloc !7
+          to label %547 [label %546], !srcloc !7
 
-562:                                              ; preds = %556
-  br label %563
+546:                                              ; preds = %540
+  br label %547
 
-563:                                              ; preds = %562, %556
-  %564 = phi i1 [ true, %562 ], [ false, %556 ]
-  %565 = and i1 %558, %564
-  %566 = getelementptr inbounds nuw i8, ptr %548, i64 736
-  %567 = select i1 %565, ptr %566, ptr @hw_cache_extra_regs
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %567, ptr noundef nonnull align 16 dereferenceable(336) @tnt_hw_cache_extra_regs, i64 336, i1 false)
+547:                                              ; preds = %546, %540
+  %548 = phi i1 [ true, %546 ], [ false, %540 ]
+  %549 = and i1 %542, %548
+  %550 = getelementptr inbounds nuw i8, ptr %532, i64 736
+  %551 = select i1 %549, ptr %550, ptr @hw_cache_extra_regs
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %551, ptr noundef nonnull align 16 dereferenceable(336) @tnt_hw_cache_extra_regs, i64 336, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %569 [label %568], !srcloc !7
+          to label %553 [label %552], !srcloc !7
 
-568:                                              ; preds = %563
-  br label %569
+552:                                              ; preds = %547
+  br label %553
 
-569:                                              ; preds = %568, %563
-  %570 = phi i1 [ true, %568 ], [ false, %563 ]
-  %571 = and i1 %558, %570
-  %572 = select i1 %571, ptr %560, ptr @hw_cache_event_ids
-  %573 = getelementptr i8, ptr %572, i64 192
-  store i64 -1, ptr %573, align 8
+553:                                              ; preds = %552, %547
+  %554 = phi i1 [ true, %552 ], [ false, %547 ]
+  %555 = and i1 %542, %554
+  %556 = select i1 %555, ptr %544, ptr @hw_cache_event_ids
+  %557 = getelementptr i8, ptr %556, i64 192
+  store i64 -1, ptr %557, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %575 [label %574], !srcloc !7
+          to label %559 [label %558], !srcloc !7
 
-574:                                              ; preds = %569
-  br label %575
+558:                                              ; preds = %553
+  br label %559
 
-575:                                              ; preds = %574, %569
-  %576 = phi i1 [ true, %574 ], [ false, %569 ]
-  %577 = and i1 %558, %576
-  %578 = getelementptr inbounds nuw i8, ptr %548, i64 1072
-  %579 = select i1 %577, ptr %578, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
-  store ptr @intel_grt_event_constraints, ptr %579, align 8
+559:                                              ; preds = %558, %553
+  %560 = phi i1 [ true, %558 ], [ false, %553 ]
+  %561 = and i1 %542, %560
+  %562 = getelementptr inbounds nuw i8, ptr %532, i64 1072
+  %563 = select i1 %561, ptr %562, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240)
+  store ptr @intel_grt_event_constraints, ptr %563, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %581 [label %580], !srcloc !7
+          to label %565 [label %564], !srcloc !7
 
-580:                                              ; preds = %575
-  br label %581
+564:                                              ; preds = %559
+  br label %565
 
-581:                                              ; preds = %580, %575
-  %582 = phi i1 [ true, %580 ], [ false, %575 ]
-  %583 = and i1 %558, %582
-  %584 = getelementptr inbounds nuw i8, ptr %548, i64 1080
-  %585 = select i1 %583, ptr %584, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
-  store ptr @intel_grt_pebs_event_constraints, ptr %585, align 8
+565:                                              ; preds = %564, %559
+  %566 = phi i1 [ true, %564 ], [ false, %559 ]
+  %567 = and i1 %542, %566
+  %568 = getelementptr inbounds nuw i8, ptr %532, i64 1080
+  %569 = select i1 %567, ptr %568, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 400)
+  store ptr @intel_grt_pebs_event_constraints, ptr %569, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %587 [label %586], !srcloc !7
+          to label %571 [label %570], !srcloc !7
 
-586:                                              ; preds = %581
-  br label %587
+570:                                              ; preds = %565
+  br label %571
 
-587:                                              ; preds = %586, %581
-  %588 = phi i1 [ true, %586 ], [ false, %581 ]
-  %589 = and i1 %558, %588
-  %590 = getelementptr inbounds nuw i8, ptr %548, i64 1088
-  %591 = select i1 %589, ptr %590, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 568)
-  store ptr @intel_grt_extra_regs, ptr %591, align 8
-  %592 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
-  %593 = and i64 %592, 4
-  %594 = icmp eq i64 %593, 0
-  br i1 %594, label %595, label %596
+571:                                              ; preds = %570, %565
+  %572 = phi i1 [ true, %570 ], [ false, %565 ]
+  %573 = and i1 %542, %572
+  %574 = getelementptr inbounds nuw i8, ptr %532, i64 1088
+  %575 = select i1 %573, ptr %574, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 568)
+  store ptr @intel_grt_extra_regs, ptr %575, align 8
+  %576 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 176), align 8
+  %577 = and i64 %576, 4
+  %578 = icmp eq i64 %577, 0
+  br i1 %578, label %579, label %580
 
-595:                                              ; preds = %587
+579:                                              ; preds = %571
   store i64 316, ptr getelementptr inbounds nuw (i8, ptr @intel_perfmon_event_map, i64 72), align 8
-  br label %596
+  br label %580
 
-596:                                              ; preds = %595, %587
-  store ptr @intel_cmt_extra_regs, ptr %590, align 8
+580:                                              ; preds = %579, %571
+  store ptr @intel_cmt_extra_regs, ptr %574, align 8
   tail call void @intel_pmu_pebs_data_source_mtl() #22
-  br label %609
+  br label %593
 
-597:                                              ; preds = %78
-  %598 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 8), align 8
-  switch i32 %598, label %601 [
-    i32 1, label %599
-    i32 2, label %600
-    i32 3, label %600
-    i32 4, label %600
+581:                                              ; preds = %78
+  %582 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 8), align 8
+  switch i32 %582, label %585 [
+    i32 1, label %583
+    i32 2, label %584
+    i32 3, label %584
+    i32 4, label %584
   ]
 
-599:                                              ; preds = %597
+583:                                              ; preds = %581
   store ptr @intel_v1_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
-  br label %609
+  br label %593
 
-600:                                              ; preds = %597, %597, %597
+584:                                              ; preds = %581, %581, %581
   store ptr @intel_gen_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
-  br label %609
+  br label %593
 
-601:                                              ; preds = %597
-  %602 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
-  %603 = icmp sgt i32 %602, 16
-  br i1 %603, label %604, label %605
+585:                                              ; preds = %581
+  %586 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  %587 = icmp sgt i32 %586, 16
+  br i1 %587, label %588, label %589
 
-604:                                              ; preds = %601
+588:                                              ; preds = %585
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  br label %589
+
+589:                                              ; preds = %588, %585
+  %590 = phi i32 [ 16, %588 ], [ %586, %585 ]
+  %591 = sext i32 %590 to i64
+  %592 = getelementptr %struct.event_constraint, ptr @intel_v5_gen_event_constraints, i64 %591, i32 3
+  store i32 -1, ptr %592, align 8
+  store ptr @intel_v5_gen_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
+  br label %593
+
+593:                                              ; preds = %589, %584, %583, %580, %434, %251, %217, %211, %207, %191, %187, %175, %163, %154, %147, %144, %143, %125, %101, %96, %91, %88, %87, %83, %82, %78
+  %594 = phi ptr [ @.str.55, %583 ], [ @.str.57, %584 ], [ @.str.57, %589 ], [ @.str.53, %580 ], [ @.str.51, %434 ], [ @.str.49, %251 ], [ @.str.47, %217 ], [ @.str.40, %187 ], [ @.str.38, %175 ], [ @.str.35, %163 ], [ @.str.31, %154 ], [ @.str.28, %147 ], [ @.str.24, %144 ], [ @.str.22, %143 ], [ @.str.20, %125 ], [ @.str.18, %101 ], [ @.str.16, %96 ], [ @.str.13, %91 ], [ @.str.11, %88 ], [ @.str.9, %87 ], [ @.str.7, %83 ], [ @.str.4, %82 ], [ @.str.1, %78 ], [ @.str.45, %191 ], [ @.str.45, %207 ], [ @.str.45, %211 ]
+  %595 = phi ptr [ @.str.56, %583 ], [ @.str.58, %584 ], [ @.str.59, %589 ], [ @.str.54, %580 ], [ @.str.52, %434 ], [ @.str.50, %251 ], [ @.str.48, %217 ], [ @.str.41, %187 ], [ @.str.39, %175 ], [ @.str.36, %163 ], [ @.str.32, %154 ], [ @.str.29, %147 ], [ @.str.25, %144 ], [ @.str.23, %143 ], [ @.str.21, %125 ], [ @.str.19, %101 ], [ @.str.17, %96 ], [ @.str.14, %91 ], [ @.str.12, %88 ], [ @.str.10, %87 ], [ @.str.8, %83 ], [ @.str.5, %82 ], [ @.str.2, %78 ], [ @.str.46, %191 ], [ @.str.46, %207 ], [ @.str.46, %211 ]
+  %596 = phi ptr [ @empty_attrs, %583 ], [ @empty_attrs, %584 ], [ @empty_attrs, %589 ], [ @adl_hybrid_tsx_attrs, %580 ], [ @adl_hybrid_tsx_attrs, %434 ], [ @glc_tsx_events_attrs, %251 ], [ @icl_tsx_events_attrs, %217 ], [ @empty_attrs, %187 ], [ @hsw_tsx_events_attrs, %175 ], [ @hsw_tsx_events_attrs, %163 ], [ @empty_attrs, %154 ], [ @empty_attrs, %147 ], [ @empty_attrs, %144 ], [ @empty_attrs, %143 ], [ @empty_attrs, %125 ], [ @empty_attrs, %101 ], [ @empty_attrs, %96 ], [ @empty_attrs, %91 ], [ @empty_attrs, %88 ], [ @empty_attrs, %87 ], [ @empty_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @hsw_tsx_events_attrs, %191 ], [ @hsw_tsx_events_attrs, %207 ], [ @hsw_tsx_events_attrs, %211 ]
+  %597 = phi ptr [ @empty_attrs, %583 ], [ @empty_attrs, %584 ], [ @empty_attrs, %589 ], [ @mtl_hybrid_mem_attrs, %580 ], [ @adl_hybrid_mem_attrs, %434 ], [ @glc_events_attrs, %251 ], [ @icl_events_attrs, %217 ], [ @empty_attrs, %187 ], [ @hsw_mem_events_attrs, %175 ], [ @hsw_mem_events_attrs, %163 ], [ @snb_mem_events_attrs, %154 ], [ @snb_mem_events_attrs, %147 ], [ @nhm_mem_events_attrs, %144 ], [ @grt_mem_attrs, %143 ], [ @grt_mem_attrs, %125 ], [ @empty_attrs, %101 ], [ @empty_attrs, %96 ], [ @empty_attrs, %91 ], [ @empty_attrs, %88 ], [ @empty_attrs, %87 ], [ @nhm_mem_events_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @hsw_mem_events_attrs, %191 ], [ @hsw_mem_events_attrs, %207 ], [ @hsw_mem_events_attrs, %211 ]
+  %598 = phi ptr [ @empty_attrs, %583 ], [ @empty_attrs, %584 ], [ @empty_attrs, %589 ], [ @adl_hybrid_events_attrs, %580 ], [ @adl_hybrid_events_attrs, %434 ], [ @glc_td_events_attrs, %251 ], [ @icl_td_events_attrs, %217 ], [ @empty_attrs, %187 ], [ @hsw_events_attrs, %175 ], [ @hsw_events_attrs, %163 ], [ @snb_events_attrs, %154 ], [ @snb_events_attrs, %147 ], [ @empty_attrs, %144 ], [ @cmt_events_attrs, %143 ], [ @tnt_events_attrs, %125 ], [ @tnt_events_attrs, %101 ], [ @glm_events_attrs, %96 ], [ @glm_events_attrs, %91 ], [ @slm_events_attrs, %88 ], [ @empty_attrs, %87 ], [ @empty_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @hsw_events_attrs, %191 ], [ @hsw_events_attrs, %207 ], [ @hsw_events_attrs, %211 ]
+  %599 = phi ptr [ @empty_attrs, %583 ], [ @empty_attrs, %584 ], [ @empty_attrs, %589 ], [ %493, %580 ], [ %314, %434 ], [ %257, %251 ], [ %228, %217 ], [ @slm_format_attr, %187 ], [ %186, %175 ], [ %174, %163 ], [ @nhm_format_attr, %154 ], [ @nhm_format_attr, %147 ], [ @nhm_format_attr, %144 ], [ @cmt_format_attr, %143 ], [ @nhm_format_attr, %125 ], [ @slm_format_attr, %101 ], [ @slm_format_attr, %96 ], [ @slm_format_attr, %91 ], [ @slm_format_attr, %88 ], [ @empty_attrs, %87 ], [ @nhm_format_attr, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ %203, %191 ], [ %203, %207 ], [ %203, %211 ]
+  %600 = phi ptr [ @empty_attrs, %583 ], [ @empty_attrs, %584 ], [ @empty_attrs, %589 ], [ @empty_attrs, %580 ], [ @empty_attrs, %434 ], [ @skl_format_attr, %251 ], [ @skl_format_attr, %217 ], [ @empty_attrs, %187 ], [ @empty_attrs, %175 ], [ @empty_attrs, %163 ], [ @empty_attrs, %154 ], [ @empty_attrs, %147 ], [ @empty_attrs, %144 ], [ @empty_attrs, %143 ], [ @empty_attrs, %125 ], [ @empty_attrs, %101 ], [ @empty_attrs, %96 ], [ @empty_attrs, %91 ], [ @empty_attrs, %88 ], [ @empty_attrs, %87 ], [ @empty_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @skl_format_attr, %191 ], [ @skl_format_attr, %207 ], [ @skl_format_attr, %211 ]
+  %601 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %594) #25
+  %602 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @pmu_name_str, i64 noundef 30, ptr noundef nonnull @.str.60, ptr noundef nonnull %595) #22
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
+          to label %604 [label %603], !srcloc !7
+
+603:                                              ; preds = %593
+  store ptr %598, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_events_td, i64 24), align 8
+  store ptr %597, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_events_mem, i64 24), align 8
+  store ptr %596, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_events_tsx, i64 24), align 8
+  store ptr %599, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_format_extra, i64 24), align 8
   br label %605
 
-605:                                              ; preds = %604, %601
-  %606 = phi i32 [ 16, %604 ], [ %602, %601 ]
-  %607 = sext i32 %606 to i64
-  %608 = getelementptr %struct.event_constraint, ptr @intel_v5_gen_event_constraints, i64 %607, i32 3
-  store i32 -1, ptr %608, align 8
-  store ptr @intel_v5_gen_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
-  br label %609
+604:                                              ; preds = %593
+  store ptr %598, ptr getelementptr inbounds nuw (i8, ptr @group_events_td, i64 24), align 8
+  store ptr %597, ptr getelementptr inbounds nuw (i8, ptr @group_events_mem, i64 24), align 8
+  store ptr %596, ptr getelementptr inbounds nuw (i8, ptr @group_events_tsx, i64 24), align 8
+  store ptr %599, ptr getelementptr inbounds nuw (i8, ptr @group_format_extra, i64 24), align 8
+  store ptr %600, ptr getelementptr inbounds nuw (i8, ptr @group_format_extra_skl, i64 24), align 8
+  br label %605
 
-609:                                              ; preds = %605, %600, %599, %596, %442, %251, %217, %211, %207, %191, %187, %175, %163, %154, %147, %144, %143, %125, %101, %96, %91, %88, %87, %83, %82, %78
-  %610 = phi ptr [ @.str.55, %599 ], [ @.str.57, %600 ], [ @.str.57, %605 ], [ @.str.53, %596 ], [ @.str.51, %442 ], [ @.str.49, %251 ], [ @.str.47, %217 ], [ @.str.40, %187 ], [ @.str.38, %175 ], [ @.str.35, %163 ], [ @.str.31, %154 ], [ @.str.28, %147 ], [ @.str.24, %144 ], [ @.str.22, %143 ], [ @.str.20, %125 ], [ @.str.18, %101 ], [ @.str.16, %96 ], [ @.str.13, %91 ], [ @.str.11, %88 ], [ @.str.9, %87 ], [ @.str.7, %83 ], [ @.str.4, %82 ], [ @.str.1, %78 ], [ @.str.45, %191 ], [ @.str.45, %207 ], [ @.str.45, %211 ]
-  %611 = phi ptr [ @.str.56, %599 ], [ @.str.58, %600 ], [ @.str.59, %605 ], [ @.str.54, %596 ], [ @.str.52, %442 ], [ @.str.50, %251 ], [ @.str.48, %217 ], [ @.str.41, %187 ], [ @.str.39, %175 ], [ @.str.36, %163 ], [ @.str.32, %154 ], [ @.str.29, %147 ], [ @.str.25, %144 ], [ @.str.23, %143 ], [ @.str.21, %125 ], [ @.str.19, %101 ], [ @.str.17, %96 ], [ @.str.14, %91 ], [ @.str.12, %88 ], [ @.str.10, %87 ], [ @.str.8, %83 ], [ @.str.5, %82 ], [ @.str.2, %78 ], [ @.str.46, %191 ], [ @.str.46, %207 ], [ @.str.46, %211 ]
-  %612 = phi ptr [ @empty_attrs, %599 ], [ @empty_attrs, %600 ], [ @empty_attrs, %605 ], [ @adl_hybrid_tsx_attrs, %596 ], [ @adl_hybrid_tsx_attrs, %442 ], [ @glc_tsx_events_attrs, %251 ], [ @icl_tsx_events_attrs, %217 ], [ @empty_attrs, %187 ], [ @hsw_tsx_events_attrs, %175 ], [ @hsw_tsx_events_attrs, %163 ], [ @empty_attrs, %154 ], [ @empty_attrs, %147 ], [ @empty_attrs, %144 ], [ @empty_attrs, %143 ], [ @empty_attrs, %125 ], [ @empty_attrs, %101 ], [ @empty_attrs, %96 ], [ @empty_attrs, %91 ], [ @empty_attrs, %88 ], [ @empty_attrs, %87 ], [ @empty_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @hsw_tsx_events_attrs, %191 ], [ @hsw_tsx_events_attrs, %207 ], [ @hsw_tsx_events_attrs, %211 ]
-  %613 = phi ptr [ @empty_attrs, %599 ], [ @empty_attrs, %600 ], [ @empty_attrs, %605 ], [ @mtl_hybrid_mem_attrs, %596 ], [ @adl_hybrid_mem_attrs, %442 ], [ @glc_events_attrs, %251 ], [ @icl_events_attrs, %217 ], [ @empty_attrs, %187 ], [ @hsw_mem_events_attrs, %175 ], [ @hsw_mem_events_attrs, %163 ], [ @snb_mem_events_attrs, %154 ], [ @snb_mem_events_attrs, %147 ], [ @nhm_mem_events_attrs, %144 ], [ @grt_mem_attrs, %143 ], [ @grt_mem_attrs, %125 ], [ @empty_attrs, %101 ], [ @empty_attrs, %96 ], [ @empty_attrs, %91 ], [ @empty_attrs, %88 ], [ @empty_attrs, %87 ], [ @nhm_mem_events_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @hsw_mem_events_attrs, %191 ], [ @hsw_mem_events_attrs, %207 ], [ @hsw_mem_events_attrs, %211 ]
-  %614 = phi ptr [ @empty_attrs, %599 ], [ @empty_attrs, %600 ], [ @empty_attrs, %605 ], [ @adl_hybrid_events_attrs, %596 ], [ @adl_hybrid_events_attrs, %442 ], [ @glc_td_events_attrs, %251 ], [ @icl_td_events_attrs, %217 ], [ @empty_attrs, %187 ], [ @hsw_events_attrs, %175 ], [ @hsw_events_attrs, %163 ], [ @snb_events_attrs, %154 ], [ @snb_events_attrs, %147 ], [ @empty_attrs, %144 ], [ @cmt_events_attrs, %143 ], [ @tnt_events_attrs, %125 ], [ @tnt_events_attrs, %101 ], [ @glm_events_attrs, %96 ], [ @glm_events_attrs, %91 ], [ @slm_events_attrs, %88 ], [ @empty_attrs, %87 ], [ @empty_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @hsw_events_attrs, %191 ], [ @hsw_events_attrs, %207 ], [ @hsw_events_attrs, %211 ]
-  %615 = phi ptr [ @empty_attrs, %599 ], [ @empty_attrs, %600 ], [ @empty_attrs, %605 ], [ %509, %596 ], [ %322, %442 ], [ %257, %251 ], [ %228, %217 ], [ @slm_format_attr, %187 ], [ %186, %175 ], [ %174, %163 ], [ @nhm_format_attr, %154 ], [ @nhm_format_attr, %147 ], [ @nhm_format_attr, %144 ], [ @cmt_format_attr, %143 ], [ @nhm_format_attr, %125 ], [ @slm_format_attr, %101 ], [ @slm_format_attr, %96 ], [ @slm_format_attr, %91 ], [ @slm_format_attr, %88 ], [ @empty_attrs, %87 ], [ @nhm_format_attr, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ %203, %191 ], [ %203, %207 ], [ %203, %211 ]
-  %616 = phi ptr [ @empty_attrs, %599 ], [ @empty_attrs, %600 ], [ @empty_attrs, %605 ], [ @empty_attrs, %596 ], [ @empty_attrs, %442 ], [ @skl_format_attr, %251 ], [ @skl_format_attr, %217 ], [ @empty_attrs, %187 ], [ @empty_attrs, %175 ], [ @empty_attrs, %163 ], [ @empty_attrs, %154 ], [ @empty_attrs, %147 ], [ @empty_attrs, %144 ], [ @empty_attrs, %143 ], [ @empty_attrs, %125 ], [ @empty_attrs, %101 ], [ @empty_attrs, %96 ], [ @empty_attrs, %91 ], [ @empty_attrs, %88 ], [ @empty_attrs, %87 ], [ @empty_attrs, %83 ], [ @empty_attrs, %82 ], [ @empty_attrs, %78 ], [ @skl_format_attr, %191 ], [ @skl_format_attr, %207 ], [ @skl_format_attr, %211 ]
-  %617 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %610) #25
-  %618 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @pmu_name_str, i64 noundef 30, ptr noundef nonnull @.str.60, ptr noundef nonnull %611) #22
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %620 [label %619], !srcloc !7
+605:                                              ; preds = %604, %603
+  %606 = phi ptr [ @attr_update, %604 ], [ @hybrid_attr_update, %603 ]
+  store ptr %606, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 296), align 8
+  %607 = zext i32 %52 to i64
+  tail call fastcc void @intel_pmu_check_num_counters(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), i64 noundef %607)
+  %608 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  %609 = and i32 %608, 262144
+  %610 = icmp eq i32 %609, 0
+  br i1 %610, label %612, label %611
 
-619:                                              ; preds = %609
-  store ptr %614, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_events_td, i64 24), align 8
-  store ptr %613, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_events_mem, i64 24), align 8
-  store ptr %612, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_events_tsx, i64 24), align 8
-  store ptr %615, ptr getelementptr inbounds nuw (i8, ptr @hybrid_group_format_extra, i64 24), align 8
-  br label %621
-
-620:                                              ; preds = %609
-  store ptr %614, ptr getelementptr inbounds nuw (i8, ptr @group_events_td, i64 24), align 8
-  store ptr %613, ptr getelementptr inbounds nuw (i8, ptr @group_events_mem, i64 24), align 8
-  store ptr %612, ptr getelementptr inbounds nuw (i8, ptr @group_events_tsx, i64 24), align 8
-  store ptr %615, ptr getelementptr inbounds nuw (i8, ptr @group_format_extra, i64 24), align 8
-  store ptr %616, ptr getelementptr inbounds nuw (i8, ptr @group_format_extra_skl, i64 24), align 8
-  br label %621
-
-621:                                              ; preds = %620, %619
-  %622 = phi ptr [ @attr_update, %620 ], [ @hybrid_attr_update, %619 ]
-  store ptr %622, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 296), align 8
-  %623 = zext i32 %52 to i64
-  tail call fastcc void @intel_pmu_check_num_counters(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), i64 noundef %623)
-  %624 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %625 = and i32 %624, 262144
-  %626 = icmp eq i32 %625, 0
-  br i1 %626, label %628, label %627
-
-627:                                              ; preds = %621
+611:                                              ; preds = %605
   store ptr @intel_arch_formats_attr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 280), align 8
-  br label %628
+  br label %612
 
-628:                                              ; preds = %627, %621
-  %629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
-  %630 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
-  %631 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
-  %632 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), align 8
-  %633 = icmp eq ptr %629, null
-  br i1 %633, label %.loopexit21, label %634
+612:                                              ; preds = %611, %605
+  %613 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
+  %614 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 156), align 4
+  %615 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 160), align 8
+  %616 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), align 8
+  %617 = icmp eq ptr %613, null
+  br i1 %617, label %.loopexit24, label %618
 
-634:                                              ; preds = %628
-  %635 = getelementptr inbounds nuw i8, ptr %629, i64 24
-  %636 = load i32, ptr %635, align 8
-  %637 = icmp eq i32 %636, -1
-  br i1 %637, label %.loopexit21, label %638
+618:                                              ; preds = %612
+  %619 = getelementptr inbounds nuw i8, ptr %613, i64 24
+  %620 = load i32, ptr %619, align 8
+  %621 = icmp eq i32 %620, -1
+  br i1 %621, label %.loopexit24, label %622
 
-638:                                              ; preds = %634
-  %639 = and i64 %632, 34359738368
-  %640 = icmp eq i64 %639, 0
-  %641 = zext nneg i32 %630 to i64
-  %642 = shl nsw i64 -1, %641
-  %643 = xor i64 %642, -1
-  %644 = add i32 %631, 32
-  %645 = zext nneg i32 %644 to i64
-  %646 = shl nsw i64 -1, %645
-  %647 = xor i64 %646, -1
-  br label %648
+622:                                              ; preds = %618
+  %623 = and i64 %616, 34359738368
+  %624 = icmp eq i64 %623, 0
+  %625 = zext nneg i32 %614 to i64
+  %626 = shl nsw i64 -1, %625
+  %627 = xor i64 %626, -1
+  %628 = add i32 %615, 32
+  %629 = zext nneg i32 %628 to i64
+  %630 = shl nsw i64 -1, %629
+  %631 = xor i64 %630, -1
+  br label %632
 
-648:                                              ; preds = %674, %638
-  %649 = phi ptr [ %635, %638 ], [ %678, %674 ]
-  %650 = phi ptr [ %629, %638 ], [ %677, %674 ]
-  %651 = load i64, ptr %650, align 8
-  %652 = and i64 %651, 71776153420955648
-  %653 = icmp eq i64 %652, 0
-  br i1 %653, label %659, label %654
+632:                                              ; preds = %658, %622
+  %633 = phi ptr [ %619, %622 ], [ %662, %658 ]
+  %634 = phi ptr [ %613, %622 ], [ %661, %658 ]
+  %635 = load i64, ptr %634, align 8
+  %636 = and i64 %635, 71776153420955648
+  %637 = icmp eq i64 %636, 0
+  br i1 %637, label %643, label %638
 
-654:                                              ; preds = %648
-  br i1 %640, label %655, label %656
+638:                                              ; preds = %632
+  br i1 %624, label %639, label %640
 
-655:                                              ; preds = %654
-  store i64 0, ptr %650, align 8
-  br label %656
+639:                                              ; preds = %638
+  store i64 0, ptr %634, align 8
+  br label %640
 
-656:                                              ; preds = %655, %654
-  %657 = phi i64 [ 0, %655 ], [ %651, %654 ]
-  %658 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %657) #27, !srcloc !18
-  br label %674
+640:                                              ; preds = %639, %638
+  %641 = phi i64 [ 0, %639 ], [ %635, %638 ]
+  %642 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %641) #27, !srcloc !18
+  br label %658
 
-659:                                              ; preds = %648
-  %660 = getelementptr inbounds nuw i8, ptr %650, i64 16
-  %661 = load i64, ptr %660, align 8
-  %662 = icmp eq i64 %661, 17171808255
-  br i1 %662, label %663, label %670
+643:                                              ; preds = %632
+  %644 = getelementptr inbounds nuw i8, ptr %634, i64 16
+  %645 = load i64, ptr %644, align 8
+  %646 = icmp eq i64 %645, 17171808255
+  br i1 %646, label %647, label %654
 
-663:                                              ; preds = %659
-  %664 = and i64 %651, %632
-  %665 = getelementptr inbounds nuw i8, ptr %650, i64 8
-  %666 = load i64, ptr %665, align 8
-  %667 = and i64 %666, 255
-  %668 = icmp eq i64 %667, 0
-  %669 = select i1 %668, i64 0, i64 %643
-  %spec.select = or i64 %664, %669
-  br label %670
+647:                                              ; preds = %643
+  %648 = and i64 %635, %616
+  %649 = getelementptr inbounds nuw i8, ptr %634, i64 8
+  %650 = load i64, ptr %649, align 8
+  %651 = and i64 %650, 255
+  %652 = icmp eq i64 %651, 0
+  %653 = select i1 %652, i64 0, i64 %627
+  %spec.select40 = or i64 %648, %653
+  br label %654
 
-670:                                              ; preds = %663, %659
-  %671 = phi i64 [ %651, %659 ], [ %spec.select, %663 ]
-  %672 = and i64 %671, %647
-  store i64 %672, ptr %650, align 8
-  %673 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %672) #27, !srcloc !18
-  br label %674
+654:                                              ; preds = %647, %643
+  %655 = phi i64 [ %635, %643 ], [ %spec.select40, %647 ]
+  %656 = and i64 %655, %631
+  store i64 %656, ptr %634, align 8
+  %657 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %656) #27, !srcloc !18
+  br label %658
 
-674:                                              ; preds = %670, %656
-  %675 = phi i64 [ %658, %656 ], [ %673, %670 ]
-  %676 = trunc i64 %675 to i32
-  store i32 %676, ptr %649, align 8
-  %677 = getelementptr i8, ptr %650, i64 40
-  %678 = getelementptr i8, ptr %650, i64 64
-  %679 = load i32, ptr %678, align 8
-  %680 = icmp eq i32 %679, -1
-  br i1 %680, label %.loopexit21, label %648, !llvm.loop !19
+658:                                              ; preds = %654, %640
+  %659 = phi i64 [ %642, %640 ], [ %657, %654 ]
+  %660 = trunc i64 %659 to i32
+  store i32 %660, ptr %633, align 8
+  %661 = getelementptr i8, ptr %634, i64 40
+  %662 = getelementptr i8, ptr %634, i64 64
+  %663 = load i32, ptr %662, align 8
+  %664 = icmp eq i32 %663, -1
+  br i1 %664, label %.loopexit24, label %632, !llvm.loop !19
 
-.loopexit21:                                      ; preds = %674, %634, %628
-  %681 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 448), align 8
-  %682 = icmp eq i32 %681, 0
-  br i1 %682, label %686, label %683
+.loopexit24:                                      ; preds = %658, %618, %612
+  %665 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 448), align 8
+  %666 = icmp eq i32 %665, 0
+  br i1 %666, label %670, label %667
 
-683:                                              ; preds = %.loopexit21
-  %684 = zext i32 %681 to i64
-  %685 = tail call fastcc zeroext i1 @check_msr(i64 noundef %684, i64 noundef 3)
-  br i1 %685, label %686, label %.thread15
+667:                                              ; preds = %.loopexit24
+  %668 = zext i32 %665 to i64
+  %669 = tail call fastcc zeroext i1 @check_msr(i64 noundef %668, i64 noundef 3)
+  br i1 %669, label %670, label %.thread18
 
-.thread15:                                        ; preds = %683
+.thread18:                                        ; preds = %667
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  br label %713
+  br label %697
 
-686:                                              ; preds = %683, %.loopexit21
+670:                                              ; preds = %667, %.loopexit24
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  %687 = icmp eq i32 %.pr, 0
-  br i1 %687, label %713, label %.preheader20
+  %671 = icmp eq i32 %.pr, 0
+  br i1 %671, label %697, label %.preheader23
 
-.preheader20:                                     ; preds = %686, %698
-  %688 = phi i32 [ %699, %698 ], [ 0, %686 ]
-  %689 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
-  %690 = add i32 %689, %688
-  %691 = zext i32 %690 to i64
-  %692 = tail call fastcc zeroext i1 @check_msr(i64 noundef %691, i64 noundef 65535)
-  br i1 %692, label %693, label %.thread19
+.preheader23:                                     ; preds = %670, %682
+  %672 = phi i32 [ %683, %682 ], [ 0, %670 ]
+  %673 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
+  %674 = add i32 %673, %672
+  %675 = zext i32 %674 to i64
+  %676 = tail call fastcc zeroext i1 @check_msr(i64 noundef %675, i64 noundef 65535)
+  br i1 %676, label %677, label %.thread22
 
-693:                                              ; preds = %.preheader20
-  %694 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 456), align 8
-  %695 = add i32 %694, %688
-  %696 = zext i32 %695 to i64
-  %697 = tail call fastcc zeroext i1 @check_msr(i64 noundef %696, i64 noundef 65535)
-  br i1 %697, label %698, label %.thread19
+677:                                              ; preds = %.preheader23
+  %678 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 456), align 8
+  %679 = add i32 %678, %672
+  %680 = zext i32 %679 to i64
+  %681 = tail call fastcc zeroext i1 @check_msr(i64 noundef %680, i64 noundef 65535)
+  br i1 %681, label %682, label %.thread22
 
-698:                                              ; preds = %693
-  %.pr17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  %699 = add nuw i32 %688, 1
-  %700 = icmp ult i32 %699, %.pr17
-  br i1 %700, label %.preheader20, label %701, !llvm.loop !20
+682:                                              ; preds = %677
+  %.pr20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
+  %683 = add nuw i32 %672, 1
+  %684 = icmp ult i32 %683, %.pr20
+  br i1 %684, label %.preheader23, label %685, !llvm.loop !20
 
-.thread19:                                        ; preds = %693, %.preheader20
+.thread22:                                        ; preds = %677, %.preheader23
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  br label %713
+  br label %697
 
-701:                                              ; preds = %698
-  %702 = icmp eq i32 %.pr17, 0
-  br i1 %702, label %713, label %703
+685:                                              ; preds = %682
+  %686 = icmp eq i32 %.pr20, 0
+  br i1 %686, label %697, label %687
 
-703:                                              ; preds = %701
+687:                                              ; preds = %685
   tail call void @intel_pmu_lbr_init() #22
-  %704 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  %705 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, i32 noundef %704) #25
-  %706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 24), align 8
-  %707 = icmp eq ptr %706, @intel_pmu_disable_all
-  br i1 %707, label %708, label %713
+  %688 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
+  %689 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, i32 noundef %688) #25
+  %690 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 24), align 8
+  %691 = icmp eq ptr %690, @intel_pmu_disable_all
+  br i1 %691, label %692, label %697
 
-708:                                              ; preds = %703
-  %709 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 112), align 8
-  %710 = and i64 %709, 524288
-  %711 = icmp eq i64 %710, 0
-  %712 = select i1 %711, ptr @intel_pmu_snapshot_branch_stack, ptr @intel_pmu_snapshot_arch_branch_stack
-  tail call void @__static_call_update(ptr noundef nonnull @__SCK__perf_snapshot_branch_stack, ptr noundef nonnull @__SCT__perf_snapshot_branch_stack, ptr noundef nonnull %712) #22
-  br label %713
+692:                                              ; preds = %687
+  %693 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 112), align 8
+  %694 = and i64 %693, 524288
+  %695 = icmp eq i64 %694, 0
+  %696 = select i1 %695, ptr @intel_pmu_snapshot_branch_stack, ptr @intel_pmu_snapshot_arch_branch_stack
+  tail call void @__static_call_update(ptr noundef nonnull @__SCK__perf_snapshot_branch_stack, ptr noundef nonnull @__SCT__perf_snapshot_branch_stack, ptr noundef nonnull %696) #22
+  br label %697
 
-713:                                              ; preds = %.thread19, %.thread15, %708, %703, %701, %686
-  %714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 568), align 8
-  %715 = icmp eq ptr %714, null
-  br i1 %715, label %.loopexit, label %716
+697:                                              ; preds = %.thread22, %.thread18, %692, %687, %685, %670
+  %698 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 568), align 8
+  %699 = icmp eq ptr %698, null
+  br i1 %699, label %.loopexit, label %700
 
-716:                                              ; preds = %713
-  %717 = getelementptr inbounds nuw i8, ptr %714, i64 4
+700:                                              ; preds = %697
+  %701 = getelementptr inbounds nuw i8, ptr %698, i64 4
+  %702 = load i32, ptr %701, align 4
+  %703 = icmp eq i32 %702, 0
+  br i1 %703, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %700, %715
+  %704 = phi i32 [ %718, %715 ], [ %702, %700 ]
+  %705 = phi ptr [ %716, %715 ], [ %698, %700 ]
+  %706 = zext i32 %704 to i64
+  %707 = tail call fastcc zeroext i1 @check_msr(i64 noundef %706, i64 noundef 17)
+  %708 = getelementptr inbounds nuw i8, ptr %705, i64 28
+  %709 = zext i1 %707 to i8
+  store i8 %709, ptr %708, align 4
+  %710 = getelementptr inbounds nuw i8, ptr %705, i64 24
+  %711 = load i32, ptr %710, align 8
+  %712 = icmp ne i32 %711, 2
+  %713 = or i1 %707, %712
+  br i1 %713, label %715, label %714
+
+714:                                              ; preds = %.preheader
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 480), align 8
+  br label %715
+
+715:                                              ; preds = %714, %.preheader
+  %716 = getelementptr i8, ptr %705, i64 32
+  %717 = getelementptr i8, ptr %705, i64 36
   %718 = load i32, ptr %717, align 4
   %719 = icmp eq i32 %718, 0
-  br i1 %719, label %.loopexit, label %.preheader
+  br i1 %719, label %.loopexit, label %.preheader, !llvm.loop !21
 
-.preheader:                                       ; preds = %716, %731
-  %720 = phi i32 [ %734, %731 ], [ %718, %716 ]
-  %721 = phi ptr [ %732, %731 ], [ %714, %716 ]
-  %722 = zext i32 %720 to i64
-  %723 = tail call fastcc zeroext i1 @check_msr(i64 noundef %722, i64 noundef 17)
-  %724 = getelementptr inbounds nuw i8, ptr %721, i64 28
-  %725 = zext i1 %723 to i8
-  store i8 %725, ptr %724, align 4
-  %726 = getelementptr inbounds nuw i8, ptr %721, i64 24
-  %727 = load i32, ptr %726, align 8
-  %728 = icmp ne i32 %727, 2
-  %729 = or i1 %723, %728
-  br i1 %729, label %731, label %730
+.loopexit:                                        ; preds = %715, %700, %697
+  %720 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  %721 = and i32 %720, 8192
+  %722 = icmp eq i32 %721, 0
+  br i1 %722, label %727, label %723
 
-730:                                              ; preds = %.preheader
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 480), align 8
-  br label %731
-
-731:                                              ; preds = %730, %.preheader
-  %732 = getelementptr i8, ptr %721, i64 32
-  %733 = getelementptr i8, ptr %721, i64 36
-  %734 = load i32, ptr %733, align 4
-  %735 = icmp eq i32 %734, 0
-  br i1 %735, label %.loopexit, label %.preheader, !llvm.loop !21
-
-.loopexit:                                        ; preds = %731, %716, %713
-  %736 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %737 = and i32 %736, 8192
-  %738 = icmp eq i32 %737, 0
-  br i1 %738, label %743, label %739
-
-739:                                              ; preds = %.loopexit
-  %740 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 168), align 8
-  %741 = lshr i64 %740, 1
-  store i64 %741, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 192), align 8
+723:                                              ; preds = %.loopexit
+  %724 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 168), align 8
+  %725 = lshr i64 %724, 1
+  store i64 %725, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 192), align 8
   store i32 1217, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 124), align 4
-  %742 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #25
-  br label %743
+  %726 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #25
+  br label %727
 
-743:                                              ; preds = %739, %.loopexit
+727:                                              ; preds = %723, %.loopexit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
-          to label %744 [label %._crit_edge], !srcloc !7
+          to label %728 [label %._crit_edge], !srcloc !7
 
-._crit_edge:                                      ; preds = %743
-  %.pre23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  br label %751
+._crit_edge:                                      ; preds = %727
+  %.pre26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  br label %735
 
-744:                                              ; preds = %743
-  %745 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %746 = and i32 %745, 32768
-  %747 = icmp eq i32 %746, 0
-  br i1 %747, label %751, label %748
+728:                                              ; preds = %727
+  %729 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  %730 = and i32 %729, 32768
+  %731 = icmp eq i32 %730, 0
+  br i1 %731, label %735, label %732
 
-748:                                              ; preds = %744
-  %749 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), align 8
-  %750 = or i64 %749, 281474976710656
-  store i64 %750, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), align 8
-  br label %751
+732:                                              ; preds = %728
+  %733 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), align 8
+  %734 = or i64 %733, 281474976710656
+  store i64 %734, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 360), align 8
+  br label %735
 
-751:                                              ; preds = %._crit_edge, %748, %744
-  %752 = phi i32 [ %.pre23, %._crit_edge ], [ %745, %748 ], [ %745, %744 ]
-  %753 = and i32 %752, 131072
-  %754 = icmp eq i32 %753, 0
-  br i1 %754, label %758, label %755
+735:                                              ; preds = %._crit_edge, %732, %728
+  %736 = phi i32 [ %.pre26, %._crit_edge ], [ %729, %732 ], [ %729, %728 ]
+  %737 = and i32 %736, 131072
+  %738 = icmp eq i32 %737, 0
+  br i1 %738, label %742, label %739
 
-755:                                              ; preds = %751
-  %756 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  %757 = or i32 %756, 512
-  store i32 %757, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
-  br label %758
+739:                                              ; preds = %735
+  %740 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  %741 = or i32 %740, 512
+  store i32 %741, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 576), align 8
+  br label %742
 
-758:                                              ; preds = %755, %751
-  %759 = and i32 %752, 65536
-  %760 = icmp eq i32 %759, 0
-  br i1 %760, label %762, label %761
+742:                                              ; preds = %739, %735
+  %743 = and i32 %736, 65536
+  %744 = icmp eq i32 %743, 0
+  br i1 %744, label %746, label %745
 
-761:                                              ; preds = %758
+745:                                              ; preds = %742
   store ptr @intel_pmu_assign_event, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 56), align 8
-  br label %762
+  br label %746
 
-762:                                              ; preds = %761, %758, %12, %10, %8, %6, %4
-  %763 = phi i32 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ -19, %4 ], [ -19, %12 ], [ 0, %758 ], [ 0, %761 ]
-  ret i32 %763
+746:                                              ; preds = %745, %742, %12, %10, %8, %6, %4
+  %747 = phi i32 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ -19, %4 ], [ -19, %12 ], [ 0, %742 ], [ 0, %745 ]
+  ret i32 %747
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

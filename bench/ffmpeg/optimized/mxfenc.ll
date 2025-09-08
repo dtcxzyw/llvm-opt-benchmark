@@ -2640,7 +2640,7 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
 
 15:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.87) #14
-  br label %.thread301
+  br label %.thread302
 
 16:                                               ; preds = %12, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2657,11 +2657,11 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
 22:                                               ; preds = %20, %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !121
-  %.not348 = icmp eq i32 %24, 0
-  br i1 %.not348, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not349 = icmp eq i32 %24, 0
+  br i1 %.not349, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %22
-  %.pre379 = load ptr, ptr %9, align 8, !tbaa !44
+  %.pre380 = load ptr, ptr %9, align 8, !tbaa !44
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
@@ -2679,14 +2679,14 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %37
 
-37:                                               ; preds = %.lr.ph, %338
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %338 ]
+37:                                               ; preds = %.lr.ph, %337
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %337 ]
   %38 = load ptr, ptr %25, align 8, !tbaa !25
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !31
   %41 = call noalias ptr @av_mallocz(i64 noundef 184) #14
   %.not246 = icmp eq ptr %41, null
-  br i1 %.not246, label %.thread301, label %42
+  br i1 %.not246, label %.thread302, label %42
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -2708,10 +2708,10 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
 
 54:                                               ; preds = %51
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.88) #14
-  br label %.thread301
+  br label %.thread302
 
 55:                                               ; preds = %51, %42
-  switch i32 %48, label %.thread284 [
+  switch i32 %48, label %.thread285 [
     i32 0, label %56
     i32 1, label %189
     i32 2, label %276
@@ -2815,9 +2815,9 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
   switch i32 %113, label %choose_chroma_location.exit.thread [
     i32 0, label %114
     i32 3, label %choose_chroma_location.exit.thread.sink.split
-    i32 1, label %choose_chroma_location.exit.thread274
+    i32 1, label %choose_chroma_location.exit.thread275
     i32 4, label %131
-    i32 2, label %choose_chroma_location.exit.thread276
+    i32 2, label %choose_chroma_location.exit.thread277
   ]
 
 114:                                              ; preds = %108
@@ -2848,32 +2848,32 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
 
 129:                                              ; preds = %124
   switch i32 %128, label %130 [
-    i32 7, label %choose_chroma_location.exit.thread276
-    i32 1, label %choose_chroma_location.exit.thread276
+    i32 7, label %choose_chroma_location.exit.thread277
+    i32 1, label %choose_chroma_location.exit.thread277
   ]
 
 130:                                              ; preds = %129
   %cond21.i = icmp ne i32 %126, 1
   %cond.i = icmp eq i32 %128, 2
-  %or.cond304 = select i1 %cond21.i, i1 %cond.i, i1 false
-  br i1 %or.cond304, label %choose_chroma_location.exit.thread274, label %choose_chroma_location.exit.thread
+  %or.cond305 = select i1 %cond21.i, i1 %cond.i, i1 false
+  br i1 %or.cond305, label %choose_chroma_location.exit.thread275, label %choose_chroma_location.exit.thread
 
 .thread.i:                                        ; preds = %124
   %cond.i.old = icmp eq i32 %128, 2
-  br i1 %cond.i.old, label %choose_chroma_location.exit.thread274, label %choose_chroma_location.exit.thread
+  br i1 %cond.i.old, label %choose_chroma_location.exit.thread275, label %choose_chroma_location.exit.thread
 
-choose_chroma_location.exit.thread274:            ; preds = %108, %130, %.thread.i
+choose_chroma_location.exit.thread275:            ; preds = %108, %130, %.thread.i
   br label %choose_chroma_location.exit.thread.sink.split
 
 131:                                              ; preds = %108
   br label %choose_chroma_location.exit.thread.sink.split
 
-choose_chroma_location.exit.thread276:            ; preds = %108, %129, %129
+choose_chroma_location.exit.thread277:            ; preds = %108, %129, %129
   br label %choose_chroma_location.exit.thread.sink.split
 
-choose_chroma_location.exit.thread.sink.split:    ; preds = %115, %108, %choose_chroma_location.exit.thread274, %131, %choose_chroma_location.exit.thread276
-  %.sink426 = phi i32 [ 3, %choose_chroma_location.exit.thread276 ], [ 1, %131 ], [ 6, %choose_chroma_location.exit.thread274 ], [ 0, %108 ], [ 0, %115 ]
-  store i32 %.sink426, ptr %83, align 8, !tbaa !187
+choose_chroma_location.exit.thread.sink.split:    ; preds = %115, %108, %choose_chroma_location.exit.thread275, %131, %choose_chroma_location.exit.thread277
+  %.sink427 = phi i32 [ 3, %choose_chroma_location.exit.thread277 ], [ 1, %131 ], [ 6, %choose_chroma_location.exit.thread275 ], [ 0, %108 ], [ 0, %115 ]
+  store i32 %.sink427, ptr %83, align 8, !tbaa !187
   br label %choose_chroma_location.exit.thread
 
 choose_chroma_location.exit.thread:               ; preds = %choose_chroma_location.exit.thread.sink.split, %108, %.thread.i, %130, %119, %114
@@ -2886,7 +2886,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   call void @avpriv_set_pts_info(ptr noundef nonnull %40, i32 noundef 64, i32 noundef %133, i32 noundef %135) #14
   %136 = call fastcc i32 @mxf_init_timecode(ptr noundef nonnull %0, ptr noundef nonnull %40, i64 %.sroa.024.2)
   %137 = icmp slt i32 %136, 0
-  br i1 %137, label %.thread301, label %138
+  br i1 %137, label %.thread302, label %138
 
 138:                                              ; preds = %choose_chroma_location.exit.thread
   %139 = load ptr, ptr %46, align 8, !tbaa !48
@@ -2928,7 +2928,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
 
 157:                                              ; preds = %154
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.89) #14
-  br label %.thread301
+  br label %.thread302
 
 158:                                              ; preds = %154
   %159 = icmp eq i32 %148, 50000000
@@ -2945,10 +2945,10 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   br i1 %or.cond, label %170, label %165
 
 164:                                              ; preds = %161
-  br i1 %156, label %170, label %.thread279
+  br i1 %156, label %170, label %.thread280
 
 165:                                              ; preds = %163
-  switch i32 %148, label %.thread279 [
+  switch i32 %148, label %.thread280 [
     i32 40000000, label %166
     i32 30000000, label %168
   ]
@@ -2961,9 +2961,9 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %169 = select i1 %156, i64 5, i64 4
   br label %170
 
-.thread279:                                       ; preds = %164, %165
+.thread280:                                       ; preds = %164, %165
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.90) #14
-  br label %.thread301
+  br label %.thread302
 
 170:                                              ; preds = %166, %168, %158, %163, %164
   %.0218 = phi i64 [ %167, %166 ], [ %169, %168 ], [ 0, %158 ], [ 1, %163 ], [ 1, %164 ]
@@ -2992,19 +2992,19 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
 .thread:                                          ; preds = %152, %170, %153
   %185 = load i32, ptr %35, align 8, !tbaa !198
   %186 = icmp sgt i32 %185, -1
-  br i1 %186, label %187, label %.thread284
+  br i1 %186, label %187, label %.thread285
 
 187:                                              ; preds = %.thread
   %188 = getelementptr inbounds nuw i8, ptr %41, i64 68
   store i32 %185, ptr %188, align 4, !tbaa !196
-  br label %.thread284
+  br label %.thread285
 
 189:                                              ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %190 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %191 = load i32, ptr %190, align 8, !tbaa !199
   %.not250 = icmp eq i32 %191, 48000
-  br i1 %.not250, label %192, label %.thread292.sink.split
+  br i1 %.not250, label %192, label %.thread293.sink.split
 
 192:                                              ; preds = %189
   call void @avpriv_set_pts_info(ptr noundef nonnull %40, i32 noundef 64, i32 noundef 1, i32 noundef 48000) #14
@@ -3016,7 +3016,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %196 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %197 = load i32, ptr %196, align 8, !tbaa !120
   %.not254 = icmp eq i32 %197, 1
-  br i1 %.not254, label %198, label %.thread292.sink.split
+  br i1 %.not254, label %198, label %.thread293.sink.split
 
 198:                                              ; preds = %195
   %199 = load ptr, ptr %46, align 8, !tbaa !48
@@ -3068,7 +3068,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %227 = load ptr, ptr %46, align 8, !tbaa !48
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %229 = load i32, ptr %228, align 4, !tbaa !49
-  switch i32 %229, label %.thread292.sink.split [
+  switch i32 %229, label %.thread293.sink.split [
     i32 65536, label %230
     i32 65548, label %230
   ]
@@ -3077,7 +3077,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 132
   %232 = load i32, ptr %231, align 4, !tbaa !137
   %.not253 = icmp eq i32 %232, 1
-  br i1 %.not253, label %233, label %.thread292.sink.split
+  br i1 %.not253, label %233, label %.thread293.sink.split
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -3085,7 +3085,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   store i64 %235, ptr %27, align 4
   %236 = call fastcc i32 @mxf_init_timecode(ptr noundef nonnull %0, ptr noundef nonnull %40, i64 %.sroa.01.0.insert.insert.i267)
   %237 = icmp slt i32 %236, 0
-  br i1 %237, label %.thread292, label %238
+  br i1 %237, label %.thread293, label %238
 
 238:                                              ; preds = %233
   %239 = load ptr, ptr %46, align 8, !tbaa !48
@@ -3127,16 +3127,16 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   store i32 %268, ptr %269, align 8, !tbaa !74
   br label %270
 
-.thread292.sink.split:                            ; preds = %230, %225, %195, %189
+.thread293.sink.split:                            ; preds = %230, %225, %195, %189
   %.str.91.sink = phi ptr [ @.str.91, %189 ], [ @.str.92, %195 ], [ @.str.94, %225 ], [ @.str.95, %230 ]
   %.7.ph.ph = phi i32 [ -1, %189 ], [ -1, %195 ], [ -1163346256, %225 ], [ -22, %230 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.91.sink) #14
-  br label %.thread292
+  br label %.thread293
 
-.thread292:                                       ; preds = %233, %.thread292.sink.split
-  %.7.ph = phi i32 [ %.7.ph.ph, %.thread292.sink.split ], [ %236, %233 ]
+.thread293:                                       ; preds = %233, %.thread293.sink.split
+  %.7.ph = phi i32 [ %.7.ph.ph, %.thread293.sink.split ], [ %236, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread301
+  br label %.thread302
 
 270:                                              ; preds = %203, %248, %238
   %271 = load i32, ptr %31, align 8, !tbaa !201
@@ -3145,7 +3145,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %274 = call i32 @ff_stream_add_bitstream_filter(ptr noundef nonnull %40, ptr noundef nonnull @.str.97, ptr noundef nonnull %6) #14
   %275 = icmp sgt i32 %274, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %275, label %.thread284, label %.thread301
+  br i1 %275, label %.thread285, label %.thread302
 
 276:                                              ; preds = %55
   %277 = getelementptr inbounds nuw i8, ptr %40, i64 80
@@ -3168,287 +3168,286 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   %287 = load i32, ptr %23, align 4, !tbaa !121
   %288 = add i32 %287, -1
   %.not249 = icmp eq i32 %286, %288
-  br i1 %.not249, label %.thread284, label %291
+  br i1 %.not249, label %.thread285, label %291
 
 289:                                              ; preds = %280, %276
   %290 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.100, i32 noundef %290) #14
-  br label %.thread301
+  br label %.thread302
 
 291:                                              ; preds = %284
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.101) #14
-  br label %.thread301
+  br label %.thread302
 
-.thread284:                                       ; preds = %.thread, %187, %284, %55, %270
+.thread285:                                       ; preds = %.thread, %187, %284, %55, %270
   %292 = load i32, ptr %44, align 8, !tbaa !180
   %293 = icmp eq i32 %292, -1
-  br i1 %293, label %294, label %307
+  br i1 %293, label %294, label %306
 
-294:                                              ; preds = %.thread284
+294:                                              ; preds = %.thread285
   %295 = load ptr, ptr %46, align 8, !tbaa !48
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   %297 = load i32, ptr %296, align 4, !tbaa !49
-  br label %302
+  br label %300
 
-298:                                              ; preds = %302
+298:                                              ; preds = %300
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %299 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.next.i
-  %300 = load i32, ptr %299, align 8, !tbaa !206
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.i, label %mxf_get_essence_container_ul_index.exit.thread, label %302, !llvm.loop !208
+  %.not.i269 = icmp eq i64 %indvars.iv.next.i, 9
+  br i1 %.not.i269, label %mxf_get_essence_container_ul_index.exit.thread, label %300, !llvm.loop !206
 
 mxf_get_essence_container_ul_index.exit.thread:   ; preds = %298
-  %301 = trunc nuw nsw i64 %indvars.iv to i32
+  %299 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 -1, ptr %44, align 8, !tbaa !180
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.102, i32 noundef %301) #14
-  br label %.thread301
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.102, i32 noundef %299) #14
+  br label %.thread302
 
-302:                                              ; preds = %298, %294
+300:                                              ; preds = %298, %294
   %indvars.iv.i = phi i64 [ 0, %294 ], [ %indvars.iv.next.i, %298 ]
-  %303 = phi i32 [ 2, %294 ], [ %300, %298 ]
-  %304 = icmp eq i32 %303, %297
-  br i1 %304, label %mxf_get_essence_container_ul_index.exit, label %298
+  %301 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.i
+  %302 = load i32, ptr %301, align 8, !tbaa !207
+  %303 = icmp eq i32 %302, %297
+  br i1 %303, label %mxf_get_essence_container_ul_index.exit, label %298
 
-mxf_get_essence_container_ul_index.exit:          ; preds = %302
-  %305 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.i, i32 1
-  %306 = load i32, ptr %305, align 4, !tbaa !209
-  store i32 %306, ptr %44, align 8, !tbaa !180
-  br label %307
+mxf_get_essence_container_ul_index.exit:          ; preds = %300
+  %304 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.i, i32 1
+  %305 = load i32, ptr %304, align 4, !tbaa !209
+  store i32 %305, ptr %44, align 8, !tbaa !180
+  br label %306
 
-307:                                              ; preds = %mxf_get_essence_container_ul_index.exit, %.thread284
-  %308 = phi i32 [ %306, %mxf_get_essence_container_ul_index.exit ], [ %292, %.thread284 ]
-  %309 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %310 = load ptr, ptr %309, align 8, !tbaa !68
-  %.not261 = icmp eq ptr %310, null
-  br i1 %.not261, label %311, label %314
+306:                                              ; preds = %mxf_get_essence_container_ul_index.exit, %.thread285
+  %307 = phi i32 [ %305, %mxf_get_essence_container_ul_index.exit ], [ %292, %.thread285 ]
+  %308 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %309 = load ptr, ptr %308, align 8, !tbaa !68
+  %.not261 = icmp eq ptr %309, null
+  br i1 %.not261, label %310, label %313
 
-311:                                              ; preds = %307
-  %312 = sext i32 %308 to i64
-  %313 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %312, i32 2
-  store ptr %313, ptr %309, align 8, !tbaa !68
-  br label %314
+310:                                              ; preds = %306
+  %311 = sext i32 %307 to i64
+  %312 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %311, i32 2
+  store ptr %312, ptr %308, align 8, !tbaa !68
+  br label %313
 
-314:                                              ; preds = %311, %307
-  %315 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %316 = load ptr, ptr %315, align 8, !tbaa !78
-  %.not262 = icmp eq ptr %316, null
-  %317 = sext i32 %308 to i64
-  br i1 %.not262, label %318, label %._crit_edge381
+313:                                              ; preds = %310, %306
+  %314 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %315 = load ptr, ptr %314, align 8, !tbaa !78
+  %.not262 = icmp eq ptr %315, null
+  %316 = sext i32 %307 to i64
+  br i1 %.not262, label %317, label %._crit_edge382
 
-318:                                              ; preds = %314
-  %319 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %317
-  store ptr %319, ptr %315, align 8, !tbaa !78
-  br label %._crit_edge381
+317:                                              ; preds = %313
+  %318 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %316
+  store ptr %318, ptr %314, align 8, !tbaa !78
+  br label %._crit_edge382
 
-._crit_edge381:                                   ; preds = %314, %318
-  %320 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %321 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %317, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %320, ptr noundef nonnull align 8 dereferenceable(15) %321, i64 15, i1 false)
-  %322 = getelementptr inbounds i8, ptr %4, i64 %317
-  %323 = load i8, ptr %322, align 1, !tbaa !54
-  %324 = getelementptr inbounds nuw i8, ptr %41, i64 23
-  store i8 %323, ptr %324, align 1, !tbaa !54
-  %325 = load ptr, ptr %9, align 8, !tbaa !44
-  %326 = icmp eq ptr %325, @ff_mxf_opatom_muxer
-  br i1 %326, label %327, label %334
+._crit_edge382:                                   ; preds = %313, %317
+  %319 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %320 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %316, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %319, ptr noundef nonnull align 8 dereferenceable(15) %320, i64 15, i1 false)
+  %321 = getelementptr inbounds i8, ptr %4, i64 %316
+  %322 = load i8, ptr %321, align 1, !tbaa !54
+  %323 = getelementptr inbounds nuw i8, ptr %41, i64 23
+  store i8 %322, ptr %323, align 1, !tbaa !54
+  %324 = load ptr, ptr %9, align 8, !tbaa !44
+  %325 = icmp eq ptr %324, @ff_mxf_opatom_muxer
+  br i1 %325, label %326, label %333
 
-327:                                              ; preds = %._crit_edge381
-  %328 = load ptr, ptr %46, align 8, !tbaa !48
-  %329 = getelementptr inbounds nuw i8, ptr %328, i64 4
-  %330 = load i32, ptr %329, align 4, !tbaa !49
-  %331 = icmp eq i32 %330, 99
-  br i1 %331, label %332, label %334
+326:                                              ; preds = %._crit_edge382
+  %327 = load ptr, ptr %46, align 8, !tbaa !48
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 4
+  %329 = load i32, ptr %328, align 4, !tbaa !49
+  %330 = icmp eq i32 %329, 99
+  br i1 %330, label %331, label %333
 
-332:                                              ; preds = %327
-  %333 = getelementptr inbounds nuw i8, ptr %41, i64 22
-  store i8 6, ptr %333, align 2, !tbaa !54
-  br label %334
+331:                                              ; preds = %326
+  %332 = getelementptr inbounds nuw i8, ptr %41, i64 22
+  store i8 6, ptr %332, align 2, !tbaa !54
+  br label %333
 
-334:                                              ; preds = %._crit_edge381, %327, %332
-  %.not263 = icmp eq i8 %323, 0
-  br i1 %.not263, label %335, label %338
+333:                                              ; preds = %._crit_edge382, %326, %331
+  %.not263 = icmp eq i8 %322, 0
+  br i1 %.not263, label %334, label %337
 
-335:                                              ; preds = %334
-  %336 = load i32, ptr %36, align 8, !tbaa !133
-  %337 = add nsw i32 %336, 1
-  store i32 %337, ptr %36, align 8, !tbaa !133
-  br label %338
+334:                                              ; preds = %333
+  %335 = load i32, ptr %36, align 8, !tbaa !133
+  %336 = add nsw i32 %335, 1
+  store i32 %336, ptr %36, align 8, !tbaa !133
+  br label %337
 
-338:                                              ; preds = %335, %334
-  %339 = add i8 %323, 1
-  store i8 %339, ptr %322, align 1, !tbaa !54
+337:                                              ; preds = %334, %333
+  %338 = add i8 %322, 1
+  store i8 %338, ptr %321, align 1, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %340 = load i32, ptr %23, align 4, !tbaa !121
-  %341 = zext i32 %340 to i64
-  %342 = icmp samesign ult i64 %indvars.iv.next, %341
-  br i1 %342, label %37, label %._crit_edge, !llvm.loop !210
+  %339 = load i32, ptr %23, align 4, !tbaa !121
+  %340 = zext i32 %339 to i64
+  %341 = icmp samesign ult i64 %indvars.iv.next, %340
+  br i1 %341, label %37, label %._crit_edge, !llvm.loop !210
 
-._crit_edge:                                      ; preds = %338, %.._crit_edge_crit_edge
-  %343 = phi i32 [ 0, %.._crit_edge_crit_edge ], [ %340, %338 ]
-  %344 = phi ptr [ %.pre379, %.._crit_edge_crit_edge ], [ %325, %338 ]
-  %345 = icmp eq ptr %344, @ff_mxf_d10_muxer
-  %346 = icmp eq ptr %344, @ff_mxf_opatom_muxer
-  %or.cond265 = or i1 %345, %346
-  br i1 %or.cond265, label %347, label %349
+._crit_edge:                                      ; preds = %337, %.._crit_edge_crit_edge
+  %342 = phi i32 [ 0, %.._crit_edge_crit_edge ], [ %339, %337 ]
+  %343 = phi ptr [ %.pre380, %.._crit_edge_crit_edge ], [ %324, %337 ]
+  %344 = icmp eq ptr %343, @ff_mxf_d10_muxer
+  %345 = icmp eq ptr %343, @ff_mxf_opatom_muxer
+  %or.cond265 = or i1 %344, %345
+  br i1 %or.cond265, label %346, label %348
 
-347:                                              ; preds = %._crit_edge
-  %348 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 1, ptr %348, align 8, !tbaa !133
-  br label %349
+346:                                              ; preds = %._crit_edge
+  %347 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 1, ptr %347, align 8, !tbaa !133
+  br label %348
 
-349:                                              ; preds = %._crit_edge, %347
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %351 = load i32, ptr %350, align 8, !tbaa !211
-  %352 = and i32 %351, 1024
-  %.not243 = icmp eq i32 %352, 0
-  br i1 %.not243, label %353, label %363
+348:                                              ; preds = %._crit_edge, %346
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %350 = load i32, ptr %349, align 8, !tbaa !211
+  %351 = and i32 %350, 1024
+  %.not243 = icmp eq i32 %351, 0
+  br i1 %.not243, label %352, label %362
 
-353:                                              ; preds = %349
+352:                                              ; preds = %348
   %.val268 = load ptr, ptr %7, align 8, !tbaa !4
-  %354 = call i32 @av_get_random_seed() #14
-  %355 = zext i32 %354 to i64
-  %356 = or disjoint i64 %355, 5950505475815505920
-  %357 = call i64 @llvm.bswap.i64(i64 %356)
-  %358 = getelementptr inbounds nuw i8, ptr %.val268, i64 148
-  store i64 %357, ptr %358, align 4, !tbaa !54
-  %359 = shl i64 %357, 8
-  %360 = getelementptr inbounds nuw i8, ptr %.val268, i64 156
-  store i64 %359, ptr %360, align 4, !tbaa !54
-  %361 = and i32 %354, 16777215
-  %362 = getelementptr inbounds nuw i8, ptr %.val268, i64 144
-  store i32 %361, ptr %362, align 8, !tbaa !134
-  %.pre380 = load i32, ptr %23, align 4, !tbaa !121
-  br label %363
+  %353 = call i32 @av_get_random_seed() #14
+  %354 = zext i32 %353 to i64
+  %355 = or disjoint i64 %354, 5950505475815505920
+  %356 = call i64 @llvm.bswap.i64(i64 %355)
+  %357 = getelementptr inbounds nuw i8, ptr %.val268, i64 148
+  store i64 %356, ptr %357, align 4, !tbaa !54
+  %358 = shl i64 %356, 8
+  %359 = getelementptr inbounds nuw i8, ptr %.val268, i64 156
+  store i64 %358, ptr %359, align 4, !tbaa !54
+  %360 = and i32 %353, 16777215
+  %361 = getelementptr inbounds nuw i8, ptr %.val268, i64 144
+  store i32 %360, ptr %361, align 8, !tbaa !134
+  %.pre381 = load i32, ptr %23, align 4, !tbaa !121
+  br label %362
 
-363:                                              ; preds = %353, %349
-  %364 = phi i32 [ %.pre380, %353 ], [ %343, %349 ]
-  %.not349 = icmp eq i32 %364, 0
-  br i1 %.not349, label %._crit_edge347, label %.lr.ph346
+362:                                              ; preds = %352, %348
+  %363 = phi i32 [ %.pre381, %352 ], [ %342, %348 ]
+  %.not350 = icmp eq i32 %363, 0
+  br i1 %.not350, label %._crit_edge348, label %.lr.ph347
 
-.lr.ph346:                                        ; preds = %363
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %366
+.lr.ph347:                                        ; preds = %362
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %365
 
-366:                                              ; preds = %.lr.ph346, %385
-  %indvars.iv376 = phi i64 [ 0, %.lr.ph346 ], [ %indvars.iv.next377, %385 ]
-  %367 = load ptr, ptr %365, align 8, !tbaa !25
-  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %indvars.iv376
-  %369 = load ptr, ptr %368, align 8, !tbaa !31
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 24
-  %371 = load ptr, ptr %370, align 8, !tbaa !33
-  %372 = getelementptr inbounds nuw i8, ptr %371, i64 24
-  %373 = load i32, ptr %372, align 8, !tbaa !180
-  %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds i8, ptr %4, i64 %374
-  %376 = load i8, ptr %375, align 1, !tbaa !54
-  %377 = getelementptr inbounds nuw i8, ptr %371, i64 8
-  %378 = getelementptr inbounds nuw i8, ptr %371, i64 21
-  store i8 %376, ptr %378, align 1, !tbaa !54
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %377, ptr noundef nonnull dereferenceable(13) getelementptr inbounds nuw (i8, ptr @mxf_essence_container_uls, i64 296), i64 13)
+365:                                              ; preds = %.lr.ph347, %384
+  %indvars.iv377 = phi i64 [ 0, %.lr.ph347 ], [ %indvars.iv.next378, %384 ]
+  %366 = load ptr, ptr %364, align 8, !tbaa !25
+  %367 = getelementptr inbounds nuw ptr, ptr %366, i64 %indvars.iv377
+  %368 = load ptr, ptr %367, align 8, !tbaa !31
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 24
+  %370 = load ptr, ptr %369, align 8, !tbaa !33
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 24
+  %372 = load i32, ptr %371, align 8, !tbaa !180
+  %373 = sext i32 %372 to i64
+  %374 = getelementptr inbounds i8, ptr %4, i64 %373
+  %375 = load i8, ptr %374, align 1, !tbaa !54
+  %376 = getelementptr inbounds nuw i8, ptr %370, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %370, i64 21
+  store i8 %375, ptr %377, align 1, !tbaa !54
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %376, ptr noundef nonnull dereferenceable(13) getelementptr inbounds nuw (i8, ptr @mxf_essence_container_uls, i64 296), i64 13)
   %.not245 = icmp eq i32 %bcmp, 0
-  br i1 %.not245, label %379, label %382
+  br i1 %.not245, label %378, label %381
 
-379:                                              ; preds = %366
-  %380 = load i32, ptr %378, align 1, !tbaa !54
-  %381 = or i32 %380, 21
-  br label %385
+378:                                              ; preds = %365
+  %379 = load i32, ptr %377, align 1, !tbaa !54
+  %380 = or i32 %379, 21
+  br label %384
 
-382:                                              ; preds = %366
-  %383 = getelementptr inbounds nuw i8, ptr %371, i64 20
-  %384 = load i32, ptr %383, align 1, !tbaa !54
-  br label %385
+381:                                              ; preds = %365
+  %382 = getelementptr inbounds nuw i8, ptr %370, i64 20
+  %383 = load i32, ptr %382, align 1, !tbaa !54
+  br label %384
 
-385:                                              ; preds = %382, %379
-  %.sink427 = phi i32 [ %384, %382 ], [ %381, %379 ]
-  %386 = call i32 @llvm.bswap.i32(i32 %.sink427)
-  %387 = getelementptr inbounds nuw i8, ptr %371, i64 48
-  store i32 %386, ptr %387, align 8, !tbaa !212
-  %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
-  %388 = load i32, ptr %23, align 4, !tbaa !121
-  %389 = zext i32 %388 to i64
-  %390 = icmp samesign ult i64 %indvars.iv.next377, %389
-  br i1 %390, label %366, label %._crit_edge347, !llvm.loop !213
+384:                                              ; preds = %381, %378
+  %.sink428 = phi i32 [ %383, %381 ], [ %380, %378 ]
+  %385 = call i32 @llvm.bswap.i32(i32 %.sink428)
+  %386 = getelementptr inbounds nuw i8, ptr %370, i64 48
+  store i32 %385, ptr %386, align 8, !tbaa !212
+  %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
+  %387 = load i32, ptr %23, align 4, !tbaa !121
+  %388 = zext i32 %387 to i64
+  %389 = icmp samesign ult i64 %indvars.iv.next378, %388
+  br i1 %389, label %365, label %._crit_edge348, !llvm.loop !213
 
-._crit_edge347:                                   ; preds = %385, %363
-  %391 = call i32 @ff_parse_creation_time_metadata(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0) #14
-  %392 = icmp sgt i32 %391, 0
-  br i1 %392, label %393, label %432
+._crit_edge348:                                   ; preds = %384, %362
+  %390 = call i32 @ff_parse_creation_time_metadata(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0) #14
+  %391 = icmp sgt i32 %390, 0
+  br i1 %391, label %392, label %431
 
-393:                                              ; preds = %._crit_edge347
-  %394 = load i64, ptr %5, align 8, !tbaa !146
+392:                                              ; preds = %._crit_edge348
+  %393 = load i64, ptr %5, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %395 = sdiv i64 %394, 1000000
-  %396 = srem i64 %394, 1000000
-  store i64 %395, ptr %2, align 8, !tbaa !146
+  %394 = sdiv i64 %393, 1000000
+  %395 = srem i64 %393, 1000000
+  store i64 %394, ptr %2, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %397 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
-  %.not.i269 = icmp eq ptr %397, null
-  br i1 %.not.i269, label %mxf_parse_timestamp.exit, label %398
+  %396 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
+  %.not.i270 = icmp eq ptr %396, null
+  br i1 %.not.i270, label %mxf_parse_timestamp.exit, label %397
 
-398:                                              ; preds = %393
-  %399 = getelementptr inbounds nuw i8, ptr %397, i64 20
-  %400 = load i32, ptr %399, align 4, !tbaa !214
-  %401 = add nsw i32 %400, 1900
-  %402 = zext i32 %401 to i64
-  %403 = shl i64 %402, 48
-  %404 = getelementptr inbounds nuw i8, ptr %397, i64 16
-  %405 = load i32, ptr %404, align 8, !tbaa !216
-  %406 = add nsw i32 %405, 1
-  %407 = zext i32 %406 to i64
-  %408 = shl i64 %407, 40
-  %409 = getelementptr inbounds nuw i8, ptr %397, i64 12
-  %410 = load i32, ptr %409, align 4, !tbaa !217
-  %411 = sext i32 %410 to i64
-  %412 = shl nsw i64 %411, 32
-  %413 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  %414 = load i32, ptr %413, align 8, !tbaa !218
-  %415 = shl i32 %414, 24
-  %416 = sext i32 %415 to i64
-  %417 = getelementptr inbounds nuw i8, ptr %397, i64 4
-  %418 = load i32, ptr %417, align 4, !tbaa !219
-  %419 = shl i32 %418, 16
-  %420 = sext i32 %419 to i64
-  %421 = load i32, ptr %397, align 8, !tbaa !220
-  %422 = shl i32 %421, 8
-  %423 = sext i32 %422 to i64
-  %.lhs.trunc.i = trunc nsw i64 %396 to i32
-  %424 = sdiv i32 %.lhs.trunc.i, 4000
-  %.sext.i = sext i32 %424 to i64
-  %425 = or i64 %403, %.sext.i
-  %426 = or i64 %425, %408
-  %427 = or i64 %426, %412
-  %428 = or i64 %427, %416
-  %429 = or i64 %428, %420
-  %430 = or i64 %429, %423
+397:                                              ; preds = %392
+  %398 = getelementptr inbounds nuw i8, ptr %396, i64 20
+  %399 = load i32, ptr %398, align 4, !tbaa !214
+  %400 = add nsw i32 %399, 1900
+  %401 = zext i32 %400 to i64
+  %402 = shl i64 %401, 48
+  %403 = getelementptr inbounds nuw i8, ptr %396, i64 16
+  %404 = load i32, ptr %403, align 8, !tbaa !216
+  %405 = add nsw i32 %404, 1
+  %406 = zext i32 %405 to i64
+  %407 = shl i64 %406, 40
+  %408 = getelementptr inbounds nuw i8, ptr %396, i64 12
+  %409 = load i32, ptr %408, align 4, !tbaa !217
+  %410 = sext i32 %409 to i64
+  %411 = shl nsw i64 %410, 32
+  %412 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %413 = load i32, ptr %412, align 8, !tbaa !218
+  %414 = shl i32 %413, 24
+  %415 = sext i32 %414 to i64
+  %416 = getelementptr inbounds nuw i8, ptr %396, i64 4
+  %417 = load i32, ptr %416, align 4, !tbaa !219
+  %418 = shl i32 %417, 16
+  %419 = sext i32 %418 to i64
+  %420 = load i32, ptr %396, align 8, !tbaa !220
+  %421 = shl i32 %420, 8
+  %422 = sext i32 %421 to i64
+  %.lhs.trunc.i = trunc nsw i64 %395 to i32
+  %423 = sdiv i32 %.lhs.trunc.i, 4000
+  %.sext.i = sext i32 %423 to i64
+  %424 = or i64 %402, %.sext.i
+  %425 = or i64 %424, %407
+  %426 = or i64 %425, %411
+  %427 = or i64 %426, %415
+  %428 = or i64 %427, %419
+  %429 = or i64 %428, %422
   br label %mxf_parse_timestamp.exit
 
-mxf_parse_timestamp.exit:                         ; preds = %393, %398
-  %.0.i270 = phi i64 [ %430, %398 ], [ 0, %393 ]
+mxf_parse_timestamp.exit:                         ; preds = %392, %397
+  %.0.i271 = phi i64 [ %429, %397 ], [ 0, %392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %431 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %.0.i270, ptr %431, align 8, !tbaa !221
-  br label %432
+  %430 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 %.0.i271, ptr %430, align 8, !tbaa !221
+  br label %431
 
-432:                                              ; preds = %mxf_parse_timestamp.exit, %._crit_edge347
-  %433 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i64 -1, ptr %433, align 8, !tbaa !142
-  %434 = call noalias ptr @av_mallocz(i64 noundef 216) #14
-  %435 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store ptr %434, ptr %435, align 8, !tbaa !222
-  %.not244 = icmp eq ptr %434, null
-  br i1 %.not244, label %.thread301, label %436
+431:                                              ; preds = %mxf_parse_timestamp.exit, %._crit_edge348
+  %432 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i64 -1, ptr %432, align 8, !tbaa !142
+  %433 = call noalias ptr @av_mallocz(i64 noundef 216) #14
+  %434 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  store ptr %433, ptr %434, align 8, !tbaa !222
+  %.not244 = icmp eq ptr %433, null
+  br i1 %.not244, label %.thread302, label %435
 
-436:                                              ; preds = %432
-  %437 = getelementptr inbounds nuw i8, ptr %8, i64 328
-  %438 = getelementptr inbounds nuw i8, ptr %434, i64 24
-  store ptr %437, ptr %438, align 8, !tbaa !33
-  %439 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  store i32 -1, ptr %439, align 8, !tbaa !120
-  br label %.thread301
+435:                                              ; preds = %431
+  %436 = getelementptr inbounds nuw i8, ptr %8, i64 328
+  %437 = getelementptr inbounds nuw i8, ptr %433, i64 24
+  store ptr %436, ptr %437, align 8, !tbaa !33
+  %438 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  store i32 -1, ptr %438, align 8, !tbaa !120
+  br label %.thread302
 
-.thread301:                                       ; preds = %choose_chroma_location.exit.thread, %37, %270, %291, %289, %.thread279, %157, %.thread292, %54, %mxf_get_essence_container_ul_index.exit.thread, %432, %436, %15
-  %.0 = phi i32 [ -1, %15 ], [ 0, %436 ], [ -12, %432 ], [ %.7.ph, %.thread292 ], [ -1, %54 ], [ -1, %mxf_get_essence_container_ul_index.exit.thread ], [ -1, %.thread279 ], [ -22, %157 ], [ -1, %289 ], [ -1, %291 ], [ %274, %270 ], [ -12, %37 ], [ %136, %choose_chroma_location.exit.thread ]
+.thread302:                                       ; preds = %choose_chroma_location.exit.thread, %37, %270, %291, %289, %.thread280, %157, %.thread293, %54, %mxf_get_essence_container_ul_index.exit.thread, %431, %435, %15
+  %.0 = phi i32 [ -1, %15 ], [ 0, %435 ], [ -12, %431 ], [ %.7.ph, %.thread293 ], [ -1, %54 ], [ -1, %mxf_get_essence_container_ul_index.exit.thread ], [ -1, %.thread280 ], [ -22, %157 ], [ -1, %289 ], [ -1, %291 ], [ %274, %270 ], [ -12, %37 ], [ %136, %choose_chroma_location.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3584,7 +3583,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
 
 40:                                               ; preds = %32
   store i32 0, ptr %34, align 8, !tbaa !144
-  br label %417
+  br label %240
 
 41:                                               ; preds = %32
   %42 = load ptr, ptr %33, align 8, !tbaa !141
@@ -3645,11 +3644,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   br label %.critedge113.sink.split
 
 .critedge113.sink.split:                          ; preds = %59, %65
-  %.sink222 = phi i32 [ %66, %65 ], [ %60, %59 ]
-  %.sink220.in = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %.sink220 = load ptr, ptr %.sink220.in, align 8, !tbaa !141
-  %67 = zext i32 %.sink222 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %.sink220, i64 %67
+  %.sink141 = phi i32 [ %66, %65 ], [ %60, %59 ]
+  %.sink139.in = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %.sink139 = load ptr, ptr %.sink139.in, align 8, !tbaa !141
+  %67 = zext i32 %.sink141 to i64
+  %68 = getelementptr inbounds nuw i64, ptr %.sink139, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !146
   br label %.critedge113
 
@@ -3693,8 +3692,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   br label %88
 
 88:                                               ; preds = %.critedge113, %75, %78, %81, %85
-  %.sink218 = phi i64 [ %87, %85 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %.critedge113 ]
-  tail call void @avio_wb64(ptr noundef %9, i64 noundef %.sink218) #14
+  %.sink137 = phi i64 [ %87, %85 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %.critedge113 ]
+  tail call void @avio_wb64(ptr noundef %9, i64 noundef %.sink137) #14
   tail call void @avio_wb32(ptr noundef %9, i32 noundef %1) #14
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !44
@@ -3703,7 +3702,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   tail call void @avio_write(ptr noundef %9, ptr noundef nonnull %opatom_ul.op1a_ul, i32 noundef 16) #14
   tail call fastcc void @mxf_write_essence_container_refs(ptr noundef nonnull %0)
   %.not111 = icmp eq i32 %4, 0
-  br i1 %.not111, label %415, label %92
+  br i1 %.not111, label %238, label %92
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %8, align 8, !tbaa !24
@@ -3811,768 +3810,210 @@ mxf_write_klv_fill.exit:                          ; preds = %92, %101
   %150 = getelementptr inbounds nuw i8, ptr %109, i64 184
   %151 = load i32, ptr %150, align 8, !tbaa !179
   %.not.i114 = icmp eq i32 %151, 0
-  br i1 %.not.i114, label %.preheader198.i, label %173
+  br i1 %.not.i114, label %.preheader198.split.preheader.i, label %155
 
-152:                                              ; preds = %.preheader198.i
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 127
-  br i1 %exitcond.not.i.i.i, label %156, label %.preheader198.i, !llvm.loop !226
+.preheader198.split.preheader.i:                  ; preds = %._crit_edge.i
+  %152 = getelementptr inbounds nuw i8, ptr %109, i64 296
+  store i8 1, ptr %152, align 1, !tbaa !54
+  %153 = getelementptr inbounds nuw i8, ptr %109, i64 297
+  store i8 1, ptr %153, align 1, !tbaa !54
+  %154 = getelementptr inbounds nuw i8, ptr %109, i64 298
+  store i8 1, ptr %154, align 1, !tbaa !54
+  br label %155
 
-.preheader198.i:                                  ; preds = %._crit_edge.i, %152
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %152 ], [ 0, %._crit_edge.i ]
-  %153 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i.i
-  %154 = load i32, ptr %153, align 4, !tbaa !227
-  %155 = icmp eq i32 %154, 17414
-  br i1 %155, label %mxf_mark_tag_unused.exit.i, label %152
+155:                                              ; preds = %.preheader198.split.preheader.i, %._crit_edge.i
+  %or.cond.i = select i1 %.077.lcssa.i, i1 true, i1 %.073.lcssa.i
+  br i1 %or.cond.i, label %157, label %.preheader197.split.preheader.i
 
-156:                                              ; preds = %152
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
+.preheader197.split.preheader.i:                  ; preds = %155
+  %156 = getelementptr inbounds nuw i8, ptr %109, i64 299
+  store i8 1, ptr %156, align 1, !tbaa !54
+  br label %157
 
-mxf_mark_tag_unused.exit.i:                       ; preds = %.preheader198.i
-  %157 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv.i.i.i
+157:                                              ; preds = %.preheader197.split.preheader.i, %155
+  br i1 %.077.lcssa.i, label %161, label %.preheader196.split.preheader.i
+
+.preheader196.split.preheader.i:                  ; preds = %157
+  %158 = getelementptr inbounds nuw i8, ptr %109, i64 300
   store i8 1, ptr %158, align 1, !tbaa !54
-  br label %160
+  %159 = getelementptr inbounds nuw i8, ptr %109, i64 301
+  store i8 1, ptr %159, align 1, !tbaa !54
+  %160 = getelementptr inbounds nuw i8, ptr %109, i64 302
+  store i8 1, ptr %160, align 1, !tbaa !54
+  br label %161
 
-159:                                              ; preds = %160
-  %indvars.iv.next.i.i91.i = add nuw nsw i64 %indvars.iv.i.i90.i, 1
-  %exitcond.not.i.i92.i = icmp eq i64 %indvars.iv.next.i.i91.i, 127
-  br i1 %exitcond.not.i.i92.i, label %164, label %160, !llvm.loop !226
+161:                                              ; preds = %.preheader196.split.preheader.i, %157
+  br i1 %.075.lcssa.i, label %.preheader195.split.preheader.i, label %163
 
-160:                                              ; preds = %159, %mxf_mark_tag_unused.exit.i
-  %indvars.iv.i.i90.i = phi i64 [ 0, %mxf_mark_tag_unused.exit.i ], [ %indvars.iv.next.i.i91.i, %159 ]
-  %161 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i90.i
-  %162 = load i32, ptr %161, align 4, !tbaa !227
-  %163 = icmp eq i32 %162, 20481
-  br i1 %163, label %mxf_mark_tag_unused.exit93.i, label %159
+.preheader195.split.preheader.i:                  ; preds = %161
+  %162 = getelementptr inbounds nuw i8, ptr %109, i64 303
+  store i32 16843009, ptr %162, align 1
+  br label %163
 
-164:                                              ; preds = %159
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
+163:                                              ; preds = %.preheader195.split.preheader.i, %161
+  br i1 %.073.lcssa.i, label %167, label %.preheader194.split.preheader.i
 
-mxf_mark_tag_unused.exit93.i:                     ; preds = %160
-  %165 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv.i.i90.i
+.preheader194.split.preheader.i:                  ; preds = %163
+  %164 = getelementptr inbounds nuw i8, ptr %109, i64 307
+  store i8 1, ptr %164, align 1, !tbaa !54
+  %165 = getelementptr inbounds nuw i8, ptr %109, i64 308
   store i8 1, ptr %165, align 1, !tbaa !54
+  %166 = getelementptr inbounds nuw i8, ptr %109, i64 309
+  store i8 1, ptr %166, align 1, !tbaa !54
   br label %167
 
-166:                                              ; preds = %167
-  %indvars.iv.next.i.i95.i = add nuw nsw i64 %indvars.iv.i.i94.i, 1
-  %exitcond.not.i.i96.i = icmp eq i64 %indvars.iv.next.i.i95.i, 127
-  br i1 %exitcond.not.i.i96.i, label %171, label %167, !llvm.loop !226
-
-167:                                              ; preds = %166, %mxf_mark_tag_unused.exit93.i
-  %indvars.iv.i.i94.i = phi i64 [ 0, %mxf_mark_tag_unused.exit93.i ], [ %indvars.iv.next.i.i95.i, %166 ]
-  %168 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i94.i
-  %169 = load i32, ptr %168, align 4, !tbaa !227
-  %170 = icmp eq i32 %169, 20483
-  br i1 %170, label %mxf_mark_tag_unused.exit97.i, label %166
-
-171:                                              ; preds = %166
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit97.i:                     ; preds = %167
-  %172 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv.i.i94.i
-  store i8 1, ptr %172, align 1, !tbaa !54
-  br label %173
-
-173:                                              ; preds = %mxf_mark_tag_unused.exit97.i, %._crit_edge.i
-  %or.cond.i = select i1 %.077.lcssa.i, i1 true, i1 %.073.lcssa.i
-  br i1 %or.cond.i, label %181, label %.preheader197.i
-
-174:                                              ; preds = %.preheader197.i
-  %indvars.iv.next.i.i99.i = add nuw nsw i64 %indvars.iv.i.i98.i, 1
-  %exitcond.not.i.i100.i = icmp eq i64 %indvars.iv.next.i.i99.i, 127
-  br i1 %exitcond.not.i.i100.i, label %178, label %.preheader197.i, !llvm.loop !226
-
-.preheader197.i:                                  ; preds = %173, %174
-  %indvars.iv.i.i98.i = phi i64 [ %indvars.iv.next.i.i99.i, %174 ], [ 0, %173 ]
-  %175 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i98.i
-  %176 = load i32, ptr %175, align 4, !tbaa !227
-  %177 = icmp eq i32 %176, 33024
-  br i1 %177, label %mxf_mark_tag_unused.exit101.i, label %174
-
-178:                                              ; preds = %174
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit101.i:                    ; preds = %.preheader197.i
-  %179 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 %indvars.iv.i.i98.i
-  store i8 1, ptr %180, align 1, !tbaa !54
-  br label %181
-
-181:                                              ; preds = %mxf_mark_tag_unused.exit101.i, %173
-  br i1 %.077.lcssa.i, label %203, label %.preheader196.i
-
-182:                                              ; preds = %.preheader196.i
-  %indvars.iv.next.i.i103.i = add nuw nsw i64 %indvars.iv.i.i102.i, 1
-  %exitcond.not.i.i104.i = icmp eq i64 %indvars.iv.next.i.i103.i, 127
-  br i1 %exitcond.not.i.i104.i, label %186, label %.preheader196.i, !llvm.loop !226
-
-.preheader196.i:                                  ; preds = %181, %182
-  %indvars.iv.i.i102.i = phi i64 [ %indvars.iv.next.i.i103.i, %182 ], [ 0, %181 ]
-  %183 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i102.i
-  %184 = load i32, ptr %183, align 4, !tbaa !227
-  %185 = icmp eq i32 %184, 33280
-  br i1 %185, label %mxf_mark_tag_unused.exit105.i, label %182
-
-186:                                              ; preds = %182
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit105.i:                    ; preds = %.preheader196.i
-  %187 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i102.i
-  store i8 1, ptr %188, align 1, !tbaa !54
-  br label %190
-
-189:                                              ; preds = %190
-  %indvars.iv.next.i.i107.i = add nuw nsw i64 %indvars.iv.i.i106.i, 1
-  %exitcond.not.i.i108.i = icmp eq i64 %indvars.iv.next.i.i107.i, 127
-  br i1 %exitcond.not.i.i108.i, label %194, label %190, !llvm.loop !226
-
-190:                                              ; preds = %189, %mxf_mark_tag_unused.exit105.i
-  %indvars.iv.i.i106.i = phi i64 [ 0, %mxf_mark_tag_unused.exit105.i ], [ %indvars.iv.next.i.i107.i, %189 ]
-  %191 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i106.i
-  %192 = load i32, ptr %191, align 4, !tbaa !227
-  %193 = icmp eq i32 %192, 33281
-  br i1 %193, label %mxf_mark_tag_unused.exit109.i, label %189
-
-194:                                              ; preds = %189
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit109.i:                    ; preds = %190
-  %195 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i106.i
-  store i8 1, ptr %195, align 1, !tbaa !54
-  br label %197
-
-196:                                              ; preds = %197
-  %indvars.iv.next.i.i111.i = add nuw nsw i64 %indvars.iv.i.i110.i, 1
-  %exitcond.not.i.i112.i = icmp eq i64 %indvars.iv.next.i.i111.i, 127
-  br i1 %exitcond.not.i.i112.i, label %201, label %197, !llvm.loop !226
-
-197:                                              ; preds = %196, %mxf_mark_tag_unused.exit109.i
-  %indvars.iv.i.i110.i = phi i64 [ 0, %mxf_mark_tag_unused.exit109.i ], [ %indvars.iv.next.i.i111.i, %196 ]
-  %198 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i110.i
-  %199 = load i32, ptr %198, align 4, !tbaa !227
-  %200 = icmp eq i32 %199, 33282
-  br i1 %200, label %mxf_mark_tag_unused.exit113.i, label %196
-
-201:                                              ; preds = %196
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit113.i:                    ; preds = %197
-  %202 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i110.i
-  store i8 1, ptr %202, align 1, !tbaa !54
-  br label %203
-
-203:                                              ; preds = %mxf_mark_tag_unused.exit113.i, %181
-  br i1 %.075.lcssa.i, label %.preheader195.i, label %232
-
-204:                                              ; preds = %.preheader195.i
-  %indvars.iv.next.i.i115.i = add nuw nsw i64 %indvars.iv.i.i114.i, 1
-  %exitcond.not.i.i116.i = icmp eq i64 %indvars.iv.next.i.i115.i, 127
-  br i1 %exitcond.not.i.i116.i, label %208, label %.preheader195.i, !llvm.loop !226
-
-.preheader195.i:                                  ; preds = %203, %204
-  %indvars.iv.i.i114.i = phi i64 [ %indvars.iv.next.i.i115.i, %204 ], [ 0, %203 ]
-  %205 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i114.i
-  %206 = load i32, ptr %205, align 4, !tbaa !227
-  %207 = icmp eq i32 %206, 33537
-  br i1 %207, label %mxf_mark_tag_unused.exit117.i, label %204
-
-208:                                              ; preds = %204
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit117.i:                    ; preds = %.preheader195.i
-  %209 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i114.i
-  store i8 1, ptr %210, align 1, !tbaa !54
-  br label %212
-
-211:                                              ; preds = %212
-  %indvars.iv.next.i.i119.i = add nuw nsw i64 %indvars.iv.i.i118.i, 1
-  %exitcond.not.i.i120.i = icmp eq i64 %indvars.iv.next.i.i119.i, 127
-  br i1 %exitcond.not.i.i120.i, label %216, label %212, !llvm.loop !226
-
-212:                                              ; preds = %211, %mxf_mark_tag_unused.exit117.i
-  %indvars.iv.i.i118.i = phi i64 [ 0, %mxf_mark_tag_unused.exit117.i ], [ %indvars.iv.next.i.i119.i, %211 ]
-  %213 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i118.i
-  %214 = load i32, ptr %213, align 4, !tbaa !227
-  %215 = icmp eq i32 %214, 33538
-  br i1 %215, label %mxf_mark_tag_unused.exit121.i, label %211
-
-216:                                              ; preds = %211
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit121.i:                    ; preds = %212
-  %217 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i118.i
-  store i8 1, ptr %217, align 1, !tbaa !54
-  br label %219
-
-218:                                              ; preds = %219
-  %indvars.iv.next.i.i123.i = add nuw nsw i64 %indvars.iv.i.i122.i, 1
-  %exitcond.not.i.i124.i = icmp eq i64 %indvars.iv.next.i.i123.i, 127
-  br i1 %exitcond.not.i.i124.i, label %223, label %219, !llvm.loop !226
-
-219:                                              ; preds = %218, %mxf_mark_tag_unused.exit121.i
-  %indvars.iv.i.i122.i = phi i64 [ 0, %mxf_mark_tag_unused.exit121.i ], [ %indvars.iv.next.i.i123.i, %218 ]
-  %220 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i122.i
-  %221 = load i32, ptr %220, align 4, !tbaa !227
-  %222 = icmp eq i32 %221, 33539
-  br i1 %222, label %mxf_mark_tag_unused.exit125.i, label %218
-
-223:                                              ; preds = %218
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit125.i:                    ; preds = %219
-  %224 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i122.i
-  store i8 1, ptr %224, align 1, !tbaa !54
-  br label %226
-
-225:                                              ; preds = %226
-  %indvars.iv.next.i.i127.i = add nuw nsw i64 %indvars.iv.i.i126.i, 1
-  %exitcond.not.i.i128.i = icmp eq i64 %indvars.iv.next.i.i127.i, 127
-  br i1 %exitcond.not.i.i128.i, label %230, label %226, !llvm.loop !226
-
-226:                                              ; preds = %225, %mxf_mark_tag_unused.exit125.i
-  %indvars.iv.i.i126.i = phi i64 [ 0, %mxf_mark_tag_unused.exit125.i ], [ %indvars.iv.next.i.i127.i, %225 ]
-  %227 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i126.i
-  %228 = load i32, ptr %227, align 4, !tbaa !227
-  %229 = icmp eq i32 %228, 33540
-  br i1 %229, label %mxf_mark_tag_unused.exit129.i, label %225
-
-230:                                              ; preds = %225
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit129.i:                    ; preds = %226
-  %231 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i126.i
-  store i8 1, ptr %231, align 1, !tbaa !54
-  br label %232
-
-232:                                              ; preds = %mxf_mark_tag_unused.exit129.i, %203
-  br i1 %.073.lcssa.i, label %254, label %.preheader194.i
-
-233:                                              ; preds = %.preheader194.i
-  %indvars.iv.next.i.i131.i = add nuw nsw i64 %indvars.iv.i.i130.i, 1
-  %exitcond.not.i.i132.i = icmp eq i64 %indvars.iv.next.i.i131.i, 127
-  br i1 %exitcond.not.i.i132.i, label %237, label %.preheader194.i, !llvm.loop !226
-
-.preheader194.i:                                  ; preds = %232, %233
-  %indvars.iv.i.i130.i = phi i64 [ %indvars.iv.next.i.i131.i, %233 ], [ 0, %232 ]
-  %234 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i130.i
-  %235 = load i32, ptr %234, align 4, !tbaa !227
-  %236 = icmp eq i32 %235, 57305
-  br i1 %236, label %mxf_mark_tag_unused.exit133.i, label %233
-
-237:                                              ; preds = %233
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit133.i:                    ; preds = %.preheader194.i
-  %238 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.i.i130.i
-  store i8 1, ptr %239, align 1, !tbaa !54
-  br label %241
-
-240:                                              ; preds = %241
-  %indvars.iv.next.i.i135.i = add nuw nsw i64 %indvars.iv.i.i134.i, 1
-  %exitcond.not.i.i136.i = icmp eq i64 %indvars.iv.next.i.i135.i, 127
-  br i1 %exitcond.not.i.i136.i, label %245, label %241, !llvm.loop !226
-
-241:                                              ; preds = %240, %mxf_mark_tag_unused.exit133.i
-  %indvars.iv.i.i134.i = phi i64 [ 0, %mxf_mark_tag_unused.exit133.i ], [ %indvars.iv.next.i.i135.i, %240 ]
-  %242 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i134.i
-  %243 = load i32, ptr %242, align 4, !tbaa !227
-  %244 = icmp eq i32 %243, 57306
-  br i1 %244, label %mxf_mark_tag_unused.exit137.i, label %240
-
-245:                                              ; preds = %240
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit137.i:                    ; preds = %241
-  %246 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.i.i134.i
-  store i8 1, ptr %246, align 1, !tbaa !54
-  br label %248
-
-247:                                              ; preds = %248
-  %indvars.iv.next.i.i139.i = add nuw nsw i64 %indvars.iv.i.i138.i, 1
-  %exitcond.not.i.i140.i = icmp eq i64 %indvars.iv.next.i.i139.i, 127
-  br i1 %exitcond.not.i.i140.i, label %252, label %248, !llvm.loop !226
-
-248:                                              ; preds = %247, %mxf_mark_tag_unused.exit137.i
-  %indvars.iv.i.i138.i = phi i64 [ 0, %mxf_mark_tag_unused.exit137.i ], [ %indvars.iv.next.i.i139.i, %247 ]
-  %249 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i138.i
-  %250 = load i32, ptr %249, align 4, !tbaa !227
-  %251 = icmp eq i32 %250, 57307
-  br i1 %251, label %mxf_mark_tag_unused.exit141.i, label %247
-
-252:                                              ; preds = %247
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit141.i:                    ; preds = %248
-  %253 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.i.i138.i
-  store i8 1, ptr %253, align 1, !tbaa !54
-  br label %254
-
-254:                                              ; preds = %mxf_mark_tag_unused.exit141.i, %232
-  br i1 %.071.lcssa.i, label %.preheader.i, label %346
-
-255:                                              ; preds = %.preheader.i
-  %indvars.iv.next.i.i143.i = add nuw nsw i64 %indvars.iv.i.i142.i, 1
-  %exitcond.not.i.i144.i = icmp eq i64 %indvars.iv.next.i.i143.i, 127
-  br i1 %exitcond.not.i.i144.i, label %259, label %.preheader.i, !llvm.loop !226
-
-.preheader.i:                                     ; preds = %254, %255
-  %indvars.iv.i.i142.i = phi i64 [ %indvars.iv.next.i.i143.i, %255 ], [ 0, %254 ]
-  %256 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i142.i
-  %257 = load i32, ptr %256, align 4, !tbaa !227
-  %258 = icmp eq i32 %257, 33792
-  br i1 %258, label %mxf_mark_tag_unused.exit145.i, label %255
-
-259:                                              ; preds = %255
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit145.i:                    ; preds = %.preheader.i
-  %260 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i142.i
-  store i8 1, ptr %261, align 1, !tbaa !54
-  br label %263
-
-262:                                              ; preds = %263
-  %indvars.iv.next.i.i147.i = add nuw nsw i64 %indvars.iv.i.i146.i, 1
-  %exitcond.not.i.i148.i = icmp eq i64 %indvars.iv.next.i.i147.i, 127
-  br i1 %exitcond.not.i.i148.i, label %267, label %263, !llvm.loop !226
-
-263:                                              ; preds = %262, %mxf_mark_tag_unused.exit145.i
-  %indvars.iv.i.i146.i = phi i64 [ 0, %mxf_mark_tag_unused.exit145.i ], [ %indvars.iv.next.i.i147.i, %262 ]
-  %264 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i146.i
-  %265 = load i32, ptr %264, align 4, !tbaa !227
-  %266 = icmp eq i32 %265, 33793
-  br i1 %266, label %mxf_mark_tag_unused.exit149.i, label %262
-
-267:                                              ; preds = %262
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit149.i:                    ; preds = %263
-  %268 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i146.i
-  store i8 1, ptr %268, align 1, !tbaa !54
-  br label %270
-
-269:                                              ; preds = %270
-  %indvars.iv.next.i.i151.i = add nuw nsw i64 %indvars.iv.i.i150.i, 1
-  %exitcond.not.i.i152.i = icmp eq i64 %indvars.iv.next.i.i151.i, 127
-  br i1 %exitcond.not.i.i152.i, label %274, label %270, !llvm.loop !226
-
-270:                                              ; preds = %269, %mxf_mark_tag_unused.exit149.i
-  %indvars.iv.i.i150.i = phi i64 [ 0, %mxf_mark_tag_unused.exit149.i ], [ %indvars.iv.next.i.i151.i, %269 ]
-  %271 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i150.i
-  %272 = load i32, ptr %271, align 4, !tbaa !227
-  %273 = icmp eq i32 %272, 33794
-  br i1 %273, label %mxf_mark_tag_unused.exit153.i, label %269
-
-274:                                              ; preds = %269
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit153.i:                    ; preds = %270
-  %275 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i150.i
-  store i8 1, ptr %275, align 1, !tbaa !54
-  br label %277
-
-276:                                              ; preds = %277
-  %indvars.iv.next.i.i155.i = add nuw nsw i64 %indvars.iv.i.i154.i, 1
-  %exitcond.not.i.i156.i = icmp eq i64 %indvars.iv.next.i.i155.i, 127
-  br i1 %exitcond.not.i.i156.i, label %281, label %277, !llvm.loop !226
-
-277:                                              ; preds = %276, %mxf_mark_tag_unused.exit153.i
-  %indvars.iv.i.i154.i = phi i64 [ 0, %mxf_mark_tag_unused.exit153.i ], [ %indvars.iv.next.i.i155.i, %276 ]
-  %278 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i154.i
-  %279 = load i32, ptr %278, align 4, !tbaa !227
-  %280 = icmp eq i32 %279, 33795
-  br i1 %280, label %mxf_mark_tag_unused.exit157.i, label %276
-
-281:                                              ; preds = %276
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit157.i:                    ; preds = %277
-  %282 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i154.i
-  store i8 1, ptr %282, align 1, !tbaa !54
-  br label %284
-
-283:                                              ; preds = %284
-  %indvars.iv.next.i.i159.i = add nuw nsw i64 %indvars.iv.i.i158.i, 1
-  %exitcond.not.i.i160.i = icmp eq i64 %indvars.iv.next.i.i159.i, 127
-  br i1 %exitcond.not.i.i160.i, label %288, label %284, !llvm.loop !226
-
-284:                                              ; preds = %283, %mxf_mark_tag_unused.exit157.i
-  %indvars.iv.i.i158.i = phi i64 [ 0, %mxf_mark_tag_unused.exit157.i ], [ %indvars.iv.next.i.i159.i, %283 ]
-  %285 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i158.i
-  %286 = load i32, ptr %285, align 4, !tbaa !227
-  %287 = icmp eq i32 %286, 33796
-  br i1 %287, label %mxf_mark_tag_unused.exit161.i, label %283
-
-288:                                              ; preds = %283
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit161.i:                    ; preds = %284
-  %289 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i158.i
-  store i8 1, ptr %289, align 1, !tbaa !54
-  br label %291
-
-290:                                              ; preds = %291
-  %indvars.iv.next.i.i163.i = add nuw nsw i64 %indvars.iv.i.i162.i, 1
-  %exitcond.not.i.i164.i = icmp eq i64 %indvars.iv.next.i.i163.i, 127
-  br i1 %exitcond.not.i.i164.i, label %295, label %291, !llvm.loop !226
-
-291:                                              ; preds = %290, %mxf_mark_tag_unused.exit161.i
-  %indvars.iv.i.i162.i = phi i64 [ 0, %mxf_mark_tag_unused.exit161.i ], [ %indvars.iv.next.i.i163.i, %290 ]
-  %292 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i162.i
-  %293 = load i32, ptr %292, align 4, !tbaa !227
-  %294 = icmp eq i32 %293, 33797
-  br i1 %294, label %mxf_mark_tag_unused.exit165.i, label %290
-
-295:                                              ; preds = %290
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit165.i:                    ; preds = %291
-  %296 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i162.i
-  store i8 1, ptr %296, align 1, !tbaa !54
-  br label %298
-
-297:                                              ; preds = %298
-  %indvars.iv.next.i.i167.i = add nuw nsw i64 %indvars.iv.i.i166.i, 1
-  %exitcond.not.i.i168.i = icmp eq i64 %indvars.iv.next.i.i167.i, 127
-  br i1 %exitcond.not.i.i168.i, label %302, label %298, !llvm.loop !226
-
-298:                                              ; preds = %297, %mxf_mark_tag_unused.exit165.i
-  %indvars.iv.i.i166.i = phi i64 [ 0, %mxf_mark_tag_unused.exit165.i ], [ %indvars.iv.next.i.i167.i, %297 ]
-  %299 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i166.i
-  %300 = load i32, ptr %299, align 4, !tbaa !227
-  %301 = icmp eq i32 %300, 33798
-  br i1 %301, label %mxf_mark_tag_unused.exit169.i, label %297
-
-302:                                              ; preds = %297
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit169.i:                    ; preds = %298
-  %303 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i166.i
-  store i8 1, ptr %303, align 1, !tbaa !54
-  br label %305
-
-304:                                              ; preds = %305
-  %indvars.iv.next.i.i171.i = add nuw nsw i64 %indvars.iv.i.i170.i, 1
-  %exitcond.not.i.i172.i = icmp eq i64 %indvars.iv.next.i.i171.i, 127
-  br i1 %exitcond.not.i.i172.i, label %309, label %305, !llvm.loop !226
-
-305:                                              ; preds = %304, %mxf_mark_tag_unused.exit169.i
-  %indvars.iv.i.i170.i = phi i64 [ 0, %mxf_mark_tag_unused.exit169.i ], [ %indvars.iv.next.i.i171.i, %304 ]
-  %306 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i170.i
-  %307 = load i32, ptr %306, align 4, !tbaa !227
-  %308 = icmp eq i32 %307, 33799
-  br i1 %308, label %mxf_mark_tag_unused.exit173.i, label %304
-
-309:                                              ; preds = %304
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit173.i:                    ; preds = %305
-  %310 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i170.i
-  store i8 1, ptr %310, align 1, !tbaa !54
-  br label %312
-
-311:                                              ; preds = %312
-  %indvars.iv.next.i.i175.i = add nuw nsw i64 %indvars.iv.i.i174.i, 1
-  %exitcond.not.i.i176.i = icmp eq i64 %indvars.iv.next.i.i175.i, 127
-  br i1 %exitcond.not.i.i176.i, label %316, label %312, !llvm.loop !226
-
-312:                                              ; preds = %311, %mxf_mark_tag_unused.exit173.i
-  %indvars.iv.i.i174.i = phi i64 [ 0, %mxf_mark_tag_unused.exit173.i ], [ %indvars.iv.next.i.i175.i, %311 ]
-  %313 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i174.i
-  %314 = load i32, ptr %313, align 4, !tbaa !227
-  %315 = icmp eq i32 %314, 33800
-  br i1 %315, label %mxf_mark_tag_unused.exit177.i, label %311
-
-316:                                              ; preds = %311
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit177.i:                    ; preds = %312
-  %317 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i174.i
-  store i8 1, ptr %317, align 1, !tbaa !54
-  br label %319
-
-318:                                              ; preds = %319
-  %indvars.iv.next.i.i179.i = add nuw nsw i64 %indvars.iv.i.i178.i, 1
-  %exitcond.not.i.i180.i = icmp eq i64 %indvars.iv.next.i.i179.i, 127
-  br i1 %exitcond.not.i.i180.i, label %323, label %319, !llvm.loop !226
-
-319:                                              ; preds = %318, %mxf_mark_tag_unused.exit177.i
-  %indvars.iv.i.i178.i = phi i64 [ 0, %mxf_mark_tag_unused.exit177.i ], [ %indvars.iv.next.i.i179.i, %318 ]
-  %320 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i178.i
-  %321 = load i32, ptr %320, align 4, !tbaa !227
-  %322 = icmp eq i32 %321, 33801
-  br i1 %322, label %mxf_mark_tag_unused.exit181.i, label %318
-
-323:                                              ; preds = %318
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit181.i:                    ; preds = %319
-  %324 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i178.i
-  store i8 1, ptr %324, align 1, !tbaa !54
-  br label %326
-
-325:                                              ; preds = %326
-  %indvars.iv.next.i.i183.i = add nuw nsw i64 %indvars.iv.i.i182.i, 1
-  %exitcond.not.i.i184.i = icmp eq i64 %indvars.iv.next.i.i183.i, 127
-  br i1 %exitcond.not.i.i184.i, label %330, label %326, !llvm.loop !226
-
-326:                                              ; preds = %325, %mxf_mark_tag_unused.exit181.i
-  %indvars.iv.i.i182.i = phi i64 [ 0, %mxf_mark_tag_unused.exit181.i ], [ %indvars.iv.next.i.i183.i, %325 ]
-  %327 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i182.i
-  %328 = load i32, ptr %327, align 4, !tbaa !227
-  %329 = icmp eq i32 %328, 33802
-  br i1 %329, label %mxf_mark_tag_unused.exit185.i, label %325
-
-330:                                              ; preds = %325
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit185.i:                    ; preds = %326
-  %331 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i182.i
-  store i8 1, ptr %331, align 1, !tbaa !54
-  br label %333
-
-332:                                              ; preds = %333
-  %indvars.iv.next.i.i187.i = add nuw nsw i64 %indvars.iv.i.i186.i, 1
-  %exitcond.not.i.i188.i = icmp eq i64 %indvars.iv.next.i.i187.i, 127
-  br i1 %exitcond.not.i.i188.i, label %337, label %333, !llvm.loop !226
-
-333:                                              ; preds = %332, %mxf_mark_tag_unused.exit185.i
-  %indvars.iv.i.i186.i = phi i64 [ 0, %mxf_mark_tag_unused.exit185.i ], [ %indvars.iv.next.i.i187.i, %332 ]
-  %334 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i186.i
-  %335 = load i32, ptr %334, align 4, !tbaa !227
-  %336 = icmp eq i32 %335, 33803
-  br i1 %336, label %mxf_mark_tag_unused.exit189.i, label %332
-
-337:                                              ; preds = %332
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit189.i:                    ; preds = %333
-  %338 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i186.i
-  store i8 1, ptr %338, align 1, !tbaa !54
-  br label %340
-
-339:                                              ; preds = %340
-  %indvars.iv.next.i.i191.i = add nuw nsw i64 %indvars.iv.i.i190.i, 1
-  %exitcond.not.i.i192.i = icmp eq i64 %indvars.iv.next.i.i191.i, 127
-  br i1 %exitcond.not.i.i192.i, label %344, label %340, !llvm.loop !226
-
-340:                                              ; preds = %339, %mxf_mark_tag_unused.exit189.i
-  %indvars.iv.i.i190.i = phi i64 [ 0, %mxf_mark_tag_unused.exit189.i ], [ %indvars.iv.next.i.i191.i, %339 ]
-  %341 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i190.i
-  %342 = load i32, ptr %341, align 4, !tbaa !227
-  %343 = icmp eq i32 %342, 33804
-  br i1 %343, label %mxf_mark_tag_unused.exit193.i, label %339
-
-344:                                              ; preds = %339
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.47, i32 noundef 571) #14
-  tail call void @abort() #15
-  unreachable
-
-mxf_mark_tag_unused.exit193.i:                    ; preds = %340
-  %345 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i190.i
-  store i8 1, ptr %345, align 1, !tbaa !54
-  br label %346
-
-346:                                              ; preds = %mxf_mark_tag_unused.exit193.i, %254
-  %347 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  br label %348
-
-348:                                              ; preds = %348, %346
-  %indvars.iv266.i = phi i64 [ 0, %346 ], [ %indvars.iv.next267.i, %348 ]
-  %.0235.i = phi i32 [ 127, %346 ], [ %spec.select89.i, %348 ]
-  %349 = getelementptr inbounds nuw i8, ptr %347, i64 %indvars.iv266.i
-  %350 = load i8, ptr %349, align 1, !tbaa !54
-  %.not85.i = icmp ne i8 %350, 0
-  %351 = sext i1 %.not85.i to i32
-  %spec.select89.i = add nsw i32 %.0235.i, %351
-  %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next267.i, 127
-  br i1 %exitcond.not.i, label %352, label %348, !llvm.loop !229
-
-352:                                              ; preds = %348
+167:                                              ; preds = %.preheader194.split.preheader.i, %163
+  br i1 %.071.lcssa.i, label %.preheader.split.preheader.i, label %169
+
+.preheader.split.preheader.i:                     ; preds = %167
+  %168 = getelementptr inbounds nuw i8, ptr %109, i64 310
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %168, i8 1, i64 13, i1 false)
+  br label %169
+
+169:                                              ; preds = %.preheader.split.preheader.i, %167
+  %170 = getelementptr inbounds nuw i8, ptr %109, i64 196
+  br label %171
+
+171:                                              ; preds = %171, %169
+  %indvars.iv239.i = phi i64 [ 0, %169 ], [ %indvars.iv.next240.i, %171 ]
+  %.0235.i = phi i32 [ 127, %169 ], [ %spec.select89.i, %171 ]
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %indvars.iv239.i
+  %173 = load i8, ptr %172, align 1, !tbaa !54
+  %.not85.i = icmp ne i8 %173, 0
+  %174 = sext i1 %.not85.i to i32
+  %spec.select89.i = add nsw i32 %.0235.i, %174
+  %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next240.i, 127
+  br i1 %exitcond.not.i, label %175, label %171, !llvm.loop !226
+
+175:                                              ; preds = %171
   tail call void @avio_write(ptr noundef %110, ptr noundef nonnull @primer_pack_key, i32 noundef 16) #14
-  %353 = mul nsw i32 %spec.select89.i, 18
-  %354 = add nsw i32 %353, 8
-  %355 = sext i32 %354 to i64
-  %356 = icmp ult i32 %354, 128
-  br i1 %356, label %klv_ber_length.exit.thread.i.i, label %klv_ber_length.exit.i.i
+  %176 = mul nsw i32 %spec.select89.i, 18
+  %177 = add nsw i32 %176, 8
+  %178 = sext i32 %177 to i64
+  %179 = icmp ult i32 %177, 128
+  br i1 %179, label %klv_ber_length.exit.thread.i.i, label %klv_ber_length.exit.i.i
 
-klv_ber_length.exit.i.i:                          ; preds = %352
-  %.not.i.i.i.i = icmp ult i32 %354, 65536
-  %357 = lshr i32 %354, 16
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i32 %354, i32 %357
+klv_ber_length.exit.i.i:                          ; preds = %175
+  %.not.i.i.i.i = icmp ult i32 %177, 65536
+  %180 = lshr i32 %177, 16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i32 %177, i32 %180
   %spec.select12.i.i.i.i = select i1 %.not.i.i.i.i, i32 0, i32 16
   %.not11.i.i.i.i = icmp samesign ult i32 %spec.select.i.i.i.i, 256
-  %358 = lshr i32 %spec.select.i.i.i.i, 8
-  %359 = or disjoint i32 %spec.select12.i.i.i.i, 8
-  %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %358
-  %.1.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.i.i.i, i32 %359
-  %360 = zext nneg i32 %.110.i.i.i.i to i64
-  %361 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %360
-  %362 = load i8, ptr %361, align 1, !tbaa !54
-  %363 = zext i8 %362 to i32
-  %364 = add nuw nsw i32 %.1.i.i.i.i, %363
-  %365 = lshr i32 %364, 3
-  %366 = add nuw nsw i32 %365, 129
-  tail call void @avio_w8(ptr noundef %110, i32 noundef %366) #14
-  %367 = zext nneg i32 %.1.i.i.i.i to i64
-  %368 = zext i8 %362 to i64
-  %369 = add nuw nsw i64 %368, %367
-  %370 = lshr i64 %369, 3
-  %371 = add nuw nsw i64 %370, 1
-  br label %372
+  %181 = lshr i32 %spec.select.i.i.i.i, 8
+  %182 = or disjoint i32 %spec.select12.i.i.i.i, 8
+  %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %181
+  %.1.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.i.i.i, i32 %182
+  %183 = zext nneg i32 %.110.i.i.i.i to i64
+  %184 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %183
+  %185 = load i8, ptr %184, align 1, !tbaa !54
+  %186 = zext i8 %185 to i32
+  %187 = add nuw nsw i32 %.1.i.i.i.i, %186
+  %188 = lshr i32 %187, 3
+  %189 = add nuw nsw i32 %188, 129
+  tail call void @avio_w8(ptr noundef %110, i32 noundef %189) #14
+  %190 = zext nneg i32 %.1.i.i.i.i to i64
+  %191 = zext i8 %185 to i64
+  %192 = add nuw nsw i64 %191, %190
+  %193 = lshr i64 %192, 3
+  %194 = add nuw nsw i64 %193, 1
+  br label %195
 
-klv_ber_length.exit.thread.i.i:                   ; preds = %352
-  tail call void @avio_w8(ptr noundef %110, i32 noundef %354) #14
+klv_ber_length.exit.thread.i.i:                   ; preds = %175
+  tail call void @avio_w8(ptr noundef %110, i32 noundef %177) #14
   br label %klv_encode_ber_length.exit.i
 
-372:                                              ; preds = %372, %klv_ber_length.exit.i.i
-  %indvars.iv.i.i = phi i64 [ %371, %klv_ber_length.exit.i.i ], [ %indvars.iv.next.i.i, %372 ]
+195:                                              ; preds = %195, %klv_ber_length.exit.i.i
+  %indvars.iv.i.i = phi i64 [ %194, %klv_ber_length.exit.i.i ], [ %indvars.iv.next.i.i, %195 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %373 = shl i64 %indvars.iv.next.i.i, 3
-  %374 = and i64 %373, 4294967288
-  %375 = lshr i64 %355, %374
-  %376 = trunc i64 %375 to i32
-  %377 = and i32 %376, 255
-  tail call void @avio_w8(ptr noundef %110, i32 noundef %377) #14
+  %196 = shl i64 %indvars.iv.next.i.i, 3
+  %197 = and i64 %196, 4294967288
+  %198 = lshr i64 %178, %197
+  %199 = trunc i64 %198 to i32
+  %200 = and i32 %199, 255
+  tail call void @avio_w8(ptr noundef %110, i32 noundef %200) #14
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 0
-  br i1 %.not.i.i, label %klv_encode_ber_length.exit.i, label %372, !llvm.loop !145
+  br i1 %.not.i.i, label %klv_encode_ber_length.exit.i, label %195, !llvm.loop !145
 
-klv_encode_ber_length.exit.i:                     ; preds = %372, %klv_ber_length.exit.thread.i.i
+klv_encode_ber_length.exit.i:                     ; preds = %195, %klv_ber_length.exit.thread.i.i
   tail call void @avio_wb32(ptr noundef %110, i32 noundef %spec.select89.i) #14
   tail call void @avio_wb32(ptr noundef %110, i32 noundef 18) #14
-  br label %378
+  br label %201
 
-378:                                              ; preds = %386, %klv_encode_ber_length.exit.i
-  %indvars.iv269.i = phi i64 [ 0, %klv_encode_ber_length.exit.i ], [ %indvars.iv.next270.i, %386 ]
-  %379 = getelementptr inbounds nuw i8, ptr %347, i64 %indvars.iv269.i
-  %380 = load i8, ptr %379, align 1, !tbaa !54
-  %381 = icmp eq i8 %380, 0
-  br i1 %381, label %382, label %386
+201:                                              ; preds = %209, %klv_encode_ber_length.exit.i
+  %indvars.iv242.i = phi i64 [ 0, %klv_encode_ber_length.exit.i ], [ %indvars.iv.next243.i, %209 ]
+  %202 = getelementptr inbounds nuw i8, ptr %170, i64 %indvars.iv242.i
+  %203 = load i8, ptr %202, align 1, !tbaa !54
+  %204 = icmp eq i8 %203, 0
+  br i1 %204, label %205, label %209
 
-382:                                              ; preds = %378
-  %383 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv269.i
-  %384 = load i32, ptr %383, align 4, !tbaa !227
-  tail call void @avio_wb16(ptr noundef %110, i32 noundef %384) #14
-  %385 = getelementptr inbounds nuw i8, ptr %383, i64 4
-  tail call void @avio_write(ptr noundef %110, ptr noundef nonnull %385, i32 noundef 16) #14
-  br label %386
+205:                                              ; preds = %201
+  %206 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv242.i
+  %207 = load i32, ptr %206, align 4, !tbaa !227
+  tail call void @avio_wb16(ptr noundef %110, i32 noundef %207) #14
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
+  tail call void @avio_write(ptr noundef %110, ptr noundef nonnull %208, i32 noundef 16) #14
+  br label %209
 
-386:                                              ; preds = %382, %378
-  %indvars.iv.next270.i = add nuw nsw i64 %indvars.iv269.i, 1
-  %exitcond272.not.i = icmp eq i64 %indvars.iv.next270.i, 127
-  br i1 %exitcond272.not.i, label %mxf_write_primer_pack.exit, label %378, !llvm.loop !230
+209:                                              ; preds = %205, %201
+  %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
+  %exitcond245.not.i = icmp eq i64 %indvars.iv.next243.i, 127
+  br i1 %exitcond245.not.i, label %mxf_write_primer_pack.exit, label %201, !llvm.loop !229
 
-mxf_write_primer_pack.exit:                       ; preds = %386
-  %387 = load ptr, ptr %8, align 8, !tbaa !24
-  %388 = tail call i64 @avio_seek(ptr noundef %387, i64 noundef 0, i32 noundef 1) #14
-  %389 = trunc i64 %388 to i32
-  %390 = and i32 %389, 511
-  %391 = icmp samesign ugt i32 %390, 492
-  %392 = sub nuw nsw i32 1024, %390
-  %393 = sub i32 0, %389
-  %394 = and i32 %393, 511
-  %.0.i.i115 = select i1 %391, i32 %392, i32 %394
+mxf_write_primer_pack.exit:                       ; preds = %209
+  %210 = load ptr, ptr %8, align 8, !tbaa !24
+  %211 = tail call i64 @avio_seek(ptr noundef %210, i64 noundef 0, i32 noundef 1) #14
+  %212 = trunc i64 %211 to i32
+  %213 = and i32 %212, 511
+  %214 = icmp samesign ugt i32 %213, 492
+  %215 = sub nuw nsw i32 1024, %213
+  %216 = sub i32 0, %212
+  %217 = and i32 %216, 511
+  %.0.i.i115 = select i1 %214, i32 %215, i32 %217
   %.not.i116 = icmp eq i32 %.0.i.i115, 0
-  br i1 %.not.i116, label %mxf_write_klv_fill.exit117, label %395
+  br i1 %.not.i116, label %mxf_write_klv_fill.exit117, label %218
 
-395:                                              ; preds = %mxf_write_primer_pack.exit
-  %396 = load ptr, ptr %8, align 8, !tbaa !24
-  tail call void @avio_write(ptr noundef %396, ptr noundef nonnull @klv_fill_key, i32 noundef 16) #14
-  %397 = add nsw i32 %.0.i.i115, -20
-  %398 = load ptr, ptr %8, align 8, !tbaa !24
-  tail call void @avio_w8(ptr noundef %398, i32 noundef 131) #14
-  tail call void @avio_wb24(ptr noundef %398, i32 noundef %397) #14
-  %399 = load ptr, ptr %8, align 8, !tbaa !24
-  %400 = zext i32 %397 to i64
-  tail call void @ffio_fill(ptr noundef %399, i32 noundef 0, i64 noundef %400) #14
+218:                                              ; preds = %mxf_write_primer_pack.exit
+  %219 = load ptr, ptr %8, align 8, !tbaa !24
+  tail call void @avio_write(ptr noundef %219, ptr noundef nonnull @klv_fill_key, i32 noundef 16) #14
+  %220 = add nsw i32 %.0.i.i115, -20
+  %221 = load ptr, ptr %8, align 8, !tbaa !24
+  tail call void @avio_w8(ptr noundef %221, i32 noundef 131) #14
+  tail call void @avio_wb24(ptr noundef %221, i32 noundef %220) #14
+  %222 = load ptr, ptr %8, align 8, !tbaa !24
+  %223 = zext i32 %220 to i64
+  tail call void @ffio_fill(ptr noundef %222, i32 noundef 0, i64 noundef %223) #14
   br label %mxf_write_klv_fill.exit117
 
-mxf_write_klv_fill.exit117:                       ; preds = %mxf_write_primer_pack.exit, %395
+mxf_write_klv_fill.exit117:                       ; preds = %mxf_write_primer_pack.exit, %218
   tail call fastcc void @mxf_write_header_metadata_sets(ptr noundef nonnull %0)
-  %401 = load ptr, ptr %8, align 8, !tbaa !24
-  %402 = tail call i64 @avio_seek(ptr noundef %401, i64 noundef 0, i32 noundef 1) #14
-  %403 = sub nsw i64 %402, %108
-  %404 = trunc i64 %402 to i32
-  %405 = and i32 %404, 511
-  %406 = icmp samesign ugt i32 %405, 492
-  %407 = sub nuw nsw i32 1024, %405
-  %408 = sub i32 0, %404
-  %409 = and i32 %408, 511
-  %.0.i118 = select i1 %406, i32 %407, i32 %409
-  %410 = trunc i64 %403 to i32
-  %411 = add i32 %.0.i118, %410
-  %412 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef %72, i32 noundef 0) #14
-  %413 = zext i32 %411 to i64
-  tail call void @avio_wb64(ptr noundef %9, i64 noundef %413) #14
-  %414 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef %402, i32 noundef 0) #14
-  br label %415
+  %224 = load ptr, ptr %8, align 8, !tbaa !24
+  %225 = tail call i64 @avio_seek(ptr noundef %224, i64 noundef 0, i32 noundef 1) #14
+  %226 = sub nsw i64 %225, %108
+  %227 = trunc i64 %225 to i32
+  %228 = and i32 %227, 511
+  %229 = icmp samesign ugt i32 %228, 492
+  %230 = sub nuw nsw i32 1024, %228
+  %231 = sub i32 0, %227
+  %232 = and i32 %231, 511
+  %.0.i118 = select i1 %229, i32 %230, i32 %232
+  %233 = trunc i64 %226 to i32
+  %234 = add i32 %.0.i118, %233
+  %235 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef %72, i32 noundef 0) #14
+  %236 = zext i32 %234 to i64
+  tail call void @avio_wb64(ptr noundef %9, i64 noundef %236) #14
+  %237 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef %225, i32 noundef 0) #14
+  br label %238
 
-415:                                              ; preds = %mxf_write_klv_fill.exit117, %88
-  br i1 %.not100, label %417, label %416
+238:                                              ; preds = %mxf_write_klv_fill.exit117, %88
+  br i1 %.not100, label %240, label %239
 
-416:                                              ; preds = %415
+239:                                              ; preds = %238
   tail call void @avio_write_marker(ptr noundef %9, i64 noundef -9223372036854775808, i32 noundef 5) #14
-  br label %417
+  br label %240
 
-417:                                              ; preds = %415, %416, %40
-  %.0 = phi i32 [ %38, %40 ], [ 0, %416 ], [ 0, %415 ]
+240:                                              ; preds = %238, %239, %40
+  %.0 = phi i32 [ %38, %40 ], [ 0, %239 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -4614,7 +4055,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  %7 = load i32, ptr %6, align 4, !tbaa !231
+  %7 = load i32, ptr %6, align 4, !tbaa !230
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load i32, ptr %8, align 8, !tbaa !47
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.84, i32 noundef %9) #14
@@ -4779,7 +4220,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %72 = load i32, ptr %33, align 4, !tbaa !121
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next, %73
-  br i1 %74, label %41, label %._crit_edge.loopexit, !llvm.loop !232
+  br i1 %74, label %41, label %._crit_edge.loopexit, !llvm.loop !231
 
 ._crit_edge.loopexit:                             ; preds = %71
   %75 = icmp eq i32 %spec.select, 0
@@ -4830,12 +4271,12 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   br i1 %.not178, label %97, label %101
 
 97:                                               ; preds = %91
-  %98 = load i32, ptr %89, align 8, !tbaa !233
-  %99 = load i32, ptr %6, align 4, !tbaa !231
+  %98 = load i32, ptr %89, align 8, !tbaa !232
+  %99 = load i32, ptr %6, align 4, !tbaa !230
   %100 = sub nsw i32 %indvars232, %99
   %. = tail call i32 @llvm.smax.i32(i32 %98, i32 %100)
-  store i32 %., ptr %89, align 8, !tbaa !233
-  store i32 %.0162216, ptr %6, align 4, !tbaa !231
+  store i32 %., ptr %89, align 8, !tbaa !232
+  store i32 %.0162216, ptr %6, align 4, !tbaa !230
   br label %101
 
 101:                                              ; preds = %97, %91
@@ -4870,7 +4311,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %114 = trunc nsw i64 %indvars.iv.next228 to i32
   %115 = icmp ugt i32 %92, %114
-  br i1 %115, label %.lr.ph210, label %._crit_edge211.thread, !llvm.loop !234
+  br i1 %115, label %.lr.ph210, label %._crit_edge211.thread, !llvm.loop !233
 
 ._crit_edge211.loopexit:                          ; preds = %.lr.ph210
   %116 = trunc nsw i64 %indvars.iv227 to i32
@@ -4902,11 +4343,11 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %120
-  %127 = load i32, ptr %90, align 4, !tbaa !235
+  %127 = load i32, ptr %90, align 4, !tbaa !234
   %128 = sub nsw i32 %indvars232, %.0164215
   %.186 = tail call i32 @llvm.smax.i32(i32 %127, i32 %128)
-  store i32 %.186, ptr %90, align 4, !tbaa !235
-  %129 = load i32, ptr %6, align 4, !tbaa !231
+  store i32 %.186, ptr %90, align 4, !tbaa !234
+  %129 = load i32, ptr %6, align 4, !tbaa !230
   %130 = sub nsw i32 %129, %indvars232
   tail call void @avio_w8(ptr noundef %5, i32 noundef %130) #14
   %.pre = load ptr, ptr %88, align 8, !tbaa !125
@@ -4925,7 +4366,7 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   br i1 %.not181, label %138, label %137
 
 137:                                              ; preds = %131
-  store i32 %.1163, ptr %6, align 4, !tbaa !231
+  store i32 %.1163, ptr %6, align 4, !tbaa !230
   br label %138
 
 138:                                              ; preds = %131, %137, %126
@@ -4975,13 +4416,13 @@ define internal fastcc void @mxf_write_index_table_segment(ptr noundef %0) unnam
   %161 = load i32, ptr %8, align 8, !tbaa !47
   %162 = zext i32 %161 to i64
   %163 = icmp samesign ult i64 %indvars.iv.next231, %162
-  br i1 %163, label %91, label %._crit_edge220, !llvm.loop !236
+  br i1 %163, label %91, label %._crit_edge220, !llvm.loop !235
 
 ._crit_edge220:                                   ; preds = %160, %77
   %.0162.lcssa = phi i32 [ %7, %77 ], [ %.1163, %160 ]
   %.lcssa = phi i32 [ 0, %77 ], [ %161, %160 ]
   %164 = sub i32 %.0162.lcssa, %.lcssa
-  store i32 %164, ptr %6, align 4, !tbaa !231
+  store i32 %164, ptr %6, align 4, !tbaa !230
   %165 = load i32, ptr %16, align 4, !tbaa !130
   %166 = add i32 %165, %.lcssa
   store i32 %166, ptr %16, align 4, !tbaa !130
@@ -5228,7 +4669,7 @@ get_rac.exit24:                                   ; preds = %82, %96, %101
   %129 = phi i32 [ %78, %104 ], [ %112, %118 ], [ %112, %123 ]
   %130 = add nuw nsw i32 %.018, 1
   %exitcond = icmp eq i32 %130, 32
-  br i1 %exitcond, label %get_rac.exit.thread, label %70, !llvm.loop !237
+  br i1 %exitcond, label %get_rac.exit.thread, label %70, !llvm.loop !236
 
 131:                                              ; preds = %.lr.ph, %get_rac.exit26
   %132 = phi i32 [ %126, %.lr.ph ], [ %187, %get_rac.exit26 ]
@@ -5328,7 +4769,7 @@ get_rac.exit26:                                   ; preds = %143, %157, %162, %1
   %reass.add = shl i32 %.035, 1
   %188 = or disjoint i32 %.0.i25, %reass.add
   %189 = icmp sgt i32 %.019.in34, 1
-  br i1 %189, label %131, label %get_rac.exit.thread, !llvm.loop !238
+  br i1 %189, label %131, label %get_rac.exit.thread, !llvm.loop !237
 
 get_rac.exit.thread:                              ; preds = %128, %get_rac.exit26, %get_rac.exit24, %60, %55, %38
   %.020 = phi i32 [ 0, %38 ], [ 0, %55 ], [ 0, %60 ], [ 1, %get_rac.exit24 ], [ %188, %get_rac.exit26 ], [ -1094995529, %128 ]
@@ -5459,7 +4900,7 @@ define internal fastcc void @mxf_write_essence_container_refs(ptr noundef %0) un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %15, label %thread-pre-split, !llvm.loop !239
+  br i1 %31, label %15, label %thread-pre-split, !llvm.loop !238
 
 thread-pre-split:                                 ; preds = %.thread, %1
   %.pr = load i32, ptr %6, align 8, !tbaa !133
@@ -5482,14 +4923,14 @@ define internal fastcc void @mxf_write_header_metadata_sets(ptr noundef %0) unna
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %5, align 8, !tbaa !240
+  store i32 1, ptr %5, align 8, !tbaa !239
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 2, ptr %7, align 16, !tbaa !240
+  store i32 2, ptr %7, align 16, !tbaa !239
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 1, ptr %8, align 4, !tbaa !243
+  store i32 1, ptr %8, align 4, !tbaa !242
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %6, ptr %9, align 16, !tbaa !244
+  store ptr %6, ptr %9, align 16, !tbaa !243
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !tbaa !178
   %12 = call ptr @av_dict_get(ptr noundef %11, ptr noundef nonnull @.str.58, ptr noundef null, i32 noundef 0) #14
@@ -5499,7 +4940,7 @@ define internal fastcc void @mxf_write_header_metadata_sets(ptr noundef %0) unna
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !204
-  store ptr %15, ptr %2, align 16, !tbaa !245
+  store ptr %15, ptr %2, align 16, !tbaa !244
   br label %16
 
 16:                                               ; preds = %13, %1
@@ -5523,7 +4964,7 @@ define internal fastcc void @mxf_write_header_metadata_sets(ptr noundef %0) unna
   %23 = load i32, ptr %19, align 4, !tbaa !121
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %26, label %.loopexit178, !llvm.loop !246
+  br i1 %25, label %26, label %.loopexit178, !llvm.loop !245
 
 26:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
@@ -5537,10 +4978,10 @@ define internal fastcc void @mxf_write_header_metadata_sets(ptr noundef %0) unna
   br i1 %.not39, label %22, label %.loopexit178.sink.split
 
 .loopexit178.sink.split:                          ; preds = %26, %16
-  %.lcssa355.sink = phi ptr [ %18, %16 ], [ %32, %26 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.lcssa355.sink, i64 8
+  %.lcssa345.sink = phi ptr [ %18, %16 ], [ %32, %26 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.lcssa345.sink, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !204
-  store ptr %34, ptr %6, align 8, !tbaa !245
+  store ptr %34, ptr %6, align 8, !tbaa !244
   br label %.loopexit178
 
 .loopexit178:                                     ; preds = %22, %.loopexit178.sink.split, %.preheader
@@ -5553,13 +4994,13 @@ define internal fastcc void @mxf_write_header_metadata_sets(ptr noundef %0) unna
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !204
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %39, ptr %40, align 16, !tbaa !245
+  store ptr %39, ptr %40, align 16, !tbaa !244
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i32 2, ptr %41, align 8, !tbaa !240
+  store i32 2, ptr %41, align 8, !tbaa !239
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i32 2, ptr %42, align 4, !tbaa !243
+  store i32 2, ptr %42, align 4, !tbaa !242
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %40, ptr %43, align 8, !tbaa !244
+  store ptr %40, ptr %43, align 8, !tbaa !243
   br label %44
 
 44:                                               ; preds = %37, %.loopexit178
@@ -5776,7 +5217,7 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
   %138 = shl i32 %.127.i.i.i, 6
   %139 = add nuw nsw i32 %137, %138
   %140 = shl i32 %.024.i.i.i, 5
-  br i1 %.not35.i.i.i, label %.preheader.i.i.i, label %.thread44.i.i.i, !llvm.loop !247
+  br i1 %.not35.i.i.i, label %.preheader.i.i.i, label %.thread44.i.i.i, !llvm.loop !246
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %141 = shl i32 %.024.i.i.i, 1
@@ -5785,7 +5226,7 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
   %144 = icmp ult i32 %143, 65536
   %.231.v.i.i.i = select i1 %144, i64 1, i64 2
   %.231.i.i.i = add i64 %.231.v.i.i.i, %.02954.i.i.i
-  br label %145, !llvm.loop !248
+  br label %145, !llvm.loop !247
 
 .thread44.i.i.i:                                  ; preds = %133, %.lr.ph.i.i.i
   %.12349.i.i.i = phi ptr [ %125, %.lr.ph.i.i.i ], [ %134, %133 ]
@@ -5859,7 +5300,7 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
   %168 = shl i32 %.127.i.i70.i, 6
   %169 = add nuw nsw i32 %167, %168
   %170 = shl i32 %.024.i.i71.i, 5
-  br i1 %.not35.i.i74.i, label %.preheader.i.i69.i, label %.thread44.i.i75.i, !llvm.loop !247
+  br i1 %.not35.i.i74.i, label %.preheader.i.i69.i, label %.thread44.i.i75.i, !llvm.loop !246
 
 .thread.i.i85.i:                                  ; preds = %.preheader.i.i69.i
   %171 = shl i32 %.024.i.i71.i, 1
@@ -5868,7 +5309,7 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
   %174 = icmp ult i32 %173, 65536
   %.231.v.i.i86.i = select i1 %174, i64 1, i64 2
   %.231.i.i87.i = add i64 %.231.v.i.i86.i, %.02954.i.i66.i
-  br label %175, !llvm.loop !248
+  br label %175, !llvm.loop !247
 
 .thread44.i.i75.i:                                ; preds = %163, %.lr.ph.i.i64.i
   %.12349.i.i76.i = phi ptr [ %155, %.lr.ph.i.i64.i ], [ %164, %163 ]
@@ -5939,7 +5380,7 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   %198 = shl i32 %.127.i.i97.i, 6
   %199 = add nuw nsw i32 %197, %198
   %200 = shl i32 %.024.i.i98.i, 5
-  br i1 %.not35.i.i101.i, label %.preheader.i.i96.i, label %.thread44.i.i102.i, !llvm.loop !247
+  br i1 %.not35.i.i101.i, label %.preheader.i.i96.i, label %.thread44.i.i102.i, !llvm.loop !246
 
 .thread.i.i112.i:                                 ; preds = %.preheader.i.i96.i
   %201 = shl i32 %.024.i.i98.i, 1
@@ -5948,7 +5389,7 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   %204 = icmp ult i32 %203, 65536
   %.231.v.i.i113.i = select i1 %204, i64 1, i64 2
   %.231.i.i114.i = add i64 %.231.v.i.i113.i, %.02954.i.i93.i
-  br label %205, !llvm.loop !248
+  br label %205, !llvm.loop !247
 
 .thread44.i.i102.i:                               ; preds = %193, %.lr.ph.i.i91.i
   %.12349.i.i103.i = phi ptr [ %185, %.lr.ph.i.i91.i ], [ %194, %193 ]
@@ -6023,7 +5464,7 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
   %229 = shl i32 %.127.i.i124.i, 6
   %230 = add nuw nsw i32 %228, %229
   %231 = shl i32 %.024.i.i125.i, 5
-  br i1 %.not35.i.i128.i, label %.preheader.i.i123.i, label %.thread44.i.i129.i, !llvm.loop !247
+  br i1 %.not35.i.i128.i, label %.preheader.i.i123.i, label %.thread44.i.i129.i, !llvm.loop !246
 
 .thread.i.i139.i:                                 ; preds = %.preheader.i.i123.i
   %232 = shl i32 %.024.i.i125.i, 1
@@ -6032,7 +5473,7 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
   %235 = icmp ult i32 %234, 65536
   %.231.v.i.i140.i = select i1 %235, i64 1, i64 2
   %.231.i.i141.i = add i64 %.231.v.i.i140.i, %.02954.i.i120.i
-  br label %236, !llvm.loop !248
+  br label %236, !llvm.loop !247
 
 .thread44.i.i129.i:                               ; preds = %224, %.lr.ph.i.i118.i
   %.12349.i.i130.i = phi ptr [ %216, %.lr.ph.i.i118.i ], [ %225, %224 ]
@@ -6190,15 +5631,15 @@ mxf_write_identification.exit:                    ; preds = %261, %klv_ber_lengt
   %indvars.iv.i = phi i64 [ 0, %mxf_write_identification.exit ], [ %indvars.iv.next.i, %275 ]
   %276 = getelementptr inbounds nuw %struct.MXFPackage, ptr %2, i64 %indvars.iv.i
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %278 = load i32, ptr %277, align 8, !tbaa !240
+  %278 = load i32, ptr %277, align 8, !tbaa !239
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 12
-  %280 = load i32, ptr %279, align 4, !tbaa !243
+  %280 = load i32, ptr %279, align 4, !tbaa !242
   call void @avio_write(ptr noundef %271, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %271, i32 noundef %278) #14
   call void @avio_wb32(ptr noundef %271, i32 noundef %280) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mxf_write_content_storage.exit, label %275, !llvm.loop !249
+  br i1 %exitcond.not.i, label %mxf_write_content_storage.exit, label %275, !llvm.loop !248
 
 mxf_write_content_storage.exit:                   ; preds = %275
   %.val23.i = load ptr, ptr %3, align 8, !tbaa !4
@@ -6210,7 +5651,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
   call void @avio_wb16(ptr noundef %271, i32 noundef 16) #14
   call void @avio_wb32(ptr noundef %271, i32 noundef 0) #14
   %281 = getelementptr inbounds nuw i8, ptr %4, i64 188
-  store i32 0, ptr %281, align 4, !tbaa !250
+  store i32 0, ptr %281, align 4, !tbaa !249
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load i32, ptr %282, align 4, !tbaa !121
@@ -6218,12 +5659,12 @@ mxf_write_content_storage.exit:                   ; preds = %275
 
 284:                                              ; preds = %mxf_write_content_storage.exit, %.loopexit
   %285 = phi i32 [ %.pre, %mxf_write_content_storage.exit ], [ %800, %.loopexit ]
-  %indvars.iv267 = phi i64 [ 0, %mxf_write_content_storage.exit ], [ %indvars.iv.next268, %.loopexit ]
-  %286 = getelementptr inbounds nuw %struct.MXFPackage, ptr %2, i64 %indvars.iv267
+  %indvars.iv257 = phi i64 [ 0, %mxf_write_content_storage.exit ], [ %indvars.iv.next258, %.loopexit ]
+  %286 = getelementptr inbounds nuw %struct.MXFPackage, ptr %2, i64 %indvars.iv257
   %287 = load ptr, ptr %3, align 8, !tbaa !4
   %288 = load ptr, ptr %46, align 8, !tbaa !24
   %289 = add i32 %285, 1
-  %290 = load ptr, ptr %286, align 8, !tbaa !245
+  %290 = load ptr, ptr %286, align 8, !tbaa !244
   %.not.i.i59 = icmp eq ptr %290, null
   br i1 %.not.i.i59, label %mxf_utf16_local_tag_length.exit.i81, label %291
 
@@ -6266,7 +5707,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
   %307 = shl i32 %.127.i.i.i67, 6
   %308 = add nuw nsw i32 %306, %307
   %309 = shl i32 %.024.i.i.i68, 5
-  br i1 %.not35.i.i.i71, label %.preheader.i.i.i66, label %.thread44.i.i.i72, !llvm.loop !247
+  br i1 %.not35.i.i.i71, label %.preheader.i.i.i66, label %.thread44.i.i.i72, !llvm.loop !246
 
 .thread.i.i.i98:                                  ; preds = %.preheader.i.i.i66
   %310 = shl i32 %.024.i.i.i68, 1
@@ -6275,7 +5716,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
   %313 = icmp ult i32 %312, 65536
   %.231.v.i.i.i99 = select i1 %313, i64 1, i64 2
   %.231.i.i.i100 = add i64 %.231.v.i.i.i99, %.02954.i.i.i63
-  br label %314, !llvm.loop !248
+  br label %314, !llvm.loop !247
 
 .thread44.i.i.i72:                                ; preds = %302, %.lr.ph.i.i.i61
   %.12349.i.i.i73 = phi ptr [ %294, %.lr.ph.i.i.i61 ], [ %303, %302 ]
@@ -6308,7 +5749,7 @@ mxf_utf16len.exit.thread.i.i78:                   ; preds = %mxf_utf16len.exit.i
 mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.thread.i.i78, %318, %284
   %.0.i.i82 = phi i32 [ 0, %318 ], [ %320, %mxf_utf16len.exit.thread.i.i78 ], [ 0, %284 ]
   %321 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  %322 = load i32, ptr %321, align 8, !tbaa !240
+  %322 = load i32, ptr %321, align 8, !tbaa !239
   %323 = icmp eq i32 %322, 1
   br i1 %323, label %324, label %470
 
@@ -6332,7 +5773,7 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
 332:                                              ; preds = %mxf_write_tagged_value.exit.thread.i.i, %.lr.ph.i.i
   %333 = phi ptr [ %330, %.lr.ph.i.i ], [ %437, %mxf_write_tagged_value.exit.thread.i.i ]
   %.026.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %436, %mxf_write_tagged_value.exit.thread.i.i ]
-  %334 = load i32, ptr %331, align 4, !tbaa !251
+  %334 = load i32, ptr %331, align 4, !tbaa !250
   %335 = icmp ugt i32 %334, 65534
   br i1 %335, label %336, label %337
 
@@ -6341,7 +5782,7 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   br label %mxf_write_user_comments.exit.i
 
 337:                                              ; preds = %332
-  %338 = load ptr, ptr %333, align 8, !tbaa !252
+  %338 = load ptr, ptr %333, align 8, !tbaa !251
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %340 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %341 = load ptr, ptr %340, align 8, !tbaa !204
@@ -6385,7 +5826,7 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   %359 = shl i32 %.127.i.i.i.i.i, 6
   %360 = add nuw nsw i32 %358, %359
   %361 = shl i32 %.024.i.i.i.i.i, 5
-  br i1 %.not35.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.thread44.i.i.i.i.i, !llvm.loop !247
+  br i1 %.not35.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.thread44.i.i.i.i.i, !llvm.loop !246
 
 .thread.i.i.i.i.i:                                ; preds = %.preheader.i.i.i.i.i
   %362 = shl i32 %.024.i.i.i.i.i, 1
@@ -6394,7 +5835,7 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   %365 = icmp ult i32 %364, 65536
   %.231.v.i.i.i.i.i = select i1 %365, i64 1, i64 2
   %.231.i.i.i.i.i = add i64 %.231.v.i.i.i.i.i, %.02954.i.i.i.i.i
-  br label %366, !llvm.loop !248
+  br label %366, !llvm.loop !247
 
 .thread44.i.i.i.i.i:                              ; preds = %354, %.lr.ph.i.i.i.i.i
   %.12349.i.i.i.i.i = phi ptr [ %346, %.lr.ph.i.i.i.i.i ], [ %355, %354 ]
@@ -6468,7 +5909,7 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
   %389 = shl i32 %.127.i.i35.i.i.i, 6
   %390 = add nuw nsw i32 %388, %389
   %391 = shl i32 %.024.i.i36.i.i.i, 5
-  br i1 %.not35.i.i39.i.i.i, label %.preheader.i.i34.i.i.i, label %.thread44.i.i40.i.i.i, !llvm.loop !247
+  br i1 %.not35.i.i39.i.i.i, label %.preheader.i.i34.i.i.i, label %.thread44.i.i40.i.i.i, !llvm.loop !246
 
 .thread.i.i50.i.i.i:                              ; preds = %.preheader.i.i34.i.i.i
   %392 = shl i32 %.024.i.i36.i.i.i, 1
@@ -6477,7 +5918,7 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
   %395 = icmp ult i32 %394, 65536
   %.231.v.i.i51.i.i.i = select i1 %395, i64 1, i64 2
   %.231.i.i52.i.i.i = add i64 %.231.v.i.i51.i.i.i, %.02954.i.i31.i.i.i
-  br label %396, !llvm.loop !248
+  br label %396, !llvm.loop !247
 
 .thread44.i.i40.i.i.i:                            ; preds = %384, %.lr.ph.i.i29.i.i.i
   %.12349.i.i41.i.i.i = phi ptr [ %376, %.lr.ph.i.i29.i.i.i ], [ %385, %384 ]
@@ -6563,7 +6004,7 @@ klv_ber_length.exit.thread.i.i.i.i:               ; preds = %402
   %.val26.i.i.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val25.i.i.i, ptr %.val26.i.i.i, i32 noundef 16, i32 noundef 15370)
   %430 = getelementptr inbounds nuw i8, ptr %342, i64 172
-  %431 = load i32, ptr %430, align 4, !tbaa !251
+  %431 = load i32, ptr %430, align 4, !tbaa !250
   call void @avio_write(ptr noundef %343, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %343, i32 noundef 18) #14
   call void @avio_wb32(ptr noundef %343, i32 noundef %431) #14
@@ -6573,9 +6014,9 @@ klv_ber_length.exit.thread.i.i.i.i:               ; preds = %402
   call fastcc void @mxf_write_local_tag(ptr %.val.i.i.i, ptr %.val24.i.i.i, i32 noundef %404, i32 noundef 20483)
   call void @avio_write(ptr noundef %343, ptr noundef nonnull @mxf_indirect_value_utf16le, i32 noundef 17) #14
   %432 = call i32 @avio_put_str16le(ptr noundef %343, ptr noundef nonnull %341) #14
-  %433 = load i32, ptr %430, align 4, !tbaa !251
+  %433 = load i32, ptr %430, align 4, !tbaa !250
   %434 = add i32 %433, 1
-  store i32 %434, ptr %430, align 4, !tbaa !251
+  store i32 %434, ptr %430, align 4, !tbaa !250
   %435 = add nsw i32 %.026.i.i, 1
   br label %mxf_write_tagged_value.exit.thread.i.i
 
@@ -6583,7 +6024,7 @@ mxf_write_tagged_value.exit.thread.i.i:           ; preds = %.loopexit.i.i, %mxf
   %436 = phi i32 [ %435, %.loopexit.i.i ], [ %.026.i.i, %mxf_utf16_local_tag_length.exit53.i.i.i ], [ %.026.i.i, %400 ], [ %.026.i.i, %mxf_utf16_local_tag_length.exit.i.i.i ]
   %437 = call ptr @av_dict_get(ptr noundef %328, ptr noundef nonnull @.str.75, ptr noundef nonnull %333, i32 noundef 2) #14
   %.not.i132.i = icmp eq ptr %437, null
-  br i1 %.not.i132.i, label %mxf_write_user_comments.exit.i, label %332, !llvm.loop !253
+  br i1 %.not.i132.i, label %mxf_write_user_comments.exit.i, label %332, !llvm.loop !252
 
 mxf_write_user_comments.exit.i:                   ; preds = %mxf_write_tagged_value.exit.thread.i.i, %336, %327, %324
   %.0112.i = phi i32 [ 0, %324 ], [ %.026.i.i, %336 ], [ 0, %327 ], [ %436, %mxf_write_tagged_value.exit.thread.i.i ]
@@ -6703,18 +6144,18 @@ klv_encode_ber_length.exit.i:                     ; preds = %497, %464, %klv_enc
   %.val.i84 = load ptr, ptr %3, align 8, !tbaa !4
   %.val117.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val.i84, ptr %.val117.i, i32 noundef 16, i32 noundef 15370)
-  %503 = load i32, ptr %321, align 8, !tbaa !240
+  %503 = load i32, ptr %321, align 8, !tbaa !239
   %504 = getelementptr inbounds nuw i8, ptr %286, i64 12
-  %505 = load i32, ptr %504, align 4, !tbaa !243
+  %505 = load i32, ptr %504, align 4, !tbaa !242
   call void @avio_write(ptr noundef %288, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %288, i32 noundef %503) #14
   call void @avio_wb32(ptr noundef %288, i32 noundef %505) #14
-  %506 = load i32, ptr %321, align 8, !tbaa !240
+  %506 = load i32, ptr %321, align 8, !tbaa !239
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.74, i32 noundef %506) #14
   %.val118.i = load ptr, ptr %3, align 8, !tbaa !4
   %.val119.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val118.i, ptr %.val119.i, i32 noundef 32, i32 noundef 17409)
-  %507 = load i32, ptr %504, align 4, !tbaa !243
+  %507 = load i32, ptr %504, align 4, !tbaa !242
   %508 = load ptr, ptr %3, align 8, !tbaa !4
   %509 = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_write(ptr noundef %509, ptr noundef nonnull @umid_ul, i32 noundef 13) #14
@@ -6731,7 +6172,7 @@ klv_encode_ber_length.exit.i:                     ; preds = %497, %464, %klv_enc
   br i1 %.not115.i, label %518, label %516
 
 516:                                              ; preds = %klv_encode_ber_length.exit.i
-  %517 = load ptr, ptr %286, align 8, !tbaa !245
+  %517 = load ptr, ptr %286, align 8, !tbaa !244
   call fastcc void @mxf_write_local_tag_utf16(ptr noundef nonnull %0, i32 noundef 17410, ptr noundef %517)
   br label %518
 
@@ -6763,14 +6204,14 @@ klv_encode_ber_length.exit.i:                     ; preds = %497, %464, %klv_enc
 
 526:                                              ; preds = %526, %.lr.ph.i
   %.0109181.i = phi i32 [ 0, %.lr.ph.i ], [ %529, %526 ]
-  %527 = load i32, ptr %525, align 4, !tbaa !250
+  %527 = load i32, ptr %525, align 4, !tbaa !249
   %528 = add nsw i32 %527, %.0109181.i
   call void @avio_write(ptr noundef %288, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %288, i32 noundef 9) #14
   call void @avio_wb32(ptr noundef %288, i32 noundef %528) #14
   %529 = add nuw nsw i32 %.0109181.i, 1
   %exitcond.not.i87 = icmp eq i32 %.0109181.i, %285
-  br i1 %exitcond.not.i87, label %._crit_edge.i, label %526, !llvm.loop !254
+  br i1 %exitcond.not.i87, label %._crit_edge.i, label %526, !llvm.loop !253
 
 ._crit_edge.i:                                    ; preds = %526, %518
   %530 = getelementptr inbounds nuw i8, ptr %287, i64 184
@@ -6795,7 +6236,7 @@ klv_encode_ber_length.exit.i:                     ; preds = %497, %464, %klv_enc
 
 537:                                              ; preds = %537, %.lr.ph184.i
   %.1110182.i = phi i32 [ 0, %.lr.ph184.i ], [ %541, %537 ]
-  %538 = load i32, ptr %536, align 4, !tbaa !251
+  %538 = load i32, ptr %536, align 4, !tbaa !250
   %539 = sub nsw i32 %.1110182.i, %.1113.i
   %540 = add i32 %539, %538
   call void @avio_write(ptr noundef %288, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
@@ -6803,15 +6244,15 @@ klv_encode_ber_length.exit.i:                     ; preds = %497, %464, %klv_enc
   call void @avio_wb32(ptr noundef %288, i32 noundef %540) #14
   %541 = add nuw nsw i32 %.1110182.i, 1
   %exitcond205.not.i = icmp eq i32 %541, %.1113.i
-  br i1 %exitcond205.not.i, label %.loopexit.i, label %537, !llvm.loop !255
+  br i1 %exitcond205.not.i, label %.loopexit.i, label %537, !llvm.loop !254
 
 .loopexit.i:                                      ; preds = %537, %532, %._crit_edge.i
-  %542 = load i32, ptr %321, align 8, !tbaa !240
+  %542 = load i32, ptr %321, align 8, !tbaa !239
   %543 = icmp eq i32 %542, 2
   br i1 %543, label %544, label %mxf_write_multi_descriptor.exit.i
 
 544:                                              ; preds = %.loopexit.i
-  %545 = load i32, ptr %504, align 4, !tbaa !243
+  %545 = load i32, ptr %504, align 4, !tbaa !242
   switch i32 %545, label %mxf_write_multi_descriptor.exit.i [
     i32 1, label %546
     i32 2, label %603
@@ -6939,7 +6380,7 @@ klv_encode_ber_length.exit.i.i:                   ; preds = %573, %klv_ber_lengt
   %599 = add nuw nsw i32 %.02634.i.i, 1
   %600 = load i32, ptr %282, align 4, !tbaa !121
   %601 = icmp ult i32 %599, %600
-  br i1 %601, label %.lr.ph.i153.i, label %mxf_write_multi_descriptor.exit.i, !llvm.loop !256
+  br i1 %601, label %.lr.ph.i153.i, label %mxf_write_multi_descriptor.exit.i, !llvm.loop !255
 
 602:                                              ; preds = %546
   call void @avio_wb16(ptr noundef %288, i32 noundef 14) #14
@@ -6982,7 +6423,7 @@ mxf_write_multi_descriptor.exit.i:                ; preds = %.lr.ph.i153.i, %mxf
   %.val17.i129 = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val16.i128, ptr %.val17.i129, i32 noundef 16, i32 noundef 15370)
   %610 = getelementptr inbounds nuw i8, ptr %608, i64 188
-  %611 = load i32, ptr %610, align 4, !tbaa !250
+  %611 = load i32, ptr %610, align 4, !tbaa !249
   call void @avio_write(ptr noundef %609, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %609, i32 noundef 6) #14
   call void @avio_wb32(ptr noundef %609, i32 noundef %611) #14
@@ -6996,7 +6437,7 @@ mxf_write_multi_descriptor.exit.i:                ; preds = %.lr.ph.i153.i, %mxf
   %613 = load ptr, ptr %612, align 8, !tbaa !222
   %614 = icmp eq ptr %607, %613
   %..i132 = select i1 %614, i32 4, i32 3
-  %615 = load i32, ptr %610, align 4, !tbaa !250
+  %615 = load i32, ptr %610, align 4, !tbaa !249
   call void @avio_write(ptr noundef %609, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %609, i32 noundef %..i132) #14
   call void @avio_wb32(ptr noundef %609, i32 noundef %615) #14
@@ -7010,7 +6451,7 @@ mxf_write_multi_descriptor.exit.i:                ; preds = %.lr.ph.i153.i, %mxf
   %.val24.i.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val23.i.i, ptr %.val24.i.i, i32 noundef 16, i32 noundef 15370)
   %619 = getelementptr inbounds nuw i8, ptr %617, i64 188
-  %620 = load i32, ptr %619, align 4, !tbaa !250
+  %620 = load i32, ptr %619, align 4, !tbaa !249
   call void @avio_write(ptr noundef %618, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %618, i32 noundef 4) #14
   call void @avio_wb32(ptr noundef %618, i32 noundef %620) #14
@@ -7019,26 +6460,26 @@ mxf_write_multi_descriptor.exit.i:                ; preds = %.lr.ph.i153.i, %mxf
   %.val22.i.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val21.i.i, ptr %.val22.i.i, i32 noundef 8, i32 noundef 5377)
   %621 = getelementptr inbounds nuw i8, ptr %617, i64 88
-  %622 = load i32, ptr %621, align 8, !tbaa !257
+  %622 = load i32, ptr %621, align 8, !tbaa !256
   %623 = sext i32 %622 to i64
   call void @avio_wb64(ptr noundef %618, i64 noundef %623) #14
   %.val19.i.i = load ptr, ptr %3, align 8, !tbaa !4
   %.val20.i.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val19.i.i, ptr %.val20.i.i, i32 noundef 2, i32 noundef 5378)
   %624 = getelementptr inbounds nuw i8, ptr %617, i64 120
-  %625 = load i32, ptr %624, align 8, !tbaa !258
+  %625 = load i32, ptr %624, align 8, !tbaa !257
   call void @avio_wb16(ptr noundef %618, i32 noundef %625) #14
   %.val.i155.i = load ptr, ptr %3, align 8, !tbaa !4
   %.val18.i.i = load ptr, ptr %46, align 8, !tbaa !24
   call fastcc void @mxf_write_local_tag(ptr %.val.i155.i, ptr %.val18.i.i, i32 noundef 1, i32 noundef 5379)
   %626 = getelementptr inbounds nuw i8, ptr %617, i64 92
-  %627 = load i32, ptr %626, align 4, !tbaa !259
+  %627 = load i32, ptr %626, align 4, !tbaa !258
   %628 = and i32 %627, 1
   call void @avio_w8(ptr noundef %618, i32 noundef %628) #14
   %629 = getelementptr inbounds nuw i8, ptr %287, i64 188
-  %630 = load i32, ptr %629, align 4, !tbaa !250
+  %630 = load i32, ptr %629, align 4, !tbaa !249
   %631 = add nsw i32 %630, 1
-  store i32 %631, ptr %629, align 4, !tbaa !250
+  store i32 %631, ptr %629, align 4, !tbaa !249
   %632 = load i32, ptr %282, align 4, !tbaa !121
   %.not190.i = icmp eq i32 %632, 0
   br i1 %.not190.i, label %.loopexit, label %.lr.ph186.i
@@ -7062,19 +6503,19 @@ mxf_lookup_local_tag.exit.i162:                   ; preds = %.lr.ph186.i, %.thre
   %639 = getelementptr inbounds nuw i8, ptr %.val16.i124, i64 196
   %640 = load i8, ptr %639, align 1, !tbaa !54
   %641 = icmp eq i8 %640, 0
-  br i1 %641, label %mxf_lookup_local_tag.exit.i172, label %642
+  br i1 %641, label %mxf_write_local_tag.exit163, label %642
 
 642:                                              ; preds = %mxf_lookup_local_tag.exit.i162
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_lookup_local_tag.exit.i172:                   ; preds = %mxf_lookup_local_tag.exit.i162
+mxf_write_local_tag.exit163:                      ; preds = %mxf_lookup_local_tag.exit.i162
   %.val17.i125 = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val17.i125, i32 noundef 15370) #14
   call void @avio_wb16(ptr noundef %.val17.i125, i32 noundef 16) #14
   %643 = getelementptr inbounds nuw i8, ptr %637, i64 188
-  %644 = load i32, ptr %643, align 4, !tbaa !250
+  %644 = load i32, ptr %643, align 4, !tbaa !249
   call void @avio_write(ptr noundef %638, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %638, i32 noundef 6) #14
   call void @avio_wb32(ptr noundef %638, i32 noundef %644) #14
@@ -7085,18 +6526,18 @@ mxf_lookup_local_tag.exit.i172:                   ; preds = %mxf_lookup_local_ta
   %649 = icmp eq i8 %648, 0
   br i1 %649, label %mxf_write_local_tag.exit173, label %650
 
-650:                                              ; preds = %mxf_lookup_local_tag.exit.i172
+650:                                              ; preds = %mxf_write_local_tag.exit163
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_write_local_tag.exit173:                      ; preds = %mxf_lookup_local_tag.exit.i172
+mxf_write_local_tag.exit173:                      ; preds = %mxf_write_local_tag.exit163
   call void @avio_wb16(ptr noundef %646, i32 noundef 513) #14
   call void @avio_wb16(ptr noundef %646, i32 noundef 16) #14
   %651 = getelementptr inbounds nuw i8, ptr %645, i64 112
   %652 = load ptr, ptr %651, align 8, !tbaa !222
   %653 = icmp eq ptr %636, %652
-  br i1 %653, label %mxf_lookup_local_tag.exit.i167, label %654
+  br i1 %653, label %mxf_get_codec_ul_by_id.exit.i152, label %654
 
 654:                                              ; preds = %mxf_write_local_tag.exit173
   %655 = getelementptr inbounds nuw i8, ptr %636, i64 16
@@ -7104,22 +6545,22 @@ mxf_write_local_tag.exit173:                      ; preds = %mxf_lookup_local_ta
   %657 = load i32, ptr %656, align 8, !tbaa !119
   %658 = load i8, ptr @ff_mxf_data_definition_uls, align 8, !tbaa !54
   %.not4.i.i148 = icmp eq i8 %658, 0
-  br i1 %.not4.i.i148, label %mxf_lookup_local_tag.exit.i167, label %.lr.ph.i.i149
+  br i1 %.not4.i.i148, label %mxf_get_codec_ul_by_id.exit.i152, label %.lr.ph.i.i149
 
 .lr.ph.i.i149:                                    ; preds = %654, %662
   %.05.i.i150 = phi ptr [ %663, %662 ], [ @ff_mxf_data_definition_uls, %654 ]
   %659 = getelementptr inbounds nuw i8, ptr %.05.i.i150, i64 20
-  %660 = load i32, ptr %659, align 4, !tbaa !260
+  %660 = load i32, ptr %659, align 4, !tbaa !259
   %661 = icmp eq i32 %657, %660
-  br i1 %661, label %mxf_lookup_local_tag.exit.i167, label %662
+  br i1 %661, label %mxf_get_codec_ul_by_id.exit.i152, label %662
 
 662:                                              ; preds = %.lr.ph.i.i149
   %663 = getelementptr inbounds nuw i8, ptr %.05.i.i150, i64 40
   %664 = load i8, ptr %663, align 8, !tbaa !54
   %.not.i.i151 = icmp eq i8 %664, 0
-  br i1 %.not.i.i151, label %mxf_lookup_local_tag.exit.i167, label %.lr.ph.i.i149, !llvm.loop !262
+  br i1 %.not.i.i151, label %mxf_get_codec_ul_by_id.exit.i152, label %.lr.ph.i.i149, !llvm.loop !261
 
-mxf_lookup_local_tag.exit.i167:                   ; preds = %.lr.ph.i.i149, %662, %mxf_write_local_tag.exit173, %654
+mxf_get_codec_ul_by_id.exit.i152:                 ; preds = %662, %.lr.ph.i.i149, %654, %mxf_write_local_tag.exit173
   %.0.lcssa.i.sink.i153 = phi ptr [ @smpte_12m_timecode_track_data_ul, %mxf_write_local_tag.exit173 ], [ @ff_mxf_data_definition_uls, %654 ], [ %.05.i.i150, %.lr.ph.i.i149 ], [ %663, %662 ]
   call void @avio_write(ptr noundef %646, ptr noundef nonnull %.0.lcssa.i.sink.i153, i32 noundef 16) #14
   %.val.i154 = load ptr, ptr %3, align 8, !tbaa !4
@@ -7128,12 +6569,12 @@ mxf_lookup_local_tag.exit.i167:                   ; preds = %.lr.ph.i.i149, %662
   %667 = icmp eq i8 %666, 0
   br i1 %667, label %mxf_write_local_tag.exit168, label %668
 
-668:                                              ; preds = %mxf_lookup_local_tag.exit.i167
+668:                                              ; preds = %mxf_get_codec_ul_by_id.exit.i152
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_write_local_tag.exit168:                      ; preds = %mxf_lookup_local_tag.exit.i167
+mxf_write_local_tag.exit168:                      ; preds = %mxf_get_codec_ul_by_id.exit.i152
   %.val19.i155 = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val19.i155, i32 noundef 514) #14
   call void @avio_wb16(ptr noundef %.val19.i155, i32 noundef 8) #14
@@ -7160,14 +6601,14 @@ mxf_write_local_tag.exit168:                      ; preds = %mxf_lookup_local_ta
   %682 = load i32, ptr %681, align 4, !tbaa !46
   %683 = sext i32 %682 to i64
   %684 = udiv i64 %680, %683
-  br label %mxf_lookup_local_tag.exit.i146
+  br label %mxf_write_common_fields.exit158
 
 685:                                              ; preds = %673, %670, %mxf_write_local_tag.exit168
   %686 = getelementptr inbounds nuw i8, ptr %645, i64 80
   %687 = load i64, ptr %686, align 8, !tbaa !142
-  br label %mxf_lookup_local_tag.exit.i146
+  br label %mxf_write_common_fields.exit158
 
-mxf_lookup_local_tag.exit.i146:                   ; preds = %685, %678
+mxf_write_common_fields.exit158:                  ; preds = %678, %685
   %.sink.i157 = phi i64 [ %687, %685 ], [ %684, %678 ]
   call void @avio_wb64(ptr noundef %646, i64 noundef %.sink.i157) #14
   %.val.i126 = load ptr, ptr %3, align 8, !tbaa !4
@@ -7176,12 +6617,12 @@ mxf_lookup_local_tag.exit.i146:                   ; preds = %685, %678
   %690 = icmp eq i8 %689, 0
   br i1 %690, label %mxf_lookup_local_tag.exit.i122, label %691
 
-691:                                              ; preds = %mxf_lookup_local_tag.exit.i146
+691:                                              ; preds = %mxf_write_common_fields.exit158
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_lookup_local_tag.exit.i122:                   ; preds = %mxf_lookup_local_tag.exit.i146
+mxf_lookup_local_tag.exit.i122:                   ; preds = %mxf_write_common_fields.exit158
   %.val15.i127 = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val15.i127, i32 noundef 4097) #14
   call void @avio_wb16(ptr noundef %.val15.i127, i32 noundef 24) #14
@@ -7191,7 +6632,7 @@ mxf_lookup_local_tag.exit.i122:                   ; preds = %mxf_lookup_local_ta
   %693 = load ptr, ptr %692, align 8, !tbaa !222
   %694 = icmp eq ptr %636, %693
   %..i = select i1 %694, i32 4, i32 3
-  %695 = load i32, ptr %643, align 4, !tbaa !250
+  %695 = load i32, ptr %643, align 4, !tbaa !249
   call void @avio_write(ptr noundef %638, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %638, i32 noundef %..i) #14
   call void @avio_wb32(ptr noundef %638, i32 noundef %695) #14
@@ -7204,19 +6645,19 @@ mxf_lookup_local_tag.exit.i122:                   ; preds = %mxf_lookup_local_ta
   %698 = getelementptr inbounds nuw i8, ptr %.val28.i156.i, i64 196
   %699 = load i8, ptr %698, align 1, !tbaa !54
   %700 = icmp eq i8 %699, 0
-  br i1 %700, label %mxf_lookup_local_tag.exit.i141, label %701
+  br i1 %700, label %mxf_write_local_tag.exit123, label %701
 
 701:                                              ; preds = %mxf_lookup_local_tag.exit.i122
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_lookup_local_tag.exit.i141:                   ; preds = %mxf_lookup_local_tag.exit.i122
+mxf_write_local_tag.exit123:                      ; preds = %mxf_lookup_local_tag.exit.i122
   %.val29.i157.i = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val29.i157.i, i32 noundef 15370) #14
   call void @avio_wb16(ptr noundef %.val29.i157.i, i32 noundef 16) #14
   %702 = getelementptr inbounds nuw i8, ptr %696, i64 188
-  %703 = load i32, ptr %702, align 4, !tbaa !250
+  %703 = load i32, ptr %702, align 4, !tbaa !249
   call void @avio_write(ptr noundef %697, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   call void @avio_wb16(ptr noundef %697, i32 noundef 3) #14
   call void @avio_wb32(ptr noundef %697, i32 noundef %703) #14
@@ -7227,18 +6668,18 @@ mxf_lookup_local_tag.exit.i141:                   ; preds = %mxf_lookup_local_ta
   %708 = icmp eq i8 %707, 0
   br i1 %708, label %mxf_write_local_tag.exit142, label %709
 
-709:                                              ; preds = %mxf_lookup_local_tag.exit.i141
+709:                                              ; preds = %mxf_write_local_tag.exit123
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_write_local_tag.exit142:                      ; preds = %mxf_lookup_local_tag.exit.i141
+mxf_write_local_tag.exit142:                      ; preds = %mxf_write_local_tag.exit123
   call void @avio_wb16(ptr noundef %705, i32 noundef 513) #14
   call void @avio_wb16(ptr noundef %705, i32 noundef 16) #14
   %710 = getelementptr inbounds nuw i8, ptr %704, i64 112
   %711 = load ptr, ptr %710, align 8, !tbaa !222
   %712 = icmp eq ptr %636, %711
-  br i1 %712, label %mxf_lookup_local_tag.exit.i136, label %713
+  br i1 %712, label %mxf_get_codec_ul_by_id.exit.i, label %713
 
 713:                                              ; preds = %mxf_write_local_tag.exit142
   %714 = getelementptr inbounds nuw i8, ptr %636, i64 16
@@ -7246,22 +6687,22 @@ mxf_write_local_tag.exit142:                      ; preds = %mxf_lookup_local_ta
   %716 = load i32, ptr %715, align 8, !tbaa !119
   %717 = load i8, ptr @ff_mxf_data_definition_uls, align 8, !tbaa !54
   %.not4.i.i = icmp eq i8 %717, 0
-  br i1 %.not4.i.i, label %mxf_lookup_local_tag.exit.i136, label %.lr.ph.i.i114
+  br i1 %.not4.i.i, label %mxf_get_codec_ul_by_id.exit.i, label %.lr.ph.i.i114
 
 .lr.ph.i.i114:                                    ; preds = %713, %721
   %.05.i.i = phi ptr [ %722, %721 ], [ @ff_mxf_data_definition_uls, %713 ]
   %718 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 20
-  %719 = load i32, ptr %718, align 4, !tbaa !260
+  %719 = load i32, ptr %718, align 4, !tbaa !259
   %720 = icmp eq i32 %716, %719
-  br i1 %720, label %mxf_lookup_local_tag.exit.i136, label %721
+  br i1 %720, label %mxf_get_codec_ul_by_id.exit.i, label %721
 
 721:                                              ; preds = %.lr.ph.i.i114
   %722 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 40
   %723 = load i8, ptr %722, align 8, !tbaa !54
   %.not.i.i115 = icmp eq i8 %723, 0
-  br i1 %.not.i.i115, label %mxf_lookup_local_tag.exit.i136, label %.lr.ph.i.i114, !llvm.loop !262
+  br i1 %.not.i.i115, label %mxf_get_codec_ul_by_id.exit.i, label %.lr.ph.i.i114, !llvm.loop !261
 
-mxf_lookup_local_tag.exit.i136:                   ; preds = %.lr.ph.i.i114, %721, %mxf_write_local_tag.exit142, %713
+mxf_get_codec_ul_by_id.exit.i:                    ; preds = %721, %.lr.ph.i.i114, %713, %mxf_write_local_tag.exit142
   %.0.lcssa.i.sink.i = phi ptr [ @smpte_12m_timecode_track_data_ul, %mxf_write_local_tag.exit142 ], [ @ff_mxf_data_definition_uls, %713 ], [ %.05.i.i, %.lr.ph.i.i114 ], [ %722, %721 ]
   call void @avio_write(ptr noundef %705, ptr noundef nonnull %.0.lcssa.i.sink.i, i32 noundef 16) #14
   %.val.i116 = load ptr, ptr %3, align 8, !tbaa !4
@@ -7270,12 +6711,12 @@ mxf_lookup_local_tag.exit.i136:                   ; preds = %.lr.ph.i.i114, %721
   %726 = icmp eq i8 %725, 0
   br i1 %726, label %mxf_write_local_tag.exit137, label %727
 
-727:                                              ; preds = %mxf_lookup_local_tag.exit.i136
+727:                                              ; preds = %mxf_get_codec_ul_by_id.exit.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_write_local_tag.exit137:                      ; preds = %mxf_lookup_local_tag.exit.i136
+mxf_write_local_tag.exit137:                      ; preds = %mxf_get_codec_ul_by_id.exit.i
   %.val19.i = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val19.i, i32 noundef 514) #14
   call void @avio_wb16(ptr noundef %.val19.i, i32 noundef 8) #14
@@ -7302,28 +6743,28 @@ mxf_write_local_tag.exit137:                      ; preds = %mxf_lookup_local_ta
   %741 = load i32, ptr %740, align 4, !tbaa !46
   %742 = sext i32 %741 to i64
   %743 = udiv i64 %739, %742
-  br label %mxf_lookup_local_tag.exit.i112
+  br label %mxf_write_common_fields.exit
 
 744:                                              ; preds = %732, %729, %mxf_write_local_tag.exit137
   %745 = getelementptr inbounds nuw i8, ptr %704, i64 80
   %746 = load i64, ptr %745, align 8, !tbaa !142
-  br label %mxf_lookup_local_tag.exit.i112
+  br label %mxf_write_common_fields.exit
 
-mxf_lookup_local_tag.exit.i112:                   ; preds = %744, %737
+mxf_write_common_fields.exit:                     ; preds = %737, %744
   %.sink.i118 = phi i64 [ %746, %744 ], [ %743, %737 ]
   call void @avio_wb64(ptr noundef %705, i64 noundef %.sink.i118) #14
   %.val26.i.i = load ptr, ptr %3, align 8, !tbaa !4
   %747 = getelementptr inbounds nuw i8, ptr %.val26.i.i, i64 232
   %748 = load i8, ptr %747, align 1, !tbaa !54
   %749 = icmp eq i8 %748, 0
-  br i1 %749, label %mxf_lookup_local_tag.exit.i107, label %750
+  br i1 %749, label %mxf_write_local_tag.exit113, label %750
 
-750:                                              ; preds = %mxf_lookup_local_tag.exit.i112
+750:                                              ; preds = %mxf_write_common_fields.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_lookup_local_tag.exit.i107:                   ; preds = %mxf_lookup_local_tag.exit.i112
+mxf_write_local_tag.exit113:                      ; preds = %mxf_write_common_fields.exit
   %.val27.i158.i = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val27.i158.i, i32 noundef 4609) #14
   call void @avio_wb16(ptr noundef %.val27.i158.i, i32 noundef 8) #14
@@ -7334,26 +6775,26 @@ mxf_lookup_local_tag.exit.i107:                   ; preds = %mxf_lookup_local_ta
   %753 = icmp eq i8 %752, 0
   br i1 %753, label %mxf_write_local_tag.exit108, label %754
 
-754:                                              ; preds = %mxf_lookup_local_tag.exit.i107
+754:                                              ; preds = %mxf_write_local_tag.exit113
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_write_local_tag.exit108:                      ; preds = %mxf_lookup_local_tag.exit.i107
+mxf_write_local_tag.exit108:                      ; preds = %mxf_write_local_tag.exit113
   %.val25.i.i = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val25.i.i, i32 noundef 4353) #14
   call void @avio_wb16(ptr noundef %.val25.i.i, i32 noundef 32) #14
-  %755 = load ptr, ptr %633, align 8, !tbaa !244
+  %755 = load ptr, ptr %633, align 8, !tbaa !243
   %.not.i160.i = icmp eq ptr %755, null
   br i1 %.not.i160.i, label %756, label %757
 
 756:                                              ; preds = %mxf_write_local_tag.exit108
   call void @ffio_fill(ptr noundef %697, i32 noundef 0, i64 noundef 32) #14
-  br label %mxf_lookup_local_tag.exit.i
+  br label %.split
 
 757:                                              ; preds = %mxf_write_local_tag.exit108
   %758 = getelementptr inbounds nuw i8, ptr %755, i64 12
-  %759 = load i32, ptr %758, align 4, !tbaa !243
+  %759 = load i32, ptr %758, align 4, !tbaa !242
   %760 = load ptr, ptr %3, align 8, !tbaa !4
   %761 = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_write(ptr noundef %761, ptr noundef nonnull @umid_ul, i32 noundef 13) #14
@@ -7366,30 +6807,30 @@ mxf_write_local_tag.exit108:                      ; preds = %mxf_lookup_local_ta
   call void @avio_write(ptr noundef %765, ptr noundef nonnull %766, i32 noundef 15) #14
   %767 = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_w8(ptr noundef %767, i32 noundef %759) #14
-  br label %mxf_lookup_local_tag.exit.i
+  br label %.split
 
-mxf_lookup_local_tag.exit.i:                      ; preds = %756, %757
+.split:                                           ; preds = %757, %756
   %.val.i161.i = load ptr, ptr %3, align 8, !tbaa !4
   %768 = getelementptr inbounds nuw i8, ptr %.val.i161.i, i64 234
   %769 = load i8, ptr %768, align 1, !tbaa !54
   %770 = icmp eq i8 %769, 0
   br i1 %770, label %mxf_write_local_tag.exit, label %771
 
-771:                                              ; preds = %mxf_lookup_local_tag.exit.i
+771:                                              ; preds = %.split
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.47, i32 noundef 678) #14
   call void @abort() #15
   unreachable
 
-mxf_write_local_tag.exit:                         ; preds = %mxf_lookup_local_tag.exit.i
+mxf_write_local_tag.exit:                         ; preds = %.split
   %.val23.i162.i = load ptr, ptr %46, align 8, !tbaa !24
   call void @avio_wb16(ptr noundef %.val23.i162.i, i32 noundef 4354) #14
   call void @avio_wb16(ptr noundef %.val23.i162.i, i32 noundef 4) #14
-  %772 = load i32, ptr %321, align 8, !tbaa !240
+  %772 = load i32, ptr %321, align 8, !tbaa !239
   %773 = icmp eq i32 %772, 2
   br i1 %773, label %774, label %776
 
 774:                                              ; preds = %mxf_write_local_tag.exit
-  %775 = load ptr, ptr %633, align 8, !tbaa !244
+  %775 = load ptr, ptr %633, align 8, !tbaa !243
   %.not22.i.i = icmp eq ptr %775, null
   br i1 %.not22.i.i, label %mxf_write_structural_component.exit.i, label %776
 
@@ -7402,15 +6843,15 @@ mxf_write_local_tag.exit:                         ; preds = %mxf_lookup_local_ta
 mxf_write_structural_component.exit.i:            ; preds = %776, %774
   %.sink.i.i = phi i32 [ %779, %776 ], [ 0, %774 ]
   call void @avio_wb32(ptr noundef %697, i32 noundef %.sink.i.i) #14
-  %780 = load i32, ptr %629, align 4, !tbaa !250
+  %780 = load i32, ptr %629, align 4, !tbaa !249
   %781 = add nsw i32 %780, 1
-  store i32 %781, ptr %629, align 4, !tbaa !250
-  %782 = load i32, ptr %321, align 8, !tbaa !240
+  store i32 %781, ptr %629, align 4, !tbaa !249
+  %782 = load i32, ptr %321, align 8, !tbaa !239
   %783 = icmp eq i32 %782, 2
   br i1 %783, label %784, label %.thread163.i
 
 784:                                              ; preds = %mxf_write_structural_component.exit.i
-  %785 = load i32, ptr %504, align 4, !tbaa !243
+  %785 = load i32, ptr %504, align 4, !tbaa !242
   %786 = icmp eq i32 %785, 1
   br i1 %786, label %787, label %.thread163.i
 
@@ -7421,7 +6862,7 @@ mxf_write_structural_component.exit.i:            ; preds = %776, %774
   %791 = load i32, ptr %790, align 8, !tbaa !180
   %792 = sext i32 %791 to i64
   %793 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %792, i32 3
-  %794 = load ptr, ptr %793, align 8, !tbaa !263
+  %794 = load ptr, ptr %793, align 8, !tbaa !262
   %795 = call i32 %794(ptr noundef nonnull %0, ptr noundef %636) #14
   %796 = icmp sgt i32 %795, -1
   br i1 %796, label %.thread163.i, label %mxf_write_package.exit
@@ -7431,13 +6872,13 @@ mxf_write_structural_component.exit.i:            ; preds = %776, %774
   %797 = load i32, ptr %282, align 4, !tbaa !121
   %798 = zext i32 %797 to i64
   %799 = icmp samesign ult i64 %indvars.iv.next.i86, %798
-  br i1 %799, label %mxf_lookup_local_tag.exit.i162, label %.loopexit, !llvm.loop !265
+  br i1 %799, label %mxf_lookup_local_tag.exit.i162, label %.loopexit, !llvm.loop !264
 
 .loopexit:                                        ; preds = %.thread163.i, %mxf_write_multi_descriptor.exit.i
   %800 = phi i32 [ 0, %mxf_write_multi_descriptor.exit.i ], [ %797, %.thread163.i ]
-  %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count.i
-  br i1 %exitcond.not, label %801, label %284, !llvm.loop !266
+  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count.i
+  br i1 %exitcond.not, label %801, label %284, !llvm.loop !265
 
 801:                                              ; preds = %.loopexit
   %802 = load ptr, ptr %46, align 8, !tbaa !24
@@ -7495,7 +6936,7 @@ define internal fastcc void @mxf_write_local_tag(ptr readonly captures(none) %.2
 3:                                                ; preds = %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 127
-  br i1 %exitcond.not.i, label %8, label %4, !llvm.loop !226
+  br i1 %exitcond.not.i, label %8, label %4, !llvm.loop !266
 
 4:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
@@ -7571,7 +7012,7 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   %21 = shl i32 %.127.i, 6
   %22 = add nuw nsw i32 %20, %21
   %23 = shl i32 %.024.i, 5
-  br i1 %.not35.i, label %.preheader.i, label %.thread44.i, !llvm.loop !247
+  br i1 %.not35.i, label %.preheader.i, label %.thread44.i, !llvm.loop !246
 
 .thread.i:                                        ; preds = %.preheader.i
   %24 = shl i32 %.024.i, 1
@@ -7580,7 +7021,7 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   %27 = icmp ult i32 %26, 65536
   %.231.v.i = select i1 %27, i64 1, i64 2
   %.231.i = add i64 %.231.v.i, %.02954.i
-  br label %28, !llvm.loop !248
+  br label %28, !llvm.loop !247
 
 .thread44.i:                                      ; preds = %16, %.lr.ph.i
   %.12349.i = phi ptr [ %8, %.lr.ph.i ], [ %17, %16 ]
@@ -7639,7 +7080,7 @@ define internal fastcc void @mxf_write_track(ptr noundef readonly captures(none)
   %.val43 = load ptr, ptr %6, align 8, !tbaa !24
   tail call fastcc void @mxf_write_local_tag(ptr %.val42, ptr %.val43, i32 noundef 16, i32 noundef 15370)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 188
-  %11 = load i32, ptr %10, align 4, !tbaa !250
+  %11 = load i32, ptr %10, align 4, !tbaa !249
   tail call void @avio_write(ptr noundef %7, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   tail call void @avio_wb16(ptr noundef %7, i32 noundef 9) #14
   tail call void @avio_wb32(ptr noundef %7, i32 noundef %11) #14
@@ -7654,7 +7095,7 @@ define internal fastcc void @mxf_write_track(ptr noundef readonly captures(none)
   %.val39 = load ptr, ptr %6, align 8, !tbaa !24
   tail call fastcc void @mxf_write_local_tag(ptr %.val38, ptr %.val39, i32 noundef 4, i32 noundef 18436)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !240
+  %16 = load i32, ptr %15, align 8, !tbaa !239
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %19
 
@@ -7707,7 +7148,7 @@ define internal fastcc void @mxf_write_track(ptr noundef readonly captures(none)
   %.val = load ptr, ptr %4, align 8, !tbaa !4
   %.val33 = load ptr, ptr %6, align 8, !tbaa !24
   tail call fastcc void @mxf_write_local_tag(ptr %.val, ptr %.val33, i32 noundef 16, i32 noundef 18435)
-  %38 = load i32, ptr %10, align 4, !tbaa !250
+  %38 = load i32, ptr %10, align 4, !tbaa !249
   tail call void @avio_write(ptr noundef %7, ptr noundef nonnull @uuid_base, i32 noundef 10) #14
   tail call void @avio_wb16(ptr noundef %7, i32 noundef 6) #14
   tail call void @avio_wb32(ptr noundef %7, i32 noundef %38) #14
@@ -7739,7 +7180,7 @@ define internal fastcc void @mxf_write_common_fields(ptr noundef readonly captur
 .lr.ph.i:                                         ; preds = %10, %18
   %.05.i = phi ptr [ %19, %18 ], [ @ff_mxf_data_definition_uls, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %.05.i, i64 20
-  %16 = load i32, ptr %15, align 4, !tbaa !260
+  %16 = load i32, ptr %15, align 4, !tbaa !259
   %17 = icmp eq i32 %13, %16
   br i1 %17, label %mxf_get_codec_ul_by_id.exit, label %18
 
@@ -7747,7 +7188,7 @@ define internal fastcc void @mxf_write_common_fields(ptr noundef readonly captur
   %19 = getelementptr inbounds nuw i8, ptr %.05.i, i64 40
   %20 = load i8, ptr %19, align 8, !tbaa !54
   %.not.i = icmp eq i8 %20, 0
-  br i1 %.not.i, label %mxf_get_codec_ul_by_id.exit, label %.lr.ph.i, !llvm.loop !262
+  br i1 %.not.i, label %mxf_get_codec_ul_by_id.exit, label %.lr.ph.i, !llvm.loop !261
 
 mxf_get_codec_ul_by_id.exit:                      ; preds = %18, %.lr.ph.i, %10, %2
   %.0.lcssa.i.sink = phi ptr [ @smpte_12m_timecode_track_data_ul, %2 ], [ @ff_mxf_data_definition_uls, %10 ], [ %19, %18 ], [ %.05.i, %.lr.ph.i ]
@@ -7849,13 +7290,13 @@ define internal noundef i32 @mxf_write_mpegvideo_desc(ptr noundef readonly captu
   %.val31 = load ptr, ptr %3, align 8, !tbaa !24
   tail call fastcc void @mxf_write_local_tag(ptr %.val30, ptr %.val31, i32 noundef 2, i32 noundef 32774)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %32 = load i32, ptr %31, align 8, !tbaa !233
+  %32 = load i32, ptr %31, align 8, !tbaa !232
   tail call void @avio_wb16(ptr noundef %4, i32 noundef %32) #14
   %.val = load ptr, ptr %20, align 8, !tbaa !4
   %.val29 = load ptr, ptr %3, align 8, !tbaa !24
   tail call fastcc void @mxf_write_local_tag(ptr %.val, ptr %.val29, i32 noundef 2, i32 noundef 32776)
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  %34 = load i32, ptr %33, align 4, !tbaa !235
+  %34 = load i32, ptr %33, align 4, !tbaa !234
   tail call void @avio_wb16(ptr noundef %4, i32 noundef %34) #14
   br label %35
 
@@ -8288,7 +7729,7 @@ define internal fastcc i64 @mxf_write_cdci_common(ptr noundef readonly captures(
 .lr.ph.i:                                         ; preds = %3, %21
   %.05.i = phi ptr [ %22, %21 ], [ @ff_mxf_color_primaries_uls, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.05.i, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !260
+  %20 = load i32, ptr %19, align 4, !tbaa !259
   %.not333.not = icmp ne i32 %17, %20
   br i1 %.not333.not, label %21, label %mxf_get_codec_ul_by_id.exit
 
@@ -8296,7 +7737,7 @@ define internal fastcc i64 @mxf_write_cdci_common(ptr noundef readonly captures(
   %22 = getelementptr inbounds nuw i8, ptr %.05.i, i64 40
   %23 = load i8, ptr %22, align 8, !tbaa !54
   %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %mxf_get_codec_ul_by_id.exit, label %.lr.ph.i, !llvm.loop !262
+  br i1 %.not.i, label %mxf_get_codec_ul_by_id.exit, label %.lr.ph.i, !llvm.loop !261
 
 mxf_get_codec_ul_by_id.exit:                      ; preds = %.lr.ph.i, %21, %3
   %.not196 = phi i1 [ true, %3 ], [ %.not333.not, %21 ], [ %.not333.not, %.lr.ph.i ]
@@ -8310,7 +7751,7 @@ mxf_get_codec_ul_by_id.exit:                      ; preds = %.lr.ph.i, %21, %3
 .lr.ph.i280:                                      ; preds = %mxf_get_codec_ul_by_id.exit, %29
   %.05.i281 = phi ptr [ %30, %29 ], [ @ff_mxf_color_trc_uls, %mxf_get_codec_ul_by_id.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %.05.i281, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !260
+  %28 = load i32, ptr %27, align 4, !tbaa !259
   %.not334.not = icmp ne i32 %25, %28
   br i1 %.not334.not, label %29, label %mxf_get_codec_ul_by_id.exit284
 
@@ -8318,7 +7759,7 @@ mxf_get_codec_ul_by_id.exit:                      ; preds = %.lr.ph.i, %21, %3
   %30 = getelementptr inbounds nuw i8, ptr %.05.i281, i64 40
   %31 = load i8, ptr %30, align 8, !tbaa !54
   %.not.i282 = icmp eq i8 %31, 0
-  br i1 %.not.i282, label %mxf_get_codec_ul_by_id.exit284, label %.lr.ph.i280, !llvm.loop !262
+  br i1 %.not.i282, label %mxf_get_codec_ul_by_id.exit284, label %.lr.ph.i280, !llvm.loop !261
 
 mxf_get_codec_ul_by_id.exit284:                   ; preds = %.lr.ph.i280, %29, %mxf_get_codec_ul_by_id.exit
   %.not197 = phi i1 [ true, %mxf_get_codec_ul_by_id.exit ], [ %.not334.not, %29 ], [ %.not334.not, %.lr.ph.i280 ]
@@ -8332,7 +7773,7 @@ mxf_get_codec_ul_by_id.exit284:                   ; preds = %.lr.ph.i280, %29, %
 .lr.ph.i286:                                      ; preds = %mxf_get_codec_ul_by_id.exit284, %37
   %.05.i287 = phi ptr [ %38, %37 ], [ @ff_mxf_color_space_uls, %mxf_get_codec_ul_by_id.exit284 ]
   %35 = getelementptr inbounds nuw i8, ptr %.05.i287, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !260
+  %36 = load i32, ptr %35, align 4, !tbaa !259
   %.not335.not = icmp ne i32 %33, %36
   br i1 %.not335.not, label %37, label %mxf_get_codec_ul_by_id.exit290
 
@@ -8340,7 +7781,7 @@ mxf_get_codec_ul_by_id.exit284:                   ; preds = %.lr.ph.i280, %29, %
   %38 = getelementptr inbounds nuw i8, ptr %.05.i287, i64 40
   %39 = load i8, ptr %38, align 8, !tbaa !54
   %.not.i288 = icmp eq i8 %39, 0
-  br i1 %.not.i288, label %mxf_get_codec_ul_by_id.exit290, label %.lr.ph.i286, !llvm.loop !262
+  br i1 %.not.i288, label %mxf_get_codec_ul_by_id.exit290, label %.lr.ph.i286, !llvm.loop !261
 
 mxf_get_codec_ul_by_id.exit290:                   ; preds = %.lr.ph.i286, %37, %mxf_get_codec_ul_by_id.exit284
   %.not198 = phi i1 [ true, %mxf_get_codec_ul_by_id.exit284 ], [ %.not335.not, %37 ], [ %.not335.not, %.lr.ph.i286 ]
@@ -9286,7 +8727,7 @@ define internal fastcc i32 @mxf_init_timecode(ptr noundef %0, ptr noundef readon
   %18 = add nsw i32 %17, %.sroa.8.0.extract.trunc
   %19 = sdiv i32 %18, %.sroa.015.0.extract.trunc
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store i32 %19, ptr %20, align 8, !tbaa !258
+  store i32 %19, ptr %20, align 8, !tbaa !257
   %.not42 = icmp eq ptr %8, null
   br i1 %.not42, label %21, label %.thread
 
@@ -9599,10 +9040,10 @@ attributes #17 = { nounwind willreturn memory(read) }
 !203 = !{!34, !21, i64 80}
 !204 = !{!205, !18, i64 8}
 !205 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
-!206 = !{!207, !13, i64 0}
-!207 = !{!"", !13, i64 0, !13, i64 4}
-!208 = distinct !{!208, !67}
-!209 = !{!207, !13, i64 4}
+!206 = distinct !{!206, !67}
+!207 = !{!208, !13, i64 0}
+!208 = !{!"", !13, i64 0, !13, i64 4}
+!209 = !{!208, !13, i64 4}
 !210 = distinct !{!210, !67}
 !211 = !{!5, !13, i64 128}
 !212 = !{!41, !13, i64 48}
@@ -9623,41 +9064,41 @@ attributes #17 = { nounwind willreturn memory(read) }
 !227 = !{!228, !13, i64 0}
 !228 = !{!"MXFLocalTagPair", !13, i64 0, !8, i64 4}
 !229 = distinct !{!229, !67}
-!230 = distinct !{!230, !67}
-!231 = !{!37, !13, i64 76}
-!232 = distinct !{!232, !67}
-!233 = !{!41, !13, i64 112}
-!234 = distinct !{!234, !67}
-!235 = !{!41, !13, i64 116}
+!230 = !{!37, !13, i64 76}
+!231 = distinct !{!231, !67}
+!232 = !{!41, !13, i64 112}
+!233 = distinct !{!233, !67}
+!234 = !{!41, !13, i64 116}
+!235 = distinct !{!235, !67}
 !236 = distinct !{!236, !67}
 !237 = distinct !{!237, !67}
 !238 = distinct !{!238, !67}
-!239 = distinct !{!239, !67}
-!240 = !{!241, !13, i64 8}
-!241 = !{!"MXFPackage", !18, i64 0, !13, i64 8, !13, i64 12, !242, i64 16}
-!242 = !{!"p1 _ZTS10MXFPackage", !7, i64 0}
-!243 = !{!241, !13, i64 12}
-!244 = !{!241, !242, i64 16}
-!245 = !{!241, !18, i64 0}
+!239 = !{!240, !13, i64 8}
+!240 = !{!"MXFPackage", !18, i64 0, !13, i64 8, !13, i64 12, !241, i64 16}
+!241 = !{!"p1 _ZTS10MXFPackage", !7, i64 0}
+!242 = !{!240, !13, i64 12}
+!243 = !{!240, !241, i64 16}
+!244 = !{!240, !18, i64 0}
+!245 = distinct !{!245, !67}
 !246 = distinct !{!246, !67}
 !247 = distinct !{!247, !67}
 !248 = distinct !{!248, !67}
-!249 = distinct !{!249, !67}
-!250 = !{!37, !13, i64 188}
-!251 = !{!37, !13, i64 172}
-!252 = !{!205, !18, i64 0}
+!249 = !{!37, !13, i64 188}
+!250 = !{!37, !13, i64 172}
+!251 = !{!205, !18, i64 0}
+!252 = distinct !{!252, !67}
 !253 = distinct !{!253, !67}
 !254 = distinct !{!254, !67}
 !255 = distinct !{!255, !67}
-!256 = distinct !{!256, !67}
-!257 = !{!37, !13, i64 88}
-!258 = !{!37, !13, i64 120}
-!259 = !{!37, !13, i64 92}
-!260 = !{!261, !13, i64 20}
-!261 = !{!"MXFCodecUL", !8, i64 0, !13, i64 16, !13, i64 20, !18, i64 24, !13, i64 32, !13, i64 36}
-!262 = distinct !{!262, !67}
-!263 = !{!264, !7, i64 48}
-!264 = !{!"MXFContainerEssenceEntry", !8, i64 0, !8, i64 16, !8, i64 32, !7, i64 48}
+!256 = !{!37, !13, i64 88}
+!257 = !{!37, !13, i64 120}
+!258 = !{!37, !13, i64 92}
+!259 = !{!260, !13, i64 20}
+!260 = !{!"MXFCodecUL", !8, i64 0, !13, i64 16, !13, i64 20, !18, i64 24, !13, i64 32, !13, i64 36}
+!261 = distinct !{!261, !67}
+!262 = !{!263, !7, i64 48}
+!263 = !{!"MXFContainerEssenceEntry", !8, i64 0, !8, i64 16, !8, i64 32, !7, i64 48}
+!264 = distinct !{!264, !67}
 !265 = distinct !{!265, !67}
 !266 = distinct !{!266, !67}
 !267 = !{!41, !43, i64 134}

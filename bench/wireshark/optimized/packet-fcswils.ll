@@ -719,7 +719,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = alloca %struct._fcswils_conv_key, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
-  br i1 %6, label %108, label %7
+  br i1 %6, label %110, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -801,7 +801,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
 
 59:                                               ; preds = %56
   %60 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_swils_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.404)
-  br label %108
+  br label %110
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -829,7 +829,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
 
 73:                                               ; preds = %71
   %74 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_swils_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.405)
-  br label %108
+  br label %110
 
 75:                                               ; preds = %47, %46
   %76 = load ptr, ptr %8, align 8
@@ -843,9 +843,9 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %78, label %.thread122, label %84
 
 .thread122:                                       ; preds = %66, %.thread
-  %.097.ph144 = phi i32 [ 0, %.thread ], [ %68, %66 ]
+  %.097.ph143 = phi i32 [ 0, %.thread ], [ %68, %66 ]
   %79 = load ptr, ptr %8, align 8
-  %80 = and i32 %.097.ph144, 255
+  %80 = and i32 %.097.ph143, 255
   %81 = call ptr @val_to_str(i32 noundef %80, ptr noundef nonnull @fc_swils_opcode_key_val, ptr noundef nonnull @.str.406)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.407, ptr noundef %81)
   %82 = load i32, ptr @hf_swils_opcode, align 4
@@ -865,46 +865,48 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   %89 = load i32, ptr @hf_swils_opcode, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %91 = icmp ult i8 %.095118, 53
-  br i1 %91, label %92, label %97
+  br i1 %91, label %92, label %99
 
 92:                                               ; preds = %.thread122, %88
   %.095118126 = phi i8 [ 1, %.thread122 ], [ %.095118, %88 ]
   %.094120125 = phi i8 [ 0, %.thread122 ], [ %.094120, %88 ]
   %93 = zext nneg i8 %.095118126 to i64
-  %94 = getelementptr %struct._fcswils_func_table_t, ptr @fcswils_func_table, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %.not113 = icmp eq ptr %95, null
-  br i1 %.not113, label %.thread128, label %96
+  %94 = shl nuw nsw i64 1, %93
+  %95 = and i64 %94, 3658640879845373
+  %.not113.not = icmp eq i64 %95, 0
+  br i1 %.not113.not, label %96, label %.thread128
 
 96:                                               ; preds = %92
-  call void %95(ptr noundef %0, ptr noundef %1, ptr noundef %14, i8 noundef zeroext %.094120125)
-  br label %106
-
-97:                                               ; preds = %88
-  %98 = icmp eq i8 %.095118, 64
-  br i1 %98, label %99, label %.thread128
-
-99:                                               ; preds = %97
-  %100 = load ptr, ptr @fcsp_handle, align 8
-  %101 = icmp ne ptr %100, null
-  %or.cond10 = select i1 %or.cond, i1 %101, i1 false
-  br i1 %or.cond10, label %102, label %106
-
-102:                                              ; preds = %99
-  %103 = call i32 @call_dissector(ptr noundef nonnull %100, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %106
-
-.thread128:                                       ; preds = %92, %97
-  %104 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
-  %105 = call i32 @call_data_dissector(ptr noundef %104, ptr noundef %1, ptr noundef %2)
-  br label %106
-
-106:                                              ; preds = %.thread128, %102, %99, %96
-  %107 = call i32 @tvb_captured_length(ptr noundef %0)
+  %97 = getelementptr %struct._fcswils_func_table_t, ptr @fcswils_func_table, i64 %93
+  %98 = load ptr, ptr %97, align 8
+  call void %98(ptr noundef %0, ptr noundef %1, ptr noundef %14, i8 noundef zeroext %.094120125)
   br label %108
 
-108:                                              ; preds = %4, %106, %73, %59
-  %.0 = phi i32 [ %107, %106 ], [ 0, %73 ], [ 0, %59 ], [ 0, %4 ]
+99:                                               ; preds = %88
+  %100 = icmp eq i8 %.095118, 64
+  br i1 %100, label %101, label %.thread128
+
+101:                                              ; preds = %99
+  %102 = load ptr, ptr @fcsp_handle, align 8
+  %103 = icmp ne ptr %102, null
+  %or.cond10 = select i1 %or.cond, i1 %103, i1 false
+  br i1 %or.cond10, label %104, label %108
+
+104:                                              ; preds = %101
+  %105 = call i32 @call_dissector(ptr noundef nonnull %102, ptr noundef %0, ptr noundef %1, ptr noundef %14)
+  br label %108
+
+.thread128:                                       ; preds = %92, %99
+  %106 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
+  %107 = call i32 @call_data_dissector(ptr noundef %106, ptr noundef %1, ptr noundef %2)
+  br label %108
+
+108:                                              ; preds = %.thread128, %104, %101, %96
+  %109 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %110
+
+110:                                              ; preds = %4, %108, %73, %59
+  %.0 = phi i32 [ %109, %108 ], [ 0, %73 ], [ 0, %59 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

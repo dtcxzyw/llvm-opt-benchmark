@@ -862,8 +862,8 @@ define void @ff_riff_write_info(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %exitcond.i, label %riff_has_valid_tags.exit.thread, label %6, !llvm.loop !61
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 36
+  br i1 %.not.i, label %riff_has_valid_tags.exit.thread, label %6, !llvm.loop !61
 
 6:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %5 ]
@@ -915,8 +915,8 @@ riff_has_valid_tags.exit:                         ; preds = %6
 
 ff_riff_write_info_tag.exit:                      ; preds = %28, %21, %15, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond, label %29, label %11, !llvm.loop !66
+  %.not14 = icmp eq i64 %indvars.iv.next, 36
+  br i1 %.not14, label %29, label %11, !llvm.loop !66
 
 29:                                               ; preds = %ff_riff_write_info_tag.exit
   tail call void @ff_end_tag(ptr noundef %3, i64 noundef %10)

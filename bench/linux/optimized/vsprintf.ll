@@ -7139,8 +7139,8 @@ widen_string.exit.thread.i145:                    ; preds = %2796
   %2905 = phi i8 [ %2940, %2938 ], [ %.ph1260, %.thread35.i.preheader ]
   %2906 = phi ptr [ %2939, %2938 ], [ %.ph1261, %.thread35.i.preheader ]
   %2907 = getelementptr %struct.page_flags_fields, ptr @pff, i64 %2904
-  %2908 = load i32, ptr %2907, align 16
-  %2909 = icmp eq i32 %2908, 0
+  %2908 = add nsw i64 %2904, -3
+  %2909 = icmp ult i64 %2908, -2
   br i1 %2909, label %2938, label %2910
 
 2910:                                             ; preds = %.thread35.i

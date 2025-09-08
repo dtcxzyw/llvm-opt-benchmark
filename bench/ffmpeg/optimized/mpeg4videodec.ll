@@ -10499,7 +10499,7 @@ get_vlc2.exit.i:                                  ; preds = %248, %230
 
 283:                                              ; preds = %281
   %284 = shl nuw i32 1, %274
-  %.not140.i = icmp eq i8 %273, 0
+  %.not140.i = icmp eq i32 %.051.i.i, 1
   br i1 %.not140.i, label %297, label %285
 
 285:                                              ; preds = %283

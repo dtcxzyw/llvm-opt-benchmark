@@ -1831,7 +1831,7 @@ define internal range(i64 -2147483648, 2147487742) i64 @lg4ff_alternate_modes_sh
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i16, ptr %30, align 8
-  %34 = icmp eq i16 %33, 0
+  %34 = icmp eq i64 %20, 0
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = select i1 %34, ptr %13, ptr %35
   %37 = load ptr, ptr %36, align 8
@@ -1895,7 +1895,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 
 9:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.41) #14
-  br label %107
+  br label %104
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1905,12 +1905,12 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 
 14:                                               ; preds = %10
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.42) #14
-  br label %107
+  br label %104
 
 15:                                               ; preds = %10
   %16 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.53, ptr noundef %2) #15
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %107, label %18
+  br i1 %17, label %104, label %18
 
 18:                                               ; preds = %15
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
@@ -1920,7 +1920,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 
 22:                                               ; preds = %18
   tail call void @kfree(ptr noundef nonnull %16) #15
-  br label %107
+  br label %104
 
 23:                                               ; preds = %18
   %24 = shl i64 %19, 32
@@ -1937,7 +1937,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 
 32:                                               ; preds = %30
   tail call void @kfree(ptr noundef nonnull %16) #15
-  br label %107
+  br label %104
 
 33:                                               ; preds = %30
   store i8 0, ptr %27, align 1
@@ -1950,12 +1950,12 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 96
   br label %39
 
-39:                                               ; preds = %55, %34
-  %40 = phi i64 [ 0, %34 ], [ %56, %55 ]
+39:                                               ; preds = %56, %34
+  %40 = phi i64 [ 0, %34 ], [ %57, %56 ]
   %41 = shl nuw nsw i64 1, %40
   %42 = and i64 %41, %37
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %55, label %44
+  br i1 %43, label %56, label %44
 
 44:                                               ; preds = %39
   %45 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %40
@@ -1963,158 +1963,152 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strcmp(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %16) #15
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %55
+  br i1 %49, label %50, label %56
 
 50:                                               ; preds = %44
-  %51 = load i16, ptr %45, align 8
-  %52 = icmp eq i16 %51, 0
-  br i1 %52, label %53, label %58
+  %51 = and i64 %40, 2305843009213693951
+  %52 = icmp eq i64 %51, 0
+  %spec.select = select i1 %52, ptr %38, ptr %45
+  %53 = load i16, ptr %spec.select, align 8
+  %54 = and i64 %40, 4294967295
+  %55 = icmp eq i64 %54, 7
+  br i1 %55, label %.thread10, label %59
 
-53:                                               ; preds = %50
-  %54 = load i16, ptr %38, align 8
-  br label %58
+56:                                               ; preds = %44, %39
+  %57 = add nuw nsw i64 %40, 1
+  %58 = icmp eq i64 %57, 7
+  br i1 %58, label %.thread10, label %39, !llvm.loop !25
 
-55:                                               ; preds = %44, %39
-  %56 = add nuw nsw i64 %40, 1
-  %57 = icmp eq i64 %56, 7
-  br i1 %57, label %.thread10, label %39, !llvm.loop !25
-
-58:                                               ; preds = %53, %50
-  %59 = phi i16 [ %54, %53 ], [ %51, %50 ]
-  %60 = and i64 %40, 4294967295
-  %61 = icmp eq i64 %60, 7
-  br i1 %61, label %.thread10, label %62
-
-.thread10:                                        ; preds = %55, %58
+.thread10:                                        ; preds = %56, %50
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef nonnull %16) #14
   tail call void @kfree(ptr noundef nonnull %16) #15
-  br label %107
+  br label %104
 
-62:                                               ; preds = %58
+59:                                               ; preds = %50
   tail call void @kfree(ptr noundef nonnull %16) #15
-  %63 = zext i16 %59 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, %63
-  br i1 %66, label %107, label %67
+  %60 = zext i16 %53 to i32
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp eq i32 %62, %60
+  br i1 %63, label %104, label %64
 
-67:                                               ; preds = %62
-  %68 = icmp ne i16 %59, -15724
-  %69 = load i32, ptr @lg4ff_no_autoswitch, align 4
-  %70 = icmp ne i32 %69, 0
-  %71 = select i1 %68, i1 true, i1 %70
-  br i1 %71, label %75, label %72
+64:                                               ; preds = %59
+  %65 = icmp ne i16 %53, -15724
+  %66 = load i32, ptr @lg4ff_no_autoswitch, align 4
+  %67 = icmp ne i32 %66, 0
+  %68 = select i1 %65, i1 true, i1 %67
+  br i1 %68, label %72, label %69
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %74 = load ptr, ptr %73, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef %74) #14
-  br label %107
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %71 = load ptr, ptr %70, align 8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef %71) #14
+  br label %104
 
-75:                                               ; preds = %67
-  %76 = load i16, ptr %38, align 8
-  %77 = and i16 %76, -2
-  %78 = icmp eq i16 %77, -15720
-  %79 = icmp ugt i32 %65, %63
-  %80 = and i1 %79, %78
-  br i1 %80, label %81, label %86
+72:                                               ; preds = %64
+  %73 = load i16, ptr %38, align 8
+  %74 = and i16 %73, -2
+  %75 = icmp eq i16 %74, -15720
+  %76 = icmp ugt i32 %62, %60
+  %77 = and i1 %76, %75
+  br i1 %77, label %78, label %83
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %60, i32 2
-  %85 = load ptr, ptr %84, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %83, ptr noundef %85) #14
-  br label %107
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %54, i32 2
+  %82 = load ptr, ptr %81, align 8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %80, ptr noundef %82) #14
+  br label %104
 
-86:                                               ; preds = %75
-  switch i16 %76, label %lg4ff_get_mode_switch_command.exit.thread13 [
-    i16 -15720, label %87
-    i16 -15719, label %89
-    i16 -15717, label %90
-    i16 -15793, label %94
-    i16 -15718, label %99
+83:                                               ; preds = %72
+  switch i16 %73, label %lg4ff_get_mode_switch_command.exit.thread13 [
+    i16 -15720, label %84
+    i16 -15719, label %86
+    i16 -15717, label %87
+    i16 -15793, label %91
+    i16 -15718, label %96
   ]
 
-87:                                               ; preds = %86
-  %88 = icmp eq i16 %59, -15720
-  br i1 %88, label %lg4ff_get_mode_switch_command.exit.thread, label %lg4ff_get_mode_switch_command.exit.thread13
+84:                                               ; preds = %83
+  %85 = icmp eq i16 %53, -15720
+  br i1 %85, label %lg4ff_get_mode_switch_command.exit.thread, label %lg4ff_get_mode_switch_command.exit.thread13
 
-89:                                               ; preds = %86
-  switch i16 %59, label %lg4ff_get_mode_switch_command.exit.thread13 [
+86:                                               ; preds = %83
+  switch i16 %53, label %lg4ff_get_mode_switch_command.exit.thread13 [
     i16 -15720, label %lg4ff_get_mode_switch_command.exit.thread
     i16 -15719, label %lg4ff_get_mode_switch_command.exit.thread.fold.split
   ]
 
-90:                                               ; preds = %86
-  switch i16 %59, label %lg4ff_get_mode_switch_command.exit.thread13 [
+87:                                               ; preds = %83
+  switch i16 %53, label %lg4ff_get_mode_switch_command.exit.thread13 [
     i16 -15724, label %lg4ff_get_mode_switch_command.exit.thread
-    i16 -15720, label %91
-    i16 -15719, label %92
-    i16 -15717, label %93
+    i16 -15720, label %88
+    i16 -15719, label %89
+    i16 -15717, label %90
   ]
 
-91:                                               ; preds = %90
+88:                                               ; preds = %87
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-92:                                               ; preds = %90
+89:                                               ; preds = %87
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-93:                                               ; preds = %90
+90:                                               ; preds = %87
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-94:                                               ; preds = %86
-  switch i16 %59, label %lg4ff_get_mode_switch_command.exit.thread13 [
+91:                                               ; preds = %83
+  switch i16 %53, label %lg4ff_get_mode_switch_command.exit.thread13 [
     i16 -15720, label %lg4ff_get_mode_switch_command.exit.thread
-    i16 -15718, label %95
-    i16 -15719, label %96
-    i16 -15717, label %97
-    i16 -15793, label %98
+    i16 -15718, label %92
+    i16 -15719, label %93
+    i16 -15717, label %94
+    i16 -15793, label %95
   ]
 
-95:                                               ; preds = %94
+92:                                               ; preds = %91
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-96:                                               ; preds = %94
+93:                                               ; preds = %91
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-97:                                               ; preds = %94
+94:                                               ; preds = %91
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-98:                                               ; preds = %94
+95:                                               ; preds = %91
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-99:                                               ; preds = %86
-  switch i16 %59, label %lg4ff_get_mode_switch_command.exit.thread13 [
+96:                                               ; preds = %83
+  switch i16 %53, label %lg4ff_get_mode_switch_command.exit.thread13 [
     i16 -15724, label %lg4ff_get_mode_switch_command.exit.thread
-    i16 -15720, label %100
-    i16 -15718, label %101
+    i16 -15720, label %97
+    i16 -15718, label %98
   ]
 
-100:                                              ; preds = %99
+97:                                               ; preds = %96
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-101:                                              ; preds = %99
+98:                                               ; preds = %96
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-lg4ff_get_mode_switch_command.exit.thread13:      ; preds = %89, %99, %94, %90, %86, %87
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %63) #14
-  br label %107
+lg4ff_get_mode_switch_command.exit.thread13:      ; preds = %86, %96, %91, %87, %83, %84
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %60) #14
+  br label %104
 
-lg4ff_get_mode_switch_command.exit.thread.fold.split: ; preds = %89
+lg4ff_get_mode_switch_command.exit.thread.fold.split: ; preds = %86
   br label %lg4ff_get_mode_switch_command.exit.thread
 
-lg4ff_get_mode_switch_command.exit.thread:        ; preds = %89, %lg4ff_get_mode_switch_command.exit.thread.fold.split, %87, %99, %94, %90, %91, %92, %93, %95, %96, %97, %98, %100, %101
-  %102 = phi ptr [ @lg4ff_mode_switch_ext09_dfex, %99 ], [ @lg4ff_mode_switch_ext09_dfp, %94 ], [ @lg4ff_mode_switch_ext09_dfex, %90 ], [ @lg4ff_mode_switch_ext09_dfp, %91 ], [ @lg4ff_mode_switch_ext09_g25, %92 ], [ @lg4ff_mode_switch_ext09_g27, %93 ], [ @lg4ff_mode_switch_ext09_dfgt, %95 ], [ @lg4ff_mode_switch_ext09_g25, %96 ], [ @lg4ff_mode_switch_ext09_g27, %97 ], [ @lg4ff_mode_switch_ext09_g29, %98 ], [ @lg4ff_mode_switch_ext09_dfp, %100 ], [ @lg4ff_mode_switch_ext09_dfgt, %101 ], [ @lg4ff_mode_switch_ext01_dfp, %87 ], [ @lg4ff_mode_switch_ext01_dfp, %89 ], [ @lg4ff_mode_switch_ext16_g25, %lg4ff_get_mode_switch_command.exit.thread.fold.split ]
-  %103 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %5, ptr noundef nonnull %102), !range !9
-  %104 = icmp eq i32 %103, 0
-  %105 = sext i32 %103 to i64
-  %106 = select i1 %104, i64 %3, i64 %105
-  br label %107
+lg4ff_get_mode_switch_command.exit.thread:        ; preds = %86, %lg4ff_get_mode_switch_command.exit.thread.fold.split, %84, %96, %91, %87, %88, %89, %90, %92, %93, %94, %95, %97, %98
+  %99 = phi ptr [ @lg4ff_mode_switch_ext09_dfex, %96 ], [ @lg4ff_mode_switch_ext09_dfp, %91 ], [ @lg4ff_mode_switch_ext09_dfex, %87 ], [ @lg4ff_mode_switch_ext09_dfp, %88 ], [ @lg4ff_mode_switch_ext09_g25, %89 ], [ @lg4ff_mode_switch_ext09_g27, %90 ], [ @lg4ff_mode_switch_ext09_dfgt, %92 ], [ @lg4ff_mode_switch_ext09_g25, %93 ], [ @lg4ff_mode_switch_ext09_g27, %94 ], [ @lg4ff_mode_switch_ext09_g29, %95 ], [ @lg4ff_mode_switch_ext09_dfp, %97 ], [ @lg4ff_mode_switch_ext09_dfgt, %98 ], [ @lg4ff_mode_switch_ext01_dfp, %84 ], [ @lg4ff_mode_switch_ext01_dfp, %86 ], [ @lg4ff_mode_switch_ext16_g25, %lg4ff_get_mode_switch_command.exit.thread.fold.split ]
+  %100 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %5, ptr noundef nonnull %99), !range !9
+  %101 = icmp eq i32 %100, 0
+  %102 = sext i32 %100 to i64
+  %103 = select i1 %101, i64 %3, i64 %102
+  br label %104
 
-107:                                              ; preds = %lg4ff_get_mode_switch_command.exit.thread, %lg4ff_get_mode_switch_command.exit.thread13, %81, %72, %62, %.thread10, %32, %22, %15, %14, %9
-  %108 = phi i64 [ -22, %22 ], [ -22, %32 ], [ -22, %.thread10 ], [ -22, %81 ], [ %106, %lg4ff_get_mode_switch_command.exit.thread ], [ -22, %lg4ff_get_mode_switch_command.exit.thread13 ], [ -22, %72 ], [ -22, %14 ], [ -22, %9 ], [ -12, %15 ], [ %3, %62 ]
-  ret i64 %108
+104:                                              ; preds = %lg4ff_get_mode_switch_command.exit.thread, %lg4ff_get_mode_switch_command.exit.thread13, %78, %69, %59, %.thread10, %32, %22, %15, %14, %9
+  %105 = phi i64 [ -22, %22 ], [ -22, %32 ], [ -22, %.thread10 ], [ -22, %78 ], [ %103, %lg4ff_get_mode_switch_command.exit.thread ], [ -22, %lg4ff_get_mode_switch_command.exit.thread13 ], [ -22, %69 ], [ -22, %14 ], [ -22, %9 ], [ -12, %15 ], [ %3, %59 ]
+  ret i64 %105
 }
 
 ; Function Attrs: null_pointer_is_valid

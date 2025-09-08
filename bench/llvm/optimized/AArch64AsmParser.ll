@@ -59547,14 +59547,14 @@ _ZNK12_GLOBAL__N_114AArch64Operand14addRegOperandsERN4llvm6MCInstEj.exit: ; pred
   br label %_ZNK12_GLOBAL__N_114AArch64Operand31addImmWithOptionalShiftOperandsILi12EEEvRN4llvm6MCInstEj.exit
 
 42:                                               ; preds = %17
-  %43 = zext i8 %20 to i64
-  %44 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !64
-  %.not444 = icmp eq i8 %45, -1
-  br i1 %.not444, label %_ZNK12_GLOBAL__N_114AArch64Operand31addImmWithOptionalShiftOperandsILi12EEEvRN4llvm6MCInstEj.exit, label %46
+  %.not444 = icmp eq i8 %20, 14
+  br i1 %.not444, label %_ZNK12_GLOBAL__N_114AArch64Operand31addImmWithOptionalShiftOperandsILi12EEEvRN4llvm6MCInstEj.exit, label %43
 
-46:                                               ; preds = %42
-  %47 = zext i8 %45 to i64
+43:                                               ; preds = %42
+  %44 = zext i8 %20 to i64
+  %45 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !64
+  %47 = zext i8 %46 to i64
   %48 = load ptr, ptr %11, align 8, !tbaa !87
   %49 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %48, i64 %47
   %.sroa.073.0.copyload = load i8, ptr %49, align 8, !tbaa !1685
@@ -59565,7 +59565,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand14addRegOperandsERN4llvm6MCInstEj.exit: ; pred
   %.not.i.i.not.i.i = icmp ult i32 %50, %51
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %52, !prof !130
 
-52:                                               ; preds = %46
+52:                                               ; preds = %43
   %53 = zext i32 %50 to i64
   %54 = add nuw nsw i64 %53, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i64 noundef %54, i64 noundef 16) #26
@@ -59573,9 +59573,9 @@ _ZNK12_GLOBAL__N_114AArch64Operand14addRegOperandsERN4llvm6MCInstEj.exit: ; pred
   %.pre = load ptr, ptr %11, align 8, !tbaa !87
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %46, %52
-  %55 = phi ptr [ %48, %46 ], [ %.pre, %52 ]
-  %56 = phi i32 [ %50, %46 ], [ %.pre.i.i, %52 ]
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %43, %52
+  %55 = phi ptr [ %48, %43 ], [ %.pre, %52 ]
+  %56 = phi i32 [ %50, %43 ], [ %.pre.i.i, %52 ]
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %55, i64 %57
   store i8 %.sroa.073.0.copyload, ptr %58, align 1

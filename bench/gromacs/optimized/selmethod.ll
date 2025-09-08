@@ -1166,31 +1166,26 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx29SelectionParse
 define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
-2:                                                ; preds = %14
+2:                                                ; preds = %6
   %3 = xor i8 %spec.select, 1
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 0, %4
   ret i32 %5
 
-6:                                                ; preds = %1, %14
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %14 ]
-  %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %14 ]
+6:                                                ; preds = %1, %6
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
+  %.01215 = phi i8 [ 1, %1 ], [ %spec.select, %6 ]
   %7 = getelementptr inbounds nuw %struct.t_register_method, ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !52
-  %10 = load ptr, ptr %7, align 16, !tbaa !55
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %14
-
-12:                                               ; preds = %6
-  %13 = load ptr, ptr %9, align 8, !tbaa !19
-  br label %14
-
-14:                                               ; preds = %6, %12
-  %.sink = phi ptr [ %13, %12 ], [ %10, %6 ]
-  %15 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %.sink, ptr noundef %9)
-  %.not = icmp eq i32 %15, 0
-  %spec.select = select i1 %.not, i8 %.01214, i8 0
+  %10 = shl nuw i64 1, %indvars.iv
+  %11 = and i64 %10, 1088706925247
+  %.not14 = icmp eq i64 %11, 0
+  %. = select i1 %.not14, ptr %7, ptr %9
+  %.sink = load ptr, ptr %., align 8, !tbaa !55
+  %12 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %.sink, ptr noundef %9)
+  %.not = icmp eq i32 %12, 0
+  %spec.select = select i1 %.not, i8 %.01215, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %2, label %6, !llvm.loop !56
@@ -1285,5 +1280,5 @@ attributes #16 = { builtin nounwind }
 !52 = !{!53, !54, i64 8}
 !53 = !{!"_ZTS17t_register_method", !6, i64 0, !54, i64 8}
 !54 = !{!"p1 _ZTS19gmx_ana_selmethod_t", !7, i64 0}
-!55 = !{!53, !6, i64 0}
+!55 = !{!6, !6, i64 0}
 !56 = distinct !{!56, !31}

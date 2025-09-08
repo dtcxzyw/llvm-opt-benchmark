@@ -4604,7 +4604,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   %157 = zext nneg i32 %156 to i64
   %158 = getelementptr i8, ptr %155, i64 %157
   %159 = load i8, ptr %158, align 1
-  br label %185
+  br label %184
 
 160:                                              ; preds = %151
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4616,64 +4616,63 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   %.split = getelementptr [8 x i8], ptr %161, i64 %164
   %167 = getelementptr i8, ptr %.split, i64 %166
   %168 = load i8, ptr %167, align 1
-  br label %185
+  br label %184
 
 169:                                              ; preds = %151
-  %170 = and i16 %9, 256
-  %171 = icmp eq i16 %170, 0
-  %172 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %173 = load i8, ptr %172, align 2
-  %174 = zext i8 %173 to i32
-  br i1 %171, label %180, label %175
+  %170 = icmp samesign ult i32 %4, 288
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %172 = load i8, ptr %171, align 2
+  %173 = zext i8 %172 to i32
+  br i1 %170, label %179, label %174
 
-175:                                              ; preds = %169
-  %176 = shl nuw nsw i32 %174, 4
-  %177 = add nuw nsw i32 %176, 240
-  %178 = or disjoint i32 %177, %153
-  %179 = trunc i32 %178 to i8
-  br label %185
+174:                                              ; preds = %169
+  %175 = shl nuw nsw i32 %173, 4
+  %176 = add nuw nsw i32 %175, 240
+  %177 = or disjoint i32 %176, %153
+  %178 = trunc i32 %177 to i8
+  br label %184
 
-180:                                              ; preds = %169
-  %181 = shl nuw nsw i32 %174, 3
-  %182 = add nuw nsw i32 %153, 248
-  %183 = add nuw nsw i32 %182, %181
-  %184 = trunc i32 %183 to i8
-  br label %185
+179:                                              ; preds = %169
+  %180 = shl nuw nsw i32 %173, 3
+  %181 = add nuw nsw i32 %153, 248
+  %182 = add nuw nsw i32 %181, %180
+  %183 = trunc i32 %182 to i8
+  br label %184
 
-185:                                              ; preds = %180, %175, %160, %154
-  %186 = phi i8 [ %159, %154 ], [ %168, %160 ], [ %179, %175 ], [ %184, %180 ]
-  %187 = icmp sgt i32 %3, 0
-  br i1 %187, label %197, label %188
+184:                                              ; preds = %179, %174, %160, %154
+  %185 = phi i8 [ %159, %154 ], [ %168, %160 ], [ %178, %174 ], [ %183, %179 ]
+  %186 = icmp sgt i32 %3, 0
+  br i1 %186, label %196, label %187
 
-188:                                              ; preds = %185
-  %189 = load ptr, ptr %1, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 208
-  %191 = load i32, ptr %190, align 8
-  %192 = icmp eq i32 %191, 3
-  br i1 %192, label %193, label %202
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %1, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 208
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp eq i32 %190, 3
+  br i1 %191, label %192, label %201
 
-193:                                              ; preds = %188
-  %194 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %195 = load i8, ptr %194, align 2
-  %196 = icmp ugt i8 %195, 1
-  br i1 %196, label %197, label %202
+192:                                              ; preds = %187
+  %193 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %194 = load i8, ptr %193, align 2
+  %195 = icmp ugt i8 %194, 1
+  br i1 %195, label %196, label %201
 
-197:                                              ; preds = %193, %185
-  %198 = sext i32 %3 to i64
-  %199 = getelementptr %struct.anon.30, ptr %2, i64 %198
-  %200 = getelementptr i8, ptr %199, i64 17
-  store i8 %152, ptr %200, align 1
-  %201 = or i16 %9, 1
-  br label %202
+196:                                              ; preds = %192, %184
+  %197 = sext i32 %3 to i64
+  %198 = getelementptr %struct.anon.30, ptr %2, i64 %197
+  %199 = getelementptr i8, ptr %198, i64 17
+  store i8 %152, ptr %199, align 1
+  %200 = or i16 %9, 1
+  br label %201
 
-202:                                              ; preds = %197, %193, %188
-  %203 = phi i16 [ %201, %197 ], [ %9, %193 ], [ %9, %188 ]
-  %204 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %205 = sext i32 %3 to i64
-  %206 = getelementptr %struct.anon.30, ptr %204, i64 %205
-  store i8 %186, ptr %206, align 2
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  store i16 %203, ptr %207, align 2
+201:                                              ; preds = %196, %192, %187
+  %202 = phi i16 [ %200, %196 ], [ %9, %192 ], [ %9, %187 ]
+  %203 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %204 = sext i32 %3 to i64
+  %205 = getelementptr %struct.anon.30, ptr %203, i64 %204
+  store i8 %185, ptr %205, align 2
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
+  store i16 %202, ptr %206, align 2
   ret void
 }
 

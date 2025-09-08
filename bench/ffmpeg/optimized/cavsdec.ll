@@ -2278,7 +2278,7 @@ get_ue_golomb.exit.thread:                        ; preds = %98, %get_ue_golomb.
   %119 = zext i8 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   store i32 %119, ptr %120, align 4, !tbaa !96
-  %.not = icmp eq i8 %118, 0
+  %.not = icmp eq i32 %.075, 4
   br i1 %.not, label %175, label %121
 
 121:                                              ; preds = %115
@@ -3710,7 +3710,7 @@ get_ue_golomb.exit.thread:                        ; preds = %26, %get_ue_golomb.
   %48 = zext i8 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   store i32 %48, ptr %49, align 4, !tbaa !96
-  %.not = icmp eq i8 %47, 0
+  %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %101, label %50
 
 50:                                               ; preds = %44

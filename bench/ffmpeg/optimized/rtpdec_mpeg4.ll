@@ -706,15 +706,15 @@ parse_fmtp_config.exit:                           ; preds = %10
 
 .preheader:                                       ; preds = %17, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %17 ]
-  %21 = phi ptr [ %56, %54 ], [ @.str.6, %17 ]
-  %22 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv
-  %23 = tail call i32 @av_strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %21) #7
+  %21 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8, !tbaa !60
+  %23 = tail call i32 @av_strcasecmp(ptr noundef nonnull %3, ptr noundef %22) #7
   %.not52 = icmp eq i32 %23, 0
   br i1 %.not52, label %24, label %54
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = load i16, ptr %25, align 8, !tbaa !60
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %26 = load i16, ptr %25, align 8, !tbaa !64
   switch i16 %26, label %54 [
     i16 0, label %27
     i16 1, label %47
@@ -738,12 +738,12 @@ parse_fmtp_config.exit:                           ; preds = %10
   br label %.thread
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !64
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %36 = load i32, ptr %35, align 8, !tbaa !65
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %28, %37
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 20
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !65
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 20
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !66
   %39 = sext i32 %.pre to i64
   %40 = icmp sgt i64 %28, %39
   %or.cond = select i1 %38, i1 true, i1 %40
@@ -759,8 +759,8 @@ split:                                            ; preds = %34
 
 41:                                               ; preds = %34
   %42 = trunc nsw i64 %28 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !66
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !67
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 %45
   store i32 %42, ptr %46, align 4, !tbaa !53
@@ -773,8 +773,8 @@ split:                                            ; preds = %34
   br i1 %.not53.not, label %parse_fmtp_config.exit.thread, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !66
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %51 = load i32, ptr %50, align 4, !tbaa !67
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 %52
   store ptr %48, ptr %53, align 8, !tbaa !26
@@ -782,25 +782,23 @@ split:                                            ; preds = %34
 
 54:                                               ; preds = %49, %41, %24, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv.next
-  %56 = load ptr, ptr %55, align 8, !tbaa !67
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %57, label %.preheader, !llvm.loop !68
+  %.not50 = icmp eq i64 %indvars.iv.next, 7
+  br i1 %.not50, label %55, label %.preheader, !llvm.loop !68
 
-57:                                               ; preds = %54
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.6) #8
-  %.not51 = icmp eq i32 %58, 0
-  br i1 %.not51, label %59, label %parse_fmtp_config.exit.thread
+55:                                               ; preds = %54
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.6) #8
+  %.not51 = icmp eq i32 %56, 0
+  br i1 %.not51, label %57, label %parse_fmtp_config.exit.thread
 
-59:                                               ; preds = %57
-  %60 = load i32, ptr %2, align 8, !tbaa !69
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %61, ptr %62, align 8, !tbaa !70
+57:                                               ; preds = %55
+  %58 = load i32, ptr %2, align 8, !tbaa !69
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 %59, ptr %60, align 8, !tbaa !70
   br label %parse_fmtp_config.exit.thread
 
-parse_fmtp_config.exit.thread:                    ; preds = %47, %10, %.thread, %17, %59, %57
-  %.0 = phi i32 [ 0, %57 ], [ 0, %59 ], [ 0, %17 ], [ -1094995529, %.thread ], [ %12, %10 ], [ -12, %47 ]
+parse_fmtp_config.exit.thread:                    ; preds = %47, %10, %.thread, %17, %57, %55
+  %.0 = phi i32 [ 0, %55 ], [ 0, %57 ], [ 0, %17 ], [ -1094995529, %.thread ], [ %12, %10 ], [ -12, %47 ]
   ret i32 %.0
 }
 
@@ -918,14 +916,14 @@ attributes #8 = { nounwind willreturn memory(read) }
 !57 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !39, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !40, i64 80, !40, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !58, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
 !58 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
 !59 = !{!57, !13, i64 4}
-!60 = !{!61, !62, i64 8}
+!60 = !{!61, !18, i64 0}
 !61 = !{!"AttrNameMap", !18, i64 0, !62, i64 8, !13, i64 12, !63, i64 16}
 !62 = !{!"short", !8, i64 0}
 !63 = !{!"Range", !13, i64 0, !13, i64 4}
-!64 = !{!61, !13, i64 16}
-!65 = !{!61, !13, i64 20}
-!66 = !{!61, !13, i64 12}
-!67 = !{!61, !18, i64 0}
+!64 = !{!61, !62, i64 8}
+!65 = !{!61, !13, i64 16}
+!66 = !{!61, !13, i64 20}
+!67 = !{!61, !13, i64 12}
 !68 = distinct !{!68, !52}
 !69 = !{!28, !13, i64 0}
 !70 = !{!57, !19, i64 48}

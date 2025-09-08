@@ -441,34 +441,34 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br label %77
 
 77:                                               ; preds = %.preheader, %.critedge
-  %exitcond = phi i1 [ false, %.preheader ], [ true, %.critedge ]
+  %.not39 = phi i1 [ false, %.preheader ], [ true, %.critedge ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %.critedge ]
-  %78 = phi i32 [ 225, %.preheader ], [ %107, %.critedge ]
-  %79 = phi ptr [ @ExtractMetadataFromJPEG.kJPEGMetadataMap, %.preheader ], [ %106, %.critedge ]
+  %78 = phi ptr [ @ExtractMetadataFromJPEG.kJPEGMetadataMap, %.preheader ], [ %106, %.critedge ]
+  %79 = load i32, ptr %78, align 16, !tbaa !81
   %80 = load i8, ptr %74, align 8, !tbaa !66
   %81 = zext i8 %80 to i32
-  %82 = icmp eq i32 %78, %81
+  %82 = icmp eq i32 %79, %81
   br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %77
   %84 = load i32, ptr %75, align 8, !tbaa !68
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %87 = load i64, ptr %86, align 16, !tbaa !81
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %87 = load i64, ptr %86, align 16, !tbaa !83
   %88 = icmp ult i64 %87, %85
   br i1 %88, label %89, label %.critedge
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %76, align 8, !tbaa !69
-  %91 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !83
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !84
   %bcmp = call i32 @bcmp(ptr %90, ptr %92, i64 %87)
   %.not40 = icmp eq i32 %bcmp, 0
   br i1 %.not40, label %93, label %.critedge
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %95 = load i64, ptr %94, align 8, !tbaa !84
+  %94 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %95 = load i64, ptr %94, align 8, !tbaa !85
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !76
   %98 = icmp eq ptr %97, null
@@ -488,8 +488,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
 
 .critedge:                                        ; preds = %103, %99, %77, %83, %89
   %106 = getelementptr inbounds nuw %struct.anon, ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 %indvars.iv
-  %107 = load i32, ptr %106, align 16, !tbaa !85
-  br i1 %exitcond, label %.critedge43.loopexit, label %77, !llvm.loop !86
+  br i1 %.not39, label %.critedge43.loopexit, label %77, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %27, %42, %34, %61, %58, %54, %2
   %.0.ph = phi i32 [ 1, %2 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %34 ], [ 0, %42 ], [ 0, %27 ]
@@ -706,11 +705,11 @@ attributes #23 = { cold nounwind }
 !78 = !{!77, !14, i64 8}
 !79 = distinct !{!79, !54}
 !80 = distinct !{!80, !54}
-!81 = !{!82, !14, i64 16}
+!81 = !{!82, !5, i64 0}
 !82 = !{!"", !5, i64 0, !9, i64 8, !14, i64 16, !14, i64 24}
-!83 = !{!82, !9, i64 8}
-!84 = !{!82, !14, i64 24}
-!85 = !{!82, !5, i64 0}
+!83 = !{!82, !14, i64 16}
+!84 = !{!82, !9, i64 8}
+!85 = !{!82, !14, i64 24}
 !86 = distinct !{!86, !54}
 !87 = !{!12, !9, i64 0}
 !88 = !{!12, !14, i64 8}

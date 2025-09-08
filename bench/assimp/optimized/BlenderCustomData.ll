@@ -1942,29 +1942,31 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared
 12:                                               ; preds = %4
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr inbounds nuw %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 %13
-  %.sroa.0.0.copyload = load ptr, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
-  %15 = icmp ne ptr %.sroa.0.0.copyload, null
-  %16 = icmp ne ptr %.sroa.5.0.copyload, null
-  %or.cond = select i1 %15, i1 %16, i1 false
-  %17 = icmp ne ptr %.sroa.7.0.copyload, null
-  %or.cond5 = select i1 %or.cond, i1 %17, i1 false
-  %18 = icmp ne i64 %2, 0
-  %or.cond7 = and i1 %18, %or.cond5
-  br i1 %or.cond7, label %19, label %23
+  %15 = shl nuw i64 1, %13
+  %16 = and i64 %15, 100892729
+  %17 = icmp ne i64 %16, 0
+  %18 = icmp ne ptr %.sroa.5.0.copyload, null
+  %or.cond = select i1 %17, i1 %18, i1 false
+  %19 = icmp ne ptr %.sroa.7.0.copyload, null
+  %or.cond5 = select i1 %or.cond, i1 %19, i1 false
+  %20 = icmp ne i64 %2, 0
+  %or.cond7 = and i1 %20, %or.cond5
+  br i1 %or.cond7, label %21, label %25
 
-19:                                               ; preds = %12
-  %20 = tail call noundef ptr %.sroa.5.0.copyload(i64 noundef %2)
-  tail call void @_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EE5resetIS2_PFvPS2_EEENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPSB_T0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %20, ptr noundef nonnull %.sroa.7.0.copyload)
-  %21 = load ptr, ptr %0, align 8
-  %22 = tail call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef %21, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(232) %3)
-  br label %23
+21:                                               ; preds = %12
+  %.sroa.0.0.copyload = load ptr, ptr %14, align 8
+  %22 = tail call noundef ptr %.sroa.5.0.copyload(i64 noundef %2)
+  tail call void @_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EE5resetIS2_PFvPS2_EEENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPSB_T0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %22, ptr noundef nonnull %.sroa.7.0.copyload)
+  %23 = load ptr, ptr %0, align 8
+  %24 = tail call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef %23, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(232) %3)
+  br label %25
 
-23:                                               ; preds = %12, %19
-  %.0 = phi i1 [ %22, %19 ], [ false, %12 ]
+25:                                               ; preds = %12, %21
+  %.0 = phi i1 [ %24, %21 ], [ false, %12 ]
   ret i1 %.0
 }
 

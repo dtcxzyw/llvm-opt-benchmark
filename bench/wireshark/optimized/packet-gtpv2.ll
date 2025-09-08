@@ -4371,7 +4371,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %10 = icmp slt i32 %3, %9
-  br i1 %10, label %.lr.ph, label %.loopexit109
+  br i1 %10, label %.lr.ph, label %.loopexit108
 
 .lr.ph:                                           ; preds = %7
   %11 = icmp ne ptr %2, null
@@ -4379,19 +4379,19 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   %or.cond = and i1 %11, %12
   br label %13
 
-13:                                               ; preds = %.lr.ph, %89
-  %.093119 = phi i32 [ %3, %.lr.ph ], [ %91, %89 ]
-  %14 = sub i32 %9, %.093119
+13:                                               ; preds = %.lr.ph, %88
+  %.093118 = phi i32 [ %3, %.lr.ph ], [ %90, %88 ]
+  %14 = sub i32 %9, %.093118
   %15 = icmp slt i32 %14, 3
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_len_invalid, ptr noundef %0, i32 noundef %.093119, i32 noundef %14, ptr noundef nonnull @.str.24, i32 noundef %14)
-  br label %.loopexit109
+  %17 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_len_invalid, ptr noundef %0, i32 noundef %.093118, i32 noundef %14, ptr noundef nonnull @.str.24, i32 noundef %14)
+  br label %.loopexit108
 
 18:                                               ; preds = %13
-  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.093119)
-  %20 = add nsw i32 %.093119, 1
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.093118)
+  %20 = add nsw i32 %.093118, 1
   %21 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %20)
   %22 = add nsw i32 %14, -4
   %23 = zext i16 %21 to i32
@@ -4399,13 +4399,13 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %18
-  %26 = add i32 %.093119, 4
+  %26 = add i32 %.093118, 4
   %27 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_len_invalid, ptr noundef %0, i32 noundef %26, i32 noundef %22, ptr noundef nonnull @.str.25, i32 noundef %23, i32 noundef %22)
   %28 = load i32, ptr @hf_gtpv2_ie, align 4
-  %29 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %.093119, i32 noundef 1, i32 noundef 0)
+  %29 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %.093118, i32 noundef 1, i32 noundef 0)
   %30 = load i32, ptr @hf_gtpv2_ie_len, align 4
   %31 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  br label %.loopexit109
+  br label %.loopexit108
 
 32:                                               ; preds = %18
   %33 = add nuw nsw i32 %23, 4
@@ -4414,12 +4414,12 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   %36 = load i32, ptr %35, align 4
   %37 = zext i8 %19 to i32
   %38 = call ptr @val_to_str_ext_const(i32 noundef %37, ptr noundef nonnull @gtpv2_element_type_vals_ext, ptr noundef nonnull @.str.14)
-  %39 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.093119, i32 noundef %33, i32 noundef %36, ptr noundef nonnull %8, ptr noundef nonnull @.str.26, ptr noundef %38)
+  %39 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.093118, i32 noundef %33, i32 noundef %36, ptr noundef nonnull %8, ptr noundef nonnull @.str.26, ptr noundef %38)
   %40 = load i32, ptr @hf_gtpv2_ie, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %.093119, i32 noundef 1, i32 noundef 0)
+  %41 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %.093118, i32 noundef 1, i32 noundef 0)
   %42 = load i32, ptr @hf_gtpv2_ie_len, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %42, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  %44 = add i32 %.093119, 3
+  %44 = add i32 %.093118, 3
   %45 = icmp eq i8 %19, -67
   br i1 %45, label %.thread, label %48
 
@@ -4435,16 +4435,16 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   %52 = and i8 %51, 15
   %53 = load i32, ptr @hf_gtpv2_instance, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %53, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0)
-  br i1 %or.cond, label %.preheader108, label %.loopexit
+  br i1 %or.cond, label %.preheader107, label %.loopexit
 
-.preheader108:                                    ; preds = %48, %73
+.preheader107:                                    ; preds = %48, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %48 ]
   %55 = getelementptr %struct._gtpv2_information_element_instance, ptr @gtpv2_information_element_instance_vals, i64 %indvars.iv
   %56 = load i8, ptr %55, align 16
   %57 = icmp eq i8 %56, %4
   br i1 %57, label %58, label %73
 
-58:                                               ; preds = %.preheader108
+58:                                               ; preds = %.preheader107
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, %6
@@ -4468,54 +4468,56 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.27, ptr noundef %72)
   br label %.loopexit
 
-73:                                               ; preds = %.preheader108, %58, %62, %66
+73:                                               ; preds = %.preheader107, %58, %62, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 266
-  br i1 %exitcond.not, label %.loopexit, label %.preheader108, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader107, !llvm.loop !9
 
 .loopexit:                                        ; preds = %73, %48, %70
-  %74 = add i32 %.093119, 4
+  %74 = add i32 %.093118, 4
   %75 = icmp eq i8 %19, 0
   br i1 %75, label %76, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.thread, %.loopexit
-  %.1146 = phi i32 [ %44, %.thread ], [ %74, %.loopexit ]
-  %.095145 = phi i8 [ %47, %.thread ], [ %52, %.loopexit ]
+  %.1148 = phi i32 [ %44, %.thread ], [ %74, %.loopexit ]
+  %.095147 = phi i8 [ %47, %.thread ], [ %52, %.loopexit ]
   br label %.preheader
 
 76:                                               ; preds = %.loopexit
   %77 = load ptr, ptr %8, align 8
   %78 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %77, ptr noundef nonnull @ei_gtpv2_ie)
-  br label %89
+  br label %88
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.094 = phi i32 [ %79, %.preheader ], [ -1, %.preheader.preheader ]
-  %79 = add i32 %.094, 1
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr %struct._gtpv2_ie, ptr @gtpv2_ies, i64 %80
-  %82 = load i32, ptr %81, align 16
-  %.not = icmp eq i32 %82, 0
-  %83 = icmp eq i32 %82, %37
-  %or.cond107 = or i1 %.not, %83
-  br i1 %or.cond107, label %84, label %.preheader, !llvm.loop !10
+.preheader:                                       ; preds = %.preheader.preheader, %79
+  %indvars.iv133 = phi i64 [ -1, %.preheader.preheader ], [ %indvars.iv.next134, %79 ]
+  %indvars.iv.next134 = add nsw i64 %indvars.iv133, 1
+  %.not = icmp eq i64 %indvars.iv.next134, 161
+  br i1 %.not, label %83, label %79
 
-84:                                               ; preds = %.preheader
-  %85 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1146)
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %8, align 8
-  call void %87(ptr noundef %85, ptr noundef %1, ptr noundef %39, ptr noundef %88, i16 noundef zeroext %21, i8 noundef zeroext %4, i8 noundef zeroext %.095145, ptr noundef %5)
-  br label %89
+79:                                               ; preds = %.preheader
+  %80 = getelementptr %struct._gtpv2_ie, ptr @gtpv2_ies, i64 %indvars.iv.next134
+  %81 = load i32, ptr %80, align 16
+  %82 = icmp eq i32 %81, %37
+  br i1 %82, label %83, label %.preheader, !llvm.loop !10
 
-89:                                               ; preds = %84, %76
-  %.1147 = phi i32 [ %.1146, %84 ], [ %74, %76 ]
-  %90 = zext i1 %45 to i32
-  %spec.select = add nuw nsw i32 %23, %90
-  %91 = add i32 %spec.select, %.1147
-  %92 = icmp slt i32 %91, %9
-  br i1 %92, label %13, label %.loopexit109, !llvm.loop !11
+83:                                               ; preds = %79, %.preheader
+  %.lcssa120 = phi ptr [ %80, %79 ], [ getelementptr inbounds nuw (i8, ptr @gtpv2_ies, i64 2576), %.preheader ]
+  %84 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1148)
+  %85 = getelementptr inbounds nuw i8, ptr %.lcssa120, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %8, align 8
+  call void %86(ptr noundef %84, ptr noundef %1, ptr noundef %39, ptr noundef %87, i16 noundef zeroext %21, i8 noundef zeroext %4, i8 noundef zeroext %.095147, ptr noundef %5)
+  br label %88
 
-.loopexit109:                                     ; preds = %89, %7, %25, %16
+88:                                               ; preds = %83, %76
+  %.1149 = phi i32 [ %.1148, %83 ], [ %74, %76 ]
+  %89 = zext i1 %45 to i32
+  %spec.select = add nuw nsw i32 %23, %89
+  %90 = add i32 %spec.select, %.1149
+  %91 = icmp slt i32 %90, %9
+  br i1 %91, label %13, label %.loopexit108, !llvm.loop !11
+
+.loopexit108:                                     ; preds = %88, %7, %25, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

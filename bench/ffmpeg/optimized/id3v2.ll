@@ -321,9 +321,9 @@ define internal fastcc void @id3v2_read_internal(ptr noundef %0, ptr noundef %1,
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %47 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #9
   %48 = sub nsw i64 %47, %30
-  %.not38175 = icmp slt i64 %48, %31
-  %or.cond101176 = select i1 %.not37, i1 true, i1 %.not38175
-  br i1 %or.cond101176, label %.lr.ph, label %.critedge
+  %.not38176 = icmp slt i64 %48, %31
+  %or.cond102177 = select i1 %.not37, i1 true, i1 %.not38176
+  br i1 %or.cond102177, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %29, %382
   %49 = phi i64 [ %383, %382 ], [ %47, %29 ]
@@ -360,23 +360,23 @@ define internal fastcc void @id3v2_read_internal(ptr noundef %0, ptr noundef %1,
   %72 = icmp ne i32 %69, %71
   %73 = load i8, ptr %36, align 1
   %.not.i = icmp eq i8 %73, -1
-  %or.cond68.not82.not110 = select i1 %72, i1 true, i1 %.not.i
+  %or.cond69.not83.not111 = select i1 %72, i1 true, i1 %.not.i
   %74 = load i8, ptr %37, align 1
   %.not12.i = icmp eq i8 %74, -1
-  %or.cond70.not80.not108 = select i1 %or.cond68.not82.not110, i1 true, i1 %.not12.i
+  %or.cond71.not81.not109 = select i1 %or.cond69.not83.not111, i1 true, i1 %.not12.i
   %75 = load i8, ptr %38, align 1
   %76 = icmp slt i8 %75, 0
-  %or.cond73.not107 = select i1 %or.cond70.not80.not108, i1 true, i1 %76
+  %or.cond74.not108 = select i1 %or.cond71.not81.not109, i1 true, i1 %76
   %77 = load i8, ptr %39, align 1
   %78 = icmp slt i8 %77, 0
-  %or.cond76.not105 = select i1 %or.cond73.not107, i1 true, i1 %78
+  %or.cond77.not106 = select i1 %or.cond74.not108, i1 true, i1 %78
   %79 = load i8, ptr %40, align 1
   %80 = icmp slt i8 %79, 0
-  %or.cond79.not103 = select i1 %or.cond76.not105, i1 true, i1 %80
+  %or.cond80.not104 = select i1 %or.cond77.not106, i1 true, i1 %80
   %81 = load i8, ptr %41, align 1
   %82 = icmp slt i8 %81, 0
-  %or.cond85 = select i1 %or.cond79.not103, i1 true, i1 %82
-  br i1 %or.cond85, label %.critedge, label %83
+  %or.cond86 = select i1 %or.cond80.not104, i1 true, i1 %82
+  br i1 %or.cond86, label %.critedge, label %83
 
 83:                                               ; preds = %67
   %84 = zext nneg i8 %75 to i32
@@ -564,15 +564,15 @@ get_size.exit.i:                                  ; preds = %.preheader292.i
 
 171:                                              ; preds = %168
   %172 = load i32, ptr %7, align 4, !tbaa !4
-  %.not.i55 = icmp eq i32 %172, 0
-  br i1 %.not.i55, label %check_tag.exit, label %.preheader.i56
+  %.not.i56 = icmp eq i32 %172, 0
+  br i1 %.not.i56, label %check_tag.exit, label %.preheader.i57
 
-.preheader.i56:                                   ; preds = %171, %173
+.preheader.i57:                                   ; preds = %171, %173
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %173 ], [ 4, %171 ]
-  %.not.i.i57 = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not.i.i57, label %check_tag.exit, label %173
+  %.not.i.i58 = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %.not.i.i58, label %check_tag.exit, label %173
 
-173:                                              ; preds = %.preheader.i56
+173:                                              ; preds = %.preheader.i57
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %174 = and i64 %indvars.iv.next.i.i, 4294967295
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 %174
@@ -582,13 +582,13 @@ get_size.exit.i:                                  ; preds = %.preheader292.i
   %178 = add i8 %176, -58
   %or.cond14.i.i = icmp ult i8 %178, -10
   %or.cond15.i.i = and i1 %or.cond.i.i, %or.cond14.i.i
-  br i1 %or.cond15.i.i, label %check_tag.exit.thread, label %.preheader.i56, !llvm.loop !16
+  br i1 %or.cond15.i.i, label %check_tag.exit.thread, label %.preheader.i57, !llvm.loop !16
 
 check_tag.exit.thread:                            ; preds = %168, %.loopexit290.i, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread272.i
 
-check_tag.exit:                                   ; preds = %.preheader.i56, %171
+check_tag.exit:                                   ; preds = %.preheader.i57, %171
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %179
 
@@ -715,22 +715,22 @@ check_tag.exit:                                   ; preds = %.preheader.i56, %17
 .split.split.us.i:                                ; preds = %236
   %bcmp.us22.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %17, ptr noundef nonnull dereferenceable(3) @.str.123, i64 3)
   %.not14.us23.i = icmp eq i32 %bcmp.us22.i, 0
-  br i1 %.not14.us23.i, label %get_extra_meta_func.exit.thread, label %.lr.ph.i54
+  br i1 %.not14.us23.i, label %get_extra_meta_func.exit.thread, label %.lr.ph.i55
 
-237:                                              ; preds = %.lr.ph.i54
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %238 = getelementptr inbounds nuw %struct.ID3v2EMFunc, ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.next32.i
+237:                                              ; preds = %.lr.ph.i55
+  %238 = getelementptr inbounds nuw %struct.ID3v2EMFunc, ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.next31.i
   %239 = load ptr, ptr %238, align 16, !tbaa !20
   %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %17, ptr noundef nonnull dereferenceable(3) %239, i64 3)
   %.not14.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not14.us.i, label %get_extra_meta_func.exit.thread, label %.lr.ph.i54, !llvm.loop !22
+  br i1 %.not14.us.i, label %get_extra_meta_func.exit.thread, label %.lr.ph.i55, !llvm.loop !22
 
-.lr.ph.i54:                                       ; preds = %.split.split.us.i, %237
-  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %237 ], [ 0, %.split.split.us.i ]
-  %exitcond34.i = icmp eq i64 %indvars.iv31.i, 3
-  br i1 %exitcond34.i, label %..split17.split.us_crit_edge.i, label %237, !llvm.loop !22
+.lr.ph.i55:                                       ; preds = %.split.split.us.i, %237
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %237 ], [ 0, %.split.split.us.i ]
+  %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
+  %.not.us19.i = icmp eq i64 %indvars.iv.next31.i, 4
+  br i1 %.not.us19.i, label %..split17.split.us_crit_edge.i, label %237, !llvm.loop !22
 
-..split17.split.us_crit_edge.i:                   ; preds = %.lr.ph.i54
+..split17.split.us_crit_edge.i:                   ; preds = %.lr.ph.i55
   br label %get_extra_meta_func.exit, !llvm.loop !22
 
 .split.split.i:                                   ; preds = %236, %243
@@ -744,8 +744,8 @@ check_tag.exit:                                   ; preds = %.preheader.i56, %17
 
 243:                                              ; preds = %.split.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %get_extra_meta_func.exit, label %.split.split.i, !llvm.loop !22
+  %.not.i54 = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %.not.i54, label %get_extra_meta_func.exit, label %.split.split.i, !llvm.loop !22
 
 get_extra_meta_func.exit.thread:                  ; preds = %.split.split.i, %237, %.split.split.us.i, %233, %232, %229
   %.2178.i = phi ptr [ %.0176297.i, %229 ], [ %.0176297.i, %233 ], [ %.0176297.i, %232 ], [ @id3v2_extra_meta_funcs, %.split.split.us.i ], [ %238, %237 ], [ %240, %.split.split.i ]
@@ -1126,12 +1126,12 @@ get_extra_meta_func.exit:                         ; preds = %243, %..split17.spl
   %383 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #9
   %384 = sub nsw i64 %383, %30
   %.not38 = icmp slt i64 %384, %31
-  %or.cond101 = select i1 %.not37, i1 true, i1 %.not38
-  br i1 %or.cond101, label %.lr.ph, label %.critedge, !llvm.loop !26
+  %or.cond102 = select i1 %.not37, i1 true, i1 %.not38
+  br i1 %or.cond102, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %382, %.lr.ph, %52, %67, %61, %55, %29
-  %.lcssa174 = phi i64 [ %47, %29 ], [ %383, %382 ], [ %49, %.lr.ph ], [ %49, %52 ], [ %49, %67 ], [ %49, %61 ], [ %49, %55 ]
-  %385 = call i64 @avio_seek(ptr noundef %0, i64 noundef %.lcssa174, i32 noundef 0) #9
+  %.lcssa175 = phi i64 [ %47, %29 ], [ %383, %382 ], [ %49, %.lr.ph ], [ %49, %52 ], [ %49, %67 ], [ %49, %61 ], [ %49, %55 ]
+  %385 = call i64 @avio_seek(ptr noundef %0, i64 noundef %.lcssa175, i32 noundef 0) #9
   call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ff_id3v2_34_metadata_conv) #9
   call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @id3v2_2_metadata_conv) #9
   call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ff_id3v2_4_metadata_conv) #9
@@ -1365,8 +1365,8 @@ define void @ff_id3v2_free_extra_meta(ptr noundef captures(none) %0) local_unnam
 
 8:                                                ; preds = %.split.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %get_extra_meta_func.exit.thread, label %.split.split.i, !llvm.loop !22
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %.not.i, label %get_extra_meta_func.exit.thread, label %.split.split.i, !llvm.loop !22
 
 get_extra_meta_func.exit:                         ; preds = %.split.split.i
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24

@@ -3305,18 +3305,17 @@ define internal void @dhcp_stat_init(ptr noundef %0) #0 {
 
 13:                                               ; preds = %8, %13
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %13 ]
-  %14 = phi ptr [ @.str.1718, %8 ], [ %17, %13 ]
+  %14 = getelementptr %struct._value_string, ptr @opt53_text, i64 %indvars.iv, i32 1
   store i32 3, ptr %2, align 16
-  store ptr %14, ptr %10, align 8
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %10, align 8
   store i32 1, ptr %11, align 8
   store i32 0, ptr %12, align 16
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %2)
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %16, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr %struct._value_string, ptr @opt53_text, i64 %indvars.iv.next, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %exitcond = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond, label %.loopexit, label %13, !llvm.loop !9
+  %.not17 = icmp eq i64 %indvars.iv.next, 18
+  br i1 %.not17, label %.loopexit, label %13, !llvm.loop !9
 
 .loopexit:                                        ; preds = %13, %4, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

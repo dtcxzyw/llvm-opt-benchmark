@@ -127,8 +127,8 @@ define internal range(i32 0, 101) i32 @avi_probe(ptr noundef readonly captures(n
 
 15:                                               ; preds = %6, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %16, label %6, !llvm.loop !12
+  %.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %.not, label %16, label %6, !llvm.loop !12
 
 16:                                               ; preds = %15, %10
   %.06 = phi i32 [ 100, %10 ], [ 0, %15 ]
@@ -178,15 +178,15 @@ define internal range(i32 -2147483648, 1) i32 @avi_read_header(ptr noundef %0) #
 
 33:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.i, label %get_riff.exit, label %34, !llvm.loop !34
+  %cond.i = icmp eq i64 %indvars.iv.next.i, 5
+  br i1 %cond.i, label %get_riff.exit, label %34, !llvm.loop !34
 
 34:                                               ; preds = %33, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %33 ]
   %35 = getelementptr inbounds nuw [8 x i8], ptr @avi_headers, i64 %indvars.iv.i
   %rhsv = load i64, ptr %35, align 8
-  %.not1058 = icmp eq i64 %lhsv, %rhsv
-  br i1 %.not1058, label %36, label %33
+  %.not1059 = icmp eq i64 %lhsv, %rhsv
+  br i1 %.not1059, label %36, label %33
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 7
@@ -215,8 +215,8 @@ get_riff.exit:                                    ; preds = %33
   %47 = icmp slt i64 %44, 1
   %.pre = load i64, ptr %27, align 8, !tbaa !33
   %48 = icmp slt i64 %44, %.pre
-  %or.cond1011 = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond1011, label %49, label %51
+  %or.cond1012 = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond1012, label %49, label %51
 
 49:                                               ; preds = %41
   %50 = icmp eq i64 %.pre, 8
@@ -226,10 +226,10 @@ get_riff.exit:                                    ; preds = %33
 
 51:                                               ; preds = %41, %49
   %52 = call i32 @avio_feof(ptr noundef %22) #14
-  %.not795 = icmp eq i32 %52, 0
-  br i1 %.not795, label %.lr.ph812, label %guess_ni_flag.exit
+  %.not796 = icmp eq i32 %52, 0
+  br i1 %.not796, label %.lr.ph813, label %guess_ni_flag.exit
 
-.lr.ph812:                                        ; preds = %51
+.lr.ph813:                                        ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -247,15 +247,15 @@ get_riff.exit:                                    ; preds = %33
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 7
   br label %68
 
-68:                                               ; preds = %.lr.ph812, %avi_read_nikon.exit
-  %.0560809 = phi i32 [ -1, %.lr.ph812 ], [ %.1561, %avi_read_nikon.exit ]
-  %.0563808 = phi i32 [ -1, %.lr.ph812 ], [ %.1564, %avi_read_nikon.exit ]
-  %.0566806 = phi i32 [ 0, %.lr.ph812 ], [ %.1567, %avi_read_nikon.exit ]
-  %.0575804 = phi ptr [ null, %.lr.ph812 ], [ %.1576, %avi_read_nikon.exit ]
-  %.0578802 = phi i32 [ 0, %.lr.ph812 ], [ %.1579, %avi_read_nikon.exit ]
-  %.0580800 = phi i32 [ 0, %.lr.ph812 ], [ %.1581, %avi_read_nikon.exit ]
-  %.0586798 = phi i32 [ 0, %.lr.ph812 ], [ %.2588, %avi_read_nikon.exit ]
-  %.0589796 = phi i64 [ 0, %.lr.ph812 ], [ %.1590, %avi_read_nikon.exit ]
+68:                                               ; preds = %.lr.ph813, %avi_read_nikon.exit
+  %.0560810 = phi i32 [ -1, %.lr.ph813 ], [ %.1561, %avi_read_nikon.exit ]
+  %.0563809 = phi i32 [ -1, %.lr.ph813 ], [ %.1564, %avi_read_nikon.exit ]
+  %.0566807 = phi i32 [ 0, %.lr.ph813 ], [ %.1567, %avi_read_nikon.exit ]
+  %.0575805 = phi ptr [ null, %.lr.ph813 ], [ %.1576, %avi_read_nikon.exit ]
+  %.0578803 = phi i32 [ 0, %.lr.ph813 ], [ %.1579, %avi_read_nikon.exit ]
+  %.0580801 = phi i32 [ 0, %.lr.ph813 ], [ %.1581, %avi_read_nikon.exit ]
+  %.0586799 = phi i32 [ 0, %.lr.ph813 ], [ %.2588, %avi_read_nikon.exit ]
+  %.0589797 = phi i64 [ 0, %.lr.ph813 ], [ %.1590, %avi_read_nikon.exit ]
   %69 = call i32 @avio_rl32(ptr noundef %22) #14
   %70 = call i32 @avio_rl32(ptr noundef %22) #14
   %71 = call i64 @avio_seek(ptr noundef %22, i64 noundef 0, i32 noundef 1) #14
@@ -349,9 +349,9 @@ get_riff.exit:                                    ; preds = %33
   %105 = call i32 @avio_rl32(ptr noundef %104) #14
   %106 = load ptr, ptr %21, align 8, !tbaa !29
   %107 = call i32 @avio_rl32(ptr noundef %106) #14
-  %cond.i = icmp eq i32 %105, 1735680878
+  %cond.i696 = icmp eq i32 %105, 1735680878
   %108 = load ptr, ptr %21, align 8, !tbaa !29
-  br i1 %cond.i, label %109, label %151
+  br i1 %cond.i696, label %109, label %151
 
 109:                                              ; preds = %103
   %110 = call i64 @avio_seek(ptr noundef %108, i64 noundef 0, i32 noundef 1) #14
@@ -457,19 +457,19 @@ get_riff.exit:                                    ; preds = %33
   br i1 %166, label %.preheader.i, label %177
 
 .preheader.i:                                     ; preds = %157, %176
-  %indvars.iv.i696 = phi i64 [ %indvars.iv.next.pre-phi.i, %176 ], [ 0, %157 ]
-  %167 = getelementptr inbounds nuw [4 x i8], ptr @months, i64 %indvars.iv.i696
+  %indvars.iv.i697 = phi i64 [ %indvars.iv.next.pre-phi.i, %176 ], [ 0, %157 ]
+  %167 = getelementptr inbounds nuw [4 x i8], ptr @months, i64 %indvars.iv.i697
   %168 = call i32 @av_strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull %167) #14
-  %.not.i697 = icmp eq i32 %168, 0
-  br i1 %.not.i697, label %169, label %.preheader._crit_edge.i
+  %.not.i698 = icmp eq i32 %168, 0
+  br i1 %.not.i698, label %169, label %.preheader._crit_edge.i
 
 .preheader._crit_edge.i:                          ; preds = %.preheader.i
-  %.pre.i = add nuw nsw i64 %indvars.iv.i696, 1
+  %.pre.i = add nuw nsw i64 %indvars.iv.i697, 1
   br label %176
 
 169:                                              ; preds = %.preheader.i
   %170 = load i32, ptr %8, align 4, !tbaa !42
-  %171 = add nuw nsw i64 %indvars.iv.i696, 1
+  %171 = add nuw nsw i64 %indvars.iv.i697, 1
   %172 = load i32, ptr %7, align 4, !tbaa !42
   %173 = trunc nuw nsw i64 %171 to i32
   %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.44, i32 noundef %170, i32 noundef %173, i32 noundef %172, ptr noundef nonnull %5) #14
@@ -516,7 +516,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %190
 
 190:                                              ; preds = %189, %68
-  %.1587 = phi i32 [ 1, %189 ], [ %.0586798, %68 ]
+  %.1587 = phi i32 [ 1, %189 ], [ %.0586799, %68 ]
   %191 = call i32 @avio_rl32(ptr noundef %22) #14
   %192 = call i32 @avio_rl32(ptr noundef %22) #14
   %193 = call i32 @avio_rl32(ptr noundef %22) #14
@@ -548,7 +548,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %avi_read_nikon.exit
 
 214:                                              ; preds = %206
-  %215 = add nsw i32 %.0563808, 1
+  %215 = add nsw i32 %.0563809, 1
   %216 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #14
   %.not666 = icmp eq ptr %216, null
   br i1 %.not666, label %guess_ni_flag.exit, label %217
@@ -563,7 +563,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 24
   store ptr %219, ptr %221, align 8, !tbaa !53
-  %.not668 = icmp eq i32 %.0586798, 0
+  %.not668 = icmp eq i32 %.0586799, 0
   %.not669 = icmp eq i32 %215, 0
   %222 = select i1 %.not669, i32 1935960438, i32 1935963489
   %.0559 = select i1 %.not668, i32 %207, i32 %222
@@ -677,16 +677,16 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 .sink.split:                                      ; preds = %267
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.15, i32 noundef %277, i32 noundef %275) #14
-  %.not672 = icmp eq i32 %.0566806, 0
-  %.1015 = select i1 %.not672, i32 25, i32 1000000
-  %..0566806 = call i32 @llvm.umax.i32(i32 %.0566806, i32 1)
-  store i32 %.1015, ptr %276, align 8, !tbaa !63
-  store i32 %..0566806, ptr %274, align 4, !tbaa !59
+  %.not672 = icmp eq i32 %.0566807, 0
+  %.1016 = select i1 %.not672, i32 25, i32 1000000
+  %..0566807 = call i32 @llvm.umax.i32(i32 %.0566807, i32 1)
+  store i32 %.1016, ptr %276, align 8, !tbaa !63
+  store i32 %..0566807, ptr %274, align 4, !tbaa !59
   br label %278
 
 278:                                              ; preds = %.sink.split, %267
-  %279 = phi i32 [ %275, %267 ], [ %.1015, %.sink.split ]
-  %280 = phi i32 [ %277, %267 ], [ %..0566806, %.sink.split ]
+  %279 = phi i32 [ %275, %267 ], [ %.1016, %.sink.split ]
+  %280 = phi i32 [ %277, %267 ], [ %..0566807, %.sink.split ]
   call void @avpriv_set_pts_info(ptr noundef nonnull %216, i32 noundef 64, i32 noundef %280, i32 noundef %279) #14
   %281 = call i32 @avio_rl32(ptr noundef %22) #14
   %282 = zext i32 %281 to i64
@@ -754,7 +754,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %313
 
 313:                                              ; preds = %299, %312, %311, %310, %306
-  %.2562 = phi i32 [ %.0560809, %312 ], [ 0, %306 ], [ 3, %310 ], [ 2, %311 ], [ 1, %299 ]
+  %.2562 = phi i32 [ %.0560810, %312 ], [ 0, %306 ], [ 3, %310 ], [ 2, %311 ], [ 1, %299 ]
   %314 = load i32, ptr %301, align 4, !tbaa !69
   %315 = icmp slt i32 %314, 0
   br i1 %315, label %316, label %320
@@ -763,13 +763,13 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   %317 = load i32, ptr %59, align 4, !tbaa !70
   %318 = and i32 %317, 8
   %.not673 = icmp eq i32 %318, 0
-  br i1 %.not673, label %.thread720, label %319
+  br i1 %.not673, label %.thread721, label %319
 
 319:                                              ; preds = %316
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %314, i32 noundef %215) #14
   br label %guess_ni_flag.exit
 
-.thread720:                                       ; preds = %316
+.thread721:                                       ; preds = %316
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.20, i32 noundef %314, i32 noundef %215) #14
   store i32 0, ptr %301, align 4, !tbaa !69
   br label %322
@@ -778,7 +778,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   %321 = icmp eq i32 %314, 0
   br i1 %321, label %322, label %337
 
-322:                                              ; preds = %.thread720, %320
+322:                                              ; preds = %.thread721, %320
   %323 = load i64, ptr %286, align 8, !tbaa !67
   %324 = getelementptr inbounds nuw i8, ptr %216, i64 48
   store i64 %323, ptr %324, align 8, !tbaa !71
@@ -814,13 +814,13 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 342:                                              ; preds = %68
   %.not644 = icmp eq i32 %70, 0
-  %or.cond10 = icmp ult i32 %.0560809, 2
+  %or.cond10 = icmp ult i32 %.0560810, 2
   %or.cond690 = select i1 %.not644, i1 %or.cond10, i1 false
   br i1 %or.cond690, label %avi_read_nikon.exit, label %343
 
 343:                                              ; preds = %342
   %344 = load i32, ptr %53, align 4, !tbaa !54
-  %.not645 = icmp ult i32 %.0563808, %344
+  %.not645 = icmp ult i32 %.0563809, %344
   br i1 %.not645, label %345, label %347
 
 345:                                              ; preds = %343
@@ -836,14 +836,14 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 350:                                              ; preds = %345
   %351 = call i64 @avio_seek(ptr noundef %22, i64 noundef 0, i32 noundef 1) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %352 = icmp ult i64 %351, %.0589796
+  %352 = icmp ult i64 %351, %.0589797
   %353 = zext i32 %70 to i64
-  %354 = sub nuw i64 %.0589796, %351
+  %354 = sub nuw i64 %.0589797, %351
   %355 = call i64 @llvm.umin.i64(i64 %354, i64 %353)
   %356 = trunc nuw i64 %355 to i32
   %.0568 = select i1 %352, i32 %356, i32 %70
   %357 = load ptr, ptr %54, align 8, !tbaa !55
-  %358 = sext i32 %.0563808 to i64
+  %358 = sext i32 %.0563809 to i64
   %359 = getelementptr inbounds ptr, ptr %357, i64 %358
   %360 = load ptr, ptr %359, align 8, !tbaa !56
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
@@ -855,30 +855,30 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 364:                                              ; preds = %350
   %365 = zext i32 %.0568 to i64
   %366 = call i64 @avio_skip(ptr noundef %22, i64 noundef %365) #14
-  br label %.thread735
+  br label %.thread736
 
 367:                                              ; preds = %350
-  switch i32 %.0560809, label %580 [
+  switch i32 %.0560810, label %580 [
     i32 0, label %368
     i32 1, label %520
     i32 3, label %576
   ]
 
 368:                                              ; preds = %367
-  %.not655 = icmp eq i32 %.0586798, 0
+  %.not655 = icmp eq i32 %.0586799, 0
   br i1 %.not655, label %375, label %369
 
 369:                                              ; preds = %368
   %370 = getelementptr inbounds nuw i8, ptr %362, i64 72
-  store i32 %.0578802, ptr %370, align 8, !tbaa !77
+  store i32 %.0578803, ptr %370, align 8, !tbaa !77
   %371 = getelementptr inbounds nuw i8, ptr %362, i64 76
-  store i32 %.0580800, ptr %371, align 4, !tbaa !78
+  store i32 %.0580801, ptr %371, align 4, !tbaa !78
   store i32 0, ptr %362, align 8, !tbaa !74
   %372 = getelementptr inbounds nuw i8, ptr %362, i64 4
   store i32 107, ptr %372, align 4, !tbaa !79
   %373 = zext i32 %.0568 to i64
   %374 = call i64 @avio_skip(ptr noundef %22, i64 noundef %373) #14
-  br label %.thread735
+  br label %.thread736
 
 375:                                              ; preds = %368
   %376 = call i32 @ff_get_bmp_header(ptr noundef %22, ptr noundef nonnull %360, ptr noundef nonnull %15) #14
@@ -894,7 +894,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   store i32 %376, ptr %379, align 8, !tbaa !80
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 4
   store i32 94211, ptr %380, align 4, !tbaa !79
-  br label %.thread735
+  br label %.thread736
 
 381:                                              ; preds = %375
   %382 = add i32 %.0568, -41
@@ -926,16 +926,16 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 397:                                              ; preds = %387
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.22) #14
-  %.pre900 = load ptr, ptr %361, align 8, !tbaa !73
+  %.pre901 = load ptr, ptr %361, align 8, !tbaa !73
   br label %398
 
 398:                                              ; preds = %397, %387
-  %399 = phi ptr [ %.pre900, %397 ], [ %392, %387 ]
+  %399 = phi ptr [ %.pre901, %397 ], [ %392, %387 ]
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 24
   %401 = load i32, ptr %400, align 8, !tbaa !81
   %402 = call i32 @ff_get_extradata(ptr noundef nonnull %0, ptr noundef %399, ptr noundef %22, i32 noundef %401) #14
   %403 = icmp slt i32 %402, 0
-  br i1 %403, label %.loopexit753, label %404
+  br i1 %403, label %.loopexit754, label %404
 
 404:                                              ; preds = %398, %383, %381
   %405 = load ptr, ptr %361, align 8, !tbaa !73
@@ -947,14 +947,14 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 409:                                              ; preds = %404
   %410 = call i32 @avio_r8(ptr noundef %22) #14
-  %.pre901 = load ptr, ptr %361, align 8, !tbaa !73
-  %.phi.trans.insert902 = getelementptr inbounds nuw i8, ptr %.pre901, i64 24
-  %.pre903 = load i32, ptr %.phi.trans.insert902, align 8, !tbaa !81
+  %.pre902 = load ptr, ptr %361, align 8, !tbaa !73
+  %.phi.trans.insert903 = getelementptr inbounds nuw i8, ptr %.pre902, i64 24
+  %.pre904 = load i32, ptr %.phi.trans.insert903, align 8, !tbaa !81
   br label %411
 
 411:                                              ; preds = %409, %404
-  %412 = phi i32 [ %.pre903, %409 ], [ %407, %404 ]
-  %413 = phi ptr [ %.pre901, %409 ], [ %405, %404 ]
+  %412 = phi i32 [ %.pre904, %409 ], [ %407, %404 ]
+  %413 = phi ptr [ %.pre902, %409 ], [ %405, %404 ]
   %.not659 = icmp eq i32 %412, 0
   br i1 %.not659, label %442, label %414
 
@@ -993,7 +993,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 .lr.ph:                                           ; preds = %431
   %433 = lshr i32 %., 2
-  %434 = getelementptr inbounds nuw i8, ptr %.0575804, i64 48
+  %434 = getelementptr inbounds nuw i8, ptr %.0575805, i64 48
   %wide.trip.count = zext nneg i32 %433 to i64
   br label %435
 
@@ -1010,7 +1010,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br i1 %exitcond.not, label %._crit_edge, label %435, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %435, %431
-  %441 = getelementptr inbounds nuw i8, ptr %.0575804, i64 1072
+  %441 = getelementptr inbounds nuw i8, ptr %.0575805, i64 1072
   store i32 1, ptr %441, align 8, !tbaa !85
   br label %442
 
@@ -1028,7 +1028,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 4
   store i32 %447, ptr %449, align 4, !tbaa !79
   %.not661 = icmp eq i32 %447, 0
-  br i1 %.not661, label %450, label %.thread964
+  br i1 %.not661, label %450, label %.thread965
 
 450:                                              ; preds = %442
   %451 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_movvideo_tags, i32 noundef %376) #14
@@ -1042,30 +1042,30 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   %455 = call ptr @av_fourcc_make_string(ptr noundef nonnull %17, i32 noundef %376) #14
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.25, ptr noundef %455) #14
-  %.pre904 = load ptr, ptr %361, align 8, !tbaa !73
-  %.phi.trans.insert905 = getelementptr inbounds nuw i8, ptr %.pre904, i64 4
-  %.pre906 = load i32, ptr %.phi.trans.insert905, align 4, !tbaa !79
-  %.not663 = icmp eq i32 %.pre906, 0
-  br i1 %.not663, label %.thread, label %.thread964
+  %.pre905 = load ptr, ptr %361, align 8, !tbaa !73
+  %.phi.trans.insert906 = getelementptr inbounds nuw i8, ptr %.pre905, i64 4
+  %.pre907 = load i32, ptr %.phi.trans.insert906, align 4, !tbaa !79
+  %.not663 = icmp eq i32 %.pre907, 0
+  br i1 %.not663, label %.thread, label %.thread965
 
 .thread:                                          ; preds = %450, %454
   %456 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_bmp_tags_unofficial, i32 noundef %376) #14
   %457 = load ptr, ptr %361, align 8, !tbaa !73
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
   store i32 %456, ptr %458, align 4, !tbaa !79
-  br label %.thread964
+  br label %.thread965
 
-.thread964:                                       ; preds = %442, %.thread, %454
-  %459 = phi i32 [ %456, %.thread ], [ %.pre906, %454 ], [ %447, %442 ]
-  %460 = phi ptr [ %457, %.thread ], [ %.pre904, %454 ], [ %448, %442 ]
+.thread965:                                       ; preds = %442, %.thread, %454
+  %459 = phi i32 [ %456, %.thread ], [ %.pre907, %454 ], [ %447, %442 ]
+  %460 = phi ptr [ %457, %.thread ], [ %.pre905, %454 ], [ %448, %442 ]
   %461 = getelementptr inbounds nuw i8, ptr %360, i64 808
   store i32 2, ptr %461, align 8, !tbaa !86
   %462 = getelementptr inbounds nuw i8, ptr %460, i64 4
   %463 = icmp eq i32 %459, 12
   br i1 %463, label %464, label %470
 
-464:                                              ; preds = %.thread964
-  %465 = getelementptr inbounds nuw i8, ptr %.0575804, i64 16
+464:                                              ; preds = %.thread965
+  %465 = getelementptr inbounds nuw i8, ptr %.0575805, i64 16
   %466 = load i32, ptr %465, align 8, !tbaa !65
   %467 = icmp eq i32 %466, 1145656920
   br i1 %467, label %468, label %470
@@ -1075,7 +1075,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   store i32 1145656920, ptr %469, align 8, !tbaa !80
   br label %470
 
-470:                                              ; preds = %468, %464, %.thread964
+470:                                              ; preds = %468, %464, %.thread965
   %471 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %472 = load i32, ptr %471, align 8, !tbaa !80
   %473 = icmp eq i32 %472, 1213420374
@@ -1086,28 +1086,28 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %475
 
 475:                                              ; preds = %474, %470
-  switch i32 %459, label %.thread723 [
-    i32 69, label %.thread721
+  switch i32 %459, label %.thread724 [
+    i32 69, label %.thread722
     i32 173, label %476
     i32 205, label %477
   ]
 
-.thread721:                                       ; preds = %475
+.thread722:                                       ; preds = %475
   store i32 0, ptr %461, align 8, !tbaa !86
-  br label %.thread723
+  br label %.thread724
 
 476:                                              ; preds = %475
-  switch i32 %472, label %.thread725 [
-    i32 892744264, label %.thread723.thread
+  switch i32 %472, label %.thread726 [
+    i32 892744264, label %.thread724.thread
     i32 0, label %488
   ]
 
-.thread723.thread:                                ; preds = %476
+.thread724.thread:                                ; preds = %476
   store i32 1, ptr %461, align 8, !tbaa !86
-  br label %.thread725
+  br label %.thread726
 
 477:                                              ; preds = %475
-  switch i32 %472, label %.thread725 [
+  switch i32 %472, label %.thread726 [
     i32 1850889793, label %478
     i32 0, label %488
   ]
@@ -1124,27 +1124,27 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 28
   %bcmp664 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %485, ptr noundef nonnull dereferenceable(3) @.str.26, i64 3)
   %.not665 = icmp eq i32 %bcmp664, 0
-  br i1 %.not665, label %.thread725, label %486
+  br i1 %.not665, label %.thread726, label %486
 
 486:                                              ; preds = %482, %478
   store i32 7, ptr %462, align 4, !tbaa !79
-  br label %.thread725
+  br label %.thread726
 
-.thread723:                                       ; preds = %475, %.thread721
+.thread724:                                       ; preds = %475, %.thread722
   %487 = icmp eq i32 %472, 0
-  br i1 %487, label %488, label %.thread725
+  br i1 %487, label %488, label %.thread726
 
-488:                                              ; preds = %476, %477, %.thread723
+488:                                              ; preds = %476, %477, %.thread724
   %489 = getelementptr inbounds nuw i8, ptr %460, i64 76
   %490 = load i32, ptr %489, align 4, !tbaa !78
   %491 = icmp sgt i32 %490, 0
-  br i1 %491, label %492, label %.thread725
+  br i1 %491, label %492, label %.thread726
 
 492:                                              ; preds = %488
   %493 = getelementptr inbounds nuw i8, ptr %460, i64 24
   %494 = load i32, ptr %493, align 8, !tbaa !81
   %495 = icmp ult i32 %494, 1073741824
-  br i1 %495, label %496, label %.thread725
+  br i1 %495, label %496, label %.thread726
 
 496:                                              ; preds = %492
   %497 = add nuw nsw i32 %494, 9
@@ -1160,7 +1160,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 504:                                              ; preds = %496
   %505 = getelementptr inbounds nuw i8, ptr %503, i64 24
   store i32 0, ptr %505, align 8, !tbaa !81
-  br label %.loopexit753
+  br label %.loopexit754
 
 506:                                              ; preds = %496
   %507 = getelementptr inbounds nuw i8, ptr %503, i64 16
@@ -1171,33 +1171,33 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   %512 = getelementptr inbounds i8, ptr %508, i64 %511
   %513 = getelementptr inbounds i8, ptr %512, i64 -9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %513, ptr noundef nonnull align 1 dereferenceable(9) @.str.23, i64 9, i1 false)
-  %.pre907 = load ptr, ptr %361, align 8, !tbaa !73
-  br label %.thread725
+  %.pre908 = load ptr, ptr %361, align 8, !tbaa !73
+  br label %.thread726
 
-.thread725:                                       ; preds = %476, %477, %.thread723.thread, %482, %486, %506, %492, %488, %.thread723
-  %514 = phi ptr [ %460, %476 ], [ %460, %477 ], [ %460, %.thread723.thread ], [ %460, %482 ], [ %460, %486 ], [ %.pre907, %506 ], [ %460, %492 ], [ %460, %488 ], [ %460, %.thread723 ]
+.thread726:                                       ; preds = %476, %477, %.thread724.thread, %482, %486, %506, %492, %488, %.thread724
+  %514 = phi ptr [ %460, %476 ], [ %460, %477 ], [ %460, %.thread724.thread ], [ %460, %482 ], [ %460, %486 ], [ %.pre908, %506 ], [ %460, %492 ], [ %460, %488 ], [ %460, %.thread724 ]
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 76
   %516 = load i32, ptr %515, align 4, !tbaa !78
   %517 = icmp eq i32 %516, -2147483648
-  br i1 %517, label %.loopexit753, label %518
+  br i1 %517, label %.loopexit754, label %518
 
-518:                                              ; preds = %.thread725
+518:                                              ; preds = %.thread726
   %519 = call i32 @llvm.abs.i32(i32 %516, i1 true)
   store i32 %519, ptr %515, align 4, !tbaa !78
-  br label %.thread735
+  br label %.thread736
 
 520:                                              ; preds = %367
   %521 = call i32 @ff_get_wav_header(ptr noundef nonnull %0, ptr noundef %22, ptr noundef nonnull %362, i32 noundef %.0568, i32 noundef 0) #14
   %522 = icmp slt i32 %521, 0
-  br i1 %522, label %.loopexit753, label %523
+  br i1 %522, label %.loopexit754, label %523
 
 523:                                              ; preds = %520
   %524 = load ptr, ptr %361, align 8, !tbaa !73
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 156
   %526 = load i32, ptr %525, align 4, !tbaa !97
-  %527 = getelementptr inbounds nuw i8, ptr %.0575804, i64 1076
+  %527 = getelementptr inbounds nuw i8, ptr %.0575805, i64 1076
   store i32 %526, ptr %527, align 4, !tbaa !98
-  %528 = getelementptr inbounds nuw i8, ptr %.0575804, i64 28
+  %528 = getelementptr inbounds nuw i8, ptr %.0575805, i64 28
   %529 = load i32, ptr %528, align 4, !tbaa !69
   %.not648 = icmp eq i32 %529, 0
   br i1 %.not648, label %535, label %530
@@ -1224,52 +1224,52 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 538:                                              ; preds = %535
   %539 = call i64 @avio_skip(ptr noundef %22, i64 noundef 1) #14
-  %.pre895 = load ptr, ptr %361, align 8, !tbaa !73
+  %.pre896 = load ptr, ptr %361, align 8, !tbaa !73
   br label %540
 
 540:                                              ; preds = %538, %535
-  %541 = phi ptr [ %.pre895, %538 ], [ %536, %535 ]
+  %541 = phi ptr [ %.pre896, %538 ], [ %536, %535 ]
   %542 = getelementptr inbounds nuw i8, ptr %360, i64 808
   store i32 3, ptr %542, align 8, !tbaa !86
   %543 = getelementptr inbounds nuw i8, ptr %541, i64 4
   %544 = load i32, ptr %543, align 4, !tbaa !79
-  switch i32 %544, label %.thread727 [
+  switch i32 %544, label %.thread728 [
     i32 86018, label %545
-    i32 86028, label %.thread727.sink.split
+    i32 86028, label %.thread728.sink.split
   ]
 
 545:                                              ; preds = %540
   %546 = getelementptr inbounds nuw i8, ptr %541, i64 24
   %547 = load i32, ptr %546, align 8, !tbaa !81
   %.not652 = icmp eq i32 %547, 0
-  br i1 %.not652, label %.thread727, label %.thread727.sink.split
+  br i1 %.not652, label %.thread728, label %.thread728.sink.split
 
-.thread727.sink.split:                            ; preds = %540, %545
+.thread728.sink.split:                            ; preds = %540, %545
   store i32 0, ptr %542, align 8, !tbaa !86
-  br label %.thread727
+  br label %.thread728
 
-.thread727:                                       ; preds = %.thread727.sink.split, %540, %545
-  %548 = getelementptr inbounds nuw i8, ptr %.0575804, i64 16
+.thread728:                                       ; preds = %.thread728.sink.split, %540, %545
+  %548 = getelementptr inbounds nuw i8, ptr %.0575805, i64 16
   %549 = load i32, ptr %548, align 8, !tbaa !65
   %550 = icmp eq i32 %549, 1851881537
   br i1 %550, label %551, label %553
 
-551:                                              ; preds = %.thread727
+551:                                              ; preds = %.thread728
   store i32 81922, ptr %543, align 4, !tbaa !79
   %552 = getelementptr inbounds nuw i8, ptr %541, i64 8
   store i32 0, ptr %552, align 8, !tbaa !80
   store i32 0, ptr %527, align 4, !tbaa !98
   br label %553
 
-553:                                              ; preds = %551, %.thread727
-  %.pr = phi i32 [ 81922, %551 ], [ %544, %.thread727 ]
-  %.not653 = icmp eq i32 %.0586798, 0
-  br i1 %.not653, label %554, label %.thread966
+553:                                              ; preds = %551, %.thread728
+  %.pr = phi i32 [ 81922, %551 ], [ %544, %.thread728 ]
+  %.not653 = icmp eq i32 %.0586799, 0
+  br i1 %.not653, label %554, label %.thread967
 
-.thread966:                                       ; preds = %553
+.thread967:                                       ; preds = %553
   store i32 69651, ptr %543, align 4, !tbaa !79
   store i32 0, ptr %527, align 4, !tbaa !98
-  br label %.thread735
+  br label %.thread736
 
 554:                                              ; preds = %553
   switch i32 %.pr, label %559 [
@@ -1289,21 +1289,21 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 558:                                              ; preds = %555
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.29, i32 noundef %556) #14
   store i32 0, ptr %527, align 4, !tbaa !98
-  %.pre897 = load ptr, ptr %361, align 8, !tbaa !73
-  %.phi.trans.insert898 = getelementptr inbounds nuw i8, ptr %.pre897, i64 4
-  %.pre899 = load i32, ptr %.phi.trans.insert898, align 4, !tbaa !79
+  %.pre898 = load ptr, ptr %361, align 8, !tbaa !73
+  %.phi.trans.insert899 = getelementptr inbounds nuw i8, ptr %.pre898, i64 4
+  %.pre900 = load i32, ptr %.phi.trans.insert899, align 4, !tbaa !79
   br label %559
 
 559:                                              ; preds = %554, %558, %555
-  %560 = phi i32 [ %.pr, %554 ], [ %.pre899, %558 ], [ %.pr, %555 ]
-  switch i32 %560, label %.thread735 [
+  %560 = phi i32 [ %.pr, %554 ], [ %.pre900, %558 ], [ %.pr, %555 ]
+  switch i32 %560, label %.thread736 [
     i32 86018, label %561
     i32 86017, label %569
   ]
 
 561:                                              ; preds = %559
   %562 = load i32, ptr %527, align 4, !tbaa !98
-  switch i32 %562, label %.thread735 [
+  switch i32 %562, label %.thread736 [
     i32 1024, label %563
     i32 4096, label %566
   ]
@@ -1311,27 +1311,27 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 563:                                              ; preds = %561
   %564 = load i32, ptr %528, align 4, !tbaa !69
   %565 = icmp eq i32 %564, 1024
-  br i1 %565, label %575, label %.thread735
+  br i1 %565, label %575, label %.thread736
 
 566:                                              ; preds = %561
   %567 = load i32, ptr %528, align 4, !tbaa !69
   %568 = icmp eq i32 %567, 4096
-  br i1 %568, label %575, label %.thread735
+  br i1 %568, label %575, label %.thread736
 
 569:                                              ; preds = %559
   %570 = load i32, ptr %527, align 4, !tbaa !98
   %571 = icmp eq i32 %570, 1152
-  br i1 %571, label %572, label %.thread735
+  br i1 %571, label %572, label %.thread736
 
 572:                                              ; preds = %569
   %573 = load i32, ptr %528, align 4, !tbaa !69
   %574 = icmp eq i32 %573, 1152
-  br i1 %574, label %575, label %.thread735
+  br i1 %574, label %575, label %.thread736
 
 575:                                              ; preds = %572, %566, %563
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.30) #14
   store i32 0, ptr %528, align 4, !tbaa !69
-  br label %.thread735
+  br label %.thread736
 
 576:                                              ; preds = %367
   store i32 3, ptr %362, align 8, !tbaa !74
@@ -1339,7 +1339,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   store i32 1, ptr %577, align 8, !tbaa !99
   %578 = zext i32 %.0568 to i64
   %579 = call i64 @avio_skip(ptr noundef %22, i64 noundef %578) #14
-  br label %.thread735
+  br label %.thread736
 
 580:                                              ; preds = %367
   store i32 2, ptr %362, align 8, !tbaa !74
@@ -1349,25 +1349,25 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   store i32 0, ptr %582, align 8, !tbaa !80
   %583 = zext i32 %.0568 to i64
   %584 = call i64 @avio_skip(ptr noundef %22, i64 noundef %583) #14
-  br label %.thread735
+  br label %.thread736
 
-.thread735:                                       ; preds = %.thread966, %559, %561, %364, %569, %572, %575, %580, %576, %518, %377, %369, %566, %563
+.thread736:                                       ; preds = %.thread967, %559, %561, %364, %569, %572, %575, %580, %576, %518, %377, %369, %566, %563
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %avi_read_nikon.exit
 
-.loopexit753:                                     ; preds = %520, %.thread725, %398, %504
-  %.4 = phi i32 [ %501, %504 ], [ %521, %520 ], [ -1094995529, %.thread725 ], [ %402, %398 ]
+.loopexit754:                                     ; preds = %520, %.thread726, %398, %504
+  %.4 = phi i32 [ %501, %504 ], [ %521, %520 ], [ -1094995529, %.thread726 ], [ %402, %398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %guess_ni_flag.exit
 
 585:                                              ; preds = %68
   %586 = load i32, ptr %53, align 4, !tbaa !54
-  %.not640 = icmp ult i32 %.0563808, %586
+  %.not640 = icmp ult i32 %.0563809, %586
   br i1 %.not640, label %587, label %600
 
 587:                                              ; preds = %585
   %588 = load ptr, ptr %54, align 8, !tbaa !55
-  %589 = sext i32 %.0563808 to i64
+  %589 = sext i32 %.0563809 to i64
   %590 = getelementptr inbounds ptr, ptr %588, i64 %589
   %591 = load ptr, ptr %590, align 8, !tbaa !56
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 16
@@ -1390,9 +1390,9 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 603:                                              ; preds = %596
   %604 = call i64 @avio_seek(ptr noundef %22, i64 noundef 0, i32 noundef 1) #14
-  %605 = icmp ult i64 %604, %.0589796
+  %605 = icmp ult i64 %604, %.0589797
   %606 = zext i32 %70 to i64
-  %607 = sub nuw i64 %.0589796, %604
+  %607 = sub nuw i64 %.0589797, %604
   %608 = call i64 @llvm.umin.i64(i64 %607, i64 %606)
   %609 = trunc nuw i64 %608 to i32
   %.1569 = select i1 %605, i32 %609, i32 %70
@@ -1412,11 +1412,11 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 619:                                              ; preds = %614
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.31) #14
-  %.pre892 = load ptr, ptr %615, align 8, !tbaa !73
+  %.pre893 = load ptr, ptr %615, align 8, !tbaa !73
   br label %620
 
 620:                                              ; preds = %619, %614
-  %621 = phi ptr [ %.pre892, %619 ], [ %616, %614 ]
+  %621 = phi ptr [ %.pre893, %619 ], [ %616, %614 ]
   %622 = call i32 @ff_get_extradata(ptr noundef nonnull %0, ptr noundef %621, ptr noundef %22, i32 noundef %.1569) #14
   %623 = icmp slt i32 %622, 0
   br i1 %623, label %guess_ni_flag.exit, label %624
@@ -1432,20 +1432,20 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
 
 630:                                              ; preds = %624
   %631 = call i32 @avio_r8(ptr noundef %22) #14
-  %.pre893 = load ptr, ptr %625, align 8, !tbaa !73
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre893, i64 24
-  %.pre894 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !81
+  %.pre894 = load ptr, ptr %625, align 8, !tbaa !73
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre894, i64 24
+  %.pre895 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !81
   br label %632
 
 632:                                              ; preds = %630, %624
-  %633 = phi i32 [ %.pre894, %630 ], [ %628, %624 ]
-  %634 = phi ptr [ %.pre893, %630 ], [ %626, %624 ]
+  %633 = phi i32 [ %.pre895, %630 ], [ %628, %624 ]
+  %634 = phi ptr [ %.pre894, %630 ], [ %626, %624 ]
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 16
   %636 = load ptr, ptr %635, align 8, !tbaa !82
   %637 = icmp eq ptr %636, null
   %638 = icmp slt i32 %633, 8
-  %or.cond.i698 = select i1 %637, i1 true, i1 %638
-  br i1 %or.cond.i698, label %avi_extract_stream_metadata.exit.thread739, label %bytestream2_get_le32.exit.i
+  %or.cond.i699 = select i1 %637, i1 true, i1 %638
+  br i1 %or.cond.i699, label %avi_extract_stream_metadata.exit.thread740, label %bytestream2_get_le32.exit.i
 
 bytestream2_get_le32.exit.i:                      ; preds = %632
   %639 = load i32, ptr %636, align 1, !tbaa !11
@@ -1469,9 +1469,9 @@ avi_extract_stream_metadata.exit:                 ; preds = %bytestream2_get_le3
   %644 = getelementptr inbounds nuw i8, ptr %612, i64 80
   %645 = call i32 @avpriv_exif_decode_ifd(ptr noundef nonnull %0, ptr noundef nonnull %642, i32 noundef %643, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %644) #14
   %646 = icmp slt i32 %645, 0
-  br i1 %646, label %avi_extract_stream_metadata.exit.thread739, label %avi_read_nikon.exit
+  br i1 %646, label %avi_extract_stream_metadata.exit.thread740, label %avi_read_nikon.exit
 
-avi_extract_stream_metadata.exit.thread739:       ; preds = %632, %avi_extract_stream_metadata.exit
+avi_extract_stream_metadata.exit.thread740:       ; preds = %632, %avi_extract_stream_metadata.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.32) #14
   br label %avi_read_nikon.exit
 
@@ -1512,14 +1512,14 @@ avi_extract_stream_metadata.exit.thread739:       ; preds = %632, %avi_extract_s
 
 666:                                              ; preds = %68
   %667 = load i32, ptr %53, align 4, !tbaa !54
-  %668 = icmp ult i32 %.0563808, %667
+  %668 = icmp ult i32 %.0563809, %667
   %669 = icmp ugt i32 %70, 36
   %or.cond16 = select i1 %668, i1 %669, i1 false
   br i1 %or.cond16, label %670, label %694
 
 670:                                              ; preds = %666
   %671 = load ptr, ptr %54, align 8, !tbaa !55
-  %672 = sext i32 %.0563808 to i64
+  %672 = sext i32 %.0563809 to i64
   %673 = getelementptr inbounds ptr, ptr %671, i64 %672
   %674 = load ptr, ptr %673, align 8, !tbaa !56
   %675 = call i32 @avio_rl32(ptr noundef %22) #14
@@ -1591,8 +1591,8 @@ avi_extract_stream_metadata.exit.thread739:       ; preds = %632, %avi_extract_s
   %711 = zext i32 %710 to i64
   %712 = call noalias ptr @av_malloc(i64 noundef %711) #14
   store ptr %712, ptr %3, align 8, !tbaa !103
-  %.not.i700 = icmp eq ptr %712, null
-  br i1 %.not.i700, label %avi_read_tag.exit.thread, label %713
+  %.not.i701 = icmp eq ptr %712, null
+  br i1 %.not.i701, label %avi_read_tag.exit.thread, label %713
 
 713:                                              ; preds = %709
   %714 = call i32 @avio_read(ptr noundef %705, ptr noundef nonnull %712, i32 noundef %707) #14
@@ -1604,7 +1604,7 @@ avi_extract_stream_metadata.exit.thread739:       ; preds = %632, %avi_extract_s
   br label %avi_read_tag.exit.thread
 
 avi_read_tag.exit.thread:                         ; preds = %699, %709, %715
-  %.0.i701.ph = phi i32 [ -1094995529, %715 ], [ -22, %699 ], [ -12, %709 ]
+  %.0.i702.ph = phi i32 [ -1094995529, %715 ], [ -22, %699 ], [ -12, %709 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %guess_ni_flag.exit
@@ -1653,15 +1653,15 @@ avi_read_tag.exit:                                ; preds = %713
   %738 = call i64 @avio_skip(ptr noundef %22, i64 noundef %737) #14
   br label %avi_read_nikon.exit
 
-avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.ph41.i, %640, %641, %bytestream2_get_le32.exit.i, %avi_extract_stream_metadata.exit, %avi_extract_stream_metadata.exit.thread739, %.thread735, %257, %97, %342, %73, %avi_read_tag.exit, %600, %347, %93, %734, %694, %662, %337, %210, %190, %184, %avi_metadata_creation_time.exit
-  %.1590 = phi i64 [ %.0589796, %734 ], [ %76, %93 ], [ %.0589796, %avi_metadata_creation_time.exit ], [ %.0589796, %184 ], [ %.0589796, %190 ], [ %.0589796, %210 ], [ %.0589796, %257 ], [ %.0589796, %337 ], [ %.0589796, %347 ], [ %.0589796, %600 ], [ %.0589796, %662 ], [ %.0589796, %694 ], [ %.0589796, %avi_read_tag.exit ], [ %76, %73 ], [ %.0589796, %342 ], [ %76, %97 ], [ %.0589796, %.thread735 ], [ %.0589796, %avi_extract_stream_metadata.exit.thread739 ], [ %.0589796, %avi_extract_stream_metadata.exit ], [ %.0589796, %bytestream2_get_le32.exit.i ], [ %.0589796, %641 ], [ %.0589796, %640 ], [ %76, %.lr.ph41.i ], [ %76, %.critedge2.i ]
-  %.2588 = phi i32 [ %.0586798, %734 ], [ %.0586798, %93 ], [ %.0586798, %avi_metadata_creation_time.exit ], [ %.0586798, %184 ], [ %.1587, %190 ], [ %.0586798, %210 ], [ %.0586798, %257 ], [ %.0586798, %337 ], [ %.0586798, %347 ], [ %.0586798, %600 ], [ %.0586798, %662 ], [ %.0586798, %694 ], [ %.0586798, %avi_read_tag.exit ], [ %.0586798, %73 ], [ %.0586798, %342 ], [ %.0586798, %97 ], [ %.0586798, %.thread735 ], [ %.0586798, %avi_extract_stream_metadata.exit.thread739 ], [ %.0586798, %avi_extract_stream_metadata.exit ], [ %.0586798, %bytestream2_get_le32.exit.i ], [ %.0586798, %641 ], [ %.0586798, %640 ], [ %.0586798, %.lr.ph41.i ], [ %.0586798, %.critedge2.i ]
-  %.1581 = phi i32 [ %.0580800, %734 ], [ %.0580800, %93 ], [ %.0580800, %avi_metadata_creation_time.exit ], [ %.0580800, %184 ], [ %202, %190 ], [ %.0580800, %210 ], [ %.0580800, %257 ], [ %.0580800, %337 ], [ %.0580800, %347 ], [ %.0580800, %600 ], [ %.0580800, %662 ], [ %.0580800, %694 ], [ %.0580800, %avi_read_tag.exit ], [ %.0580800, %73 ], [ %.0580800, %342 ], [ %.0580800, %97 ], [ %.0580800, %.thread735 ], [ %.0580800, %avi_extract_stream_metadata.exit.thread739 ], [ %.0580800, %avi_extract_stream_metadata.exit ], [ %.0580800, %bytestream2_get_le32.exit.i ], [ %.0580800, %641 ], [ %.0580800, %640 ], [ %.0580800, %.lr.ph41.i ], [ %.0580800, %.critedge2.i ]
-  %.1579 = phi i32 [ %.0578802, %734 ], [ %.0578802, %93 ], [ %.0578802, %avi_metadata_creation_time.exit ], [ %.0578802, %184 ], [ %201, %190 ], [ %.0578802, %210 ], [ %.0578802, %257 ], [ %.0578802, %337 ], [ %.0578802, %347 ], [ %.0578802, %600 ], [ %.0578802, %662 ], [ %.0578802, %694 ], [ %.0578802, %avi_read_tag.exit ], [ %.0578802, %73 ], [ %.0578802, %342 ], [ %.0578802, %97 ], [ %.0578802, %.thread735 ], [ %.0578802, %avi_extract_stream_metadata.exit.thread739 ], [ %.0578802, %avi_extract_stream_metadata.exit ], [ %.0578802, %bytestream2_get_le32.exit.i ], [ %.0578802, %641 ], [ %.0578802, %640 ], [ %.0578802, %.lr.ph41.i ], [ %.0578802, %.critedge2.i ]
-  %.1576 = phi ptr [ %.0575804, %734 ], [ %.0575804, %93 ], [ %.0575804, %avi_metadata_creation_time.exit ], [ %.0575804, %184 ], [ %.0575804, %190 ], [ %.0575804, %210 ], [ %232, %257 ], [ %219, %337 ], [ %.0575804, %347 ], [ %.0575804, %600 ], [ %.0575804, %662 ], [ %.0575804, %694 ], [ %.0575804, %avi_read_tag.exit ], [ %.0575804, %73 ], [ %.0575804, %342 ], [ %.0575804, %97 ], [ %.0575804, %.thread735 ], [ %.0575804, %avi_extract_stream_metadata.exit.thread739 ], [ %.0575804, %avi_extract_stream_metadata.exit ], [ %.0575804, %bytestream2_get_le32.exit.i ], [ %.0575804, %641 ], [ %.0575804, %640 ], [ %.0575804, %.lr.ph41.i ], [ %.0575804, %.critedge2.i ]
-  %.1567 = phi i32 [ %.0566806, %734 ], [ %.0566806, %93 ], [ %.0566806, %avi_metadata_creation_time.exit ], [ %.0566806, %184 ], [ %191, %190 ], [ %.0566806, %210 ], [ %.0566806, %257 ], [ %.0566806, %337 ], [ %.0566806, %347 ], [ %.0566806, %600 ], [ %.0566806, %662 ], [ %.0566806, %694 ], [ %.0566806, %avi_read_tag.exit ], [ %.0566806, %73 ], [ %.0566806, %342 ], [ %.0566806, %97 ], [ %.0566806, %.thread735 ], [ %.0566806, %avi_extract_stream_metadata.exit.thread739 ], [ %.0566806, %avi_extract_stream_metadata.exit ], [ %.0566806, %bytestream2_get_le32.exit.i ], [ %.0566806, %641 ], [ %.0566806, %640 ], [ %.0566806, %.lr.ph41.i ], [ %.0566806, %.critedge2.i ]
-  %.1564 = phi i32 [ %.0563808, %734 ], [ %.0563808, %93 ], [ %.0563808, %avi_metadata_creation_time.exit ], [ %.0563808, %184 ], [ %.0563808, %190 ], [ %.0563808, %210 ], [ %259, %257 ], [ %215, %337 ], [ %.0563808, %347 ], [ %.0563808, %600 ], [ %.0563808, %662 ], [ %.0563808, %694 ], [ %.0563808, %avi_read_tag.exit ], [ %.0563808, %73 ], [ %.0563808, %342 ], [ %.0563808, %97 ], [ %.0563808, %.thread735 ], [ %.0563808, %avi_extract_stream_metadata.exit.thread739 ], [ %.0563808, %avi_extract_stream_metadata.exit ], [ %.0563808, %bytestream2_get_le32.exit.i ], [ %.0563808, %641 ], [ %.0563808, %640 ], [ %.0563808, %.lr.ph41.i ], [ %.0563808, %.critedge2.i ]
-  %.1561 = phi i32 [ %.0560809, %734 ], [ %.0560809, %93 ], [ %.0560809, %avi_metadata_creation_time.exit ], [ %.0560809, %184 ], [ %.0560809, %190 ], [ %.0560809, %210 ], [ %.0560809, %257 ], [ %.2562, %337 ], [ %.0560809, %347 ], [ %.0560809, %600 ], [ %.0560809, %662 ], [ %.0560809, %694 ], [ %.0560809, %avi_read_tag.exit ], [ %.0560809, %73 ], [ %.0560809, %342 ], [ %.0560809, %97 ], [ %.0560809, %.thread735 ], [ %.0560809, %avi_extract_stream_metadata.exit.thread739 ], [ %.0560809, %avi_extract_stream_metadata.exit ], [ %.0560809, %bytestream2_get_le32.exit.i ], [ %.0560809, %641 ], [ %.0560809, %640 ], [ %.0560809, %.lr.ph41.i ], [ %.0560809, %.critedge2.i ]
+avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.ph41.i, %640, %641, %bytestream2_get_le32.exit.i, %avi_extract_stream_metadata.exit, %avi_extract_stream_metadata.exit.thread740, %.thread736, %257, %97, %342, %73, %avi_read_tag.exit, %600, %347, %93, %734, %694, %662, %337, %210, %190, %184, %avi_metadata_creation_time.exit
+  %.1590 = phi i64 [ %.0589797, %734 ], [ %76, %93 ], [ %.0589797, %avi_metadata_creation_time.exit ], [ %.0589797, %184 ], [ %.0589797, %190 ], [ %.0589797, %210 ], [ %.0589797, %257 ], [ %.0589797, %337 ], [ %.0589797, %347 ], [ %.0589797, %600 ], [ %.0589797, %662 ], [ %.0589797, %694 ], [ %.0589797, %avi_read_tag.exit ], [ %76, %73 ], [ %.0589797, %342 ], [ %76, %97 ], [ %.0589797, %.thread736 ], [ %.0589797, %avi_extract_stream_metadata.exit.thread740 ], [ %.0589797, %avi_extract_stream_metadata.exit ], [ %.0589797, %bytestream2_get_le32.exit.i ], [ %.0589797, %641 ], [ %.0589797, %640 ], [ %76, %.lr.ph41.i ], [ %76, %.critedge2.i ]
+  %.2588 = phi i32 [ %.0586799, %734 ], [ %.0586799, %93 ], [ %.0586799, %avi_metadata_creation_time.exit ], [ %.0586799, %184 ], [ %.1587, %190 ], [ %.0586799, %210 ], [ %.0586799, %257 ], [ %.0586799, %337 ], [ %.0586799, %347 ], [ %.0586799, %600 ], [ %.0586799, %662 ], [ %.0586799, %694 ], [ %.0586799, %avi_read_tag.exit ], [ %.0586799, %73 ], [ %.0586799, %342 ], [ %.0586799, %97 ], [ %.0586799, %.thread736 ], [ %.0586799, %avi_extract_stream_metadata.exit.thread740 ], [ %.0586799, %avi_extract_stream_metadata.exit ], [ %.0586799, %bytestream2_get_le32.exit.i ], [ %.0586799, %641 ], [ %.0586799, %640 ], [ %.0586799, %.lr.ph41.i ], [ %.0586799, %.critedge2.i ]
+  %.1581 = phi i32 [ %.0580801, %734 ], [ %.0580801, %93 ], [ %.0580801, %avi_metadata_creation_time.exit ], [ %.0580801, %184 ], [ %202, %190 ], [ %.0580801, %210 ], [ %.0580801, %257 ], [ %.0580801, %337 ], [ %.0580801, %347 ], [ %.0580801, %600 ], [ %.0580801, %662 ], [ %.0580801, %694 ], [ %.0580801, %avi_read_tag.exit ], [ %.0580801, %73 ], [ %.0580801, %342 ], [ %.0580801, %97 ], [ %.0580801, %.thread736 ], [ %.0580801, %avi_extract_stream_metadata.exit.thread740 ], [ %.0580801, %avi_extract_stream_metadata.exit ], [ %.0580801, %bytestream2_get_le32.exit.i ], [ %.0580801, %641 ], [ %.0580801, %640 ], [ %.0580801, %.lr.ph41.i ], [ %.0580801, %.critedge2.i ]
+  %.1579 = phi i32 [ %.0578803, %734 ], [ %.0578803, %93 ], [ %.0578803, %avi_metadata_creation_time.exit ], [ %.0578803, %184 ], [ %201, %190 ], [ %.0578803, %210 ], [ %.0578803, %257 ], [ %.0578803, %337 ], [ %.0578803, %347 ], [ %.0578803, %600 ], [ %.0578803, %662 ], [ %.0578803, %694 ], [ %.0578803, %avi_read_tag.exit ], [ %.0578803, %73 ], [ %.0578803, %342 ], [ %.0578803, %97 ], [ %.0578803, %.thread736 ], [ %.0578803, %avi_extract_stream_metadata.exit.thread740 ], [ %.0578803, %avi_extract_stream_metadata.exit ], [ %.0578803, %bytestream2_get_le32.exit.i ], [ %.0578803, %641 ], [ %.0578803, %640 ], [ %.0578803, %.lr.ph41.i ], [ %.0578803, %.critedge2.i ]
+  %.1576 = phi ptr [ %.0575805, %734 ], [ %.0575805, %93 ], [ %.0575805, %avi_metadata_creation_time.exit ], [ %.0575805, %184 ], [ %.0575805, %190 ], [ %.0575805, %210 ], [ %232, %257 ], [ %219, %337 ], [ %.0575805, %347 ], [ %.0575805, %600 ], [ %.0575805, %662 ], [ %.0575805, %694 ], [ %.0575805, %avi_read_tag.exit ], [ %.0575805, %73 ], [ %.0575805, %342 ], [ %.0575805, %97 ], [ %.0575805, %.thread736 ], [ %.0575805, %avi_extract_stream_metadata.exit.thread740 ], [ %.0575805, %avi_extract_stream_metadata.exit ], [ %.0575805, %bytestream2_get_le32.exit.i ], [ %.0575805, %641 ], [ %.0575805, %640 ], [ %.0575805, %.lr.ph41.i ], [ %.0575805, %.critedge2.i ]
+  %.1567 = phi i32 [ %.0566807, %734 ], [ %.0566807, %93 ], [ %.0566807, %avi_metadata_creation_time.exit ], [ %.0566807, %184 ], [ %191, %190 ], [ %.0566807, %210 ], [ %.0566807, %257 ], [ %.0566807, %337 ], [ %.0566807, %347 ], [ %.0566807, %600 ], [ %.0566807, %662 ], [ %.0566807, %694 ], [ %.0566807, %avi_read_tag.exit ], [ %.0566807, %73 ], [ %.0566807, %342 ], [ %.0566807, %97 ], [ %.0566807, %.thread736 ], [ %.0566807, %avi_extract_stream_metadata.exit.thread740 ], [ %.0566807, %avi_extract_stream_metadata.exit ], [ %.0566807, %bytestream2_get_le32.exit.i ], [ %.0566807, %641 ], [ %.0566807, %640 ], [ %.0566807, %.lr.ph41.i ], [ %.0566807, %.critedge2.i ]
+  %.1564 = phi i32 [ %.0563809, %734 ], [ %.0563809, %93 ], [ %.0563809, %avi_metadata_creation_time.exit ], [ %.0563809, %184 ], [ %.0563809, %190 ], [ %.0563809, %210 ], [ %259, %257 ], [ %215, %337 ], [ %.0563809, %347 ], [ %.0563809, %600 ], [ %.0563809, %662 ], [ %.0563809, %694 ], [ %.0563809, %avi_read_tag.exit ], [ %.0563809, %73 ], [ %.0563809, %342 ], [ %.0563809, %97 ], [ %.0563809, %.thread736 ], [ %.0563809, %avi_extract_stream_metadata.exit.thread740 ], [ %.0563809, %avi_extract_stream_metadata.exit ], [ %.0563809, %bytestream2_get_le32.exit.i ], [ %.0563809, %641 ], [ %.0563809, %640 ], [ %.0563809, %.lr.ph41.i ], [ %.0563809, %.critedge2.i ]
+  %.1561 = phi i32 [ %.0560810, %734 ], [ %.0560810, %93 ], [ %.0560810, %avi_metadata_creation_time.exit ], [ %.0560810, %184 ], [ %.0560810, %190 ], [ %.0560810, %210 ], [ %.0560810, %257 ], [ %.2562, %337 ], [ %.0560810, %347 ], [ %.0560810, %600 ], [ %.0560810, %662 ], [ %.0560810, %694 ], [ %.0560810, %avi_read_tag.exit ], [ %.0560810, %73 ], [ %.0560810, %342 ], [ %.0560810, %97 ], [ %.0560810, %.thread736 ], [ %.0560810, %avi_extract_stream_metadata.exit.thread740 ], [ %.0560810, %avi_extract_stream_metadata.exit ], [ %.0560810, %bytestream2_get_le32.exit.i ], [ %.0560810, %641 ], [ %.0560810, %640 ], [ %.0560810, %.lr.ph41.i ], [ %.0560810, %.critedge2.i ]
   %739 = call i32 @avio_feof(ptr noundef %22) #14
   %.not = icmp eq i32 %739, 0
   br i1 %.not, label %68, label %guess_ni_flag.exit
@@ -1669,7 +1669,7 @@ avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.
 740:                                              ; preds = %728, %91
   %741 = load i32, ptr %53, align 4, !tbaa !54
   %742 = add i32 %741, -1
-  %.not679 = icmp eq i32 %.0563808, %742
+  %.not679 = icmp eq i32 %.0563809, %742
   br i1 %.not679, label %743, label %guess_ni_flag.exit
 
 743:                                              ; preds = %740
@@ -1686,11 +1686,11 @@ avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.
 
 749:                                              ; preds = %746
   call fastcc void @avi_load_index(ptr noundef nonnull %0)
-  %.pre908 = load i32, ptr %53, align 4, !tbaa !54
+  %.pre909 = load i32, ptr %53, align 4, !tbaa !54
   br label %750
 
 750:                                              ; preds = %749, %746, %743
-  %751 = phi i32 [ %.pre908, %749 ], [ %741, %746 ], [ %741, %743 ]
+  %751 = phi i32 [ %.pre909, %749 ], [ %741, %746 ], [ %741, %743 ]
   %752 = load ptr, ptr %19, align 8, !tbaa !14
   %.not113.i = icmp eq i32 %751, 0
   br i1 %.not113.i, label %._crit_edge99.i, label %.lr.ph98.i
@@ -1708,30 +1708,30 @@ avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.
   %756 = load ptr, ptr %755, align 8, !tbaa !56
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 328
   %758 = load i32, ptr %757, align 8, !tbaa !105
-  %.not.i702 = icmp eq i32 %758, 0
-  br i1 %.not.i702, label %772, label %.preheader89.i
+  %.not.i703 = icmp eq i32 %758, 0
+  br i1 %.not.i703, label %772, label %.preheader89.i
 
 .preheader89.i:                                   ; preds = %754
   %759 = icmp sgt i32 %758, 0
   %760 = getelementptr inbounds nuw i8, ptr %756, i64 320
   %761 = load ptr, ptr %760, align 8, !tbaa !106
-  br i1 %759, label %.lr.ph.i704, label %._crit_edge.i
+  br i1 %759, label %.lr.ph.i705, label %._crit_edge.i
 
-.lr.ph.i704:                                      ; preds = %.preheader89.i
+.lr.ph.i705:                                      ; preds = %.preheader89.i
   %wide.trip.count.i = zext nneg i32 %758 to i64
   br label %762
 
-762:                                              ; preds = %762, %.lr.ph.i704
-  %indvars.iv.i705 = phi i64 [ 0, %.lr.ph.i704 ], [ %indvars.iv.next.i706, %762 ]
-  %.08491.i = phi i64 [ 0, %.lr.ph.i704 ], [ %767, %762 ]
-  %763 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %761, i64 %indvars.iv.i705, i32 2
+762:                                              ; preds = %762, %.lr.ph.i705
+  %indvars.iv.i706 = phi i64 [ 0, %.lr.ph.i705 ], [ %indvars.iv.next.i707, %762 ]
+  %.08491.i = phi i64 [ 0, %.lr.ph.i705 ], [ %767, %762 ]
+  %763 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %761, i64 %indvars.iv.i706, i32 2
   %764 = load i32, ptr %763, align 8
   %765 = ashr i32 %764, 2
   %766 = sext i32 %765 to i64
   %767 = add nsw i64 %.08491.i, %766
-  %indvars.iv.next.i706 = add nuw nsw i64 %indvars.iv.i705, 1
-  %exitcond.not.i707 = icmp eq i64 %indvars.iv.next.i706, %wide.trip.count.i
-  br i1 %exitcond.not.i707, label %._crit_edge.i, label %762, !llvm.loop !107
+  %indvars.iv.next.i707 = add nuw nsw i64 %indvars.iv.i706, 1
+  %exitcond.not.i708 = icmp eq i64 %indvars.iv.next.i707, %wide.trip.count.i
+  br i1 %exitcond.not.i708, label %._crit_edge.i, label %762, !llvm.loop !107
 
 ._crit_edge.i:                                    ; preds = %762, %.preheader89.i
   %.084.lcssa.i = phi i64 [ 0, %.preheader89.i ], [ %767, %762 ]
@@ -1886,29 +1886,29 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   %860 = call i64 @avio_seek(ptr noundef %859, i64 noundef 0, i32 noundef 1) #14
   %861 = load i32, ptr %53, align 4, !tbaa !54
   %.not64.i = icmp eq i32 %861, 0
-  br i1 %.not64.i, label %._crit_edge.thread.i, label %.lr.ph.i708
+  br i1 %.not64.i, label %._crit_edge.thread.i, label %.lr.ph.i709
 
 ._crit_edge.thread.i:                             ; preds = %calculate_bitrate.exit
   %862 = load ptr, ptr %21, align 8, !tbaa !29
   %863 = call i64 @avio_seek(ptr noundef %862, i64 noundef %860, i32 noundef 0) #14
   br label %922
 
-.lr.ph.i708:                                      ; preds = %calculate_bitrate.exit, %915
+.lr.ph.i709:                                      ; preds = %calculate_bitrate.exit, %915
   %864 = phi i32 [ %916, %915 ], [ %861, %calculate_bitrate.exit ]
-  %indvars.iv.i709 = phi i64 [ %indvars.iv.next.i712, %915 ], [ 0, %calculate_bitrate.exit ]
+  %indvars.iv.i710 = phi i64 [ %indvars.iv.next.i713, %915 ], [ 0, %calculate_bitrate.exit ]
   %.03861.i = phi i64 [ %.1.i, %915 ], [ 0, %calculate_bitrate.exit ]
   %.03960.i = phi i64 [ %.140.i, %915 ], [ 9223372036854775807, %calculate_bitrate.exit ]
   %865 = load ptr, ptr %54, align 8, !tbaa !55
-  %866 = getelementptr inbounds nuw ptr, ptr %865, i64 %indvars.iv.i709
+  %866 = getelementptr inbounds nuw ptr, ptr %865, i64 %indvars.iv.i710
   %867 = load ptr, ptr %866, align 8, !tbaa !56
   %868 = getelementptr inbounds nuw i8, ptr %867, i64 328
   %869 = load i32, ptr %868, align 8, !tbaa !105
   %870 = icmp slt i32 %869, 1
   br i1 %870, label %915, label %871
 
-871:                                              ; preds = %.lr.ph.i708
-  %.not.i710 = icmp eq i32 %869, 1
-  br i1 %.not.i710, label %907, label %872
+871:                                              ; preds = %.lr.ph.i709
+  %.not.i711 = icmp eq i32 %869, 1
+  br i1 %.not.i711, label %907, label %872
 
 872:                                              ; preds = %871
   %873 = getelementptr inbounds nuw i8, ptr %867, i64 320
@@ -1934,7 +1934,7 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   %890 = add i32 %889, %881
   %891 = zext i32 %890 to i64
   %892 = select i1 %or.cond1.i.i, i64 %891, i64 100
-  %893 = icmp eq i64 %892, %indvars.iv.i709
+  %893 = icmp eq i64 %892, %indvars.iv.i710
   br i1 %893, label %894, label %907
 
 894:                                              ; preds = %872
@@ -1964,25 +1964,25 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   %913 = getelementptr i8, ptr %912, i64 -24
   %914 = load i64, ptr %913, align 8, !tbaa !108
   %.241.i = call i64 @llvm.smin.i64(i64 %914, i64 %.03960.i)
-  %.pre.i711 = load i32, ptr %53, align 4, !tbaa !54
+  %.pre.i712 = load i32, ptr %53, align 4, !tbaa !54
   br label %915
 
-915:                                              ; preds = %907, %.lr.ph.i708
-  %916 = phi i32 [ %.pre.i711, %907 ], [ %864, %.lr.ph.i708 ]
-  %.140.i = phi i64 [ %.241.i, %907 ], [ %.03960.i, %.lr.ph.i708 ]
-  %.1.i = phi i64 [ %spec.select46.i, %907 ], [ %.03861.i, %.lr.ph.i708 ]
-  %indvars.iv.next.i712 = add nuw nsw i64 %indvars.iv.i709, 1
+915:                                              ; preds = %907, %.lr.ph.i709
+  %916 = phi i32 [ %.pre.i712, %907 ], [ %864, %.lr.ph.i709 ]
+  %.140.i = phi i64 [ %.241.i, %907 ], [ %.03960.i, %.lr.ph.i709 ]
+  %.1.i = phi i64 [ %spec.select46.i, %907 ], [ %.03861.i, %.lr.ph.i709 ]
+  %indvars.iv.next.i713 = add nuw nsw i64 %indvars.iv.i710, 1
   %917 = zext i32 %916 to i64
-  %918 = icmp samesign ult i64 %indvars.iv.next.i712, %917
-  br i1 %918, label %.lr.ph.i708, label %._crit_edge.i713, !llvm.loop !117
+  %918 = icmp samesign ult i64 %indvars.iv.next.i713, %917
+  br i1 %918, label %.lr.ph.i709, label %._crit_edge.i714, !llvm.loop !117
 
-._crit_edge.i713:                                 ; preds = %915
+._crit_edge.i714:                                 ; preds = %915
   %919 = icmp sgt i64 %.1.i, %.140.i
   %920 = load ptr, ptr %21, align 8, !tbaa !29
   %921 = call i64 @avio_seek(ptr noundef %920, i64 noundef %860, i32 noundef 0) #14
   br i1 %919, label %1003, label %922
 
-922:                                              ; preds = %._crit_edge.i713, %._crit_edge.thread.i
+922:                                              ; preds = %._crit_edge.i714, %._crit_edge.thread.i
   %923 = load i32, ptr %53, align 4, !tbaa !54
   %924 = zext i32 %923 to i64
   %925 = call noalias ptr @av_calloc(i64 noundef %924, i64 noundef 4) #14
@@ -2152,12 +2152,12 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   call void @av_free(ptr noundef nonnull %925) #14
   br label %1003
 
-1003:                                             ; preds = %._crit_edge.i713, %.sink.split.i.i
-  %.0.i714.ph = phi i32 [ %.us-phi.i, %.sink.split.i.i ], [ 1, %._crit_edge.i713 ]
+1003:                                             ; preds = %._crit_edge.i714, %.sink.split.i.i
+  %.0.i715.ph = phi i32 [ %.us-phi.i, %.sink.split.i.i ], [ 1, %._crit_edge.i714 ]
   %1004 = load i32, ptr %58, align 8, !tbaa !102
   %1005 = and i32 %1004, 65536
   %1006 = load i32, ptr %62, align 8, !tbaa !45
-  %1007 = or i32 %1006, %.0.i714.ph
+  %1007 = or i32 %1006, %.0.i715.ph
   %1008 = or i32 %1007, %1005
   store i32 %1008, ptr %62, align 8, !tbaa !45
   %1009 = load ptr, ptr %56, align 8, !tbaa !122
@@ -2166,7 +2166,7 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   br i1 %.not682, label %..loopexit_crit_edge, label %1011
 
 ..loopexit_crit_edge:                             ; preds = %1003
-  %.pre909 = load i32, ptr %53, align 4, !tbaa !54
+  %.pre910 = load i32, ptr %53, align 4, !tbaa !54
   br label %.loopexit
 
 1011:                                             ; preds = %1003
@@ -2174,21 +2174,21 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   %1013 = load ptr, ptr %1012, align 8, !tbaa !123
   %1014 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1013, ptr noundef nonnull dereferenceable(11) @.str.36) #17
   %.not683 = icmp eq i32 %1014, 0
-  %.pre910 = load i32, ptr %53, align 4, !tbaa !54
+  %.pre911 = load i32, ptr %53, align 4, !tbaa !54
   br i1 %.not683, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1011
-  %.not838 = icmp eq i32 %.pre910, 0
-  br i1 %.not838, label %._crit_edge831, label %.lr.ph827
+  %.not839 = icmp eq i32 %.pre911, 0
+  br i1 %.not839, label %._crit_edge832, label %.lr.ph828
 
-.lr.ph827:                                        ; preds = %.preheader
+.lr.ph828:                                        ; preds = %.preheader
   %1015 = load ptr, ptr %54, align 8, !tbaa !55
-  %wide.trip.count885 = zext i32 %.pre910 to i64
+  %wide.trip.count886 = zext i32 %.pre911 to i64
   br label %1016
 
-1016:                                             ; preds = %.lr.ph827, %1025
-  %indvars.iv882 = phi i64 [ 0, %.lr.ph827 ], [ %indvars.iv.next883, %1025 ]
-  %1017 = getelementptr inbounds nuw ptr, ptr %1015, i64 %indvars.iv882
+1016:                                             ; preds = %.lr.ph828, %1025
+  %indvars.iv883 = phi i64 [ 0, %.lr.ph828 ], [ %indvars.iv.next884, %1025 ]
+  %1017 = getelementptr inbounds nuw ptr, ptr %1015, i64 %indvars.iv883
   %1018 = load ptr, ptr %1017, align 8, !tbaa !56
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 16
   %1020 = load ptr, ptr %1019, align 8, !tbaa !73
@@ -2204,77 +2204,77 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   br label %1025
 
 1025:                                             ; preds = %1016, %1023
-  %indvars.iv.next883 = add nuw nsw i64 %indvars.iv882, 1
-  %exitcond886.not = icmp eq i64 %indvars.iv.next883, %wide.trip.count885
-  br i1 %exitcond886.not, label %.loopexit, label %1016, !llvm.loop !125
+  %indvars.iv.next884 = add nuw nsw i64 %indvars.iv883, 1
+  %exitcond887.not = icmp eq i64 %indvars.iv.next884, %wide.trip.count886
+  br i1 %exitcond887.not, label %.loopexit, label %1016, !llvm.loop !125
 
 .loopexit:                                        ; preds = %1025, %..loopexit_crit_edge, %1011
-  %1026 = phi i32 [ %.pre909, %..loopexit_crit_edge ], [ %.pre910, %1011 ], [ %.pre910, %1025 ]
-  %.not839 = icmp eq i32 %1026, 0
-  br i1 %.not839, label %._crit_edge831, label %.lr.ph830
+  %1026 = phi i32 [ %.pre910, %..loopexit_crit_edge ], [ %.pre911, %1011 ], [ %.pre911, %1025 ]
+  %.not840 = icmp eq i32 %1026, 0
+  br i1 %.not840, label %._crit_edge832, label %.lr.ph831
 
-.lr.ph830:                                        ; preds = %.loopexit
+.lr.ph831:                                        ; preds = %.loopexit
   %1027 = load ptr, ptr %54, align 8, !tbaa !55
-  %wide.trip.count890 = zext i32 %1026 to i64
+  %wide.trip.count891 = zext i32 %1026 to i64
   br label %1028
 
-1028:                                             ; preds = %.lr.ph830, %1033
-  %indvars.iv887 = phi i64 [ 0, %.lr.ph830 ], [ %indvars.iv.next888, %1033 ]
-  %1029 = getelementptr inbounds nuw ptr, ptr %1027, i64 %indvars.iv887
+1028:                                             ; preds = %.lr.ph831, %1033
+  %indvars.iv888 = phi i64 [ 0, %.lr.ph831 ], [ %indvars.iv.next889, %1033 ]
+  %1029 = getelementptr inbounds nuw ptr, ptr %1027, i64 %indvars.iv888
   %1030 = load ptr, ptr %1029, align 8, !tbaa !56
   %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 328
   %1032 = load i32, ptr %1031, align 8, !tbaa !105
   %.not684 = icmp eq i32 %1032, 0
-  br i1 %.not684, label %1033, label %._crit_edge831.loopexit.split.loop.exit
+  br i1 %.not684, label %1033, label %._crit_edge832.loopexit.split.loop.exit
 
 1033:                                             ; preds = %1028
-  %indvars.iv.next888 = add nuw nsw i64 %indvars.iv887, 1
-  %exitcond891.not = icmp eq i64 %indvars.iv.next888, %wide.trip.count890
-  br i1 %exitcond891.not, label %._crit_edge831, label %1028, !llvm.loop !126
+  %indvars.iv.next889 = add nuw nsw i64 %indvars.iv888, 1
+  %exitcond892.not = icmp eq i64 %indvars.iv.next889, %wide.trip.count891
+  br i1 %exitcond892.not, label %._crit_edge832, label %1028, !llvm.loop !126
 
-._crit_edge831.loopexit.split.loop.exit:          ; preds = %1028
-  %1034 = trunc nuw nsw i64 %indvars.iv887 to i32
+._crit_edge832.loopexit.split.loop.exit:          ; preds = %1028
+  %1034 = trunc nuw nsw i64 %indvars.iv888 to i32
   %1035 = icmp eq i32 %1026, %1034
-  br label %._crit_edge831
+  br label %._crit_edge832
 
-._crit_edge831:                                   ; preds = %1033, %._crit_edge831.loopexit.split.loop.exit, %.preheader, %.loopexit
-  %.2573.lcssa = phi i1 [ true, %.loopexit ], [ true, %.preheader ], [ %1035, %._crit_edge831.loopexit.split.loop.exit ], [ true, %1033 ]
+._crit_edge832:                                   ; preds = %1033, %._crit_edge832.loopexit.split.loop.exit, %.preheader, %.loopexit
+  %.2573.lcssa = phi i1 [ true, %.loopexit ], [ true, %.preheader ], [ %1035, %._crit_edge832.loopexit.split.loop.exit ], [ true, %1033 ]
   %1036 = load ptr, ptr %60, align 8, !tbaa !58
   %.not685 = icmp eq ptr %1036, null
   br i1 %.not685, label %1038, label %1037
 
-1037:                                             ; preds = %._crit_edge831
+1037:                                             ; preds = %._crit_edge832
   store i32 0, ptr %62, align 8, !tbaa !45
   br label %1038
 
-1038:                                             ; preds = %1037, %._crit_edge831
+1038:                                             ; preds = %1037, %._crit_edge832
   %1039 = load i32, ptr %62, align 8, !tbaa !45
   %.not686 = icmp eq i32 %1039, 0
   br i1 %.2573.lcssa, label %1040, label %1042
 
 1040:                                             ; preds = %1038
-  br i1 %.not686, label %.thread751, label %1041
+  br i1 %.not686, label %.thread752, label %1041
 
 1041:                                             ; preds = %1040
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.37) #14
   store i32 0, ptr %62, align 8, !tbaa !45
-  br label %.thread751
+  br label %.thread752
 
 1042:                                             ; preds = %1038
-  br i1 %.not686, label %.thread751, label %1043
+  br i1 %.not686, label %.thread752, label %1043
 
 1043:                                             ; preds = %1042
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.38) #14
   call fastcc void @clean_index(ptr noundef nonnull %0)
-  br label %.thread751
+  br label %.thread752
 
-.thread751:                                       ; preds = %1040, %1041, %1043, %1042
+.thread752:                                       ; preds = %1040, %1041, %1043, %1042
   call void @ff_metadata_conv_ctx(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @avi_metadata_conv) #14
   call void @ff_metadata_conv_ctx(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @ff_riff_info_conv) #14
   br label %guess_ni_flag.exit
 
-guess_ni_flag.exit:                               ; preds = %avi_read_nikon.exit, %214, %217, %659, %avi_read_tag.exit, %620, %225, %227, %51, %234, %922, %avi_read_tag.exit.thread, %.loopexit753, %get_riff.exit, %740, %724, %.thread751, %319
-  %.0 = phi i32 [ 0, %.thread751 ], [ -1094995529, %319 ], [ %.4, %.loopexit753 ], [ -1094995529, %get_riff.exit ], [ -1094995529, %724 ], [ -1094995529, %740 ], [ %.0.i701.ph, %avi_read_tag.exit.thread ], [ -12, %922 ], [ -12, %234 ], [ -1094995529, %51 ], [ -1094995529, %avi_read_nikon.exit ], [ -12, %214 ], [ -12, %217 ], [ -1094995529, %659 ], [ %720, %avi_read_tag.exit ], [ %622, %620 ], [ -1094995529, %225 ], [ -1094995529, %227 ]
+guess_ni_flag.exit:                               ; preds = %avi_read_nikon.exit, %214, %217, %659, %avi_read_tag.exit, %620, %225, %227, %51, %234, %922, %avi_read_tag.exit.thread, %.loopexit754, %get_riff.exit, %740, %724, %.thread752, %319
+  %.0 = phi i32 [ 0, %.thread752 ], [ -1094995529, %319 ], [ %.4, %.loopexit754 ], [ -1094995529, %get_riff.exit ], [ -1094995529, %724 ], [ -1094995529, %740 ], [ %.0.i702.ph, %avi_read_tag.exit.thread ], [ -12, %922 ], [ -12, %234 ], [ -1094995529, %51 ], [ -1094995529, %avi_read_nikon.exit ], [ -12, %214 ], [ -12, %217 ], [ -1094995529, %659 ], [ %720, %avi_read_tag.exit ], [ %622, %620 ], [ -1094995529, %225 ], [ -1094995529, %227 ]
   ret i32 %.0
 }
 

@@ -2917,25 +2917,23 @@ define hidden i32 @dissect_p1_Credentials(i1 zeroext %0, ptr noundef %1, i32 nou
   %8 = load i32, ptr @ett_p1_Credentials, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Credentials_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7)
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %20, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %19
+    i32 3, label %19
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
   %13 = getelementptr %struct._value_string, ptr @p1_Credentials_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %.not7 = icmp eq ptr %14, null
-  br i1 %.not7, label %20, label %15
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %14)
+  br label %19
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %14)
-  br label %20
-
-20:                                               ; preds = %15, %11, %6
+19:                                               ; preds = %6, %6, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
@@ -2954,25 +2952,23 @@ define hidden i32 @dissect_p1_InitiatorCredentials(i1 zeroext %0, ptr noundef %1
   %8 = load i32, ptr @ett_p1_Credentials, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Credentials_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7)
   %10 = load i32, ptr %7, align 4
-  %.not.i = icmp eq i32 %10, -1
-  br i1 %.not.i, label %dissect_p1_Credentials.exit, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %dissect_p1_Credentials.exit
+    i32 3, label %dissect_p1_Credentials.exit
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
   %13 = getelementptr %struct._value_string, ptr @p1_Credentials_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %.not7.i = icmp eq ptr %14, null
-  br i1 %.not7.i, label %dissect_p1_Credentials.exit, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %14)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %14)
   br label %dissect_p1_Credentials.exit
 
-dissect_p1_Credentials.exit:                      ; preds = %6, %11, %15
+dissect_p1_Credentials.exit:                      ; preds = %6, %6, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
@@ -3005,25 +3001,23 @@ define hidden i32 @dissect_p1_ResponderCredentials(i1 zeroext %0, ptr noundef %1
   %8 = load i32, ptr @ett_p1_Credentials, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Credentials_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7)
   %10 = load i32, ptr %7, align 4
-  %.not.i = icmp eq i32 %10, -1
-  br i1 %.not.i, label %dissect_p1_Credentials.exit, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %dissect_p1_Credentials.exit
+    i32 3, label %dissect_p1_Credentials.exit
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
   %13 = getelementptr %struct._value_string, ptr @p1_Credentials_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %.not7.i = icmp eq ptr %14, null
-  br i1 %.not7.i, label %dissect_p1_Credentials.exit, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %14)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %14)
   br label %dissect_p1_Credentials.exit
 
-dissect_p1_Credentials.exit:                      ; preds = %6, %11, %15
+dissect_p1_Credentials.exit:                      ; preds = %6, %6, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
@@ -3885,52 +3879,49 @@ p1_initialize_content_globals.exit:               ; preds = %4, %10
   %31 = load i32, ptr @ett_p1_MTS_APDU, align 4
   %32 = call i32 @dissect_ber_choice(ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MTS_APDU_choice, i32 noundef %30, i32 noundef %31, ptr noundef nonnull %5)
   %33 = load i32, ptr %5, align 4
-  %.not.i = icmp eq i32 %33, -1
-  br i1 %.not.i, label %dissect_p1_MTS_APDU.exit, label %34
+  switch i32 %33, label %34 [
+    i32 -1, label %dissect_p1_MTS_APDU.exit
+    i32 3, label %dissect_p1_MTS_APDU.exit
+    i32 0, label %dissect_p1_MTS_APDU.exit
+  ]
 
 34:                                               ; preds = %26
   %35 = sext i32 %33 to i64
   %36 = getelementptr %struct._value_string, ptr @p1_MTS_APDU_vals, i64 %35, i32 1
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  %39 = icmp ne i32 %33, 0
-  %or.cond.i = and i1 %39, %38
-  br i1 %or.cond.i, label %40, label %dissect_p1_MTS_APDU.exit
-
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %37)
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %37)
   br label %dissect_p1_MTS_APDU.exit
 
-dissect_p1_MTS_APDU.exit:                         ; preds = %26, %34, %40
+dissect_p1_MTS_APDU.exit:                         ; preds = %26, %26, %26, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %45 = load ptr, ptr %7, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %p1_initialize_content_globals.exit12
+  %42 = load ptr, ptr %7, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %p1_initialize_content_globals.exit12
 
-47:                                               ; preds = %dissect_p1_MTS_APDU.exit
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 408
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %51, i64 noundef 32) #5
-  store ptr %52, ptr %7, align 8
+44:                                               ; preds = %dissect_p1_MTS_APDU.exit
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 408
+  %48 = load ptr, ptr %47, align 8
+  %49 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %48, i64 noundef 32) #5
+  store ptr %49, ptr %7, align 8
   br label %p1_initialize_content_globals.exit12
 
-p1_initialize_content_globals.exit12:             ; preds = %dissect_p1_MTS_APDU.exit, %47
-  %53 = phi ptr [ %52, %47 ], [ %45, %dissect_p1_MTS_APDU.exit ]
+p1_initialize_content_globals.exit12:             ; preds = %dissect_p1_MTS_APDU.exit, %44
+  %50 = phi ptr [ %49, %44 ], [ %42, %dissect_p1_MTS_APDU.exit ]
   store ptr null, ptr %17, align 8
   store ptr null, ptr %18, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i8 0, ptr %55, align 8
-  %56 = call i32 @tvb_captured_length(ptr noundef %0)
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr null, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store i8 0, ptr %52, align 8
+  %53 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %56
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3947,27 +3938,24 @@ define internal i32 @dissect_p1_MTS_APDU(i1 zeroext %0, ptr noundef %1, i32 noun
   %8 = load i32, ptr @ett_p1_MTS_APDU, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @MTS_APDU_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7)
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %22, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %19
+    i32 3, label %19
+    i32 0, label %19
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
   %13 = getelementptr %struct._value_string, ptr @p1_MTS_APDU_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ne ptr %14, null
-  %16 = icmp ne i32 %10, 0
-  %or.cond = and i1 %16, %15
-  br i1 %or.cond, label %17, label %22
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %14)
+  br label %19
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %14)
-  br label %22
-
-22:                                               ; preds = %17, %11, %6
+19:                                               ; preds = %6, %6, %6, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
@@ -8374,25 +8362,23 @@ define internal i32 @dissect_p1_ReportType(i1 zeroext %0, ptr noundef %1, i32 no
   %8 = load i32, ptr @ett_p1_ReportType, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ReportType_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7)
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %20, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %19
+    i32 2, label %19
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
   %13 = getelementptr %struct._value_string, ptr @p1_ReportType_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %.not7 = icmp eq ptr %14, null
-  br i1 %.not7, label %20, label %15
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %14)
+  br label %19
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %14)
-  br label %20
-
-20:                                               ; preds = %15, %11, %6
+19:                                               ; preds = %6, %6, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }

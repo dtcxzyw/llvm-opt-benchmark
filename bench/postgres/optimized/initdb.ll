@@ -1403,164 +1403,108 @@ define dso_local void @setup_text_search() local_unnamed_addr #0 {
   %1 = load ptr, ptr @default_text_search_config, align 8
   %.not = icmp eq ptr %1, null
   %2 = load ptr, ptr @lc_ctype, align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %.not, label %4, label %25
+  %3 = tail call fastcc ptr @find_matching_ts_config(ptr noundef %2)
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %0
-  br i1 %3, label %5, label %7
+  store ptr %3, ptr @default_text_search_config, align 8
+  %.not2 = icmp eq ptr %3, null
+  br i1 %.not2, label %5, label %16
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.152) #19
-  br label %13
-
-7:                                                ; preds = %4
-  %8 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #19
-  br label %9
-
-9:                                                ; preds = %11, %7
-  %.0.i = phi ptr [ %8, %7 ], [ %12, %11 ]
-  %10 = load i8, ptr %.0.i, align 1
-  switch i8 %10, label %11 [
-    i8 0, label %.critedge.i
-    i8 95, label %.critedge.i
-    i8 45, label %.critedge.i
-    i8 46, label %.critedge.i
-    i8 64, label %.critedge.i
-  ]
-
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %9, !llvm.loop !6
-
-.critedge.i:                                      ; preds = %9, %9, %9, %9, %9
-  store i8 0, ptr %.0.i, align 1
-  br label %13
-
-13:                                               ; preds = %.critedge.i, %5
-  %.016.i = phi ptr [ %6, %5 ], [ %8, %.critedge.i ]
-  %14 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.175, ptr noundef %.016.i) #19
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %find_matching_ts_config.exit.thread, label %.lr.ph15
-
-find_matching_ts_config.exit.thread:              ; preds = %13
-  tail call void @free(ptr noundef %.016.i) #19
-  store ptr @.str.174, ptr @default_text_search_config, align 8
-  br label %53
-
-.lr.ph15:                                         ; preds = %13, %16
-  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %13 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i14, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 57
-  br i1 %exitcond.i, label %.find_matching_ts_config.exit_crit_edge, label %16, !llvm.loop !7
-
-16:                                               ; preds = %.lr.ph15
-  %17 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @pg_strcasecmp(ptr noundef %18, ptr noundef %.016.i) #19
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %find_matching_ts_config.exit, label %.lr.ph15, !llvm.loop !7
-
-.find_matching_ts_config.exit_crit_edge:          ; preds = %.lr.ph15
-  br label %find_matching_ts_config.exit, !llvm.loop !7
-
-find_matching_ts_config.exit:                     ; preds = %16, %.find_matching_ts_config.exit_crit_edge
-  %21 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i
-  %22 = load ptr, ptr %21, align 16
-  tail call void @free(ptr noundef %.016.i) #19
-  store ptr %22, ptr @default_text_search_config, align 8
-  %.not2 = icmp eq ptr %22, null
-  br i1 %.not2, label %23, label %53
-
-23:                                               ; preds = %find_matching_ts_config.exit
-  %24 = load ptr, ptr @lc_ctype, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.37, ptr noundef %24) #19
+  %6 = load ptr, ptr @lc_ctype, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.37, ptr noundef %6) #19
   store ptr @.str.38, ptr @default_text_search_config, align 8
-  br label %53
+  br label %16
 
-25:                                               ; preds = %0
-  br i1 %3, label %26, label %28
+7:                                                ; preds = %0
+  %8 = icmp eq ptr %3, null
+  br i1 %8, label %9, label %11
 
-26:                                               ; preds = %25
-  %27 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.152) #19
-  br label %34
+9:                                                ; preds = %7
+  %10 = load ptr, ptr @lc_ctype, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef %10) #19
+  br label %16
 
-28:                                               ; preds = %25
-  %29 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #19
-  br label %30
+11:                                               ; preds = %7
+  %12 = load ptr, ptr @default_text_search_config, align 8
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12) #21
+  %.not3 = icmp eq i32 %13, 0
+  br i1 %.not3, label %16, label %14
 
-30:                                               ; preds = %32, %28
-  %.0.i4 = phi ptr [ %29, %28 ], [ %33, %32 ]
-  %31 = load i8, ptr %.0.i4, align 1
-  switch i8 %31, label %32 [
-    i8 0, label %.critedge.i5
-    i8 95, label %.critedge.i5
-    i8 45, label %.critedge.i5
-    i8 46, label %.critedge.i5
-    i8 64, label %.critedge.i5
+14:                                               ; preds = %11
+  %15 = load ptr, ptr @lc_ctype, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef %15) #19
+  br label %16
+
+16:                                               ; preds = %9, %14, %11, %4, %5
+  %17 = load ptr, ptr @default_text_search_config, align 8
+  %18 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41, ptr noundef %17) #19
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @find_matching_ts_config(ptr noundef %0) unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %3, label %5
+
+3:                                                ; preds = %1
+  %4 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.152) #19
+  br label %11
+
+5:                                                ; preds = %1
+  %6 = tail call ptr @pg_strdup(ptr noundef nonnull %0) #19
+  br label %7
+
+7:                                                ; preds = %9, %5
+  %.0 = phi ptr [ %6, %5 ], [ %10, %9 ]
+  %8 = load i8, ptr %.0, align 1
+  switch i8 %8, label %9 [
+    i8 0, label %.critedge
+    i8 95, label %.critedge
+    i8 45, label %.critedge
+    i8 46, label %.critedge
+    i8 64, label %.critedge
   ]
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 1
-  br label %30, !llvm.loop !6
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  br label %7, !llvm.loop !6
 
-.critedge.i5:                                     ; preds = %30, %30, %30, %30, %30
-  store i8 0, ptr %.0.i4, align 1
-  br label %34
+.critedge:                                        ; preds = %7, %7, %7, %7, %7
+  store i8 0, ptr %.0, align 1
+  br label %11
 
-34:                                               ; preds = %.critedge.i5, %26
-  %.016.i6 = phi ptr [ %27, %26 ], [ %29, %.critedge.i5 ]
-  %35 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.175, ptr noundef %.016.i6) #19
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %find_matching_ts_config.exit10.thread, label %.lr.ph
+11:                                               ; preds = %.critedge, %3
+  %.016 = phi ptr [ %4, %3 ], [ %6, %.critedge ]
+  br label %13
 
-find_matching_ts_config.exit10.thread:            ; preds = %34
-  tail call void @free(ptr noundef %.016.i6) #19
-  br label %47
+12:                                               ; preds = %13
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not25 = icmp eq i64 %indvars.iv.next, 57
+  br i1 %.not25, label %21, label %13, !llvm.loop !7
 
-.lr.ph:                                           ; preds = %34, %37
-  %indvars.iv.i711 = phi i64 [ %indvars.iv.next.i8, %37 ], [ 0, %34 ]
-  %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i711, 1
-  %exitcond.i9 = icmp eq i64 %indvars.iv.next.i8, 57
-  br i1 %exitcond.i9, label %.find_matching_ts_config.exit10_crit_edge, label %37, !llvm.loop !7
+13:                                               ; preds = %11, %12
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %12 ]
+  %14 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @pg_strcasecmp(ptr noundef %16, ptr noundef %.016) #19
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %12
 
-37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i8, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @pg_strcasecmp(ptr noundef %39, ptr noundef %.016.i6) #19
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %find_matching_ts_config.exit10, label %.lr.ph, !llvm.loop !7
+19:                                               ; preds = %13
+  tail call void @free(ptr noundef %.016) #19
+  %20 = load ptr, ptr %14, align 16
+  br label %22
 
-.find_matching_ts_config.exit10_crit_edge:        ; preds = %.lr.ph
-  br label %find_matching_ts_config.exit10, !llvm.loop !7
+21:                                               ; preds = %12
+  tail call void @free(ptr noundef %.016) #19
+  br label %22
 
-find_matching_ts_config.exit10:                   ; preds = %37, %.find_matching_ts_config.exit10_crit_edge
-  %42 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i8
-  %43 = load ptr, ptr %42, align 16
-  tail call void @free(ptr noundef %.016.i6) #19
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
-
-45:                                               ; preds = %find_matching_ts_config.exit10
-  %46 = load ptr, ptr @lc_ctype, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef %46) #19
-  br label %53
-
-47:                                               ; preds = %find_matching_ts_config.exit10.thread, %find_matching_ts_config.exit10
-  %48 = phi ptr [ @.str.174, %find_matching_ts_config.exit10.thread ], [ %43, %find_matching_ts_config.exit10 ]
-  %49 = load ptr, ptr @default_text_search_config, align 8
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %49) #21
-  %.not3 = icmp eq i32 %50, 0
-  br i1 %.not3, label %53, label %51
-
-51:                                               ; preds = %47
-  %52 = load ptr, ptr @lc_ctype, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %49, ptr noundef %52) #19
-  br label %53
-
-53:                                               ; preds = %find_matching_ts_config.exit.thread, %45, %51, %47, %find_matching_ts_config.exit, %23
-  %54 = load ptr, ptr @default_text_search_config, align 8
-  %55 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41, ptr noundef %54) #19
-  ret void
+22:                                               ; preds = %21, %19
+  %.018 = phi ptr [ %20, %19 ], [ null, %21 ]
+  ret ptr %.018
 }
 
 ; Function Attrs: nounwind uwtable

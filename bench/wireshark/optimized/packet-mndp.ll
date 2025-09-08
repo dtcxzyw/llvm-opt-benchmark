@@ -73,9 +73,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [15 x i8] c"T %d, L %d: %s\00", align 1
 @.str.42 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @.str.43 = private unnamed_addr constant [6 x i8] c" = %s\00", align 1
-@.str.44 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
-@.str.45 = private unnamed_addr constant [30 x i8] c"epan/dissectors/packet-mndp.c\00", align 1
-@.str.46 = private unnamed_addr constant [19 x i8] c"newoffset > offset\00", align 1
 @mndp_body_tlv_vals = internal unnamed_addr constant [12 x { i32, [4 x i8], ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.10, ptr @hf_mndp_mac, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.16, ptr @hf_mndp_identity, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.14, ptr @hf_mndp_version, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.20, ptr @hf_mndp_platform, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.18, ptr @hf_mndp_uptime, ptr null, ptr inttoptr (i64 1 to ptr) }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.12, ptr @hf_mndp_softwareid, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.22, ptr @hf_mndp_board, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.24, ptr @hf_mndp_unpack, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.26, ptr @hf_mndp_ipv6address, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.28, ptr @hf_mndp_interfacename, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.30, ptr @hf_mndp_ipv4address, ptr null, ptr null }, { i32, [4 x i8], ptr, ptr, ptr, ptr } zeroinitializer], align 16
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -103,7 +100,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 4, 1) i32 @dissect_mndp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 4, 1) i32 @dissect_mndp_static(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc zeroext i1 @test_mndp(ptr noundef %0)
   br i1 %5, label %6, label %8
 
@@ -132,7 +129,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_mndp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal noundef zeroext i1 @dissect_mndp_heur(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc zeroext i1 @test_mndp(ptr noundef %0)
   br i1 %5, label %6, label %8
 
@@ -184,7 +181,7 @@ define internal fastcc noundef zeroext i1 @test_mndp(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 4, 0) i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 4, 0) i32 @dissect_mndp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 35, ptr noundef nonnull @.str.33)
@@ -205,10 +202,10 @@ define internal fastcc range(i32 4, 0) i32 @dissect_mndp(ptr noundef %0, ptr nou
   br label %17
 
 17:                                               ; preds = %.lr.ph, %dissect_tlv.exit
-  %.023 = phi i32 [ 4, %.lr.ph ], [ %.0.i, %dissect_tlv.exit ]
-  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.023)
+  %.022 = phi i32 [ 4, %.lr.ph ], [ %.0.i, %dissect_tlv.exit ]
+  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.022)
   %19 = zext i16 %18 to i32
-  %20 = add i32 %.023, 2
+  %20 = add i32 %.022, 2
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %20)
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %22, 4
@@ -227,23 +224,24 @@ define internal fastcc range(i32 4, 0) i32 @dissect_mndp(ptr noundef %0, ptr nou
   %indvars.iv.i4.i.i = phi i64 [ %indvars.iv.next.i.i.i, %27 ], [ 0, %17 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i4.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 11
-  br i1 %exitcond.i.i.i, label %match_strextval_idx.exit.i.i, label %27, !llvm.loop !6
+  br i1 %exitcond.i.i.i, label %match_strextval_idx.exit.i.thread.i, label %27, !llvm.loop !6
 
-match_strextval_idx.exit.i.i:                     ; preds = %.lr.ph.i.i, %27
+match_strextval_idx.exit.i.i:                     ; preds = %27
   %.in.i = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %indvars.iv.next.i.i.i, i32 1
   %31 = load ptr, ptr %.in.i, align 8
-  %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %32, label %extval_to_str_idx.exit.i
+  %32 = and i64 %indvars.iv.next.i.i.i, 2305843009213693951
+  %.not.i.i = icmp eq i64 %32, 11
+  br i1 %.not.i.i, label %match_strextval_idx.exit.i.thread.i, label %extval_to_str_idx.exit.i
 
-32:                                               ; preds = %match_strextval_idx.exit.i.i
+match_strextval_idx.exit.i.thread.i:              ; preds = %.lr.ph.i.i, %match_strextval_idx.exit.i.i
   %33 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.42, i32 noundef range(i32 0, 65536) %19)
   br label %extval_to_str_idx.exit.i
 
-extval_to_str_idx.exit.i:                         ; preds = %32, %match_strextval_idx.exit.i.i, %17
-  %.0.i.i = phi ptr [ %33, %32 ], [ %31, %match_strextval_idx.exit.i.i ], [ @.str.10, %17 ]
-  %34 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.023, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef %19, i32 noundef %22, ptr noundef %.0.i.i)
+extval_to_str_idx.exit.i:                         ; preds = %match_strextval_idx.exit.i.thread.i, %match_strextval_idx.exit.i.i, %17
+  %.0.i.i = phi ptr [ %33, %match_strextval_idx.exit.i.thread.i ], [ %31, %match_strextval_idx.exit.i.i ], [ @.str.10, %17 ]
+  %34 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.022, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef %19, i32 noundef %22, ptr noundef %.0.i.i)
   %35 = load i32, ptr @hf_mndp_tlv_type, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.023, i32 noundef 2, i32 noundef 0)
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.022, i32 noundef 2, i32 noundef 0)
   %37 = load ptr, ptr %16, align 8
   br i1 %26, label %extval_to_str_idx.exit82.i, label %.lr.ph.i71.i
 
@@ -251,100 +249,83 @@ extval_to_str_idx.exit.i:                         ; preds = %32, %match_strextva
   %39 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %indvars.iv.next.i.i73.i
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %19
-  br i1 %41, label %._crit_edge.loopexit.i75.i, label %.lr.ph.i71.i, !llvm.loop !6
-
-._crit_edge.loopexit.i75.i:                       ; preds = %38
-  %42 = trunc nuw nsw i64 %indvars.iv.next.i.i73.i to i32
-  br label %.sink.split.i.i.i
+  br i1 %41, label %.sink.split.i.i.i, label %.lr.ph.i71.i, !llvm.loop !6
 
 .lr.ph.i71.i:                                     ; preds = %extval_to_str_idx.exit.i, %38
   %indvars.iv.i4.i72.i = phi i64 [ %indvars.iv.next.i.i73.i, %38 ], [ 0, %extval_to_str_idx.exit.i ]
   %indvars.iv.next.i.i73.i = add nuw nsw i64 %indvars.iv.i4.i72.i, 1
   %exitcond.i.i74.i = icmp eq i64 %indvars.iv.next.i.i73.i, 11
-  br i1 %exitcond.i.i74.i, label %.sink.split.i.i.i, label %38, !llvm.loop !6
+  br i1 %exitcond.i.i74.i, label %.sink.split.i.i.thread.i, label %38, !llvm.loop !6
 
-.sink.split.i.i.i:                                ; preds = %.lr.ph.i71.i, %._crit_edge.loopexit.i75.i
-  %.sink.i.i.i = phi i32 [ %42, %._crit_edge.loopexit.i75.i ], [ -1, %.lr.ph.i71.i ]
+.sink.split.i.i.i:                                ; preds = %38
+  %42 = trunc nuw nsw i64 %indvars.iv.next.i.i73.i to i32
   %.ph.i.i.in.i = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %indvars.iv.next.i.i73.i, i32 1
   %.ph.i.i.i = load ptr, ptr %.ph.i.i.in.i, align 8
-  %.not.i80.i = icmp eq ptr %.ph.i.i.i, null
-  br i1 %.not.i80.i, label %43, label %extval_to_str_idx.exit82.i
+  %43 = and i64 %indvars.iv.next.i.i73.i, 2305843009213693951
+  %.not.i80.i = icmp eq i64 %43, 11
+  br i1 %.not.i80.i, label %.sink.split.i.i.thread.i, label %extval_to_str_idx.exit82.i
 
-43:                                               ; preds = %.sink.split.i.i.i
+.sink.split.i.i.thread.i:                         ; preds = %.lr.ph.i71.i, %.sink.split.i.i.i
+  %.sink.i.i20.i = phi i32 [ %42, %.sink.split.i.i.i ], [ -1, %.lr.ph.i71.i ]
   %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %37, ptr noundef nonnull @.str.42, i32 noundef range(i32 0, 65536) %19)
   br label %extval_to_str_idx.exit82.i
 
-extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.i.i, %extval_to_str_idx.exit.i
-  %.sink.i.i8.i = phi i32 [ %.sink.i.i.i, %43 ], [ %.sink.i.i.i, %.sink.split.i.i.i ], [ 0, %extval_to_str_idx.exit.i ]
-  %.0.i81.i = phi ptr [ %44, %43 ], [ %.ph.i.i.i, %.sink.split.i.i.i ], [ @.str.10, %extval_to_str_idx.exit.i ]
+extval_to_str_idx.exit82.i:                       ; preds = %.sink.split.i.i.thread.i, %.sink.split.i.i.i, %extval_to_str_idx.exit.i
+  %.sink.i.i7.i = phi i32 [ %.sink.i.i20.i, %.sink.split.i.i.thread.i ], [ %42, %.sink.split.i.i.i ], [ 0, %extval_to_str_idx.exit.i ]
+  %.0.i81.i = phi ptr [ %44, %.sink.split.i.i.thread.i ], [ %.ph.i.i.i, %.sink.split.i.i.i ], [ @.str.10, %extval_to_str_idx.exit.i ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.43, ptr noundef %.0.i81.i)
   %45 = load i32, ptr @hf_mndp_tlv_length, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %45, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  %47 = add i32 %.023, 4
+  %47 = add i32 %.022, 4
   %48 = icmp eq i16 %21, 0
   br i1 %48, label %dissect_tlv.exit, label %49
 
 49:                                               ; preds = %extval_to_str_idx.exit82.i
   %50 = add i32 %47, %22
-  %.not.i = icmp eq i32 %.sink.i.i8.i, -1
-  br i1 %.not.i, label %.thread13.i, label %53
+  %.not.i = icmp eq i32 %.sink.i.i7.i, -1
+  br i1 %.not.i, label %59, label %51
 
-.thread13.i:                                      ; preds = %49
-  %51 = load i32, ptr @hf_mndp_tlv_data, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %51, ptr noundef %0, i32 noundef %47, i32 noundef %22, i32 noundef 0)
+51:                                               ; preds = %49
+  %52 = sext i32 %.sink.i.i7.i to i64
+  %53 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %.not65.i = icmp eq ptr %55, null
+  br i1 %.not65.i, label %56, label %59
+
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %.not66.i = icmp eq ptr %58, null
+  br i1 %.not66.i, label %59, label %60
+
+59:                                               ; preds = %56, %51, %49
+  br label %60
+
+60:                                               ; preds = %59, %56
+  %.057.i = phi i32 [ 0, %59 ], [ 1, %56 ]
+  switch i32 %.sink.i.i7.i, label %61 [
+    i32 -1, label %.sink.split.i
+    i32 11, label %.sink.split.i
+  ]
+
+61:                                               ; preds = %60
+  %62 = sext i32 %.sink.i.i7.i to i64
+  %63 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %62, i32 2
+  %64 = load ptr, ptr %63, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %61, %60, %60
+  %.sink23.i = phi ptr [ %64, %61 ], [ @hf_mndp_tlv_data, %60 ], [ @hf_mndp_tlv_data, %60 ]
+  %.057.sink.i = phi i32 [ %.057.i, %61 ], [ 0, %60 ], [ 0, %60 ]
+  %65 = load i32, ptr %.sink23.i, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %65, ptr noundef %0, i32 noundef %47, i32 noundef %22, i32 noundef %.057.sink.i)
   br label %dissect_tlv.exit
 
-53:                                               ; preds = %49
-  %54 = sext i32 %.sink.i.i8.i to i64
-  %55 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %.not65.i = icmp eq ptr %57, null
-  br i1 %.not65.i, label %58, label %.thread11.i
-
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %.not66.i = icmp eq ptr %60, null
-  br i1 %.not66.i, label %.thread11.i, label %.thread.i
-
-.thread11.i:                                      ; preds = %58, %53
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %.thread11.i, %58
-  %.05710.i = phi i32 [ 0, %.thread11.i ], [ 1, %58 ]
-  %61 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %54, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %.not68.i = icmp eq ptr %62, null
-  %hf_mndp_tlv_data..i = select i1 %.not68.i, ptr @hf_mndp_tlv_data, ptr %62
-  %..05710.i = select i1 %.not68.i, i32 0, i32 %.05710.i
-  %63 = load i32, ptr %hf_mndp_tlv_data..i, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %63, ptr noundef %0, i32 noundef %47, i32 noundef %22, i32 noundef %..05710.i)
-  br i1 %.not65.i, label %dissect_tlv.exit, label %.preheader.i
-
-.preheader.i:                                     ; preds = %.thread.i
-  %65 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  br label %66
-
-66:                                               ; preds = %68, %.preheader.i
-  %.058.i = phi i32 [ %70, %68 ], [ %47, %.preheader.i ]
-  %67 = icmp ult i32 %.058.i, %50
-  br i1 %67, label %68, label %dissect_tlv.exit
-
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %65, align 8
-  %70 = tail call i32 %57(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef %.058.i, i32 noundef %22, ptr noundef %69)
-  %71 = icmp ugt i32 %70, %.058.i
-  br i1 %71, label %66, label %72, !llvm.loop !8
-
-72:                                               ; preds = %68
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 195, ptr noundef nonnull @.str.46) #3
-  unreachable
-
-dissect_tlv.exit:                                 ; preds = %66, %extval_to_str_idx.exit82.i, %.thread13.i, %.thread.i
-  %.0.i = phi i32 [ %47, %extval_to_str_idx.exit82.i ], [ %50, %.thread.i ], [ %50, %.thread13.i ], [ %50, %66 ]
-  %73 = icmp ult i32 %.0.i, %6
-  br i1 %73, label %17, label %._crit_edge, !llvm.loop !9
+dissect_tlv.exit:                                 ; preds = %extval_to_str_idx.exit82.i, %.sink.split.i
+  %.0.i = phi i32 [ %47, %extval_to_str_idx.exit82.i ], [ %50, %.sink.split.i ]
+  %67 = icmp ult i32 %.0.i, %6
+  br i1 %67, label %17, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_tlv.exit, %3
   %.0.lcssa = phi i32 [ 4, %3 ], [ %.0.i, %dissect_tlv.exit ]
@@ -381,16 +362,11 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
-
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -403,4 +379,3 @@ attributes #3 = { noreturn }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}

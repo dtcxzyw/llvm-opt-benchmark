@@ -906,7 +906,7 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
 define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = tail call i32 @scsi_dev_info_add_list(i32 noundef 0, ptr noundef null), !range !15
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %24
+  br i1 %2, label %3, label %21
 
 3:                                                ; preds = %0
   %4 = tail call fastcc i32 @scsi_dev_info_list_add_str(ptr noundef nonnull @scsi_dev_flags)
@@ -914,38 +914,37 @@ define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #4 section ".init.t
   br i1 %5, label %.preheader, label %select.unfold
 
 6:                                                ; preds = %.preheader
-  %7 = add i32 %14, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.anon.3, ptr @scsi_static_device_list, i64 %8
-  %10 = load ptr, ptr %9, align 16
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %21, label %.preheader, !llvm.loop !16
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %7 = getelementptr %struct.anon.3, ptr @scsi_static_device_list, i64 %indvars.iv.next
+  %8 = load ptr, ptr %7, align 16
+  %9 = icmp eq i64 %indvars.iv.next, 182
+  br i1 %9, label %18, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %3, %6
-  %12 = phi ptr [ %10, %6 ], [ @.str.11, %3 ]
-  %13 = phi ptr [ %9, %6 ], [ @scsi_static_device_list, %3 ]
-  %14 = phi i32 [ %7, %6 ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %18 = load i64, ptr %17, align 8
-  %19 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %12, ptr noundef %16, ptr noundef null, i64 noundef %18, i32 noundef 0)
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %6, label %select.unfold
+  %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %3 ]
+  %10 = phi ptr [ %8, %6 ], [ @.str.11, %3 ]
+  %11 = getelementptr %struct.anon.3, ptr @scsi_static_device_list, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %15 = load i64, ptr %14, align 8
+  %16 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %10, ptr noundef %13, ptr noundef null, i64 noundef %15, i32 noundef 0)
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %6, label %select.unfold
 
-21:                                               ; preds = %6
-  %22 = tail call ptr @proc_create(ptr noundef nonnull @.str.4, i16 noundef zeroext 0, ptr noundef null, ptr noundef nonnull @scsi_devinfo_proc_ops) #13
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %select.unfold, label %24
+18:                                               ; preds = %6
+  %19 = tail call ptr @proc_create(ptr noundef nonnull @.str.4, i16 noundef zeroext 0, ptr noundef null, ptr noundef nonnull @scsi_devinfo_proc_ops) #13
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %select.unfold, label %21
 
-select.unfold:                                    ; preds = %.preheader, %21, %3
-  %.ph = phi i32 [ %4, %3 ], [ -12, %21 ], [ %19, %.preheader ]
+select.unfold:                                    ; preds = %.preheader, %18, %3
+  %.ph = phi i32 [ %4, %3 ], [ -12, %18 ], [ %16, %.preheader ]
   tail call void @scsi_exit_devinfo()
-  br label %24
+  br label %21
 
-24:                                               ; preds = %21, %select.unfold, %0
-  %25 = phi i32 [ %1, %0 ], [ %.ph, %select.unfold ], [ 0, %21 ]
-  ret i32 %25
+21:                                               ; preds = %18, %select.unfold, %0
+  %22 = phi i32 [ %1, %0 ], [ %.ph, %select.unfold ], [ 0, %18 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

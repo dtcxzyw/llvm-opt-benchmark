@@ -1007,7 +1007,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %201 = load i32, ptr %200, align 16
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %203 = load i64, ptr %202, align 8
-  %204 = icmp eq i32 %201, 42
+  %204 = icmp eq i64 %199, 9
   br i1 %204, label %.preheader164, label %.thread108
 
 .preheader164:                                    ; preds = %198, %208
@@ -1098,7 +1098,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 .loopexit163:                                     ; preds = %250, %230, %257
   %260 = phi ptr [ %259, %257 ], [ null, %230 ], [ null, %250 ]
   %261 = icmp eq ptr %260, null
-  %262 = icmp eq i32 %201, 41
+  %262 = icmp eq i64 %199, 8
   %263 = and i1 %262, %261
   br i1 %263, label %264, label %.thread110
 
@@ -1359,7 +1359,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 416:                                              ; preds = %412, %409
   %417 = phi i32 [ %411, %409 ], [ %415, %412 ]
   %418 = zext i32 %417 to i64
-  %419 = icmp eq i32 %201, 53
+  %419 = icmp eq i64 %199, 13
   br i1 %419, label %420, label %425
 
 420:                                              ; preds = %416

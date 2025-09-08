@@ -107471,8 +107471,8 @@ _ZN7testing15AssertionResultD2Ev.exit57:          ; preds = %134, %_ZNKSt14defau
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint32_test_case", ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv.next
   %147 = load ptr, ptr %146, align 8, !tbaa !1432
-  %exitcond = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond, label %12, label %13, !llvm.loop !1433
+  %.not = icmp eq i64 %indvars.iv.next, 26
+  br i1 %.not, label %12, label %13, !llvm.loop !1433
 
 148:                                              ; preds = %_ZN7testing7MessageD2Ev.exit52, %_ZN7testing7MessageD2Ev.exit31
   %.pn20.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn, %_ZN7testing7MessageD2Ev.exit52 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit31 ]
@@ -108234,8 +108234,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint32_test_case", ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv.next
   %182 = load ptr, ptr %181, align 8, !tbaa !1432
-  %exitcond = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond, label %16, label %17, !llvm.loop !1451
+  %.not = icmp eq i64 %indvars.iv.next, 26
+  br i1 %.not, label %16, label %17, !llvm.loop !1451
 
 183:                                              ; preds = %173, %113
   %.pn26.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn.pn, %173 ], [ %.pn.pn.pn.pn, %113 ]
@@ -108661,8 +108661,8 @@ _ZN7testing15AssertionResultD2Ev.exit57:          ; preds = %127, %_ZNKSt14defau
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %139 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint64_test_case", ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv.next
   %140 = load ptr, ptr %139, align 8, !tbaa !1464
-  %exitcond = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond, label %12, label %13, !llvm.loop !1465
+  %.not = icmp eq i64 %indvars.iv.next, 33
+  br i1 %.not, label %12, label %13, !llvm.loop !1465
 
 141:                                              ; preds = %_ZN7testing7MessageD2Ev.exit52, %_ZN7testing7MessageD2Ev.exit35
   %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %_ZN7testing7MessageD2Ev.exit52 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit35 ]
@@ -109176,8 +109176,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint64_test_case", ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv.next
   %175 = load ptr, ptr %174, align 8, !tbaa !1464
-  %exitcond = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond, label %16, label %17, !llvm.loop !1476
+  %.not = icmp eq i64 %indvars.iv.next, 33
+  br i1 %.not, label %16, label %17, !llvm.loop !1476
 
 176:                                              ; preds = %166, %113
   %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn, %166 ], [ %.pn.pn.pn.pn, %113 ]

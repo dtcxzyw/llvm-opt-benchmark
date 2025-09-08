@@ -1869,147 +1869,146 @@ define void @_ZN6duckdb15ExtensionHelper19ApplyExtensionAliasERKNSt7__cxx1112bas
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6duckdb10StringUtil5LowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %9
+  br label %7
 
-5:                                                ; preds = %9
+5:                                                ; preds = %7
   %6 = add nuw nsw i64 %.014, 1
-  %7 = getelementptr inbounds nuw %"struct.duckdb::ExtensionAlias", ptr @_ZN6duckdbL16internal_aliasesE, i64 %6
-  %8 = load ptr, ptr %7, align 16, !tbaa !8
-  %exitcond = icmp eq i64 %6, 8
-  br i1 %exitcond, label %.critedge, label %9, !llvm.loop !10
+  %.not = icmp eq i64 %6, 8
+  br i1 %.not, label %.critedge, label %7, !llvm.loop !8
 
-9:                                                ; preds = %2, %5
-  %10 = phi ptr [ @.str.76, %2 ], [ %8, %5 ]
+7:                                                ; preds = %2, %5
   %.014 = phi i64 [ 0, %2 ], [ %6, %5 ]
-  %11 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %10) #32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %5
+  %8 = getelementptr inbounds nuw %"struct.duckdb::ExtensionAlias", ptr @_ZN6duckdbL16internal_aliasesE, i64 %.014
+  %9 = load ptr, ptr %8, align 16, !tbaa !10
+  %10 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %9) #32
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %5
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw %"struct.duckdb::ExtensionAlias", ptr @_ZN6duckdbL16internal_aliasesE, i64 %.014, i32 1
-  %15 = load ptr, ptr %14, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %0, align 8, !tbaa !13
-  %17 = icmp eq i64 %.014, 8
-  br i1 %17, label %18, label %19
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %15, ptr %0, align 8, !tbaa !13
+  %16 = icmp eq ptr %14, null
+  br i1 %16, label %17, label %18
 
-18:                                               ; preds = %13
+17:                                               ; preds = %12
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.430) #33
-          to label %.noexc unwind label %28
+          to label %.noexc unwind label %27
 
-.noexc:                                           ; preds = %18
+.noexc:                                           ; preds = %17
   unreachable
 
-19:                                               ; preds = %13
-  %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #32
+18:                                               ; preds = %12
+  %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %20, ptr %3, align 8, !tbaa !15
-  %21 = icmp ugt i64 %20, 15
-  br i1 %21, label %.noexc.i, label %._crit_edge.i.i
+  store i64 %19, ptr %3, align 8, !tbaa !15
+  %20 = icmp ugt i64 %19, 15
+  br i1 %20, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %19
-  %22 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-          to label %.noexc9 unwind label %28
+.noexc.i:                                         ; preds = %18
+  %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+          to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc.i
-  store ptr %22, ptr %0, align 8, !tbaa !17
-  %23 = load i64, ptr %3, align 8, !tbaa !15
-  store i64 %23, ptr %16, align 8, !tbaa !19
+  store ptr %21, ptr %0, align 8, !tbaa !17
+  %22 = load i64, ptr %3, align 8, !tbaa !15
+  store i64 %22, ptr %15, align 8, !tbaa !19
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc9, %19
-  %24 = phi ptr [ %22, %.noexc9 ], [ %16, %19 ]
-  switch i64 %20, label %27 [
-    i64 1, label %25
-    i64 0, label %49
+._crit_edge.i.i:                                  ; preds = %.noexc9, %18
+  %23 = phi ptr [ %21, %.noexc9 ], [ %15, %18 ]
+  switch i64 %19, label %26 [
+    i64 1, label %24
+    i64 0, label %48
   ]
 
-25:                                               ; preds = %._crit_edge.i.i
-  %26 = load i8, ptr %15, align 1, !tbaa !19
-  store i8 %26, ptr %24, align 1, !tbaa !19
-  br label %49
+24:                                               ; preds = %._crit_edge.i.i
+  %25 = load i8, ptr %14, align 1, !tbaa !19
+  store i8 %25, ptr %23, align 1, !tbaa !19
+  br label %48
 
-27:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %15, i64 %20, i1 false)
-  br label %49
+26:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %14, i64 %19, i1 false)
+  br label %48
 
-28:                                               ; preds = %.noexc.i, %18
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %.noexc.i, %17
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %30 = load ptr, ptr %4, align 8, !tbaa !17
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %32 = icmp eq ptr %30, %31
-  br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %29 = load ptr, ptr %4, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !20
-  %35 = icmp ult i64 %34, 16
-  call void @llvm.assume(i1 %35)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = icmp ult i64 %33, 16
+  call void @llvm.assume(i1 %34)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
-  call void @_ZdlPv(ptr noundef %30) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %27
+  call void @_ZdlPv(ptr noundef %29) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %29
+  resume { ptr, i32 } %28
 
 .critedge:                                        ; preds = %5
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %36, ptr %0, align 8, !tbaa !13
-  %37 = load ptr, ptr %4, align 8, !tbaa !17
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %35, ptr %0, align 8, !tbaa !13
+  %36 = load ptr, ptr %4, align 8, !tbaa !17
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %38 = icmp eq ptr %36, %37
+  br i1 %38, label %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
 
-40:                                               ; preds = %.critedge
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !20
-  %43 = icmp ult i64 %42, 16
-  call void @llvm.assume(i1 %43)
-  %44 = add nuw nsw i64 %42, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %38, i64 %44, i1 false)
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !20
+  %42 = icmp ult i64 %41, 16
+  call void @llvm.assume(i1 %42)
+  %43 = add nuw nsw i64 %41, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(1) %37, i64 %43, i1 false)
   br label %.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %.critedge
-  store ptr %37, ptr %0, align 8, !tbaa !17
-  %45 = load i64, ptr %38, align 8, !tbaa !19
-  store i64 %45, ptr %36, align 8, !tbaa !19
+  store ptr %36, ptr %0, align 8, !tbaa !17
+  %44 = load i64, ptr %37, align 8, !tbaa !19
+  store i64 %44, ptr %35, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !20
   br label %.thread
 
-.thread:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %40
-  %46 = phi i64 [ %42, %40 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %46, ptr %48, align 8, !tbaa !20
-  store i64 0, ptr %47, align 8, !tbaa !20
+.thread:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %39
+  %45 = phi i64 [ %41, %39 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %45, ptr %47, align 8, !tbaa !20
+  store i64 0, ptr %46, align 8, !tbaa !20
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11
 
-49:                                               ; preds = %._crit_edge.i.i, %25, %27
-  %50 = load i64, ptr %3, align 8, !tbaa !15
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %50, ptr %51, align 8, !tbaa !20
-  %52 = load ptr, ptr %0, align 8, !tbaa !17
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %50
-  store i8 0, ptr %53, align 1, !tbaa !19
+48:                                               ; preds = %._crit_edge.i.i, %24, %26
+  %49 = load i64, ptr %3, align 8, !tbaa !15
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %49, ptr %50, align 8, !tbaa !20
+  %51 = load ptr, ptr %0, align 8, !tbaa !17
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
+  store i8 0, ptr %52, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre16 = load ptr, ptr %4, align 8, !tbaa !17
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %55 = icmp eq ptr %.pre16, %54
-  br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %54 = icmp eq ptr %.pre16, %53
+  br i1 %54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11: ; preds = %.thread, %49
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !20
-  %58 = icmp ult i64 %57, 16
-  call void @llvm.assume(i1 %58)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11: ; preds = %.thread, %48
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !20
+  %57 = icmp ult i64 %56, 16
+  call void @llvm.assume(i1 %57)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10: ; preds = %49
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10: ; preds = %48
   call void @_ZdlPv(ptr noundef %.pre16) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
 
@@ -91633,11 +91632,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = !{!9, !4, i64 0}
-!9 = !{!"_ZTSN6duckdb14ExtensionAliasE", !4, i64 0, !4, i64 8}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!9, !4, i64 8}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11, !4, i64 0}
+!11 = !{!"_ZTSN6duckdb14ExtensionAliasE", !4, i64 0, !4, i64 8}
+!12 = !{!11, !4, i64 8}
 !13 = !{!14, !4, i64 0}
 !14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !4, i64 0}
 !15 = !{!16, !16, i64 0}
@@ -91649,7 +91648,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !21 = !{i64 0, i64 8, !3, i64 8, i64 8, !3, i64 16, i64 1, !22}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"bool", !6, i64 0}
-!24 = distinct !{!24, !11}
+!24 = distinct !{!24, !9}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !27 = distinct !{!27, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
@@ -91975,11 +91974,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !347 = !{!"vtable pointer", !7, i64 0}
 !348 = !{!330, !54, i64 16}
 !349 = !{!53, !54, i64 0}
-!350 = distinct !{!350, !11}
+!350 = distinct !{!350, !9}
 !351 = !{!352, !341, i64 0}
 !352 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !341, i64 0, !341, i64 8, !341, i64 16}
 !353 = !{!352, !341, i64 8}
-!354 = distinct !{!354, !11}
+!354 = distinct !{!354, !9}
 !355 = !{!356}
 !356 = distinct !{!356, !357, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_: argument 0"}
 !357 = distinct !{!357, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_"}
@@ -91987,7 +91986,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !359 = !{!"_ZTSNSt12_Vector_baseIN6duckdb21ExtensionUpdateResultESaIS1_EE17_Vector_impl_dataE", !360, i64 0, !360, i64 8, !360, i64 16}
 !360 = !{!"p1 _ZTSN6duckdb21ExtensionUpdateResultE", !5, i64 0}
 !361 = !{!359, !360, i64 8}
-!362 = distinct !{!362, !11}
+!362 = distinct !{!362, !9}
 !363 = !{!364}
 !364 = distinct !{!364, !365, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_: argument 0"}
 !365 = distinct !{!365, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_"}
@@ -92008,12 +92007,12 @@ attributes #38 = { nounwind willreturn memory(none) }
 !380 = distinct !{!380, !381, !"_ZN6duckdb15ExtensionHelper16InstallExtensionERNS_16DatabaseInstanceERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_23ExtensionInstallOptionsE: argument 0"}
 !381 = distinct !{!381, !"_ZN6duckdb15ExtensionHelper16InstallExtensionERNS_16DatabaseInstanceERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_23ExtensionInstallOptionsE"}
 !382 = !{!321, !54, i64 16}
-!383 = distinct !{!383, !11}
+!383 = distinct !{!383, !9}
 !384 = !{!321, !52, i64 0}
 !385 = !{!321, !16, i64 8}
 !386 = !{!352, !341, i64 16}
-!387 = distinct !{!387, !11}
-!388 = distinct !{!388, !11}
+!387 = distinct !{!387, !9}
+!388 = distinct !{!388, !9}
 !389 = !{!390, !5, i64 24}
 !390 = !{!"_ZTSSt8functionIFbPKcmEE", !279, i64 0, !5, i64 24}
 !391 = !{!392, !4, i64 0}
@@ -92022,7 +92021,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !394 = !{!"_ZTSNSt12_Vector_baseIN10duckdb_re210GroupMatchESaIS1_EE17_Vector_impl_dataE", !395, i64 0, !395, i64 8, !395, i64 16}
 !395 = !{!"p1 _ZTSN10duckdb_re210GroupMatchE", !5, i64 0}
 !396 = !{!394, !395, i64 8}
-!397 = distinct !{!397, !11}
+!397 = distinct !{!397, !9}
 !398 = !{!92, !95, i64 8}
 !399 = !{!400, !276, i64 0}
 !400 = !{!"_ZTSN14duckdb_httplib10ClientImpl6SocketE", !276, i64 0}
@@ -92042,8 +92041,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !414 = distinct !{!414, !415, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_: argument 0"}
 !415 = distinct !{!415, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_"}
 !416 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!417 = distinct !{!417, !11}
-!418 = distinct !{!418, !11}
+!417 = distinct !{!417, !9}
+!418 = distinct !{!418, !9}
 !419 = !{!420}
 !420 = distinct !{!420, !421, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !421 = distinct !{!421, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
@@ -92198,8 +92197,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !570 = !{!282, !282, i64 0}
 !571 = !{i64 0, i64 16, !19}
 !572 = !{!95, !95, i64 0}
-!573 = distinct !{!573, !11}
-!574 = distinct !{!574, !11}
+!573 = distinct !{!573, !9}
+!574 = distinct !{!574, !9}
 !575 = !{!576, !576, i64 0}
 !576 = !{!"p1 _ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE", !5, i64 0}
 !577 = !{!578}
@@ -92218,20 +92217,20 @@ attributes #38 = { nounwind willreturn memory(none) }
 !590 = !{!"_ZTS8timespec", !16, i64 0, !16, i64 8}
 !591 = !{!590, !16, i64 8}
 !592 = !{!276, !276, i64 0}
-!593 = distinct !{!593, !11}
-!594 = distinct !{!594, !11}
+!593 = distinct !{!593, !9}
+!594 = distinct !{!594, !9}
 !595 = !{!596}
 !596 = distinct !{!596, !597, !"_ZNK14duckdb_httplib8Response16get_header_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm: argument 0"}
 !597 = distinct !{!597, !"_ZNK14duckdb_httplib8Response16get_header_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm"}
 !598 = !{!599}
 !599 = distinct !{!599, !600, !"_ZN6duckdb9make_uniqINS_20ExtensionInstallInfoEJRS1_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !600 = distinct !{!600, !"_ZN6duckdb9make_uniqINS_20ExtensionInstallInfoEJRS1_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!601 = distinct !{!601, !11}
-!602 = distinct !{!602, !11}
+!601 = distinct !{!601, !9}
+!602 = distinct !{!602, !9}
 !603 = !{!604}
 !604 = distinct !{!604, !605, !"_ZN6duckdbL15FilterZeroAtEndENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
 !605 = distinct !{!605, !"_ZN6duckdbL15FilterZeroAtEndENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
-!606 = distinct !{!606, !11}
+!606 = distinct !{!606, !9}
 !607 = !{!608}
 !608 = distinct !{!608, !609, !"_ZN6duckdbL15FilterZeroAtEndENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
 !609 = distinct !{!609, !"_ZN6duckdbL15FilterZeroAtEndENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
@@ -92252,24 +92251,24 @@ attributes #38 = { nounwind willreturn memory(none) }
 !624 = !{!625}
 !625 = distinct !{!625, !626, !"_ZN6duckdbL15FilterZeroAtEndENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
 !626 = distinct !{!626, !"_ZN6duckdbL15FilterZeroAtEndENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
-!627 = distinct !{!627, !11}
+!627 = distinct !{!627, !9}
 !628 = !{!629, !630, i64 0}
 !629 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !630, i64 0, !630, i64 8, !630, i64 16}
 !630 = !{!"p1 long", !5, i64 0}
 !631 = !{!629, !630, i64 16}
 !632 = !{!629, !630, i64 8}
-!633 = distinct !{!633, !11}
+!633 = distinct !{!633, !9}
 !634 = !{!635, !636, i64 0}
 !635 = !{!"_ZTSNSt12_Vector_baseISt6threadSaIS0_EE17_Vector_impl_dataE", !636, i64 0, !636, i64 8, !636, i64 16}
 !636 = !{!"p1 _ZTSSt6thread", !5, i64 0}
 !637 = !{!635, !636, i64 8}
 !638 = !{!635, !636, i64 16}
 !639 = !{!636, !636, i64 0}
-!640 = distinct !{!640, !11}
+!640 = distinct !{!640, !9}
 !641 = !{!642}
 !642 = distinct !{!642, !643, !"_ZN6duckdb15ExtensionHelper13GetPublicKeysB5cxx11Eb: argument 0"}
 !643 = distinct !{!643, !"_ZN6duckdb15ExtensionHelper13GetPublicKeysB5cxx11Eb"}
-!644 = distinct !{!644, !11}
+!644 = distinct !{!644, !9}
 !645 = !{!630, !630, i64 0}
 !646 = !{!558, !16, i64 0}
 !647 = !{!648, !341, i64 0}
@@ -92284,7 +92283,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !656 = !{!"_ZTSSt10_Head_baseILm0EPFvPN6duckdb10FileHandleEmmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE", !5, i64 0}
 !657 = !{!658, !658, i64 0}
 !658 = !{!"p1 _ZTSNSt6thread6_StateE", !5, i64 0}
-!659 = distinct !{!659, !11}
+!659 = distinct !{!659, !9}
 !660 = !{!661}
 !661 = distinct !{!661, !662, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_: argument 0"}
 !662 = distinct !{!662, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_"}
@@ -92305,7 +92304,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !677 = !{!"_ZTSNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE17_Vector_impl_dataE", !678, i64 0, !678, i64 8, !678, i64 16}
 !678 = !{!"p1 _ZTSN6duckdb20ExceptionFormatValueE", !5, i64 0}
 !679 = !{!677, !678, i64 8}
-!680 = distinct !{!680, !11}
+!680 = distinct !{!680, !9}
 !681 = !{!682}
 !682 = distinct !{!682, !683, !"_ZN6duckdb15ExtensionHelper16InstallExtensionERNS_16DatabaseInstanceERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_23ExtensionInstallOptionsE: argument 0"}
 !683 = distinct !{!683, !"_ZN6duckdb15ExtensionHelper16InstallExtensionERNS_16DatabaseInstanceERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_23ExtensionInstallOptionsE"}
@@ -92330,7 +92329,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !702 = !{!"p1 _ZTSN6duckdb14ScalarFunctionE", !5, i64 0}
 !703 = !{!701, !702, i64 16}
 !704 = !{!701, !702, i64 0}
-!705 = distinct !{!705, !11}
+!705 = distinct !{!705, !9}
 !706 = !{!707, !711, i64 80}
 !707 = !{!"_ZTSN6duckdb10CreateInfoE", !708, i64 0, !710, i64 9, !18, i64 16, !18, i64 48, !711, i64 80, !23, i64 81, !23, i64 82, !18, i64 88, !712, i64 120, !715, i64 176, !320, i64 240}
 !708 = !{!"_ZTSN6duckdb9ParseInfoE", !709, i64 8}
@@ -92357,7 +92356,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !729 = !{!"p1 _ZTSN6duckdb19FunctionDescriptionE", !5, i64 0}
 !730 = !{!728, !729, i64 8}
 !731 = !{!728, !729, i64 16}
-!732 = distinct !{!732, !11}
+!732 = distinct !{!732, !9}
 !733 = !{!734, !735, i64 0}
 !734 = !{!"_ZTSSt12__shared_ptrIN6duckdb21AggregateFunctionInfoELN9__gnu_cxx12_Lock_policyE2EE", !735, i64 0, !142, i64 8}
 !735 = !{!"p1 _ZTSN6duckdb21AggregateFunctionInfoE", !5, i64 0}
@@ -92366,7 +92365,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !738 = !{!"p1 _ZTSN6duckdb17AggregateFunctionE", !5, i64 0}
 !739 = !{!737, !738, i64 16}
 !740 = !{!737, !738, i64 0}
-!741 = distinct !{!741, !11}
+!741 = distinct !{!741, !9}
 !742 = !{!743, !5, i64 64}
 !743 = !{!"_ZTSN6duckdb20CreateSecretFunctionE", !18, i64 0, !18, i64 32, !5, i64 64, !744, i64 72}
 !744 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE", !745, i64 0}
@@ -92382,7 +92381,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !754 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !16, i64 0}
 !755 = !{!54, !54, i64 0}
 !756 = !{!55, !16, i64 8}
-!757 = distinct !{!757, !11}
+!757 = distinct !{!757, !9}
 !758 = !{!72, !72, i64 0}
 !759 = !{!760, !761, i64 0}
 !760 = !{!"_ZTSSt12__shared_ptrIN6duckdb17TableFunctionInfoELN9__gnu_cxx12_Lock_policyE2EE", !761, i64 0, !142, i64 8}
@@ -92406,13 +92405,13 @@ attributes #38 = { nounwind willreturn memory(none) }
 !778 = !{!"p1 _ZTSN6duckdb13TableFunctionE", !5, i64 0}
 !779 = !{!777, !778, i64 16}
 !780 = !{!777, !778, i64 0}
-!781 = distinct !{!781, !11}
+!781 = distinct !{!781, !9}
 !782 = !{!783, !784, i64 8}
 !783 = !{!"_ZTSNSt12_Vector_baseIN6duckdb14PragmaFunctionESaIS1_EE17_Vector_impl_dataE", !784, i64 0, !784, i64 8, !784, i64 16}
 !784 = !{!"p1 _ZTSN6duckdb14PragmaFunctionE", !5, i64 0}
 !785 = !{!783, !784, i64 16}
 !786 = !{!783, !784, i64 0}
-!787 = distinct !{!787, !11}
+!787 = distinct !{!787, !9}
 !788 = !{!789, !790, i64 0}
 !789 = !{!"_ZTSN6duckdb12optional_ptrINS_12CatalogEntryELb1EEE", !790, i64 0}
 !790 = !{!"p1 _ZTSN6duckdb12CatalogEntryE", !5, i64 0}
@@ -92436,14 +92435,14 @@ attributes #38 = { nounwind willreturn memory(none) }
 !808 = !{!"_ZTS6pollfd", !276, i64 0, !809, i64 4, !809, i64 6}
 !809 = !{!"short", !6, i64 0}
 !810 = !{!808, !809, i64 4}
-!811 = distinct !{!811, !11}
+!811 = distinct !{!811, !9}
 !812 = !{!800, !16, i64 32}
 !813 = !{!800, !16, i64 40}
-!814 = distinct !{!814, !11}
-!815 = distinct !{!815, !11}
+!814 = distinct !{!814, !9}
+!815 = distinct !{!815, !9}
 !816 = !{!800, !16, i64 72}
 !817 = !{!800, !16, i64 80}
-!818 = distinct !{!818, !11}
+!818 = distinct !{!818, !9}
 !819 = !{!820, !809, i64 0}
 !820 = !{!"_ZTS16sockaddr_storage", !809, i64 0, !6, i64 2, !16, i64 120}
 !821 = !{!809, !809, i64 0}
@@ -92457,11 +92456,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !829 = !{!"_ZTSSt8functionIFbRN14duckdb_httplib6StreamEEE", !279, i64 0, !5, i64 24}
 !830 = !{!392, !4, i64 16}
 !831 = !{!392, !4, i64 8}
-!832 = distinct !{!832, !11}
+!832 = distinct !{!832, !9}
 !833 = !{!93, !95, i64 24}
 !834 = !{!93, !95, i64 16}
-!835 = distinct !{!835, !11}
-!836 = distinct !{!836, !11}
+!835 = distinct !{!835, !9}
+!836 = distinct !{!836, !9}
 !837 = !{!677, !678, i64 16}
 !838 = !{!839}
 !839 = distinct !{!839, !840, !"_ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
@@ -92469,7 +92468,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !841 = !{!842}
 !842 = distinct !{!842, !840, !"_ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !843 = !{!839, !842}
-!844 = distinct !{!844, !11}
+!844 = distinct !{!844, !9}
 !845 = !{!846}
 !846 = distinct !{!846, !847, !"_ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !847 = distinct !{!847, !"_ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_"}
@@ -92557,68 +92556,68 @@ attributes #38 = { nounwind willreturn memory(none) }
 !929 = !{!912, !913, i64 40}
 !930 = !{!912, !913, i64 72}
 !931 = !{!915, !915, i64 0}
-!932 = distinct !{!932, !11}
+!932 = distinct !{!932, !9}
 !933 = !{!904, !905, i64 0}
 !934 = !{!904, !905, i64 40}
 !935 = !{!904, !905, i64 72}
 !936 = !{!907, !907, i64 0}
-!937 = distinct !{!937, !11}
+!937 = distinct !{!937, !9}
 !938 = !{!897, !898, i64 0}
 !939 = !{!897, !898, i64 40}
 !940 = !{!897, !898, i64 72}
-!941 = distinct !{!941, !11}
+!941 = distinct !{!941, !9}
 !942 = !{!889, !890, i64 0}
 !943 = !{!889, !890, i64 40}
 !944 = !{!889, !890, i64 72}
 !945 = !{!892, !892, i64 0}
-!946 = distinct !{!946, !11}
+!946 = distinct !{!946, !9}
 !947 = !{!881, !882, i64 0}
 !948 = !{!881, !882, i64 40}
 !949 = !{!881, !882, i64 72}
 !950 = !{!884, !884, i64 0}
-!951 = distinct !{!951, !11}
+!951 = distinct !{!951, !9}
 !952 = !{!873, !874, i64 0}
 !953 = !{!873, !874, i64 40}
 !954 = !{!873, !874, i64 72}
 !955 = !{!876, !876, i64 0}
-!956 = distinct !{!956, !11}
+!956 = distinct !{!956, !9}
 !957 = !{!873, !16, i64 8}
-!958 = distinct !{!958, !11}
+!958 = distinct !{!958, !9}
 !959 = !{!875, !874, i64 24}
 !960 = !{!875, !876, i64 8}
 !961 = !{!875, !876, i64 16}
 !962 = !{!873, !876, i64 16}
 !963 = !{!873, !876, i64 48}
 !964 = !{!881, !16, i64 8}
-!965 = distinct !{!965, !11}
+!965 = distinct !{!965, !9}
 !966 = !{!883, !882, i64 24}
 !967 = !{!883, !884, i64 8}
 !968 = !{!883, !884, i64 16}
 !969 = !{!881, !884, i64 16}
 !970 = !{!881, !884, i64 48}
 !971 = !{!889, !16, i64 8}
-!972 = distinct !{!972, !11}
+!972 = distinct !{!972, !9}
 !973 = !{!891, !890, i64 24}
 !974 = !{!891, !892, i64 8}
 !975 = !{!891, !892, i64 16}
 !976 = !{!889, !892, i64 16}
 !977 = !{!889, !892, i64 48}
 !978 = !{!897, !16, i64 8}
-!979 = distinct !{!979, !11}
+!979 = distinct !{!979, !9}
 !980 = !{!899, !898, i64 24}
 !981 = !{!899, !630, i64 8}
 !982 = !{!899, !630, i64 16}
 !983 = !{!897, !630, i64 16}
 !984 = !{!897, !630, i64 48}
 !985 = !{!904, !16, i64 8}
-!986 = distinct !{!986, !11}
+!986 = distinct !{!986, !9}
 !987 = !{!906, !905, i64 24}
 !988 = !{!906, !907, i64 8}
 !989 = !{!906, !907, i64 16}
 !990 = !{!904, !907, i64 16}
 !991 = !{!904, !907, i64 48}
 !992 = !{!912, !16, i64 8}
-!993 = distinct !{!993, !11}
+!993 = distinct !{!993, !9}
 !994 = !{!914, !913, i64 24}
 !995 = !{!914, !915, i64 8}
 !996 = !{!914, !915, i64 16}
@@ -92627,8 +92626,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !999 = !{!920, !16, i64 8}
 !1000 = !{!920, !921, i64 0}
 !1001 = !{!923, !923, i64 0}
-!1002 = distinct !{!1002, !11}
-!1003 = distinct !{!1003, !11}
+!1002 = distinct !{!1002, !9}
+!1003 = distinct !{!1003, !9}
 !1004 = !{!922, !921, i64 24}
 !1005 = !{!922, !923, i64 8}
 !1006 = !{!922, !923, i64 16}
@@ -92639,15 +92638,15 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1011 = !{!"p1 _ZTSSt4pairIPKctE", !5, i64 0}
 !1012 = !{!1013, !54, i64 16}
 !1013 = !{!"_ZTSSt10_HashtableIttSaItENSt8__detail9_IdentityESt8equal_toItESt4hashItENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !52, i64 0, !16, i64 8, !53, i64 16, !16, i64 24, !55, i64 32, !54, i64 48}
-!1014 = distinct !{!1014, !11}
+!1014 = distinct !{!1014, !9}
 !1015 = !{!1013, !52, i64 0}
 !1016 = !{!1013, !16, i64 8}
 !1017 = !{!1018, !54, i64 16}
 !1018 = !{!"_ZTSSt10_HashtableIPKcS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE", !52, i64 0, !16, i64 8, !53, i64 16, !16, i64 24, !55, i64 32, !54, i64 48}
-!1019 = distinct !{!1019, !11}
+!1019 = distinct !{!1019, !9}
 !1020 = !{!1018, !52, i64 0}
 !1021 = !{!1018, !16, i64 8}
-!1022 = distinct !{!1022, !11}
+!1022 = distinct !{!1022, !9}
 !1023 = !{!920, !921, i64 40}
 !1024 = !{!920, !921, i64 72}
 !1025 = !{!925, !54, i64 16}
@@ -92659,8 +92658,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1031 = !{!1027, !1028, i64 40}
 !1032 = !{!1027, !1028, i64 72}
 !1033 = !{!1030, !1030, i64 0}
-!1034 = distinct !{!1034, !11}
-!1035 = distinct !{!1035, !11}
+!1034 = distinct !{!1034, !9}
+!1035 = distinct !{!1035, !9}
 !1036 = !{!1037, !553, i64 0}
 !1037 = !{!"_ZTSSt10_Head_baseILm0EPN14duckdb_httplib10ClientImplELb0EE", !553, i64 0}
 !1038 = !{!"branch_weights", i32 1, i32 1048575}
@@ -92680,8 +92679,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1052 = !{!1053}
 !1053 = distinct !{!1053, !1054, !"_ZNSt7__cxx119to_stringEi: argument 0"}
 !1054 = distinct !{!1054, !"_ZNSt7__cxx119to_stringEi"}
-!1055 = distinct !{!1055, !11}
-!1056 = distinct !{!1056, !11}
+!1055 = distinct !{!1055, !9}
+!1056 = distinct !{!1056, !9}
 !1057 = !{!1058, !276, i64 16}
 !1058 = !{!"_ZTS17__pthread_mutex_s", !276, i64 0, !276, i64 4, !276, i64 8, !276, i64 12, !276, i64 16, !809, i64 20, !809, i64 22, !1059, i64 24}
 !1059 = !{!"_ZTS23__pthread_internal_list", !1060, i64 0, !1060, i64 8}
@@ -92698,7 +92697,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1070 = !{!1071}
 !1071 = distinct !{!1071, !1072, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !1072 = distinct !{!1072, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!1073 = distinct !{!1073, !11}
+!1073 = distinct !{!1073, !9}
 !1074 = !{!1075}
 !1075 = distinct !{!1075, !1076, !"_ZN6duckdb9Exception16ConstructMessageIJmiiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_DpT_: argument 0"}
 !1076 = distinct !{!1076, !"_ZN6duckdb9Exception16ConstructMessageIJmiiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_DpT_"}
@@ -92762,12 +92761,12 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1134 = !{!1135, !95, i64 0}
 !1135 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE20_Reuse_or_alloc_nodeE", !95, i64 0, !95, i64 8, !576, i64 16}
 !1136 = !{!1135, !95, i64 8}
-!1137 = distinct !{!1137, !11}
-!1138 = distinct !{!1138, !11}
+!1137 = distinct !{!1137, !9}
+!1138 = distinct !{!1138, !9}
 !1139 = !{!1135, !576, i64 16}
 !1140 = !{!93, !94, i64 0}
-!1141 = distinct !{!1141, !11}
-!1142 = distinct !{!1142, !11}
+!1141 = distinct !{!1141, !9}
+!1142 = distinct !{!1142, !9}
 !1143 = !{!555, !23, i64 184}
 !1144 = !{!555, !16, i64 168}
 !1145 = !{!1146, !1146, i64 0}
@@ -92778,7 +92777,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1150 = !{!"_ZTSN14duckdb_httplib6detail10scope_exitE", !1148, i64 0, !23, i64 32}
 !1151 = !{!1152, !1152, i64 0}
 !1152 = !{!"p1 _ZTSN14duckdb_httplib7RequestE", !5, i64 0}
-!1153 = distinct !{!1153, !11}
+!1153 = distinct !{!1153, !9}
 !1154 = !{i64 0, i64 8, !552, i64 8, i64 8, !1145, i64 16, i64 8, !1145}
 !1155 = !{!1156, !553, i64 0}
 !1156 = !{!"_ZTSZN14duckdb_httplib10ClientImpl5send_ERNS_7RequestERNS_8ResponseERNS_5ErrorEEUlvE_", !553, i64 0, !1146, i64 8, !1146, i64 16}
@@ -92804,7 +92803,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1176 = !{!1115, !1116, i64 8}
 !1177 = !{!1115, !1116, i64 16}
 !1178 = !{!1116, !1116, i64 0}
-!1179 = distinct !{!1179, !11}
+!1179 = distinct !{!1179, !9}
 !1180 = !{!394, !395, i64 16}
 !1181 = !{!395, !395, i64 0}
 !1182 = !{!321, !16, i64 24}
@@ -92820,7 +92819,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1192 = !{!"_ZTSN14duckdb_httplib6detail18stream_line_readerE", !1190, i64 0, !4, i64 8, !16, i64 16, !16, i64 24, !18, i64 32}
 !1193 = !{!1192, !16, i64 16}
 !1194 = !{!1192, !16, i64 24}
-!1195 = distinct !{!1195, !11}
+!1195 = distinct !{!1195, !9}
 !1196 = !{!564, !5, i64 24}
 !1197 = !{!1198}
 !1198 = distinct !{!1198, !1199, !"_ZNK14duckdb_httplib8Response16get_header_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm: argument 0"}
@@ -92828,17 +92827,17 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1200 = !{!1201}
 !1201 = distinct !{!1201, !1202, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_: argument 0"}
 !1202 = distinct !{!1202, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_"}
-!1203 = distinct !{!1203, !11}
-!1204 = distinct !{!1204, !11}
+!1203 = distinct !{!1203, !9}
+!1204 = distinct !{!1204, !9}
 !1205 = !{!1206, !1175, i64 0}
 !1206 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N14duckdb_httplib17MultipartFormDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE11_Alloc_nodeE", !1175, i64 0}
-!1207 = distinct !{!1207, !11}
-!1208 = distinct !{!1208, !11}
+!1207 = distinct !{!1207, !9}
+!1208 = distinct !{!1208, !9}
 !1209 = !{!1210, !276, i64 32}
 !1210 = !{!"_ZTSN10duckdb_re210GroupMatchE", !18, i64 0, !276, i64 32}
-!1211 = distinct !{!1211, !11}
-!1212 = distinct !{!1212, !11}
-!1213 = distinct !{!1213, !11}
+!1211 = distinct !{!1211, !9}
+!1212 = distinct !{!1212, !9}
+!1213 = distinct !{!1213, !9}
 !1214 = !{!1215}
 !1215 = distinct !{!1215, !1216, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !1216 = distinct !{!1216, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
@@ -92847,8 +92846,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1219 = !{!1220}
 !1220 = distinct !{!1220, !1221, !"_ZNSt7__cxx119to_stringEm: argument 0"}
 !1221 = distinct !{!1221, !"_ZNSt7__cxx119to_stringEm"}
-!1222 = distinct !{!1222, !11}
-!1223 = distinct !{!1223, !11}
+!1222 = distinct !{!1222, !9}
+!1223 = distinct !{!1223, !9}
 !1224 = !{!1225}
 !1225 = distinct !{!1225, !1226, !"_ZNSt7__cxx119to_stringEm: argument 0"}
 !1226 = distinct !{!1226, !"_ZNSt7__cxx119to_stringEm"}
@@ -92861,7 +92860,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1233 = !{!1234, !4, i64 0}
 !1234 = !{!"_ZTSSt4pairIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !4, i64 0, !18, i64 8}
 !1235 = !{!1231, !1228}
-!1236 = distinct !{!1236, !11}
+!1236 = distinct !{!1236, !9}
 !1237 = !{!1238}
 !1238 = distinct !{!1238, !1239, !"_ZN14duckdb_httplib6detail11make_uniqueINS0_12nocompressorEJEEENSt9enable_ifIXntsr3std8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEDpOT0_: argument 0"}
 !1239 = distinct !{!1239, !"_ZN14duckdb_httplib6detail11make_uniqueINS0_12nocompressorEJEEENSt9enable_ifIXntsr3std8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEDpOT0_"}
@@ -92883,7 +92882,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1255 = !{!1256}
 !1256 = distinct !{!1256, !1257, !"_ZNK10duckdb_re210GroupMatchcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv: argument 0"}
 !1257 = distinct !{!1257, !"_ZNK10duckdb_re210GroupMatchcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv"}
-!1258 = distinct !{!1258, !11}
+!1258 = distinct !{!1258, !9}
 !1259 = !{!1260, !1260, i64 0}
 !1260 = !{!"p1 _ZTSSt8functionIFbmmEE", !5, i64 0}
 !1261 = !{!1262, !1262, i64 0}
@@ -92903,13 +92902,13 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1275 = !{!1276}
 !1276 = distinct !{!1276, !1277, !"_ZSt9make_pairIRPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_: argument 0"}
 !1277 = distinct !{!1277, !"_ZSt9make_pairIRPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_"}
-!1278 = distinct !{!1278, !11}
-!1279 = distinct !{!1279, !11}
-!1280 = distinct !{!1280, !11}
+!1278 = distinct !{!1278, !9}
+!1279 = distinct !{!1279, !9}
+!1280 = distinct !{!1280, !9}
 !1281 = !{!1282, !1282, i64 0}
 !1282 = !{!"p1 _ZTSN14duckdb_httplib6detail10compressorE", !5, i64 0}
-!1283 = distinct !{!1283, !11}
-!1284 = distinct !{!1284, !11}
+!1283 = distinct !{!1283, !9}
+!1284 = distinct !{!1284, !9}
 !1285 = !{!1286, !1287, i64 216}
 !1286 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !1098, i64 0, !1287, i64 216, !6, i64 224, !23, i64 225, !1288, i64 232, !1289, i64 240, !1290, i64 248, !1291, i64 256}
 !1287 = !{!"p1 _ZTSSo", !5, i64 0}
@@ -92939,7 +92938,7 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1311 = distinct !{!1311, !1312, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !1312 = distinct !{!1312, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !1313 = !{!1300, !1190, i64 32}
-!1314 = distinct !{!1314, !11}
+!1314 = distinct !{!1314, !9}
 !1315 = !{!1316, !341, i64 0}
 !1316 = !{!"_ZTSZZN14duckdb_httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEEUlvE_NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKcmE_clESP_mEUlSP_mE_", !341, i64 0}
 !1317 = !{!1318, !1190, i64 0}
@@ -92981,13 +92980,13 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1353 = !{!1354, !1190, i64 0}
 !1354 = !{!"_ZTSZN14duckdb_httplib6detail13write_contentIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEEUlvE_EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmT_S9_EUlvE_", !1190, i64 0}
 !1355 = !{!1192, !1190, i64 0}
-!1356 = distinct !{!1356, !11}
-!1357 = distinct !{!1357, !11}
-!1358 = distinct !{!1358, !11}
-!1359 = distinct !{!1359, !11}
-!1360 = distinct !{!1360, !11}
-!1361 = distinct !{!1361, !11}
-!1362 = distinct !{!1362, !11}
+!1356 = distinct !{!1356, !9}
+!1357 = distinct !{!1357, !9}
+!1358 = distinct !{!1358, !9}
+!1359 = distinct !{!1359, !9}
+!1360 = distinct !{!1360, !9}
+!1361 = distinct !{!1361, !9}
+!1362 = distinct !{!1362, !9}
 !1363 = !{!1364, !1146, i64 0}
 !1364 = !{!"_ZTSZN14duckdb_httplib10ClientImpl15process_requestERNS_6StreamERNS_7RequestERNS_8ResponseEbRNS_5ErrorEEUlPKcmmmE_", !1146, i64 0, !1152, i64 8, !5, i64 16}
 !1365 = !{!1364, !1152, i64 8}
@@ -93009,11 +93008,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1381 = !{!1382, !534, i64 0}
 !1382 = !{!"_ZTSZN14duckdb_httplib6detail12read_contentINS_8ResponseEEEbRNS_6StreamERT_mRiSt8functionIFbmmEES8_IFbPKcmmmEEbEUlRKSE_E_", !534, i64 0, !1190, i64 8, !630, i64 16, !1260, i64 24, !1262, i64 32}
 !1383 = !{!1382, !1190, i64 8}
-!1384 = distinct !{!1384, !11}
+!1384 = distinct !{!1384, !9}
 !1385 = !{!1382, !630, i64 16}
-!1386 = distinct !{!1386, !11}
+!1386 = distinct !{!1386, !9}
 !1387 = !{!1382, !1260, i64 24}
-!1388 = distinct !{!1388, !11}
+!1388 = distinct !{!1388, !9}
 !1389 = !{!1382, !1262, i64 32}
 !1390 = !{i64 0, i64 8, !1377, i64 8, i64 8, !1379}
 !1391 = !{!1392, !1378, i64 0}
@@ -93024,10 +93023,10 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1396 = !{!1395, !630, i64 8}
 !1397 = !{!1395, !630, i64 16}
 !1398 = !{i64 0, i64 8, !1379, i64 8, i64 8, !645, i64 16, i64 8, !645}
-!1399 = distinct !{!1399, !11}
-!1400 = distinct !{!1400, !11}
-!1401 = distinct !{!1401, !11}
-!1402 = distinct !{!1402, !11}
+!1399 = distinct !{!1399, !9}
+!1400 = distinct !{!1400, !9}
+!1401 = distinct !{!1401, !9}
+!1402 = distinct !{!1402, !9}
 !1403 = !{!1404, !1380, i64 0}
 !1404 = !{!"_ZTSZN14duckdb_httplib6detail24prepare_content_receiverINS_8ResponseEZNS0_12read_contentIS2_EEbRNS_6StreamERT_mRiSt8functionIFbmmEES9_IFbPKcmmmEEbEUlRKSF_E_EEbS7_S8_SF_bT0_EUlSD_mmmE0_", !1380, i64 0}
 !1405 = !{!1406, !1152, i64 0}
@@ -93038,31 +93037,31 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1410 = !{!1411, !16, i64 0}
 !1411 = !{!"_ZTSSt4pairIllE", !16, i64 0, !16, i64 8}
 !1412 = !{!1411, !16, i64 8}
-!1413 = distinct !{!1413, !11}
-!1414 = distinct !{!1414, !11}
-!1415 = distinct !{!1415, !11}
+!1413 = distinct !{!1413, !9}
+!1414 = distinct !{!1414, !9}
+!1415 = distinct !{!1415, !9}
 !1416 = !{!1417, !95, i64 0}
 !1417 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE20_Reuse_or_alloc_nodeE", !95, i64 0, !95, i64 8, !1173, i64 16}
 !1418 = !{!1417, !95, i64 8}
 !1419 = !{!1417, !1173, i64 16}
-!1420 = distinct !{!1420, !11}
-!1421 = distinct !{!1421, !11}
+!1420 = distinct !{!1420, !9}
+!1421 = distinct !{!1421, !9}
 !1422 = !{!1423, !95, i64 0}
 !1423 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N14duckdb_httplib17MultipartFormDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_nodeE", !95, i64 0, !95, i64 8, !1175, i64 16}
 !1424 = !{!1423, !95, i64 8}
 !1425 = !{!1423, !1175, i64 16}
-!1426 = distinct !{!1426, !11}
-!1427 = distinct !{!1427, !11}
-!1428 = distinct !{!1428, !11}
-!1429 = distinct !{!1429, !11}
-!1430 = distinct !{!1430, !11}
-!1431 = distinct !{!1431, !11}
+!1426 = distinct !{!1426, !9}
+!1427 = distinct !{!1427, !9}
+!1428 = distinct !{!1428, !9}
+!1429 = distinct !{!1429, !9}
+!1430 = distinct !{!1430, !9}
+!1431 = distinct !{!1431, !9}
 !1432 = !{!1433, !1434, i64 0}
 !1433 = !{!"_ZTSNSt8__detail17_ReuseOrAllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEEE", !1434, i64 0, !1185, i64 8}
 !1434 = !{!"p1 _ZTSNSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ELb1EEE", !5, i64 0}
-!1435 = distinct !{!1435, !11}
-!1436 = distinct !{!1436, !11}
-!1437 = distinct !{!1437, !11}
+!1435 = distinct !{!1435, !9}
+!1436 = distinct !{!1436, !9}
+!1437 = distinct !{!1437, !9}
 !1438 = !{!563, !5, i64 24}
 !1439 = !{!555, !23, i64 576}
 !1440 = !{!586, !16, i64 184}
@@ -93071,11 +93070,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1443 = !{!1444}
 !1444 = distinct !{!1444, !1445, !"_ZNSt7__cxx119to_stringEi: argument 0"}
 !1445 = distinct !{!1445, !"_ZNSt7__cxx119to_stringEi"}
-!1446 = distinct !{!1446, !11}
+!1446 = distinct !{!1446, !9}
 !1447 = !{!1448, !1185, i64 0}
 !1448 = !{!"_ZTSNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeE", !1185, i64 0, !1434, i64 8}
 !1449 = !{!1448, !1434, i64 8}
-!1450 = distinct !{!1450, !11}
+!1450 = distinct !{!1450, !9}
 !1451 = !{!1452}
 !1452 = distinct !{!1452, !1453, !"_ZN6duckdb9make_uniqINS_15DatabaseWrapperEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1453 = distinct !{!1453, !"_ZN6duckdb9make_uniqINS_15DatabaseWrapperEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -93099,10 +93098,10 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1471 = !{!"_ZTSSt9type_info", !4, i64 8}
 !1472 = !{!771, !772, i64 0}
 !1473 = !{!771, !772, i64 8}
-!1474 = distinct !{!1474, !11}
+!1474 = distinct !{!1474, !9}
 !1475 = !{!771, !772, i64 16}
 !1476 = !{!772, !772, i64 0}
-!1477 = distinct !{!1477, !11}
+!1477 = distinct !{!1477, !9}
 !1478 = !{!708, !709, i64 8}
 !1479 = !{!707, !710, i64 9}
 !1480 = !{!714, !52, i64 0}
@@ -93117,18 +93116,18 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1489 = !{!714, !54, i64 16}
 !1490 = !{!1491, !1485, i64 0}
 !1491 = !{!"_ZTSNSt8__detail10_AllocNodeISaINS_10_Hash_nodeIN6duckdb17LogicalDependencyELb1EEEEEE", !1485, i64 0}
-!1492 = distinct !{!1492, !11}
-!1493 = distinct !{!1493, !11}
+!1492 = distinct !{!1492, !9}
+!1493 = distinct !{!1493, !9}
 !1494 = !{!1495, !710, i64 0}
 !1495 = !{!"_ZTSN6duckdb16CatalogEntryInfoE", !710, i64 0, !18, i64 8, !18, i64 40}
 !1496 = !{!1497, !1497, i64 0}
 !1497 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEEE", !5, i64 0}
 !1498 = !{!1499, !1497, i64 0}
 !1499 = !{!"_ZTSNSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEEE", !1497, i64 0}
-!1500 = distinct !{!1500, !11}
+!1500 = distinct !{!1500, !9}
 !1501 = !{!1502, !276, i64 0}
 !1502 = !{!"_ZTS5ucred", !276, i64 0, !276, i64 4, !276, i64 8}
-!1503 = distinct !{!1503, !11}
+!1503 = distinct !{!1503, !9}
 !1504 = !{!1505, !276, i64 8}
 !1505 = !{!"_ZTS8addrinfo", !276, i64 0, !276, i64 4, !276, i64 8, !276, i64 12, !276, i64 16, !1506, i64 24, !4, i64 32, !1507, i64 40}
 !1506 = !{!"p1 _ZTS8sockaddr", !5, i64 0}
@@ -93144,15 +93143,15 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1516 = distinct !{!1516, !"_ZNSt7__cxx119to_stringEi"}
 !1517 = !{!1507, !1507, i64 0}
 !1518 = !{!1505, !276, i64 12}
-!1519 = distinct !{!1519, !11}
+!1519 = distinct !{!1519, !9}
 !1520 = !{!1521, !341, i64 0}
 !1521 = !{!"_ZTSZN14duckdb_httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEEUliR8addrinfoE_", !341, i64 0, !1262, i64 8, !5, i64 16, !630, i64 24, !630, i64 32, !630, i64 40, !630, i64 48, !630, i64 56, !630, i64 64}
 !1522 = !{!1521, !1262, i64 8}
-!1523 = distinct !{!1523, !11}
+!1523 = distinct !{!1523, !9}
 !1524 = !{!1521, !5, i64 16}
 !1525 = !{!1521, !630, i64 24}
 !1526 = !{!1521, !630, i64 32}
-!1527 = distinct !{!1527, !11}
+!1527 = distinct !{!1527, !9}
 !1528 = !{!808, !809, i64 6}
 !1529 = !{!1521, !630, i64 40}
 !1530 = !{!1531, !16, i64 0}
@@ -93168,14 +93167,14 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1540 = !{!1539, !4, i64 8}
 !1541 = !{!1542, !809, i64 0}
 !1542 = !{!"_ZTS8sockaddr", !809, i64 0, !6, i64 2}
-!1543 = distinct !{!1543, !11}
+!1543 = distinct !{!1543, !9}
 !1544 = !{!1545}
 !1545 = distinct !{!1545, !1546, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !1546 = distinct !{!1546, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
 !1547 = !{!1548}
 !1548 = distinct !{!1548, !1546, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !1549 = !{!1545, !1548}
-!1550 = distinct !{!1550, !11}
+!1550 = distinct !{!1550, !9}
 !1551 = !{!1552}
 !1552 = distinct !{!1552, !1553, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !1553 = distinct !{!1553, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
@@ -93194,8 +93193,8 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1566 = !{!359, !360, i64 16}
 !1567 = !{i64 0, i64 8, !333, i64 8, i64 8, !335, i64 16, i64 8, !337, i64 24, i64 8, !303, i64 32, i64 8, !339, i64 40, i64 8, !340}
 !1568 = !{!330, !16, i64 24}
-!1569 = distinct !{!1569, !11}
-!1570 = distinct !{!1570, !11}
+!1569 = distinct !{!1569, !9}
+!1570 = distinct !{!1570, !9}
 !1571 = !{!1572, !1560, i64 0}
 !1572 = !{!"_ZTSNSt8__detail10_AllocNodeISaINS_10_Hash_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEEEE", !1560, i64 0}
 !1573 = !{!1574, !1560, i64 0}
@@ -93203,13 +93202,13 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1575 = !{!"p1 _ZTSNSt8__detail10_Hash_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE", !5, i64 0}
 !1576 = !{!1574, !1575, i64 8}
 !1577 = !{!330, !54, i64 48}
-!1578 = distinct !{!1578, !11}
+!1578 = distinct !{!1578, !9}
 !1579 = !{!1580}
 !1580 = distinct !{!1580, !1581, !"_ZSt19__relocate_object_aIN6duckdb21ExtensionUpdateResultES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !1581 = distinct !{!1581, !"_ZSt19__relocate_object_aIN6duckdb21ExtensionUpdateResultES1_SaIS1_EEvPT_PT0_RT1_"}
 !1582 = !{!1583}
 !1583 = distinct !{!1583, !1581, !"_ZSt19__relocate_object_aIN6duckdb21ExtensionUpdateResultES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!1584 = distinct !{!1584, !11}
+!1584 = distinct !{!1584, !9}
 !1585 = !{!1586}
 !1586 = distinct !{!1586, !1587, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !1587 = distinct !{!1587, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
@@ -93239,13 +93238,13 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1611 = distinct !{!1611, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
 !1612 = !{!1613}
 !1613 = distinct !{!1613, !1611, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!1614 = distinct !{!1614, !11}
+!1614 = distinct !{!1614, !9}
 !1615 = !{!1616}
 !1616 = distinct !{!1616, !1617, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
 !1617 = distinct !{!1617, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
 !1618 = !{!1619}
 !1619 = distinct !{!1619, !1617, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!1620 = distinct !{!1620, !11}
-!1621 = distinct !{!1621, !11}
-!1622 = distinct !{!1622, !11}
-!1623 = distinct !{!1623, !11}
+!1620 = distinct !{!1620, !9}
+!1621 = distinct !{!1621, !9}
+!1622 = distinct !{!1622, !9}
+!1623 = distinct !{!1623, !9}

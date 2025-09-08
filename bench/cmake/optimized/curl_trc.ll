@@ -672,7 +672,7 @@ trc_infof.exit:                                   ; preds = %19, %29
 define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %101, label %3
+  br i1 %.not, label %79, label %3
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -687,7 +687,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br i1 %.not2155.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %trc_apply_level_by_category.exit.i
-  %.01956.i = phi ptr [ %99, %trc_apply_level_by_category.exit.i ], [ %7, %6 ]
+  %.01956.i = phi ptr [ %77, %trc_apply_level_by_category.exit.i ], [ %7, %6 ]
   %8 = load i8, ptr %.01956.i, align 1, !tbaa !80
   switch i8 %8, label %13 [
     i8 45, label %9
@@ -732,197 +732,166 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 23:                                               ; preds = %13
   %24 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.8) #8
   %.not23.i = icmp eq i32 %24, 0
-  br i1 %.not23.i, label %43, label %.split.i.i
+  br i1 %.not23.i, label %39, label %.split.i.i
 
-.split.i.i:                                       ; preds = %23, %32
-  %.019.i.i = phi i64 [ %33, %32 ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i, i32 1
-  %26 = load i32, ptr %25, align 8, !tbaa !101
-  %27 = and i32 %26, 1
-  %.not18.i.i = icmp eq i32 %27, 0
-  br i1 %.not18.i.i, label %32, label %28
+.split.i.i:                                       ; preds = %23, %31
+  %.019.i.i = phi i64 [ %32, %31 ], [ 0, %23 ]
+  %25 = shl nuw i64 1, %.019.i.i
+  %26 = and i64 %25, 16287
+  %.not18.i.not.i = icmp eq i64 %26, 0
+  br i1 %.not18.i.not.i, label %27, label %31
 
-28:                                               ; preds = %.split.i.i
-  %29 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i
-  %30 = load ptr, ptr %29, align 16, !tbaa !94
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  store i32 %.0.i, ptr %31, align 4, !tbaa !89
-  br label %32
+27:                                               ; preds = %.split.i.i
+  %28 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i
+  %29 = load ptr, ptr %28, align 16, !tbaa !94
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 %.0.i, ptr %30, align 4, !tbaa !89
+  br label %31
 
-32:                                               ; preds = %28, %.split.i.i
-  %33 = add nuw nsw i64 %.019.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %33, 15
+31:                                               ; preds = %27, %.split.i.i
+  %32 = add nuw nsw i64 %.019.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %32, 15
   br i1 %exitcond.not.i.i, label %.preheader.split21.i.i, label %.split.i.i, !llvm.loop !96
 
-.preheader.split21.i.i:                           ; preds = %32, %41
-  %.120.i.i = phi i64 [ %42, %41 ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i, i32 1
-  %35 = load i32, ptr %34, align 8, !tbaa !102
-  %36 = and i32 %35, 1
-  %.not16.i.i = icmp eq i32 %36, 0
-  br i1 %.not16.i.i, label %41, label %37
+.preheader.split21.i.i:                           ; preds = %31, %37
+  %.120.i.i = phi i64 [ %38, %37 ], [ 0, %31 ]
+  switch i64 %.120.i.i, label %37 [
+    i64 4, label %33
+    i64 2, label %33
+  ]
 
-37:                                               ; preds = %.preheader.split21.i.i
-  %38 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i
-  %39 = load ptr, ptr %38, align 16, !tbaa !98
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 %.0.i, ptr %40, align 8, !tbaa !82
-  br label %41
+33:                                               ; preds = %.preheader.split21.i.i, %.preheader.split21.i.i
+  %34 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i
+  %35 = load ptr, ptr %34, align 16, !tbaa !98
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 %.0.i, ptr %36, align 8, !tbaa !82
+  br label %37
 
-41:                                               ; preds = %37, %.preheader.split21.i.i
-  %42 = add nuw nsw i64 %.120.i.i, 1
-  %exitcond27.not.i.i = icmp eq i64 %42, 5
+37:                                               ; preds = %33, %.preheader.split21.i.i
+  %38 = add nuw nsw i64 %.120.i.i, 1
+  %exitcond27.not.i.i = icmp eq i64 %38, 5
   br i1 %exitcond27.not.i.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i.i, !llvm.loop !100
 
-43:                                               ; preds = %23
-  %44 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.9) #8
-  %.not24.i = icmp eq i32 %44, 0
-  br i1 %.not24.i, label %63, label %.split.i27.i
+39:                                               ; preds = %23
+  %40 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.9) #8
+  %.not24.i = icmp eq i32 %40, 0
+  br i1 %.not24.i, label %52, label %.split.i27.i
 
-.split.i27.i:                                     ; preds = %43, %52
-  %.019.i28.i = phi i64 [ %53, %52 ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i, i32 1
-  %46 = load i32, ptr %45, align 8, !tbaa !101
-  %47 = and i32 %46, 2
-  %.not18.i29.i = icmp eq i32 %47, 0
-  br i1 %.not18.i29.i, label %52, label %48
+.split.i27.i:                                     ; preds = %39, %47
+  %.019.i28.i = phi i64 [ %48, %47 ], [ 0, %39 ]
+  %41 = shl nuw i64 1, %.019.i28.i
+  %42 = and i64 %41, 32608
+  %.not18.i29.not.i = icmp eq i64 %42, 0
+  br i1 %.not18.i29.not.i, label %43, label %47
 
-48:                                               ; preds = %.split.i27.i
-  %49 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i
-  %50 = load ptr, ptr %49, align 16, !tbaa !94
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store i32 %.0.i, ptr %51, align 4, !tbaa !89
-  br label %52
+43:                                               ; preds = %.split.i27.i
+  %44 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i
+  %45 = load ptr, ptr %44, align 16, !tbaa !94
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  store i32 %.0.i, ptr %46, align 4, !tbaa !89
+  br label %47
 
-52:                                               ; preds = %48, %.split.i27.i
-  %53 = add nuw nsw i64 %.019.i28.i, 1
-  %exitcond.not.i30.i = icmp eq i64 %53, 15
+47:                                               ; preds = %43, %.split.i27.i
+  %48 = add nuw nsw i64 %.019.i28.i, 1
+  %exitcond.not.i30.i = icmp eq i64 %48, 15
   br i1 %exitcond.not.i30.i, label %.preheader.split21.i32.i, label %.split.i27.i, !llvm.loop !96
 
-.preheader.split21.i32.i:                         ; preds = %52, %61
-  %.120.i33.i = phi i64 [ %62, %61 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i33.i, i32 1
-  %55 = load i32, ptr %54, align 8, !tbaa !102
-  %56 = and i32 %55, 2
-  %.not16.i34.i = icmp eq i32 %56, 0
-  br i1 %.not16.i34.i, label %61, label %57
+.preheader.split21.i32.i:                         ; preds = %47, %50
+  %.120.i33.i = phi i64 [ %51, %50 ], [ 0, %47 ]
+  %.not16.i34.not.i = icmp eq i64 %.120.i33.i, 3
+  br i1 %.not16.i34.not.i, label %49, label %50
 
-57:                                               ; preds = %.preheader.split21.i32.i
-  %58 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i33.i
-  %59 = load ptr, ptr %58, align 16, !tbaa !98
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %.0.i, ptr %60, align 8, !tbaa !82
-  br label %61
+49:                                               ; preds = %.preheader.split21.i32.i
+  store i32 %.0.i, ptr getelementptr inbounds nuw (i8, ptr @Curl_doh_trc, i64 8), align 8, !tbaa !82
+  br label %50
 
-61:                                               ; preds = %57, %.preheader.split21.i32.i
-  %62 = add nuw nsw i64 %.120.i33.i, 1
-  %exitcond27.not.i35.i = icmp eq i64 %62, 5
+50:                                               ; preds = %49, %.preheader.split21.i32.i
+  %51 = add nuw nsw i64 %.120.i33.i, 1
+  %exitcond27.not.i35.i = icmp eq i64 %51, 5
   br i1 %exitcond27.not.i35.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i32.i, !llvm.loop !100
 
-63:                                               ; preds = %43
-  %64 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.10) #8
-  %.not25.i = icmp eq i32 %64, 0
+52:                                               ; preds = %39
+  %53 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.10) #8
+  %.not25.i = icmp eq i32 %53, 0
   br i1 %.not25.i, label %.preheader.i, label %.split.i37.i
 
-.split.i37.i:                                     ; preds = %63, %72
-  %.019.i38.i = phi i64 [ %73, %72 ], [ 0, %63 ]
-  %65 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i, i32 1
-  %66 = load i32, ptr %65, align 8, !tbaa !101
-  %67 = and i32 %66, 4
-  %.not18.i39.i = icmp eq i32 %67, 0
-  br i1 %.not18.i39.i, label %72, label %68
+.split.i37.i:                                     ; preds = %52, %59
+  %.019.i38.i = phi i64 [ %60, %59 ], [ 0, %52 ]
+  %54 = add nsw i64 %.019.i38.i, -14
+  %.not18.i39.i = icmp ult i64 %54, -6
+  br i1 %.not18.i39.i, label %59, label %55
 
-68:                                               ; preds = %.split.i37.i
-  %69 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i
-  %70 = load ptr, ptr %69, align 16, !tbaa !94
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i32 %.0.i, ptr %71, align 4, !tbaa !89
-  br label %72
+55:                                               ; preds = %.split.i37.i
+  %56 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i
+  %57 = load ptr, ptr %56, align 16, !tbaa !94
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  store i32 %.0.i, ptr %58, align 4, !tbaa !89
+  br label %59
 
-72:                                               ; preds = %68, %.split.i37.i
-  %73 = add nuw nsw i64 %.019.i38.i, 1
-  %exitcond.not.i40.i = icmp eq i64 %73, 15
-  br i1 %exitcond.not.i40.i, label %.preheader.split21.i42.i, label %.split.i37.i, !llvm.loop !96
+59:                                               ; preds = %55, %.split.i37.i
+  %60 = add nuw nsw i64 %.019.i38.i, 1
+  %exitcond.not.i40.i = icmp eq i64 %60, 15
+  br i1 %exitcond.not.i40.i, label %trc_apply_level_by_category.exit.i, label %.split.i37.i, !llvm.loop !96
 
-.preheader.split21.i42.i:                         ; preds = %72, %81
-  %.120.i43.i = phi i64 [ %82, %81 ], [ 0, %72 ]
-  %74 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i43.i, i32 1
-  %75 = load i32, ptr %74, align 8, !tbaa !102
-  %76 = and i32 %75, 4
-  %.not16.i44.i = icmp eq i32 %76, 0
-  br i1 %.not16.i44.i, label %81, label %77
+61:                                               ; preds = %.preheader.i
+  %62 = add nuw nsw i64 %.014.i.i, 1
+  %exitcond.not.i47.i = icmp eq i64 %62, 15
+  br i1 %exitcond.not.i47.i, label %.loopexit12.i.i.preheader, label %.preheader.i, !llvm.loop !101
 
-77:                                               ; preds = %.preheader.split21.i42.i
-  %78 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i43.i
-  %79 = load ptr, ptr %78, align 16, !tbaa !98
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %.0.i, ptr %80, align 8, !tbaa !82
-  br label %81
+.preheader.i:                                     ; preds = %52, %61
+  %.014.i.i = phi i64 [ %62, %61 ], [ 0, %52 ]
+  %63 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.014.i.i
+  %64 = load ptr, ptr %63, align 16, !tbaa !94
+  %65 = load ptr, ptr %64, align 8, !tbaa !92
+  %66 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %65) #8
+  %.not.i.i = icmp eq i32 %66, 0
+  br i1 %.not.i.i, label %61, label %67
 
-81:                                               ; preds = %77, %.preheader.split21.i42.i
-  %82 = add nuw nsw i64 %.120.i43.i, 1
-  %exitcond27.not.i45.i = icmp eq i64 %82, 5
-  br i1 %exitcond27.not.i45.i, label %trc_apply_level_by_category.exit.i, label %.preheader.split21.i42.i, !llvm.loop !100
-
-83:                                               ; preds = %.preheader.i
-  %84 = add nuw nsw i64 %.014.i.i, 1
-  %exitcond.not.i47.i = icmp eq i64 %84, 15
-  br i1 %exitcond.not.i47.i, label %.loopexit12.i.i.preheader, label %.preheader.i, !llvm.loop !103
-
-.preheader.i:                                     ; preds = %63, %83
-  %.014.i.i = phi i64 [ %84, %83 ], [ 0, %63 ]
-  %85 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.014.i.i
-  %86 = load ptr, ptr %85, align 16, !tbaa !94
-  %87 = load ptr, ptr %86, align 8, !tbaa !92
-  %88 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %87) #8
-  %.not.i.i = icmp eq i32 %88, 0
-  br i1 %.not.i.i, label %83, label %89
-
-89:                                               ; preds = %.preheader.i
-  %90 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  store i32 %.0.i, ptr %90, align 4, !tbaa !89
+67:                                               ; preds = %.preheader.i
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  store i32 %.0.i, ptr %68, align 4, !tbaa !89
   br label %.loopexit12.i.i.preheader
 
-.loopexit12.i.i.preheader:                        ; preds = %83, %89
+.loopexit12.i.i.preheader:                        ; preds = %61, %67
   br label %.loopexit12.i.i
 
-91:                                               ; preds = %.loopexit12.i.i
-  %92 = add nuw nsw i64 %.115.i.i, 1
-  %exitcond19.not.i.i = icmp eq i64 %92, 5
-  br i1 %exitcond19.not.i.i, label %trc_apply_level_by_category.exit.i, label %.loopexit12.i.i, !llvm.loop !104
+69:                                               ; preds = %.loopexit12.i.i
+  %70 = add nuw nsw i64 %.115.i.i, 1
+  %exitcond19.not.i.i = icmp eq i64 %70, 5
+  br i1 %exitcond19.not.i.i, label %trc_apply_level_by_category.exit.i, label %.loopexit12.i.i, !llvm.loop !102
 
-.loopexit12.i.i:                                  ; preds = %.loopexit12.i.i.preheader, %91
-  %.115.i.i = phi i64 [ %92, %91 ], [ 0, %.loopexit12.i.i.preheader ]
-  %93 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.115.i.i
-  %94 = load ptr, ptr %93, align 16, !tbaa !98
-  %95 = load ptr, ptr %94, align 8, !tbaa !84
-  %96 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %95) #8
-  %.not11.i.i = icmp eq i32 %96, 0
-  br i1 %.not11.i.i, label %91, label %97
+.loopexit12.i.i:                                  ; preds = %.loopexit12.i.i.preheader, %69
+  %.115.i.i = phi i64 [ %70, %69 ], [ 0, %.loopexit12.i.i.preheader ]
+  %71 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.115.i.i
+  %72 = load ptr, ptr %71, align 16, !tbaa !98
+  %73 = load ptr, ptr %72, align 8, !tbaa !84
+  %74 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %73) #8
+  %.not11.i.i = icmp eq i32 %74, 0
+  br i1 %.not11.i.i, label %69, label %75
 
-97:                                               ; preds = %.loopexit12.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 %.0.i, ptr %98, align 8, !tbaa !82
+75:                                               ; preds = %.loopexit12.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store i32 %.0.i, ptr %76, align 8, !tbaa !82
   br label %trc_apply_level_by_category.exit.i
 
-trc_apply_level_by_category.exit.i:               ; preds = %.preheader.split21.us.i.i, %41, %61, %81, %91, %97
-  %99 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef nonnull %2) #8
-  %.not21.i = icmp eq ptr %99, null
-  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !105
+trc_apply_level_by_category.exit.i:               ; preds = %.preheader.split21.us.i.i, %37, %50, %59, %69, %75
+  %77 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef nonnull %2) #8
+  %.not21.i = icmp eq ptr %77, null
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !103
 
 ._crit_edge.i:                                    ; preds = %trc_apply_level_by_category.exit.i, %6
-  %100 = load ptr, ptr @Curl_cfree, align 8, !tbaa !93
-  call void %100(ptr noundef nonnull %5) #8
+  %78 = load ptr, ptr @Curl_cfree, align 8, !tbaa !93
+  call void %78(ptr noundef nonnull %5) #8
   br label %trc_opt.exit
 
 trc_opt.exit:                                     ; preds = %3, %._crit_edge.i
   %.018.i = phi i32 [ 0, %._crit_edge.i ], [ 27, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %101
+  br label %79
 
-101:                                              ; preds = %1, %trc_opt.exit
-  %102 = phi i32 [ %.018.i, %trc_opt.exit ], [ 0, %1 ]
-  ret i32 %102
+79:                                               ; preds = %1, %trc_opt.exit
+  %80 = phi i32 [ %.018.i, %trc_opt.exit ], [ 0, %1 ]
+  ret i32 %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1054,8 +1023,6 @@ attributes #8 = { nounwind }
 !98 = !{!99, !68, i64 0}
 !99 = !{!"trc_feat_def", !68, i64 0, !6, i64 8}
 !100 = distinct !{!100, !97}
-!101 = !{!95, !6, i64 8}
-!102 = !{!99, !6, i64 8}
+!101 = distinct !{!101, !97}
+!102 = distinct !{!102, !97}
 !103 = distinct !{!103, !97}
-!104 = distinct !{!104, !97}
-!105 = distinct !{!105, !97}

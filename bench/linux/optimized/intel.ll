@@ -1461,8 +1461,8 @@ define internal void @intel_detect_tlb(ptr noundef readonly captures(none) %0) #
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %15
 
-15:                                               ; preds = %212, %11
-  %16 = phi i32 [ 0, %11 ], [ %213, %212 ]
+15:                                               ; preds = %213, %11
+  %16 = phi i32 [ 0, %11 ], [ %214, %213 ]
   %17 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, i32 0) #14, !srcloc !23
   %18 = extractvalue { i32, i32, i32, i32 } %17, 0
   %19 = extractvalue { i32, i32, i32, i32 } %17, 1
@@ -1494,321 +1494,322 @@ define internal void @intel_detect_tlb(ptr noundef readonly captures(none) %0) #
   %36 = icmp eq i64 %35, 3
   br i1 %36, label %22, label %30, !llvm.loop !32
 
-37:                                               ; preds = %202, %22
-  %38 = phi i64 [ 1, %22 ], [ %210, %202 ]
-  %39 = phi i16 [ %23, %22 ], [ %209, %202 ]
-  %40 = phi i16 [ %24, %22 ], [ %208, %202 ]
-  %41 = phi i16 [ %25, %22 ], [ %207, %202 ]
-  %42 = phi i16 [ %26, %22 ], [ %206, %202 ]
-  %43 = phi i16 [ %27, %22 ], [ %205, %202 ]
-  %44 = phi i16 [ %28, %22 ], [ %204, %202 ]
-  %45 = phi i16 [ %29, %22 ], [ %203, %202 ]
+37:                                               ; preds = %203, %22
+  %38 = phi i64 [ 1, %22 ], [ %211, %203 ]
+  %39 = phi i16 [ %23, %22 ], [ %210, %203 ]
+  %40 = phi i16 [ %24, %22 ], [ %209, %203 ]
+  %41 = phi i16 [ %25, %22 ], [ %208, %203 ]
+  %42 = phi i16 [ %26, %22 ], [ %207, %203 ]
+  %43 = phi i16 [ %27, %22 ], [ %206, %203 ]
+  %44 = phi i16 [ %28, %22 ], [ %205, %203 ]
+  %45 = phi i16 [ %29, %22 ], [ %204, %203 ]
   %46 = getelementptr i8, ptr %2, i64 %38
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %202, label %.preheader
+  br i1 %48, label %203, label %.preheader
 
 .preheader:                                       ; preds = %37, %.preheader
-  %49 = phi i64 [ %55, %.preheader ], [ 0, %37 ]
+  %49 = phi i64 [ %56, %.preheader ], [ 0, %37 ]
   %50 = getelementptr %struct._tlb_table, ptr @intel_tlb_table, i64 %49
   %51 = load i8, ptr %50, align 8
   %52 = icmp eq i8 %51, %47
-  %53 = icmp eq i8 %51, 0
-  %54 = or i1 %52, %53
-  %55 = add nuw nsw i64 %49, 1
-  br i1 %54, label %56, label %.preheader, !llvm.loop !33
+  %53 = and i64 %49, 2305843009213693951
+  %54 = icmp eq i64 %53, 36
+  %55 = or i1 %52, %54
+  %56 = add nuw nsw i64 %49, 1
+  br i1 %55, label %57, label %.preheader, !llvm.loop !33
 
-56:                                               ; preds = %.preheader
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %58 = load i8, ptr %57, align 1
-  switch i8 %58, label %202 [
-    i8 22, label %195
-    i8 65, label %59
-    i8 66, label %72
-    i8 5, label %109
-    i8 1, label %128
-    i8 2, label %135
-    i8 3, label %142
-    i8 17, label %155
-    i8 33, label %155
-    i8 18, label %162
-    i8 34, label %162
-    i8 19, label %169
-    i8 35, label %169
-    i8 20, label %182
+57:                                               ; preds = %.preheader
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %59 = load i8, ptr %58, align 1
+  switch i8 %59, label %203 [
+    i8 22, label %196
+    i8 65, label %60
+    i8 66, label %73
+    i8 5, label %110
+    i8 1, label %129
+    i8 2, label %136
+    i8 3, label %143
+    i8 17, label %156
+    i8 33, label %156
+    i8 18, label %163
+    i8 34, label %163
+    i8 19, label %170
+    i8 35, label %170
+    i8 20, label %183
   ]
 
-59:                                               ; preds = %56
-  %60 = zext i16 %44 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp ugt i32 %62, %60
-  br i1 %63, label %64, label %66
+60:                                               ; preds = %57
+  %61 = zext i16 %44 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp ugt i32 %63, %61
+  br i1 %64, label %65, label %67
 
-64:                                               ; preds = %59
-  %65 = trunc i32 %62 to i16
-  store i16 %65, ptr @tlb_lli_4k, align 2
-  br label %66
+65:                                               ; preds = %60
+  %66 = trunc i32 %63 to i16
+  store i16 %66, ptr @tlb_lli_4k, align 2
+  br label %67
 
-66:                                               ; preds = %64, %59
-  %67 = phi i16 [ %65, %64 ], [ %44, %59 ]
-  %68 = zext i16 %39 to i32
-  %69 = icmp ugt i32 %62, %68
-  br i1 %69, label %70, label %202
+67:                                               ; preds = %65, %60
+  %68 = phi i16 [ %66, %65 ], [ %44, %60 ]
+  %69 = zext i16 %39 to i32
+  %70 = icmp ugt i32 %63, %69
+  br i1 %70, label %71, label %203
 
-70:                                               ; preds = %66
-  %71 = trunc i32 %62 to i16
-  store i16 %71, ptr @tlb_lld_4k, align 2
-  br label %202
+71:                                               ; preds = %67
+  %72 = trunc i32 %63 to i16
+  store i16 %72, ptr @tlb_lld_4k, align 2
+  br label %203
 
-72:                                               ; preds = %56
-  %73 = zext i16 %44 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ugt i32 %75, %73
-  br i1 %76, label %77, label %79
+73:                                               ; preds = %57
+  %74 = zext i16 %44 to i32
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp ugt i32 %76, %74
+  br i1 %77, label %78, label %80
 
-77:                                               ; preds = %72
-  %78 = trunc i32 %75 to i16
-  store i16 %78, ptr @tlb_lli_4k, align 2
-  br label %79
+78:                                               ; preds = %73
+  %79 = trunc i32 %76 to i16
+  store i16 %79, ptr @tlb_lli_4k, align 2
+  br label %80
 
-79:                                               ; preds = %77, %72
-  %80 = phi i16 [ %78, %77 ], [ %44, %72 ]
-  %81 = zext i16 %39 to i32
-  %82 = icmp ugt i32 %75, %81
-  br i1 %82, label %83, label %85
+80:                                               ; preds = %78, %73
+  %81 = phi i16 [ %79, %78 ], [ %44, %73 ]
+  %82 = zext i16 %39 to i32
+  %83 = icmp ugt i32 %76, %82
+  br i1 %83, label %84, label %86
 
-83:                                               ; preds = %79
-  %84 = trunc i32 %75 to i16
-  store i16 %84, ptr @tlb_lld_4k, align 2
-  br label %85
+84:                                               ; preds = %80
+  %85 = trunc i32 %76 to i16
+  store i16 %85, ptr @tlb_lld_4k, align 2
+  br label %86
 
-85:                                               ; preds = %83, %79
-  %86 = phi i16 [ %84, %83 ], [ %39, %79 ]
-  %87 = zext i16 %42 to i32
-  %88 = icmp ugt i32 %75, %87
-  br i1 %88, label %89, label %91
+86:                                               ; preds = %84, %80
+  %87 = phi i16 [ %85, %84 ], [ %39, %80 ]
+  %88 = zext i16 %42 to i32
+  %89 = icmp ugt i32 %76, %88
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %85
-  %90 = trunc i32 %75 to i16
-  store i16 %90, ptr @tlb_lli_2m, align 2
-  br label %91
+90:                                               ; preds = %86
+  %91 = trunc i32 %76 to i16
+  store i16 %91, ptr @tlb_lli_2m, align 2
+  br label %92
 
-91:                                               ; preds = %89, %85
-  %92 = phi i16 [ %90, %89 ], [ %42, %85 ]
-  %93 = zext i16 %41 to i32
-  %94 = icmp ugt i32 %75, %93
-  br i1 %94, label %95, label %97
+92:                                               ; preds = %90, %86
+  %93 = phi i16 [ %91, %90 ], [ %42, %86 ]
+  %94 = zext i16 %41 to i32
+  %95 = icmp ugt i32 %76, %94
+  br i1 %95, label %96, label %98
 
-95:                                               ; preds = %91
-  %96 = trunc i32 %75 to i16
-  store i16 %96, ptr @tlb_lld_2m, align 2
-  br label %97
+96:                                               ; preds = %92
+  %97 = trunc i32 %76 to i16
+  store i16 %97, ptr @tlb_lld_2m, align 2
+  br label %98
 
-97:                                               ; preds = %95, %91
-  %98 = phi i16 [ %96, %95 ], [ %41, %91 ]
-  %99 = zext i16 %43 to i32
-  %100 = icmp ugt i32 %75, %99
-  br i1 %100, label %101, label %103
+98:                                               ; preds = %96, %92
+  %99 = phi i16 [ %97, %96 ], [ %41, %92 ]
+  %100 = zext i16 %43 to i32
+  %101 = icmp ugt i32 %76, %100
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %97
-  %102 = trunc i32 %75 to i16
-  store i16 %102, ptr @tlb_lli_4m, align 2
-  br label %103
+102:                                              ; preds = %98
+  %103 = trunc i32 %76 to i16
+  store i16 %103, ptr @tlb_lli_4m, align 2
+  br label %104
 
-103:                                              ; preds = %101, %97
-  %104 = phi i16 [ %102, %101 ], [ %43, %97 ]
-  %105 = zext i16 %40 to i32
-  %106 = icmp ugt i32 %75, %105
-  br i1 %106, label %107, label %202
+104:                                              ; preds = %102, %98
+  %105 = phi i16 [ %103, %102 ], [ %43, %98 ]
+  %106 = zext i16 %40 to i32
+  %107 = icmp ugt i32 %76, %106
+  br i1 %107, label %108, label %203
 
-107:                                              ; preds = %103
-  %108 = trunc i32 %75 to i16
-  store i16 %108, ptr @tlb_lld_4m, align 2
-  br label %202
+108:                                              ; preds = %104
+  %109 = trunc i32 %76 to i16
+  store i16 %109, ptr @tlb_lld_4m, align 2
+  br label %203
 
-109:                                              ; preds = %56
-  %110 = zext i16 %44 to i32
-  %111 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp ugt i32 %112, %110
-  br i1 %113, label %114, label %116
+110:                                              ; preds = %57
+  %111 = zext i16 %44 to i32
+  %112 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %113 = load i32, ptr %112, align 4
+  %114 = icmp ugt i32 %113, %111
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %109
-  %115 = trunc i32 %112 to i16
-  store i16 %115, ptr @tlb_lli_4k, align 2
-  br label %116
+115:                                              ; preds = %110
+  %116 = trunc i32 %113 to i16
+  store i16 %116, ptr @tlb_lli_4k, align 2
+  br label %117
 
-116:                                              ; preds = %114, %109
-  %117 = phi i16 [ %115, %114 ], [ %44, %109 ]
-  %118 = zext i16 %42 to i32
-  %119 = icmp ugt i32 %112, %118
-  br i1 %119, label %120, label %122
+117:                                              ; preds = %115, %110
+  %118 = phi i16 [ %116, %115 ], [ %44, %110 ]
+  %119 = zext i16 %42 to i32
+  %120 = icmp ugt i32 %113, %119
+  br i1 %120, label %121, label %123
 
-120:                                              ; preds = %116
-  %121 = trunc i32 %112 to i16
-  store i16 %121, ptr @tlb_lli_2m, align 2
-  br label %122
+121:                                              ; preds = %117
+  %122 = trunc i32 %113 to i16
+  store i16 %122, ptr @tlb_lli_2m, align 2
+  br label %123
 
-122:                                              ; preds = %120, %116
-  %123 = phi i16 [ %121, %120 ], [ %42, %116 ]
-  %124 = zext i16 %43 to i32
-  %125 = icmp ugt i32 %112, %124
-  br i1 %125, label %126, label %202
+123:                                              ; preds = %121, %117
+  %124 = phi i16 [ %122, %121 ], [ %42, %117 ]
+  %125 = zext i16 %43 to i32
+  %126 = icmp ugt i32 %113, %125
+  br i1 %126, label %127, label %203
 
-126:                                              ; preds = %122
-  %127 = trunc i32 %112 to i16
-  store i16 %127, ptr @tlb_lli_4m, align 2
-  br label %202
+127:                                              ; preds = %123
+  %128 = trunc i32 %113 to i16
+  store i16 %128, ptr @tlb_lli_4m, align 2
+  br label %203
 
-128:                                              ; preds = %56
-  %129 = zext i16 %44 to i32
-  %130 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp ugt i32 %131, %129
-  br i1 %132, label %133, label %202
+129:                                              ; preds = %57
+  %130 = zext i16 %44 to i32
+  %131 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %132 = load i32, ptr %131, align 4
+  %133 = icmp ugt i32 %132, %130
+  br i1 %133, label %134, label %203
 
-133:                                              ; preds = %128
-  %134 = trunc i32 %131 to i16
-  store i16 %134, ptr @tlb_lli_4k, align 2
-  br label %202
+134:                                              ; preds = %129
+  %135 = trunc i32 %132 to i16
+  store i16 %135, ptr @tlb_lli_4k, align 2
+  br label %203
 
-135:                                              ; preds = %56
-  %136 = zext i16 %43 to i32
-  %137 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp ugt i32 %138, %136
-  br i1 %139, label %140, label %202
+136:                                              ; preds = %57
+  %137 = zext i16 %43 to i32
+  %138 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp ugt i32 %139, %137
+  br i1 %140, label %141, label %203
 
-140:                                              ; preds = %135
-  %141 = trunc i32 %138 to i16
-  store i16 %141, ptr @tlb_lli_4m, align 2
-  br label %202
+141:                                              ; preds = %136
+  %142 = trunc i32 %139 to i16
+  store i16 %142, ptr @tlb_lli_4m, align 2
+  br label %203
 
-142:                                              ; preds = %56
-  %143 = zext i16 %42 to i32
-  %144 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp ugt i32 %145, %143
-  br i1 %146, label %147, label %149
+143:                                              ; preds = %57
+  %144 = zext i16 %42 to i32
+  %145 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp ugt i32 %146, %144
+  br i1 %147, label %148, label %150
 
-147:                                              ; preds = %142
-  %148 = trunc i32 %145 to i16
-  store i16 %148, ptr @tlb_lli_2m, align 2
-  br label %149
+148:                                              ; preds = %143
+  %149 = trunc i32 %146 to i16
+  store i16 %149, ptr @tlb_lli_2m, align 2
+  br label %150
 
-149:                                              ; preds = %147, %142
-  %150 = phi i16 [ %148, %147 ], [ %42, %142 ]
-  %151 = zext i16 %43 to i32
-  %152 = icmp ugt i32 %145, %151
-  br i1 %152, label %153, label %202
+150:                                              ; preds = %148, %143
+  %151 = phi i16 [ %149, %148 ], [ %42, %143 ]
+  %152 = zext i16 %43 to i32
+  %153 = icmp ugt i32 %146, %152
+  br i1 %153, label %154, label %203
 
-153:                                              ; preds = %149
-  %154 = trunc i32 %145 to i16
-  store i16 %154, ptr @tlb_lli_4m, align 2
-  br label %202
+154:                                              ; preds = %150
+  %155 = trunc i32 %146 to i16
+  store i16 %155, ptr @tlb_lli_4m, align 2
+  br label %203
 
-155:                                              ; preds = %56, %56
-  %156 = zext i16 %39 to i32
-  %157 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %158 = load i32, ptr %157, align 4
-  %159 = icmp ugt i32 %158, %156
-  br i1 %159, label %160, label %202
+156:                                              ; preds = %57, %57
+  %157 = zext i16 %39 to i32
+  %158 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %159 = load i32, ptr %158, align 4
+  %160 = icmp ugt i32 %159, %157
+  br i1 %160, label %161, label %203
 
-160:                                              ; preds = %155
-  %161 = trunc i32 %158 to i16
-  store i16 %161, ptr @tlb_lld_4k, align 2
-  br label %202
+161:                                              ; preds = %156
+  %162 = trunc i32 %159 to i16
+  store i16 %162, ptr @tlb_lld_4k, align 2
+  br label %203
 
-162:                                              ; preds = %56, %56
-  %163 = zext i16 %40 to i32
-  %164 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp ugt i32 %165, %163
-  br i1 %166, label %167, label %202
+163:                                              ; preds = %57, %57
+  %164 = zext i16 %40 to i32
+  %165 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %166 = load i32, ptr %165, align 4
+  %167 = icmp ugt i32 %166, %164
+  br i1 %167, label %168, label %203
 
-167:                                              ; preds = %162
-  %168 = trunc i32 %165 to i16
-  store i16 %168, ptr @tlb_lld_4m, align 2
-  br label %202
+168:                                              ; preds = %163
+  %169 = trunc i32 %166 to i16
+  store i16 %169, ptr @tlb_lld_4m, align 2
+  br label %203
 
-169:                                              ; preds = %56, %56
-  %170 = zext i16 %41 to i32
-  %171 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp ugt i32 %172, %170
-  br i1 %173, label %174, label %176
+170:                                              ; preds = %57, %57
+  %171 = zext i16 %41 to i32
+  %172 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp ugt i32 %173, %171
+  br i1 %174, label %175, label %177
 
-174:                                              ; preds = %169
-  %175 = trunc i32 %172 to i16
-  store i16 %175, ptr @tlb_lld_2m, align 2
-  br label %176
+175:                                              ; preds = %170
+  %176 = trunc i32 %173 to i16
+  store i16 %176, ptr @tlb_lld_2m, align 2
+  br label %177
 
-176:                                              ; preds = %174, %169
-  %177 = phi i16 [ %175, %174 ], [ %41, %169 ]
-  %178 = zext i16 %40 to i32
-  %179 = icmp ugt i32 %172, %178
-  br i1 %179, label %180, label %202
+177:                                              ; preds = %175, %170
+  %178 = phi i16 [ %176, %175 ], [ %41, %170 ]
+  %179 = zext i16 %40 to i32
+  %180 = icmp ugt i32 %173, %179
+  br i1 %180, label %181, label %203
 
-180:                                              ; preds = %176
-  %181 = trunc i32 %172 to i16
-  store i16 %181, ptr @tlb_lld_4m, align 2
-  br label %202
+181:                                              ; preds = %177
+  %182 = trunc i32 %173 to i16
+  store i16 %182, ptr @tlb_lld_4m, align 2
+  br label %203
 
-182:                                              ; preds = %56
-  %183 = zext i16 %39 to i32
-  %184 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %185 = load i32, ptr %184, align 4
-  %186 = icmp ugt i32 %185, %183
-  br i1 %186, label %187, label %189
+183:                                              ; preds = %57
+  %184 = zext i16 %39 to i32
+  %185 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %186 = load i32, ptr %185, align 4
+  %187 = icmp ugt i32 %186, %184
+  br i1 %187, label %188, label %190
 
-187:                                              ; preds = %182
-  %188 = trunc i32 %185 to i16
-  store i16 %188, ptr @tlb_lld_4k, align 2
-  br label %189
+188:                                              ; preds = %183
+  %189 = trunc i32 %186 to i16
+  store i16 %189, ptr @tlb_lld_4k, align 2
+  br label %190
 
-189:                                              ; preds = %187, %182
-  %190 = phi i16 [ %188, %187 ], [ %39, %182 ]
-  %191 = zext i16 %40 to i32
-  %192 = icmp ugt i32 %185, %191
-  br i1 %192, label %193, label %202
+190:                                              ; preds = %188, %183
+  %191 = phi i16 [ %189, %188 ], [ %39, %183 ]
+  %192 = zext i16 %40 to i32
+  %193 = icmp ugt i32 %186, %192
+  br i1 %193, label %194, label %203
 
-193:                                              ; preds = %189
-  %194 = trunc i32 %185 to i16
-  store i16 %194, ptr @tlb_lld_4m, align 2
-  br label %202
+194:                                              ; preds = %190
+  %195 = trunc i32 %186 to i16
+  store i16 %195, ptr @tlb_lld_4m, align 2
+  br label %203
 
-195:                                              ; preds = %56
-  %196 = zext i16 %45 to i32
-  %197 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %198 = load i32, ptr %197, align 4
-  %199 = icmp ugt i32 %198, %196
-  br i1 %199, label %200, label %202
+196:                                              ; preds = %57
+  %197 = zext i16 %45 to i32
+  %198 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %199 = load i32, ptr %198, align 4
+  %200 = icmp ugt i32 %199, %197
+  br i1 %200, label %201, label %203
 
-200:                                              ; preds = %195
-  %201 = trunc i32 %198 to i16
-  store i16 %201, ptr @tlb_lld_1g, align 2
-  br label %202
+201:                                              ; preds = %196
+  %202 = trunc i32 %199 to i16
+  store i16 %202, ptr @tlb_lld_1g, align 2
+  br label %203
 
-202:                                              ; preds = %200, %195, %193, %189, %180, %176, %167, %162, %160, %155, %153, %149, %140, %135, %133, %128, %126, %122, %107, %103, %70, %66, %56, %37
-  %203 = phi i16 [ %45, %37 ], [ %45, %56 ], [ %45, %66 ], [ %45, %70 ], [ %45, %103 ], [ %45, %107 ], [ %45, %122 ], [ %45, %126 ], [ %45, %128 ], [ %45, %133 ], [ %45, %135 ], [ %45, %140 ], [ %45, %149 ], [ %45, %153 ], [ %45, %155 ], [ %45, %160 ], [ %45, %162 ], [ %45, %167 ], [ %45, %176 ], [ %45, %180 ], [ %45, %189 ], [ %45, %193 ], [ %45, %195 ], [ %201, %200 ]
-  %204 = phi i16 [ %44, %37 ], [ %44, %56 ], [ %67, %66 ], [ %67, %70 ], [ %80, %103 ], [ %80, %107 ], [ %117, %122 ], [ %117, %126 ], [ %44, %128 ], [ %134, %133 ], [ %44, %135 ], [ %44, %140 ], [ %44, %149 ], [ %44, %153 ], [ %44, %155 ], [ %44, %160 ], [ %44, %162 ], [ %44, %167 ], [ %44, %176 ], [ %44, %180 ], [ %44, %189 ], [ %44, %193 ], [ %44, %195 ], [ %44, %200 ]
-  %205 = phi i16 [ %43, %37 ], [ %43, %56 ], [ %43, %66 ], [ %43, %70 ], [ %104, %103 ], [ %104, %107 ], [ %43, %122 ], [ %127, %126 ], [ %43, %128 ], [ %43, %133 ], [ %43, %135 ], [ %141, %140 ], [ %43, %149 ], [ %154, %153 ], [ %43, %155 ], [ %43, %160 ], [ %43, %162 ], [ %43, %167 ], [ %43, %176 ], [ %43, %180 ], [ %43, %189 ], [ %43, %193 ], [ %43, %195 ], [ %43, %200 ]
-  %206 = phi i16 [ %42, %37 ], [ %42, %56 ], [ %42, %66 ], [ %42, %70 ], [ %92, %103 ], [ %92, %107 ], [ %123, %122 ], [ %123, %126 ], [ %42, %128 ], [ %42, %133 ], [ %42, %135 ], [ %42, %140 ], [ %150, %149 ], [ %150, %153 ], [ %42, %155 ], [ %42, %160 ], [ %42, %162 ], [ %42, %167 ], [ %42, %176 ], [ %42, %180 ], [ %42, %189 ], [ %42, %193 ], [ %42, %195 ], [ %42, %200 ]
-  %207 = phi i16 [ %41, %37 ], [ %41, %56 ], [ %41, %66 ], [ %41, %70 ], [ %98, %103 ], [ %98, %107 ], [ %41, %122 ], [ %41, %126 ], [ %41, %128 ], [ %41, %133 ], [ %41, %135 ], [ %41, %140 ], [ %41, %149 ], [ %41, %153 ], [ %41, %155 ], [ %41, %160 ], [ %41, %162 ], [ %41, %167 ], [ %177, %176 ], [ %177, %180 ], [ %41, %189 ], [ %41, %193 ], [ %41, %195 ], [ %41, %200 ]
-  %208 = phi i16 [ %40, %37 ], [ %40, %56 ], [ %40, %66 ], [ %40, %70 ], [ %40, %103 ], [ %108, %107 ], [ %40, %122 ], [ %40, %126 ], [ %40, %128 ], [ %40, %133 ], [ %40, %135 ], [ %40, %140 ], [ %40, %149 ], [ %40, %153 ], [ %40, %155 ], [ %40, %160 ], [ %40, %162 ], [ %168, %167 ], [ %40, %176 ], [ %181, %180 ], [ %40, %189 ], [ %194, %193 ], [ %40, %195 ], [ %40, %200 ]
-  %209 = phi i16 [ %39, %37 ], [ %39, %56 ], [ %39, %66 ], [ %71, %70 ], [ %86, %103 ], [ %86, %107 ], [ %39, %122 ], [ %39, %126 ], [ %39, %128 ], [ %39, %133 ], [ %39, %135 ], [ %39, %140 ], [ %39, %149 ], [ %39, %153 ], [ %39, %155 ], [ %161, %160 ], [ %39, %162 ], [ %39, %167 ], [ %39, %176 ], [ %39, %180 ], [ %190, %189 ], [ %190, %193 ], [ %39, %195 ], [ %39, %200 ]
-  %210 = add nuw nsw i64 %38, 1
-  %211 = icmp eq i64 %210, 16
-  br i1 %211, label %212, label %37, !llvm.loop !34
+203:                                              ; preds = %201, %196, %194, %190, %181, %177, %168, %163, %161, %156, %154, %150, %141, %136, %134, %129, %127, %123, %108, %104, %71, %67, %57, %37
+  %204 = phi i16 [ %45, %37 ], [ %45, %57 ], [ %45, %67 ], [ %45, %71 ], [ %45, %104 ], [ %45, %108 ], [ %45, %123 ], [ %45, %127 ], [ %45, %129 ], [ %45, %134 ], [ %45, %136 ], [ %45, %141 ], [ %45, %150 ], [ %45, %154 ], [ %45, %156 ], [ %45, %161 ], [ %45, %163 ], [ %45, %168 ], [ %45, %177 ], [ %45, %181 ], [ %45, %190 ], [ %45, %194 ], [ %45, %196 ], [ %202, %201 ]
+  %205 = phi i16 [ %44, %37 ], [ %44, %57 ], [ %68, %67 ], [ %68, %71 ], [ %81, %104 ], [ %81, %108 ], [ %118, %123 ], [ %118, %127 ], [ %44, %129 ], [ %135, %134 ], [ %44, %136 ], [ %44, %141 ], [ %44, %150 ], [ %44, %154 ], [ %44, %156 ], [ %44, %161 ], [ %44, %163 ], [ %44, %168 ], [ %44, %177 ], [ %44, %181 ], [ %44, %190 ], [ %44, %194 ], [ %44, %196 ], [ %44, %201 ]
+  %206 = phi i16 [ %43, %37 ], [ %43, %57 ], [ %43, %67 ], [ %43, %71 ], [ %105, %104 ], [ %105, %108 ], [ %43, %123 ], [ %128, %127 ], [ %43, %129 ], [ %43, %134 ], [ %43, %136 ], [ %142, %141 ], [ %43, %150 ], [ %155, %154 ], [ %43, %156 ], [ %43, %161 ], [ %43, %163 ], [ %43, %168 ], [ %43, %177 ], [ %43, %181 ], [ %43, %190 ], [ %43, %194 ], [ %43, %196 ], [ %43, %201 ]
+  %207 = phi i16 [ %42, %37 ], [ %42, %57 ], [ %42, %67 ], [ %42, %71 ], [ %93, %104 ], [ %93, %108 ], [ %124, %123 ], [ %124, %127 ], [ %42, %129 ], [ %42, %134 ], [ %42, %136 ], [ %42, %141 ], [ %151, %150 ], [ %151, %154 ], [ %42, %156 ], [ %42, %161 ], [ %42, %163 ], [ %42, %168 ], [ %42, %177 ], [ %42, %181 ], [ %42, %190 ], [ %42, %194 ], [ %42, %196 ], [ %42, %201 ]
+  %208 = phi i16 [ %41, %37 ], [ %41, %57 ], [ %41, %67 ], [ %41, %71 ], [ %99, %104 ], [ %99, %108 ], [ %41, %123 ], [ %41, %127 ], [ %41, %129 ], [ %41, %134 ], [ %41, %136 ], [ %41, %141 ], [ %41, %150 ], [ %41, %154 ], [ %41, %156 ], [ %41, %161 ], [ %41, %163 ], [ %41, %168 ], [ %178, %177 ], [ %178, %181 ], [ %41, %190 ], [ %41, %194 ], [ %41, %196 ], [ %41, %201 ]
+  %209 = phi i16 [ %40, %37 ], [ %40, %57 ], [ %40, %67 ], [ %40, %71 ], [ %40, %104 ], [ %109, %108 ], [ %40, %123 ], [ %40, %127 ], [ %40, %129 ], [ %40, %134 ], [ %40, %136 ], [ %40, %141 ], [ %40, %150 ], [ %40, %154 ], [ %40, %156 ], [ %40, %161 ], [ %40, %163 ], [ %169, %168 ], [ %40, %177 ], [ %182, %181 ], [ %40, %190 ], [ %195, %194 ], [ %40, %196 ], [ %40, %201 ]
+  %210 = phi i16 [ %39, %37 ], [ %39, %57 ], [ %39, %67 ], [ %72, %71 ], [ %87, %104 ], [ %87, %108 ], [ %39, %123 ], [ %39, %127 ], [ %39, %129 ], [ %39, %134 ], [ %39, %136 ], [ %39, %141 ], [ %39, %150 ], [ %39, %154 ], [ %39, %156 ], [ %162, %161 ], [ %39, %163 ], [ %39, %168 ], [ %39, %177 ], [ %39, %181 ], [ %191, %190 ], [ %191, %194 ], [ %39, %196 ], [ %39, %201 ]
+  %211 = add nuw nsw i64 %38, 1
+  %212 = icmp eq i64 %211, 16
+  br i1 %212, label %213, label %37, !llvm.loop !34
 
-212:                                              ; preds = %202
-  %213 = add nuw nsw i32 %16, 1
-  %214 = icmp eq i32 %213, %9
-  br i1 %214, label %.loopexit, label %15, !llvm.loop !35
+213:                                              ; preds = %203
+  %214 = add nuw nsw i32 %16, 1
+  %215 = icmp eq i32 %214, %9
+  br i1 %215, label %.loopexit, label %15, !llvm.loop !35
 
-.loopexit:                                        ; preds = %212, %6, %1
+.loopexit:                                        ; preds = %213, %6, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

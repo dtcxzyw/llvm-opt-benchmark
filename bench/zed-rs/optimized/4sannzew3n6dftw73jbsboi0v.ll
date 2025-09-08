@@ -239,10 +239,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5d5545f4084c4a159beaed369202426b.387 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5d5545f4084c4a159beaed369202426b.341, [16 x i8] c"a\00\00\00\00\00\00\00)\00\00\00\12\00\00\00" }>, align 8
 @anon.5d5545f4084c4a159beaed369202426b.388 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5d5545f4084c4a159beaed369202426b.341, [16 x i8] c"a\00\00\00\00\00\00\00\C9\00\00\00\0E\00\00\00" }>, align 8
 @anon.5d5545f4084c4a159beaed369202426b.389 = private unnamed_addr constant <{ [512 x i8] }> <{ [512 x i8] c"\01\01\02\01\03\01\04\01\05\01\06\01\07\01\08\01\09\01\09\01\0A\01\0A\01\0B\01\0B\01\0C\01\0C\01\0D\01\0D\01\0D\01\0D\01\0E\01\0E\01\0E\01\0E\01\0F\01\0F\01\0F\01\0F\01\10\01\10\01\10\01\10\01\11\01\11\01\11\01\11\01\11\01\11\01\11\01\11\01\12\01\12\01\12\01\12\01\12\01\12\01\12\01\12\01\13\01\13\01\13\01\13\01\13\01\13\01\13\01\13\01\14\01\14\01\14\01\14\01\14\01\14\01\14\01\14\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1A\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1B\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1C\01\1D\01" }>, align 2
-@anon.5d5545f4084c4a159beaed369202426b.391 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5d5545f4084c4a159beaed369202426b.341, [16 x i8] c"a\00\00\00\00\00\00\00;\00\00\00\1D\00\00\00" }>, align 8
 @anon.5d5545f4084c4a159beaed369202426b.393 = private unnamed_addr constant <{ [256 x i8] }> <{ [256 x i8] c"\00\00\00\00\00\00\00\00\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\00" }>, align 1
 @anon.5d5545f4084c4a159beaed369202426b.395 = private unnamed_addr constant <{ [68 x i8] }> <{ [68 x i8] c"\00\00\00\00\01\00\00\00\03\00\00\00\07\00\00\00\0F\00\00\00\1F\00\00\00?\00\00\00\7F\00\00\00\FF\00\00\00\FF\01\00\00\FF\03\00\00\FF\07\00\00\FF\0F\00\00\FF\1F\00\00\FF?\00\00\FF\7F\00\00\FF\FF\00\00" }>, align 4
-@anon.5d5545f4084c4a159beaed369202426b.396 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5d5545f4084c4a159beaed369202426b.341, [16 x i8] c"a\00\00\00\00\00\00\00>\00\00\00&\00\00\00" }>, align 8
 @anon.5d5545f4084c4a159beaed369202426b.397 = private unnamed_addr constant <{ [5 x i8] }> zeroinitializer, align 1
 @anon.5d5545f4084c4a159beaed369202426b.400 = private unnamed_addr constant <{ [2 x i8] }> <{ [2 x i8] c"x\01" }>, align 1
 @anon.5d5545f4084c4a159beaed369202426b.401 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5d5545f4084c4a159beaed369202426b.341, [16 x i8] c"a\00\00\00\00\00\00\00\0D\01\00\00\0E\00\00\00" }>, align 8
@@ -25827,7 +25825,6 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
 17:                                               ; preds = %14
   %18 = load i8, ptr %8, align 8, !alias.scope !10429, !noundef !4
   %19 = add i8 %18, -64
-  store i8 %19, ptr %8, align 8, !alias.scope !10429
   store i64 0, ptr %10, align 8, !alias.scope !10429
   br label %20
 
@@ -25838,17 +25835,17 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %24 = icmp ugt i32 %23, 257
   br i1 %24, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %118, %20
-  %25 = phi i64 [ %21, %20 ], [ %119, %118 ]
-  %26 = phi i8 [ %22, %20 ], [ %120, %118 ]
-  %.sroa.0.0.lcssa = phi i32 [ %23, %20 ], [ %121, %118 ]
+._crit_edge:                                      ; preds = %112, %20
+  %25 = phi i64 [ %21, %20 ], [ %113, %112 ]
+  %26 = phi i8 [ %22, %20 ], [ %114, %112 ]
+  %.sroa.0.0.lcssa = phi i32 [ %23, %20 ], [ %115, %112 ]
   %27 = icmp samesign ugt i32 %.sroa.0.0.lcssa, 4
   br i1 %27, label %57, label %46
 
-.lr.ph:                                           ; preds = %20, %118
-  %28 = phi i64 [ %119, %118 ], [ %21, %20 ]
-  %29 = phi i8 [ %120, %118 ], [ %22, %20 ]
-  %.sroa.0.060 = phi i32 [ %121, %118 ], [ %23, %20 ]
+.lr.ph:                                           ; preds = %20, %112
+  %28 = phi i64 [ %113, %112 ], [ %21, %20 ]
+  %29 = phi i8 [ %114, %112 ], [ %22, %20 ]
+  %.sroa.0.059 = phi i32 [ %115, %112 ], [ %23, %20 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10432)
   %30 = and i8 %29, 63
   %31 = zext nneg i8 %30 to i64
@@ -25858,7 +25855,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %34 = add i8 %29, 10
   store i8 %34, ptr %8, align 8, !alias.scope !10432
   %35 = icmp ugt i8 %34, 63
-  br i1 %35, label %36, label %118
+  br i1 %35, label %36, label %112
 
 36:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10432
@@ -25878,7 +25875,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %45 = lshr i64 343, %44
   %.sroa.07.0.i = select i1 %43, i64 %45, i64 0
   store i64 %.sroa.07.0.i, ptr %10, align 8, !alias.scope !10432
-  br label %118
+  br label %112
 
 46:                                               ; preds = %._crit_edge
   %47 = trunc nuw nsw i32 %.sroa.0.0.lcssa to i8
@@ -25909,115 +25906,97 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %60 = getelementptr inbounds nuw i16, ptr @anon.5d5545f4084c4a159beaed369202426b.389, i64 %59
   %61 = load i16, ptr %60, align 2, !noundef !4
   %62 = zext i16 %61 to i64
-  %63 = icmp ult i16 %61, 286
-  br i1 %63, label %64, label %86
-
-64:                                               ; preds = %57
-  %65 = getelementptr inbounds nuw i16, ptr @anon.5d5545f4084c4a159beaed369202426b.343, i64 %62
-  %66 = load i16, ptr %65, align 2, !noundef !4
-  %67 = zext i16 %66 to i64
-  %68 = getelementptr inbounds nuw i8, ptr @anon.5d5545f4084c4a159beaed369202426b.345, i64 %62
-  %69 = load i8, ptr %68, align 1, !noundef !4
+  %63 = getelementptr inbounds nuw i16, ptr @anon.5d5545f4084c4a159beaed369202426b.343, i64 %62
+  %64 = load i16, ptr %63, align 2, !noundef !4
+  %65 = zext i16 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @anon.5d5545f4084c4a159beaed369202426b.345, i64 %62
+  %67 = load i8, ptr %66, align 1, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !10438)
-  %70 = and i8 %26, 63
-  %71 = zext nneg i8 %70 to i64
-  %72 = shl i64 %67, %71
-  %73 = or i64 %72, %25
-  store i64 %73, ptr %10, align 8, !alias.scope !10438
-  %74 = add i8 %26, %69
-  store i8 %74, ptr %8, align 8, !alias.scope !10438
-  %75 = icmp ugt i8 %74, 63
-  br i1 %75, label %76, label %87
+  %68 = and i8 %26, 63
+  %69 = zext nneg i8 %68 to i64
+  %70 = shl i64 %65, %69
+  %71 = or i64 %70, %25
+  store i64 %71, ptr %10, align 8, !alias.scope !10438
+  %72 = add i8 %26, %67
+  store i8 %72, ptr %8, align 8, !alias.scope !10438
+  %73 = icmp ugt i8 %72, 63
+  br i1 %73, label %74, label %84
 
-76:                                               ; preds = %64
+74:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !10438
-  store i64 %73, ptr %4, align 8, !noalias !10438
-  %77 = call noundef ptr @_ZN3std2io5Write9write_all17h7c0daab857eb7444E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
-  %78 = icmp eq ptr %77, null
+  store i64 %71, ptr %4, align 8, !noalias !10438
+  %75 = call noundef ptr @_ZN3std2io5Write9write_all17h7c0daab857eb7444E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
+  %76 = icmp eq ptr %75, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10438
-  br i1 %78, label %79, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
+  br i1 %76, label %77, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
 
-79:                                               ; preds = %76
-  %80 = load i8, ptr %8, align 8, !alias.scope !10438, !noundef !4
-  %81 = add i8 %80, -64
-  store i8 %81, ptr %8, align 8, !alias.scope !10438
-  %82 = sub i8 %69, %81
-  %83 = icmp ult i8 %82, 64
-  %84 = zext nneg i8 %82 to i64
-  %85 = lshr i64 %67, %84
-  %.sroa.07.0.i49 = select i1 %83, i64 %85, i64 0
-  store i64 %.sroa.07.0.i49, ptr %10, align 8, !alias.scope !10438
-  br label %87
+77:                                               ; preds = %74
+  %78 = load i8, ptr %8, align 8, !alias.scope !10438, !noundef !4
+  %79 = add i8 %78, -64
+  %80 = sub i8 %67, %79
+  %81 = icmp ult i8 %80, 64
+  %82 = zext nneg i8 %80 to i64
+  %83 = lshr i64 %65, %82
+  %.sroa.07.0.i48 = select i1 %81, i64 %83, i64 0
+  br label %84
 
-86:                                               ; preds = %57
-  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %62, i64 noundef 286, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5d5545f4084c4a159beaed369202426b.391) #43
-  unreachable
-
-87:                                               ; preds = %64, %79
-  %88 = phi i64 [ %73, %64 ], [ %.sroa.07.0.i49, %79 ]
-  %89 = phi i8 [ %74, %64 ], [ %81, %79 ]
-  %90 = getelementptr inbounds nuw i8, ptr @anon.5d5545f4084c4a159beaed369202426b.393, i64 %59
-  %91 = load i8, ptr %90, align 1, !noundef !4
-  %92 = zext i8 %91 to i64
-  %93 = icmp ult i8 %91, 17
-  br i1 %93, label %94, label %117
-
-94:                                               ; preds = %87
-  %95 = add nsw i32 %.sroa.0.0.lcssa, -3
-  %96 = getelementptr inbounds nuw i32, ptr @anon.5d5545f4084c4a159beaed369202426b.395, i64 %92
-  %97 = load i32, ptr %96, align 4, !noundef !4
-  %98 = and i32 %97, %95
-  %99 = zext nneg i32 %98 to i64
-  %100 = add nuw nsw i8 %91, 1
+84:                                               ; preds = %57, %77
+  %85 = phi i64 [ %71, %57 ], [ %.sroa.07.0.i48, %77 ]
+  %86 = phi i8 [ %72, %57 ], [ %79, %77 ]
+  %87 = getelementptr inbounds nuw i8, ptr @anon.5d5545f4084c4a159beaed369202426b.393, i64 %59
+  %88 = load i8, ptr %87, align 1, !noundef !4
+  %89 = zext i8 %88 to i64
+  %90 = add nsw i32 %.sroa.0.0.lcssa, -3
+  %91 = getelementptr inbounds nuw i32, ptr @anon.5d5545f4084c4a159beaed369202426b.395, i64 %89
+  %92 = load i32, ptr %91, align 4, !noundef !4
+  %93 = and i32 %92, %90
+  %94 = zext nneg i32 %93 to i64
+  %95 = add i8 %88, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !10441)
-  %101 = and i8 %89, 63
-  %102 = zext nneg i8 %101 to i64
-  %103 = shl i64 %99, %102
-  %104 = or i64 %103, %88
-  store i64 %104, ptr %10, align 8, !alias.scope !10441
-  %105 = add i8 %89, %100
-  store i8 %105, ptr %8, align 8, !alias.scope !10441
-  %106 = icmp ugt i8 %105, 63
-  br i1 %106, label %107, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
+  %96 = and i8 %86, 63
+  %97 = zext nneg i8 %96 to i64
+  %98 = shl i64 %94, %97
+  %99 = or i64 %98, %85
+  store i64 %99, ptr %10, align 8, !alias.scope !10441
+  %100 = add i8 %86, %95
+  store i8 %100, ptr %8, align 8, !alias.scope !10441
+  %101 = icmp ugt i8 %100, 63
+  br i1 %101, label %102, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
 
-107:                                              ; preds = %94
+102:                                              ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10441
-  store i64 %104, ptr %3, align 8, !noalias !10441
-  %108 = call noundef ptr @_ZN3std2io5Write9write_all17h7c0daab857eb7444E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8)
-  %109 = icmp eq ptr %108, null
+  store i64 %99, ptr %3, align 8, !noalias !10441
+  %103 = call noundef ptr @_ZN3std2io5Write9write_all17h7c0daab857eb7444E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8)
+  %104 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !10441
-  br i1 %109, label %110, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
+  br i1 %104, label %105, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
 
-110:                                              ; preds = %107
-  %111 = load i8, ptr %8, align 8, !alias.scope !10441, !noundef !4
-  %112 = add i8 %111, -64
-  store i8 %112, ptr %8, align 8, !alias.scope !10441
-  %113 = sub i8 %100, %112
-  %114 = icmp ult i8 %113, 64
-  %115 = zext nneg i8 %113 to i64
-  %116 = lshr i64 %99, %115
-  %.sroa.07.0.i52 = select i1 %114, i64 %116, i64 0
+105:                                              ; preds = %102
+  %106 = load i8, ptr %8, align 8, !alias.scope !10441, !noundef !4
+  %107 = add i8 %106, -64
+  store i8 %107, ptr %8, align 8, !alias.scope !10441
+  %108 = sub i8 %95, %107
+  %109 = icmp ult i8 %108, 64
+  %110 = zext nneg i8 %108 to i64
+  %111 = lshr i64 %94, %110
+  %.sroa.07.0.i51 = select i1 %109, i64 %111, i64 0
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split"
 
-117:                                              ; preds = %87
-  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %92, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5d5545f4084c4a159beaed369202426b.396) #43
-  unreachable
-
-"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split": ; preds = %54, %110
-  %.sroa.07.0.i52.sink = phi i64 [ %.sroa.07.0.i52, %110 ], [ 0, %54 ]
-  store i64 %.sroa.07.0.i52.sink, ptr %10, align 8
+"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split": ; preds = %54, %105
+  %.sroa.07.0.i51.sink = phi i64 [ %.sroa.07.0.i51, %105 ], [ 0, %54 ]
+  store i64 %.sroa.07.0.i51.sink, ptr %10, align 8
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit"
 
-"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit": ; preds = %36, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split", %94, %46, %107, %76, %51, %14
-  %.sroa.08.0 = phi ptr [ %15, %14 ], [ %52, %51 ], [ %77, %76 ], [ %108, %107 ], [ null, %46 ], [ null, %94 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split" ], [ %37, %36 ]
+"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit": ; preds = %36, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split", %84, %46, %102, %74, %51, %14
+  %.sroa.08.0 = phi ptr [ %15, %14 ], [ %52, %51 ], [ %75, %74 ], [ %103, %102 ], [ null, %46 ], [ null, %84 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17hbe706ebf6c123ab7E.exit.sink.split" ], [ %37, %36 ]
   ret ptr %.sroa.08.0
 
-118:                                              ; preds = %.lr.ph, %39
-  %119 = phi i64 [ %33, %.lr.ph ], [ %.sroa.07.0.i, %39 ]
-  %120 = phi i8 [ %34, %.lr.ph ], [ %41, %39 ]
-  %121 = add i32 %.sroa.0.060, -258
-  %122 = icmp ugt i32 %121, 257
-  br i1 %122, label %.lr.ph, label %._crit_edge
+112:                                              ; preds = %.lr.ph, %39
+  %113 = phi i64 [ %33, %.lr.ph ], [ %.sroa.07.0.i, %39 ]
+  %114 = phi i8 [ %34, %.lr.ph ], [ %41, %39 ]
+  %115 = add i32 %.sroa.0.059, -258
+  %116 = icmp ugt i32 %115, 257
+  br i1 %116, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable

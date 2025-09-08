@@ -864,117 +864,119 @@ input_set_capability.exit:                        ; preds = %22, %38
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @input_set_capability(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ult i32 %1, 32
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %16
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr i32, ptr @input_max_code, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ne i32 %8, 0
-  %10 = icmp ult i32 %8, %2
-  %11 = and i1 %9, %10
-  br i1 %11, label %12, label %14
+  %9 = shl nuw nsw i64 1, %6
+  %10 = and i64 %9, 2490430
+  %11 = icmp ne i64 %10, 0
+  %12 = icmp ult i32 %8, %2
+  %13 = and i1 %11, %12
+  br i1 %13, label %14, label %16
 
-12:                                               ; preds = %5
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.input_set_capability, i32 noundef %2, i32 noundef %1) #21
+14:                                               ; preds = %5
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.input_set_capability, i32 noundef %2, i32 noundef %1) #21
   tail call void @dump_stack() #21
-  br label %58
+  br label %60
 
-14:                                               ; preds = %5, %3
-  switch i32 %1, label %53 [
-    i32 1, label %15
-    i32 2, label %18
-    i32 3, label %21
-    i32 4, label %38
-    i32 5, label %41
-    i32 17, label %44
-    i32 18, label %47
-    i32 21, label %50
-    i32 22, label %55
+16:                                               ; preds = %5, %3
+  switch i32 %1, label %55 [
+    i32 1, label %17
+    i32 2, label %20
+    i32 3, label %23
+    i32 4, label %40
+    i32 5, label %43
+    i32 17, label %46
+    i32 18, label %49
+    i32 21, label %52
+    i32 22, label %57
   ]
 
-15:                                               ; preds = %14
-  %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %17, i64 %16) #19, !srcloc !10
-  br label %55
+17:                                               ; preds = %16
+  %18 = zext i32 %2 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %19, i64 %18) #19, !srcloc !10
+  br label %57
 
-18:                                               ; preds = %14
-  %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %19) #19, !srcloc !10
-  br label %55
+20:                                               ; preds = %16
+  %21 = zext i32 %2 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %21) #19, !srcloc !10
+  br label %57
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %35
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %37
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
-  %27 = tail call noalias align 8 dereferenceable_or_null(1536) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 1536) #20
-  store ptr %27, ptr %22, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %35
+27:                                               ; preds = %23
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
+  %29 = tail call noalias align 8 dereferenceable_or_null(1536) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 1536) #20
+  store ptr %29, ptr %24, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %37
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  %34 = select i1 %33, ptr %30, ptr %32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %34, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.input_alloc_absinfo) #21
-  br label %35
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  %36 = select i1 %35, ptr %32, ptr %34
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %36, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.input_alloc_absinfo) #21
+  br label %37
 
-35:                                               ; preds = %29, %25, %21
-  %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %37, i64 %36) #19, !srcloc !10
-  br label %55
+37:                                               ; preds = %31, %27, %23
+  %38 = zext i32 %2 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %39, i64 %38) #19, !srcloc !10
+  br label %57
 
-38:                                               ; preds = %14
-  %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %40, i64 %39) #19, !srcloc !10
-  br label %55
+40:                                               ; preds = %16
+  %41 = zext i32 %2 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %42, i64 %41) #19, !srcloc !10
+  br label %57
 
-41:                                               ; preds = %14
-  %42 = zext i32 %2 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %43, i64 %42) #19, !srcloc !10
-  br label %55
+43:                                               ; preds = %16
+  %44 = zext i32 %2 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 %44) #19, !srcloc !10
+  br label %57
 
-44:                                               ; preds = %14
-  %45 = zext i32 %2 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 %45) #19, !srcloc !10
-  br label %55
+46:                                               ; preds = %16
+  %47 = zext i32 %2 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %48, i64 %47) #19, !srcloc !10
+  br label %57
 
-47:                                               ; preds = %14
-  %48 = zext i32 %2 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %49, i64 %48) #19, !srcloc !10
-  br label %55
+49:                                               ; preds = %16
+  %50 = zext i32 %2 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %51, i64 %50) #19, !srcloc !10
+  br label %57
 
-50:                                               ; preds = %14
-  %51 = zext i32 %2 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %52, i64 %51) #19, !srcloc !10
-  br label %55
+52:                                               ; preds = %16
+  %53 = zext i32 %2 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %54, i64 %53) #19, !srcloc !10
+  br label %57
 
-53:                                               ; preds = %14
-  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.input_set_capability, i32 noundef %1, i32 noundef %2) #21
+55:                                               ; preds = %16
+  %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.input_set_capability, i32 noundef %1, i32 noundef %2) #21
   tail call void @dump_stack() #21
-  br label %58
+  br label %60
 
-55:                                               ; preds = %50, %47, %44, %41, %38, %35, %18, %15, %14
-  %56 = zext nneg i32 %1 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %57, i64 %56) #19, !srcloc !10
-  br label %58
+57:                                               ; preds = %52, %49, %46, %43, %40, %37, %20, %17, %16
+  %58 = zext nneg i32 %1 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %59, i64 %58) #19, !srcloc !10
+  br label %60
 
-58:                                               ; preds = %55, %53, %12
+60:                                               ; preds = %57, %55, %14
   ret void
 }
 

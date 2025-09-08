@@ -97,18 +97,18 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
   br i1 %30, label %xv_get_tag_from_format.exit, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %23, %27
-  %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i134, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.xv_get_tag_from_format.exit_crit_edge135, label %27, !llvm.loop !43
+  %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i135, 1
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %.not.i, label %.xv_get_tag_from_format.exit_crit_edge136, label %27, !llvm.loop !43
 
-.xv_get_tag_from_format.exit_crit_edge135:        ; preds = %.lr.ph
+.xv_get_tag_from_format.exit_crit_edge136:        ; preds = %.lr.ph
   br label %xv_get_tag_from_format.exit, !llvm.loop !43
 
-xv_get_tag_from_format.exit:                      ; preds = %27, %.xv_get_tag_from_format.exit_crit_edge135
+xv_get_tag_from_format.exit:                      ; preds = %27, %.xv_get_tag_from_format.exit_crit_edge136
   %31 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i
   %32 = load i32, ptr %31, align 8, !tbaa !45
-  %.not122 = icmp eq i32 %32, 0
+  %.not122 = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not122, label %33, label %xv_get_tag_from_format.exit.thread
 
 33:                                               ; preds = %xv_get_tag_from_format.exit
@@ -117,7 +117,7 @@ xv_get_tag_from_format.exit:                      ; preds = %27, %.xv_get_tag_fr
   br label %xv_write_trailer.exit
 
 xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_from_format.exit
-  %.lcssa.i159 = phi i32 [ %32, %xv_get_tag_from_format.exit ], [ 808596553, %23 ]
+  %.lcssa.i160 = phi i32 [ %32, %xv_get_tag_from_format.exit ], [ 808596553, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %25, ptr %35, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -225,15 +225,15 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %98 = tail call noalias ptr @av_strdup(ptr noundef %97) #5
   store ptr %98, ptr %93, align 8, !tbaa !71
   %.not129 = icmp eq ptr %98, null
-  br i1 %.not129, label %195, label %._crit_edge144
+  br i1 %.not129, label %195, label %._crit_edge145
 
-._crit_edge144:                                   ; preds = %95
+._crit_edge145:                                   ; preds = %95
   %.pre = load i64, ptr %92, align 8, !tbaa !70
   br label %99
 
-99:                                               ; preds = %._crit_edge144, %77
-  %100 = phi ptr [ %98, %._crit_edge144 ], [ %94, %77 ]
-  %101 = phi i64 [ %.pre, %._crit_edge144 ], [ %91, %77 ]
+99:                                               ; preds = %._crit_edge145, %77
+  %100 = phi ptr [ %98, %._crit_edge145 ], [ %94, %77 ]
+  %101 = phi i64 [ %.pre, %._crit_edge145 ], [ %91, %77 ]
   %102 = load ptr, ptr %39, align 8, !tbaa !52
   %103 = tail call i32 @XStoreName(ptr noundef %102, i64 noundef %101, ptr noundef nonnull %100) #5
   %104 = load ptr, ptr %39, align 8, !tbaa !52
@@ -246,7 +246,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %110 = load ptr, ptr %39, align 8, !tbaa !52
   %111 = load i64, ptr %92, align 8, !tbaa !70
   %112 = tail call i32 @XMapWindow(ptr noundef %110, i64 noundef %111) #5
-  %.pre145 = load ptr, ptr %39, align 8, !tbaa !52
+  %.pre146 = load ptr, ptr %39, align 8, !tbaa !52
   br label %115
 
 113:                                              ; preds = %73
@@ -255,7 +255,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   br label %115
 
 115:                                              ; preds = %113, %99
-  %116 = phi ptr [ %38, %113 ], [ %.pre145, %99 ]
+  %116 = phi ptr [ %38, %113 ], [ %.pre146, %99 ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 232
   %118 = load ptr, ptr %117, align 8, !tbaa !60
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 224
@@ -293,25 +293,25 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
 .preheader:                                       ; preds = %128
   %137 = load i32, ptr %6, align 4, !tbaa !24
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph138.preheader, label %._crit_edge
+  br i1 %138, label %.lr.ph139.preheader, label %._crit_edge
 
-.lr.ph138.preheader:                              ; preds = %.preheader
+.lr.ph139.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %137 to i64
-  br label %.lr.ph138
+  br label %.lr.ph139
 
-.lr.ph138:                                        ; preds = %.lr.ph138.preheader, %142
-  %indvars.iv = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next, %142 ]
+.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %142
+  %indvars.iv = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next, %142 ]
   %139 = getelementptr inbounds nuw %struct.XvImageFormatValues, ptr %136, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4, !tbaa !78
-  %141 = icmp eq i32 %140, %.lcssa.i159
+  %141 = icmp eq i32 %140, %.lcssa.i160
   br i1 %141, label %._crit_edge.loopexit.split.loop.exit, label %142
 
-142:                                              ; preds = %.lr.ph138
+142:                                              ; preds = %.lr.ph139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph138, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph139, !llvm.loop !80
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph138
+._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph139
   %143 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
@@ -343,7 +343,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %158 = load i32, ptr %132, align 8, !tbaa !77
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %161 = call ptr @XvShmCreateImage(ptr noundef %157, i64 noundef %159, i32 noundef %.lcssa.i159, ptr noundef null, i32 noundef %155, i32 noundef %156, ptr noundef nonnull %160) #5
+  %161 = call ptr @XvShmCreateImage(ptr noundef %157, i64 noundef %159, i32 noundef %.lcssa.i160, ptr noundef null, i32 noundef %155, i32 noundef %156, ptr noundef nonnull %160) #5
   %162 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %161, ptr %162, align 8, !tbaa !82
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 12
@@ -395,8 +395,8 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %196 = load ptr, ptr %7, align 8, !tbaa !4
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 72
   %198 = load ptr, ptr %197, align 8, !tbaa !52
-  %.not.i = icmp eq ptr %198, null
-  br i1 %.not.i, label %xv_write_trailer.exit, label %199
+  %.not.i134 = icmp eq ptr %198, null
+  br i1 %.not.i134, label %xv_write_trailer.exit, label %199
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 112

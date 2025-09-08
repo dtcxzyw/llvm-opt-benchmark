@@ -708,58 +708,56 @@ define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly ca
 
 11:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw %struct.pkcs1_sig_prefix, ptr @kPKCS1SigPrefixes, i64 %indvars.iv.next
-  %13 = load i32, ptr %12, align 8, !tbaa !63
-  %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %32, label %.preheader, !llvm.loop !65
+  %.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %.not, label %30, label %.preheader, !llvm.loop !63
 
 .preheader:                                       ; preds = %6, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %6 ]
-  %14 = phi i32 [ %13, %11 ], [ 4, %6 ]
-  %.not39.not = icmp eq i32 %14, %3
-  br i1 %.not39.not, label %15, label %11
+  %12 = getelementptr inbounds nuw %struct.pkcs1_sig_prefix, ptr @kPKCS1SigPrefixes, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 8, !tbaa !64
+  %.not39.not = icmp eq i32 %13, %3
+  br i1 %.not39.not, label %14, label %11
 
-15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds nuw %struct.pkcs1_sig_prefix, ptr @kPKCS1SigPrefixes, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 5
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %19 = load i8, ptr %18, align 4, !tbaa !66
-  %20 = zext i8 %19 to i32
-  %21 = zext i8 %19 to i64
-  %22 = add i64 %5, %21
-  %23 = trunc i64 %22 to i32
-  %24 = icmp ult i32 %23, %20
-  br i1 %24, label %25, label %26
+14:                                               ; preds = %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %17 = load i8, ptr %16, align 4, !tbaa !66
+  %18 = zext i8 %17 to i32
+  %19 = zext i8 %17 to i64
+  %20 = add i64 %5, %19
+  %21 = trunc i64 %20 to i32
+  %22 = icmp ult i32 %21, %18
+  br i1 %22, label %23, label %24
 
-25:                                               ; preds = %15
+23:                                               ; preds = %14
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 140, ptr noundef nonnull @.str, i32 noundef 403) #10
   br label %.thread
 
-26:                                               ; preds = %15
-  %27 = and i64 %22, 4294967295
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #11
-  %.not40 = icmp eq ptr %28, null
-  br i1 %.not40, label %29, label %30
+24:                                               ; preds = %14
+  %25 = and i64 %20, 4294967295
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #11
+  %.not40 = icmp eq ptr %26, null
+  br i1 %.not40, label %27, label %28
 
-29:                                               ; preds = %26
+27:                                               ; preds = %24
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 409) #10
   br label %.thread
 
-30:                                               ; preds = %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %17, i64 %21, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %4, i64 %5, i1 false)
-  store ptr %28, ptr %0, align 8, !tbaa !61
-  store i64 %27, ptr %1, align 8, !tbaa !56
+28:                                               ; preds = %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %15, i64 %19, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %4, i64 %5, i1 false)
+  store ptr %26, ptr %0, align 8, !tbaa !61
+  store i64 %25, ptr %1, align 8, !tbaa !56
   store i32 1, ptr %2, align 4, !tbaa !62
   br label %.thread
 
-32:                                               ; preds = %11
+30:                                               ; preds = %11
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 142, ptr noundef nonnull @.str, i32 noundef 423) #10
   br label %.thread
 
-.thread:                                          ; preds = %30, %29, %25, %32, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %10 ], [ 0, %32 ], [ 0, %29 ], [ 1, %30 ], [ 0, %25 ]
+.thread:                                          ; preds = %28, %27, %23, %30, %10, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %10 ], [ 0, %30 ], [ 0, %27 ], [ 1, %28 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -1781,10 +1779,10 @@ attributes #11 = { nounwind allocsize(0) }
 !60 = !{!22, !9, i64 136}
 !61 = !{!19, !19, i64 0}
 !62 = !{!16, !16, i64 0}
-!63 = !{!64, !16, i64 0}
-!64 = !{!"pkcs1_sig_prefix", !16, i64 0, !10, i64 4, !10, i64 5}
-!65 = distinct !{!65, !49}
-!66 = !{!64, !10, i64 4}
+!63 = distinct !{!63, !49}
+!64 = !{!65, !16, i64 0}
+!65 = !{!"pkcs1_sig_prefix", !16, i64 0, !10, i64 4, !10, i64 5}
+!66 = !{!65, !10, i64 4}
 !67 = !{!22, !9, i64 40}
 !68 = distinct !{!68, !49}
 !69 = !{!12, !12, i64 0}

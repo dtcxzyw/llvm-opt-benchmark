@@ -625,8 +625,8 @@ define ptr @dt_interpolation_new(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp eq i32 %18, 0
-  %spec.select = select i1 %21, ptr %17, ptr %.443
+  %21 = icmp eq i64 %indvars.iv58, 0
+  %spec.select = select i1 %21, ptr @dt_interpolator, ptr %.443
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 4
   br i1 %exitcond61.not, label %.thread, label %16

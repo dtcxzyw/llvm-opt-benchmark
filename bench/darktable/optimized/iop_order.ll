@@ -288,8 +288,8 @@ define ptr @dt_ioppr_get_iop_order_rules() local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
   %6 = tail call ptr @g_list_prepend(ptr noundef %.010, ptr noundef nonnull %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond, label %7, label %1
+  %.not = icmp eq i64 %indvars.iv.next, 14
+  br i1 %.not, label %7, label %1
 
 7:                                                ; preds = %1
   %8 = tail call ptr @g_list_reverse(ptr noundef %6) #15

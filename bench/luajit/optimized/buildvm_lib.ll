@@ -804,117 +804,115 @@ define internal void @libdef_lua(ptr noundef readonly captures(none) %0, ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !4
   %6 = icmp eq i32 %5, 7
-  br i1 %6, label %.preheader, label %67
+  br i1 %6, label %.preheader, label %65
 
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @libbc_map, i64 %indvars.iv.next
-  %9 = load ptr, ptr %8, align 16, !tbaa !44
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %64, label %.preheader, !llvm.loop !46
+  %.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %.not, label %62, label %.preheader, !llvm.loop !44
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
-  %10 = phi ptr [ %9, %7 ], [ @.str.54, %3 ]
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #18
-  %.not13 = icmp eq i32 %11, 0
-  br i1 %.not13, label %12, label %7
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @libbc_map, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 16, !tbaa !45
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #18
+  %.not13 = icmp eq i32 %10, 0
+  br i1 %.not13, label %11, label %7
 
-12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw %struct.anon, ptr @libbc_map, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+11:                                               ; preds = %.preheader
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %13 = load i32, ptr %12, align 8, !tbaa !47
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !47
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !47
-  %18 = sub nsw i32 %17, %15
-  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @obuf, i64 2), align 2, !tbaa !21
-  %20 = add i8 %19, 1
-  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @obuf, i64 2), align 2, !tbaa !21
-  %21 = load ptr, ptr @optr, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store ptr %22, ptr @optr, align 8, !tbaa !20
-  store i8 -7, ptr %21, align 1, !tbaa !21
+  %16 = sub nsw i32 %15, %13
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @obuf, i64 2), align 2, !tbaa !21
+  %18 = add i8 %17, 1
+  store i8 %18, ptr getelementptr inbounds nuw (i8, ptr @obuf, i64 2), align 2, !tbaa !21
+  %19 = load ptr, ptr @optr, align 8, !tbaa !20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store ptr %20, ptr @optr, align 8, !tbaa !20
+  store i8 -7, ptr %19, align 1, !tbaa !21
   tail call fastcc void @libdef_name(ptr noundef nonnull %1, i32 noundef 0)
-  %23 = load ptr, ptr @optr, align 8, !tbaa !20
-  %24 = sext i32 %15 to i64
-  %25 = getelementptr inbounds i8, ptr @libbc_code, i64 %24
-  %26 = sext i32 %18 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %25, i64 %26, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 5
-  %29 = load i8, ptr %27, align 1, !tbaa !21
-  %30 = icmp slt i8 %29, 0
-  br i1 %30, label %.preheader39.i, label %libdef_uleb128.exit.i
+  %21 = load ptr, ptr @optr, align 8, !tbaa !20
+  %22 = sext i32 %13 to i64
+  %23 = getelementptr inbounds i8, ptr @libbc_code, i64 %22
+  %24 = sext i32 %16 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %23, i64 %24, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 5
+  %27 = load i8, ptr %25, align 1, !tbaa !21
+  %28 = icmp slt i8 %27, 0
+  br i1 %28, label %.preheader39.i, label %libdef_uleb128.exit.i
 
-.preheader39.i:                                   ; preds = %12, %.preheader39.i
-  %.111.i.i = phi ptr [ %32, %.preheader39.i ], [ %28, %12 ]
-  %31 = load i8, ptr %.111.i.i, align 1, !tbaa !21
-  %32 = getelementptr inbounds nuw i8, ptr %.111.i.i, i64 1
-  %33 = icmp slt i8 %31, 0
-  br i1 %33, label %.preheader39.i, label %libdef_uleb128.exit.i, !llvm.loop !48
+.preheader39.i:                                   ; preds = %11, %.preheader39.i
+  %.111.i.i = phi ptr [ %30, %.preheader39.i ], [ %26, %11 ]
+  %29 = load i8, ptr %.111.i.i, align 1, !tbaa !21
+  %30 = getelementptr inbounds nuw i8, ptr %.111.i.i, i64 1
+  %31 = icmp slt i8 %29, 0
+  br i1 %31, label %.preheader39.i, label %libdef_uleb128.exit.i, !llvm.loop !48
 
-libdef_uleb128.exit.i:                            ; preds = %.preheader39.i, %12
-  %.010.i.i = phi ptr [ %28, %12 ], [ %32, %.preheader39.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 1
-  %35 = load i8, ptr %.010.i.i, align 1, !tbaa !21
-  %36 = icmp slt i8 %35, 0
-  br i1 %36, label %.preheader.i, label %libdef_uleb128.exit32.i
+libdef_uleb128.exit.i:                            ; preds = %.preheader39.i, %11
+  %.010.i.i = phi ptr [ %26, %11 ], [ %30, %.preheader39.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 1
+  %33 = load i8, ptr %.010.i.i, align 1, !tbaa !21
+  %34 = icmp slt i8 %33, 0
+  br i1 %34, label %.preheader.i, label %libdef_uleb128.exit32.i
 
 .preheader.i:                                     ; preds = %libdef_uleb128.exit.i, %.preheader.i
-  %.111.i29.i = phi ptr [ %38, %.preheader.i ], [ %34, %libdef_uleb128.exit.i ]
-  %37 = load i8, ptr %.111.i29.i, align 1, !tbaa !21
-  %38 = getelementptr inbounds nuw i8, ptr %.111.i29.i, i64 1
-  %39 = icmp slt i8 %37, 0
-  br i1 %39, label %.preheader.i, label %libdef_uleb128.exit32.i, !llvm.loop !48
+  %.111.i29.i = phi ptr [ %36, %.preheader.i ], [ %32, %libdef_uleb128.exit.i ]
+  %35 = load i8, ptr %.111.i29.i, align 1, !tbaa !21
+  %36 = getelementptr inbounds nuw i8, ptr %.111.i29.i, i64 1
+  %37 = icmp slt i8 %35, 0
+  br i1 %37, label %.preheader.i, label %libdef_uleb128.exit32.i, !llvm.loop !48
 
 libdef_uleb128.exit32.i:                          ; preds = %.preheader.i, %libdef_uleb128.exit.i
-  %.010.i27.i = phi ptr [ %34, %libdef_uleb128.exit.i ], [ %38, %.preheader.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %.010.i27.i, i64 1
-  %41 = load i8, ptr %.010.i27.i, align 1, !tbaa !21
-  %42 = zext i8 %41 to i32
-  %43 = icmp slt i8 %41, 0
-  br i1 %43, label %44, label %libdef_uleb128.exit38.i
+  %.010.i27.i = phi ptr [ %32, %libdef_uleb128.exit.i ], [ %36, %.preheader.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %.010.i27.i, i64 1
+  %39 = load i8, ptr %.010.i27.i, align 1, !tbaa !21
+  %40 = zext i8 %39 to i32
+  %41 = icmp slt i8 %39, 0
+  br i1 %41, label %42, label %libdef_uleb128.exit38.i
 
-44:                                               ; preds = %libdef_uleb128.exit32.i
-  %45 = and i32 %42, 127
-  br label %46
+42:                                               ; preds = %libdef_uleb128.exit32.i
+  %43 = and i32 %40, 127
+  br label %44
 
-46:                                               ; preds = %46, %44
-  %.111.i35.i = phi ptr [ %40, %44 ], [ %53, %46 ]
-  %.1.i36.i = phi i32 [ %45, %44 ], [ %52, %46 ]
-  %.0.i37.i = phi i32 [ 0, %44 ], [ %50, %46 ]
-  %47 = load i8, ptr %.111.i35.i, align 1, !tbaa !21
-  %48 = and i8 %47, 127
-  %49 = zext nneg i8 %48 to i32
-  %50 = add nuw nsw i32 %.0.i37.i, 7
-  %51 = shl i32 %49, %50
-  %52 = or i32 %51, %.1.i36.i
-  %53 = getelementptr inbounds nuw i8, ptr %.111.i35.i, i64 1
-  %54 = icmp slt i8 %47, 0
-  br i1 %54, label %46, label %libdef_uleb128.exit38.i, !llvm.loop !48
+44:                                               ; preds = %44, %42
+  %.111.i35.i = phi ptr [ %38, %42 ], [ %51, %44 ]
+  %.1.i36.i = phi i32 [ %43, %42 ], [ %50, %44 ]
+  %.0.i37.i = phi i32 [ 0, %42 ], [ %48, %44 ]
+  %45 = load i8, ptr %.111.i35.i, align 1, !tbaa !21
+  %46 = and i8 %45, 127
+  %47 = zext nneg i8 %46 to i32
+  %48 = add nuw nsw i32 %.0.i37.i, 7
+  %49 = shl i32 %47, %48
+  %50 = or i32 %49, %.1.i36.i
+  %51 = getelementptr inbounds nuw i8, ptr %.111.i35.i, i64 1
+  %52 = icmp slt i8 %45, 0
+  br i1 %52, label %44, label %libdef_uleb128.exit38.i, !llvm.loop !48
 
-libdef_uleb128.exit38.i:                          ; preds = %46, %libdef_uleb128.exit32.i
-  %.010.i33.i = phi ptr [ %40, %libdef_uleb128.exit32.i ], [ %53, %46 ]
-  %.09.i34.i = phi i32 [ %42, %libdef_uleb128.exit32.i ], [ %52, %46 ]
+libdef_uleb128.exit38.i:                          ; preds = %44, %libdef_uleb128.exit32.i
+  %.010.i33.i = phi ptr [ %38, %libdef_uleb128.exit32.i ], [ %51, %44 ]
+  %.09.i34.i = phi i32 [ %40, %libdef_uleb128.exit32.i ], [ %50, %44 ]
   %.not.i = icmp eq i32 %.09.i34.i, 0
   br i1 %.not.i, label %libdef_fixupbc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %libdef_uleb128.exit38.i, %.lr.ph.i
-  %.044.i = phi ptr [ %61, %.lr.ph.i ], [ %.010.i33.i, %libdef_uleb128.exit38.i ]
-  %.02443.i = phi i32 [ %60, %.lr.ph.i ], [ 0, %libdef_uleb128.exit38.i ]
-  %55 = load i8, ptr %.044.i, align 1, !tbaa !21
-  %56 = getelementptr inbounds nuw i8, ptr %.044.i, i64 2
-  %57 = load i8, ptr %56, align 1, !tbaa !21
-  %58 = icmp eq i8 %55, 16
-  %59 = icmp eq i8 %57, 14
-  %or.cond.i = select i1 %58, i1 %59, i1 false
-  %spec.select.i = select i1 %or.cond.i, i8 17, i8 %55
-  %spec.select26.i = select i1 %or.cond.i, i8 15, i8 %57
+  %.044.i = phi ptr [ %59, %.lr.ph.i ], [ %.010.i33.i, %libdef_uleb128.exit38.i ]
+  %.02443.i = phi i32 [ %58, %.lr.ph.i ], [ 0, %libdef_uleb128.exit38.i ]
+  %53 = load i8, ptr %.044.i, align 1, !tbaa !21
+  %54 = getelementptr inbounds nuw i8, ptr %.044.i, i64 2
+  %55 = load i8, ptr %54, align 1, !tbaa !21
+  %56 = icmp eq i8 %53, 16
+  %57 = icmp eq i8 %55, 14
+  %or.cond.i = select i1 %56, i1 %57, i1 false
+  %spec.select.i = select i1 %or.cond.i, i8 17, i8 %53
+  %spec.select26.i = select i1 %or.cond.i, i8 15, i8 %55
   store i8 %spec.select.i, ptr %.044.i, align 1, !tbaa !21
-  store i8 %spec.select26.i, ptr %56, align 1, !tbaa !21
-  %60 = add nuw i32 %.02443.i, 1
-  %61 = getelementptr inbounds nuw i8, ptr %.044.i, i64 4
-  %exitcond.not.i = icmp eq i32 %60, %.09.i34.i
+  store i8 %spec.select26.i, ptr %54, align 1, !tbaa !21
+  %58 = add nuw i32 %.02443.i, 1
+  %59 = getelementptr inbounds nuw i8, ptr %.044.i, i64 4
+  %exitcond.not.i = icmp eq i32 %58, %.09.i34.i
   br i1 %exitcond.not.i, label %libdef_fixupbc.exit.loopexit, label %.lr.ph.i, !llvm.loop !49
 
 libdef_fixupbc.exit.loopexit:                     ; preds = %.lr.ph.i
@@ -922,18 +920,18 @@ libdef_fixupbc.exit.loopexit:                     ; preds = %.lr.ph.i
   br label %libdef_fixupbc.exit
 
 libdef_fixupbc.exit:                              ; preds = %libdef_fixupbc.exit.loopexit, %libdef_uleb128.exit38.i
-  %62 = phi ptr [ %.pre, %libdef_fixupbc.exit.loopexit ], [ %23, %libdef_uleb128.exit38.i ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 %26
-  store ptr %63, ptr @optr, align 8, !tbaa !20
-  br label %67
+  %60 = phi ptr [ %.pre, %libdef_fixupbc.exit.loopexit ], [ %21, %libdef_uleb128.exit38.i ]
+  %61 = getelementptr inbounds i8, ptr %60, i64 %24
+  store ptr %61, ptr @optr, align 8, !tbaa !20
+  br label %65
 
-64:                                               ; preds = %7
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.53, ptr noundef nonnull %1) #16
+62:                                               ; preds = %7
+  %63 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.53, ptr noundef nonnull %1) #16
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-67:                                               ; preds = %libdef_fixupbc.exit, %3
+65:                                               ; preds = %libdef_fixupbc.exit, %3
   ret void
 }
 
@@ -1439,10 +1437,10 @@ attributes #19 = { cold }
 !41 = !{!5, !7, i64 80}
 !42 = !{!7, !7, i64 0}
 !43 = !{!5, !12, i64 40}
-!44 = !{!45, !12, i64 0}
-!45 = !{!"", !12, i64 0, !10, i64 8}
-!46 = distinct !{!46, !24}
-!47 = !{!45, !10, i64 8}
+!44 = distinct !{!44, !24}
+!45 = !{!46, !12, i64 0}
+!46 = !{!"", !12, i64 0, !10, i64 8}
+!47 = !{!46, !10, i64 8}
 !48 = distinct !{!48, !24}
 !49 = distinct !{!49, !24}
 !50 = distinct !{!50, !24}

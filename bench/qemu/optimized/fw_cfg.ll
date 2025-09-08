@@ -861,310 +861,312 @@ define dso_local void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, 
   %37 = icmp sgt i32 %.val100, 0
   br i1 %37, label %get_fw_cfg_order.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %35, %47
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %35 ]
-  %38 = getelementptr inbounds nuw %struct.anon.5, ptr @fw_cfg_order, i64 %indvars.iv.i
-  %39 = load ptr, ptr %38, align 16
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %47, label %41
+.preheader.i:                                     ; preds = %35, %48
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %35 ]
+  %38 = shl nuw nsw i64 1, %indvars.iv.i
+  %39 = and i64 %38, 27648
+  %.not.i = icmp eq i64 %39, 0
+  br i1 %.not.i, label %40, label %48
 
-41:                                               ; preds = %.preheader.i
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %39) #20
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+40:                                               ; preds = %.preheader.i
+  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @fw_cfg_order, i64 %indvars.iv.i
+  %42 = load ptr, ptr %41, align 16
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %42) #20
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %46 = load i32, ptr %45, align 8
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %47 = load i32, ptr %46, align 8
   br label %get_fw_cfg_order.exit
 
-47:                                               ; preds = %41, %.preheader.i
+48:                                               ; preds = %40, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 22
-  br i1 %exitcond.not.i, label %48, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %49, label %.preheader.i, !llvm.loop !8
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.58, ptr noundef %1) #18
   br label %get_fw_cfg_order.exit
 
-get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
-  %.09.i = phi i32 [ %46, %44 ], [ 200, %48 ], [ %.val100, %35 ]
-  %49 = icmp sgt i32 %24, 0
-  br i1 %49, label %.lr.ph, label %.critedge.._crit_edge_crit_edge
+get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
+  %.09.i = phi i32 [ %47, %45 ], [ 200, %49 ], [ %.val100, %35 ]
+  %50 = icmp sgt i32 %24, 0
+  br i1 %50, label %.lr.ph, label %.critedge.._crit_edge_crit_edge
 
 .lr.ph:                                           ; preds = %get_fw_cfg_order.exit
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %51 = load ptr, ptr %50, align 16
-  br label %52
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %52 = load ptr, ptr %51, align 16
+  br label %53
 
-52:                                               ; preds = %.lr.ph, %58
-  %.091104 = phi i32 [ %24, %.lr.ph ], [ %59, %58 ]
-  %53 = zext nneg i32 %.091104 to i64
-  %54 = getelementptr i32, ptr %51, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 -4
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp slt i32 %.09.i, %56
-  br i1 %57, label %58, label %.critedge
+53:                                               ; preds = %.lr.ph, %59
+  %.091104 = phi i32 [ %24, %.lr.ph ], [ %60, %59 ]
+  %54 = zext nneg i32 %.091104 to i64
+  %55 = getelementptr i32, ptr %52, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -4
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp slt i32 %.09.i, %57
+  br i1 %58, label %59, label %.critedge
 
-58:                                               ; preds = %52
-  %59 = add nsw i32 %.091104, -1
-  %60 = icmp sgt i32 %.091104, 1
-  br i1 %60, label %52, label %.critedge, !llvm.loop !10
+59:                                               ; preds = %53
+  %60 = add nsw i32 %.091104, -1
+  %61 = icmp sgt i32 %.091104, 1
+  br i1 %61, label %53, label %.critedge, !llvm.loop !10
 
-.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %65
-  %indvars.iv = phi i64 [ %34, %.lr.ph108.preheader ], [ %indvars.iv.next, %65 ]
-  %61 = getelementptr %struct.fw_cfg_file, ptr %22, i64 %indvars.iv
-  %62 = getelementptr i8, ptr %61, i64 -52
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %62) #20
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %.critedge.loopexit.split.loop.exit
+.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %66
+  %indvars.iv = phi i64 [ %34, %.lr.ph108.preheader ], [ %indvars.iv.next, %66 ]
+  %62 = getelementptr %struct.fw_cfg_file, ptr %22, i64 %indvars.iv
+  %63 = getelementptr i8, ptr %62, i64 -52
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %63) #20
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %.critedge.loopexit.split.loop.exit
 
-65:                                               ; preds = %.lr.ph108
+66:                                               ; preds = %.lr.ph108
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %66 = icmp sgt i64 %indvars.iv, 1
-  br i1 %66, label %.lr.ph108, label %.critedge, !llvm.loop !11
+  %67 = icmp sgt i64 %indvars.iv, 1
+  br i1 %67, label %.lr.ph108, label %.critedge, !llvm.loop !11
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph108
-  %67 = trunc nuw nsw i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %58, %52, %65, %.critedge.loopexit.split.loop.exit
-  %.192 = phi i32 [ %67, %.critedge.loopexit.split.loop.exit ], [ 0, %65 ], [ 0, %58 ], [ %.091104, %52 ]
-  %.0 = phi i32 [ 0, %.critedge.loopexit.split.loop.exit ], [ 0, %65 ], [ %.09.i, %52 ], [ %.09.i, %58 ]
-  %68 = icmp sgt i32 %24, %.192
-  br i1 %68, label %.lr.ph113, label %.critedge.._crit_edge_crit_edge
+.critedge:                                        ; preds = %59, %53, %66, %.critedge.loopexit.split.loop.exit
+  %.192 = phi i32 [ %68, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ 0, %59 ], [ %.091104, %53 ]
+  %.0 = phi i32 [ 0, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ %.09.i, %53 ], [ %.09.i, %59 ]
+  %69 = icmp sgt i32 %24, %.192
+  br i1 %69, label %.lr.ph113, label %.critedge.._crit_edge_crit_edge
 
 .critedge.._crit_edge_crit_edge:                  ; preds = %get_fw_cfg_order.exit, %.preheader, %.critedge
-  %.0141 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ], [ 0, %.preheader ]
-  %.192139 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ], [ %24, %.preheader ]
-  %.pre130 = sext i32 %.192139 to i64
+  %.0139 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ], [ 0, %.preheader ]
+  %.192137 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ], [ %24, %.preheader ]
+  %.pre129 = sext i32 %.192137 to i64
   br label %._crit_edge
 
 .lr.ph113:                                        ; preds = %.critedge
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %71 = sext i32 %24 to i64
-  %72 = sext i32 %.192 to i64
-  br label %73
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %72 = sext i32 %24 to i64
+  %73 = sext i32 %.192 to i64
+  br label %74
 
-73:                                               ; preds = %.lr.ph113, %73
-  %indvars.iv124 = phi i64 [ %71, %.lr.ph113 ], [ %indvars.iv.next125, %73 ]
-  %74 = load ptr, ptr %13, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = getelementptr inbounds %struct.fw_cfg_file, ptr %75, i64 %indvars.iv124
-  %indvars.iv.next125 = add nsw i64 %indvars.iv124, -1
-  %77 = getelementptr inbounds %struct.fw_cfg_file, ptr %75, i64 %indvars.iv.next125
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %76, ptr noundef nonnull align 4 dereferenceable(64) %77, i64 64, i1 false)
-  %78 = add nsw i64 %indvars.iv124, 32
-  %79 = trunc i64 %78 to i16
-  %80 = tail call noundef i16 @llvm.bswap.i16(i16 %79)
-  %81 = load ptr, ptr %13, align 8
-  %82 = getelementptr %struct.fw_cfg_file, ptr %81, i64 %indvars.iv124, i32 3
-  store i16 %80, ptr %82, align 4
-  %83 = load ptr, ptr %69, align 16
-  %84 = getelementptr inbounds %struct.FWCfgEntry, ptr %83, i64 %78
-  %85 = getelementptr %struct.FWCfgEntry, ptr %83, i64 %indvars.iv124
-  %86 = getelementptr i8, ptr %85, i64 1240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(40) %86, i64 40, i1 false)
-  %87 = load ptr, ptr %70, align 16
-  %88 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv.next125
-  %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv124
-  store i32 %89, ptr %90, align 4
-  %91 = icmp sgt i64 %indvars.iv.next125, %72
-  br i1 %91, label %73, label %._crit_edge, !llvm.loop !12
+74:                                               ; preds = %.lr.ph113, %74
+  %indvars.iv123 = phi i64 [ %72, %.lr.ph113 ], [ %indvars.iv.next124, %74 ]
+  %75 = load ptr, ptr %13, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %77 = getelementptr inbounds %struct.fw_cfg_file, ptr %76, i64 %indvars.iv123
+  %indvars.iv.next124 = add nsw i64 %indvars.iv123, -1
+  %78 = getelementptr inbounds %struct.fw_cfg_file, ptr %76, i64 %indvars.iv.next124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %77, ptr noundef nonnull align 4 dereferenceable(64) %78, i64 64, i1 false)
+  %79 = add nsw i64 %indvars.iv123, 32
+  %80 = trunc i64 %79 to i16
+  %81 = tail call noundef i16 @llvm.bswap.i16(i16 %80)
+  %82 = load ptr, ptr %13, align 8
+  %83 = getelementptr %struct.fw_cfg_file, ptr %82, i64 %indvars.iv123, i32 3
+  store i16 %81, ptr %83, align 4
+  %84 = load ptr, ptr %70, align 16
+  %85 = getelementptr inbounds %struct.FWCfgEntry, ptr %84, i64 %79
+  %86 = getelementptr %struct.FWCfgEntry, ptr %84, i64 %indvars.iv123
+  %87 = getelementptr i8, ptr %86, i64 1240
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull align 8 dereferenceable(40) %87, i64 40, i1 false)
+  %88 = load ptr, ptr %71, align 16
+  %89 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv.next124
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv123
+  store i32 %90, ptr %91, align 4
+  %92 = icmp sgt i64 %indvars.iv.next124, %73
+  br i1 %92, label %74, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %73, %.critedge.._crit_edge_crit_edge
-  %.0140 = phi i32 [ %.0141, %.critedge.._crit_edge_crit_edge ], [ %.0, %73 ]
-  %.192138 = phi i32 [ %.192139, %.critedge.._crit_edge_crit_edge ], [ %.192, %73 ]
-  %.pre-phi = phi i64 [ %.pre130, %.critedge.._crit_edge_crit_edge ], [ %72, %73 ]
-  %92 = load ptr, ptr %13, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %94 = getelementptr inbounds %struct.fw_cfg_file, ptr %93, i64 %.pre-phi
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %94, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %96 = load ptr, ptr %95, align 16
-  %97 = add nsw i32 %.192138, 32
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.FWCfgEntry, ptr %96, i64 %98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %99, i8 noundef 0, i64 noundef 40, i1 noundef false) #18
-  %100 = load ptr, ptr %13, align 8
-  %101 = getelementptr %struct.fw_cfg_file, ptr %100, i64 %.pre-phi, i32 3, i64 4
-  tail call void @pstrcpy(ptr noundef %101, i32 noundef 56, ptr noundef %1) #18
+._crit_edge:                                      ; preds = %74, %.critedge.._crit_edge_crit_edge
+  %.0138 = phi i32 [ %.0139, %.critedge.._crit_edge_crit_edge ], [ %.0, %74 ]
+  %.192136 = phi i32 [ %.192137, %.critedge.._crit_edge_crit_edge ], [ %.192, %74 ]
+  %.pre-phi = phi i64 [ %.pre129, %.critedge.._crit_edge_crit_edge ], [ %73, %74 ]
+  %93 = load ptr, ptr %13, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = getelementptr inbounds %struct.fw_cfg_file, ptr %94, i64 %.pre-phi
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %95, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %97 = load ptr, ptr %96, align 16
+  %98 = add nsw i32 %.192136, 32
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds %struct.FWCfgEntry, ptr %97, i64 %99
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %100, i8 noundef 0, i64 noundef 40, i1 noundef false) #18
+  %101 = load ptr, ptr %13, align 8
+  %102 = getelementptr %struct.fw_cfg_file, ptr %101, i64 %.pre-phi, i32 3, i64 4
+  tail call void @pstrcpy(ptr noundef %102, i32 noundef 56, ptr noundef %1) #18
   %.not96114 = icmp slt i32 %24, 0
   br i1 %.not96114, label %._crit_edge118, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %._crit_edge
   %.idx = shl nsw i64 %.pre-phi, 6
-  %102 = zext i32 %.192138 to i64
-  %103 = add nuw nsw i32 %24, 1
-  %wide.trip.count = zext nneg i32 %103 to i64
-  br label %104
+  %103 = zext i32 %.192136 to i64
+  %104 = add nuw nsw i32 %24, 1
+  %wide.trip.count = zext nneg i32 %104 to i64
+  br label %105
 
-104:                                              ; preds = %.lr.ph117, %115
-  %indvars.iv127 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next128, %115 ]
-  %.not97 = icmp eq i64 %indvars.iv127, %102
-  br i1 %.not97, label %115, label %105
+105:                                              ; preds = %.lr.ph117, %116
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next127, %116 ]
+  %.not97 = icmp eq i64 %indvars.iv126, %103
+  br i1 %.not97, label %116, label %106
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %13, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %108 = getelementptr i8, ptr %107, i64 %.idx
-  %109 = getelementptr i8, ptr %108, i64 8
-  %.idx98 = shl nuw nsw i64 %indvars.iv127, 6
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx98
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %111) #20
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %115
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %13, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %109 = getelementptr i8, ptr %108, i64 %.idx
+  %110 = getelementptr i8, ptr %109, i64 8
+  %.idx98 = shl nuw nsw i64 %indvars.iv126, 6
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx98
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(1) %112) #20
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %116
 
-114:                                              ; preds = %105
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull %109) #18
+115:                                              ; preds = %106
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull %110) #18
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-115:                                              ; preds = %104, %105
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge118, label %104, !llvm.loop !13
+116:                                              ; preds = %105, %106
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge118, label %105, !llvm.loop !13
 
-._crit_edge118:                                   ; preds = %115, %._crit_edge
-  %116 = trunc i32 %97 to i16
-  %117 = and i32 %97, 16383
+._crit_edge118:                                   ; preds = %116, %._crit_edge
+  %117 = trunc i32 %98 to i16
+  %118 = and i32 %98, 16383
   %.val.i = load i16, ptr %25, align 8
-  %118 = zext i16 %.val.i to i32
-  %119 = add nuw nsw i32 %118, 32
-  %120 = icmp samesign ugt i32 %119, %117
-  %121 = icmp ult i64 %6, 4294967295
-  %or.cond.i = and i1 %121, %120
-  br i1 %or.cond.i, label %123, label %122
+  %119 = zext i16 %.val.i to i32
+  %120 = add nuw nsw i32 %119, 32
+  %121 = icmp samesign ugt i32 %120, %118
+  %122 = icmp ult i64 %6, 4294967295
+  %or.cond.i = and i1 %122, %121
+  br i1 %or.cond.i, label %124, label %123
 
-122:                                              ; preds = %._crit_edge118
+123:                                              ; preds = %._crit_edge118
   tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
   unreachable
 
-123:                                              ; preds = %._crit_edge118
-  %124 = and i16 %116, 16383
-  %.lobit.i = lshr i16 %116, 15
-  %125 = zext nneg i16 %.lobit.i to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %95, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  %128 = zext nneg i16 %124 to i64
-  %129 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %127, i64 %128, i32 2
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %fw_cfg_add_bytes_callback.exit, label %132
+124:                                              ; preds = %._crit_edge118
+  %125 = and i16 %117, 16383
+  %.lobit.i = lshr i16 %117, 15
+  %126 = zext nneg i16 %.lobit.i to i64
+  %127 = getelementptr inbounds nuw ptr, ptr %96, i64 %126
+  %128 = load ptr, ptr %127, align 8
+  %129 = zext nneg i16 %125 to i64
+  %130 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %128, i64 %129, i32 2
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %fw_cfg_add_bytes_callback.exit, label %133
 
-132:                                              ; preds = %123
+133:                                              ; preds = %124
   tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
   unreachable
 
-fw_cfg_add_bytes_callback.exit:                   ; preds = %123
-  store ptr %5, ptr %129, align 8
-  %133 = trunc nuw i64 %6 to i32
-  %134 = load ptr, ptr %126, align 8
-  %135 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %134, i64 %128
-  store i32 %133, ptr %135, align 8
-  %136 = load ptr, ptr %126, align 8
-  %137 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %136, i64 %128, i32 4
-  store ptr %2, ptr %137, align 8
-  %138 = load ptr, ptr %126, align 8
-  %139 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %138, i64 %128, i32 5
-  store ptr %3, ptr %139, align 8
-  %140 = load ptr, ptr %126, align 8
-  %141 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %140, i64 %128, i32 3
-  store ptr %4, ptr %141, align 8
-  %142 = xor i1 %7, true
-  %143 = load ptr, ptr %126, align 8
-  %144 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %143, i64 %128, i32 1
-  %145 = zext i1 %142 to i8
-  store i8 %145, ptr %144, align 4
-  %146 = tail call noundef i32 @llvm.bswap.i32(i32 %133)
-  %147 = load ptr, ptr %13, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %149 = getelementptr inbounds %struct.fw_cfg_file, ptr %148, i64 %.pre-phi
-  store i32 %146, ptr %149, align 4
-  %150 = tail call noundef i16 @llvm.bswap.i16(i16 %116)
-  %151 = load ptr, ptr %13, align 8
-  %152 = getelementptr %struct.fw_cfg_file, ptr %151, i64 %.pre-phi, i32 3
-  store i16 %150, ptr %152, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %154 = load ptr, ptr %153, align 16
-  %155 = getelementptr inbounds i32, ptr %154, i64 %.pre-phi
-  store i32 %.0140, ptr %155, align 4
-  %156 = load ptr, ptr %13, align 8
-  %157 = getelementptr %struct.fw_cfg_file, ptr %156, i64 %.pre-phi, i32 3, i64 4
-  %158 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i = icmp eq i32 %158, 0
-  br i1 %.not.i.i, label %trace_fw_cfg_add_file.exit, label %159, !prof !6
+fw_cfg_add_bytes_callback.exit:                   ; preds = %124
+  store ptr %5, ptr %130, align 8
+  %134 = trunc nuw i64 %6 to i32
+  %135 = load ptr, ptr %127, align 8
+  %136 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %135, i64 %129
+  store i32 %134, ptr %136, align 8
+  %137 = load ptr, ptr %127, align 8
+  %138 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %137, i64 %129, i32 4
+  store ptr %2, ptr %138, align 8
+  %139 = load ptr, ptr %127, align 8
+  %140 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %139, i64 %129, i32 5
+  store ptr %3, ptr %140, align 8
+  %141 = load ptr, ptr %127, align 8
+  %142 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %141, i64 %129, i32 3
+  store ptr %4, ptr %142, align 8
+  %143 = xor i1 %7, true
+  %144 = load ptr, ptr %127, align 8
+  %145 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %144, i64 %129, i32 1
+  %146 = zext i1 %143 to i8
+  store i8 %146, ptr %145, align 4
+  %147 = tail call noundef i32 @llvm.bswap.i32(i32 %134)
+  %148 = load ptr, ptr %13, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %150 = getelementptr inbounds %struct.fw_cfg_file, ptr %149, i64 %.pre-phi
+  store i32 %147, ptr %150, align 4
+  %151 = tail call noundef i16 @llvm.bswap.i16(i16 %117)
+  %152 = load ptr, ptr %13, align 8
+  %153 = getelementptr %struct.fw_cfg_file, ptr %152, i64 %.pre-phi, i32 3
+  store i16 %151, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %155 = load ptr, ptr %154, align 16
+  %156 = getelementptr inbounds i32, ptr %155, i64 %.pre-phi
+  store i32 %.0138, ptr %156, align 4
+  %157 = load ptr, ptr %13, align 8
+  %158 = getelementptr %struct.fw_cfg_file, ptr %157, i64 %.pre-phi, i32 3, i64 4
+  %159 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %159, 0
+  br i1 %.not.i.i, label %trace_fw_cfg_add_file.exit, label %160, !prof !6
 
-159:                                              ; preds = %fw_cfg_add_bytes_callback.exit
-  %160 = load i16, ptr @_TRACE_FW_CFG_ADD_FILE_DSTATE, align 2
-  %.not7.i.i = icmp eq i16 %160, 0
-  br i1 %.not7.i.i, label %trace_fw_cfg_add_file.exit, label %161
+160:                                              ; preds = %fw_cfg_add_bytes_callback.exit
+  %161 = load i16, ptr @_TRACE_FW_CFG_ADD_FILE_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %161, 0
+  br i1 %.not7.i.i, label %trace_fw_cfg_add_file.exit, label %162
 
-161:                                              ; preds = %159
-  %162 = load i32, ptr @qemu_loglevel, align 4
-  %163 = and i32 %162, 32768
-  %.not8.i.i = icmp eq i32 %163, 0
-  br i1 %.not8.i.i, label %trace_fw_cfg_add_file.exit, label %164
+162:                                              ; preds = %160
+  %163 = load i32, ptr @qemu_loglevel, align 4
+  %164 = and i32 %163, 32768
+  %.not8.i.i = icmp eq i32 %164, 0
+  br i1 %.not8.i.i, label %trace_fw_cfg_add_file.exit, label %165
 
-164:                                              ; preds = %161
-  %165 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %167, label %173
+165:                                              ; preds = %162
+  %166 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %167 = trunc nuw i8 %166 to i1
+  br i1 %167, label %168, label %174
 
-167:                                              ; preds = %164
+168:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !7
-  %168 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #18
-  %169 = tail call i32 @qemu_get_thread_id() #18
-  %170 = load i64, ptr %9, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %172 = load i64, ptr %171, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %169, i64 noundef %170, i64 noundef %172, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192138, ptr noundef %157, i64 noundef %6) #18
+  %169 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #18
+  %170 = tail call i32 @qemu_get_thread_id() #18
+  %171 = load i64, ptr %9, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %173 = load i64, ptr %172, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %170, i64 noundef %171, i64 noundef %173, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192136, ptr noundef %158, i64 noundef %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %trace_fw_cfg_add_file.exit
 
-173:                                              ; preds = %164
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192138, ptr noundef %157, i64 noundef %6) #18
+174:                                              ; preds = %165
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192136, ptr noundef %158, i64 noundef %6) #18
   br label %trace_fw_cfg_add_file.exit
 
-trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %159, %161, %167, %173
-  %174 = add nsw i32 %24, 1
-  %175 = tail call noundef i32 @llvm.bswap.i32(i32 %174)
-  %176 = load ptr, ptr %13, align 8
-  store i32 %175, ptr %176, align 4
-  %177 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.71) #20
-  %.not.i = icmp eq i32 %177, 0
-  br i1 %.not.i, label %178, label %180
+trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %160, %162, %168, %174
+  %175 = add nsw i32 %24, 1
+  %176 = tail call noundef i32 @llvm.bswap.i32(i32 %175)
+  %177 = load ptr, ptr %13, align 8
+  store i32 %176, ptr %177, align 4
+  %178 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.71) #20
+  %.not.i101 = icmp eq i32 %178, 0
+  br i1 %.not.i101, label %179, label %181
 
-178:                                              ; preds = %trace_fw_cfg_add_file.exit
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  store i64 %6, ptr %179, align 8
+179:                                              ; preds = %trace_fw_cfg_add_file.exit
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  store i64 %6, ptr %180, align 8
   br label %fw_cfg_acpi_mr_save.exit
 
-180:                                              ; preds = %trace_fw_cfg_add_file.exit
-  %181 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.72) #20
-  %.not8.i = icmp eq i32 %181, 0
-  br i1 %.not8.i, label %182, label %184
+181:                                              ; preds = %trace_fw_cfg_add_file.exit
+  %182 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.72) #20
+  %.not8.i = icmp eq i32 %182, 0
+  br i1 %.not8.i, label %183, label %185
 
-182:                                              ; preds = %180
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  store i64 %6, ptr %183, align 16
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  store i64 %6, ptr %184, align 16
   br label %fw_cfg_acpi_mr_save.exit
 
-184:                                              ; preds = %180
-  %185 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.74) #20
-  %.not9.i = icmp eq i32 %185, 0
-  br i1 %.not9.i, label %186, label %fw_cfg_acpi_mr_save.exit
+185:                                              ; preds = %181
+  %186 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.74) #20
+  %.not9.i = icmp eq i32 %186, 0
+  br i1 %.not9.i, label %187, label %fw_cfg_acpi_mr_save.exit
 
-186:                                              ; preds = %184
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  store i64 %6, ptr %187, align 8
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  store i64 %6, ptr %188, align 8
   br label %fw_cfg_acpi_mr_save.exit
 
-fw_cfg_acpi_mr_save.exit:                         ; preds = %178, %182, %184, %186
+fw_cfg_acpi_mr_save.exit:                         ; preds = %179, %183, %185, %187
   ret void
 }
 

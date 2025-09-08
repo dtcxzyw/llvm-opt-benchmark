@@ -1194,25 +1194,25 @@ define dso_local range(i32 0, 4097) i32 @intel_tile_width_bytes(ptr noundef read
 
 .preheader:                                       ; preds = %2, %23
   %26 = phi i64 [ %24, %23 ], [ 0, %2 ]
-  %27 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %26
-  %28 = load i64, ptr %27, align 16
-  %29 = icmp eq i64 %28, 72057594037927940
-  br i1 %29, label %30, label %23
+  %27 = and i64 %26, 576460752303423487
+  %28 = icmp eq i64 %27, 11
+  br i1 %28, label %29, label %23
 
-30:                                               ; preds = %.preheader
-  %31 = icmp eq ptr %27, null
+29:                                               ; preds = %.preheader
+  %30 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %26
+  %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %32, !prof !14
 
-.thread:                                          ; preds = %23, %30
+.thread:                                          ; preds = %23, %29
   tail call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #13, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 284, i32 2305, i64 12) #13, !srcloc !16
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #13, !srcloc !17
   %.pre19 = load ptr, ptr %4, align 8
   br label %32
 
-32:                                               ; preds = %.thread, %30
-  %33 = phi ptr [ %.pre19, %.thread ], [ %5, %30 ]
-  %34 = phi ptr [ @intel_modifiers, %.thread ], [ %27, %30 ]
+32:                                               ; preds = %.thread, %29
+  %33 = phi ptr [ %.pre19, %.thread ], [ %5, %29 ]
+  %34 = phi ptr [ @intel_modifiers, %.thread ], [ %30, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 21
   %36 = load i8, ptr %35, align 1, !range !27, !noundef !28
   %37 = icmp eq i8 %36, 0
@@ -1350,25 +1350,25 @@ define dso_local range(i32 0, 4097) i32 @intel_tile_width_bytes(ptr noundef read
 
 .preheader8:                                      ; preds = %2, %116
   %119 = phi i64 [ %117, %116 ], [ 0, %2 ]
-  %120 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %119
-  %121 = load i64, ptr %120, align 16
-  %122 = icmp eq i64 %121, 72057594037927941
-  br i1 %122, label %123, label %116
+  %120 = and i64 %119, 576460752303423487
+  %121 = icmp eq i64 %120, 10
+  br i1 %121, label %122, label %116
 
-123:                                              ; preds = %.preheader8
-  %124 = icmp eq ptr %120, null
+122:                                              ; preds = %.preheader8
+  %123 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %119
+  %124 = icmp eq ptr %123, null
   br i1 %124, label %.thread7, label %125, !prof !14
 
-.thread7:                                         ; preds = %116, %123
+.thread7:                                         ; preds = %116, %122
   tail call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #13, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 284, i32 2305, i64 12) #13, !srcloc !16
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #13, !srcloc !17
   %.pre = load ptr, ptr %4, align 8
   br label %125
 
-125:                                              ; preds = %.thread7, %123
-  %126 = phi ptr [ %.pre, %.thread7 ], [ %5, %123 ]
-  %127 = phi ptr [ @intel_modifiers, %.thread7 ], [ %120, %123 ]
+125:                                              ; preds = %.thread7, %122
+  %126 = phi ptr [ %.pre, %.thread7 ], [ %5, %122 ]
+  %127 = phi ptr [ @intel_modifiers, %.thread7 ], [ %123, %122 ]
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 21
   %129 = load i8, ptr %128, align 1, !range !27, !noundef !28
   %130 = icmp eq i8 %129, 0

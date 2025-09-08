@@ -1742,62 +1742,60 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 2, ptr noundef %9, ptr noundef nonnull %5)
   %11 = load ptr, ptr %5, align 8
-  br label %15
+  br label %13
 
-12:                                               ; preds = %15
+12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv.next
-  %14 = load ptr, ptr %13, align 8
-  %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.loopexit23, label %15, !llvm.loop !10
+  %.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %.not, label %.loopexit23, label %13, !llvm.loop !10
 
-15:                                               ; preds = %4, %12
+13:                                               ; preds = %4, %12
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %12 ]
-  %16 = phi ptr [ @.str.815, %4 ], [ %14, %12 ]
-  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %11) #8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %12
+  %14 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8
+  %16 = call i32 @strcmp(ptr noundef %15, ptr noundef %11) #8
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %12
 
-19:                                               ; preds = %15
-  %20 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv, i32 2
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %21, ptr %22, align 4
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %20, ptr %21, align 4
   br label %.loopexit23
 
-.loopexit23:                                      ; preds = %12, %19
-  %23 = load i32, ptr @hf_drda_typdefnam, align 4
-  %24 = call i32 @tvb_reported_length(ptr noundef %0)
-  %25 = load ptr, ptr %8, align 8
-  %26 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef %24, i32 noundef 96, ptr noundef %25, ptr noundef nonnull %5)
-  %27 = load ptr, ptr %5, align 8
-  br label %31
+.loopexit23:                                      ; preds = %12, %18
+  %22 = load i32, ptr @hf_drda_typdefnam, align 4
+  %23 = call i32 @tvb_reported_length(ptr noundef %0)
+  %24 = load ptr, ptr %8, align 8
+  %25 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef %23, i32 noundef 96, ptr noundef %24, ptr noundef nonnull %5)
+  %26 = load ptr, ptr %5, align 8
+  br label %28
 
-28:                                               ; preds = %31
+27:                                               ; preds = %28
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %29 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv.next33
+  %.not22 = icmp eq i64 %indvars.iv.next33, 5
+  br i1 %.not22, label %.loopexit, label %28, !llvm.loop !11
+
+28:                                               ; preds = %.loopexit23, %27
+  %indvars.iv32 = phi i64 [ 0, %.loopexit23 ], [ %indvars.iv.next33, %27 ]
+  %29 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv32
   %30 = load ptr, ptr %29, align 8
-  %exitcond35 = icmp eq i64 %indvars.iv.next33, 5
-  br i1 %exitcond35, label %.loopexit, label %31, !llvm.loop !11
+  %31 = call i32 @strcmp(ptr noundef %30, ptr noundef %26) #8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %27
 
-31:                                               ; preds = %.loopexit23, %28
-  %indvars.iv32 = phi i64 [ 0, %.loopexit23 ], [ %indvars.iv.next33, %28 ]
-  %32 = phi ptr [ @.str.815, %.loopexit23 ], [ %30, %28 ]
-  %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef %27) #8
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %28
-
-35:                                               ; preds = %31
-  %36 = getelementptr %struct.enum_val_t, ptr @typdefnam_vals, i64 %indvars.iv32, i32 2
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %37, ptr %38, align 4
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %35, ptr %36, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %35
-  %39 = call i32 @tvb_reported_length(ptr noundef %0)
+.loopexit:                                        ; preds = %27, %33
+  %37 = call i32 @tvb_reported_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %39
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

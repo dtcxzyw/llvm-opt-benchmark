@@ -1984,8 +1984,6 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %803 = sext i32 %802 to i64
   %804 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %803
   %805 = load i32, ptr %804, align 4, !tbaa !64
-  %or.cond.i198 = icmp ult i32 %805, 4
-  call void @llvm.assume(i1 %or.cond.i198)
   %806 = getelementptr inbounds nuw i8, ptr %800, i64 32
   %807 = zext nneg i32 %805 to i64
   %808 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %807
@@ -2002,8 +2000,6 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %813 = sext i32 %812 to i64
   %814 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %813, i64 1
   %815 = load i32, ptr %814, align 4, !tbaa !64
-  %or.cond.i199 = icmp ult i32 %815, 4
-  call void @llvm.assume(i1 %or.cond.i199)
   %816 = zext nneg i32 %815 to i64
   %817 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %816
   %.sroa.0.0.copyload.i200 = load ptr, ptr %817, align 8, !tbaa !51
@@ -2019,8 +2015,6 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %822 = sext i32 %821 to i64
   %823 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %822, i64 2
   %824 = load i32, ptr %823, align 4, !tbaa !64
-  %or.cond.i201 = icmp ult i32 %824, 4
-  call void @llvm.assume(i1 %or.cond.i201)
   %825 = zext nneg i32 %824 to i64
   %826 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %825
   %.sroa.0.0.copyload.i202 = load ptr, ptr %826, align 8, !tbaa !51

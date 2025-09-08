@@ -1085,21 +1085,20 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   ret void
 
 78:                                               ; preds = %1, %78
-  %79 = phi ptr [ @.str.43, %1 ], [ %87, %78 ]
-  %.059 = phi i64 [ 0, %1 ], [ %85, %78 ]
+  %.059 = phi i64 [ 0, %1 ], [ %86, %78 ]
   %.05558 = phi i64 [ 0, %1 ], [ %spec.select, %78 ]
-  %80 = load ptr, ptr %3, align 8, !tbaa !101
-  %81 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %79, i32 noundef 5) #17
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %80, ptr noundef %81) #17
-  %82 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.059, i32 1
-  %83 = load i32, ptr %82, align 8, !tbaa !109
-  %84 = icmp eq i32 %83, %4
-  %spec.select = select i1 %84, i64 %.059, i64 %.05558
-  %85 = add nuw nsw i64 %.059, 1
-  %86 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %85
-  %87 = load ptr, ptr %86, align 16, !tbaa !111
-  %exitcond = icmp eq i64 %85, 3
-  br i1 %exitcond, label %12, label %78
+  %79 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.059
+  %80 = load ptr, ptr %79, align 16, !tbaa !109
+  %81 = load ptr, ptr %3, align 8, !tbaa !101
+  %82 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %80, i32 noundef 5) #17
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %81, ptr noundef %82) #17
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %84 = load i32, ptr %83, align 8, !tbaa !111
+  %85 = icmp eq i32 %84, %4
+  %spec.select = select i1 %85, i64 %.059, i64 %.05558
+  %86 = add nuw nsw i64 %.059, 1
+  %.not57 = icmp eq i64 %86, 3
+  br i1 %.not57, label %12, label %78
 }
 
 declare ptr @dt_bauhaus_combobox_new_action(ptr noundef) local_unnamed_addr #2
@@ -1149,7 +1148,7 @@ define internal void @bit_depth_changed(ptr noundef %0, ptr readnone captures(no
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 8, !tbaa !109
+  %6 = load i32, ptr %5, align 8, !tbaa !111
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.15, i32 noundef %6) #17
   ret void
 }
@@ -1205,7 +1204,7 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 9:                                                ; preds = %1, %15
   %.018 = phi i64 [ 0, %1 ], [ %16, %15 ]
   %10 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.018, i32 1
-  %11 = load i32, ptr %10, align 8, !tbaa !109
+  %11 = load i32, ptr %10, align 8, !tbaa !111
   %12 = icmp eq i32 %11, %4
   br i1 %12, label %13, label %15
 
@@ -1215,8 +1214,8 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 15:                                               ; preds = %9
   %16 = add nuw nsw i64 %.018, 1
-  %exitcond = icmp eq i64 %16, 3
-  br i1 %exitcond, label %.loopexit, label %9
+  %.not16 = icmp eq i64 %16, 3
+  br i1 %.not16, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %15, %13
   %.015 = phi i32 [ %14, %13 ], [ 0, %15 ]
@@ -1391,6 +1390,6 @@ attributes #21 = { nounwind willreturn memory(none) }
 !106 = !{!102, !53, i64 24}
 !107 = !{!13, !13, i64 0}
 !108 = !{!49, !53, i64 344}
-!109 = !{!110, !9, i64 8}
+!109 = !{!110, !38, i64 0}
 !110 = !{!"", !38, i64 0, !9, i64 8}
-!111 = !{!110, !38, i64 0}
+!111 = !{!110, !9, i64 8}

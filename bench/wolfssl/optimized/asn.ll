@@ -15217,21 +15217,21 @@ define i32 @wc_BuildEccKeyDer(ptr noundef %0, ptr noundef %1, ptr noundef captur
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !22
   %10 = icmp eq ptr %0, null
-  br i1 %10, label %.thread121.thread, label %11
+  br i1 %10, label %.thread122.thread, label %11
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %1, null
   %13 = icmp eq ptr %2, null
   %or.cond = and i1 %12, %13
-  br i1 %or.cond, label %.thread121.thread, label %14
+  br i1 %or.cond, label %.thread122.thread, label %14
 
 14:                                               ; preds = %11
   %15 = icmp ne i32 %4, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !70
   %18 = icmp eq ptr %17, null
-  %or.cond163 = select i1 %15, i1 %18, i1 false
-  br i1 %or.cond163, label %.thread121.thread, label %._crit_edge
+  %or.cond164 = select i1 %15, i1 %18, i1 false
+  br i1 %or.cond164, label %.thread122.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
@@ -15239,16 +15239,16 @@ define i32 @wc_BuildEccKeyDer(ptr noundef %0, ptr noundef %1, ptr noundef captur
   %20 = load i32, ptr %17, align 8, !tbaa !208
   store i32 %20, ptr %7, align 4, !tbaa !22
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.thread89, label %21
+  br i1 %.not, label %.thread90, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = call i32 @wc_ecc_export_x963(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8) #23
   switch i32 %22, label %.thread [
-    i32 -202, label %.thread89
+    i32 -202, label %.thread90
     i32 0, label %27
   ]
 
-.thread89:                                        ; preds = %21, %._crit_edge
+.thread90:                                        ; preds = %21, %._crit_edge
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 1, ptr %23, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -15270,10 +15270,10 @@ define i32 @wc_BuildEccKeyDer(ptr noundef %0, ptr noundef %1, ptr noundef captur
   store i32 %20, ptr %31, align 16, !tbaa !3
   br i1 %15, label %32, label %54
 
-32:                                               ; preds = %27, %.thread89
+32:                                               ; preds = %27, %.thread90
   %33 = load ptr, ptr %19, align 8, !tbaa !70
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread121.thread, label %35
+  br i1 %34, label %.thread122.thread, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
@@ -15318,27 +15318,27 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   store i32 %48, ptr %52, align 16, !tbaa !3
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 185
   store i8 1, ptr %53, align 1, !tbaa !9
-  br i1 %49, label %.thread, label %.thread100
+  br i1 %49, label %.thread, label %.thread101
 
-54:                                               ; preds = %.thread89, %27
+54:                                               ; preds = %.thread90, %27
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 121
   store i8 1, ptr %55, align 1, !tbaa !9
   br label %56
 
 56:                                               ; preds = %54, %56
-  %indvars.iv165 = phi i64 [ 4, %54 ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw %struct.ASNSetData, ptr %6, i64 %indvars.iv165, i32 4
+  %indvars.iv166 = phi i64 [ 4, %54 ], [ %indvars.iv.next, %56 ]
+  %57 = getelementptr inbounds nuw %struct.ASNSetData, ptr %6, i64 %indvars.iv166, i32 4
   store i8 1, ptr %57, align 1, !tbaa !9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv165, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.thread100, label %56
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %.thread101, label %56
 
-.thread100:                                       ; preds = %56, %SetCurve.exit
-  %.1103 = phi i32 [ %48, %SetCurve.exit ], [ 0, %56 ]
+.thread101:                                       ; preds = %56, %SetCurve.exit
+  %.1104 = phi i32 [ %48, %SetCurve.exit ], [ 0, %56 ]
   %58 = phi i1 [ true, %SetCurve.exit ], [ false, %56 ]
   br i1 %.not, label %.loopexit, label %59
 
-59:                                               ; preds = %.thread100
+59:                                               ; preds = %.thread101
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 232
   store ptr null, ptr %60, align 8, !tbaa !3
   %61 = load i32, ptr %8, align 4, !tbaa !22
@@ -15346,7 +15346,7 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   store i32 %61, ptr %62, align 16, !tbaa !3
   br label %65
 
-.loopexit:                                        ; preds = %.thread100
+.loopexit:                                        ; preds = %.thread101
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 217
   store i8 1, ptr %63, align 1, !tbaa !9
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 249
@@ -15360,12 +15360,12 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
 67:                                               ; preds = %65
   %68 = load i32, ptr %9, align 4, !tbaa !22
   store i32 %68, ptr %2, align 4, !tbaa !22
-  br label %.thread121.thread
+  br label %.thread122.thread
 
 .thread:                                          ; preds = %21, %SetCurve.exit, %65
   %69 = phi i1 [ true, %65 ], [ false, %SetCurve.exit ], [ false, %21 ]
-  %.059161 = phi i32 [ %.1103, %65 ], [ %48, %SetCurve.exit ], [ 0, %21 ]
-  %.3160 = phi i32 [ 0, %65 ], [ %48, %SetCurve.exit ], [ %22, %21 ]
+  %.059162 = phi i32 [ %.1104, %65 ], [ %48, %SetCurve.exit ], [ 0, %21 ]
+  %.3161 = phi i32 [ 0, %65 ], [ %48, %SetCurve.exit ], [ %22, %21 ]
   %70 = phi i1 [ %58, %65 ], [ true, %SetCurve.exit ], [ %15, %21 ]
   %71 = icmp ne ptr %2, null
   %or.cond7 = and i1 %71, %69
@@ -15375,94 +15375,94 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   %73 = load i32, ptr %9, align 4, !tbaa !22
   %74 = load i32, ptr %2, align 4, !tbaa !22
   %75 = icmp sgt i32 %73, %74
-  %spec.select68 = select i1 %75, i32 -173, i32 0
+  %spec.select69 = select i1 %75, i32 -173, i32 0
   br label %76
 
 76:                                               ; preds = %72, %.thread
-  %.7 = phi i32 [ %.3160, %.thread ], [ %spec.select68, %72 ]
+  %.7 = phi i32 [ %.3161, %.thread ], [ %spec.select69, %72 ]
   %77 = icmp eq i32 %.7, 0
   %78 = icmp ne ptr %1, null
   %or.cond9 = and i1 %78, %77
-  br i1 %or.cond9, label %79, label %.thread121
+  br i1 %or.cond9, label %79, label %.thread122
 
 79:                                               ; preds = %76
   %80 = call i32 @SetASN_Items(ptr noundef nonnull @eccKeyASN, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %1)
-  br i1 %70, label %81, label %.thread130
+  br i1 %70, label %81, label %.thread131
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %83 = load ptr, ptr %82, align 8, !tbaa !3
-  %84 = sext i32 %.059161 to i64
+  %84 = sext i32 %.059162 to i64
   %85 = load ptr, ptr %19, align 8, !tbaa !70
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread121.thread, label %87
+  br i1 %86, label %.thread122.thread, label %87
 
 87:                                               ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 72
   %89 = load i32, ptr %88, align 8, !tbaa !104
-  %.fr142 = freeze i32 %89
+  %.fr143 = freeze i32 %89
   %.not.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i, label %90, label %.thread.i.i
 
 90:                                               ; preds = %87
-  %91 = icmp ult i32 %.fr142, 128
-  br i1 %91, label %SetCurve.exit82, label %.preheader.i.preheader.i.i71
+  %91 = icmp ult i32 %.fr143, 128
+  br i1 %91, label %SetCurve.exit83, label %.preheader.i.preheader.i.i72
 
 .thread.i.i:                                      ; preds = %87
   store i8 6, ptr %83, align 1, !tbaa !3
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %93 = icmp ult i32 %.fr142, 128
-  br i1 %93, label %94, label %.preheader.i.preheader.i.i71
+  %93 = icmp ult i32 %.fr143, 128
+  br i1 %93, label %94, label %.preheader.i.preheader.i.i72
 
-.preheader.i.preheader.i.i71:                     ; preds = %.thread.i.i, %90
+.preheader.i.preheader.i.i72:                     ; preds = %.thread.i.i, %90
   %.ph.i.i = phi ptr [ %92, %.thread.i.i ], [ null, %90 ]
-  br label %.preheader.i.i.i72
+  br label %.preheader.i.i.i73
 
 94:                                               ; preds = %.thread.i.i
-  %95 = trunc nuw nsw i32 %.fr142 to i8
+  %95 = trunc nuw nsw i32 %.fr143 to i8
   store i8 %95, ptr %92, align 1, !tbaa !3
   br label %114
 
-.preheader.i.i.i72:                               ; preds = %99, %.preheader.i.preheader.i.i71
-  %.06.i.i.i.i73 = phi i32 [ %100, %99 ], [ 4, %.preheader.i.preheader.i.i71 ]
-  %96 = shl i32 %.06.i.i.i.i73, 3
+.preheader.i.i.i73:                               ; preds = %99, %.preheader.i.preheader.i.i72
+  %.06.i.i.i.i74 = phi i32 [ %100, %99 ], [ 4, %.preheader.i.preheader.i.i72 ]
+  %96 = shl i32 %.06.i.i.i.i74, 3
   %97 = add nsw i32 %96, -8
-  %98 = lshr i32 %.fr142, %97
-  %.not5.i.i.i.i74 = icmp eq i32 %98, 0
-  br i1 %.not5.i.i.i.i74, label %99, label %BytePrecision.exit.i.i.i75
+  %98 = lshr i32 %.fr143, %97
+  %.not5.i.i.i.i75 = icmp eq i32 %98, 0
+  br i1 %.not5.i.i.i.i75, label %99, label %BytePrecision.exit.i.i.i76
 
-99:                                               ; preds = %.preheader.i.i.i72
-  %100 = add nsw i32 %.06.i.i.i.i73, -1
-  %.not.i.i.i.i81 = icmp eq i32 %100, 0
-  br i1 %.not.i.i.i.i81, label %BytePrecision.exit.i.i.i75, label %.preheader.i.i.i72, !llvm.loop !6
+99:                                               ; preds = %.preheader.i.i.i73
+  %100 = add nsw i32 %.06.i.i.i.i74, -1
+  %.not.i.i.i.i82 = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i.i82, label %BytePrecision.exit.i.i.i76, label %.preheader.i.i.i73, !llvm.loop !6
 
-BytePrecision.exit.i.i.i75:                       ; preds = %99, %.preheader.i.i.i72
-  %.0.lcssa.i.i.i.i76 = phi i32 [ %.06.i.i.i.i73, %.preheader.i.i.i72 ], [ 0, %99 ]
-  %101 = trunc i32 %.0.lcssa.i.i.i.i76 to i8
+BytePrecision.exit.i.i.i76:                       ; preds = %99, %.preheader.i.i.i73
+  %.0.lcssa.i.i.i.i77 = phi i32 [ %.06.i.i.i.i74, %.preheader.i.i.i73 ], [ 0, %99 ]
+  %101 = trunc i32 %.0.lcssa.i.i.i.i77 to i8
   br i1 %.not.i.i, label %102, label %.thread.i.i.i
 
-102:                                              ; preds = %BytePrecision.exit.i.i.i75
-  %.not2628.i.i.i78 = icmp eq i8 %101, 0
-  br i1 %.not2628.i.i.i78, label %SetCurve.exit82, label %.lr.ph.split.us.preheader.i.i.i79
+102:                                              ; preds = %BytePrecision.exit.i.i.i76
+  %.not2628.i.i.i79 = icmp eq i8 %101, 0
+  br i1 %.not2628.i.i.i79, label %SetCurve.exit83, label %.lr.ph.split.us.preheader.i.i.i80
 
-.thread.i.i.i:                                    ; preds = %BytePrecision.exit.i.i.i75
+.thread.i.i.i:                                    ; preds = %BytePrecision.exit.i.i.i76
   %103 = or i8 %101, -128
   store i8 %103, ptr %.ph.i.i, align 1, !tbaa !3
   %.not262840.i.i.i = icmp eq i8 %101, 0
   br i1 %.not262840.i.i.i, label %114, label %.lr.ph.split.i.i.i
 
-.lr.ph.split.us.preheader.i.i.i79:                ; preds = %102
-  %104 = add i32 %.0.lcssa.i.i.i.i76, 255
+.lr.ph.split.us.preheader.i.i.i80:                ; preds = %102
+  %104 = add i32 %.0.lcssa.i.i.i.i77, 255
   %105 = and i32 %104, 255
   %106 = add nuw nsw i32 %105, 3
-  br label %SetCurve.exit82
+  br label %SetCurve.exit83
 
 .lr.ph.split.i.i.i:                               ; preds = %.thread.i.i.i, %.lr.ph.split.i.i.i
   %indvars.iv33.i.i.i = phi i64 [ %indvars.iv.next34.i.i.i, %.lr.ph.split.i.i.i ], [ 1, %.thread.i.i.i ]
-  %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %.lr.ph.split.i.i.i ], [ %.0.lcssa.i.i.i.i76, %.thread.i.i.i ]
+  %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %.lr.ph.split.i.i.i ], [ %.0.lcssa.i.i.i.i77, %.thread.i.i.i ]
   %107 = shl nuw nsw i32 %indvars.iv.i.i.i, 3
   %108 = add nsw i32 %107, -8
-  %109 = lshr i32 %.fr142, %108
+  %109 = lshr i32 %.fr143, %108
   %110 = trunc i32 %109 to i8
   %111 = getelementptr inbounds nuw i8, ptr %.ph.i.i, i64 %indvars.iv33.i.i.i
   store i8 %110, ptr %111, align 1, !tbaa !3
@@ -15478,9 +15478,9 @@ BytePrecision.exit.i.i.i75:                       ; preds = %99, %.preheader.i.i
 
 114:                                              ; preds = %.loopexit.loopexit31.i.i.i, %.thread.i.i.i, %94
   %.020.i.i.i = phi i32 [ 2, %94 ], [ %113, %.loopexit.loopexit31.i.i.i ], [ 2, %.thread.i.i.i ]
-  %115 = zext i32 %.fr142 to i64
+  %115 = zext i32 %.fr143 to i64
   %116 = icmp ult i64 %84, %115
-  br i1 %116, label %.thread121.thread, label %117
+  br i1 %116, label %.thread122.thread, label %117
 
 117:                                              ; preds = %114
   %118 = sext i32 %.020.i.i.i to i64
@@ -15489,40 +15489,40 @@ BytePrecision.exit.i.i.i75:                       ; preds = %99, %.preheader.i.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
   %122 = load ptr, ptr %121, align 8, !tbaa !105
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %122, i64 %115, i1 false)
-  br label %SetCurve.exit82
+  br label %SetCurve.exit83
 
-SetCurve.exit82:                                  ; preds = %90, %102, %.lr.ph.split.us.preheader.i.i.i79, %117
-  %.020.i.i.ph.i80.pn = phi i32 [ %.020.i.i.i, %117 ], [ 2, %90 ], [ %106, %.lr.ph.split.us.preheader.i.i.i79 ], [ 2, %102 ]
-  %.020.i.i.ph.i80.pn.fr = freeze i32 %.020.i.i.ph.i80.pn
-  %.0.i77 = add i32 %.020.i.i.ph.i80.pn.fr, %.fr142
-  %123 = icmp sgt i32 %.0.i77, -1
-  br i1 %123, label %.thread130, label %.thread121.thread
+SetCurve.exit83:                                  ; preds = %90, %102, %.lr.ph.split.us.preheader.i.i.i80, %117
+  %.020.i.i.ph.i81.pn = phi i32 [ %.020.i.i.i, %117 ], [ 2, %90 ], [ %106, %.lr.ph.split.us.preheader.i.i.i80 ], [ 2, %102 ]
+  %.020.i.i.ph.i81.pn.fr = freeze i32 %.020.i.i.ph.i81.pn
+  %.0.i78 = add i32 %.020.i.i.ph.i81.pn.fr, %.fr143
+  %123 = icmp sgt i32 %.0.i78, -1
+  br i1 %123, label %.thread131, label %.thread122.thread
 
-.thread130:                                       ; preds = %SetCurve.exit82, %79
+.thread131:                                       ; preds = %SetCurve.exit83, %79
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %125 = load ptr, ptr %124, align 8, !tbaa !3
   %126 = call i32 @wc_ecc_export_private_only(ptr noundef nonnull %0, ptr noundef %125, ptr noundef nonnull %7) #23
   %127 = icmp eq i32 %126, 0
   %128 = icmp ne i32 %3, 0
   %or.cond11 = and i1 %128, %127
-  br i1 %or.cond11, label %129, label %.thread121
+  br i1 %or.cond11, label %129, label %.thread122
 
-129:                                              ; preds = %.thread130
+129:                                              ; preds = %.thread131
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %131 = load ptr, ptr %130, align 8, !tbaa !3
   %132 = call i32 @wc_ecc_export_x963(ptr noundef nonnull %0, ptr noundef %131, ptr noundef nonnull %8) #23
-  br label %.thread121
+  br label %.thread122
 
-.thread121:                                       ; preds = %.thread130, %129, %76
-  %.8 = phi i32 [ %132, %129 ], [ %126, %.thread130 ], [ %.7, %76 ]
+.thread122:                                       ; preds = %.thread131, %129, %76
+  %.8 = phi i32 [ %132, %129 ], [ %126, %.thread131 ], [ %.7, %76 ]
   %.8.fr = freeze i32 %.8
   %133 = icmp eq i32 %.8.fr, 0
   %134 = load i32, ptr %9, align 4
   %spec.select = select i1 %133, i32 %134, i32 %.8.fr
-  br label %.thread121.thread
+  br label %.thread122.thread
 
-.thread121.thread:                                ; preds = %32, %11, %5, %14, %.thread121, %SetCurve.exit82, %81, %114, %67
-  %135 = phi i32 [ -173, %81 ], [ -132, %114 ], [ -202, %67 ], [ %.0.i77, %SetCurve.exit82 ], [ %spec.select, %.thread121 ], [ -173, %14 ], [ -173, %5 ], [ -173, %11 ], [ -173, %32 ]
+.thread122.thread:                                ; preds = %32, %11, %5, %14, %.thread122, %SetCurve.exit83, %81, %114, %67
+  %135 = phi i32 [ -173, %81 ], [ -132, %114 ], [ -202, %67 ], [ %.0.i78, %SetCurve.exit83 ], [ %spec.select, %.thread122 ], [ -173, %14 ], [ -173, %5 ], [ -173, %11 ], [ -173, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

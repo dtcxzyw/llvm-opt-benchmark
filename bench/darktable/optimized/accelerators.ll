@@ -6660,11 +6660,11 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   tail call void @gtk_tree_store_clear(ptr noundef nonnull %12) #24
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 560
-  %.pre361 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !81
+  %.pre359 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !81
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = phi ptr [ %.pre361, %13 ], [ %10, %11 ]
+  %15 = phi ptr [ %.pre359, %13 ], [ %10, %11 ]
   tail call void @g_sequence_free(ptr noundef %15) #24
   %16 = tail call ptr @g_sequence_new(ptr noundef nonnull @g_free) #24
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
@@ -6681,14 +6681,14 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 21:                                               ; preds = %14, %20, %7, %4
   %22 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.267)
   %.not177 = icmp eq ptr %22, null
-  br i1 %.not177, label %290, label %.preheader290
+  br i1 %.not177, label %290, label %.preheader289
 
-.preheader290:                                    ; preds = %21
+.preheader289:                                    ; preds = %21
   %23 = tail call i32 @feof(ptr noundef nonnull %22) #24
-  %.not178326 = icmp eq i32 %23, 0
-  br i1 %.not178326, label %.lr.ph327, label %._crit_edge328
+  %.not178325 = icmp eq i32 %23, 0
+  br i1 %.not178325, label %.lr.ph326, label %._crit_edge327
 
-.lr.ph327:                                        ; preds = %.preheader290
+.lr.ph326:                                        ; preds = %.preheader289
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6702,7 +6702,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 52
   br label %35
 
-35:                                               ; preds = %.lr.ph327, %287
+35:                                               ; preds = %.lr.ph326, %287
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %22)
   %.not179 = icmp eq ptr %36, null
@@ -6792,21 +6792,21 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %.0143 = phi i8 [ %62, %64 ], [ 0, %60 ]
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 600
-  %.0145309 = load ptr, ptr %67, align 8, !tbaa !72
-  %.not187310 = icmp eq ptr %.0145309, null
-  br i1 %.not187310, label %._crit_edge, label %.lr.ph
+  %.0145308 = load ptr, ptr %67, align 8, !tbaa !72
+  %.not187309 = icmp eq ptr %.0145308, null
+  br i1 %.not187309, label %._crit_edge, label %.lr.ph
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds nuw i8, ptr %.0145312, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0145311, i64 8
   %.0145 = load ptr, ptr %69, align 8, !tbaa !72
   %.not187 = icmp eq ptr %.0145, null
   br i1 %.not187, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %68
-  %.0145312 = phi ptr [ %.0145, %68 ], [ %.0145309, %65 ]
-  %.1144311 = phi i8 [ %70, %68 ], [ %.0143, %65 ]
-  %70 = add i8 %.1144311, 10
-  %71 = load ptr, ptr %.0145312, align 8, !tbaa !73
+  %.0145311 = phi ptr [ %.0145, %68 ], [ %.0145308, %65 ]
+  %.1144310 = phi i8 [ %70, %68 ], [ %.0143, %65 ]
+  %70 = add i8 %.1144310, 10
+  %71 = load ptr, ptr %.0145311, align 8, !tbaa !73
   %72 = load ptr, ptr %71, align 8, !tbaa !200
   %73 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %42, ptr noundef %72) #24
   %.not188 = icmp eq i32 %73, 0
@@ -6836,27 +6836,27 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %80 = icmp ne ptr %79, null
   %81 = icmp ult ptr %79, %40
   %82 = and i1 %80, %81
-  br i1 %82, label %.lr.ph320, label %._crit_edge321
+  br i1 %82, label %.lr.ph319, label %._crit_edge320
 
-.lr.ph320:                                        ; preds = %.critedge232, %.critedge234
+.lr.ph319:                                        ; preds = %.critedge232, %.critedge234
   %83 = phi ptr [ %183, %.critedge234 ], [ %79, %.critedge232 ]
   %84 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %83, i32 noundef 58) #26
   %.not206 = icmp eq ptr %84, null
-  br i1 %.not206, label %.preheader289, label %160
+  br i1 %.not206, label %.preheader288, label %160
 
-.preheader289:                                    ; preds = %.lr.ph320, %85
-  %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ -1, %.lr.ph320 ]
-  %exitcond = icmp eq i64 %indvars.iv, 4
-  br i1 %exitcond, label %94, label %85
-
-85:                                               ; preds = %.preheader289
+.preheader288:                                    ; preds = %.lr.ph319, %85
+  %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ -1, %.lr.ph319 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %cond = icmp eq i64 %indvars.iv.next, 5
+  br i1 %cond, label %94, label %85
+
+85:                                               ; preds = %.preheader288
   %86 = getelementptr inbounds %struct._modifier_name, ptr @modifier_string, i64 %indvars.iv.next
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !202
   %89 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef %88) #24
   %.not208 = icmp eq i32 %89, 0
-  br i1 %.not208, label %90, label %.preheader289
+  br i1 %.not208, label %90, label %.preheader288
 
 90:                                               ; preds = %85
   %91 = load i32, ptr %86, align 16, !tbaa !204
@@ -6865,7 +6865,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   store i32 %93, ptr %27, align 8, !tbaa !89
   br label %.critedge234
 
-94:                                               ; preds = %.preheader289
+94:                                               ; preds = %.preheader288
   %95 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.257) #24
   %.not210 = icmp eq i32 %95, 0
   br i1 %.not210, label %96, label %99
@@ -6928,9 +6928,9 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 121:                                              ; preds = %116
   %122 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.174) #24
   %.not219 = icmp eq i32 %122, 0
-  br i1 %.not219, label %123, label %.preheader422
+  br i1 %.not219, label %123, label %.preheader418
 
-.preheader422:                                    ; preds = %135, %121
+.preheader418:                                    ; preds = %135, %121
   br label %140
 
 123:                                              ; preds = %121
@@ -6962,7 +6962,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 135:                                              ; preds = %130
   %136 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.174) #24
   %.not216 = icmp eq i32 %136, 0
-  br i1 %.not216, label %137, label %.preheader422
+  br i1 %.not216, label %137, label %.preheader418
 
 137:                                              ; preds = %135
   %138 = load i16, ptr %30, align 4
@@ -6970,13 +6970,13 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   store i16 %139, ptr %30, align 4
   br label %.critedge234
 
-140:                                              ; preds = %.preheader422, %143
-  %indvars.iv352 = phi i64 [ %indvars.iv.next353, %143 ], [ 0, %.preheader422 ]
-  %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
-  %141 = getelementptr inbounds nuw ptr, ptr @move_string, i64 %indvars.iv.next353
+140:                                              ; preds = %.preheader418, %143
+  %indvars.iv350 = phi i64 [ %indvars.iv.next351, %143 ], [ 0, %.preheader418 ]
+  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
+  %141 = getelementptr inbounds nuw ptr, ptr @move_string, i64 %indvars.iv.next351
   %142 = load ptr, ptr %141, align 8, !tbaa !18
   %.not220 = icmp eq ptr %142, null
-  br i1 %.not220, label %.thread264, label %143
+  br i1 %.not220, label %.thread263, label %143
 
 143:                                              ; preds = %140
   %144 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull %142) #24
@@ -6984,28 +6984,28 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   br i1 %.not221, label %145, label %140
 
 145:                                              ; preds = %143
-  %.pr263 = load ptr, ptr %141, align 8, !tbaa !18
-  %.not222 = icmp eq ptr %.pr263, null
-  br i1 %.not222, label %.thread264, label %146
+  %.pr262 = load ptr, ptr %141, align 8, !tbaa !18
+  %.not222 = icmp eq ptr %.pr262, null
+  br i1 %.not222, label %.thread263, label %146
 
 146:                                              ; preds = %145
-  %147 = trunc nuw nsw i64 %indvars.iv.next353 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv.next351 to i32
   store i32 %147, ptr %28, align 8, !tbaa !88
   br label %.critedge234
 
-.thread264:                                       ; preds = %140, %145
+.thread263:                                       ; preds = %140, %145
   %148 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.21) #24
   %.not223 = icmp eq i32 %148, 0
   br i1 %.not223, label %149, label %153
 
-149:                                              ; preds = %.thread264
+149:                                              ; preds = %.thread263
   %150 = load i16, ptr %30, align 4
   %151 = and i16 %150, -1537
   %152 = or disjoint i16 %151, 1024
   store i16 %152, ptr %30, align 4
   br label %.critedge234
 
-153:                                              ; preds = %.thread264
+153:                                              ; preds = %.thread263
   %154 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.22) #24
   %.not224 = icmp eq i32 %154, 0
   br i1 %.not224, label %155, label %159
@@ -7021,7 +7021,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.277, ptr noundef nonnull %83) #24
   br label %.critedge234
 
-160:                                              ; preds = %.lr.ph320
+160:                                              ; preds = %.lr.ph319
   %161 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %162 = getelementptr inbounds i8, ptr %84, i64 -1
   store i8 0, ptr %84, align 1, !tbaa !6
@@ -7046,65 +7046,65 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %.0151 = phi i8 [ %166, %168 ], [ 0, %164 ]
   %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 600
-  %.0148313 = load ptr, ptr %171, align 8, !tbaa !72
-  %.not225314 = icmp eq ptr %.0148313, null
-  br i1 %.not225314, label %._crit_edge319, label %.lr.ph318
+  %.0148312 = load ptr, ptr %171, align 8, !tbaa !72
+  %.not225313 = icmp eq ptr %.0148312, null
+  br i1 %.not225313, label %._crit_edge318, label %.lr.ph317
 
-172:                                              ; preds = %.lr.ph318
-  %173 = getelementptr inbounds nuw i8, ptr %.0148316, i64 8
+172:                                              ; preds = %.lr.ph317
+  %173 = getelementptr inbounds nuw i8, ptr %.0148315, i64 8
   %.0148 = load ptr, ptr %173, align 8, !tbaa !72
   %.not225 = icmp eq ptr %.0148, null
-  br i1 %.not225, label %._crit_edge319, label %.lr.ph318
+  br i1 %.not225, label %._crit_edge318, label %.lr.ph317
 
-.lr.ph318:                                        ; preds = %169, %172
-  %.0148316 = phi ptr [ %.0148, %172 ], [ %.0148313, %169 ]
-  %.1152315 = phi i8 [ %174, %172 ], [ %.0151, %169 ]
-  %174 = add i8 %.1152315, 10
-  %175 = load ptr, ptr %.0148316, align 8, !tbaa !73
+.lr.ph317:                                        ; preds = %169, %172
+  %.0148315 = phi ptr [ %.0148, %172 ], [ %.0148312, %169 ]
+  %.1152314 = phi i8 [ %174, %172 ], [ %.0151, %169 ]
+  %174 = add i8 %.1152314, 10
+  %175 = load ptr, ptr %.0148315, align 8, !tbaa !73
   %176 = load ptr, ptr %175, align 8, !tbaa !200
   %177 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef %176) #24
   %.not226 = icmp eq i32 %177, 0
   br i1 %.not226, label %178, label %172
 
-178:                                              ; preds = %.lr.ph318
+178:                                              ; preds = %.lr.ph317
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %180 = load ptr, ptr %179, align 8, !tbaa !205
   %181 = call i32 %180(ptr noundef nonnull %161, ptr noundef nonnull %28) #24
   %.not227 = icmp eq i32 %181, 0
-  br i1 %.not227, label %182, label %.thread270
+  br i1 %.not227, label %182, label %.thread269
 
 182:                                              ; preds = %178
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.278, ptr noundef nonnull %161) #24
-  br label %.thread270
+  br label %.thread269
 
-.thread270:                                       ; preds = %182, %178
+.thread269:                                       ; preds = %182, %178
   store i8 %174, ptr %29, align 2, !tbaa !87
   br label %.critedge234
 
-._crit_edge319:                                   ; preds = %172, %169
+._crit_edge318:                                   ; preds = %172, %169
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.276, ptr noundef nonnull %83) #24
   br label %.critedge234
 
-.critedge234:                                     ; preds = %.thread270, %._crit_edge319, %90, %123, %118, %113, %137, %132, %127, %107, %101, %96, %146, %155, %149, %159, %.critedge238
+.critedge234:                                     ; preds = %.thread269, %._crit_edge318, %90, %123, %118, %113, %137, %132, %127, %107, %101, %96, %146, %155, %149, %159, %.critedge238
   %183 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.270) #24
   %184 = icmp ne ptr %183, null
   %185 = icmp ult ptr %183, %40
   %186 = and i1 %184, %185
-  br i1 %186, label %.lr.ph320, label %._crit_edge321
+  br i1 %186, label %.lr.ph319, label %._crit_edge320
 
-._crit_edge321:                                   ; preds = %.critedge234, %.critedge232
-  %.lcssa300 = phi ptr [ %79, %.critedge232 ], [ %183, %.critedge234 ]
-  %187 = call i32 @g_ascii_strcasecmp(ptr noundef %.lcssa300, ptr noundef nonnull @.str.279) #24
+._crit_edge320:                                   ; preds = %.critedge234, %.critedge232
+  %.lcssa299 = phi ptr [ %79, %.critedge232 ], [ %183, %.critedge234 ]
+  %187 = call i32 @g_ascii_strcasecmp(ptr noundef %.lcssa299, ptr noundef nonnull @.str.279) #24
   %.not191 = icmp eq i32 %187, 0
   %188 = zext i1 %.not191 to i32
   br i1 %.not191, label %189, label %191
 
-189:                                              ; preds = %._crit_edge321
+189:                                              ; preds = %._crit_edge320
   %190 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.280) #24
   br label %191
 
-191:                                              ; preds = %189, %._crit_edge321
-  %.0142 = phi ptr [ %190, %189 ], [ %.lcssa300, %._crit_edge321 ]
+191:                                              ; preds = %189, %._crit_edge320
+  %.0142 = phi ptr [ %190, %189 ], [ %.lcssa299, %._crit_edge320 ]
   %192 = call ptr @g_strsplit(ptr noundef %.0142, ptr noundef nonnull @.str.146, i32 noundef 0) #24
   %193 = call ptr @dt_action_locate(ptr noundef null, ptr noundef %192, i32 noundef 0)
   store ptr %193, ptr %31, align 8, !tbaa !90
@@ -7177,54 +7177,54 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   %.not.i.i250 = icmp ne i8 %223, 0
   %224 = load i32, ptr %28, align 8
   %.not3.i.i = icmp ne i32 %224, 0
-  %or.cond287.not = select i1 %.not.i.i250, i1 true, i1 %.not3.i.i
+  %or.cond286.not = select i1 %.not.i.i250, i1 true, i1 %.not3.i.i
   %225 = load i16, ptr %30, align 4
   %226 = and i16 %225, 1536
   %.not4.i.i = icmp eq i16 %226, 0
-  %narrow = select i1 %or.cond287.not, i1 %.not4.i.i, i1 false
+  %narrow = select i1 %or.cond286.not, i1 %.not4.i.i, i1 false
   %.neg1.i = sext i1 %narrow to i32
   store i32 %.neg1.i, ptr %32, align 4, !tbaa !109
   %227 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.280) #24
-  %.not193323 = icmp eq ptr %227, null
-  br i1 %.not193323, label %._crit_edge325, label %.lr.ph324
+  %.not193322 = icmp eq ptr %227, null
+  br i1 %.not193322, label %._crit_edge324, label %.lr.ph323
 
-.lr.ph324:                                        ; preds = %_action_find_elements.exit
+.lr.ph323:                                        ; preds = %_action_find_elements.exit
   %.not196 = icmp eq ptr %.0.i, null
   br label %228
 
-228:                                              ; preds = %.lr.ph324, %.backedge
-  %229 = phi ptr [ %227, %.lr.ph324 ], [ %269, %.backedge ]
-  br i1 %.not196, label %.thread281, label %.preheader288
+228:                                              ; preds = %.lr.ph323, %.backedge
+  %229 = phi ptr [ %227, %.lr.ph323 ], [ %269, %.backedge ]
+  br i1 %.not196, label %.thread280, label %.preheader287
 
-.preheader288:                                    ; preds = %228, %232
-  %indvars.iv355 = phi i64 [ %indvars.iv.next356, %232 ], [ -1, %228 ]
-  %indvars.iv.next356 = add nsw i64 %indvars.iv355, 1
-  %230 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %indvars.iv.next356
+.preheader287:                                    ; preds = %228, %232
+  %indvars.iv353 = phi i64 [ %indvars.iv.next354, %232 ], [ -1, %228 ]
+  %indvars.iv.next354 = add nsw i64 %indvars.iv353, 1
+  %230 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %indvars.iv.next354
   %231 = load ptr, ptr %230, align 8, !tbaa !106
   %.not197 = icmp eq ptr %231, null
-  br i1 %.not197, label %.thread275, label %232
+  br i1 %.not197, label %.thread274, label %232
 
-232:                                              ; preds = %.preheader288
+232:                                              ; preds = %.preheader287
   %233 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %231, i32 noundef 124) #26
   %.not.i251 = icmp eq ptr %233, null
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 1
   %235 = select i1 %.not.i251, ptr %231, ptr %234
   %236 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull %235) #24
   %.not198 = icmp eq i32 %236, 0
-  br i1 %.not198, label %237, label %.preheader288
+  br i1 %.not198, label %237, label %.preheader287
 
 237:                                              ; preds = %232
-  %.pr274 = load ptr, ptr %230, align 8, !tbaa !106
-  %.not199 = icmp eq ptr %.pr274, null
-  br i1 %.not199, label %.thread275, label %238
+  %.pr273 = load ptr, ptr %230, align 8, !tbaa !106
+  %.not199 = icmp eq ptr %.pr273, null
+  br i1 %.not199, label %.thread274, label %238
 
 238:                                              ; preds = %237
-  %239 = trunc nuw nsw i64 %indvars.iv.next356 to i32
+  %239 = trunc nuw nsw i64 %indvars.iv.next354 to i32
   store i32 %239, ptr %33, align 8, !tbaa !104
   store i32 %.neg1.i, ptr %32, align 4, !tbaa !109
   br label %.backedge
 
-.thread275:                                       ; preds = %.preheader288, %237
+.thread274:                                       ; preds = %.preheader287, %237
   %240 = load i32, ptr %33, align 8, !tbaa !104
   %241 = sext i32 %240 to i64
   %242 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %241, i32 1
@@ -7234,13 +7234,13 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   %.not200 = icmp eq i32 %245, 0
   br i1 %.not200, label %.preheader, label %.backedge
 
-.preheader:                                       ; preds = %.thread275, %248
-  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %248 ], [ -1, %.thread275 ]
-  %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
-  %246 = getelementptr inbounds ptr, ptr %243, i64 %indvars.iv.next359
+.preheader:                                       ; preds = %.thread274, %248
+  %indvars.iv356 = phi i64 [ %indvars.iv.next357, %248 ], [ -1, %.thread274 ]
+  %indvars.iv.next357 = add nsw i64 %indvars.iv356, 1
+  %246 = getelementptr inbounds ptr, ptr %243, i64 %indvars.iv.next357
   %247 = load ptr, ptr %246, align 8, !tbaa !18
   %.not201 = icmp eq ptr %247, null
-  br i1 %.not201, label %.thread281, label %248
+  br i1 %.not201, label %.thread280, label %248
 
 248:                                              ; preds = %.preheader
   %249 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %247, i32 noundef 124) #26
@@ -7252,26 +7252,26 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   br i1 %.not202, label %253, label %.preheader
 
 253:                                              ; preds = %248
-  %254 = getelementptr inbounds ptr, ptr %243, i64 %indvars.iv.next359
-  %.pr278 = load ptr, ptr %254, align 8, !tbaa !18
-  %.not203 = icmp eq ptr %.pr278, null
-  br i1 %.not203, label %.thread281, label %255
+  %254 = getelementptr inbounds ptr, ptr %243, i64 %indvars.iv.next357
+  %.pr277 = load ptr, ptr %254, align 8, !tbaa !18
+  %.not203 = icmp eq ptr %.pr277, null
+  br i1 %.not203, label %.thread280, label %255
 
 255:                                              ; preds = %253
-  %256 = trunc nuw nsw i64 %indvars.iv.next359 to i32
+  %256 = trunc nuw nsw i64 %indvars.iv.next357 to i32
   store i32 %256, ptr %32, align 4, !tbaa !109
   br label %.backedge
 
-.thread281:                                       ; preds = %.preheader, %253, %228
+.thread280:                                       ; preds = %.preheader, %253, %228
   %257 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull @.str.31) #24
   %.not204 = icmp eq i32 %257, 0
   br i1 %.not204, label %258, label %259
 
-258:                                              ; preds = %.thread281
+258:                                              ; preds = %.thread280
   store i32 1, ptr %34, align 4, !tbaa !93
   br label %.backedge
 
-259:                                              ; preds = %.thread281
+259:                                              ; preds = %.thread280
   %260 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull @.str.30) #24
   %.not205 = icmp eq i32 %260, 0
   br i1 %.not205, label %261, label %262
@@ -7300,54 +7300,54 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.277, ptr noundef nonnull %229) #24
   br label %.backedge
 
-.backedge:                                        ; preds = %258, %264, %268, %266, %261, %238, %.thread275, %255
+.backedge:                                        ; preds = %258, %264, %268, %266, %261, %238, %.thread274, %255
   %269 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.280) #24
   %.not193 = icmp eq ptr %269, null
-  br i1 %.not193, label %._crit_edge325, label %228
+  br i1 %.not193, label %._crit_edge324, label %228
 
-._crit_edge325:                                   ; preds = %.backedge, %_action_find_elements.exit
+._crit_edge324:                                   ; preds = %.backedge, %_action_find_elements.exit
   %270 = load i8, ptr %26, align 8, !tbaa !85
   switch i8 %1, label %275 [
     i8 0, label %271
-    i8 -1, label %._crit_edge325._crit_edge
+    i8 -1, label %._crit_edge324._crit_edge
   ]
 
-271:                                              ; preds = %._crit_edge325
+271:                                              ; preds = %._crit_edge324
   %272 = icmp eq i8 %270, 0
   %273 = load i8, ptr %29, align 2
   %274 = icmp eq i8 %273, 0
   %or.cond = select i1 %272, i1 %274, i1 false
-  br i1 %or.cond, label %.thread284, label %286
+  br i1 %or.cond, label %.thread283, label %286
 
-275:                                              ; preds = %._crit_edge325
+275:                                              ; preds = %._crit_edge324
   %276 = icmp eq i8 %270, %1
   %277 = load i8, ptr %29, align 2
   %278 = icmp eq i8 %277, %1
   %or.cond247 = select i1 %276, i1 true, i1 %278
-  br i1 %or.cond247, label %._crit_edge325._crit_edge, label %286
+  br i1 %or.cond247, label %._crit_edge324._crit_edge, label %286
 
-._crit_edge325._crit_edge:                        ; preds = %._crit_edge325, %275
+._crit_edge324._crit_edge:                        ; preds = %._crit_edge324, %275
   %279 = icmp eq i8 %270, %1
   br i1 %279, label %280, label %281
 
-280:                                              ; preds = %._crit_edge325._crit_edge
+280:                                              ; preds = %._crit_edge324._crit_edge
   store i8 %2, ptr %26, align 8, !tbaa !85
   br label %281
 
-281:                                              ; preds = %280, %._crit_edge325._crit_edge
+281:                                              ; preds = %280, %._crit_edge324._crit_edge
   %282 = load i8, ptr %29, align 2, !tbaa !87
   %283 = icmp eq i8 %282, %1
-  br i1 %283, label %284, label %.thread284
+  br i1 %283, label %284, label %.thread283
 
 284:                                              ; preds = %281
   store i8 %2, ptr %29, align 2, !tbaa !87
-  br label %.thread284
+  br label %.thread283
 
-.thread284:                                       ; preds = %271, %281, %284
+.thread283:                                       ; preds = %271, %281, %284
   %285 = call fastcc i32 @_insert_shortcut(ptr noundef %6, i32 noundef 0, i32 noundef %188)
   br label %286
 
-286:                                              ; preds = %271, %._crit_edge, %195, %275, %.thread284, %.critedge
+286:                                              ; preds = %271, %._crit_edge, %195, %275, %.thread283, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %287
 
@@ -7355,13 +7355,13 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %288 = call i32 @feof(ptr noundef nonnull %22) #24
   %.not178 = icmp eq i32 %288, 0
-  br i1 %.not178, label %35, label %._crit_edge328
+  br i1 %.not178, label %35, label %._crit_edge327
 
-._crit_edge328:                                   ; preds = %287, %.preheader290
+._crit_edge327:                                   ; preds = %287, %.preheader289
   %289 = call i32 @fclose(ptr noundef nonnull %22)
   br label %290
 
-290:                                              ; preds = %._crit_edge328, %21
+290:                                              ; preds = %._crit_edge327, %21
   ret void
 }
 

@@ -2236,10 +2236,10 @@ Vec_WrdStart.exit:                                ; preds = %Vec_BitStart.exit, 
   br label %35
 
 35:                                               ; preds = %.lr.ph, %.critedge
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next55, %.critedge ]
-  %.051 = phi i32 [ 0, %.lr.ph ], [ %.3, %.critedge ]
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %.critedge ]
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %.3, %.critedge ]
   %.val38 = load ptr, ptr %34, align 8, !tbaa !61
-  %36 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val38, i64 %indvars.iv54
+  %36 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val38, i64 %indvars.iv53
   %.val39 = load i64, ptr %36, align 4
   %37 = and i64 %.val39, 2147483648
   %.not.i = icmp ne i64 %37, 0
@@ -2249,8 +2249,8 @@ Vec_WrdStart.exit:                                ; preds = %Vec_BitStart.exit, 
   br i1 %narrow.i.not, label %.critedge, label %40
 
 40:                                               ; preds = %35
-  %indvars.iv54.tr = trunc i64 %indvars.iv54 to i32
-  %41 = shl i32 %indvars.iv54.tr, 1
+  %indvars.iv53.tr = trunc i64 %indvars.iv53 to i32
+  %41 = shl i32 %indvars.iv53.tr, 1
   %42 = tail call i64 @Gia_ObjComputeTruth6Cis(ptr noundef nonnull %0, i32 noundef %41, ptr noundef nonnull %28, ptr noundef nonnull %17) #11
   %.val35 = load i32, ptr %29, align 4, !tbaa !27
   %43 = icmp sgt i32 %.val35, 6
@@ -2388,44 +2388,44 @@ Vec_WrdStart.exit:                                ; preds = %Vec_BitStart.exit, 
   br i1 %113, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %spec.select65 = phi i64 [ %42, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
-  br label %114
+  %spec.select64 = phi i64 [ %42, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
+  br label %.preheader
 
-.preheader:                                       ; preds = %114
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv68, 1
+114:                                              ; preds = %.preheader
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond, label %.critedge, label %114
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !82
 
-114:                                              ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv68 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %115 = getelementptr inbounds nuw i64, ptr @__const.Acec_MultFindPPs.Saved, i64 %indvars.iv68
+.preheader:                                       ; preds = %.preheader.preheader, %114
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %114 ]
+  %115 = getelementptr inbounds nuw i64, ptr @__const.Acec_MultFindPPs.Saved, i64 %indvars.iv
   %116 = load i64, ptr %115, align 8, !tbaa !11
-  %117 = icmp eq i64 %spec.select65, %116
-  %118 = xor i64 %116, %spec.select65
+  %117 = icmp eq i64 %spec.select64, %116
+  %118 = xor i64 %116, %spec.select64
   %119 = icmp eq i64 %118, -1
   %or.cond = or i1 %117, %119
-  br i1 %or.cond, label %120, label %.preheader
+  br i1 %or.cond, label %120, label %114
 
-120:                                              ; preds = %114
-  %121 = trunc nuw nsw i64 %indvars.iv54 to i32
+120:                                              ; preds = %.preheader
+  %121 = trunc nuw nsw i64 %indvars.iv53 to i32
   %122 = and i32 %121, 31
   %123 = shl nuw i32 1, %122
-  %124 = lshr i64 %indvars.iv54, 5
+  %124 = lshr i64 %indvars.iv53, 5
   %125 = and i64 %124, 134217727
   %126 = getelementptr inbounds nuw i32, ptr %14, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !16
   %128 = or i32 %127, %123
   store i32 %128, ptr %126, align 4, !tbaa !16
-  %129 = add nsw i32 %.051, 1
+  %129 = add nsw i32 %.050, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %40, %._crit_edge.i, %120, %35
-  %.3 = phi i32 [ %.051, %35 ], [ %.051, %40 ], [ %.051, %._crit_edge.i ], [ %129, %120 ], [ %.051, %.preheader ]
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+.critedge:                                        ; preds = %114, %40, %._crit_edge.i, %120, %35
+  %.3 = phi i32 [ %.050, %35 ], [ %.050, %40 ], [ %.050, %._crit_edge.i ], [ %129, %120 ], [ %.050, %114 ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %130 = load i32, ptr %2, align 8, !tbaa !41
   %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next55, %131
-  br i1 %132, label %35, label %._crit_edge, !llvm.loop !82
+  %132 = icmp slt i64 %indvars.iv.next54, %131
+  br i1 %132, label %35, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.critedge, %Vec_WrdStart.exit
   %.0.lcssa = phi i32 [ 0, %Vec_WrdStart.exit ], [ %.3, %.critedge ]
@@ -2611,10 +2611,10 @@ Vec_WrdStart.exit:                                ; preds = %1, %13
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.critedge
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %.critedge ]
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %.3, %.critedge ]
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next53, %.critedge ]
+  %.049 = phi i32 [ 0, %.lr.ph ], [ %.3, %.critedge ]
   %.val39 = load ptr, ptr %24, align 8, !tbaa !61
-  %26 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val39, i64 %indvars.iv53
+  %26 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val39, i64 %indvars.iv52
   %.val40 = load i64, ptr %26, align 4
   %27 = and i64 %.val40, 2147483648
   %.not.i = icmp ne i64 %27, 0
@@ -2624,8 +2624,8 @@ Vec_WrdStart.exit:                                ; preds = %1, %13
   br i1 %narrow.i.not, label %.critedge, label %30
 
 30:                                               ; preds = %25
-  %indvars.iv53.tr = trunc i64 %indvars.iv53 to i32
-  %31 = shl i32 %indvars.iv53.tr, 1
+  %indvars.iv52.tr = trunc i64 %indvars.iv52 to i32
+  %31 = shl i32 %indvars.iv52.tr, 1
   %32 = tail call i64 @Gia_ObjComputeTruth6Cis(ptr noundef nonnull %0, i32 noundef %31, ptr noundef nonnull %6, ptr noundef nonnull %11) #11
   %.val37 = load i32, ptr %7, align 4, !tbaa !27
   %33 = icmp sgt i32 %.val37, 6
@@ -2763,37 +2763,37 @@ Vec_WrdStart.exit:                                ; preds = %1, %13
   br i1 %103, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %spec.select63 = phi i64 [ %32, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
-  br label %104
+  %spec.select62 = phi i64 [ %32, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
+  br label %.preheader
 
-.preheader:                                       ; preds = %104
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv66, 1
+104:                                              ; preds = %.preheader
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond, label %.critedge, label %104
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !84
 
-104:                                              ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv66 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %105 = getelementptr inbounds nuw i64, ptr @__const.Acec_MultFindPPs.Saved, i64 %indvars.iv66
+.preheader:                                       ; preds = %.preheader.preheader, %104
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %104 ]
+  %105 = getelementptr inbounds nuw i64, ptr @__const.Acec_MultFindPPs.Saved, i64 %indvars.iv
   %106 = load i64, ptr %105, align 8, !tbaa !11
-  %107 = icmp eq i64 %spec.select63, %106
-  %108 = xor i64 %106, %spec.select63
+  %107 = icmp eq i64 %spec.select62, %106
+  %108 = xor i64 %106, %spec.select62
   %109 = icmp eq i64 %108, -1
   %or.cond = or i1 %107, %109
-  br i1 %or.cond, label %110, label %.preheader
+  br i1 %or.cond, label %110, label %104
 
-110:                                              ; preds = %104
-  %111 = trunc nuw nsw i64 %indvars.iv53 to i32
+110:                                              ; preds = %.preheader
+  %111 = trunc nuw nsw i64 %indvars.iv52 to i32
   tail call void @Acec_MultFindPPs_rec(ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %2)
-  %112 = add nsw i32 %.050, 1
+  %112 = add nsw i32 %.049, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %30, %._crit_edge.i, %110, %25
-  %.3 = phi i32 [ %.050, %25 ], [ %.050, %30 ], [ %.050, %._crit_edge.i ], [ %112, %110 ], [ %.050, %.preheader ]
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+.critedge:                                        ; preds = %104, %30, %._crit_edge.i, %110, %25
+  %.3 = phi i32 [ %.049, %25 ], [ %.049, %30 ], [ %.049, %._crit_edge.i ], [ %112, %110 ], [ %.049, %104 ]
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %113 = load i32, ptr %10, align 8, !tbaa !41
   %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next54, %114
-  br i1 %115, label %25, label %._crit_edge, !llvm.loop !83
+  %115 = icmp slt i64 %indvars.iv.next53, %114
+  br i1 %115, label %25, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.critedge, %Vec_WrdStart.exit
   %.0.lcssa = phi i32 [ 0, %Vec_WrdStart.exit ], [ %.3, %.critedge ]
@@ -2876,7 +2876,7 @@ Vec_BitStart.exit:                                ; preds = %1, %10
   %.val = load i32, ptr %18, align 4, !tbaa !27
   %30 = sext i32 %.val to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !84
+  br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !86
 
 .critedge:                                        ; preds = %Vec_BitStart.exit
   %.not.i = icmp eq ptr %.val10, null
@@ -3046,3 +3046,5 @@ attributes #13 = { nounwind allocsize(0) }
 !82 = distinct !{!82, !14}
 !83 = distinct !{!83, !14}
 !84 = distinct !{!84, !14}
+!85 = distinct !{!85, !14}
+!86 = distinct !{!86, !14}

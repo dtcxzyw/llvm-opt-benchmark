@@ -4531,16 +4531,17 @@ define internal noundef i64 @store_spi_host_signalling(ptr noundef readonly capt
   br label %.thread4
 
 48:                                               ; preds = %36
-  %49 = icmp eq i32 %37, 1
-  br i1 %49, label %.thread4, label %50
+  %49 = and i64 %21, 1152921504606846975
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %.thread4, label %51
 
-50:                                               ; preds = %48
+51:                                               ; preds = %48
   tail call void %41(ptr noundef %17, i32 noundef %37) #17
   br label %.thread4
 
-.thread4:                                         ; preds = %.thread, %50, %48, %36
-  %51 = phi i64 [ -22, %36 ], [ %3, %50 ], [ %3, %48 ], [ %spec.select, %.thread ]
-  ret i64 %51
+.thread4:                                         ; preds = %.thread, %51, %48, %36
+  %52 = phi i64 [ -22, %36 ], [ %3, %51 ], [ %3, %48 ], [ %spec.select, %.thread ]
+  ret i64 %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

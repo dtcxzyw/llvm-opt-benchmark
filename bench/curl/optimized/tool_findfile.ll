@@ -27,10 +27,10 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 5:                                                ; preds = %.preheader, %.thread83
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread83 ]
-  %6 = phi ptr [ @.str.1, %.preheader ], [ %25, %.thread83 ]
   %.039102 = phi i32 [ %1, %.preheader ], [ %.44387, %.thread83 ]
-  %7 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv
-  %8 = tail call ptr @curl_getenv(ptr noundef nonnull %6) #5
+  %6 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8, !tbaa !7
+  %8 = tail call ptr @curl_getenv(ptr noundef %7) #5
   %.not64 = icmp eq ptr %8, null
   br i1 %.not64, label %.thread83, label %9
 
@@ -40,8 +40,8 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not65, label %.thread83.sink.split, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
   %.not66 = icmp eq ptr %13, null
   br i1 %.not66, label %16, label %14
 
@@ -53,8 +53,8 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 16:                                               ; preds = %14, %11
   %.051 = phi ptr [ %15, %14 ], [ %8, %11 ]
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %18 = load i8, ptr %17, align 8, !tbaa !12, !range !13, !noundef !14
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %18 = load i8, ptr %17, align 8, !tbaa !13, !range !14, !noundef !15
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %21
 
@@ -81,50 +81,48 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 .thread83:                                        ; preds = %.thread83.sink.split, %21, %5
   %.44387 = phi i32 [ %.039102, %5 ], [ %.342, %21 ], [ %.44387.ph, %.thread83.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv.next
-  %25 = load ptr, ptr %24, align 8, !tbaa !15
-  %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %26, label %5, !llvm.loop !16
+  %.not60 = icmp eq i64 %indvars.iv.next, 5
+  br i1 %.not60, label %24, label %5, !llvm.loop !16
 
-26:                                               ; preds = %.thread83
-  %27 = tail call i32 @geteuid() #5
-  %28 = tail call ptr @getpwuid(i32 noundef %27) #5
-  %.not61 = icmp eq ptr %28, null
-  br i1 %.not61, label %checkhome.exit, label %29
+24:                                               ; preds = %.thread83
+  %25 = tail call i32 @geteuid() #5
+  %26 = tail call ptr @getpwuid(i32 noundef %25) #5
+  %.not61 = icmp eq ptr %26, null
+  br i1 %.not61, label %checkhome.exit, label %27
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
-  %.not62 = icmp eq ptr %31, null
-  br i1 %.not62, label %checkhome.exit, label %32
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
+  %.not62 = icmp eq ptr %29, null
+  br i1 %.not62, label %checkhome.exit, label %30
 
-32:                                               ; preds = %29
-  %33 = load i8, ptr %31, align 1, !tbaa !4
-  %.not63 = icmp eq i8 %33, 0
+30:                                               ; preds = %27
+  %31 = load i8, ptr %29, align 1, !tbaa !4
+  %.not63 = icmp eq i8 %31, 0
   br i1 %.not63, label %checkhome.exit, label %.split.i.preheader
 
-.split.i.preheader:                               ; preds = %32
-  %34 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %31, ptr noundef nonnull %0) #5
-  %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %checkhome.exit, label %35
+.split.i.preheader:                               ; preds = %30
+  %32 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %29, ptr noundef nonnull %0) #5
+  %.not.i = icmp eq ptr %32, null
+  br i1 %.not.i, label %checkhome.exit, label %33
 
-35:                                               ; preds = %.split.i.preheader
-  %36 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %34, i32 noundef 0) #5
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %checkhome.exit.sink.split, label %.split30.us.i
+33:                                               ; preds = %.split.i.preheader
+  %34 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %32, i32 noundef 0) #5
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %checkhome.exit.sink.split, label %.split30.us.i
 
-.split30.us.i:                                    ; preds = %35
-  %38 = tail call noalias ptr @strdup(ptr noundef nonnull %34) #5
-  %39 = tail call i32 @close(i32 noundef %36) #5
+.split30.us.i:                                    ; preds = %33
+  %36 = tail call noalias ptr @strdup(ptr noundef nonnull %32) #5
+  %37 = tail call i32 @close(i32 noundef %34) #5
   br label %checkhome.exit.sink.split
 
-checkhome.exit.sink.split:                        ; preds = %35, %.split30.us.i
-  %.0.ph = phi ptr [ %38, %.split30.us.i ], [ null, %35 ]
-  tail call void @curl_free(ptr noundef nonnull %34) #5
+checkhome.exit.sink.split:                        ; preds = %33, %.split30.us.i
+  %.0.ph = phi ptr [ %36, %.split30.us.i ], [ null, %33 ]
+  tail call void @curl_free(ptr noundef nonnull %32) #5
   br label %checkhome.exit
 
-checkhome.exit:                                   ; preds = %21, %14, %checkhome.exit.sink.split, %.split.i.preheader, %26, %32, %29, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %26 ], [ null, %32 ], [ null, %29 ], [ null, %.split.i.preheader ], [ %.0.ph, %checkhome.exit.sink.split ], [ %.fr, %21 ], [ null, %14 ]
+checkhome.exit:                                   ; preds = %21, %14, %checkhome.exit.sink.split, %.split.i.preheader, %24, %30, %27, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %24 ], [ null, %30 ], [ null, %27 ], [ null, %.split.i.preheader ], [ %.0.ph, %checkhome.exit.sink.split ], [ %.fr, %21 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -225,15 +223,15 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !9, i64 8}
+!7 = !{!8, !9, i64 0}
 !8 = !{!"finder", !9, i64 0, !9, i64 8, !11, i64 16}
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
 !11 = !{!"_Bool", !5, i64 0}
-!12 = !{!8, !11, i64 16}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = !{!8, !9, i64 0}
+!12 = !{!8, !9, i64 8}
+!13 = !{!8, !11, i64 16}
+!14 = !{i8 0, i8 2}
+!15 = !{}
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!19, !9, i64 32}

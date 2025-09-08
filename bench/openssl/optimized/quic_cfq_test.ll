@@ -235,72 +235,67 @@ declare i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #0 {
-  br label %3
+  br label %.lr.ph
 
 2:                                                ; preds = %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
-3:                                                ; preds = %1, %2
+.lr.ph:                                           ; preds = %2, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %5 = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %0, i32 noundef %4) #3
-  %6 = getelementptr inbounds nuw [11 x i32], ptr @expect, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4, !tbaa !6
-  %8 = icmp eq i32 %7, -1
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
+  %4 = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %0, i32 noundef %3) #3
+  %5 = getelementptr inbounds nuw [11 x i32], ptr @expect, i64 %indvars.iv
+  %6 = load i32, ptr %5, align 4, !tbaa !6
+  %7 = getelementptr inbounds nuw [10 x ptr], ptr @items, i64 %indvars.iv
+  br label %9
 
-.lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw [10 x ptr], ptr @items, i64 %indvars.iv
-  br label %11
-
-._crit_edge:                                      ; preds = %26, %3
-  %.021.lcssa = phi ptr [ %5, %3 ], [ %28, %26 ]
-  %10 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @.str.15, ptr noundef %.021.lcssa) #3
-  %.not26 = icmp eq i32 %10, 0
+._crit_edge:                                      ; preds = %24
+  %8 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @.str.15, ptr noundef %26) #3
+  %.not26 = icmp eq i32 %8, 0
   br i1 %.not26, label %.loopexit, label %2
 
-11:                                               ; preds = %.lr.ph, %26
-  %12 = phi i32 [ %7, %.lr.ph ], [ %30, %26 ]
-  %.02030 = phi i64 [ 0, %.lr.ph ], [ %27, %26 ]
-  %.02129 = phi ptr [ %5, %.lr.ph ], [ %28, %26 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02030
-  store ptr %.02129, ptr %13, align 8, !tbaa !15
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @.str.15, ptr noundef %.02129) #3
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.loopexit, label %15
+9:                                                ; preds = %.lr.ph, %24
+  %10 = phi i32 [ %6, %.lr.ph ], [ %28, %24 ]
+  %.02030 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
+  %.02129 = phi ptr [ %4, %.lr.ph ], [ %26, %24 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.02030
+  store ptr %.02129, ptr %11, align 8, !tbaa !15
+  %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @.str.15, ptr noundef %.02129) #3
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %.loopexit, label %13
 
-15:                                               ; preds = %11
-  %16 = tail call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef %.02129) #3
-  %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @ref_buf, i64 %17
-  %19 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.16, ptr noundef %16, ptr noundef nonnull %18) #3
-  %.not23 = icmp eq i32 %19, 0
-  br i1 %.not23, label %.loopexit, label %20
+13:                                               ; preds = %9
+  %14 = tail call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef %.02129) #3
+  %15 = zext i32 %10 to i64
+  %16 = getelementptr inbounds nuw i8, ptr @ref_buf, i64 %15
+  %17 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.16, ptr noundef %14, ptr noundef nonnull %16) #3
+  %.not23 = icmp eq i32 %17, 0
+  br i1 %.not23, label %.loopexit, label %18
 
-20:                                               ; preds = %15
-  %21 = tail call i32 @ossl_quic_cfq_item_get_pn_space(ptr noundef %.02129) #3
-  %22 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 89, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17, i32 noundef %21, i32 noundef %4) #3
-  %.not24 = icmp eq i32 %22, 0
-  br i1 %.not24, label %.loopexit, label %23
+18:                                               ; preds = %13
+  %19 = tail call i32 @ossl_quic_cfq_item_get_pn_space(ptr noundef %.02129) #3
+  %20 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 89, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17, i32 noundef %19, i32 noundef %3) #3
+  %.not24 = icmp eq i32 %20, 0
+  br i1 %.not24, label %.loopexit, label %21
 
-23:                                               ; preds = %20
-  %24 = tail call i32 @ossl_quic_cfq_item_get_state(ptr noundef %.02129) #3
-  %25 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %24, i32 noundef 0) #3
-  %.not25 = icmp eq i32 %25, 0
-  br i1 %.not25, label %.loopexit, label %26
+21:                                               ; preds = %18
+  %22 = tail call i32 @ossl_quic_cfq_item_get_state(ptr noundef %.02129) #3
+  %23 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %22, i32 noundef 0) #3
+  %.not25 = icmp eq i32 %23, 0
+  br i1 %.not25, label %.loopexit, label %24
 
-26:                                               ; preds = %23
-  %27 = add i64 %.02030, 1
-  %28 = tail call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef %.02129, i32 noundef %4) #3
-  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %27
-  %30 = load i32, ptr %29, align 4, !tbaa !6
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %._crit_edge, label %11
+24:                                               ; preds = %21
+  %25 = add i64 %.02030, 1
+  %26 = tail call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef %.02129, i32 noundef %3) #3
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %25
+  %28 = load i32, ptr %27, align 4, !tbaa !6
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %._crit_edge, label %9
 
-.loopexit:                                        ; preds = %2, %._crit_edge, %11, %15, %20, %23
-  %.022 = phi i32 [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %11 ], [ 1, %2 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %2, %._crit_edge, %9, %13, %18, %21
+  %.022 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %13 ], [ 0, %9 ], [ 1, %2 ], [ 0, %._crit_edge ]
   ret i32 %.022
 }
 

@@ -766,21 +766,19 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
   ret void
 
 3:                                                ; preds = %0, %3
-  %4 = phi ptr [ @.str.75, %0 ], [ %15, %3 ]
   %.08 = phi i64 [ 0, %0 ], [ %13, %3 ]
-  %5 = getelementptr %struct.zb_direct_service_t, ptr @proto_reg_handoff_zb_direct.services, i64 %.08
+  %4 = getelementptr %struct.zb_direct_service_t, ptr @proto_reg_handoff_zb_direct.services, i64 %.08
+  %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @bluetooth_uuids, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @wmem_tree_insert_string(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %8, i32 noundef 0)
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  tail call void @wmem_tree_insert_string(ptr noundef %6, ptr noundef %5, ptr noundef %8, i32 noundef 0)
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_zb_direct, align 4
   %12 = tail call ptr @create_dissector_handle_with_name_and_description(ptr noundef %10, i32 noundef %11, ptr noundef null, ptr noundef %8)
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.101, ptr noundef nonnull %4, ptr noundef %12)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.101, ptr noundef %5, ptr noundef %12)
   %13 = add nuw nsw i64 %.08, 1
-  %14 = getelementptr %struct.zb_direct_service_t, ptr @proto_reg_handoff_zb_direct.services, i64 %13
-  %15 = load ptr, ptr %14, align 8
   %exitcond = icmp eq i64 %13, 13
   br i1 %exitcond, label %1, label %3, !llvm.loop !14
 }

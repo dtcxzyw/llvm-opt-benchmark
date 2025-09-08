@@ -990,22 +990,24 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
   br i1 %.not57.i, label %pgstat_get_kind_info.exit.thread.i, label %.thread.i
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
-  %46 = load i8, ptr %45, align 16
-  %47 = and i8 %46, 5
-  %or.cond.not.i = icmp eq i8 %47, 5
-  br i1 %or.cond.not.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
+  %45 = add nsw i64 %indvars.iv.i, -7
+  %or.cond.not.i = icmp ult i64 %45, 6
+  br i1 %or.cond.not.i, label %48, label %pgstat_get_kind_info.exit.thread.i
 
 .thread.i:                                        ; preds = %pgstat_get_kind_info.exit.i
-  %48 = load i8, ptr %43, align 8
-  %49 = and i8 %48, 5
-  %or.cond.not85.i = icmp eq i8 %49, 5
+  %46 = load i8, ptr %43, align 8
+  %47 = and i8 %46, 5
+  %or.cond.not85.i = icmp eq i8 %47, 5
   br i1 %or.cond.not85.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
 
-pgstat_get_kind_info.exit.i.i:                    ; preds = %.thread.i, %44
-  %.0.i718689.i = phi ptr [ %45, %44 ], [ %43, %.thread.i ]
-  %.010.i.i = phi i64 [ %indvars.iv.i, %44 ], [ %37, %.thread.i ]
-  %.0.i59.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), %44 ], [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49864), %.thread.i ]
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
+  br label %pgstat_get_kind_info.exit.i.i
+
+pgstat_get_kind_info.exit.i.i:                    ; preds = %.thread.i, %48
+  %.0.i718689.i = phi ptr [ %49, %48 ], [ %43, %.thread.i ]
+  %.010.i.i = phi i64 [ %indvars.iv.i, %48 ], [ %37, %.thread.i ]
+  %.0.i59.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), %48 ], [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49864), %.thread.i ]
   %50 = load i32, ptr @pgstat_fetch_consistency, align 4
   %51 = icmp eq i32 %50, 0
   %52 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 %.010.i.i

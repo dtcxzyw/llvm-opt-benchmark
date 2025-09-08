@@ -4256,13 +4256,13 @@ define dso_local i32 @str_2_slurmdb_acct_flags(ptr noundef %0) local_unnamed_add
   %4 = tail call ptr @xstrdup(ptr noundef %0) #19
   store ptr %4, ptr %2, align 8
   %5 = call ptr @strtok_r(ptr noundef %4, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #19
-  %.not21 = icmp eq ptr %5, null
-  br i1 %.not21, label %.thread, label %.lr.ph
+  %.not22 = icmp eq ptr %5, null
+  br i1 %.not22, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_str_2_acct_flag.exit.thread12
-  %.0723 = phi i32 [ %19, %_str_2_acct_flag.exit.thread12 ], [ 0, %1 ]
-  %.0822 = phi ptr [ %20, %_str_2_acct_flag.exit.thread12 ], [ %5, %1 ]
-  %6 = load i8, ptr %.0822, align 1
+  %.0724 = phi i32 [ %19, %_str_2_acct_flag.exit.thread12 ], [ 0, %1 ]
+  %.0823 = phi ptr [ %20, %_str_2_acct_flag.exit.thread12 ], [ %5, %1 ]
+  %6 = load i8, ptr %.0823, align 1
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %_str_2_acct_flag.exit.thread12, label %.preheader.i
 
@@ -4276,8 +4276,8 @@ define dso_local i32 @str_2_slurmdb_acct_flags(ptr noundef %0) local_unnamed_add
   %8 = getelementptr inbounds nuw %struct.anon, ptr @slurmdb_acct_flags_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0822) #20
-  %12 = call i32 @xstrncasecmp(ptr noundef nonnull %.0822, ptr noundef %10, i64 noundef %11) #19
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0823) #20
+  %12 = call i32 @xstrncasecmp(ptr noundef nonnull %.0823, ptr noundef %10, i64 noundef %11) #19
   %.not14.i = icmp eq i32 %12, 0
   br i1 %.not14.i, label %_str_2_acct_flag.exit, label %7
 
@@ -4287,17 +4287,17 @@ define dso_local i32 @str_2_slurmdb_acct_flags(ptr noundef %0) local_unnamed_add
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.191, ptr noundef nonnull @__func__._str_2_acct_flag, ptr noundef nonnull %.0822) #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.191, ptr noundef nonnull @__func__._str_2_acct_flag, ptr noundef nonnull %.0823) #19
   br label %.thread
 
 _str_2_acct_flag.exit:                            ; preds = %.preheader.i
   %17 = load i32, ptr %8, align 8
-  %18 = icmp eq i32 %17, 65537
+  %18 = icmp eq i64 %indvars.iv.i, 5
   br i1 %18, label %.thread, label %_str_2_acct_flag.exit.thread12
 
 _str_2_acct_flag.exit.thread12:                   ; preds = %.lr.ph, %_str_2_acct_flag.exit
   %.011.i14 = phi i32 [ %17, %_str_2_acct_flag.exit ], [ 0, %.lr.ph ]
-  %19 = or i32 %.011.i14, %.0723
+  %19 = or i32 %.011.i14, %.0724
   %20 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #19
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.thread, label %.lr.ph
@@ -4373,13 +4373,13 @@ define dso_local i32 @str_2_slurmdb_assoc_flags(ptr noundef %0) local_unnamed_ad
   %4 = tail call ptr @xstrdup(ptr noundef %0) #19
   store ptr %4, ptr %2, align 8
   %5 = call ptr @strtok_r(ptr noundef %4, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #19
-  %.not21 = icmp eq ptr %5, null
-  br i1 %.not21, label %.thread, label %.lr.ph
+  %.not22 = icmp eq ptr %5, null
+  br i1 %.not22, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_str_2_assoc_flag.exit.thread12
-  %.0723 = phi i32 [ %19, %_str_2_assoc_flag.exit.thread12 ], [ 0, %1 ]
-  %.0822 = phi ptr [ %20, %_str_2_assoc_flag.exit.thread12 ], [ %5, %1 ]
-  %6 = load i8, ptr %.0822, align 1
+  %.0724 = phi i32 [ %19, %_str_2_assoc_flag.exit.thread12 ], [ 0, %1 ]
+  %.0823 = phi ptr [ %20, %_str_2_assoc_flag.exit.thread12 ], [ %5, %1 ]
+  %6 = load i8, ptr %.0823, align 1
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %_str_2_assoc_flag.exit.thread12, label %.preheader.i
 
@@ -4393,8 +4393,8 @@ define dso_local i32 @str_2_slurmdb_assoc_flags(ptr noundef %0) local_unnamed_ad
   %8 = getelementptr inbounds nuw %struct.anon.0, ptr @slurmdb_assoc_flags_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0822) #20
-  %12 = call i32 @xstrncasecmp(ptr noundef nonnull %.0822, ptr noundef %10, i64 noundef %11) #19
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0823) #20
+  %12 = call i32 @xstrncasecmp(ptr noundef nonnull %.0823, ptr noundef %10, i64 noundef %11) #19
   %.not14.i = icmp eq i32 %12, 0
   br i1 %.not14.i, label %_str_2_assoc_flag.exit, label %7
 
@@ -4404,17 +4404,17 @@ define dso_local i32 @str_2_slurmdb_assoc_flags(ptr noundef %0) local_unnamed_ad
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.205, ptr noundef nonnull @__func__._str_2_assoc_flag, ptr noundef nonnull %.0822) #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.205, ptr noundef nonnull @__func__._str_2_assoc_flag, ptr noundef nonnull %.0823) #19
   br label %.thread
 
 _str_2_assoc_flag.exit:                           ; preds = %.preheader.i
   %17 = load i32, ptr %8, align 8
-  %18 = icmp eq i32 %17, 65537
+  %18 = icmp eq i64 %indvars.iv.i, 5
   br i1 %18, label %.thread, label %_str_2_assoc_flag.exit.thread12
 
 _str_2_assoc_flag.exit.thread12:                  ; preds = %.lr.ph, %_str_2_assoc_flag.exit
   %.011.i14 = phi i32 [ %17, %_str_2_assoc_flag.exit ], [ 0, %.lr.ph ]
-  %19 = or i32 %.011.i14, %.0723
+  %19 = or i32 %.011.i14, %.0724
   %20 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #19
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.thread, label %.lr.ph

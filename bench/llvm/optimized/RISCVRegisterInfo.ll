@@ -687,40 +687,45 @@ define dso_local i64 @_ZNK4llvm20RISCVGenRegisterInfo30composeSubRegIndexLaneMas
   %6 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL18CompositeSequencesE, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !3
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %8
-  %10 = load i64, ptr %9, align 16, !tbaa !6
-  %.not1718 = icmp eq i64 %10, 0
-  br i1 %.not1718, label %._crit_edge, label %.lr.ph
+  %9 = shl nuw i64 1, %8
+  %10 = and i64 %9, 699050
+  %.not1718.not = icmp eq i64 %10, 0
+  br i1 %.not1718.not, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge:                                      ; preds = %22, %3
-  %.sroa.014.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.014.1, %22 ]
+.lr.ph.preheader:                                 ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %8
+  %12 = load i64, ptr %11, align 16, !tbaa !6
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %24, %3
+  %.sroa.014.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.014.1, %24 ]
   ret i64 %.sroa.014.0.lcssa
 
-.lr.ph:                                           ; preds = %3, %22
-  %11 = phi i64 [ %24, %22 ], [ %10, %3 ]
-  %.020 = phi ptr [ %23, %22 ], [ %9, %3 ]
-  %.sroa.014.019 = phi i64 [ %.sroa.014.1, %22 ], [ 0, %3 ]
-  %12 = and i64 %11, %2
-  %13 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  %14 = load i8, ptr %13, align 8, !tbaa !9
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %22, label %15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %13 = phi i64 [ %26, %24 ], [ %12, %.lr.ph.preheader ]
+  %.020 = phi ptr [ %25, %24 ], [ %11, %.lr.ph.preheader ]
+  %.sroa.014.019 = phi i64 [ %.sroa.014.1, %24 ], [ 0, %.lr.ph.preheader ]
+  %14 = and i64 %13, %2
+  %15 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %16 = load i8, ptr %15, align 8, !tbaa !9
+  %.not = icmp eq i8 %16, 0
+  br i1 %.not, label %24, label %17
 
-15:                                               ; preds = %.lr.ph
-  %16 = zext i8 %14 to i64
-  %17 = shl i64 %12, %16
-  %18 = sub nsw i64 64, %16
-  %19 = and i64 %18, 4294967295
-  %20 = lshr i64 %12, %19
-  %21 = or i64 %20, %17
-  br label %22
+17:                                               ; preds = %.lr.ph
+  %18 = zext i8 %16 to i64
+  %19 = shl i64 %14, %18
+  %20 = sub nsw i64 64, %18
+  %21 = and i64 %20, 4294967295
+  %22 = lshr i64 %14, %21
+  %23 = or i64 %22, %19
+  br label %24
 
-22:                                               ; preds = %.lr.ph, %15
-  %.pn = phi i64 [ %21, %15 ], [ %12, %.lr.ph ]
+24:                                               ; preds = %.lr.ph, %17
+  %.pn = phi i64 [ %23, %17 ], [ %14, %.lr.ph ]
   %.sroa.014.1 = or i64 %.pn, %.sroa.014.019
-  %23 = getelementptr inbounds nuw i8, ptr %.020, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !6
-  %.not17 = icmp eq i64 %24, 0
+  %25 = getelementptr inbounds nuw i8, ptr %.020, i64 16
+  %26 = load i64, ptr %25, align 8, !tbaa !6
+  %.not17 = icmp eq i64 %26, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 }
 
@@ -737,38 +742,42 @@ define dso_local i64 @_ZNK4llvm20RISCVGenRegisterInfo37reverseComposeSubRegIndex
   %11 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL18CompositeSequencesE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %13
-  %15 = load i64, ptr %14, align 16, !tbaa !6
-  %.not1920 = icmp eq i64 %15, 0
-  br i1 %.not1920, label %._crit_edge, label %.lr.ph
+  %14 = shl nuw i64 1, %13
+  %15 = and i64 %14, 699050
+  %.not1920.not = icmp eq i64 %15, 0
+  br i1 %.not1920.not, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge:                                      ; preds = %25, %3
-  %.sroa.016.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.016.1, %25 ]
+.lr.ph.preheader:                                 ; preds = %3
+  %16 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %13
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %26, %3
+  %.sroa.016.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.016.1, %26 ]
   ret i64 %.sroa.016.0.lcssa
 
-.lr.ph:                                           ; preds = %3, %25
-  %.022 = phi ptr [ %26, %25 ], [ %14, %3 ]
-  %.sroa.016.021 = phi i64 [ %.sroa.016.1, %25 ], [ 0, %3 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.022, i64 8
-  %17 = load i8, ptr %16, align 8, !tbaa !9
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %25, label %18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %.022 = phi ptr [ %27, %26 ], [ %16, %.lr.ph.preheader ]
+  %.sroa.016.021 = phi i64 [ %.sroa.016.1, %26 ], [ 0, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %18 = load i8, ptr %17, align 8, !tbaa !9
+  %.not = icmp eq i8 %18, 0
+  br i1 %.not, label %26, label %19
 
-18:                                               ; preds = %.lr.ph
-  %19 = zext i8 %17 to i64
-  %20 = lshr i64 %8, %19
-  %21 = sub nsw i64 64, %19
-  %22 = and i64 %21, 4294967295
-  %23 = shl i64 %8, %22
-  %24 = or i64 %23, %20
-  br label %25
+19:                                               ; preds = %.lr.ph
+  %20 = zext i8 %18 to i64
+  %21 = lshr i64 %8, %20
+  %22 = sub nsw i64 64, %20
+  %23 = and i64 %22, 4294967295
+  %24 = shl i64 %8, %23
+  %25 = or i64 %24, %21
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %18
-  %.pn = phi i64 [ %24, %18 ], [ %8, %.lr.ph ]
+26:                                               ; preds = %.lr.ph, %19
+  %.pn = phi i64 [ %25, %19 ], [ %8, %.lr.ph ]
   %.sroa.016.1 = or i64 %.pn, %.sroa.016.021
-  %26 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !6
-  %.not19 = icmp eq i64 %27, 0
+  %27 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %28 = load i64, ptr %27, align 8, !tbaa !6
+  %.not19 = icmp eq i64 %28, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 }
 

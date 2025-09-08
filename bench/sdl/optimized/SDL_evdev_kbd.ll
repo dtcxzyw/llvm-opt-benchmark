@@ -1379,18 +1379,16 @@ define internal void @k_dead(ptr noundef captures(none) %0, i8 noundef zeroext %
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %23, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %36, %18
-  %37 = icmp eq i8 %6, 32
-  %38 = icmp eq i32 %10, %7
-  %or.cond.i.i = or i1 %37, %38
-  br i1 %or.cond.i.i, label %handle_diacr.exit.i, label %39
+  %37 = icmp eq i32 %10, %7
+  br i1 %37, label %handle_diacr.exit.i, label %38
 
-39:                                               ; preds = %._crit_edge.i.i
+38:                                               ; preds = %._crit_edge.i.i
   tail call fastcc void @put_utf8(ptr noundef nonnull %0, i32 noundef %10)
   br label %handle_diacr.exit.i
 
-handle_diacr.exit.i:                              ; preds = %39, %._crit_edge.i.i, %32, %8
-  %40 = phi i32 [ %7, %8 ], [ %35, %32 ], [ %7, %39 ], [ %10, %._crit_edge.i.i ]
-  store i32 %40, ptr %9, align 8
+handle_diacr.exit.i:                              ; preds = %38, %._crit_edge.i.i, %32, %8
+  %39 = phi i32 [ %7, %8 ], [ %35, %32 ], [ %7, %38 ], [ %7, %._crit_edge.i.i ]
+  store i32 %39, ptr %9, align 8
   br label %k_deadunicode.exit
 
 k_deadunicode.exit:                               ; preds = %3, %handle_diacr.exit.i

@@ -573,12 +573,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
@@ -701,40 +698,37 @@ define internal zeroext i1 @pm_encoding_euc_jp_isupper_char(ptr noundef readonly
   br i1 %or.cond18.i, label %pm_encoding_euc_jp_char_width.exit.thread, label %pm_encoding_euc_jp_char_width.exit
 
 14:                                               ; preds = %2
-  %15 = zext nneg i8 %3 to i64
-  %16 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !7
-  %18 = and i8 %17, 4
-  %19 = icmp ne i8 %18, 0
+  %15 = add nsw i8 %3, -65
+  %16 = icmp ult i8 %15, 26
   br label %pm_encoding_euc_jp_char_width.exit.thread
 
 pm_encoding_euc_jp_char_width.exit:               ; preds = %10
   switch i8 %3, label %pm_encoding_euc_jp_char_width.exit.thread [
-    i8 -93, label %20
-    i8 -90, label %22
-    i8 -89, label %24
+    i8 -93, label %17
+    i8 -90, label %19
+    i8 -89, label %21
   ]
 
-20:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
-  %21 = add nsw i8 %12, 63
-  %or.cond = icmp ult i8 %21, 26
+17:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
+  %18 = add nsw i8 %12, 63
+  %or.cond = icmp ult i8 %18, 26
   br i1 %or.cond, label %pm_encoding_euc_jp_char_width.exit.thread, label %.thread23
 
-22:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
-  %23 = add nsw i8 %12, 95
-  %or.cond19 = icmp samesign ult i8 %23, 24
+19:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
+  %20 = add nsw i8 %12, 95
+  %or.cond19 = icmp samesign ult i8 %20, 24
   br i1 %or.cond19, label %pm_encoding_euc_jp_char_width.exit.thread, label %.thread23
 
-.thread23:                                        ; preds = %22, %20
+.thread23:                                        ; preds = %19, %17
   br label %pm_encoding_euc_jp_char_width.exit.thread
 
-24:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
-  %25 = add nsw i8 %12, 95
-  %spec.select = icmp samesign ult i8 %25, 33
+21:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
+  %22 = add nsw i8 %12, 95
+  %spec.select = icmp samesign ult i8 %22, 33
   br label %pm_encoding_euc_jp_char_width.exit.thread
 
-pm_encoding_euc_jp_char_width.exit.thread:        ; preds = %7, %10, %pm_encoding_euc_jp_char_width.exit, %5, %.thread23, %24, %20, %22, %14
-  %.0 = phi i1 [ %19, %14 ], [ true, %20 ], [ true, %22 ], [ %spec.select, %24 ], [ false, %.thread23 ], [ false, %5 ], [ false, %pm_encoding_euc_jp_char_width.exit ], [ false, %10 ], [ false, %7 ]
+pm_encoding_euc_jp_char_width.exit.thread:        ; preds = %7, %10, %pm_encoding_euc_jp_char_width.exit, %5, %.thread23, %21, %17, %19, %14
+  %.0 = phi i1 [ %16, %14 ], [ true, %17 ], [ true, %19 ], [ %spec.select, %21 ], [ false, %.thread23 ], [ false, %5 ], [ false, %pm_encoding_euc_jp_char_width.exit ], [ false, %10 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -909,43 +903,40 @@ define internal zeroext i1 @pm_encoding_shift_jis_isupper_char(ptr noundef reado
   %or.cond17.i = icmp ult i8 %15, 67
   %.not.i = icmp eq i8 %14, 127
   %or.cond18.i = or i1 %.not.i, %or.cond17.i
-  br i1 %or.cond18.i, label %switch.edge, label %22
+  br i1 %or.cond18.i, label %switch.edge, label %19
 
 16:                                               ; preds = %2
-  %17 = zext i8 %3 to i64
-  %18 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !7
-  %20 = and i8 %19, 4
-  %21 = icmp ne i8 %20, 0
+  %17 = add i8 %3, -65
+  %18 = icmp ult i8 %17, 26
   br label %switch.edge
 
-22:                                               ; preds = %12
+19:                                               ; preds = %12
   switch i8 %3, label %switch.edge [
-    i8 -126, label %23
-    i8 -125, label %25
-    i8 -124, label %27
+    i8 -126, label %20
+    i8 -125, label %22
+    i8 -124, label %24
   ]
 
-23:                                               ; preds = %22
-  %24 = add i8 %14, -96
-  %or.cond = icmp ult i8 %24, 26
+20:                                               ; preds = %19
+  %21 = add i8 %14, -96
+  %or.cond = icmp ult i8 %21, 26
   br i1 %or.cond, label %switch.edge, label %.thread24
 
-25:                                               ; preds = %22
-  %26 = add i8 %14, 97
-  %or.cond20 = icmp ult i8 %26, 24
+22:                                               ; preds = %19
+  %23 = add i8 %14, 97
+  %or.cond20 = icmp ult i8 %23, 24
   br i1 %or.cond20, label %switch.edge, label %.thread24
 
-.thread24:                                        ; preds = %25, %23
+.thread24:                                        ; preds = %22, %20
   br label %switch.edge
 
-27:                                               ; preds = %22
-  %28 = add i8 %14, -64
-  %spec.select = icmp ult i8 %28, 33
+24:                                               ; preds = %19
+  %25 = add i8 %14, -64
+  %spec.select = icmp ult i8 %25, 33
   br label %switch.edge
 
-switch.edge:                                      ; preds = %22, %.thread24, %12, %8, %6, %27, %23, %25, %16
-  %.0 = phi i1 [ %21, %16 ], [ true, %23 ], [ true, %25 ], [ %spec.select, %27 ], [ false, %6 ], [ false, %8 ], [ false, %12 ], [ false, %.thread24 ], [ false, %22 ]
+switch.edge:                                      ; preds = %19, %.thread24, %12, %8, %6, %24, %20, %22, %16
+  %.0 = phi i1 [ %18, %16 ], [ true, %20 ], [ true, %22 ], [ %spec.select, %24 ], [ false, %6 ], [ false, %8 ], [ false, %12 ], [ false, %.thread24 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -983,20 +974,9 @@ define internal range(i64 0, 3) i64 @pm_encoding_big5_char_width(ptr noundef rea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ascii_isupper_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = icmp sgt i8 %3, -1
-  br i1 %4, label %5, label %11
-
-5:                                                ; preds = %2
-  %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !7
-  %9 = and i8 %8, 4
-  %10 = icmp ne i8 %9, 0
-  br label %11
-
-11:                                               ; preds = %5, %2
-  %12 = phi i1 [ false, %2 ], [ %10, %5 ]
-  ret i1 %12
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
@@ -1240,12 +1220,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp850_alnum_char(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1274,12 +1251,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp852_alnum_char(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1308,12 +1282,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp855_alnum_char(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_cp855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1621,12 +1592,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1783,12 +1751,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1817,12 +1782,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1851,12 +1813,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1885,12 +1844,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1919,12 +1875,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1953,12 +1906,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -1987,12 +1937,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2021,12 +1968,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2055,12 +1999,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2089,12 +2030,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2123,12 +2061,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2157,12 +2092,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2191,12 +2123,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2225,12 +2154,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2259,12 +2185,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alnum_char(ptr noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2463,12 +2386,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alnum_char(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2865,12 +2785,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alnum_char(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2899,12 +2816,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alnum_char(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2933,12 +2847,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alnum_char(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -2967,12 +2878,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alnum_char(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3001,12 +2909,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alnum_char(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3035,12 +2940,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alnum_char(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3069,12 +2971,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alnum_char(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3103,12 +3002,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alnum_char(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3137,12 +3033,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alnum_char(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3171,12 +3064,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alnum_char(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3437,12 +3327,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alnum_char(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3505,12 +3392,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alnum_char(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -3539,12 +3423,9 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alnum_char(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pm_encoding_windows_874_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
-  %4 = zext i8 %3 to i64
-  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !7
-  %7 = and i8 %6, 4
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %4 = add i8 %3, -65
+  %5 = icmp ult i8 %4, 26
+  ret i1 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

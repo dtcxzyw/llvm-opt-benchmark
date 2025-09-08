@@ -7913,8 +7913,8 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
-17:                                               ; preds = %.lr.ph, %.thread
-  %.08199 = phi i32 [ %.08198, %.lr.ph ], [ %.081, %.thread ]
+17:                                               ; preds = %.lr.ph, %63
+  %.08199 = phi i32 [ %.08198, %.lr.ph ], [ %.081, %63 ]
   %18 = sub i32 %4, %.08199
   %19 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.08199, i32 noundef %18)
   %20 = sub i32 %4, %19
@@ -7936,67 +7936,65 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %32 = sub i32 %spec.select95, %25
   %33 = add i32 %32, 1
   %34 = tail call ptr @tvb_get_string_enc(ptr noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef %33, i32 noundef 2)
-  br label %38
+  br label %36
 
-35:                                               ; preds = %38
+35:                                               ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr %struct.mech_parameter_t, ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv.next
-  %37 = load ptr, ptr %36, align 8
-  %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %63, label %38, !llvm.loop !58
+  %cond = icmp eq i64 %indvars.iv.next, 9
+  br i1 %cond, label %61, label %36, !llvm.loop !58
 
-38:                                               ; preds = %26, %35
+36:                                               ; preds = %26, %35
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %35 ]
-  %39 = phi ptr [ @.str.789, %26 ], [ %37, %35 ]
-  %40 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef nonnull %39)
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %35
+  %37 = getelementptr %struct.mech_parameter_t, ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef %38)
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %35
 
-42:                                               ; preds = %38
-  %43 = getelementptr %struct.mech_parameter_t, ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8
-  switch i32 %45, label %.thread [
-    i32 0, label %46
-    i32 1, label %52
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %43 = load i32, ptr %42, align 8
+  switch i32 %43, label %63 [
+    i32 0, label %44
+    i32 1, label %50
   ]
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = add i32 %32, -1
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %31, i32 noundef %50, i32 noundef 2)
-  br label %.thread
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %46, align 4
+  %48 = add i32 %32, -1
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %31, i32 noundef %48, i32 noundef 2)
+  br label %63
 
-52:                                               ; preds = %42
+50:                                               ; preds = %41
   %.not93 = icmp eq ptr %34, null
-  br i1 %.not93, label %53, label %55
+  br i1 %.not93, label %51, label %53
 
-53:                                               ; preds = %52
-  %54 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sip_sipsec_malformed, ptr noundef %0, i32 noundef %19, i32 noundef -1)
-  br label %.thread
+51:                                               ; preds = %50
+  %52 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sip_sipsec_malformed, ptr noundef %0, i32 noundef %19, i32 noundef -1)
+  br label %63
 
-55:                                               ; preds = %52
-  %56 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #22
-  %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %59, align 4
-  %61 = add i32 %32, -1
-  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %31, i32 noundef %61, i32 noundef %57)
-  br label %.thread
+53:                                               ; preds = %50
+  %54 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #22
+  %55 = trunc i64 %54 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i32, ptr %57, align 4
+  %59 = add i32 %32, -1
+  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %31, i32 noundef %59, i32 noundef %55)
+  br label %63
 
-63:                                               ; preds = %35
-  %64 = tail call ptr @proto_tree_add_format_text(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %23)
-  br label %.thread
+61:                                               ; preds = %35
+  %62 = tail call ptr @proto_tree_add_format_text(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %23)
+  br label %63
 
-.thread:                                          ; preds = %42, %53, %55, %46, %63
+63:                                               ; preds = %41, %51, %53, %44, %61
   %.081 = add i32 %spec.select95, 1
-  %65 = icmp slt i32 %.081, %4
-  br i1 %65, label %17, label %.critedge, !llvm.loop !59
+  %64 = icmp slt i32 %.081, %4
+  br i1 %64, label %17, label %.critedge, !llvm.loop !59
 
-.critedge:                                        ; preds = %.thread, %17, %8, %5
+.critedge:                                        ; preds = %63, %17, %8, %5
   ret void
 }
 

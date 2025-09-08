@@ -360,45 +360,44 @@ define internal fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1,
 
 .preheader:                                       ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  br label %17
+  br label %15
 
 12:                                               ; preds = %8
   %13 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #8
-  br label %29
+  br label %28
 
-14:                                               ; preds = %17
+14:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw %struct.anon, ptr @pmi1_cmd_handlers, i64 %indvars.iv.next
-  %16 = load ptr, ptr %15, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond, label %21, label %17, !llvm.loop !14
+  %cond = icmp eq i64 %indvars.iv.next, 16
+  br i1 %cond, label %20, label %15, !llvm.loop !14
 
-17:                                               ; preds = %.preheader, %14
+15:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %18 = phi ptr [ @.str.12, %.preheader ], [ %16, %14 ]
-  %19 = load ptr, ptr %11, align 8
-  %20 = tail call i32 @slurm_xstrcmp(ptr noundef %19, ptr noundef nonnull %18) #8
-  %.not20 = icmp eq i32 %20, 0
-  br i1 %.not20, label %24, label %14
+  %16 = getelementptr inbounds nuw %struct.anon, ptr @pmi1_cmd_handlers, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 16
+  %18 = load ptr, ptr %11, align 8
+  %19 = tail call i32 @slurm_xstrcmp(ptr noundef %18, ptr noundef %17) #8
+  %.not20 = icmp eq i32 %19, 0
+  br i1 %.not20, label %23, label %14
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %11, align 8
-  %23 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.11, ptr noundef %22) #8
-  br label %28
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %11, align 8
+  %22 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.11, ptr noundef %21) #8
+  br label %27
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw %struct.anon, ptr @pmi1_cmd_handlers, i64 %indvars.iv, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %9) #8
-  br label %28
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 %25(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %9) #8
+  br label %27
 
-28:                                               ; preds = %24, %21
-  %.0 = phi i32 [ -1, %21 ], [ %27, %24 ]
+27:                                               ; preds = %23, %20
+  %.0 = phi i32 [ -1, %20 ], [ %26, %23 ]
   tail call void @client_req_free(ptr noundef nonnull %9) #8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %12
-  %.017 = phi i32 [ -1, %12 ], [ %.0, %28 ]
+28:                                               ; preds = %27, %12
+  %.017 = phi i32 [ -1, %12 ], [ %.0, %27 ]
   ret i32 %.017
 }
 

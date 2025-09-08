@@ -348,66 +348,68 @@ parse_speex_extradata.exit:                       ; preds = %62
   store i32 1, ptr %149, align 4, !tbaa !60
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 68
   store i32 1, ptr %150, align 4, !tbaa !61
-  %151 = icmp sgt i32 %147, 0
-  %152 = zext i1 %151 to i32
-  %153 = getelementptr inbounds nuw i8, ptr %145, i64 20
-  store i32 %152, ptr %153, align 4, !tbaa !62
-  %154 = getelementptr inbounds nuw i8, ptr %145, i64 48
-  store ptr null, ptr %154, align 8, !tbaa !63
-  %155 = getelementptr inbounds nuw i8, ptr %146, i64 32
-  %156 = getelementptr inbounds nuw i8, ptr %145, i64 72
-  store ptr %155, ptr %156, align 8, !tbaa !64
-  %157 = getelementptr inbounds nuw i8, ptr %146, i64 104
-  %158 = load i32, ptr %157, align 8, !tbaa !65
-  %159 = getelementptr inbounds nuw i8, ptr %145, i64 80
-  store i32 %158, ptr %159, align 8, !tbaa !66
-  %160 = getelementptr inbounds nuw i8, ptr %146, i64 20
-  %161 = load i32, ptr %160, align 4, !tbaa !67
-  %162 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  store i32 %161, ptr %162, align 8, !tbaa !68
-  %163 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %164 = load i32, ptr %163, align 8, !tbaa !69
-  %165 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  store i32 %164, ptr %165, align 8, !tbaa !70
-  %166 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %167 = load i32, ptr %166, align 16, !tbaa !71
-  %168 = shl i32 %167, %152
-  %169 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  store i32 %168, ptr %169, align 8, !tbaa !72
-  %170 = sdiv i32 %167, %161
-  %171 = getelementptr inbounds nuw i8, ptr %145, i64 36
-  store i32 %170, ptr %171, align 4, !tbaa !73
-  %172 = getelementptr inbounds nuw i8, ptr %145, i64 28
-  store i32 %167, ptr %172, align 4, !tbaa !74
-  %173 = getelementptr inbounds nuw i8, ptr %145, i64 84
-  store i32 1, ptr %173, align 4, !tbaa !75
-  %174 = getelementptr inbounds nuw i8, ptr %145, i64 56
-  store i32 40, ptr %174, align 8, !tbaa !76
-  %175 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  store i32 0, ptr %175, align 8, !tbaa !77
-  %176 = getelementptr inbounds nuw i8, ptr %145, i64 64
-  store i32 1000, ptr %176, align 8, !tbaa !78
-  %177 = getelementptr inbounds nuw i8, ptr %145, i64 44
-  store float 0.000000e+00, ptr %177, align 4, !tbaa !79
-  %178 = getelementptr inbounds nuw i8, ptr %145, i64 88
-  %179 = icmp eq i32 %147, 0
-  %180 = zext i1 %179 to i32
-  %181 = getelementptr inbounds nuw i8, ptr %145, i64 108
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %178, i8 0, i64 20, i1 false)
-  store i32 %180, ptr %181, align 4, !tbaa !80
+  %151 = trunc nuw nsw i64 %indvars.iv to i32
+  %152 = add nsw i32 %151, -1
+  %153 = icmp ult i32 %152, 2
+  %154 = zext i1 %153 to i32
+  %155 = getelementptr inbounds nuw i8, ptr %145, i64 20
+  store i32 %154, ptr %155, align 4, !tbaa !62
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 48
+  store ptr null, ptr %156, align 8, !tbaa !63
+  %157 = getelementptr inbounds nuw i8, ptr %146, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %145, i64 72
+  store ptr %157, ptr %158, align 8, !tbaa !64
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 104
+  %160 = load i32, ptr %159, align 8, !tbaa !65
+  %161 = getelementptr inbounds nuw i8, ptr %145, i64 80
+  store i32 %160, ptr %161, align 8, !tbaa !66
+  %162 = getelementptr inbounds nuw i8, ptr %146, i64 20
+  %163 = load i32, ptr %162, align 4, !tbaa !67
+  %164 = getelementptr inbounds nuw i8, ptr %145, i64 32
+  store i32 %163, ptr %164, align 8, !tbaa !68
+  %165 = getelementptr inbounds nuw i8, ptr %146, i64 24
+  %166 = load i32, ptr %165, align 8, !tbaa !69
+  %167 = getelementptr inbounds nuw i8, ptr %145, i64 40
+  store i32 %166, ptr %167, align 8, !tbaa !70
+  %168 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %169 = load i32, ptr %168, align 16, !tbaa !71
+  %170 = shl i32 %169, %154
+  %171 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  store i32 %170, ptr %171, align 8, !tbaa !72
+  %172 = sdiv i32 %169, %163
+  %173 = getelementptr inbounds nuw i8, ptr %145, i64 36
+  store i32 %172, ptr %173, align 4, !tbaa !73
+  %174 = getelementptr inbounds nuw i8, ptr %145, i64 28
+  store i32 %169, ptr %174, align 4, !tbaa !74
+  %175 = getelementptr inbounds nuw i8, ptr %145, i64 84
+  store i32 1, ptr %175, align 4, !tbaa !75
+  %176 = getelementptr inbounds nuw i8, ptr %145, i64 56
+  store i32 40, ptr %176, align 8, !tbaa !76
+  %177 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  store i32 0, ptr %177, align 8, !tbaa !77
+  %178 = getelementptr inbounds nuw i8, ptr %145, i64 64
+  store i32 1000, ptr %178, align 8, !tbaa !78
+  %179 = getelementptr inbounds nuw i8, ptr %145, i64 44
+  store float 0.000000e+00, ptr %179, align 4, !tbaa !79
+  %180 = getelementptr inbounds nuw i8, ptr %145, i64 88
+  %181 = icmp eq i64 %indvars.iv, 0
+  %182 = zext i1 %181 to i32
+  %183 = getelementptr inbounds nuw i8, ptr %145, i64 108
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %180, i8 0, i64 20, i1 false)
+  store i32 %182, ptr %183, align 4, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82.not = icmp samesign ult i64 %indvars.iv, %143
   br i1 %.not82.not, label %144, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %144, %131
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store float 1.000000e+00, ptr %182, align 4, !tbaa !83
-  %183 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float 5.000000e-01, ptr %183, align 4, !tbaa !84
-  %184 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  store float 1.000000e+00, ptr %184, align 4, !tbaa !85
-  %185 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store float 1.000000e+00, ptr %185, align 4, !tbaa !86
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  store float 1.000000e+00, ptr %184, align 4, !tbaa !83
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store float 5.000000e-01, ptr %185, align 4, !tbaa !84
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 92
+  store float 1.000000e+00, ptr %186, align 4, !tbaa !85
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store float 1.000000e+00, ptr %187, align 4, !tbaa !86
   br label %parse_speex_extradata.exit.thread
 
 parse_speex_extradata.exit.thread:                ; preds = %99, %97, %92, %51, %62, %38, %33, %29, %25, %17, %14, %72, %67, %1, %._crit_edge

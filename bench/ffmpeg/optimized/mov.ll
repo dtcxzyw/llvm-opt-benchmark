@@ -1602,7 +1602,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_default(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %.lr.ph, %.thread197
-  %.0147222 = phi i64 [ 0, %.lr.ph ], [ %143, %.thread197 ]
+  %.0147222 = phi i64 [ 0, %.lr.ph ], [ %142, %.thread197 ]
   %28 = call i32 @avio_rb32(ptr noundef %1) #16
   %29 = zext i32 %28 to i64
   %30 = call i32 @avio_rl32(ptr noundef %1) #16
@@ -1708,181 +1708,180 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_default(ptr noundef %0, 
 72:                                               ; preds = %64
   %73 = add nsw i64 %spec.select210, -8
   %74 = call i64 @llvm.smin.i64(i64 %73, i64 %69)
-  br label %78
+  br label %76
 
-75:                                               ; preds = %78
+75:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = getelementptr inbounds nuw %struct.MOVParseTableEntry, ptr @mov_default_parse_table, i64 %indvars.iv.next
-  %77 = load i32, ptr %76, align 16, !tbaa !129
-  %.not175 = icmp eq i32 %77, 0
-  br i1 %.not175, label %.loopexit, label %78, !llvm.loop !131
+  %.not175 = icmp eq i64 %indvars.iv.next, 122
+  br i1 %.not175, label %.loopexit, label %76, !llvm.loop !129
 
-78:                                               ; preds = %72, %75
+76:                                               ; preds = %72, %75
   %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %75 ]
-  %79 = phi i32 [ 1380729665, %72 ], [ %77, %75 ]
-  %80 = icmp eq i32 %79, %.sroa.0.0
-  br i1 %80, label %81, label %75
+  %77 = getelementptr inbounds nuw %struct.MOVParseTableEntry, ptr @mov_default_parse_table, i64 %indvars.iv
+  %78 = load i32, ptr %77, align 16, !tbaa !130
+  %79 = icmp eq i32 %78, %.sroa.0.0
+  br i1 %79, label %80, label %75
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw %struct.MOVParseTableEntry, ptr @mov_default_parse_table, i64 %indvars.iv, i32 1
-  %83 = load ptr, ptr %82, align 8, !tbaa !132
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !132
   br label %.loopexit
 
-.loopexit:                                        ; preds = %75, %81
-  %.0151 = phi ptr [ %83, %81 ], [ null, %75 ]
+.loopexit:                                        ; preds = %75, %80
+  %.0151 = phi ptr [ %82, %80 ], [ null, %75 ]
   %.not176 = icmp eq ptr %.0151, null
   %.1152 = select i1 %.not176, ptr %19, ptr %.0151
   %.not177 = icmp eq ptr %.1152, null
-  br i1 %.not177, label %84, label %select.unfold
+  br i1 %.not177, label %83, label %select.unfold
 
-84:                                               ; preds = %.loopexit
-  %85 = load i32, ptr %20, align 8, !tbaa !133
-  %86 = icmp ne i32 %85, 0
-  %or.cond22 = select i1 %86, i1 %21, i1 false
-  %87 = icmp eq i32 %.sroa.0.0, 1937335659
-  %or.cond26 = select i1 %or.cond22, i1 %87, i1 false
-  br i1 %or.cond26, label %88, label %91
+83:                                               ; preds = %.loopexit
+  %84 = load i32, ptr %20, align 8, !tbaa !133
+  %85 = icmp ne i32 %84, 0
+  %or.cond22 = select i1 %85, i1 %21, i1 false
+  %86 = icmp eq i32 %.sroa.0.0, 1937335659
+  %or.cond26 = select i1 %or.cond22, i1 %86, i1 false
+  br i1 %or.cond26, label %87, label %90
 
-88:                                               ; preds = %84
-  %89 = load i32, ptr %22, align 8, !tbaa !134
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %select.unfold, label %91
+87:                                               ; preds = %83
+  %88 = load i32, ptr %22, align 8, !tbaa !134
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %select.unfold, label %90
 
-91:                                               ; preds = %84, %88
-  %92 = call i64 @avio_skip(ptr noundef %1, i64 noundef %74) #16
+90:                                               ; preds = %83, %87
+  %91 = call i64 @avio_skip(ptr noundef %1, i64 noundef %74) #16
   br label %.thread197
 
-select.unfold:                                    ; preds = %88, %.loopexit
-  %.2153 = phi ptr [ %.1152, %.loopexit ], [ @mov_read_keys, %88 ]
-  %93 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %94 = call i32 %.2153(ptr noundef %0, ptr noundef %1, i32 %.sroa.0.0, i64 %74) #16
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %99
+select.unfold:                                    ; preds = %87, %.loopexit
+  %.2153 = phi ptr [ %.1152, %.loopexit ], [ @mov_read_keys, %87 ]
+  %92 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %93 = call i32 %.2153(ptr noundef %0, ptr noundef %1, i32 %.sroa.0.0, i64 %74) #16
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %98
 
-96:                                               ; preds = %select.unfold
-  %97 = load i32, ptr %8, align 8, !tbaa !126
-  %98 = add nsw i32 %97, -1
-  store i32 %98, ptr %8, align 8, !tbaa !126
+95:                                               ; preds = %select.unfold
+  %96 = load i32, ptr %8, align 8, !tbaa !126
+  %97 = add nsw i32 %96, -1
+  store i32 %97, ptr %8, align 8, !tbaa !126
   br label %.thread201
 
-99:                                               ; preds = %select.unfold
-  %100 = load i32, ptr %23, align 8, !tbaa !135
-  %.not179 = icmp eq i32 %100, 0
-  br i1 %.not179, label %129, label %101
+98:                                               ; preds = %select.unfold
+  %99 = load i32, ptr %23, align 8, !tbaa !135
+  %.not179 = icmp eq i32 %99, 0
+  br i1 %.not179, label %128, label %100
 
-101:                                              ; preds = %99
-  %102 = load i32, ptr %24, align 4, !tbaa !136
-  %.not180 = icmp eq i32 %102, 0
-  %103 = sub nsw i64 9223372036854775807, %93
-  %.not181 = icmp sgt i64 %74, %103
+100:                                              ; preds = %98
+  %101 = load i32, ptr %24, align 4, !tbaa !136
+  %.not180 = icmp eq i32 %101, 0
+  %102 = sub nsw i64 9223372036854775807, %92
+  %.not181 = icmp sgt i64 %74, %102
   %or.cond = select i1 %.not180, i1 true, i1 %.not181
-  br i1 %or.cond, label %129, label %104
+  br i1 %or.cond, label %128, label %103
 
-104:                                              ; preds = %101
-  %105 = load i32, ptr %25, align 8, !tbaa !137
-  %106 = and i32 %105, 1
-  %.not182 = icmp eq i32 %106, 0
-  br i1 %.not182, label %split.thread248, label %107
+103:                                              ; preds = %100
+  %104 = load i32, ptr %25, align 8, !tbaa !137
+  %105 = and i32 %104, 1
+  %.not182 = icmp eq i32 %105, 0
+  br i1 %.not182, label %split.thread247, label %106
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %18, align 8, !tbaa !4
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  %110 = load i32, ptr %109, align 8, !tbaa !138
-  %111 = and i32 %110, 2
-  %.not183 = icmp eq i32 %111, 0
-  br i1 %.not183, label %112, label %split.thread
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %18, align 8, !tbaa !4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 128
+  %109 = load i32, ptr %108, align 8, !tbaa !138
+  %110 = and i32 %109, 2
+  %.not183 = icmp eq i32 %110, 0
+  br i1 %.not183, label %111, label %split.thread
 
-112:                                              ; preds = %107
-  %113 = load i32, ptr %26, align 4, !tbaa !139
-  %.not184 = icmp eq i32 %113, 0
-  br i1 %.not184, label %114, label %split.thread
+111:                                              ; preds = %106
+  %112 = load i32, ptr %26, align 4, !tbaa !139
+  %.not184 = icmp eq i32 %112, 0
+  br i1 %.not184, label %113, label %split.thread
 
-114:                                              ; preds = %112
-  %115 = add nsw i64 %93, %74
-  %116 = call i64 @avio_size(ptr noundef nonnull %1) #16
-  %117 = icmp eq i64 %115, %116
-  br i1 %117, label %split, label %129
+113:                                              ; preds = %111
+  %114 = add nsw i64 %92, %74
+  %115 = call i64 @avio_size(ptr noundef nonnull %1) #16
+  %116 = icmp eq i64 %114, %115
+  br i1 %116, label %split, label %128
 
-split:                                            ; preds = %114
+split:                                            ; preds = %113
   %.pre = load i32, ptr %25, align 8, !tbaa !137
   %.pre237 = and i32 %.pre, 1
   %.not185 = icmp eq i32 %.pre237, 0
-  br i1 %.not185, label %split.thread248, label %split.thread
+  br i1 %.not185, label %split.thread247, label %split.thread
 
-split.thread:                                     ; preds = %112, %107, %split
-  %118 = load ptr, ptr %18, align 8, !tbaa !4
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 128
-  %120 = load i32, ptr %119, align 8, !tbaa !138
-  %121 = and i32 %120, 2
-  %.not186 = icmp eq i32 %121, 0
-  br i1 %.not186, label %122, label %split.thread248
+split.thread:                                     ; preds = %111, %106, %split
+  %117 = load ptr, ptr %18, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 128
+  %119 = load i32, ptr %118, align 8, !tbaa !138
+  %120 = and i32 %119, 2
+  %.not186 = icmp eq i32 %120, 0
+  br i1 %.not186, label %121, label %split.thread247
 
-122:                                              ; preds = %split.thread
-  %123 = load i32, ptr %26, align 4, !tbaa !139
-  %.not187 = icmp eq i32 %123, 0
-  br i1 %.not187, label %126, label %split.thread248
+121:                                              ; preds = %split.thread
+  %122 = load i32, ptr %26, align 4, !tbaa !139
+  %.not187 = icmp eq i32 %122, 0
+  br i1 %.not187, label %125, label %split.thread247
 
-split.thread248:                                  ; preds = %104, %122, %split.thread, %split
-  %124 = add nsw i64 %93, %74
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %124, ptr %125, align 8, !tbaa !140
-  br label %126
+split.thread247:                                  ; preds = %103, %121, %split.thread, %split
+  %123 = add nsw i64 %92, %74
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i64 %123, ptr %124, align 8, !tbaa !140
+  br label %125
 
-126:                                              ; preds = %split.thread248, %122
-  %127 = load i32, ptr %8, align 8, !tbaa !126
-  %128 = add nsw i32 %127, -1
-  store i32 %128, ptr %8, align 8, !tbaa !126
+125:                                              ; preds = %split.thread247, %121
+  %126 = load i32, ptr %8, align 8, !tbaa !126
+  %127 = add nsw i32 %126, -1
+  store i32 %127, ptr %8, align 8, !tbaa !126
   br label %.thread201
 
-129:                                              ; preds = %114, %101, %99
-  %130 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
-  %131 = sub nsw i64 %74, %130
-  %132 = add nsw i64 %131, %93
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %134, label %136
+128:                                              ; preds = %113, %100, %98
+  %129 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
+  %130 = sub nsw i64 %74, %129
+  %131 = add nsw i64 %130, %92
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %133, label %135
 
-134:                                              ; preds = %129
-  %135 = call i64 @avio_skip(ptr noundef %1, i64 noundef %132) #16
+133:                                              ; preds = %128
+  %134 = call i64 @avio_skip(ptr noundef %1, i64 noundef %131) #16
   br label %.thread197
 
-136:                                              ; preds = %129
-  %137 = icmp slt i64 %132, 0
-  br i1 %137, label %138, label %.thread197
+135:                                              ; preds = %128
+  %136 = icmp slt i64 %131, 0
+  br i1 %136, label %137, label %.thread197
 
-138:                                              ; preds = %136
-  %139 = load ptr, ptr %18, align 8, !tbaa !4
+137:                                              ; preds = %135
+  %138 = load ptr, ptr %18, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %140 = call ptr @av_fourcc_make_string(ptr noundef nonnull %7, i32 noundef %.sroa.0.0) #16
-  %141 = sub nsw i64 0, %132
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %139, i32 noundef 24, ptr noundef nonnull @.str.35, ptr noundef %140, i64 noundef %141) #16
-  %142 = call i64 @avio_seek(ptr noundef %1, i64 noundef %132, i32 noundef 1) #16
+  %139 = call ptr @av_fourcc_make_string(ptr noundef nonnull %7, i32 noundef %.sroa.0.0) #16
+  %140 = sub nsw i64 0, %131
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %138, i32 noundef 24, ptr noundef nonnull @.str.35, ptr noundef %139, i64 noundef %140) #16
+  %141 = call i64 @avio_seek(ptr noundef %1, i64 noundef %131, i32 noundef 1) #16
   br label %.thread197
 
-.thread197:                                       ; preds = %134, %138, %136, %91
-  %143 = add nsw i64 %74, %.3150
-  %.not = icmp sgt i64 %143, %16
+.thread197:                                       ; preds = %133, %137, %135, %90
+  %142 = add nsw i64 %74, %.3150
+  %.not = icmp sgt i64 %142, %16
   br i1 %.not, label %.thread206, label %27
 
 .thread206:                                       ; preds = %.thread197, %27, %64, %42, %14
-  %.1148 = phi i64 [ 0, %14 ], [ %.0147222, %42 ], [ %.3150, %64 ], [ %.0147222, %27 ], [ %143, %.thread197 ]
-  %144 = icmp slt i64 %.1148, %spec.select
-  %145 = icmp ult i64 %3, 524287
-  %or.cond30 = and i1 %145, %144
-  br i1 %or.cond30, label %146, label %149
+  %.1148 = phi i64 [ 0, %14 ], [ %.0147222, %42 ], [ %.3150, %64 ], [ %.0147222, %27 ], [ %142, %.thread197 ]
+  %143 = icmp slt i64 %.1148, %spec.select
+  %144 = icmp ult i64 %3, 524287
+  %or.cond30 = and i1 %144, %143
+  br i1 %or.cond30, label %145, label %148
 
-146:                                              ; preds = %.thread206
-  %147 = sub nsw i64 %spec.select, %.1148
-  %148 = call i64 @avio_skip(ptr noundef %1, i64 noundef %147) #16
-  br label %149
+145:                                              ; preds = %.thread206
+  %146 = sub nsw i64 %spec.select, %.1148
+  %147 = call i64 @avio_skip(ptr noundef %1, i64 noundef %146) #16
+  br label %148
 
-149:                                              ; preds = %146, %.thread206
-  %150 = load i32, ptr %8, align 8, !tbaa !126
-  %151 = add nsw i32 %150, -1
-  store i32 %151, ptr %8, align 8, !tbaa !126
+148:                                              ; preds = %145, %.thread206
+  %149 = load i32, ptr %8, align 8, !tbaa !126
+  %150 = add nsw i32 %149, -1
+  store i32 %150, ptr %8, align 8, !tbaa !126
   br label %.thread201
 
-.thread201:                                       ; preds = %96, %126, %51, %149, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %149 ], [ 0, %126 ], [ %94, %96 ], [ 0, %51 ]
+.thread201:                                       ; preds = %95, %125, %51, %148, %11
+  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %148 ], [ 0, %125 ], [ %93, %95 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -27134,10 +27133,10 @@ attributes #19 = { nounwind willreturn memory(none) }
 !126 = !{!5, !11, i64 280}
 !127 = !{!5, !11, i64 236}
 !128 = !{!26, !11, i64 272}
-!129 = !{!130, !11, i64 0}
-!130 = !{!"MOVParseTableEntry", !11, i64 0, !7, i64 8}
-!131 = distinct !{!131, !85}
-!132 = !{!130, !7, i64 8}
+!129 = distinct !{!129, !85}
+!130 = !{!131, !11, i64 0}
+!131 = !{!"MOVParseTableEntry", !11, i64 0, !7, i64 8}
+!132 = !{!131, !7, i64 8}
 !133 = !{!5, !11, i64 48}
 !134 = !{!5, !11, i64 64}
 !135 = !{!5, !11, i64 32}

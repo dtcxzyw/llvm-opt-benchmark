@@ -1072,10 +1072,10 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noun
   %5 = sext i32 %4 to i64
   br label %.outer
 
-.outer:                                           ; preds = %36, %3
-  %indvars.iv76.ph = phi i64 [ %indvars.iv.next77, %36 ], [ %5, %3 ]
-  %.034.ph = phi i64 [ %39, %36 ], [ 0, %3 ]
-  %.0.ph = phi i32 [ %40, %36 ], [ 0, %3 ]
+.outer:                                           ; preds = %34, %3
+  %indvars.iv76.ph = phi i64 [ %indvars.iv.next77, %34 ], [ %5, %3 ]
+  %.034.ph = phi i64 [ %37, %34 ], [ 0, %3 ]
+  %.0.ph = phi i32 [ %38, %34 ], [ 0, %3 ]
   br label %6
 
 6:                                                ; preds = %.outer, %9
@@ -1104,66 +1104,64 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noun
 
 17:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw %struct.unit_names, ptr @un, i64 %indvars.iv.next
-  %19 = load ptr, ptr %18, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond, label %33, label %.preheader, !llvm.loop !15
+  %.not47 = icmp eq i64 %indvars.iv.next, 10
+  br i1 %.not47, label %31, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader.preheader ]
-  %20 = phi ptr [ %19, %17 ], [ @.str.18, %.preheader.preheader ]
-  %21 = getelementptr inbounds nuw %struct.unit_names, ptr @un, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = sext i32 %23 to i64
-  %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %16, ptr noundef nonnull %20, i64 noundef %24) #13
-  %.not48 = icmp eq i32 %25, 0
-  br i1 %.not48, label %26, label %17
+  %18 = getelementptr inbounds nuw %struct.unit_names, ptr @un, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = sext i32 %21 to i64
+  %23 = tail call i32 @xstrncasecmp(ptr noundef nonnull %16, ptr noundef %19, i64 noundef %22) #13
+  %.not48 = icmp eq i32 %23, 0
+  br i1 %.not48, label %24, label %17
 
-26:                                               ; preds = %.preheader
-  %27 = trunc nsw i64 %indvars.iv76 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = sext i32 %29 to i64
-  %31 = mul nsw i64 %.034.ph, %30
-  %32 = add i32 %23, %27
+24:                                               ; preds = %.preheader
+  %25 = trunc nsw i64 %indvars.iv76 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %27 = load i32, ptr %26, align 4
+  %28 = sext i32 %27 to i64
+  %29 = mul nsw i64 %.034.ph, %28
+  %30 = add i32 %21, %25
   br label %.critedge
 
-33:                                               ; preds = %17
-  %34 = load i8, ptr %16, align 1
-  %35 = add i8 %34, -48
-  %or.cond = icmp ult i8 %35, 10
-  br i1 %or.cond, label %36, label %43
+31:                                               ; preds = %17
+  %32 = load i8, ptr %16, align 1
+  %33 = add i8 %32, -48
+  %or.cond = icmp ult i8 %33, 10
+  br i1 %or.cond, label %34, label %41
 
-36:                                               ; preds = %33
-  %37 = mul nsw i64 %.034.ph, 10
-  %38 = zext nneg i8 %35 to i64
-  %39 = add nsw i64 %37, %38
-  %40 = add nuw nsw i32 %.0.ph, 1
+34:                                               ; preds = %31
+  %35 = mul nsw i64 %.034.ph, 10
+  %36 = zext nneg i8 %33 to i64
+  %37 = add nsw i64 %35, %36
+  %38 = add nuw nsw i32 %.0.ph, 1
   br label %.outer, !llvm.loop !14
 
 .critedge.loopexit:                               ; preds = %6, %6
-  %41 = trunc nsw i64 %indvars.iv76 to i32
+  %39 = trunc nsw i64 %indvars.iv76 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %26
-  %.137 = phi i32 [ %32, %26 ], [ %41, %.critedge.loopexit ]
-  %.135 = phi i64 [ %31, %26 ], [ %.034.ph, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %24
+  %.137 = phi i32 [ %30, %24 ], [ %39, %.critedge.loopexit ]
+  %.135 = phi i64 [ %29, %24 ], [ %.034.ph, %.critedge.loopexit ]
   %.not50 = icmp eq i32 %.0.ph, 0
-  br i1 %.not50, label %45, label %42
+  br i1 %.not50, label %43, label %40
 
-42:                                               ; preds = %.critedge
+40:                                               ; preds = %.critedge
   store i32 %.137, ptr %1, align 4
   store i64 %.135, ptr %2, align 8
-  br label %45
+  br label %43
 
-43:                                               ; preds = %33
-  %44 = trunc nsw i64 %indvars.iv76 to i32
-  store i32 %44, ptr %1, align 4
-  br label %45
+41:                                               ; preds = %31
+  %42 = trunc nsw i64 %indvars.iv76 to i32
+  store i32 %42, ptr %1, align 4
+  br label %43
 
-45:                                               ; preds = %.critedge, %43, %42
-  %.041 = phi i32 [ 0, %42 ], [ -1, %43 ], [ -1, %.critedge ]
+43:                                               ; preds = %.critedge, %41, %40
+  %.041 = phi i32 [ 0, %40 ], [ -1, %41 ], [ -1, %.critedge ]
   ret i32 %.041
 }
 

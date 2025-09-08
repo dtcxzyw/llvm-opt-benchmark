@@ -23,29 +23,29 @@ define dso_local i32 @fwrite_xattr(ptr noundef %0, ptr noundef %1, i32 noundef %
 .lr.ph:                                           ; preds = %3, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %3 ]
   %7 = getelementptr inbounds nuw %struct.xattr_mapping, ptr @mappings, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 16, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv, 2
-  br i1 %exitcond, label %.critedge, label %9
+  %.not24 = icmp eq i64 %indvars.iv, 2
+  br i1 %.not24, label %.critedge, label %8
 
-9:                                                ; preds = %.lr.ph
+8:                                                ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !12
-  %12 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %0, i32 noundef %11, ptr noundef nonnull %5) #5
-  %13 = icmp eq i32 %12, 0
-  %14 = load ptr, ptr %5, align 8
-  %15 = icmp ne ptr %14, null
-  %or.cond = select i1 %13, i1 %15, i1 false
+  store ptr null, ptr %5, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i32, ptr %9, align 8, !tbaa !9
+  %11 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %5) #5
+  %12 = icmp eq i32 %11, 0
+  %13 = load ptr, ptr %5, align 8
+  %14 = icmp ne ptr %13, null
+  %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %xattr.exit, label %18
 
-xattr.exit:                                       ; preds = %9
-  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #6
-  %17 = call i32 @fsetxattr(i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %14, i64 noundef %16, i32 noundef 0) #5
+xattr.exit:                                       ; preds = %8
+  %15 = load ptr, ptr %7, align 16, !tbaa !12
+  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #6
+  %17 = call i32 @fsetxattr(i32 noundef %2, ptr noundef %15, ptr noundef nonnull %13, i64 noundef %16, i32 noundef 0) #5
   br label %18
 
-18:                                               ; preds = %xattr.exit, %9
-  %.121 = phi i32 [ %17, %xattr.exit ], [ 0, %9 ]
+18:                                               ; preds = %xattr.exit, %8
+  %.121 = phi i32 [ %17, %xattr.exit ], [ 0, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %.121, 0
@@ -84,7 +84,7 @@ stripcredentials.exit.thread:                     ; preds = %.critedge, %20, %22
 
 stripcredentials.exit:                            ; preds = %26
   call void @curl_url_cleanup(ptr noundef nonnull %19) #5
-  %28 = load ptr, ptr %4, align 8, !tbaa !11
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not25.not = icmp eq ptr %28, null
   br i1 %.not25.not, label %.critedge28, label %xattr.exit33
@@ -138,14 +138,14 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !6, i64 0}
-!5 = !{!"xattr_mapping", !6, i64 0, !10, i64 8}
-!6 = !{!"p1 omnipotent char", !7, i64 0}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"int", !8, i64 0}
-!11 = !{!6, !6, i64 0}
-!12 = !{!5, !10, i64 8}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !11, i64 8}
+!10 = !{!"xattr_mapping", !5, i64 0, !11, i64 8}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!10, !5, i64 0}
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}

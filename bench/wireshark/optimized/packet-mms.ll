@@ -3040,545 +3040,540 @@ define hidden i32 @dissect_mms_MMSpdu(i1 zeroext %0, ptr noundef %1, i32 noundef
   %17 = load i32, ptr @ett_mms_MMSpdu, align 4
   %18 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @MMSpdu_choice, i32 noundef %5, i32 noundef %17, ptr noundef nonnull %7)
   %19 = load i32, ptr %7, align 4
-  %.not119 = icmp eq i32 %19, -1
-  br i1 %.not119, label %348, label %20
+  switch i32 %19, label %20 [
+    i32 -1, label %344
+    i32 14, label %344
+  ]
 
 20:                                               ; preds = %16
-  %21 = sext i32 %19 to i64
-  %22 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %21, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %.not120 = icmp eq ptr %23, null
-  br i1 %.not120, label %348, label %24
+  br i1 %.not, label %293, label %21
 
-24:                                               ; preds = %20
-  br i1 %.not, label %297, label %25
-
-25:                                               ; preds = %24
-  %26 = load i32, ptr %13, align 8
-  switch i32 %26, label %259 [
-    i32 3, label %27
-    i32 8, label %52
-    i32 9, label %59
-    i32 0, label %66
-    i32 1, label %160
+21:                                               ; preds = %20
+  %22 = load i32, ptr %13, align 8
+  switch i32 %22, label %255 [
+    i32 3, label %23
+    i32 8, label %48
+    i32 9, label %55
+    i32 0, label %62
+    i32 1, label %156
   ]
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %38
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %25, 1
+  br i1 %26, label %27, label %34
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8
+  call void @col_append_str(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.14)
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  call void @col_append_str(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.14)
-  %36 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %37 = load ptr, ptr %36, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.15)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.15)
+  br label %344
 
-38:                                               ; preds = %27
-  %39 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %.not123 = icmp eq ptr %40, null
-  br i1 %.not123, label %348, label %41
+34:                                               ; preds = %23
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %36 = load ptr, ptr %35, align 8
+  %.not123 = icmp eq ptr %36, null
+  br i1 %.not123, label %344, label %37
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %43, 3
-  br i1 %44, label %45, label %348
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, 3
+  br i1 %40, label %41, label %344
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.16)
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  call void @col_append_str(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.16)
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %51 = load ptr, ptr %50, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef nonnull @.str.17)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.17)
+  br label %344
 
-52:                                               ; preds = %25
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
+48:                                               ; preds = %21
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  call void @col_append_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.18)
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  call void @col_append_str(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.18)
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %58 = load ptr, ptr %57, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.19)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.19)
+  br label %344
 
-59:                                               ; preds = %25
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
+55:                                               ; preds = %21
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  call void @col_append_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.20)
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  call void @col_append_str(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.20)
-  %64 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %65 = load ptr, ptr %64, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.21)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.21)
+  br label %344
 
-66:                                               ; preds = %25
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %68 = load ptr, ptr %67, align 8
-  %.not122 = icmp eq ptr %68, null
-  br i1 %.not122, label %141, label %69
+62:                                               ; preds = %21
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %64 = load ptr, ptr %63, align 8
+  %.not122 = icmp eq ptr %64, null
+  br i1 %.not122, label %137, label %65
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %71 = load i32, ptr %70, align 4
-  switch i32 %71, label %348 [
-    i32 1, label %72
-    i32 2, label %79
-    i32 3, label %88
-    i32 4, label %97
-    i32 6, label %105
-    i32 7, label %119
-    i32 5, label %133
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 28
+  %67 = load i32, ptr %66, align 4
+  switch i32 %67, label %344 [
+    i32 1, label %68
+    i32 2, label %75
+    i32 3, label %84
+    i32 4, label %93
+    i32 6, label %101
+    i32 7, label %115
+    i32 5, label %129
   ]
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  call void @col_append_str(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.22)
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8
-  call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.22)
-  %77 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %78 = load ptr, ptr %77, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.23)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.23)
+  br label %344
 
-79:                                               ; preds = %69
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
+75:                                               ; preds = %65
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %81)
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %85 = load ptr, ptr %84, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %85)
-  %86 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %87 = load ptr, ptr %86, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %87, ptr noundef nonnull @.str.25)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.25)
+  br label %344
 
-88:                                               ; preds = %69
-  %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
+84:                                               ; preds = %65
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.26, ptr noundef %90)
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %94 = load ptr, ptr %93, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.26, ptr noundef %94)
-  %95 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %96 = load ptr, ptr %95, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %96, ptr noundef nonnull @.str.27)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef nonnull @.str.27)
+  br label %344
 
-97:                                               ; preds = %69
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = call fastcc ptr @private_data_get_moreCinfo(ptr %99)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.28, ptr noundef nonnull %102)
-  %103 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %104 = load ptr, ptr %103, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.29)
-  br label %348
+93:                                               ; preds = %65
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = call fastcc ptr @private_data_get_moreCinfo(ptr %95)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.28, ptr noundef nonnull %98)
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %100 = load ptr, ptr %99, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.29)
+  br label %344
 
-105:                                              ; preds = %69
-  %106 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp eq i32 %107, 9
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = call fastcc ptr @private_data_get_moreCinfo(ptr %110)
-  %114 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  br i1 %108, label %115, label %117
+101:                                              ; preds = %65
+  %102 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %103 = load i32, ptr %102, align 8
+  %104 = icmp eq i32 %103, 9
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = call fastcc ptr @private_data_get_moreCinfo(ptr %106)
+  %110 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  br i1 %104, label %111, label %113
 
-115:                                              ; preds = %105
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.30, ptr noundef nonnull %113)
-  %116 = load ptr, ptr %114, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %116, ptr noundef nonnull @.str.31)
-  br label %348
+111:                                              ; preds = %101
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.30, ptr noundef nonnull %109)
+  %112 = load ptr, ptr %110, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %112, ptr noundef nonnull @.str.31)
+  br label %344
 
-117:                                              ; preds = %105
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.32, ptr noundef nonnull %113)
-  %118 = load ptr, ptr %114, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %118, ptr noundef nonnull @.str.33)
-  br label %348
+113:                                              ; preds = %101
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.32, ptr noundef nonnull %109)
+  %114 = load ptr, ptr %110, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef nonnull @.str.33)
+  br label %344
 
-119:                                              ; preds = %69
-  %120 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp eq i32 %121, 9
-  %123 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = call fastcc ptr @private_data_get_moreCinfo(ptr %124)
-  %128 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  br i1 %122, label %129, label %131
+115:                                              ; preds = %65
+  %116 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %117 = load i32, ptr %116, align 8
+  %118 = icmp eq i32 %117, 9
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = call fastcc ptr @private_data_get_moreCinfo(ptr %120)
+  %124 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  br i1 %118, label %125, label %127
 
-129:                                              ; preds = %119
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.34, ptr noundef nonnull %127)
-  %130 = load ptr, ptr %128, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %130, ptr noundef nonnull @.str.35)
-  br label %348
+125:                                              ; preds = %115
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.34, ptr noundef nonnull %123)
+  %126 = load ptr, ptr %124, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.35)
+  br label %344
 
-131:                                              ; preds = %119
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.36, ptr noundef nonnull %127)
-  %132 = load ptr, ptr %128, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %132, ptr noundef nonnull @.str.37)
-  br label %348
+127:                                              ; preds = %115
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.36, ptr noundef nonnull %123)
+  %128 = load ptr, ptr %124, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %128, ptr noundef nonnull @.str.37)
+  br label %344
 
-133:                                              ; preds = %69
-  %134 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = call fastcc ptr @private_data_get_moreCinfo(ptr %135)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.38, ptr noundef nonnull %138)
-  %139 = getelementptr inbounds nuw i8, ptr %13, i64 24
+129:                                              ; preds = %65
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = call fastcc ptr @private_data_get_moreCinfo(ptr %131)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.38, ptr noundef nonnull %134)
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %136 = load ptr, ptr %135, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.39)
+  br label %344
+
+137:                                              ; preds = %62
+  %138 = getelementptr i8, ptr %3, i64 16
+  %.val139 = load ptr, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %.val139, i64 408
   %140 = load ptr, ptr %139, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %140, ptr noundef nonnull @.str.39)
-  br label %348
+  %141 = load i32, ptr @proto_mms, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %.val139, i64 376
+  %143 = load i8, ptr %142, align 8
+  %144 = zext i8 %143 to i32
+  %145 = call ptr @p_get_proto_data(ptr noundef %140, ptr noundef %.val139, i32 noundef %141, i32 noundef %144)
+  %.not155 = icmp eq ptr %145, null
+  br i1 %.not155, label %344, label %146
 
-141:                                              ; preds = %66
-  %142 = getelementptr i8, ptr %3, i64 16
-  %.val139 = load ptr, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %.val139, i64 408
-  %144 = load ptr, ptr %143, align 8
-  %145 = load i32, ptr @proto_mms, align 4
-  %146 = getelementptr inbounds nuw i8, ptr %.val139, i64 376
-  %147 = load i8, ptr %146, align 8
-  %148 = zext i8 %147 to i32
-  %149 = call ptr @p_get_proto_data(ptr noundef %144, ptr noundef %.val139, i32 noundef %145, i32 noundef %148)
-  %.not155 = icmp eq ptr %149, null
-  br i1 %.not155, label %348, label %150
+146:                                              ; preds = %137
+  %147 = load ptr, ptr %138, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = call fastcc ptr @private_data_get_preCinfo(ptr %147)
+  %151 = load i32, ptr %7, align 4
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %152, i32 1
+  %154 = load ptr, ptr %153, align 8
+  %.val129 = load ptr, ptr %138, align 8
+  %155 = call fastcc ptr @private_data_get_moreCinfo(ptr %.val129)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %149, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %150, ptr noundef %154, ptr noundef nonnull %155)
+  br label %344
 
-150:                                              ; preds = %141
-  %151 = load ptr, ptr %142, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = call fastcc ptr @private_data_get_preCinfo(ptr %151)
-  %155 = load i32, ptr %7, align 4
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %156, i32 1
+156:                                              ; preds = %21
+  %157 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %158 = load ptr, ptr %157, align 8
-  %.val129 = load ptr, ptr %142, align 8
-  %159 = call fastcc ptr @private_data_get_moreCinfo(ptr %.val129)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %153, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %154, ptr noundef %158, ptr noundef nonnull %159)
-  br label %348
+  %.not121 = icmp eq ptr %158, null
+  br i1 %.not121, label %236, label %159
 
-160:                                              ; preds = %25
-  %161 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %162 = load ptr, ptr %161, align 8
-  %.not121 = icmp eq ptr %162, null
-  br i1 %.not121, label %240, label %163
-
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 28
-  %165 = load i32, ptr %164, align 4
-  switch i32 %165, label %348 [
-    i32 1, label %166
-    i32 2, label %175
-    i32 3, label %183
-    i32 4, label %191
-    i32 6, label %199
-    i32 7, label %218
-    i32 5, label %232
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 28
+  %161 = load i32, ptr %160, align 4
+  switch i32 %161, label %344 [
+    i32 1, label %162
+    i32 2, label %171
+    i32 3, label %179
+    i32 4, label %187
+    i32 6, label %195
+    i32 7, label %214
+    i32 5, label %228
   ]
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %3, i64 16
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef %168)
+  %169 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %172 = load ptr, ptr %171, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef %172)
-  %173 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %174 = load ptr, ptr %173, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.42)
-  br label %348
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.42)
+  br label %344
 
-175:                                              ; preds = %163
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = load ptr, ptr %178, align 8
-  %180 = call fastcc ptr @private_data_get_moreCinfo(ptr %177)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.43, ptr noundef nonnull %180)
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %182 = load ptr, ptr %181, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %182, ptr noundef nonnull @.str.44)
-  br label %348
+171:                                              ; preds = %159
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = call fastcc ptr @private_data_get_moreCinfo(ptr %173)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %175, i32 noundef 25, ptr noundef nonnull @.str.43, ptr noundef nonnull %176)
+  %177 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %178 = load ptr, ptr %177, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %178, ptr noundef nonnull @.str.44)
+  br label %344
 
-183:                                              ; preds = %163
-  %184 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = call fastcc ptr @private_data_get_moreCinfo(ptr %185)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef nonnull %188)
-  %189 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %190 = load ptr, ptr %189, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef nonnull @.str.46)
-  br label %348
+179:                                              ; preds = %159
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
+  %183 = load ptr, ptr %182, align 8
+  %184 = call fastcc ptr @private_data_get_moreCinfo(ptr %181)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %183, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef nonnull %184)
+  %185 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %186 = load ptr, ptr %185, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.46)
+  br label %344
 
-191:                                              ; preds = %163
-  %192 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8
-  %196 = call fastcc ptr @private_data_get_moreCinfo(ptr %193)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %195, i32 noundef 25, ptr noundef nonnull @.str.47, ptr noundef nonnull %196)
-  %197 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %198 = load ptr, ptr %197, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %198, ptr noundef nonnull @.str.48)
-  br label %348
+187:                                              ; preds = %159
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = call fastcc ptr @private_data_get_moreCinfo(ptr %189)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %191, i32 noundef 25, ptr noundef nonnull @.str.47, ptr noundef nonnull %192)
+  %193 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %194 = load ptr, ptr %193, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %194, ptr noundef nonnull @.str.48)
+  br label %344
 
-199:                                              ; preds = %163
-  %200 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %201 = load i32, ptr %200, align 8
-  %202 = icmp eq i32 %201, 9
-  %203 = getelementptr inbounds nuw i8, ptr %3, i64 16
+195:                                              ; preds = %159
+  %196 = getelementptr inbounds nuw i8, ptr %158, i64 24
+  %197 = load i32, ptr %196, align 8
+  %198 = icmp eq i32 %197, 9
+  %199 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.str.49..str.51 = select i1 %198, ptr @.str.49, ptr @.str.51
+  %.str.50..str.52 = select i1 %198, ptr @.str.50, ptr @.str.52
+  call void @col_append_str(ptr noundef %202, i32 noundef 25, ptr noundef nonnull %.str.49..str.51)
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.str.49..str.51 = select i1 %202, ptr @.str.49, ptr @.str.51
-  %.str.50..str.52 = select i1 %202, ptr @.str.50, ptr @.str.52
-  call void @col_append_str(ptr noundef %206, i32 noundef 25, ptr noundef nonnull %.str.49..str.51)
-  %208 = load ptr, ptr %207, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull %.str.50..str.52)
-  %209 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %210 = load i32, ptr %209, align 8
-  %211 = icmp eq i32 %210, 1
-  %212 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %215 = load ptr, ptr %214, align 8
-  br i1 %211, label %216, label %217
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %204, ptr noundef nonnull %.str.50..str.52)
+  %205 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %206 = load i32, ptr %205, align 8
+  %207 = icmp eq i32 %206, 1
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %211 = load ptr, ptr %210, align 8
+  br i1 %207, label %212, label %213
 
-216:                                              ; preds = %199
-  call void @col_append_str(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.53)
-  br label %348
+212:                                              ; preds = %195
+  call void @col_append_str(ptr noundef %211, i32 noundef 25, ptr noundef nonnull @.str.53)
+  br label %344
 
-217:                                              ; preds = %199
-  call void @col_append_str(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.54)
-  br label %348
+213:                                              ; preds = %195
+  call void @col_append_str(ptr noundef %211, i32 noundef 25, ptr noundef nonnull @.str.54)
+  br label %344
 
-218:                                              ; preds = %163
-  %219 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %220 = load i32, ptr %219, align 8
-  %221 = icmp eq i32 %220, 9
-  %222 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  %225 = load ptr, ptr %224, align 8
-  %226 = call fastcc ptr @private_data_get_moreCinfo(ptr %223)
-  %227 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  br i1 %221, label %228, label %230
+214:                                              ; preds = %159
+  %215 = getelementptr inbounds nuw i8, ptr %158, i64 24
+  %216 = load i32, ptr %215, align 8
+  %217 = icmp eq i32 %216, 9
+  %218 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = call fastcc ptr @private_data_get_moreCinfo(ptr %219)
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  br i1 %217, label %224, label %226
 
-228:                                              ; preds = %218
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.55, ptr noundef nonnull %226)
-  %229 = load ptr, ptr %227, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %229, ptr noundef nonnull @.str.56)
-  br label %348
+224:                                              ; preds = %214
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %221, i32 noundef 25, ptr noundef nonnull @.str.55, ptr noundef nonnull %222)
+  %225 = load ptr, ptr %223, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %225, ptr noundef nonnull @.str.56)
+  br label %344
 
-230:                                              ; preds = %218
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef nonnull %226)
-  %231 = load ptr, ptr %227, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %231, ptr noundef nonnull @.str.58)
-  br label %348
+226:                                              ; preds = %214
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %221, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef nonnull %222)
+  %227 = load ptr, ptr %223, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %227, ptr noundef nonnull @.str.58)
+  br label %344
 
-232:                                              ; preds = %163
-  %233 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %236 = load ptr, ptr %235, align 8
-  %237 = call fastcc ptr @private_data_get_moreCinfo(ptr %234)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %236, i32 noundef 25, ptr noundef nonnull @.str.59, ptr noundef nonnull %237)
-  %238 = getelementptr inbounds nuw i8, ptr %13, i64 24
+228:                                              ; preds = %159
+  %229 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  %232 = load ptr, ptr %231, align 8
+  %233 = call fastcc ptr @private_data_get_moreCinfo(ptr %230)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %232, i32 noundef 25, ptr noundef nonnull @.str.59, ptr noundef nonnull %233)
+  %234 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %235 = load ptr, ptr %234, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %235, ptr noundef nonnull @.str.60)
+  br label %344
+
+236:                                              ; preds = %156
+  %237 = getelementptr i8, ptr %3, i64 16
+  %.val140 = load ptr, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %.val140, i64 408
   %239 = load ptr, ptr %238, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %239, ptr noundef nonnull @.str.60)
-  br label %348
+  %240 = load i32, ptr @proto_mms, align 4
+  %241 = getelementptr inbounds nuw i8, ptr %.val140, i64 376
+  %242 = load i8, ptr %241, align 8
+  %243 = zext i8 %242 to i32
+  %244 = call ptr @p_get_proto_data(ptr noundef %239, ptr noundef %.val140, i32 noundef %240, i32 noundef %243)
+  %.not154 = icmp eq ptr %244, null
+  br i1 %.not154, label %344, label %245
 
-240:                                              ; preds = %160
-  %241 = getelementptr i8, ptr %3, i64 16
-  %.val140 = load ptr, ptr %241, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %.val140, i64 408
-  %243 = load ptr, ptr %242, align 8
-  %244 = load i32, ptr @proto_mms, align 4
-  %245 = getelementptr inbounds nuw i8, ptr %.val140, i64 376
-  %246 = load i8, ptr %245, align 8
-  %247 = zext i8 %246 to i32
-  %248 = call ptr @p_get_proto_data(ptr noundef %243, ptr noundef %.val140, i32 noundef %244, i32 noundef %247)
-  %.not154 = icmp eq ptr %248, null
-  br i1 %.not154, label %348, label %249
+245:                                              ; preds = %236
+  %246 = load ptr, ptr %237, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  %248 = load ptr, ptr %247, align 8
+  %249 = call fastcc ptr @private_data_get_preCinfo(ptr %246)
+  %250 = load i32, ptr %7, align 4
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %251, i32 1
+  %253 = load ptr, ptr %252, align 8
+  %.val136 = load ptr, ptr %237, align 8
+  %254 = call fastcc ptr @private_data_get_moreCinfo(ptr %.val136)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %248, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %249, ptr noundef %253, ptr noundef nonnull %254)
+  br label %344
 
-249:                                              ; preds = %240
-  %250 = load ptr, ptr %241, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %252 = load ptr, ptr %251, align 8
-  %253 = call fastcc ptr @private_data_get_preCinfo(ptr %250)
-  %254 = load i32, ptr %7, align 4
-  %255 = sext i32 %254 to i64
-  %256 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %255, i32 1
+255:                                              ; preds = %21
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %257 = load ptr, ptr %256, align 8
-  %.val136 = load ptr, ptr %241, align 8
-  %258 = call fastcc ptr @private_data_get_moreCinfo(ptr %.val136)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %252, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %253, ptr noundef %257, ptr noundef nonnull %258)
-  br label %348
-
-259:                                              ; preds = %25
-  %260 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %259 = load ptr, ptr %258, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %257, i64 408
   %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %261, i64 408
-  %265 = load ptr, ptr %264, align 8
-  %266 = load i32, ptr @proto_mms, align 4
-  %267 = getelementptr inbounds nuw i8, ptr %261, i64 376
-  %268 = load i8, ptr %267, align 8
-  %269 = zext i8 %268 to i32
-  %270 = call ptr @p_get_proto_data(ptr noundef %265, ptr noundef %261, i32 noundef %266, i32 noundef %269)
-  %.not.i.i = icmp eq ptr %270, null
-  br i1 %.not.i.i, label %271, label %private_data_get_preCinfo.exit
+  %262 = load i32, ptr @proto_mms, align 4
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 376
+  %264 = load i8, ptr %263, align 8
+  %265 = zext i8 %264 to i32
+  %266 = call ptr @p_get_proto_data(ptr noundef %261, ptr noundef %257, i32 noundef %262, i32 noundef %265)
+  %.not.i.i = icmp eq ptr %266, null
+  br i1 %.not.i.i, label %267, label %private_data_get_preCinfo.exit
 
-271:                                              ; preds = %259
-  %272 = load ptr, ptr %264, align 8
-  %273 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %272, i64 noundef 1034) #8
-  %274 = load ptr, ptr %264, align 8
-  %275 = load i32, ptr @proto_mms, align 4
-  %276 = load i8, ptr %267, align 8
-  %277 = zext i8 %276 to i32
-  call void @p_add_proto_data(ptr noundef %274, ptr noundef %261, i32 noundef %275, i32 noundef %277, ptr noundef %273)
+267:                                              ; preds = %255
+  %268 = load ptr, ptr %260, align 8
+  %269 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %268, i64 noundef 1034) #8
+  %270 = load ptr, ptr %260, align 8
+  %271 = load i32, ptr @proto_mms, align 4
+  %272 = load i8, ptr %263, align 8
+  %273 = zext i8 %272 to i32
+  call void @p_add_proto_data(ptr noundef %270, ptr noundef %257, i32 noundef %271, i32 noundef %273, ptr noundef %269)
   br label %private_data_get_preCinfo.exit
 
-private_data_get_preCinfo.exit:                   ; preds = %259, %271
-  %.0.i.i = phi ptr [ %273, %271 ], [ %270, %259 ]
-  %278 = load i32, ptr %7, align 4
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %279, i32 1
-  %281 = load ptr, ptr %280, align 8
-  %.val137 = load ptr, ptr %260, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %.val137, i64 408
-  %283 = load ptr, ptr %282, align 8
-  %284 = load i32, ptr @proto_mms, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %.val137, i64 376
-  %286 = load i8, ptr %285, align 8
-  %287 = zext i8 %286 to i32
-  %288 = call ptr @p_get_proto_data(ptr noundef %283, ptr noundef %.val137, i32 noundef %284, i32 noundef %287)
-  %.not.i.i146 = icmp eq ptr %288, null
-  br i1 %.not.i.i146, label %289, label %private_data_get_moreCinfo.exit
+private_data_get_preCinfo.exit:                   ; preds = %255, %267
+  %.0.i.i = phi ptr [ %269, %267 ], [ %266, %255 ]
+  %274 = load i32, ptr %7, align 4
+  %275 = sext i32 %274 to i64
+  %276 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %275, i32 1
+  %277 = load ptr, ptr %276, align 8
+  %.val137 = load ptr, ptr %256, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %.val137, i64 408
+  %279 = load ptr, ptr %278, align 8
+  %280 = load i32, ptr @proto_mms, align 4
+  %281 = getelementptr inbounds nuw i8, ptr %.val137, i64 376
+  %282 = load i8, ptr %281, align 8
+  %283 = zext i8 %282 to i32
+  %284 = call ptr @p_get_proto_data(ptr noundef %279, ptr noundef %.val137, i32 noundef %280, i32 noundef %283)
+  %.not.i.i146 = icmp eq ptr %284, null
+  br i1 %.not.i.i146, label %285, label %private_data_get_moreCinfo.exit
 
-289:                                              ; preds = %private_data_get_preCinfo.exit
-  %290 = load ptr, ptr %282, align 8
-  %291 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %290, i64 noundef 1034) #8
-  %292 = load ptr, ptr %282, align 8
-  %293 = load i32, ptr @proto_mms, align 4
-  %294 = load i8, ptr %285, align 8
-  %295 = zext i8 %294 to i32
-  call void @p_add_proto_data(ptr noundef %292, ptr noundef %.val137, i32 noundef %293, i32 noundef %295, ptr noundef %291)
+285:                                              ; preds = %private_data_get_preCinfo.exit
+  %286 = load ptr, ptr %278, align 8
+  %287 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %286, i64 noundef 1034) #8
+  %288 = load ptr, ptr %278, align 8
+  %289 = load i32, ptr @proto_mms, align 4
+  %290 = load i8, ptr %281, align 8
+  %291 = zext i8 %290 to i32
+  call void @p_add_proto_data(ptr noundef %288, ptr noundef %.val137, i32 noundef %289, i32 noundef %291, ptr noundef %287)
   br label %private_data_get_moreCinfo.exit
 
-private_data_get_moreCinfo.exit:                  ; preds = %private_data_get_preCinfo.exit, %289
-  %.0.i.i147 = phi ptr [ %291, %289 ], [ %288, %private_data_get_preCinfo.exit ]
-  %296 = getelementptr inbounds nuw i8, ptr %.0.i.i147, i64 10
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %263, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %.0.i.i, ptr noundef %281, ptr noundef nonnull %296)
-  br label %348
+private_data_get_moreCinfo.exit:                  ; preds = %private_data_get_preCinfo.exit, %285
+  %.0.i.i147 = phi ptr [ %287, %285 ], [ %284, %private_data_get_preCinfo.exit ]
+  %292 = getelementptr inbounds nuw i8, ptr %.0.i.i147, i64 10
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %259, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %.0.i.i, ptr noundef %277, ptr noundef nonnull %292)
+  br label %344
 
-297:                                              ; preds = %24
-  %298 = getelementptr i8, ptr %3, i64 16
-  %.val141 = load ptr, ptr %298, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %.val141, i64 408
-  %300 = load ptr, ptr %299, align 8
-  %301 = load i32, ptr @proto_mms, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %.val141, i64 376
-  %303 = load i8, ptr %302, align 8
-  %304 = zext i8 %303 to i32
-  %305 = call ptr @p_get_proto_data(ptr noundef %300, ptr noundef %.val141, i32 noundef %301, i32 noundef %304)
-  %.not156 = icmp eq ptr %305, null
-  %306 = load ptr, ptr %298, align 8
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  %308 = load ptr, ptr %307, align 8
-  br i1 %.not156, label %343, label %309
+293:                                              ; preds = %20
+  %294 = getelementptr i8, ptr %3, i64 16
+  %.val141 = load ptr, ptr %294, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %.val141, i64 408
+  %296 = load ptr, ptr %295, align 8
+  %297 = load i32, ptr @proto_mms, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %.val141, i64 376
+  %299 = load i8, ptr %298, align 8
+  %300 = zext i8 %299 to i32
+  %301 = call ptr @p_get_proto_data(ptr noundef %296, ptr noundef %.val141, i32 noundef %297, i32 noundef %300)
+  %.not156 = icmp eq ptr %301, null
+  %302 = load ptr, ptr %294, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  %304 = load ptr, ptr %303, align 8
+  br i1 %.not156, label %339, label %305
 
-309:                                              ; preds = %297
-  %310 = getelementptr inbounds nuw i8, ptr %306, i64 408
-  %311 = load ptr, ptr %310, align 8
-  %312 = load i32, ptr @proto_mms, align 4
-  %313 = getelementptr inbounds nuw i8, ptr %306, i64 376
-  %314 = load i8, ptr %313, align 8
-  %315 = zext i8 %314 to i32
-  %316 = call ptr @p_get_proto_data(ptr noundef %311, ptr noundef %306, i32 noundef %312, i32 noundef %315)
-  %.not.i.i148 = icmp eq ptr %316, null
-  br i1 %.not.i.i148, label %317, label %private_data_get_preCinfo.exit150
+305:                                              ; preds = %293
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 408
+  %307 = load ptr, ptr %306, align 8
+  %308 = load i32, ptr @proto_mms, align 4
+  %309 = getelementptr inbounds nuw i8, ptr %302, i64 376
+  %310 = load i8, ptr %309, align 8
+  %311 = zext i8 %310 to i32
+  %312 = call ptr @p_get_proto_data(ptr noundef %307, ptr noundef %302, i32 noundef %308, i32 noundef %311)
+  %.not.i.i148 = icmp eq ptr %312, null
+  br i1 %.not.i.i148, label %313, label %private_data_get_preCinfo.exit150
 
-317:                                              ; preds = %309
-  %318 = load ptr, ptr %310, align 8
-  %319 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %318, i64 noundef 1034) #8
-  %320 = load ptr, ptr %310, align 8
-  %321 = load i32, ptr @proto_mms, align 4
-  %322 = load i8, ptr %313, align 8
-  %323 = zext i8 %322 to i32
-  call void @p_add_proto_data(ptr noundef %320, ptr noundef %306, i32 noundef %321, i32 noundef %323, ptr noundef %319)
+313:                                              ; preds = %305
+  %314 = load ptr, ptr %306, align 8
+  %315 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %314, i64 noundef 1034) #8
+  %316 = load ptr, ptr %306, align 8
+  %317 = load i32, ptr @proto_mms, align 4
+  %318 = load i8, ptr %309, align 8
+  %319 = zext i8 %318 to i32
+  call void @p_add_proto_data(ptr noundef %316, ptr noundef %302, i32 noundef %317, i32 noundef %319, ptr noundef %315)
   br label %private_data_get_preCinfo.exit150
 
-private_data_get_preCinfo.exit150:                ; preds = %309, %317
-  %.0.i.i149 = phi ptr [ %319, %317 ], [ %316, %309 ]
-  %324 = load i32, ptr %7, align 4
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %325, i32 1
-  %327 = load ptr, ptr %326, align 8
-  %.val138 = load ptr, ptr %298, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %.val138, i64 408
-  %329 = load ptr, ptr %328, align 8
-  %330 = load i32, ptr @proto_mms, align 4
-  %331 = getelementptr inbounds nuw i8, ptr %.val138, i64 376
-  %332 = load i8, ptr %331, align 8
-  %333 = zext i8 %332 to i32
-  %334 = call ptr @p_get_proto_data(ptr noundef %329, ptr noundef %.val138, i32 noundef %330, i32 noundef %333)
-  %.not.i.i151 = icmp eq ptr %334, null
-  br i1 %.not.i.i151, label %335, label %private_data_get_moreCinfo.exit153
+private_data_get_preCinfo.exit150:                ; preds = %305, %313
+  %.0.i.i149 = phi ptr [ %315, %313 ], [ %312, %305 ]
+  %320 = load i32, ptr %7, align 4
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %321, i32 1
+  %323 = load ptr, ptr %322, align 8
+  %.val138 = load ptr, ptr %294, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %.val138, i64 408
+  %325 = load ptr, ptr %324, align 8
+  %326 = load i32, ptr @proto_mms, align 4
+  %327 = getelementptr inbounds nuw i8, ptr %.val138, i64 376
+  %328 = load i8, ptr %327, align 8
+  %329 = zext i8 %328 to i32
+  %330 = call ptr @p_get_proto_data(ptr noundef %325, ptr noundef %.val138, i32 noundef %326, i32 noundef %329)
+  %.not.i.i151 = icmp eq ptr %330, null
+  br i1 %.not.i.i151, label %331, label %private_data_get_moreCinfo.exit153
 
-335:                                              ; preds = %private_data_get_preCinfo.exit150
-  %336 = load ptr, ptr %328, align 8
-  %337 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %336, i64 noundef 1034) #8
-  %338 = load ptr, ptr %328, align 8
-  %339 = load i32, ptr @proto_mms, align 4
-  %340 = load i8, ptr %331, align 8
-  %341 = zext i8 %340 to i32
-  call void @p_add_proto_data(ptr noundef %338, ptr noundef %.val138, i32 noundef %339, i32 noundef %341, ptr noundef %337)
+331:                                              ; preds = %private_data_get_preCinfo.exit150
+  %332 = load ptr, ptr %324, align 8
+  %333 = call noalias dereferenceable_or_null(1034) ptr @wmem_alloc0(ptr noundef %332, i64 noundef 1034) #8
+  %334 = load ptr, ptr %324, align 8
+  %335 = load i32, ptr @proto_mms, align 4
+  %336 = load i8, ptr %327, align 8
+  %337 = zext i8 %336 to i32
+  call void @p_add_proto_data(ptr noundef %334, ptr noundef %.val138, i32 noundef %335, i32 noundef %337, ptr noundef %333)
   br label %private_data_get_moreCinfo.exit153
 
-private_data_get_moreCinfo.exit153:               ; preds = %private_data_get_preCinfo.exit150, %335
-  %.0.i.i152 = phi ptr [ %337, %335 ], [ %334, %private_data_get_preCinfo.exit150 ]
-  %342 = getelementptr inbounds nuw i8, ptr %.0.i.i152, i64 10
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %308, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %.0.i.i149, ptr noundef %327, ptr noundef nonnull %342)
-  br label %348
+private_data_get_moreCinfo.exit153:               ; preds = %private_data_get_preCinfo.exit150, %331
+  %.0.i.i152 = phi ptr [ %333, %331 ], [ %330, %private_data_get_preCinfo.exit150 ]
+  %338 = getelementptr inbounds nuw i8, ptr %.0.i.i152, i64 10
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %.0.i.i149, ptr noundef %323, ptr noundef nonnull %338)
+  br label %344
 
-343:                                              ; preds = %297
-  %344 = load i32, ptr %7, align 4
-  %345 = sext i32 %344 to i64
-  %346 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %345, i32 1
-  %347 = load ptr, ptr %346, align 8
-  call void @col_append_str(ptr noundef %308, i32 noundef 25, ptr noundef %347)
-  br label %348
+339:                                              ; preds = %293
+  %340 = load i32, ptr %7, align 4
+  %341 = sext i32 %340 to i64
+  %342 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %341, i32 1
+  %343 = load ptr, ptr %342, align 8
+  call void @col_append_str(ptr noundef %304, i32 noundef 25, ptr noundef %343)
+  br label %344
 
-348:                                              ; preds = %163, %69, %175, %191, %230, %228, %232, %216, %217, %183, %166, %249, %240, %79, %97, %131, %129, %133, %115, %117, %88, %72, %150, %141, %31, %45, %41, %38, %private_data_get_moreCinfo.exit, %59, %52, %343, %private_data_get_moreCinfo.exit153, %20, %16
+344:                                              ; preds = %159, %65, %16, %16, %171, %187, %226, %224, %228, %212, %213, %179, %162, %245, %236, %75, %93, %127, %125, %129, %111, %113, %84, %68, %146, %137, %27, %41, %37, %34, %private_data_get_moreCinfo.exit, %55, %48, %339, %private_data_get_moreCinfo.exit153
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

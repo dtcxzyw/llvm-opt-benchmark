@@ -177,22 +177,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
-  tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_param_int, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_param_long, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_param_uint, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.3, ptr noundef nonnull @test_param_ulong, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.4, ptr noundef nonnull @test_param_int32, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.5, ptr noundef nonnull @test_param_uint32, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.6, ptr noundef nonnull @test_param_size_t, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.7, ptr noundef nonnull @test_param_time_t, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.8, ptr noundef nonnull @test_param_int64, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.9, ptr noundef nonnull @test_param_uint64, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.10, ptr noundef nonnull @test_param_bignum, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.11, ptr noundef nonnull @test_param_signed_bignum, i32 noundef 14, i32 noundef 1) #5
-  tail call void @add_test(ptr noundef nonnull @.str.12, ptr noundef nonnull @test_param_real) #5
-  tail call void @add_all_tests(ptr noundef nonnull @.str.13, ptr noundef nonnull @test_param_construct, i32 noundef 4, i32 noundef 1) #5
-  tail call void @add_test(ptr noundef nonnull @.str.14, ptr noundef nonnull @test_param_modified) #5
-  tail call void @add_test(ptr noundef nonnull @.str.15, ptr noundef nonnull @test_param_copy_null) #5
+  tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_param_int, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_param_long, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_param_uint, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.3, ptr noundef nonnull @test_param_ulong, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.4, ptr noundef nonnull @test_param_int32, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.5, ptr noundef nonnull @test_param_uint32, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.6, ptr noundef nonnull @test_param_size_t, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.7, ptr noundef nonnull @test_param_time_t, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.8, ptr noundef nonnull @test_param_int64, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.9, ptr noundef nonnull @test_param_uint64, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.10, ptr noundef nonnull @test_param_bignum, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.11, ptr noundef nonnull @test_param_signed_bignum, i32 noundef 14, i32 noundef 1) #4
+  tail call void @add_test(ptr noundef nonnull @.str.12, ptr noundef nonnull @test_param_real) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str.13, ptr noundef nonnull @test_param_construct, i32 noundef 4, i32 noundef 1) #4
+  tail call void @add_test(ptr noundef nonnull @.str.14, ptr noundef nonnull @test_param_modified) #4
+  tail call void @add_test(ptr noundef nonnull @.str.15, ptr noundef nonnull @test_param_copy_null) #4
   ret i32 1
 }
 
@@ -209,57 +209,65 @@ define internal range(i32 0, 2) i32 @test_param_int(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 4)
+  %8 = add nsw i64 %6, -6
+  %9 = icmp ult i64 %8, 8
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 4, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int32.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 203, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 203, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i32, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 210, ptr noundef nonnull @.str.20, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i32, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 210, ptr noundef nonnull @.str.20, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %3, align 4
-  store i32 %19, ptr %4, align 4
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 213, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i32, ptr %3, align 4
+  store i32 %24, ptr %4, align 4
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 213, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i32 0, ptr %2, align 4, !tbaa !14
-  %22 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 216, ptr noundef nonnull @.str.23, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 216, ptr noundef nonnull @.str.23, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i32, ptr %2, align 4
-  store i32 %27, ptr %4, align 4
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 219, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %12, i64 noundef 4) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i32, ptr %2, align 4
+  store i32 %32, ptr %4, align 4
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 219, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %17, i64 noundef 4) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 4)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 4)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -278,57 +286,65 @@ define internal range(i32 0, 2) i32 @test_param_long(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %8 = add nsw i64 %6, -10
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 8, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 233, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 233, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_long(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 240, ptr noundef nonnull @.str.36, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_long(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 240, ptr noundef nonnull @.str.36, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %3, align 8
-  store i64 %19, ptr %4, align 8
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 243, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i64, ptr %3, align 8
+  store i64 %24, ptr %4, align 8
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 243, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i64 0, ptr %2, align 8, !tbaa !15
-  %22 = call i32 @OSSL_PARAM_get_long(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 246, ptr noundef nonnull @.str.37, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_long(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 246, ptr noundef nonnull @.str.37, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr %4, align 8
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 249, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i64, ptr %2, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 249, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %17, i64 noundef 8) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 8)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 8)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -347,57 +363,65 @@ define internal range(i32 0, 2) i32 @test_param_uint(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 4)
+  %8 = add nsw i64 %6, -6
+  %9 = icmp ult i64 %8, 8
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 4, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint32.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 262, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 262, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i32, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 269, ptr noundef nonnull @.str.38, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i32, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 269, ptr noundef nonnull @.str.38, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %3, align 4
-  store i32 %19, ptr %4, align 4
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 272, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i32, ptr %3, align 4
+  store i32 %24, ptr %4, align 4
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 272, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i32 0, ptr %2, align 4, !tbaa !14
-  %22 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 275, ptr noundef nonnull @.str.39, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 275, ptr noundef nonnull @.str.39, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i32, ptr %2, align 4
-  store i32 %27, ptr %4, align 4
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 278, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %12, i64 noundef 4) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i32, ptr %2, align 4
+  store i32 %32, ptr %4, align 4
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 278, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %17, i64 noundef 4) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 4)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 4)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -416,57 +440,65 @@ define internal range(i32 0, 2) i32 @test_param_ulong(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %8 = add nsw i64 %6, -10
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 8, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 292, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 292, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_ulong(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 299, ptr noundef nonnull @.str.40, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_ulong(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 299, ptr noundef nonnull @.str.40, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %3, align 8
-  store i64 %19, ptr %4, align 8
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 302, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i64, ptr %3, align 8
+  store i64 %24, ptr %4, align 8
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 302, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i64 0, ptr %2, align 8, !tbaa !15
-  %22 = call i32 @OSSL_PARAM_get_ulong(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 305, ptr noundef nonnull @.str.41, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_ulong(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 305, ptr noundef nonnull @.str.41, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr %4, align 8
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 308, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i64, ptr %2, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 308, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %17, i64 noundef 8) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 8)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 8)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -485,57 +517,65 @@ define internal range(i32 0, 2) i32 @test_param_int32(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 4)
+  %8 = add nsw i64 %6, -6
+  %9 = icmp ult i64 %8, 8
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 4, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int32.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 322, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 322, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i32, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 329, ptr noundef nonnull @.str.42, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i32, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 329, ptr noundef nonnull @.str.42, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %3, align 4
-  store i32 %19, ptr %4, align 4
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 332, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i32, ptr %3, align 4
+  store i32 %24, ptr %4, align 4
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 332, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i32 0, ptr %2, align 4, !tbaa !14
-  %22 = call i32 @OSSL_PARAM_get_int32(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 335, ptr noundef nonnull @.str.43, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_int32(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 335, ptr noundef nonnull @.str.43, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i32, ptr %2, align 4
-  store i32 %27, ptr %4, align 4
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 338, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %12, i64 noundef 4) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i32, ptr %2, align 4
+  store i32 %32, ptr %4, align 4
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 338, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %17, i64 noundef 4) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 4)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 4)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -554,57 +594,65 @@ define internal range(i32 0, 2) i32 @test_param_uint32(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 4)
+  %8 = add nsw i64 %6, -6
+  %9 = icmp ult i64 %8, 8
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 4, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint32.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 352, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 352, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i32, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_uint32(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 359, ptr noundef nonnull @.str.44, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i32, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_uint32(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 359, ptr noundef nonnull @.str.44, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i32, ptr %3, align 4
-  store i32 %19, ptr %4, align 4
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 362, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i32, ptr %3, align 4
+  store i32 %24, ptr %4, align 4
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 362, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i32 0, ptr %2, align 4, !tbaa !14
-  %22 = call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 365, ptr noundef nonnull @.str.45, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 365, ptr noundef nonnull @.str.45, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i32, ptr %2, align 4
-  store i32 %27, ptr %4, align 4
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 368, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %12, i64 noundef 4) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i32, ptr %2, align 4
+  store i32 %32, ptr %4, align 4
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 368, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull %17, i64 noundef 4) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 4)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 4)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -623,57 +671,65 @@ define internal range(i32 0, 2) i32 @test_param_size_t(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %8 = add nsw i64 %6, -10
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 8, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 442, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 442, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 449, ptr noundef nonnull @.str.46, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 449, ptr noundef nonnull @.str.46, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %3, align 8
-  store i64 %19, ptr %4, align 8
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 452, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i64, ptr %3, align 8
+  store i64 %24, ptr %4, align 8
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 452, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i64 0, ptr %2, align 8, !tbaa !15
-  %22 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 455, ptr noundef nonnull @.str.47, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 455, ptr noundef nonnull @.str.47, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr %4, align 8
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 458, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i64, ptr %2, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 458, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %17, i64 noundef 8) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 8)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 8)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -692,57 +748,65 @@ define internal range(i32 0, 2) i32 @test_param_time_t(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %8 = add nsw i64 %6, -10
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 8, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 472, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 472, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_time_t(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 479, ptr noundef nonnull @.str.48, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_time_t(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 479, ptr noundef nonnull @.str.48, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %3, align 8
-  store i64 %19, ptr %4, align 8
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 482, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i64, ptr %3, align 8
+  store i64 %24, ptr %4, align 8
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 482, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i64 0, ptr %2, align 8, !tbaa !15
-  %22 = call i32 @OSSL_PARAM_get_time_t(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 485, ptr noundef nonnull @.str.49, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_time_t(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 485, ptr noundef nonnull @.str.49, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr %4, align 8
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 488, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i64, ptr %2, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 488, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %17, i64 noundef 8) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 8)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 8)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -761,57 +825,65 @@ define internal range(i32 0, 2) i32 @test_param_int64(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %8 = add nsw i64 %6, -10
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 8, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 382, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 382, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_int64(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 389, ptr noundef nonnull @.str.50, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_int64(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 389, ptr noundef nonnull @.str.50, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %3, align 8
-  store i64 %19, ptr %4, align 8
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 392, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i64, ptr %3, align 8
+  store i64 %24, ptr %4, align 8
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 392, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i64 0, ptr %2, align 8, !tbaa !15
-  %22 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 395, ptr noundef nonnull @.str.51, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 395, ptr noundef nonnull @.str.51, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr %4, align 8
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 398, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i64, ptr %2, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 398, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %17, i64 noundef 8) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 8)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 8)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -830,57 +902,65 @@ define internal range(i32 0, 2) i32 @test_param_uint64(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.anon, ptr @raw_values, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %8 = add nsw i64 %6, -10
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 16, !tbaa !4
+  br label %12
+
+12:                                               ; preds = %1, %10
+  %13 = phi i64 [ %11, %10 ], [ 8, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
-  %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 412, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %11
+  %14 = call fastcc i32 @test_param_type_null(ptr noundef %5)
+  %15 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 412, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %14, i32 noundef 1) #4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %36, label %16
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %14 = call i32 @OSSL_PARAM_set_uint64(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #5
-  %15 = icmp ne i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 419, ptr noundef nonnull @.str.52, i32 noundef %16) #5
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %31, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %19 = call i32 @OSSL_PARAM_set_uint64(ptr noundef nonnull %5, i64 noundef %.sroa.0.0.copyload) #4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 419, ptr noundef nonnull @.str.52, i32 noundef %21) #4
+  %.not10 = icmp eq i32 %22, 0
+  br i1 %.not10, label %36, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %3, align 8
-  store i64 %19, ptr %4, align 8
-  %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 422, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %spec.select, ptr noundef nonnull %12, i64 noundef %spec.select) #5
-  %.not11 = icmp eq i32 %20, 0
-  br i1 %.not11, label %31, label %21
+23:                                               ; preds = %16
+  %24 = load i64, ptr %3, align 8
+  store i64 %24, ptr %4, align 8
+  %25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 422, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef %13, ptr noundef nonnull %17, i64 noundef %13) #4
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %36, label %26
 
-21:                                               ; preds = %18
+26:                                               ; preds = %23
   store i64 0, ptr %2, align 8, !tbaa !15
-  %22 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 425, ptr noundef nonnull @.str.53, i32 noundef %24) #5
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %31, label %26
+  %27 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %5, ptr noundef nonnull %2) #4
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 425, ptr noundef nonnull @.str.53, i32 noundef %29) #4
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %36, label %31
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr %2, align 8
-  store i64 %27, ptr %4, align 8
-  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 428, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %31, label %29
+31:                                               ; preds = %26
+  %32 = load i64, ptr %2, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 428, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %17, i64 noundef 8) #4
+  %.not13 = icmp eq i32 %33, 0
+  br i1 %.not13, label %36, label %34
 
-29:                                               ; preds = %26
-  store ptr %3, ptr %13, align 8, !tbaa !9
-  %30 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %12, i64 noundef 8)
-  br label %31
+34:                                               ; preds = %31
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  %35 = call fastcc i32 @test_param_type_extra(ptr noundef %5, ptr noundef nonnull %17, i64 noundef 8)
+  br label %36
 
-31:                                               ; preds = %26, %21, %18, %11, %1, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %26 ]
+36:                                               ; preds = %31, %26, %23, %16, %12, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -904,7 +984,7 @@ define internal range(i32 0, 2) i32 @test_param_bignum(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_bignum.param, i64 40, i1 false)
   %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 503, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
+  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 503, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %37, label %11
 
@@ -915,22 +995,22 @@ define internal range(i32 0, 2) i32 @test_param_bignum(i32 noundef %0) #0 {
   store i64 20, ptr %13, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = trunc i64 %8 to i32
-  %16 = call ptr @BN_lebin2bn(ptr noundef nonnull %14, i32 noundef %15, ptr noundef null) #5
-  %17 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 509, ptr noundef nonnull @.str.55, ptr noundef %16) #5
+  %16 = call ptr @BN_lebin2bn(ptr noundef nonnull %14, i32 noundef %15, ptr noundef null) #4
+  %17 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 509, ptr noundef nonnull @.str.55, ptr noundef %16) #4
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %35, label %18
 
 18:                                               ; preds = %11
-  %19 = call i32 @OSSL_PARAM_set_BN(ptr noundef nonnull %5, ptr noundef %16) #5
+  %19 = call i32 @OSSL_PARAM_set_BN(ptr noundef nonnull %5, ptr noundef %16) #4
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
-  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 512, ptr noundef nonnull @.str.56, i32 noundef %21) #5
+  %22 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 512, ptr noundef nonnull @.str.56, i32 noundef %21) #4
   %.not13 = icmp eq i32 %22, 0
   br i1 %.not13, label %35, label %23
 
 23:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 16 %3, i64 %8, i1 false)
-  %24 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 515, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.31, ptr noundef nonnull %14, i64 noundef %8, ptr noundef nonnull %2, i64 noundef %8) #5
+  %24 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 515, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.31, ptr noundef nonnull %14, i64 noundef %8, ptr noundef nonnull %2, i64 noundef %8) #4
   %.not14 = icmp eq i32 %24, 0
   br i1 %.not14, label %35, label %25
 
@@ -938,25 +1018,25 @@ define internal range(i32 0, 2) i32 @test_param_bignum(i32 noundef %0) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %27 = load i64, ptr %26, align 8, !tbaa !19
   store i64 %27, ptr %13, align 8, !tbaa !18
-  %28 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
+  %28 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %5, ptr noundef nonnull %4) #4
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 518, ptr noundef nonnull @.str.57, i32 noundef %30) #5
+  %31 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 518, ptr noundef nonnull @.str.57, i32 noundef %30) #4
   %.not15 = icmp eq i32 %31, 0
   br i1 %.not15, label %35, label %32
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %4, align 8, !tbaa !16
-  %34 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 519, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %16, ptr noundef %33) #5
+  %34 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 519, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %16, ptr noundef %33) #4
   %.not16 = icmp ne i32 %34, 0
   %spec.select = zext i1 %.not16 to i32
   br label %35
 
 35:                                               ; preds = %32, %25, %23, %18, %11
   %.0 = phi i32 [ 0, %25 ], [ 0, %23 ], [ 0, %18 ], [ 0, %11 ], [ %spec.select, %32 ]
-  call void @BN_free(ptr noundef %16) #5
+  call void @BN_free(ptr noundef %16) #4
   %36 = load ptr, ptr %4, align 8, !tbaa !16
-  call void @BN_free(ptr noundef %36) #5
+  call void @BN_free(ptr noundef %36) #4
   br label %37
 
 37:                                               ; preds = %1, %35
@@ -984,7 +1064,7 @@ define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %0) #0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_signed_bignum.param, i64 40, i1 false)
   %9 = call fastcc i32 @test_param_type_null(ptr noundef %5)
-  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 537, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #5
+  %10 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 537, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %9, i32 noundef 1) #4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %50, label %11
 
@@ -995,8 +1075,8 @@ define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %0) #0
   store i64 20, ptr %13, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = trunc i64 %8 to i32
-  %16 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %14, i32 noundef %15, ptr noundef null) #5
-  %17 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 543, ptr noundef nonnull @.str.60, ptr noundef %16) #5
+  %16 = call ptr @BN_signed_lebin2bn(ptr noundef nonnull %14, i32 noundef %15, ptr noundef null) #4
+  %17 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 543, ptr noundef nonnull @.str.60, ptr noundef %16) #4
   %.not15 = icmp eq i32 %17, 0
   br i1 %.not15, label %48, label %18
 
@@ -1006,24 +1086,24 @@ define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %0) #0
   %21 = load i8, ptr %20, align 1, !tbaa !20
   %.lobit = lshr i8 %21, 7
   %22 = zext nneg i8 %.lobit to i32
-  %23 = call i32 @BN_is_negative(ptr noundef %16) #5
+  %23 = call i32 @BN_is_negative(ptr noundef %16) #4
   %24 = icmp ne i32 %23, %22
   %25 = zext i1 %24 to i32
-  %26 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 547, ptr noundef nonnull @.str.61, i32 noundef %25) #5
+  %26 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 547, ptr noundef nonnull @.str.61, i32 noundef %25) #4
   %.not16 = icmp eq i32 %26, 0
   br i1 %.not16, label %48, label %27
 
 27:                                               ; preds = %18
-  %28 = call i32 @OSSL_PARAM_set_BN(ptr noundef nonnull %5, ptr noundef %16) #5
+  %28 = call i32 @OSSL_PARAM_set_BN(ptr noundef nonnull %5, ptr noundef %16) #4
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 549, ptr noundef nonnull @.str.56, i32 noundef %30) #5
+  %31 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 549, ptr noundef nonnull @.str.56, i32 noundef %30) #4
   %.not17 = icmp eq i32 %31, 0
   br i1 %.not17, label %48, label %32
 
 32:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 16 %3, i64 %8, i1 false)
-  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 552, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.31, ptr noundef nonnull %14, i64 noundef %8, ptr noundef nonnull %2, i64 noundef %8) #5
+  %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 552, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.31, ptr noundef nonnull %14, i64 noundef %8, ptr noundef nonnull %2, i64 noundef %8) #4
   %.not18 = icmp eq i32 %33, 0
   br i1 %.not18, label %48, label %34
 
@@ -1031,30 +1111,30 @@ define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %0) #0
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %36 = load i64, ptr %35, align 8, !tbaa !19
   store i64 %36, ptr %13, align 8, !tbaa !18
-  %37 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
+  %37 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %5, ptr noundef nonnull %4) #4
   %38 = icmp ne i32 %37, 0
   %39 = zext i1 %38 to i32
-  %40 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 555, ptr noundef nonnull @.str.57, i32 noundef %39) #5
+  %40 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 555, ptr noundef nonnull @.str.57, i32 noundef %39) #4
   %.not19 = icmp eq i32 %40, 0
   br i1 %.not19, label %44, label %41
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %4, align 8, !tbaa !16
-  %43 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 556, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %16, ptr noundef %42) #5
+  %43 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 556, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %16, ptr noundef %42) #4
   %.not20 = icmp eq i32 %43, 0
   br i1 %.not20, label %44, label %48
 
 44:                                               ; preds = %41, %34
   %45 = load ptr, ptr @stderr, align 8, !tbaa !21
   %46 = load ptr, ptr %4, align 8, !tbaa !16
-  %47 = call i32 @BN_print_fp(ptr noundef %45, ptr noundef %46) #5
+  %47 = call i32 @BN_print_fp(ptr noundef %45, ptr noundef %46) #4
   br label %48
 
 48:                                               ; preds = %41, %32, %27, %18, %11, %44
   %.0 = phi i32 [ 0, %44 ], [ 0, %32 ], [ 0, %27 ], [ 0, %18 ], [ 0, %11 ], [ 1, %41 ]
-  call void @BN_free(ptr noundef %16) #5
+  call void @BN_free(ptr noundef %16) #4
   %49 = load ptr, ptr %4, align 8, !tbaa !16
-  call void @BN_free(ptr noundef %49) #5
+  call void @BN_free(ptr noundef %49) #4
   br label %50
 
 50:                                               ; preds = %1, %48
@@ -1076,23 +1156,23 @@ define internal range(i32 0, 2) i32 @test_param_real() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_real.param, i64 40, i1 false)
   %3 = call fastcc i32 @test_param_type_null(ptr noundef %2)
-  %4 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 573, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %3, i32 noundef 1) #5
+  %4 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 573, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %3, i32 noundef 1) #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !9
-  %7 = call i32 @OSSL_PARAM_set_double(ptr noundef nonnull %2, double noundef 3.141590e+00) #5
+  %7 = call i32 @OSSL_PARAM_set_double(ptr noundef nonnull %2, double noundef 3.141590e+00) #4
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
-  %10 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 577, ptr noundef nonnull @.str.63, i32 noundef %9) #5
+  %10 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 577, ptr noundef nonnull @.str.63, i32 noundef %9) #4
   %.not1 = icmp eq i32 %10, 0
   br i1 %.not1, label %16, label %11
 
 11:                                               ; preds = %5
   %12 = load double, ptr %1, align 8, !tbaa !23
-  %13 = call i32 @test_double_eq(ptr noundef nonnull @.str.17, i32 noundef 578, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, double noundef %12, double noundef 3.141590e+00) #5
+  %13 = call i32 @test_double_eq(ptr noundef nonnull @.str.17, i32 noundef 578, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, double noundef %12, double noundef 3.141590e+00) #4
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   br label %16
@@ -1167,80 +1247,80 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8, !tbaa !16
-  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.66, ptr noundef nonnull %11) #5
+  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.66, ptr noundef nonnull %11) #4
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %24, ptr noundef nonnull @.str.70, ptr noundef nonnull %12) #5
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %24, ptr noundef nonnull @.str.70, ptr noundef nonnull %12) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  call void @OSSL_PARAM_construct_long(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %25, ptr noundef nonnull @.str.67, ptr noundef nonnull %13) #5
+  call void @OSSL_PARAM_construct_long(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %25, ptr noundef nonnull @.str.67, ptr noundef nonnull %13) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  call void @OSSL_PARAM_construct_ulong(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %26, ptr noundef nonnull @.str.71, ptr noundef nonnull %14) #5
+  call void @OSSL_PARAM_construct_ulong(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %26, ptr noundef nonnull @.str.71, ptr noundef nonnull %14) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 160
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @OSSL_PARAM_construct_int32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %27, ptr noundef nonnull @.str.68, ptr noundef nonnull %15) #5
+  call void @OSSL_PARAM_construct_int32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %27, ptr noundef nonnull @.str.68, ptr noundef nonnull %15) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 200
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @OSSL_PARAM_construct_int64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %28, ptr noundef nonnull @.str.69, ptr noundef nonnull %17) #5
+  call void @OSSL_PARAM_construct_int64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %28, ptr noundef nonnull @.str.69, ptr noundef nonnull %17) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 240
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  call void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %29, ptr noundef nonnull @.str.72, ptr noundef nonnull %16) #5
+  call void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %29, ptr noundef nonnull @.str.72, ptr noundef nonnull %16) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 280
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %30, ptr noundef nonnull @.str.73, ptr noundef nonnull %18) #5
+  call void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %30, ptr noundef nonnull @.str.73, ptr noundef nonnull %18) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %30, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 320
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %31, ptr noundef nonnull @.str.74, ptr noundef nonnull %20) #5
+  call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %31, ptr noundef nonnull @.str.74, ptr noundef nonnull %20) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %31, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 360
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  call void @OSSL_PARAM_construct_double(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %32, ptr noundef nonnull @.str.75, ptr noundef nonnull %21) #5
+  call void @OSSL_PARAM_construct_double(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %32, ptr noundef nonnull @.str.75, ptr noundef nonnull %21) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 400
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  call void @OSSL_PARAM_construct_BN(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %33, ptr noundef nonnull @.str.76, ptr noundef nonnull %7, i64 noundef 100) #5
+  call void @OSSL_PARAM_construct_BN(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %33, ptr noundef nonnull @.str.76, ptr noundef nonnull %7, i64 noundef 100) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 440
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %34, ptr noundef nonnull @.str.77, ptr noundef nonnull %3, i64 noundef 100) #5
+  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %34, ptr noundef nonnull @.str.77, ptr noundef nonnull %3, i64 noundef 100) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 480
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %35, ptr noundef nonnull @.str.78, ptr noundef nonnull %3, i64 noundef 100) #5
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %35, ptr noundef nonnull @.str.78, ptr noundef nonnull %3, i64 noundef 100) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 520
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  call void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %36, ptr noundef nonnull @.str.79, ptr noundef nonnull %5, i64 noundef 0) #5
+  call void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %36, ptr noundef nonnull @.str.79, ptr noundef nonnull %5, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 560
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %37, ptr noundef nonnull @.str.80, ptr noundef nonnull %8, i64 noundef 0) #5
+  call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %37, ptr noundef nonnull @.str.80, ptr noundef nonnull %8, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %37, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 600
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %38) #5
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %38) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   switch i32 %0, label %58 [
@@ -1250,23 +1330,23 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   ]
 
 54:                                               ; preds = %1
-  %55 = call ptr @OSSL_PARAM_merge(ptr noundef nonnull %2, ptr noundef nonnull @test_param_construct.params_empty) #5
+  %55 = call ptr @OSSL_PARAM_merge(ptr noundef nonnull %2, ptr noundef nonnull @test_param_construct.params_empty) #4
   br label %61
 
 56:                                               ; preds = %1
-  %57 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %2) #5
+  %57 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %2) #4
   br label %61
 
 58:                                               ; preds = %1
-  %59 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %2) #5
-  %60 = call ptr @OSSL_PARAM_merge(ptr noundef %59, ptr noundef nonnull @test_param_construct.params_empty) #5
+  %59 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %2) #4
+  %60 = call ptr @OSSL_PARAM_merge(ptr noundef %59, ptr noundef nonnull @test_param_construct.params_empty) #4
   br label %61
 
 61:                                               ; preds = %1, %58, %56, %54
   %.089 = phi ptr [ %59, %58 ], [ null, %54 ], [ null, %56 ], [ null, %1 ]
   %.088 = phi ptr [ %60, %58 ], [ %55, %54 ], [ %57, %56 ], [ %2, %1 ]
-  %62 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.82) #5
-  %63 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 648, ptr noundef nonnull @.str.81, ptr noundef %62) #5
+  %62 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.82) #4
+  %63 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 648, ptr noundef nonnull @.str.81, ptr noundef %62) #4
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %296, label %.preheader142
 
@@ -1274,26 +1354,26 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %.086146 = phi i64 [ %92, %91 ], [ 0, %61 ]
   %64 = getelementptr inbounds nuw ptr, ptr @test_param_construct.int_names, i64 %.086146
   %65 = load ptr, ptr %64, align 8, !tbaa !27
-  %66 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef %65) #5
-  %67 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 653, ptr noundef nonnull @.str.83, ptr noundef %66) #5
+  %66 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef %65) #4
+  %67 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 653, ptr noundef nonnull @.str.83, ptr noundef %66) #4
   %.not136 = icmp eq i32 %67, 0
   br i1 %.not136, label %89, label %68
 
 68:                                               ; preds = %.preheader142
   %69 = add nuw nsw i64 %.086146, 3
   %70 = trunc nuw nsw i64 %69 to i32
-  %71 = call i32 @OSSL_PARAM_set_int32(ptr noundef %66, i32 noundef %70) #5
+  %71 = call i32 @OSSL_PARAM_set_int32(ptr noundef %66, i32 noundef %70) #4
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
-  %74 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 654, ptr noundef nonnull @.str.84, i32 noundef %73) #5
+  %74 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 654, ptr noundef nonnull @.str.84, i32 noundef %73) #4
   %.not137 = icmp eq i32 %74, 0
   br i1 %.not137, label %89, label %75
 
 75:                                               ; preds = %68
-  %76 = call i32 @OSSL_PARAM_get_int64(ptr noundef %66, ptr noundef nonnull %17) #5
+  %76 = call i32 @OSSL_PARAM_get_int64(ptr noundef %66, ptr noundef nonnull %17) #4
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i32
-  %79 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 655, ptr noundef nonnull @.str.85, i32 noundef %78) #5
+  %79 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 655, ptr noundef nonnull @.str.85, i32 noundef %78) #4
   %.not138 = icmp eq i32 %79, 0
   br i1 %.not138, label %89, label %80
 
@@ -1302,19 +1382,19 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %82 = load i64, ptr %81, align 8, !tbaa !18
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %84 = load i64, ptr %83, align 8, !tbaa !19
-  %85 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 656, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef %82, i64 noundef %84) #5
+  %85 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 656, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef %82, i64 noundef %84) #4
   %.not139 = icmp eq i32 %85, 0
   br i1 %.not139, label %89, label %86
 
 86:                                               ; preds = %80
   %87 = load i64, ptr %17, align 8, !tbaa !15
-  %88 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 657, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.88, i64 noundef %87, i64 noundef %69) #5
+  %88 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 657, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.88, i64 noundef %87, i64 noundef %69) #4
   %.not140 = icmp eq i32 %88, 0
   br i1 %.not140, label %89, label %91
 
 89:                                               ; preds = %86, %80, %75, %68, %.preheader142
   %90 = add nuw nsw i64 %.086146, 1
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.89, i64 noundef %90, ptr noundef %65) #5
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.89, i64 noundef %90, ptr noundef %65) #4
   br label %296
 
 91:                                               ; preds = %86
@@ -1326,26 +1406,26 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %.1147 = phi i64 [ %121, %120 ], [ 0, %91 ]
   %93 = getelementptr inbounds nuw ptr, ptr @test_param_construct.uint_names, i64 %.1147
   %94 = load ptr, ptr %93, align 8, !tbaa !27
-  %95 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef %94) #5
-  %96 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 664, ptr noundef nonnull @.str.90, ptr noundef %95) #5
+  %95 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef %94) #4
+  %96 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 664, ptr noundef nonnull @.str.90, ptr noundef %95) #4
   %.not131 = icmp eq i32 %96, 0
   br i1 %.not131, label %118, label %97
 
 97:                                               ; preds = %.preheader
   %98 = add nuw nsw i64 %.1147, 3
   %99 = trunc nuw nsw i64 %98 to i32
-  %100 = call i32 @OSSL_PARAM_set_uint32(ptr noundef %95, i32 noundef %99) #5
+  %100 = call i32 @OSSL_PARAM_set_uint32(ptr noundef %95, i32 noundef %99) #4
   %101 = icmp ne i32 %100, 0
   %102 = zext i1 %101 to i32
-  %103 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 665, ptr noundef nonnull @.str.91, i32 noundef %102) #5
+  %103 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 665, ptr noundef nonnull @.str.91, i32 noundef %102) #4
   %.not132 = icmp eq i32 %103, 0
   br i1 %.not132, label %118, label %104
 
 104:                                              ; preds = %97
-  %105 = call i32 @OSSL_PARAM_get_uint64(ptr noundef %95, ptr noundef nonnull %18) #5
+  %105 = call i32 @OSSL_PARAM_get_uint64(ptr noundef %95, ptr noundef nonnull %18) #4
   %106 = icmp ne i32 %105, 0
   %107 = zext i1 %106 to i32
-  %108 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 666, ptr noundef nonnull @.str.92, i32 noundef %107) #5
+  %108 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 666, ptr noundef nonnull @.str.92, i32 noundef %107) #4
   %.not133 = icmp eq i32 %108, 0
   br i1 %.not133, label %118, label %109
 
@@ -1354,19 +1434,19 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %111 = load i64, ptr %110, align 8, !tbaa !18
   %112 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %113 = load i64, ptr %112, align 8, !tbaa !19
-  %114 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 667, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef %111, i64 noundef %113) #5
+  %114 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 667, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef %111, i64 noundef %113) #4
   %.not134 = icmp eq i32 %114, 0
   br i1 %.not134, label %118, label %115
 
 115:                                              ; preds = %109
   %116 = load i64, ptr %18, align 8, !tbaa !15
-  %117 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 668, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.88, i64 noundef %116, i64 noundef %98) #5
+  %117 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 668, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.88, i64 noundef %116, i64 noundef %98) #4
   %.not135 = icmp eq i32 %117, 0
   br i1 %.not135, label %118, label %120
 
 118:                                              ; preds = %115, %109, %104, %97, %.preheader
   %119 = add nuw nsw i64 %.1147, 1
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.89, i64 noundef %119, ptr noundef %94) #5
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.89, i64 noundef %119, ptr noundef %94) #4
   br label %296
 
 120:                                              ; preds = %115
@@ -1375,37 +1455,37 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   br i1 %exitcond153.not, label %122, label %.preheader, !llvm.loop !30
 
 122:                                              ; preds = %120
-  %123 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.75) #5
-  %124 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 674, ptr noundef nonnull @.str.94, ptr noundef %123) #5
+  %123 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.75) #4
+  %124 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 674, ptr noundef nonnull @.str.94, ptr noundef %123) #4
   %.not90 = icmp eq i32 %124, 0
   br i1 %.not90, label %296, label %125
 
 125:                                              ; preds = %122
-  %126 = call i32 @OSSL_PARAM_set_double(ptr noundef %123, double noundef 3.140000e+00) #5
+  %126 = call i32 @OSSL_PARAM_set_double(ptr noundef %123, double noundef 3.140000e+00) #4
   %127 = icmp ne i32 %126, 0
   %128 = zext i1 %127 to i32
-  %129 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 675, ptr noundef nonnull @.str.95, i32 noundef %128) #5
+  %129 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 675, ptr noundef nonnull @.str.95, i32 noundef %128) #4
   %.not91 = icmp eq i32 %129, 0
   br i1 %.not91, label %296, label %130
 
 130:                                              ; preds = %125
-  %131 = call i32 @OSSL_PARAM_get_double(ptr noundef %123, ptr noundef nonnull %22) #5
+  %131 = call i32 @OSSL_PARAM_get_double(ptr noundef %123, ptr noundef nonnull %22) #4
   %132 = icmp ne i32 %131, 0
   %133 = zext i1 %132 to i32
-  %134 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 676, ptr noundef nonnull @.str.96, i32 noundef %133) #5
+  %134 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 676, ptr noundef nonnull @.str.96, i32 noundef %133) #4
   %.not92 = icmp eq i32 %134, 0
   br i1 %.not92, label %296, label %135
 
 135:                                              ; preds = %130
   %136 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %137 = load i64, ptr %136, align 8, !tbaa !19
-  %138 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 677, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.97, i64 noundef %137, i64 noundef 8) #5
+  %138 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 677, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.97, i64 noundef %137, i64 noundef 8) #4
   %.not93 = icmp eq i32 %138, 0
   br i1 %.not93, label %296, label %139
 
 139:                                              ; preds = %135
   %140 = load double, ptr %22, align 8, !tbaa !23
-  %141 = call i32 @test_double_eq(ptr noundef nonnull @.str.17, i32 noundef 678, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, double noundef %140, double noundef 3.140000e+00) #5
+  %141 = call i32 @test_double_eq(ptr noundef nonnull @.str.17, i32 noundef 678, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, double noundef %140, double noundef 3.140000e+00) #4
   %.not94 = icmp eq i32 %141, 0
   br i1 %.not94, label %296, label %142
 
@@ -1416,100 +1496,100 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 144:                                              ; preds = %142
   %145 = load double, ptr %21, align 8, !tbaa !23
   %146 = load double, ptr %22, align 8, !tbaa !23
-  %147 = call i32 @test_double_eq(ptr noundef nonnull @.str.17, i32 noundef 679, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.98, double noundef %145, double noundef %146) #5
+  %147 = call i32 @test_double_eq(ptr noundef nonnull @.str.17, i32 noundef 679, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.98, double noundef %145, double noundef %146) #4
   %.not95 = icmp eq i32 %147, 0
   br i1 %.not95, label %296, label %148
 
 148:                                              ; preds = %144, %142
   store ptr null, ptr %5, align 8, !tbaa !27
-  %149 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.77) #5
-  %150 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 683, ptr noundef nonnull @.str.101, ptr noundef %149) #5
+  %149 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.77) #4
+  %150 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 683, ptr noundef nonnull @.str.101, ptr noundef %149) #4
   %.not96 = icmp eq i32 %150, 0
   br i1 %.not96, label %168, label %151
 
 151:                                              ; preds = %148
-  %152 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef %149, ptr noundef nonnull @.str.103) #5
+  %152 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef %149, ptr noundef nonnull @.str.103) #4
   %153 = icmp ne i32 %152, 0
   %154 = zext i1 %153 to i32
-  %155 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 684, ptr noundef nonnull @.str.102, i32 noundef %154) #5
+  %155 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 684, ptr noundef nonnull @.str.102, i32 noundef %154) #4
   %.not97 = icmp eq i32 %155, 0
   br i1 %.not97, label %168, label %156
 
 156:                                              ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %158 = load i64, ptr %157, align 8, !tbaa !19
-  %159 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 685, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.104, i64 noundef %158, i64 noundef 6) #5
+  %159 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 685, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.104, i64 noundef %158, i64 noundef 6) #4
   %.not98 = icmp eq i32 %159, 0
   br i1 %.not98, label %168, label %160
 
 160:                                              ; preds = %156
-  %161 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %149, ptr noundef nonnull %5, i64 noundef 0) #5
+  %161 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %149, ptr noundef nonnull %5, i64 noundef 0) #4
   %162 = icmp ne i32 %161, 0
   %163 = zext i1 %162 to i32
-  %164 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 686, ptr noundef nonnull @.str.105, i32 noundef %163) #5
+  %164 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 686, ptr noundef nonnull @.str.105, i32 noundef %163) #4
   %.not99 = icmp eq i32 %164, 0
   br i1 %.not99, label %168, label %165
 
 165:                                              ; preds = %160
   %166 = load ptr, ptr %5, align 8, !tbaa !27
-  %167 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 687, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef %166, ptr noundef nonnull @.str.103) #5
+  %167 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 687, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef %166, ptr noundef nonnull @.str.103) #4
   %.not100 = icmp eq i32 %167, 0
   br i1 %.not100, label %168, label %170
 
 168:                                              ; preds = %165, %160, %156, %151, %148
   %169 = load ptr, ptr %5, align 8, !tbaa !27
-  call void @CRYPTO_free(ptr noundef %169, ptr noundef nonnull @.str.17, i32 noundef 688) #5
+  call void @CRYPTO_free(ptr noundef %169, ptr noundef nonnull @.str.17, i32 noundef 688) #4
   br label %296
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr %5, align 8, !tbaa !27
-  call void @CRYPTO_free(ptr noundef %171, ptr noundef nonnull @.str.17, i32 noundef 691) #5
+  call void @CRYPTO_free(ptr noundef %171, ptr noundef nonnull @.str.17, i32 noundef 691) #4
   store ptr %4, ptr %5, align 8, !tbaa !27
-  %172 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %149, ptr noundef nonnull %5, i64 noundef 100) #5
+  %172 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %149, ptr noundef nonnull %5, i64 noundef 100) #4
   %173 = icmp ne i32 %172, 0
   %174 = zext i1 %173 to i32
-  %175 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 693, ptr noundef nonnull @.str.108, i32 noundef %174) #5
+  %175 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 693, ptr noundef nonnull @.str.108, i32 noundef %174) #4
   %.not101 = icmp eq i32 %175, 0
   br i1 %.not101, label %296, label %176
 
 176:                                              ; preds = %170
-  %177 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 694, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.107, ptr noundef nonnull %4, ptr noundef nonnull @.str.103) #5
+  %177 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 694, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.107, ptr noundef nonnull %4, ptr noundef nonnull @.str.103) #4
   %.not102 = icmp eq i32 %177, 0
   br i1 %.not102, label %296, label %178
 
 178:                                              ; preds = %176
   store ptr %3, ptr %5, align 8, !tbaa !27
-  %179 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.79) #5
-  %180 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 699, ptr noundef nonnull @.str.110, ptr noundef %179) #5
+  %179 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.79) #4
+  %180 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 699, ptr noundef nonnull @.str.110, ptr noundef %179) #4
   %.not103 = icmp eq i32 %180, 0
   br i1 %.not103, label %296, label %181
 
 181:                                              ; preds = %178
-  %182 = call i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef %179, ptr noundef nonnull @.str.112) #5
+  %182 = call i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef %179, ptr noundef nonnull @.str.112) #4
   %183 = icmp ne i32 %182, 0
   %184 = zext i1 %183 to i32
-  %185 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 700, ptr noundef nonnull @.str.111, i32 noundef %184) #5
+  %185 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 700, ptr noundef nonnull @.str.111, i32 noundef %184) #4
   %.not104 = icmp eq i32 %185, 0
   br i1 %.not104, label %296, label %186
 
 186:                                              ; preds = %181
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %188 = load i64, ptr %187, align 8, !tbaa !19
-  %189 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 701, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.113, i64 noundef %188, i64 noundef 7) #5
+  %189 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 701, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.113, i64 noundef %188, i64 noundef 7) #4
   %.not105 = icmp eq i32 %189, 0
   br i1 %.not105, label %296, label %190
 
 190:                                              ; preds = %186
-  %191 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %179, ptr noundef nonnull %6) #5
+  %191 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %179, ptr noundef nonnull %6) #4
   %192 = icmp ne i32 %191, 0
   %193 = zext i1 %192 to i32
-  %194 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 702, ptr noundef nonnull @.str.114, i32 noundef %193) #5
+  %194 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 702, ptr noundef nonnull @.str.114, i32 noundef %193) #4
   %.not106 = icmp eq i32 %194, 0
   br i1 %.not106, label %296, label %195
 
 195:                                              ; preds = %190
   %196 = load ptr, ptr %6, align 8, !tbaa !27
-  %197 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 703, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef %196, ptr noundef nonnull @.str.112) #5
+  %197 = call i32 @test_str_eq(ptr noundef nonnull @.str.17, i32 noundef 703, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef %196, ptr noundef nonnull @.str.112) #4
   %.not107 = icmp eq i32 %197, 0
   br i1 %.not107, label %296, label %198
 
@@ -1519,28 +1599,28 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 199:                                              ; preds = %198
   %200 = load ptr, ptr %6, align 8, !tbaa !27
   %201 = load ptr, ptr %5, align 8, !tbaa !27
-  %202 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 704, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.106, ptr noundef %200, ptr noundef %201) #5
+  %202 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 704, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.106, ptr noundef %200, ptr noundef %201) #4
   %.not108 = icmp eq i32 %202, 0
   br i1 %.not108, label %296, label %203
 
 203:                                              ; preds = %199, %198
-  %204 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.78) #5
-  %205 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 707, ptr noundef nonnull @.str.117, ptr noundef %204) #5
+  %204 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.78) #4
+  %205 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 707, ptr noundef nonnull @.str.117, ptr noundef %204) #4
   %.not109 = icmp eq i32 %205, 0
   br i1 %.not109, label %296, label %206
 
 206:                                              ; preds = %203
-  %207 = call i32 @OSSL_PARAM_set_octet_string(ptr noundef %204, ptr noundef nonnull @.str.119, i64 noundef 10) #5
+  %207 = call i32 @OSSL_PARAM_set_octet_string(ptr noundef %204, ptr noundef nonnull @.str.119, i64 noundef 10) #4
   %208 = icmp ne i32 %207, 0
   %209 = zext i1 %208 to i32
-  %210 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 709, ptr noundef nonnull @.str.118, i32 noundef %209) #5
+  %210 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 709, ptr noundef nonnull @.str.118, i32 noundef %209) #4
   %.not110 = icmp eq i32 %210, 0
   br i1 %.not110, label %296, label %211
 
 211:                                              ; preds = %206
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %213 = load i64, ptr %212, align 8, !tbaa !19
-  %214 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 710, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.120, i64 noundef %213, i64 noundef 10) #5
+  %214 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 710, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.120, i64 noundef %213, i64 noundef 10) #4
   %.not111 = icmp eq i32 %214, 0
   br i1 %.not111, label %296, label %215
 
@@ -1548,65 +1628,65 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %216 = load i64, ptr %212, align 8, !tbaa !19
   %217 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store i64 %216, ptr %217, align 8, !tbaa !18
-  %218 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %204, ptr noundef nonnull %9, i64 noundef 0, ptr noundef nonnull %20) #5
+  %218 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %204, ptr noundef nonnull %9, i64 noundef 0, ptr noundef nonnull %20) #4
   %219 = icmp ne i32 %218, 0
   %220 = zext i1 %219 to i32
-  %221 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 714, ptr noundef nonnull @.str.121, i32 noundef %220) #5
+  %221 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 714, ptr noundef nonnull @.str.121, i32 noundef %220) #4
   %.not112 = icmp eq i32 %221, 0
   br i1 %.not112, label %296, label %222
 
 222:                                              ; preds = %215
   %223 = load i64, ptr %20, align 8, !tbaa !15
-  %224 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 715, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.120, i64 noundef %223, i64 noundef 10) #5
+  %224 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 715, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.120, i64 noundef %223, i64 noundef 10) #4
   %.not113 = icmp eq i32 %224, 0
   br i1 %.not113, label %296, label %225
 
 225:                                              ; preds = %222
   %226 = load ptr, ptr %9, align 8, !tbaa !25
-  %227 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 717, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, ptr noundef %226, i64 noundef 10, ptr noundef nonnull @.str.119, i64 noundef 10) #5
+  %227 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 717, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, ptr noundef %226, i64 noundef 10, ptr noundef nonnull @.str.119, i64 noundef 10) #4
   %.not114 = icmp eq i32 %227, 0
   br i1 %.not114, label %296, label %228
 
 228:                                              ; preds = %225
   store ptr %4, ptr %8, align 8, !tbaa !25
-  %229 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %204, ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull %20) #5
+  %229 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %204, ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull %20) #4
   %230 = icmp ne i32 %229, 0
   %231 = zext i1 %230 to i32
-  %232 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 720, ptr noundef nonnull @.str.125, i32 noundef %231) #5
+  %232 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 720, ptr noundef nonnull @.str.125, i32 noundef %231) #4
   %.not115 = icmp eq i32 %232, 0
   br i1 %.not115, label %296, label %233
 
 233:                                              ; preds = %228
   %234 = load i64, ptr %20, align 8, !tbaa !15
-  %235 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 721, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.120, i64 noundef %234, i64 noundef 10) #5
+  %235 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 721, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.120, i64 noundef %234, i64 noundef 10) #4
   %.not116 = icmp eq i32 %235, 0
   br i1 %.not116, label %296, label %236
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr %8, align 8, !tbaa !25
-  %238 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 723, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.124, ptr noundef %237, i64 noundef 10, ptr noundef nonnull @.str.119, i64 noundef 10) #5
+  %238 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 723, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.124, ptr noundef %237, i64 noundef 10, ptr noundef nonnull @.str.119, i64 noundef 10) #4
   %.not117 = icmp eq i32 %238, 0
   br i1 %.not117, label %296, label %239
 
 239:                                              ; preds = %236
   store ptr %13, ptr %8, align 8, !tbaa !25
-  %240 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.80) #5
-  %241 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 727, ptr noundef nonnull @.str.127, ptr noundef %240) #5
+  %240 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.80) #4
+  %241 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 727, ptr noundef nonnull @.str.127, ptr noundef %240) #4
   %.not118 = icmp eq i32 %241, 0
   br i1 %.not118, label %296, label %242
 
 242:                                              ; preds = %239
-  %243 = call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef %240, ptr noundef nonnull %14, i64 noundef 8) #5
+  %243 = call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef %240, ptr noundef nonnull %14, i64 noundef 8) #4
   %244 = icmp ne i32 %243, 0
   %245 = zext i1 %244 to i32
-  %246 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 728, ptr noundef nonnull @.str.128, i32 noundef %245) #5
+  %246 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 728, ptr noundef nonnull @.str.128, i32 noundef %245) #4
   %.not119 = icmp eq i32 %246, 0
   br i1 %.not119, label %296, label %247
 
 247:                                              ; preds = %242
   %248 = getelementptr inbounds nuw i8, ptr %240, i64 32
   %249 = load i64, ptr %248, align 8, !tbaa !19
-  %250 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 729, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.129, i64 noundef %249, i64 noundef 8) #5
+  %250 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 729, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.129, i64 noundef %249, i64 noundef 8) #4
   %.not120 = icmp eq i32 %250, 0
   br i1 %.not120, label %296, label %251
 
@@ -1615,7 +1695,7 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 
 252:                                              ; preds = %251
   %253 = load ptr, ptr %8, align 8, !tbaa !25
-  %254 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 730, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.130, ptr noundef %253, ptr noundef nonnull %14) #5
+  %254 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 730, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.130, ptr noundef %253, ptr noundef nonnull %14) #4
   %.not121 = icmp eq i32 %254, 0
   br i1 %.not121, label %296, label %255
 
@@ -1623,16 +1703,16 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %256 = load i64, ptr %248, align 8, !tbaa !19
   %257 = getelementptr inbounds nuw i8, ptr %240, i64 24
   store i64 %256, ptr %257, align 8, !tbaa !18
-  %258 = call i32 @OSSL_PARAM_get_octet_ptr(ptr noundef nonnull %240, ptr noundef nonnull %10, ptr noundef nonnull %19) #5
+  %258 = call i32 @OSSL_PARAM_get_octet_ptr(ptr noundef nonnull %240, ptr noundef nonnull %10, ptr noundef nonnull %19) #4
   %259 = icmp ne i32 %258, 0
   %260 = zext i1 %259 to i32
-  %261 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 734, ptr noundef nonnull @.str.131, i32 noundef %260) #5
+  %261 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 734, ptr noundef nonnull @.str.131, i32 noundef %260) #4
   %.not122 = icmp eq i32 %261, 0
   br i1 %.not122, label %296, label %262
 
 262:                                              ; preds = %255
   %263 = load i64, ptr %19, align 8, !tbaa !15
-  %264 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 735, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.129, i64 noundef %263, i64 noundef 8) #5
+  %264 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 735, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.129, i64 noundef %263, i64 noundef 8) #4
   %.not123 = icmp eq i32 %264, 0
   br i1 %.not123, label %296, label %265
 
@@ -1642,27 +1722,27 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 266:                                              ; preds = %265
   %267 = load ptr, ptr %10, align 8, !tbaa !25
   %268 = load ptr, ptr %8, align 8, !tbaa !25
-  %269 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 736, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.126, ptr noundef %267, ptr noundef %268) #5
+  %269 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 736, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.126, ptr noundef %267, ptr noundef %268) #4
   %.not124 = icmp eq i32 %269, 0
   br i1 %.not124, label %296, label %270
 
 270:                                              ; preds = %266, %265
-  %271 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.76) #5
-  %272 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 739, ptr noundef nonnull @.str.134, ptr noundef %271) #5
+  %271 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.76) #4
+  %272 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 739, ptr noundef nonnull @.str.134, ptr noundef %271) #4
   %.not125 = icmp eq i32 %272, 0
   br i1 %.not125, label %296, label %273
 
 273:                                              ; preds = %270
-  %274 = call ptr @BN_lebin2bn(ptr noundef nonnull @test_param_construct.bn_val, i32 noundef 16, ptr noundef null) #5
-  %275 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 740, ptr noundef nonnull @.str.135, ptr noundef %274) #5
+  %274 = call ptr @BN_lebin2bn(ptr noundef nonnull @test_param_construct.bn_val, i32 noundef 16, ptr noundef null) #4
+  %275 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 740, ptr noundef nonnull @.str.135, ptr noundef %274) #4
   %.not126 = icmp eq i32 %275, 0
   br i1 %.not126, label %296, label %276
 
 276:                                              ; preds = %273
-  %277 = call i32 @OSSL_PARAM_set_BN(ptr noundef %271, ptr noundef %274) #5
+  %277 = call i32 @OSSL_PARAM_set_BN(ptr noundef %271, ptr noundef %274) #4
   %278 = icmp ne i32 %277, 0
   %279 = zext i1 %278 to i32
-  %280 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 741, ptr noundef nonnull @.str.136, i32 noundef %279) #5
+  %280 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 741, ptr noundef nonnull @.str.136, i32 noundef %279) #4
   %.not127 = icmp eq i32 %280, 0
   br i1 %.not127, label %296, label %281
 
@@ -1671,23 +1751,23 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   %283 = load i64, ptr %282, align 8, !tbaa !18
   %284 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %285 = load i64, ptr %284, align 8, !tbaa !19
-  %286 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 742, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef %283, i64 noundef %285) #5
+  %286 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 742, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i64 noundef %283, i64 noundef %285) #4
   %.not128 = icmp eq i32 %286, 0
   br i1 %.not128, label %296, label %287
 
 287:                                              ; preds = %281
   %288 = load i64, ptr %284, align 8, !tbaa !19
   store i64 %288, ptr %282, align 8, !tbaa !18
-  %289 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %271, ptr noundef nonnull %23) #5
+  %289 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %271, ptr noundef nonnull %23) #4
   %290 = icmp ne i32 %289, 0
   %291 = zext i1 %290 to i32
-  %292 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 746, ptr noundef nonnull @.str.137, i32 noundef %291) #5
+  %292 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 746, ptr noundef nonnull @.str.137, i32 noundef %291) #4
   %.not129 = icmp eq i32 %292, 0
   br i1 %.not129, label %296, label %293
 
 293:                                              ; preds = %287
   %294 = load ptr, ptr %23, align 8, !tbaa !16
-  %295 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 747, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.138, ptr noundef %274, ptr noundef %294) #5
+  %295 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 747, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.138, ptr noundef %274, ptr noundef %294) #4
   %.not130 = icmp ne i32 %295, 0
   %spec.select = zext i1 %.not130 to i32
   br label %296
@@ -1699,16 +1779,16 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   br i1 %.not141, label %298, label %297
 
 297:                                              ; preds = %296
-  call void @CRYPTO_free(ptr noundef %.088, ptr noundef nonnull @.str.17, i32 noundef 752) #5
+  call void @CRYPTO_free(ptr noundef %.088, ptr noundef nonnull @.str.17, i32 noundef 752) #4
   br label %298
 
 298:                                              ; preds = %297, %296
-  call void @CRYPTO_free(ptr noundef %.089, ptr noundef nonnull @.str.17, i32 noundef 753) #5
+  call void @CRYPTO_free(ptr noundef %.089, ptr noundef nonnull @.str.17, i32 noundef 753) #4
   %299 = load ptr, ptr %9, align 8, !tbaa !25
-  call void @CRYPTO_free(ptr noundef %299, ptr noundef nonnull @.str.17, i32 noundef 754) #5
-  call void @BN_free(ptr noundef %.0) #5
+  call void @CRYPTO_free(ptr noundef %299, ptr noundef nonnull @.str.17, i32 noundef 754) #4
+  call void @BN_free(ptr noundef %.0) #4
   %300 = load ptr, ptr %23, align 8, !tbaa !16
-  call void @BN_free(ptr noundef %300) #5
+  call void @BN_free(ptr noundef %300) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1748,99 +1828,99 @@ define internal range(i32 0, 2) i32 @test_param_modified() #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %3, ptr %6, align 8, !tbaa !9
-  %7 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #5
+  %7 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #4
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
-  %10 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 769, ptr noundef nonnull @.str.30, i32 noundef %9) #5
+  %10 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 769, ptr noundef nonnull @.str.30, i32 noundef %9) #4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %36
 
 11:                                               ; preds = %0
-  %12 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %1, i32 noundef 1234) #5
+  %12 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %1, i32 noundef 1234) #4
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
-  %15 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 770, ptr noundef nonnull @.str.139, i32 noundef %14) #5
+  %15 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 770, ptr noundef nonnull @.str.139, i32 noundef %14) #4
   %.not1 = icmp eq i32 %15, 0
   br i1 %.not1, label %16, label %36
 
 16:                                               ; preds = %11
-  %17 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #5
+  %17 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #4
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i32
-  %20 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 771, ptr noundef nonnull @.str.30, i32 noundef %19) #5
+  %20 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 771, ptr noundef nonnull @.str.30, i32 noundef %19) #4
   %.not2 = icmp eq i32 %20, 0
   br i1 %.not2, label %21, label %36
 
 21:                                               ; preds = %16
-  %22 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #5
+  %22 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #4
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 772, ptr noundef nonnull @.str.140, i32 noundef %24) #5
+  %25 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 772, ptr noundef nonnull @.str.140, i32 noundef %24) #4
   %.not3 = icmp eq i32 %25, 0
   br i1 %.not3, label %26, label %36
 
 26:                                               ; preds = %21
-  %27 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %5, i32 noundef 1) #5
+  %27 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %5, i32 noundef 1) #4
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
-  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 773, ptr noundef nonnull @.str.141, i32 noundef %29) #5
+  %30 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 773, ptr noundef nonnull @.str.141, i32 noundef %29) #4
   %.not4 = icmp eq i32 %30, 0
   br i1 %.not4, label %31, label %36
 
 31:                                               ; preds = %26
-  %32 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #5
+  %32 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #4
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
-  %35 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 774, ptr noundef nonnull @.str.140, i32 noundef %34) #5
+  %35 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 774, ptr noundef nonnull @.str.140, i32 noundef %34) #4
   %.not5 = icmp eq i32 %35, 0
   br i1 %.not5, label %67, label %36
 
 36:                                               ; preds = %31, %26, %21, %16, %11, %0
-  call void @OSSL_PARAM_set_all_unmodified(ptr noundef nonnull %1) #5
-  %37 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #5
+  call void @OSSL_PARAM_set_all_unmodified(ptr noundef nonnull %1) #4
+  %37 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #4
   %38 = icmp ne i32 %37, 0
   %39 = zext i1 %38 to i32
-  %40 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 777, ptr noundef nonnull @.str.30, i32 noundef %39) #5
+  %40 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 777, ptr noundef nonnull @.str.30, i32 noundef %39) #4
   %.not6 = icmp eq i32 %40, 0
   br i1 %.not6, label %41, label %66
 
 41:                                               ; preds = %36
-  %42 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %1, i32 noundef 4321) #5
+  %42 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %1, i32 noundef 4321) #4
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 778, ptr noundef nonnull @.str.142, i32 noundef %44) #5
+  %45 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 778, ptr noundef nonnull @.str.142, i32 noundef %44) #4
   %.not7 = icmp eq i32 %45, 0
   br i1 %.not7, label %46, label %66
 
 46:                                               ; preds = %41
-  %47 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #5
+  %47 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %1) #4
   %48 = icmp ne i32 %47, 0
   %49 = zext i1 %48 to i32
-  %50 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 779, ptr noundef nonnull @.str.30, i32 noundef %49) #5
+  %50 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 779, ptr noundef nonnull @.str.30, i32 noundef %49) #4
   %.not8 = icmp eq i32 %50, 0
   br i1 %.not8, label %51, label %66
 
 51:                                               ; preds = %46
-  %52 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #5
+  %52 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #4
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
-  %55 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 780, ptr noundef nonnull @.str.140, i32 noundef %54) #5
+  %55 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 780, ptr noundef nonnull @.str.140, i32 noundef %54) #4
   %.not9 = icmp eq i32 %55, 0
   br i1 %.not9, label %56, label %66
 
 56:                                               ; preds = %51
-  %57 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %5, i32 noundef 2) #5
+  %57 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %5, i32 noundef 2) #4
   %58 = icmp ne i32 %57, 0
   %59 = zext i1 %58 to i32
-  %60 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 781, ptr noundef nonnull @.str.143, i32 noundef %59) #5
+  %60 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 781, ptr noundef nonnull @.str.143, i32 noundef %59) #4
   %.not10 = icmp eq i32 %60, 0
   br i1 %.not10, label %61, label %66
 
 61:                                               ; preds = %56
-  %62 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #5
+  %62 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %5) #4
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i32
-  %65 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 782, ptr noundef nonnull @.str.140, i32 noundef %64) #5
+  %65 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 782, ptr noundef nonnull @.str.140, i32 noundef %64) #4
   %.not11 = icmp eq i32 %65, 0
   br i1 %.not11, label %67, label %66
 
@@ -1869,117 +1949,117 @@ define internal range(i32 0, 2) i32 @test_param_copy_null() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %3, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #5
+  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.58, ptr noundef nonnull %3) #5
+  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.58, ptr noundef nonnull %3) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #5
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %9 = call ptr @OSSL_PARAM_dup(ptr noundef null) #5
-  %10 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 798, ptr noundef nonnull @.str.144, ptr noundef %9) #5
+  %9 = call ptr @OSSL_PARAM_dup(ptr noundef null) #4
+  %10 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 798, ptr noundef nonnull @.str.144, ptr noundef %9) #4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %66, label %11
 
 11:                                               ; preds = %0
-  %12 = call ptr @OSSL_PARAM_merge(ptr noundef null, ptr noundef nonnull %4) #5
-  %13 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 799, ptr noundef nonnull @.str.145, ptr noundef %12) #5
+  %12 = call ptr @OSSL_PARAM_merge(ptr noundef null, ptr noundef nonnull %4) #4
+  %13 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 799, ptr noundef nonnull @.str.145, ptr noundef %12) #4
   %.not14 = icmp eq i32 %13, 0
   br i1 %.not14, label %66, label %14
 
 14:                                               ; preds = %11
-  %15 = call ptr @OSSL_PARAM_locate(ptr noundef %12, ptr noundef nonnull @.str.16) #5
-  %16 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 800, ptr noundef nonnull @.str.146, ptr noundef %15) #5
+  %15 = call ptr @OSSL_PARAM_locate(ptr noundef %12, ptr noundef nonnull @.str.16) #4
+  %16 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 800, ptr noundef nonnull @.str.146, ptr noundef %15) #4
   %.not15 = icmp eq i32 %16, 0
   br i1 %.not15, label %66, label %17
 
 17:                                               ; preds = %14
-  %18 = call i32 @OSSL_PARAM_get_int(ptr noundef %15, ptr noundef nonnull %1) #5
+  %18 = call i32 @OSSL_PARAM_get_int(ptr noundef %15, ptr noundef nonnull %1) #4
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 801, ptr noundef nonnull @.str.147, i32 noundef %20) #5
+  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 801, ptr noundef nonnull @.str.147, i32 noundef %20) #4
   %.not16 = icmp eq i32 %21, 0
   br i1 %.not16, label %66, label %22
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %1, align 4, !tbaa !14
-  %24 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 802, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.19, i32 noundef %23, i32 noundef 1) #5
+  %24 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 802, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.19, i32 noundef %23, i32 noundef 1) #4
   %.not17 = icmp eq i32 %24, 0
   br i1 %.not17, label %66, label %25
 
 25:                                               ; preds = %22
-  %26 = call ptr @OSSL_PARAM_locate(ptr noundef %12, ptr noundef nonnull @.str.58) #5
-  %27 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 803, ptr noundef nonnull @.str.149, ptr noundef %26) #5
+  %26 = call ptr @OSSL_PARAM_locate(ptr noundef %12, ptr noundef nonnull @.str.58) #4
+  %27 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 803, ptr noundef nonnull @.str.149, ptr noundef %26) #4
   %.not18 = icmp eq i32 %27, 0
   br i1 %.not18, label %66, label %28
 
 28:                                               ; preds = %25
-  %29 = call i32 @OSSL_PARAM_get_int(ptr noundef %26, ptr noundef nonnull %1) #5
+  %29 = call i32 @OSSL_PARAM_get_int(ptr noundef %26, ptr noundef nonnull %1) #4
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
-  %32 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 804, ptr noundef nonnull @.str.147, i32 noundef %31) #5
+  %32 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 804, ptr noundef nonnull @.str.147, i32 noundef %31) #4
   %.not19 = icmp eq i32 %32, 0
   br i1 %.not19, label %66, label %33
 
 33:                                               ; preds = %28
   %34 = load i32, ptr %1, align 4, !tbaa !14
-  %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 805, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.150, i32 noundef %34, i32 noundef 2) #5
+  %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 805, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.150, i32 noundef %34, i32 noundef 2) #4
   %.not20 = icmp eq i32 %35, 0
   br i1 %.not20, label %66, label %36
 
 36:                                               ; preds = %33
-  %37 = call ptr @OSSL_PARAM_merge(ptr noundef nonnull %4, ptr noundef null) #5
-  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 806, ptr noundef nonnull @.str.151, ptr noundef %37) #5
+  %37 = call ptr @OSSL_PARAM_merge(ptr noundef nonnull %4, ptr noundef null) #4
+  %38 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 806, ptr noundef nonnull @.str.151, ptr noundef %37) #4
   %.not21 = icmp eq i32 %38, 0
   br i1 %.not21, label %66, label %39
 
 39:                                               ; preds = %36
-  %40 = call ptr @OSSL_PARAM_locate(ptr noundef %37, ptr noundef nonnull @.str.16) #5
-  %41 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 807, ptr noundef nonnull @.str.152, ptr noundef %40) #5
+  %40 = call ptr @OSSL_PARAM_locate(ptr noundef %37, ptr noundef nonnull @.str.16) #4
+  %41 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 807, ptr noundef nonnull @.str.152, ptr noundef %40) #4
   %.not22 = icmp eq i32 %41, 0
   br i1 %.not22, label %66, label %42
 
 42:                                               ; preds = %39
-  %43 = call i32 @OSSL_PARAM_get_int(ptr noundef %40, ptr noundef nonnull %1) #5
+  %43 = call i32 @OSSL_PARAM_get_int(ptr noundef %40, ptr noundef nonnull %1) #4
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  %46 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 808, ptr noundef nonnull @.str.147, i32 noundef %45) #5
+  %46 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 808, ptr noundef nonnull @.str.147, i32 noundef %45) #4
   %.not23 = icmp eq i32 %46, 0
   br i1 %.not23, label %66, label %47
 
 47:                                               ; preds = %42
   %48 = load i32, ptr %1, align 4, !tbaa !14
-  %49 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 809, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.19, i32 noundef %48, i32 noundef 1) #5
+  %49 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 809, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.19, i32 noundef %48, i32 noundef 1) #4
   %.not24 = icmp eq i32 %49, 0
   br i1 %.not24, label %66, label %50
 
 50:                                               ; preds = %47
-  %51 = call ptr @OSSL_PARAM_locate(ptr noundef %37, ptr noundef nonnull @.str.58) #5
-  %52 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 810, ptr noundef nonnull @.str.153, ptr noundef %51) #5
+  %51 = call ptr @OSSL_PARAM_locate(ptr noundef %37, ptr noundef nonnull @.str.58) #4
+  %52 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 810, ptr noundef nonnull @.str.153, ptr noundef %51) #4
   %.not25 = icmp eq i32 %52, 0
   br i1 %.not25, label %66, label %53
 
 53:                                               ; preds = %50
-  %54 = call i32 @OSSL_PARAM_get_int(ptr noundef %51, ptr noundef nonnull %1) #5
+  %54 = call i32 @OSSL_PARAM_get_int(ptr noundef %51, ptr noundef nonnull %1) #4
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
-  %57 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 811, ptr noundef nonnull @.str.147, i32 noundef %56) #5
+  %57 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 811, ptr noundef nonnull @.str.147, i32 noundef %56) #4
   %.not26 = icmp eq i32 %57, 0
   br i1 %.not26, label %66, label %58
 
 58:                                               ; preds = %53
   %59 = load i32, ptr %1, align 4, !tbaa !14
-  %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 812, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.150, i32 noundef %59, i32 noundef 2) #5
+  %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 812, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.150, i32 noundef %59, i32 noundef 2) #4
   %.not27 = icmp eq i32 %60, 0
   br i1 %.not27, label %66, label %61
 
 61:                                               ; preds = %58
-  %62 = call ptr @OSSL_PARAM_merge(ptr noundef null, ptr noundef null) #5
-  %63 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 813, ptr noundef nonnull @.str.154, ptr noundef %62) #5
+  %62 = call ptr @OSSL_PARAM_merge(ptr noundef null, ptr noundef null) #4
+  %63 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 813, ptr noundef nonnull @.str.154, ptr noundef %62) #4
   %64 = icmp ne i32 %63, 0
   %65 = zext i1 %64 to i32
   br label %66
@@ -1988,8 +2068,8 @@ define internal range(i32 0, 2) i32 @test_param_copy_null() #0 {
   %.013 = phi ptr [ %12, %61 ], [ %12, %58 ], [ %12, %53 ], [ %12, %50 ], [ %12, %47 ], [ %12, %42 ], [ %12, %39 ], [ %12, %36 ], [ %12, %33 ], [ %12, %28 ], [ %12, %25 ], [ %12, %22 ], [ %12, %17 ], [ %12, %14 ], [ %12, %11 ], [ null, %0 ]
   %.0 = phi ptr [ %37, %61 ], [ %37, %58 ], [ %37, %53 ], [ %37, %50 ], [ %37, %47 ], [ %37, %42 ], [ %37, %39 ], [ %37, %36 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %22 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %0 ]
   %67 = phi i32 [ %65, %61 ], [ 0, %58 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %0 ]
-  call void @OSSL_PARAM_free(ptr noundef %.0) #5
-  call void @OSSL_PARAM_free(ptr noundef %.013) #5
+  call void @OSSL_PARAM_free(ptr noundef %.0) #4
+  call void @OSSL_PARAM_free(ptr noundef %.013) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2031,11 +2111,11 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_null(ptr noundef non
   ]
 
 10:                                               ; preds = %7
-  %11 = call i32 @OSSL_PARAM_get_int32(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %11 = call i32 @OSSL_PARAM_get_int32(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   br label %25
 
 12:                                               ; preds = %7
-  %13 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %13 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   br label %25
 
 14:                                               ; preds = %1
@@ -2047,19 +2127,19 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_null(ptr noundef non
   ]
 
 17:                                               ; preds = %14
-  %18 = call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %18 = call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   br label %25
 
 19:                                               ; preds = %14
-  %20 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %20 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   br label %25
 
 21:                                               ; preds = %14
-  %22 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %0, ptr noundef nonnull %4) #5
+  %22 = call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   br label %25
 
 23:                                               ; preds = %1
-  %24 = call i32 @OSSL_PARAM_get_double(ptr noundef nonnull %0, ptr noundef nonnull %3) #5
+  %24 = call i32 @OSSL_PARAM_get_double(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
   br label %25
 
 25:                                               ; preds = %17, %21, %19, %10, %12, %23, %1
@@ -2109,18 +2189,18 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
   br i1 %10, label %17, label %22
 
 17:                                               ; preds = %16
-  %18 = call i32 @OSSL_PARAM_get_int32(ptr noundef nonnull %0, ptr noundef nonnull %4) #5
+  %18 = call i32 @OSSL_PARAM_get_int32(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 133, ptr noundef nonnull @.str.25, i32 noundef %20) #5
+  %21 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 133, ptr noundef nonnull @.str.25, i32 noundef %20) #4
   %.not42 = icmp eq i32 %21, 0
   br i1 %.not42, label %95, label %22
 
 22:                                               ; preds = %17, %16
-  %23 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
+  %23 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %0, ptr noundef nonnull %5) #4
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32
-  %26 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 134, ptr noundef nonnull @.str.26, i32 noundef %25) #5
+  %26 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 134, ptr noundef nonnull @.str.26, i32 noundef %25) #4
   %.not43 = icmp eq i32 %26, 0
   br i1 %.not43, label %95, label %44
 
@@ -2128,18 +2208,18 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
   br i1 %10, label %28, label %33
 
 28:                                               ; preds = %27
-  %29 = call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %0, ptr noundef nonnull %4) #5
+  %29 = call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
-  %32 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 138, ptr noundef nonnull @.str.27, i32 noundef %31) #5
+  %32 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 138, ptr noundef nonnull @.str.27, i32 noundef %31) #4
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %95, label %33
 
 33:                                               ; preds = %28, %27
-  %34 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
+  %34 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %0, ptr noundef nonnull %5) #4
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
-  %37 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 139, ptr noundef nonnull @.str.28, i32 noundef %36) #5
+  %37 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 139, ptr noundef nonnull @.str.28, i32 noundef %36) #4
   %.not40 = icmp eq i32 %37, 0
   br i1 %.not40, label %95, label %38
 
@@ -2147,18 +2227,18 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
   br i1 %11, label %44, label %39
 
 39:                                               ; preds = %38
-  %40 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %0, ptr noundef nonnull %6) #5
+  %40 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %0, ptr noundef nonnull %6) #4
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
-  %43 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 140, ptr noundef nonnull @.str.29, i32 noundef %42) #5
+  %43 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 140, ptr noundef nonnull @.str.29, i32 noundef %42) #4
   %.not41 = icmp eq i32 %43, 0
   br i1 %.not41, label %95, label %44
 
 44:                                               ; preds = %38, %39, %22
-  %45 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %0) #5
+  %45 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %0) #4
   %46 = icmp ne i32 %45, 0
   %47 = zext i1 %46 to i32
-  %48 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 143, ptr noundef nonnull @.str.30, i32 noundef %47) #5
+  %48 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 143, ptr noundef nonnull @.str.30, i32 noundef %47) #4
   %.not44 = icmp eq i32 %48, 0
   br i1 %.not44, label %95, label %49
 
@@ -2168,14 +2248,14 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
 50:                                               ; preds = %49
   %51 = load i32, ptr %4, align 4
   store i32 %51, ptr %7, align 16
-  %52 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 150, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %1, i64 noundef 4) #5
+  %52 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 150, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %1, i64 noundef 4) #4
   %.not45 = icmp eq i32 %52, 0
   br i1 %.not45, label %95, label %53
 
 53:                                               ; preds = %50, %49
   %54 = load i64, ptr %5, align 8
   store i64 %54, ptr %7, align 16
-  %55 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 155, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, i64 noundef %2, ptr noundef %1, i64 noundef %2) #5
+  %55 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 155, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, i64 noundef %2, ptr noundef %1, i64 noundef %2) #4
   %.not46 = icmp eq i32 %55, 0
   br i1 %.not46, label %95, label %56
 
@@ -2186,7 +2266,7 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
 57:                                               ; preds = %56
   %58 = load i64, ptr %6, align 8
   store i64 %58, ptr %7, align 16
-  %59 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 160, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, i64 noundef %2, ptr noundef %1, i64 noundef %2) #5
+  %59 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 160, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, i64 noundef %2, ptr noundef %1, i64 noundef %2) #4
   %.not47 = icmp eq i32 %59, 0
   br i1 %.not47, label %95, label %60
 
@@ -2198,54 +2278,54 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
   br i1 %14, label %63, label %76
 
 63:                                               ; preds = %62
-  %64 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %0, i32 noundef 12345) #5
+  %64 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %0, i32 noundef 12345) #4
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
-  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 167, ptr noundef nonnull @.str.32, i32 noundef %66) #5
+  %67 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 167, ptr noundef nonnull @.str.32, i32 noundef %66) #4
   %.not51 = icmp eq i32 %67, 0
   br i1 %.not51, label %95, label %68
 
 68:                                               ; preds = %63
-  %69 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
+  %69 = call i32 @OSSL_PARAM_get_int64(ptr noundef nonnull %0, ptr noundef nonnull %5) #4
   %70 = icmp ne i32 %69, 0
   %71 = zext i1 %70 to i32
-  %72 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 168, ptr noundef nonnull @.str.26, i32 noundef %71) #5
+  %72 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 168, ptr noundef nonnull @.str.26, i32 noundef %71) #4
   %.not52 = icmp eq i32 %72, 0
   br i1 %.not52, label %95, label %73
 
 73:                                               ; preds = %68
   %74 = load i64, ptr %5, align 8, !tbaa !15
-  %75 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 169, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i64 noundef %74, i64 noundef 12345) #5
+  %75 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 169, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i64 noundef %74, i64 noundef 12345) #4
   %.not53 = icmp eq i32 %75, 0
   br i1 %.not53, label %95, label %89
 
 76:                                               ; preds = %62
-  %77 = call i32 @OSSL_PARAM_set_uint32(ptr noundef nonnull %0, i32 noundef 12345) #5
+  %77 = call i32 @OSSL_PARAM_set_uint32(ptr noundef nonnull %0, i32 noundef 12345) #4
   %78 = icmp ne i32 %77, 0
   %79 = zext i1 %78 to i32
-  %80 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 172, ptr noundef nonnull @.str.35, i32 noundef %79) #5
+  %80 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 172, ptr noundef nonnull @.str.35, i32 noundef %79) #4
   %.not48 = icmp eq i32 %80, 0
   br i1 %.not48, label %95, label %81
 
 81:                                               ; preds = %76
-  %82 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
+  %82 = call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %0, ptr noundef nonnull %5) #4
   %83 = icmp ne i32 %82, 0
   %84 = zext i1 %83 to i32
-  %85 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 173, ptr noundef nonnull @.str.28, i32 noundef %84) #5
+  %85 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 173, ptr noundef nonnull @.str.28, i32 noundef %84) #4
   %.not49 = icmp eq i32 %85, 0
   br i1 %.not49, label %95, label %86
 
 86:                                               ; preds = %81
   %87 = load i64, ptr %5, align 8, !tbaa !15
-  %88 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 174, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i64 noundef %87, i64 noundef 12345) #5
+  %88 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 174, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i64 noundef %87, i64 noundef 12345) #4
   %.not50 = icmp eq i32 %88, 0
   br i1 %.not50, label %95, label %89
 
 89:                                               ; preds = %86, %73
-  %90 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %0) #5
+  %90 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %0) #4
   %91 = icmp ne i32 %90, 0
   %92 = zext i1 %91 to i32
-  %93 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 177, ptr noundef nonnull @.str.30, i32 noundef %92) #5
+  %93 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 177, ptr noundef nonnull @.str.30, i32 noundef %92) #4
   %.not54 = icmp eq i32 %93, 0
   br i1 %.not54, label %95, label %94
 
@@ -2401,15 +2481,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1284,166 +1284,150 @@ declare dso_local i32 @snd_pcm_hw_params_bits(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
 define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
   %4 = icmp eq i32 %2, 8000
-  br i1 %4, label %14, label %.preheader
+  br i1 %4, label %15, label %.preheader
 
-.preheader:                                       ; preds = %3, %10
-  %5 = phi i64 [ %6, %10 ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %8
+  %5 = phi i64 [ %6, %8 ], [ 0, %3 ]
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %6
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i64 %6, 12
-  br i1 %9, label %19, label %10, !llvm.loop !19
+  %7 = icmp eq i64 %6, 12
+  br i1 %7, label %.thread, label %8, !llvm.loop !19
 
-10:                                               ; preds = %.preheader
-  %11 = icmp eq i32 %8, %2
+8:                                                ; preds = %.preheader
+  %9 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %6
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, %2
   br i1 %11, label %12, label %.preheader, !llvm.loop !19
 
-12:                                               ; preds = %10
-  %13 = icmp eq i32 %2, 0
-  br label %14
+12:                                               ; preds = %8
+  %13 = and i64 %6, 4611686018427387903
+  %14 = icmp eq i64 %13, 12
+  br label %15
 
-14:                                               ; preds = %12, %3
-  %15 = phi i1 [ false, %3 ], [ %13, %12 ]
-  %16 = phi ptr [ @rate_bits, %3 ], [ %7, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i32, ptr %17, align 4
-  br label %21
+15:                                               ; preds = %3, %12
+  %16 = phi i1 [ false, %3 ], [ %14, %12 ]
+  %17 = phi ptr [ @rate_bits, %3 ], [ %9, %12 ]
+  %18 = add i32 %0, -9
+  %19 = icmp ult i32 %18, -8
+  %20 = or i1 %19, %16
+  br i1 %20, label %.thread, label %21
 
-19:                                               ; preds = %.preheader
-  %20 = icmp eq i32 %8, 0
-  br label %21
-
-21:                                               ; preds = %19, %14
-  %22 = phi i1 [ %15, %14 ], [ %20, %19 ]
-  %23 = phi i32 [ %18, %14 ], [ 0, %19 ]
-  %24 = add i32 %0, -9
-  %25 = icmp ult i32 %24, -8
-  %26 = or i1 %25, %22
-  br i1 %26, label %41, label %27
-
-27:                                               ; preds = %21
-  %28 = add nsw i32 %0, -1
-  %29 = or i32 %23, %28
-  %30 = add i32 %1, -8
-  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 30)
-  switch i32 %31, label %41 [
-    i32 0, label %40
-    i32 2, label %32
-    i32 3, label %34
-    i32 4, label %36
-    i32 6, label %38
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %23 = load i32, ptr %22, align 4
+  %24 = add nsw i32 %0, -1
+  %25 = or i32 %23, %24
+  %26 = add i32 %1, -8
+  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 30)
+  switch i32 %27, label %.thread [
+    i32 0, label %36
+    i32 2, label %28
+    i32 3, label %30
+    i32 4, label %32
+    i32 6, label %34
   ]
 
-32:                                               ; preds = %27
-  %33 = or i32 %29, 16
-  br label %41
+28:                                               ; preds = %21
+  %29 = or i32 %25, 16
+  br label %.thread
 
-34:                                               ; preds = %27
-  %35 = or i32 %29, 32
-  br label %41
+30:                                               ; preds = %21
+  %31 = or i32 %25, 32
+  br label %.thread
 
-36:                                               ; preds = %27
-  %37 = or i32 %29, 48
-  br label %41
+32:                                               ; preds = %21
+  %33 = or i32 %25, 48
+  br label %.thread
 
-38:                                               ; preds = %27
-  %39 = or i32 %29, 64
-  br label %41
+34:                                               ; preds = %21
+  %35 = or i32 %25, 64
+  br label %.thread
 
-40:                                               ; preds = %27
-  br label %41
+36:                                               ; preds = %21
+  br label %.thread
 
-41:                                               ; preds = %40, %38, %36, %34, %32, %27, %21
-  %42 = phi i32 [ 0, %21 ], [ 0, %27 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %29, %40 ]
-  ret i32 %42
+.thread:                                          ; preds = %.preheader, %36, %34, %32, %30, %28, %21, %15
+  %37 = phi i32 [ 0, %15 ], [ 0, %21 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %25, %36 ], [ 0, %.preheader ]
+  ret i32 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
 define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) #4 align 16 {
   %5 = icmp eq i32 %2, 8000
-  br i1 %5, label %15, label %.preheader
+  br i1 %5, label %16, label %.preheader
 
-.preheader:                                       ; preds = %4, %11
-  %6 = phi i64 [ %7, %11 ], [ 0, %4 ]
+.preheader:                                       ; preds = %4, %9
+  %6 = phi i64 [ %7, %9 ], [ 0, %4 ]
   %7 = add nuw nsw i64 %6, 1
-  %8 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %7
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i64 %7, 12
-  br i1 %10, label %21, label %11, !llvm.loop !19
+  %8 = icmp eq i64 %7, 12
+  br i1 %8, label %.thread5, label %9, !llvm.loop !19
 
-11:                                               ; preds = %.preheader
-  %12 = icmp eq i32 %9, %2
+9:                                                ; preds = %.preheader
+  %10 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %7
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, %2
   br i1 %12, label %13, label %.preheader, !llvm.loop !19
 
-13:                                               ; preds = %11
-  %14 = icmp eq i32 %2, 0
-  br label %15
+13:                                               ; preds = %9
+  %14 = and i64 %7, 4611686018427387903
+  %15 = icmp eq i64 %14, 12
+  br label %16
 
-15:                                               ; preds = %13, %4
-  %16 = phi i1 [ false, %4 ], [ %14, %13 ]
-  %17 = phi ptr [ @rate_bits, %4 ], [ %8, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 4
-  %20 = freeze i32 %19
-  br label %23
+16:                                               ; preds = %4, %13
+  %17 = phi i1 [ false, %4 ], [ %15, %13 ]
+  %18 = phi ptr [ @rate_bits, %4 ], [ %10, %13 ]
+  %19 = add i32 %0, -9
+  %20 = icmp ult i32 %19, -8
+  %21 = or i1 %20, %17
+  br i1 %21, label %.thread5, label %22
 
-21:                                               ; preds = %.preheader
-  %22 = icmp eq i32 %9, 0
-  br label %23
-
-23:                                               ; preds = %21, %15
-  %24 = phi i1 [ %16, %15 ], [ %22, %21 ]
-  %.fr = phi i32 [ %20, %15 ], [ 0, %21 ]
-  %25 = add i32 %0, -9
-  %26 = icmp ult i32 %25, -8
-  %27 = or i1 %26, %24
-  br i1 %27, label %.thread4, label %28
-
-28:                                               ; preds = %23
-  %29 = add nsw i32 %0, -1
-  %30 = or i32 %.fr, %29
-  %31 = add i32 %1, -8
-  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
-  switch i32 %32, label %.thread4 [
-    i32 0, label %41
-    i32 2, label %.thread
-    i32 3, label %33
-    i32 4, label %34
-    i32 6, label %35
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %24 = load i32, ptr %23, align 4
+  %25 = add nsw i32 %0, -1
+  %.fr = freeze i32 %24
+  %26 = or i32 %.fr, %25
+  %27 = add i32 %1, -8
+  %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 30)
+  switch i32 %28, label %.thread5 [
+    i32 0, label %37
+    i32 2, label %.thread2
+    i32 3, label %29
+    i32 4, label %30
+    i32 6, label %31
   ]
 
-33:                                               ; preds = %28
-  br label %.thread
+29:                                               ; preds = %22
+  br label %.thread2
 
-34:                                               ; preds = %28
-  br label %.thread
+30:                                               ; preds = %22
+  br label %.thread2
 
-35:                                               ; preds = %28
-  br label %.thread
+31:                                               ; preds = %22
+  br label %.thread2
 
-.thread:                                          ; preds = %28, %35, %34, %33
-  %.sink = phi i32 [ 64, %35 ], [ 48, %34 ], [ 32, %33 ], [ 16, %28 ]
-  %36 = shl i16 %3, 10
-  %37 = and i16 %36, -32768
-  %38 = zext i16 %37 to i32
-  %39 = or disjoint i32 %.sink, %38
-  %40 = or i32 %39, %30
-  br label %47
+.thread2:                                         ; preds = %22, %31, %30, %29
+  %.sink = phi i32 [ 64, %31 ], [ 48, %30 ], [ 32, %29 ], [ 16, %22 ]
+  %32 = shl i16 %3, 10
+  %33 = and i16 %32, -32768
+  %34 = zext i16 %33 to i32
+  %35 = or disjoint i32 %.sink, %34
+  %36 = or i32 %35, %26
+  br label %43
 
-41:                                               ; preds = %28
-  %42 = icmp eq i32 %30, 0
-  %43 = shl i16 %3, 10
-  %44 = and i16 %43, -32768
-  %45 = zext i16 %44 to i32
-  %46 = or i32 %30, %45
-  br i1 %42, label %.thread4, label %47
+37:                                               ; preds = %22
+  %38 = icmp eq i32 %26, 0
+  %39 = shl i16 %3, 10
+  %40 = and i16 %39, -32768
+  %41 = zext i16 %40 to i32
+  %42 = or i32 %26, %41
+  br i1 %38, label %.thread5, label %43
 
-.thread4:                                         ; preds = %28, %23, %41
-  br label %47
+.thread5:                                         ; preds = %.preheader, %22, %16, %37
+  br label %43
 
-47:                                               ; preds = %.thread, %41, %.thread4
-  %48 = phi i32 [ 0, %.thread4 ], [ %46, %41 ], [ %40, %.thread ]
-  ret i32 %48
+43:                                               ; preds = %.thread2, %37, %.thread5
+  %44 = phi i32 [ 0, %.thread5 ], [ %42, %37 ], [ %36, %.thread2 ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

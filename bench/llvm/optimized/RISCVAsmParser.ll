@@ -21605,7 +21605,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114RISCVAsmParser20MatchInst
   br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 _ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit: ; preds = %102, %109, %110, %111, %112, %114, %118, %120, %123, %127, %131, %.sink.split.i
-  %.sroa.0775.0 = phi ptr [ %.val, %102 ], [ %.str.226.sink.i, %.sink.split.i ], [ %.val, %109 ], [ %.val, %110 ], [ %.val, %111 ], [ %.val, %112 ], [ %.val, %114 ], [ %.val, %120 ], [ %.val, %123 ], [ %.val, %127 ], [ %.val, %118 ], [ %.val, %131 ]
+  %.sroa.0776.0 = phi ptr [ %.val, %102 ], [ %.str.226.sink.i, %.sink.split.i ], [ %.val, %109 ], [ %.val, %110 ], [ %.val, %111 ], [ %.val, %112 ], [ %.val, %114 ], [ %.val, %120 ], [ %.val, %123 ], [ %.val, %127 ], [ %.val, %118 ], [ %.val, %131 ]
   %.sroa.10.0 = phi i64 [ %.val173, %102 ], [ %.sink.i, %.sink.split.i ], [ 4, %109 ], [ 5, %110 ], [ 6, %111 ], [ 7, %112 ], [ 7, %114 ], [ 7, %120 ], [ 7, %123 ], [ 7, %127 ], [ 7, %118 ], [ 8, %131 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false), !tbaa !53
   store i64 -1, ptr %3, align 8, !tbaa !53
@@ -21628,7 +21628,7 @@ _ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit: ; preds 
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %134
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %143 = tail call i32 @memcmp(ptr noundef nonnull %142, ptr noundef readonly %.sroa.0775.0, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28
+  %143 = tail call i32 @memcmp(ptr noundef nonnull %142, ptr noundef readonly %.sroa.0776.0, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28
   %.fr.i.i.i.i.i.i = freeze i32 %143
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i.i, label %.thread.i.i.i.i.thread.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i
@@ -21652,7 +21652,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10Matc
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.thread15.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i28.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i, %.thread.i.i.i.i.thread.i.i
-  %150 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0775.0, ptr noundef nonnull %142, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28
+  %150 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0776.0, ptr noundef nonnull %142, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #28
   %.fr.i.i.i.i29.i.i = freeze i32 %150
   %.not.not.i.i.i.i30.i.i = icmp eq i32 %.fr.i.i.i.i29.i.i, 0
   br i1 %.not.not.i.i.i.i30.i.i, label %.thread.i.i.i.i34.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i
@@ -21685,7 +21685,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9Stri
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  %161 = tail call i32 @memcmp(ptr noundef nonnull %160, ptr noundef readonly %.sroa.0775.0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28
+  %161 = tail call i32 @memcmp(ptr noundef nonnull %160, ptr noundef readonly %.sroa.0776.0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #28
   %.fr.i.i.i.i.i.i.i = freeze i32 %161
   %.not.not.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i, 0
   %.inv.i.i.i.i.i.i.i = icmp sgt i32 %.fr.i.i.i.i.i.i.i, -1
@@ -21741,7 +21741,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5_
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i45.i.i: ; preds = %.lr.ph.i39.i.i
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 1
-  %183 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0775.0, ptr noundef nonnull %182, i64 noundef %.sroa.speculated.i.i.i.i.i44.i.i) #28
+  %183 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0776.0, ptr noundef nonnull %182, i64 noundef %.sroa.speculated.i.i.i.i.i44.i.i) #28
   %.fr.i.i.i.i.i46.i.i = freeze i32 %183
   %.not.not.i.i.i.i.i47.i.i = icmp eq i32 %.fr.i.i.i.i.i46.i.i, 0
   %.inv.i.i.i.i.i48.i.i = icmp sgt i32 %.fr.i.i.i.i.i46.i.i, -1
@@ -21802,13 +21802,13 @@ _ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcod
   %214 = getelementptr inbounds nuw i8, ptr %93, i64 8
   br label %215
 
-215:                                              ; preds = %.preheader, %.thread1044
-  %.sroa.0.1 = phi i64 [ 2017612633061982209, %.preheader ], [ %.sroa.0.5, %.thread1044 ]
-  %.01141234 = phi i1 [ false, %.preheader ], [ %.21161052, %.thread1044 ]
-  %.01191233 = phi i8 [ 0, %.preheader ], [ %.21211051, %.thread1044 ]
-  %.01271232 = phi i32 [ 0, %.preheader ], [ %.81050, %.thread1044 ]
-  %.01511230 = phi ptr [ %.0.lcssa.i.i.i, %.preheader ], [ %2475, %.thread1044 ]
-  %216 = getelementptr inbounds nuw i8, ptr %.01511230, i64 6
+215:                                              ; preds = %.preheader, %.thread1045
+  %.sroa.0.1 = phi i64 [ 2017612633061982209, %.preheader ], [ %.sroa.0.5, %.thread1045 ]
+  %.01141235 = phi i1 [ false, %.preheader ], [ %.21161053, %.thread1045 ]
+  %.01191234 = phi i8 [ 0, %.preheader ], [ %.21211052, %.thread1045 ]
+  %.01271233 = phi i32 [ 0, %.preheader ], [ %.81051, %.thread1045 ]
+  %.01511231 = phi ptr [ %.0.lcssa.i.i.i, %.preheader ], [ %2475, %.thread1045 ]
+  %216 = getelementptr inbounds nuw i8, ptr %.01511231, i64 6
   %217 = load i8, ptr %216, align 2, !tbaa !415
   %218 = zext i8 %217 to i64
   %219 = getelementptr inbounds nuw %"class.llvm::FeatureBitset", ptr @_ZL14FeatureBitsets, i64 %218
@@ -21856,19 +21856,19 @@ _ZNK4llvm13FeatureBitsetanERKS0_.exit:            ; preds = %220
 
 _ZN4llvm14SmallBitVector5resetEjj.exit:           ; preds = %227, %234
   %.sroa.0.6 = phi i64 [ %.sroa.0.1, %234 ], [ %233, %227 ]
-  %239 = getelementptr inbounds nuw i8, ptr %.01511230, i64 7
+  %239 = getelementptr inbounds nuw i8, ptr %.01511231, i64 7
   br label %240
 
-240:                                              ; preds = %_ZN4llvm14SmallBitVector5resetEjj.exit, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020
-  %.sroa.0.2 = phi i64 [ %.sroa.0.6, %_ZN4llvm14SmallBitVector5resetEjj.exit ], [ %.sroa.0.3, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020 ]
-  %indvars.iv = phi i64 [ 0, %_ZN4llvm14SmallBitVector5resetEjj.exit ], [ %indvars.iv.next, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020 ]
-  %.01411226 = phi i32 [ 1, %_ZN4llvm14SmallBitVector5resetEjj.exit ], [ %.11421026, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020 ]
+240:                                              ; preds = %_ZN4llvm14SmallBitVector5resetEjj.exit, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021
+  %.sroa.0.2 = phi i64 [ %.sroa.0.6, %_ZN4llvm14SmallBitVector5resetEjj.exit ], [ %.sroa.0.3, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021 ]
+  %indvars.iv = phi i64 [ 0, %_ZN4llvm14SmallBitVector5resetEjj.exit ], [ %indvars.iv.next, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021 ]
+  %.01411227 = phi i32 [ 1, %_ZN4llvm14SmallBitVector5resetEjj.exit ], [ %.11421027, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021 ]
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv
   %242 = load i8, ptr %241, align 1, !tbaa !65
   %243 = zext i8 %242 to i32
-  %244 = zext i32 %.01411226 to i64
+  %244 = zext i32 %.01411227 to i64
   %245 = load i32, ptr %98, align 8, !tbaa !26
-  %.not163 = icmp ugt i32 %245, %.01411226
+  %.not163 = icmp ugt i32 %245, %.01411227
   br i1 %.not163, label %311, label %246
 
 246:                                              ; preds = %240
@@ -21934,8 +21934,8 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit: ; preds = %270
   %287 = and i32 %281, 7
   %288 = shl nuw nsw i32 1, %287
   %289 = and i32 %288, %286
-  %.not1075 = icmp eq i32 %289, 0
-  br i1 %.not1075, label %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread
+  %.not1076 = icmp eq i32 %289, 0
+  br i1 %.not1076, label %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread
 
 _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread: ; preds = %246, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit
   %290 = and i64 %.sroa.0.2, 1
@@ -21953,7 +21953,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread: ; preds = %246, 
   %299 = shl nuw i64 %298, 1
   %300 = and i64 %.sroa.0.2, -288230376151711743
   %301 = or i64 %299, %300
-  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020
+  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021
 
 302:                                              ; preds = %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread
   %303 = inttoptr i64 %.sroa.0.2 to ptr
@@ -21965,11 +21965,11 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread: ; preds = %246, 
   %309 = load i64, ptr %308, align 8, !tbaa !53
   %310 = or i64 %309, %304
   store i64 %310, ptr %308, align 8, !tbaa !53
-  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020
+  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021
 
 _ZN4llvm14SmallBitVector3setEjj.exit.thread.thread: ; preds = %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit, %270
   store i64 %244, ptr %3, align 8, !tbaa !53
-  br label %.thread1044
+  br label %.thread1045
 
 311:                                              ; preds = %240
   %312 = load ptr, ptr %1, align 8, !tbaa !25
@@ -22129,10 +22129,10 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i: ; preds = %327
   %352 = lshr i32 %.val465.i, 3
   %353 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 566), align 2, !tbaa !451
   %354 = zext i16 %353 to i32
-  %.not.i.i766 = icmp samesign ult i32 %352, %354
-  br i1 %.not.i.i766, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i768, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i767
+  %.not.i.i767 = icmp samesign ult i32 %352, %354
+  br i1 %.not.i.i767, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i769, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i768
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i768: ; preds = %351
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i769: ; preds = %351
   %355 = and i32 %.val465.i, 7
   %356 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 552), align 8, !tbaa !454
   %357 = zext nneg i32 %352 to i64
@@ -22141,16 +22141,16 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i768: ; preds = %351
   %360 = zext i8 %359 to i32
   %361 = shl nuw nsw i32 1, %355
   %362 = and i32 %361, %360
-  %.not.i769 = icmp eq i32 %362, 0
-  br i1 %.not.i769, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i767, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %.not.i770 = icmp eq i32 %362, 0
+  br i1 %.not.i770, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i768, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i767: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i768, %351
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i768: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i769, %351
   %363 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1590), align 2, !tbaa !451
   %364 = zext i16 %363 to i32
   %.not.i2.i = icmp samesign ult i32 %352, %364
   br i1 %.not.i2.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
-_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i767
+_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i768
   %365 = and i32 %.val465.i, 7
   %366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1576), align 8, !tbaa !454
   %367 = zext nneg i32 %352 to i64
@@ -22159,8 +22159,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit: ; preds = %_ZNK4llvm15MCRegis
   %370 = zext i8 %369 to i32
   %371 = shl nuw nsw i32 1, %365
   %372 = and i32 %371, %370
-  %.not1186 = icmp eq i32 %372, 0
-  br i1 %.not1186, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %.not1187 = icmp eq i32 %372, 0
+  br i1 %.not1187, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 373:                                              ; preds = %347
   %374 = getelementptr i8, ptr %314, i64 72
@@ -22172,8 +22172,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit: ; preds = %_ZNK4llvm15MCRegis
   %377 = lshr i32 %.val467.i, 3
   %378 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 246), align 2, !tbaa !451
   %379 = zext i16 %378 to i32
-  %.not.i.i764 = icmp samesign ult i32 %377, %379
-  br i1 %.not.i.i764, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
+  %.not.i.i765 = icmp samesign ult i32 %377, %379
+  br i1 %.not.i.i765, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %376
   %380 = and i32 %.val467.i, 7
@@ -22184,8 +22184,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %376
   %385 = zext i8 %384 to i32
   %386 = shl nuw nsw i32 1, %380
   %387 = and i32 %386, %385
-  %.not.i765 = icmp eq i32 %387, 0
-  br i1 %.not.i765, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %.not.i766 = icmp eq i32 %387, 0
+  br i1 %.not.i766, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %376
   %388 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1462), align 2, !tbaa !451
@@ -22220,8 +22220,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit: ; preds = %_ZNK4llvm15MCRegist
   %405 = zext i8 %404 to i32
   %406 = shl nuw nsw i32 1, %400
   %407 = and i32 %406, %405
-  %.not1185 = icmp eq i32 %407, 0
-  br i1 %.not1185, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %.not1186 = icmp eq i32 %407, 0
+  br i1 %.not1186, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 408:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -22230,57 +22230,57 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit: ; preds = %_ZNK4llvm15MCRegist
 
 410:                                              ; preds = %408
   %411 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val2.i752 = load ptr, ptr %411, align 8, !tbaa !65
-  %412 = load i8, ptr %.val2.i752, align 8, !tbaa !375
-  switch i8 %412, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i753
+  %.val2.i753 = load ptr, ptr %411, align 8, !tbaa !65
+  %412 = load i8, ptr %.val2.i753, align 8, !tbaa !375
+  switch i8 %412, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i754
     i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i753: ; preds = %410
-  %413 = getelementptr inbounds i8, ptr %.val2.i752, i64 -8
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i754: ; preds = %410
+  %413 = getelementptr inbounds i8, ptr %.val2.i753, i64 -8
   %414 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %413, ptr noundef nonnull align 8 dereferenceable(8) %9) #25
-  br i1 %414, label %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i754
+  br i1 %414, label %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i755
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i754: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i753
-  %.val.pre.i755 = load ptr, ptr %411, align 8, !tbaa !65
-  %.pre.i756 = load i8, ptr %.val.pre.i755, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i755: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i754
+  %.val.pre.i756 = load ptr, ptr %411, align 8, !tbaa !65
+  %.pre.i757 = load i8, ptr %.val.pre.i756, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i754, %410
-  %415 = phi i8 [ %.pre.i756, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i754 ], [ %412, %410 ]
-  %.val.i758 = phi ptr [ %.val.pre.i755, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i754 ], [ %.val2.i752, %410 ]
-  %.not.i.i759 = icmp eq i8 %415, 4
-  br i1 %.not.i.i759, label %416, label %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i755, %410
+  %415 = phi i8 [ %.pre.i757, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i755 ], [ %412, %410 ]
+  %.val.i759 = phi ptr [ %.val.pre.i756, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i755 ], [ %.val2.i753, %410 ]
+  %.not.i.i760 = icmp eq i8 %415, 4
+  br i1 %.not.i.i760, label %416, label %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit
 
-416:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757
-  %417 = getelementptr inbounds nuw i8, ptr %.val.i758, i64 24
+416:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758
+  %417 = getelementptr inbounds nuw i8, ptr %.val.i759, i64 24
   %418 = load i32, ptr %417, align 8, !tbaa !675
-  %419 = getelementptr inbounds nuw i8, ptr %.val.i758, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %.val.i759, i64 16
   %420 = load ptr, ptr %419, align 8, !tbaa !927
-  %.fr1184 = freeze i32 %418
-  %421 = icmp eq i32 %.fr1184, 0
+  %.fr1185 = freeze i32 %418
+  %421 = icmp eq i32 %.fr1185, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i753, %408, %410
+_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i754, %408, %410
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757, %416
-  %.03.i761 = phi i1 [ %421, %416 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757 ]
-  %.08.i.i762 = phi ptr [ %420, %416 ], [ %.val.i758, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i757 ]
+_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758, %416
+  %.03.i762 = phi i1 [ %421, %416 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758 ]
+  %.08.i.i763 = phi ptr [ %420, %416 ], [ %.val.i759, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i758 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %422 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i762, ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef null, ptr noundef nonnull %8) #25
+  %422 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i763, ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef null, ptr noundef nonnull %8) #25
   %423 = load i32, ptr %209, align 8
-  %.fr1183 = freeze i32 %423
-  %424 = icmp eq i32 %.fr1183, 0
-  %.0.i.i763 = and i1 %422, %424
+  %.fr1184 = freeze i32 %423
+  %424 = icmp eq i32 %.fr1184, 0
+  %.0.i.i764 = and i1 %422, %424
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %425 = and i1 %.03.i761, %.0.i.i763
+  %425 = and i1 %.03.i762, %.0.i.i764
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %425, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -22293,7 +22293,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit: ; preds = %_ZN12_GLOBAL__
 429:                                              ; preds = %426
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %430 = load i8, ptr %.val469.i, align 8, !tbaa !375
-  switch i8 %430, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread796 [
+  switch i8 %430, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread797 [
     i8 4, label %431
     i8 1, label %437
   ]
@@ -22303,36 +22303,36 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit: ; preds = %_ZN12_GLOBAL__
   %433 = getelementptr inbounds nuw i8, ptr %.val469.i, i64 24
   %434 = load i32, ptr %433, align 8, !tbaa !675
   %435 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %432, ptr noundef nonnull align 8 dereferenceable(8) %10) #25
-  %.fr1182 = freeze i32 %434
-  %436 = icmp eq i32 %.fr1182, 0
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i742
+  %.fr1183 = freeze i32 %434
+  %436 = icmp eq i32 %.fr1183, 0
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i743
 
 437:                                              ; preds = %429
   %438 = getelementptr inbounds nuw i8, ptr %.val469.i, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i742
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i743
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i742: ; preds = %437, %431
-  %.in.i743 = phi ptr [ %10, %431 ], [ %438, %437 ]
-  %.01.i744 = phi i1 [ %436, %431 ], [ true, %437 ]
-  %.1.i.i745 = phi i1 [ %435, %431 ], [ true, %437 ]
-  %439 = load i64, ptr %.in.i743, align 8
-  %.fr1180 = freeze i64 %439
-  %440 = icmp ne i64 %.fr1180, 0
-  %or.cond.i746 = and i1 %.1.i.i745, %440
-  br i1 %or.cond.i746, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread796
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i743: ; preds = %437, %431
+  %.in.i744 = phi ptr [ %10, %431 ], [ %438, %437 ]
+  %.01.i745 = phi i1 [ %436, %431 ], [ true, %437 ]
+  %.1.i.i746 = phi i1 [ %435, %431 ], [ true, %437 ]
+  %439 = load i64, ptr %.in.i744, align 8
+  %.fr1181 = freeze i64 %439
+  %440 = icmp ne i64 %.fr1181, 0
+  %or.cond.i747 = and i1 %.1.i.i746, %440
+  br i1 %or.cond.i747, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread797
 
-_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread796: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i742, %429
+_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread797: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i743, %429
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i742
-  %441 = icmp ult i64 %.fr1180, 32
-  %442 = and i64 %.fr1180, -32
-  %or.cond3.i748 = icmp eq i64 %442, 1048544
-  %or.cond5.i = or i1 %441, %or.cond3.i748
-  %spec.select.i749 = and i1 %.01.i744, %or.cond5.i
+_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i743
+  %441 = icmp ult i64 %.fr1181, 32
+  %442 = and i64 %.fr1181, -32
+  %or.cond3.i749 = icmp eq i64 %442, 1048544
+  %or.cond5.i = or i1 %441, %or.cond3.i749
+  %spec.select.i750 = and i1 %.01.i745, %or.cond5.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %spec.select.i749, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i750, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 443:                                              ; preds = %347
   %444 = icmp eq i32 %318, 4
@@ -22349,58 +22349,58 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit: ; preds = %_ZN12_GLOBAL__N_11
 
 449:                                              ; preds = %447
   %450 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val2.i729 = load ptr, ptr %450, align 8, !tbaa !65
-  %451 = load i8, ptr %.val2.i729, align 8, !tbaa !375
-  switch i8 %451, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i730
+  %.val2.i730 = load ptr, ptr %450, align 8, !tbaa !65
+  %451 = load i8, ptr %.val2.i730, align 8, !tbaa !375
+  switch i8 %451, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i731
     i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i730: ; preds = %449
-  %452 = getelementptr inbounds i8, ptr %.val2.i729, i64 -8
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i731: ; preds = %449
+  %452 = getelementptr inbounds i8, ptr %.val2.i730, i64 -8
   %453 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %452, ptr noundef nonnull align 8 dereferenceable(8) %13) #25
-  br i1 %453, label %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i731
+  br i1 %453, label %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i732
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i731: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i730
-  %.val.pre.i732 = load ptr, ptr %450, align 8, !tbaa !65
-  %.pre.i733 = load i8, ptr %.val.pre.i732, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i732: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i731
+  %.val.pre.i733 = load ptr, ptr %450, align 8, !tbaa !65
+  %.pre.i734 = load i8, ptr %.val.pre.i733, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i731, %449
-  %454 = phi i8 [ %.pre.i733, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i731 ], [ %451, %449 ]
-  %.val.i735 = phi ptr [ %.val.pre.i732, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i731 ], [ %.val2.i729, %449 ]
-  %.not.i.i736 = icmp eq i8 %454, 4
-  br i1 %.not.i.i736, label %455, label %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i732, %449
+  %454 = phi i8 [ %.pre.i734, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i732 ], [ %451, %449 ]
+  %.val.i736 = phi ptr [ %.val.pre.i733, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i732 ], [ %.val2.i730, %449 ]
+  %.not.i.i737 = icmp eq i8 %454, 4
+  br i1 %.not.i.i737, label %455, label %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit
 
-455:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734
-  %456 = getelementptr inbounds nuw i8, ptr %.val.i735, i64 24
+455:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735
+  %456 = getelementptr inbounds nuw i8, ptr %.val.i736, i64 24
   %457 = load i32, ptr %456, align 8, !tbaa !675
-  %458 = getelementptr inbounds nuw i8, ptr %.val.i735, i64 16
+  %458 = getelementptr inbounds nuw i8, ptr %.val.i736, i64 16
   %459 = load ptr, ptr %458, align 8, !tbaa !927
-  %.fr1179 = freeze i32 %457
-  %460 = add i32 %.fr1179, -11
+  %.fr1180 = freeze i32 %457
+  %460 = add i32 %.fr1180, -11
   %461 = icmp ult i32 %460, 2
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i730, %447, %449
+_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i731, %447, %449
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734, %455
-  %.03.i738 = phi i1 [ %461, %455 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734 ]
-  %.08.i.i739 = phi ptr [ %459, %455 ], [ %.val.i735, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i734 ]
+_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735, %455
+  %.03.i739 = phi i1 [ %461, %455 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735 ]
+  %.08.i.i740 = phi ptr [ %459, %455 ], [ %.val.i736, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i735 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %462 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i739, ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef null, ptr noundef nonnull %12) #25
+  %462 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i740, ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef null, ptr noundef nonnull %12) #25
   %463 = load i32, ptr %208, align 8
-  %.fr1178 = freeze i32 %463
-  %464 = icmp eq i32 %.fr1178, 0
-  %.0.i.i740 = and i1 %462, %464
+  %.fr1179 = freeze i32 %463
+  %464 = icmp eq i32 %.fr1179, 0
+  %.0.i.i741 = and i1 %462, %464
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %465 = and i1 %.03.i738, %.0.i.i740
+  %465 = and i1 %.03.i739, %.0.i.i741
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %465, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -22424,19 +22424,19 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit: ; preds = %_ZN12_GLOBAL__
 
 469:                                              ; preds = %347
   %470 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val1.i725 = load i32, ptr %470, align 8
+  %.val1.i726 = load i32, ptr %470, align 8
   %471 = icmp eq i32 %318, 1
   br i1 %471, label %472, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 472:                                              ; preds = %469
-  %473 = lshr i32 %.val1.i725, 3
+  %473 = lshr i32 %.val1.i726, 3
   %474 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 54), align 2, !tbaa !451
   %475 = zext i16 %474 to i32
-  %.not.i.i.i726 = icmp samesign ult i32 %473, %475
-  br i1 %.not.i.i.i726, label %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
+  %.not.i.i.i727 = icmp samesign ult i32 %473, %475
+  br i1 %.not.i.i.i727, label %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit: ; preds = %472
-  %476 = and i32 %.val1.i725, 7
+  %476 = and i32 %.val1.i726, 7
   %477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 40), align 8, !tbaa !454
   %478 = zext nneg i32 %473 to i64
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 %478
@@ -22453,19 +22453,19 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit: ; preds = %472
 
 489:                                              ; preds = %347
   %490 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val1.i722 = load i32, ptr %490, align 8
+  %.val1.i723 = load i32, ptr %490, align 8
   %491 = icmp eq i32 %318, 1
   br i1 %491, label %492, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 492:                                              ; preds = %489
-  %493 = lshr i32 %.val1.i722, 3
+  %493 = lshr i32 %.val1.i723, 3
   %494 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 278), align 2, !tbaa !451
   %495 = zext i16 %494 to i32
-  %.not.i.i.i723 = icmp samesign ult i32 %493, %495
-  br i1 %.not.i.i.i723, label %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
+  %.not.i.i.i724 = icmp samesign ult i32 %493, %495
+  br i1 %.not.i.i.i724, label %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit: ; preds = %492
-  %496 = and i32 %.val1.i722, 7
+  %496 = and i32 %.val1.i723, 7
   %497 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 264), align 8, !tbaa !454
   %498 = zext nneg i32 %493 to i64
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 %498
@@ -22482,19 +22482,19 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit: ; preds = %492
 
 509:                                              ; preds = %347
   %510 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val1.i718 = load i32, ptr %510, align 8
+  %.val1.i719 = load i32, ptr %510, align 8
   %511 = icmp eq i32 %318, 1
   br i1 %511, label %512, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 512:                                              ; preds = %509
-  %513 = lshr i32 %.val1.i718, 3
+  %513 = lshr i32 %.val1.i719, 3
   %514 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 246), align 2, !tbaa !451
   %515 = zext i16 %514 to i32
-  %.not.i.i.i720 = icmp samesign ult i32 %513, %515
-  br i1 %.not.i.i.i720, label %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
+  %.not.i.i.i721 = icmp samesign ult i32 %513, %515
+  br i1 %.not.i.i.i721, label %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit: ; preds = %512
-  %516 = and i32 %.val1.i718, 7
+  %516 = and i32 %.val1.i719, 7
   %517 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 232), align 8, !tbaa !454
   %518 = zext nneg i32 %513 to i64
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 %518
@@ -22519,8 +22519,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit: ; preds = %512
   %533 = lshr i32 %.val1.i, 3
   %534 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 982), align 2, !tbaa !451
   %535 = zext i16 %534 to i32
-  %.not.i.i.i716 = icmp samesign ult i32 %533, %535
-  br i1 %.not.i.i.i716, label %_ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
+  %.not.i.i.i717 = icmp samesign ult i32 %533, %535
+  br i1 %.not.i.i.i717, label %_ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit: ; preds = %532
   %536 = and i32 %.val1.i, 7
@@ -22603,12 +22603,12 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit566.i: ; preds = %567
 583:                                              ; preds = %580
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %584 = load i8, ptr %.val480.i, align 8, !tbaa !375
-  switch i8 %584, label %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread804 [
+  switch i8 %584, label %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread805 [
     i8 4, label %585
     i8 1, label %591
   ]
 
-_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread804: ; preds = %583
+_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread805: ; preds = %583
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -22617,8 +22617,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread804: ; preds = %583
   %587 = getelementptr inbounds nuw i8, ptr %.val480.i, i64 24
   %588 = load i32, ptr %587, align 8, !tbaa !675
   %589 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %586, ptr noundef nonnull align 8 dereferenceable(8) %14) #25
-  %.fr1177 = freeze i32 %588
-  %590 = icmp eq i32 %.fr1177, 0
+  %.fr1178 = freeze i32 %588
+  %590 = icmp eq i32 %.fr1178, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit
 
 591:                                              ; preds = %583
@@ -22626,16 +22626,16 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread804: ; preds = %583
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit
 
 _ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit: ; preds = %585, %591
-  %.in.i708 = phi ptr [ %14, %585 ], [ %592, %591 ]
-  %.01.i709 = phi i1 [ %590, %585 ], [ true, %591 ]
-  %.1.i.i710 = phi i1 [ %589, %585 ], [ true, %591 ]
-  %593 = load i64, ptr %.in.i708, align 8
-  %.fr1176 = freeze i64 %593
-  %594 = icmp eq i64 %.fr1176, 0
-  %or.cond.i711 = and i1 %.1.i.i710, %594
-  %spec.select.i712 = and i1 %.01.i709, %or.cond.i711
+  %.in.i709 = phi ptr [ %14, %585 ], [ %592, %591 ]
+  %.01.i710 = phi i1 [ %590, %585 ], [ true, %591 ]
+  %.1.i.i711 = phi i1 [ %589, %585 ], [ true, %591 ]
+  %593 = load i64, ptr %.in.i709, align 8
+  %.fr1177 = freeze i64 %593
+  %594 = icmp eq i64 %.fr1177, 0
+  %or.cond.i712 = and i1 %.1.i.i711, %594
+  %spec.select.i713 = and i1 %.01.i710, %or.cond.i712
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %spec.select.i712, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i713, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 595:                                              ; preds = %347
   switch i32 %318, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread [
@@ -22662,28 +22662,28 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit.thread: ; preds = %597
 
 598:                                              ; preds = %597
   %599 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val3.i704 = load ptr, ptr %599, align 8
+  %.val3.i705 = load ptr, ptr %599, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %600 = load i8, ptr %.val3.i704, align 8, !tbaa !375
+  %600 = load i8, ptr %.val3.i705, align 8, !tbaa !375
   switch i8 %600, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread [
     i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i.i
     i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i.i
   ]
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i.i: ; preds = %598
-  %601 = getelementptr inbounds nuw i8, ptr %.val3.i704, i64 16
+  %601 = getelementptr inbounds nuw i8, ptr %.val3.i705, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i.i: ; preds = %598
-  %602 = getelementptr inbounds i8, ptr %.val3.i704, i64 -8
-  %603 = getelementptr inbounds nuw i8, ptr %.val3.i704, i64 24
+  %602 = getelementptr inbounds i8, ptr %.val3.i705, i64 -8
+  %603 = getelementptr inbounds nuw i8, ptr %.val3.i705, i64 24
   %604 = load i32, ptr %603, align 8, !tbaa !675
   %605 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %602, ptr noundef nonnull align 8 dereferenceable(8) %15) #25
   br i1 %605, label %thread-pre-split.i.i.i, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread
 
 thread-pre-split.i.i.i:                           ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i.i
-  %.fr1175 = freeze i32 %604
-  %606 = icmp eq i32 %.fr1175, 0
+  %.fr1176 = freeze i32 %604
+  %606 = icmp eq i32 %.fr1176, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i
 
 _ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i.i, %598
@@ -22695,8 +22695,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i: ; preds = %_ZN12_GLOBAL__N_11
   %.in.i.i.i = phi ptr [ %15, %thread-pre-split.i.i.i ], [ %601, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i.i ]
   %.014.i.i.i = phi i1 [ %606, %thread-pre-split.i.i.i ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i.i ]
   %607 = load i64, ptr %.in.i.i.i, align 8, !tbaa !53
-  %.fr1174 = freeze i64 %607
-  %608 = icmp ult i64 %.fr1174, 32
+  %.fr1175 = freeze i64 %607
+  %608 = icmp ult i64 %.fr1175, 32
   %spec.select.i.i.i = and i1 %.014.i.i.i, %608
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -22706,12 +22706,12 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i: ; preds = %_ZN12_GLOBAL__N_11
   %610 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #30
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %611 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val4.i700 = load i64, ptr %611, align 8, !tbaa !65
+  %.val4.i701 = load i64, ptr %611, align 8, !tbaa !65
   store i32 64, ptr %207, align 8, !tbaa !303
-  store i64 %.val4.i700, ptr %17, align 8, !tbaa !65
+  store i64 %.val4.i701, ptr %17, align 8, !tbaa !65
   %612 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #30
-  %.not.i.i.i701 = icmp eq ptr %610, %612
-  br i1 %.not.i.i.i701, label %614, label %613
+  %.not.i.i.i702 = icmp eq ptr %610, %612
+  br i1 %.not.i.i.i702, label %614, label %613
 
 613:                                              ; preds = %609
   call void @_ZN4llvm6detail9IEEEFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 1 %610, ptr noundef nonnull align 8 dereferenceable(12) %17) #25
@@ -22724,8 +22724,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i: ; preds = %_ZN12_GLOBAL__N_11
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit.i: ; preds = %614, %613
   %615 = call noundef i32 @_ZN4llvm14RISCVLoadFPImm12getLoadFPImmENS_7APFloatE(ptr noundef nonnull %16) #25
   %616 = load ptr, ptr %16, align 8, !tbaa !65
-  %.not.i.i702 = icmp eq ptr %616, %612
-  br i1 %.not.i.i702, label %618, label %617
+  %.not.i.i703 = icmp eq ptr %616, %612
+  br i1 %.not.i.i703, label %618, label %617
 
 617:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #25
@@ -22768,57 +22768,57 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit: ; preds = %_ZN4llvm7APFloa
 
 632:                                              ; preds = %630
   %633 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val2.i688 = load ptr, ptr %633, align 8, !tbaa !65
-  %634 = load i8, ptr %.val2.i688, align 8, !tbaa !375
-  switch i8 %634, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i689
+  %.val2.i689 = load ptr, ptr %633, align 8, !tbaa !65
+  %634 = load i8, ptr %.val2.i689, align 8, !tbaa !375
+  switch i8 %634, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i690
     i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i689: ; preds = %632
-  %635 = getelementptr inbounds i8, ptr %.val2.i688, i64 -8
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i690: ; preds = %632
+  %635 = getelementptr inbounds i8, ptr %.val2.i689, i64 -8
   %636 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %635, ptr noundef nonnull align 8 dereferenceable(8) %20) #25
-  br i1 %636, label %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i690
+  br i1 %636, label %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i691
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i690: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i689
-  %.val.pre.i691 = load ptr, ptr %633, align 8, !tbaa !65
-  %.pre.i692 = load i8, ptr %.val.pre.i691, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i691: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i690
+  %.val.pre.i692 = load ptr, ptr %633, align 8, !tbaa !65
+  %.pre.i693 = load i8, ptr %.val.pre.i692, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i690, %632
-  %637 = phi i8 [ %.pre.i692, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i690 ], [ %634, %632 ]
-  %.val.i694 = phi ptr [ %.val.pre.i691, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i690 ], [ %.val2.i688, %632 ]
-  %.not.i.i695 = icmp eq i8 %637, 4
-  br i1 %.not.i.i695, label %638, label %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i691, %632
+  %637 = phi i8 [ %.pre.i693, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i691 ], [ %634, %632 ]
+  %.val.i695 = phi ptr [ %.val.pre.i692, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i691 ], [ %.val2.i689, %632 ]
+  %.not.i.i696 = icmp eq i8 %637, 4
+  br i1 %.not.i.i696, label %638, label %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit
 
-638:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693
-  %639 = getelementptr inbounds nuw i8, ptr %.val.i694, i64 24
+638:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694
+  %639 = getelementptr inbounds nuw i8, ptr %.val.i695, i64 24
   %640 = load i32, ptr %639, align 8, !tbaa !675
-  %641 = getelementptr inbounds nuw i8, ptr %.val.i694, i64 16
+  %641 = getelementptr inbounds nuw i8, ptr %.val.i695, i64 16
   %642 = load ptr, ptr %641, align 8, !tbaa !927
-  %.fr1173 = freeze i32 %640
-  %643 = icmp eq i32 %.fr1173, 11
+  %.fr1174 = freeze i32 %640
+  %643 = icmp eq i32 %.fr1174, 11
   br label %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i689, %630, %632
+_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i690, %630, %632
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693, %638
-  %.03.i697 = phi i1 [ %643, %638 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693 ]
-  %.08.i.i698 = phi ptr [ %642, %638 ], [ %.val.i694, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i693 ]
+_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694, %638
+  %.03.i698 = phi i1 [ %643, %638 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694 ]
+  %.08.i.i699 = phi ptr [ %642, %638 ], [ %.val.i695, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i694 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  %644 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i698, ptr noundef nonnull align 8 dereferenceable(28) %18, ptr noundef null, ptr noundef nonnull %19) #25
+  %644 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i699, ptr noundef nonnull align 8 dereferenceable(28) %18, ptr noundef null, ptr noundef nonnull %19) #25
   %645 = load i32, ptr %206, align 8
-  %.fr1172 = freeze i32 %645
-  %646 = icmp eq i32 %.fr1172, 0
-  %.0.i.i699 = and i1 %644, %646
+  %.fr1173 = freeze i32 %645
+  %646 = icmp eq i32 %.fr1173, 0
+  %.0.i.i700 = and i1 %644, %646
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %647 = and i1 %.03.i697, %.0.i.i699
+  %647 = and i1 %.03.i698, %.0.i.i700
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %647, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -22853,8 +22853,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit: ; preds = %_ZN12_GL
   %662 = getelementptr inbounds nuw i8, ptr %.val489.i, i64 24
   %663 = load i32, ptr %662, align 8, !tbaa !675
   %664 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %661, ptr noundef nonnull align 8 dereferenceable(8) %21) #25
-  %.fr1171 = freeze i32 %663
-  %665 = icmp eq i32 %.fr1171, 0
+  %.fr1172 = freeze i32 %663
+  %665 = icmp eq i32 %.fr1172, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit
 
 666:                                              ; preds = %658
@@ -22866,16 +22866,16 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit.thread: ; preds = %655, %658
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 _ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit: ; preds = %660, %666
-  %.in.i683 = phi ptr [ %21, %660 ], [ %667, %666 ]
+  %.in.i684 = phi ptr [ %21, %660 ], [ %667, %666 ]
   %.01.i = phi i1 [ %665, %660 ], [ true, %666 ]
-  %.1.i.i684 = phi i1 [ %664, %660 ], [ true, %666 ]
-  %668 = load i64, ptr %.in.i683, align 8
-  %.fr1170 = freeze i64 %668
-  %669 = icmp ult i64 %.fr1170, 11
-  %or.cond3.i = and i1 %.1.i.i684, %669
-  %spec.select.i685 = and i1 %.01.i, %or.cond3.i
+  %.1.i.i685 = phi i1 [ %664, %660 ], [ true, %666 ]
+  %668 = load i64, ptr %.in.i684, align 8
+  %.fr1171 = freeze i64 %668
+  %669 = icmp ult i64 %.fr1171, 11
+  %or.cond3.i = and i1 %.1.i.i685, %669
+  %spec.select.i686 = and i1 %.01.i, %or.cond3.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %spec.select.i685, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i686, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 670:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -22888,83 +22888,83 @@ _ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit.thread: ; preds = %670
 
 672:                                              ; preds = %670
   %673 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val4.i.i659 = load ptr, ptr %673, align 8, !tbaa !65
-  %674 = load i8, ptr %.val4.i.i659, align 8, !tbaa !375
-  switch i8 %674, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i669
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i660
+  %.val4.i.i660 = load ptr, ptr %673, align 8, !tbaa !65
+  %674 = load i8, ptr %.val4.i.i660, align 8, !tbaa !375
+  switch i8 %674, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i670
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i661
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i660: ; preds = %672
-  %675 = getelementptr inbounds nuw i8, ptr %.val4.i.i659, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i661
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i661: ; preds = %672
+  %675 = getelementptr inbounds nuw i8, ptr %.val4.i.i660, i64 16
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i662
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i669: ; preds = %672
-  %676 = getelementptr inbounds i8, ptr %.val4.i.i659, i64 -8
-  %677 = getelementptr inbounds nuw i8, ptr %.val4.i.i659, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i670: ; preds = %672
+  %676 = getelementptr inbounds i8, ptr %.val4.i.i660, i64 -8
+  %677 = getelementptr inbounds nuw i8, ptr %.val4.i.i660, i64 24
   %678 = load i32, ptr %677, align 8, !tbaa !675
   %679 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %676, ptr noundef nonnull align 8 dereferenceable(8) %24) #25
-  br i1 %679, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i661, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i670
+  br i1 %679, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i662, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i671
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i670: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i669
-  %.val.pre.i.i671 = load ptr, ptr %673, align 8, !tbaa !65
-  %.pre14.i.i672 = load i8, ptr %.val.pre.i.i671, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i671: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i670
+  %.val.pre.i.i672 = load ptr, ptr %673, align 8, !tbaa !65
+  %.pre14.i.i673 = load i8, ptr %.val.pre.i.i672, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i670, %672
-  %680 = phi i8 [ %.pre14.i.i672, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i670 ], [ %674, %672 ]
-  %.val.i.i674 = phi ptr [ %.val.pre.i.i671, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i670 ], [ %.val4.i.i659, %672 ]
-  %.not.i.i.i675 = icmp eq i8 %680, 4
-  br i1 %.not.i.i.i675, label %681, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i676
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i671, %672
+  %680 = phi i8 [ %.pre14.i.i673, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i671 ], [ %674, %672 ]
+  %.val.i.i675 = phi ptr [ %.val.pre.i.i672, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i671 ], [ %.val4.i.i660, %672 ]
+  %.not.i.i.i676 = icmp eq i8 %680, 4
+  br i1 %.not.i.i.i676, label %681, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i677
 
-681:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673
-  %682 = getelementptr inbounds nuw i8, ptr %.val.i.i674, i64 24
+681:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674
+  %682 = getelementptr inbounds nuw i8, ptr %.val.i.i675, i64 24
   %683 = load i32, ptr %682, align 8, !tbaa !675
-  %684 = getelementptr inbounds nuw i8, ptr %.val.i.i674, i64 16
+  %684 = getelementptr inbounds nuw i8, ptr %.val.i.i675, i64 16
   %685 = load ptr, ptr %684, align 8, !tbaa !927
-  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i676
+  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i677
 
-_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i676: ; preds = %681, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673
-  %.2.i.i677 = phi i32 [ %683, %681 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673 ]
-  %.08.i.i.i678 = phi ptr [ %685, %681 ], [ %.val.i.i674, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i673 ]
+_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i677: ; preds = %681, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674
+  %.2.i.i678 = phi i32 [ %683, %681 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674 ]
+  %.08.i.i.i679 = phi ptr [ %685, %681 ], [ %.val.i.i675, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i674 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %22, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %686 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i678, ptr noundef nonnull align 8 dereferenceable(28) %22, ptr noundef null, ptr noundef nonnull %23) #25
+  %686 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i679, ptr noundef nonnull align 8 dereferenceable(28) %22, ptr noundef null, ptr noundef nonnull %23) #25
   %687 = load i32, ptr %205, align 8
   %688 = icmp eq i32 %687, 0
-  %.0.i.i.i679 = select i1 %686, i1 %688, i1 false
+  %.0.i.i.i680 = select i1 %686, i1 %688, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i661: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i669, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i660
-  %.in.i.i662 = phi ptr [ %675, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i660 ], [ %24, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i669 ]
-  %.19.i.i663 = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i660 ], [ %678, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i669 ]
-  %689 = load i64, ptr %.in.i.i662, align 8, !tbaa !53
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i662: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i670, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i661
+  %.in.i.i663 = phi ptr [ %675, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i661 ], [ %24, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i670 ]
+  %.19.i.i664 = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i661 ], [ %678, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i670 ]
+  %689 = load i64, ptr %.in.i.i663, align 8, !tbaa !53
   %690 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val5.i.i664 = load i8, ptr %690, align 8, !tbaa !65, !range !48, !noundef !49
-  %691 = trunc nuw i8 %.val5.i.i664 to i1
+  %.val5.i.i665 = load i8, ptr %690, align 8, !tbaa !65, !range !48, !noundef !49
+  %691 = trunc nuw i8 %.val5.i.i665 to i1
   %692 = icmp ugt i64 %689, 4294967295
-  %or.cond.not.i.i.i665 = or i1 %692, %691
+  %or.cond.not.i.i.i666 = or i1 %692, %691
   %693 = shl nuw i64 %689, 32
   %694 = ashr exact i64 %693, 32
-  %.0.i6.i.i666 = select i1 %or.cond.not.i.i.i665, i64 %689, i64 %694
-  %695 = add i64 %.0.i6.i.i666, 1048576
+  %.0.i6.i.i667 = select i1 %or.cond.not.i.i.i666, i64 %689, i64 %694
+  %695 = add i64 %.0.i6.i.i667, 1048576
   %696 = icmp ult i64 %695, 2097152
-  %697 = and i64 %.0.i6.i.i666, 1
+  %697 = and i64 %.0.i6.i.i667, 1
   %698 = icmp eq i64 %697, 0
   %699 = and i1 %696, %698
   br label %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i676, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i661
-  %.0.i.i667 = phi i32 [ %.19.i.i663, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i661 ], [ %.2.i.i677, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i676 ]
-  %.0.in.i.i668 = phi i1 [ %699, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i661 ], [ %.0.i.i.i679, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i676 ]
-  %.0.i.i667.fr = freeze i32 %.0.i.i667
-  %700 = icmp eq i32 %.0.i.i667.fr, 0
-  %.0.in.i.i668.fr = freeze i1 %.0.in.i.i668
-  %701 = and i1 %.0.in.i.i668.fr, %700
+_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i677, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i662
+  %.0.i.i668 = phi i32 [ %.19.i.i664, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i662 ], [ %.2.i.i678, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i677 ]
+  %.0.in.i.i669 = phi i1 [ %699, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i662 ], [ %.0.i.i.i680, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i677 ]
+  %.0.i.i668.fr = freeze i32 %.0.i.i668
+  %700 = icmp eq i32 %.0.i.i668.fr, 0
+  %.0.in.i.i669.fr = freeze i1 %.0.in.i.i669
+  %701 = and i1 %.0.in.i.i669.fr, %700
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %701, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -22979,57 +22979,57 @@ _ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit: ; preds = %_ZN12_GLOBA
 
 706:                                              ; preds = %704
   %707 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val2.i646 = load ptr, ptr %707, align 8, !tbaa !65
-  %708 = load i8, ptr %.val2.i646, align 8, !tbaa !375
-  switch i8 %708, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i647
+  %.val2.i647 = load ptr, ptr %707, align 8, !tbaa !65
+  %708 = load i8, ptr %.val2.i647, align 8, !tbaa !375
+  switch i8 %708, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i648
     i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i647: ; preds = %706
-  %709 = getelementptr inbounds i8, ptr %.val2.i646, i64 -8
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i648: ; preds = %706
+  %709 = getelementptr inbounds i8, ptr %.val2.i647, i64 -8
   %710 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %709, ptr noundef nonnull align 8 dereferenceable(8) %27) #25
-  br i1 %710, label %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i648
+  br i1 %710, label %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i649
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i648: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i647
-  %.val.pre.i649 = load ptr, ptr %707, align 8, !tbaa !65
-  %.pre.i650 = load i8, ptr %.val.pre.i649, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i649: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i648
+  %.val.pre.i650 = load ptr, ptr %707, align 8, !tbaa !65
+  %.pre.i651 = load i8, ptr %.val.pre.i650, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i648, %706
-  %711 = phi i8 [ %.pre.i650, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i648 ], [ %708, %706 ]
-  %.val.i652 = phi ptr [ %.val.pre.i649, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i648 ], [ %.val2.i646, %706 ]
-  %.not.i.i653 = icmp eq i8 %711, 4
-  br i1 %.not.i.i653, label %712, label %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i649, %706
+  %711 = phi i8 [ %.pre.i651, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i649 ], [ %708, %706 ]
+  %.val.i653 = phi ptr [ %.val.pre.i650, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i649 ], [ %.val2.i647, %706 ]
+  %.not.i.i654 = icmp eq i8 %711, 4
+  br i1 %.not.i.i654, label %712, label %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit
 
-712:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651
-  %713 = getelementptr inbounds nuw i8, ptr %.val.i652, i64 24
+712:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652
+  %713 = getelementptr inbounds nuw i8, ptr %.val.i653, i64 24
   %714 = load i32, ptr %713, align 8, !tbaa !675
-  %715 = getelementptr inbounds nuw i8, ptr %.val.i652, i64 16
+  %715 = getelementptr inbounds nuw i8, ptr %.val.i653, i64 16
   %716 = load ptr, ptr %715, align 8, !tbaa !927
-  %.fr1169 = freeze i32 %714
-  %717 = icmp eq i32 %.fr1169, 17
+  %.fr1170 = freeze i32 %714
+  %717 = icmp eq i32 %.fr1170, 17
   br label %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i647, %704, %706
+_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i648, %704, %706
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651, %712
-  %.03.i655 = phi i1 [ %717, %712 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651 ]
-  %.08.i.i656 = phi ptr [ %716, %712 ], [ %.val.i652, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i651 ]
+_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652, %712
+  %.03.i656 = phi i1 [ %717, %712 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652 ]
+  %.08.i.i657 = phi ptr [ %716, %712 ], [ %.val.i653, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i652 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %25, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  %718 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i656, ptr noundef nonnull align 8 dereferenceable(28) %25, ptr noundef null, ptr noundef nonnull %26) #25
+  %718 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i657, ptr noundef nonnull align 8 dereferenceable(28) %25, ptr noundef null, ptr noundef nonnull %26) #25
   %719 = load i32, ptr %204, align 8
-  %.fr1168 = freeze i32 %719
-  %720 = icmp eq i32 %.fr1168, 0
-  %.0.i.i657 = and i1 %718, %720
+  %.fr1169 = freeze i32 %719
+  %720 = icmp eq i32 %.fr1169, 0
+  %.0.i.i658 = and i1 %718, %720
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %721 = and i1 %.03.i655, %.0.i.i657
+  %721 = and i1 %.03.i656, %.0.i.i658
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %721, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -23040,57 +23040,57 @@ _ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit: ; preds = %_ZN12_G
 
 724:                                              ; preds = %722
   %725 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val2.i634 = load ptr, ptr %725, align 8, !tbaa !65
-  %726 = load i8, ptr %.val2.i634, align 8, !tbaa !375
-  switch i8 %726, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i635
+  %.val2.i635 = load ptr, ptr %725, align 8, !tbaa !65
+  %726 = load i8, ptr %.val2.i635, align 8, !tbaa !375
+  switch i8 %726, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i636
     i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i635: ; preds = %724
-  %727 = getelementptr inbounds i8, ptr %.val2.i634, i64 -8
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i636: ; preds = %724
+  %727 = getelementptr inbounds i8, ptr %.val2.i635, i64 -8
   %728 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %727, ptr noundef nonnull align 8 dereferenceable(8) %30) #25
   br i1 %728, label %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i635
-  %.val.pre.i636 = load ptr, ptr %725, align 8, !tbaa !65
-  %.pre.i637 = load i8, ptr %.val.pre.i636, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i636
+  %.val.pre.i637 = load ptr, ptr %725, align 8, !tbaa !65
+  %.pre.i638 = load i8, ptr %.val.pre.i637, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i, %724
-  %729 = phi i8 [ %.pre.i637, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i ], [ %726, %724 ]
-  %.val.i639 = phi ptr [ %.val.pre.i636, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i ], [ %.val2.i634, %724 ]
-  %.not.i.i640 = icmp eq i8 %729, 4
-  br i1 %.not.i.i640, label %730, label %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i, %724
+  %729 = phi i8 [ %.pre.i638, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i ], [ %726, %724 ]
+  %.val.i640 = phi ptr [ %.val.pre.i637, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5_crit_edge.i ], [ %.val2.i635, %724 ]
+  %.not.i.i641 = icmp eq i8 %729, 4
+  br i1 %.not.i.i641, label %730, label %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit
 
-730:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638
-  %731 = getelementptr inbounds nuw i8, ptr %.val.i639, i64 24
+730:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639
+  %731 = getelementptr inbounds nuw i8, ptr %.val.i640, i64 24
   %732 = load i32, ptr %731, align 8, !tbaa !675
-  %733 = getelementptr inbounds nuw i8, ptr %.val.i639, i64 16
+  %733 = getelementptr inbounds nuw i8, ptr %.val.i640, i64 16
   %734 = load ptr, ptr %733, align 8, !tbaa !927
-  %.fr1167 = freeze i32 %732
-  %735 = icmp eq i32 %.fr1167, 8
+  %.fr1168 = freeze i32 %732
+  %735 = icmp eq i32 %.fr1168, 8
   br label %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i635, %722, %724
+_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i636, %722, %724
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638, %730
-  %.03.i = phi i1 [ %735, %730 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638 ]
-  %.08.i.i642 = phi ptr [ %734, %730 ], [ %.val.i639, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i638 ]
+_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639, %730
+  %.03.i = phi i1 [ %735, %730 ], [ false, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639 ]
+  %.08.i.i643 = phi ptr [ %734, %730 ], [ %.val.i640, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread5.i639 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %28, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %736 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i642, ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef null, ptr noundef nonnull %29) #25
+  %736 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i643, ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef null, ptr noundef nonnull %29) #25
   %737 = load i32, ptr %203, align 8
-  %.fr1166 = freeze i32 %737
-  %738 = icmp eq i32 %.fr1166, 0
-  %.0.i.i643 = and i1 %736, %738
+  %.fr1167 = freeze i32 %737
+  %738 = icmp eq i32 %.fr1167, 0
+  %.0.i.i644 = and i1 %736, %738
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %739 = and i1 %.03.i, %.0.i.i643
+  %739 = and i1 %.03.i, %.0.i.i644
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %739, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -23101,43 +23101,43 @@ _ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit: ; preds = %_ZN12_GLOB
 
 742:                                              ; preds = %740
   %743 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i624 = load ptr, ptr %743, align 8, !tbaa !65
-  %744 = load i8, ptr %.val.i624, align 8, !tbaa !375
+  %.val.i625 = load ptr, ptr %743, align 8, !tbaa !65
+  %744 = load i8, ptr %.val.i625, align 8, !tbaa !375
   switch i8 %744, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i630
-    i8 1, label %.critedge.i625
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i631
+    i8 1, label %.critedge.i626
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i630: ; preds = %742
-  %745 = getelementptr inbounds i8, ptr %.val.i624, i64 -8
-  %746 = getelementptr inbounds nuw i8, ptr %.val.i624, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i631: ; preds = %742
+  %745 = getelementptr inbounds i8, ptr %.val.i625, i64 -8
+  %746 = getelementptr inbounds nuw i8, ptr %.val.i625, i64 24
   %747 = load i32, ptr %746, align 8, !tbaa !675
   %748 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %745, ptr noundef nonnull align 8 dereferenceable(8) %31) #25
   %749 = icmp eq i32 %747, 0
   %750 = select i1 %748, i1 %749, i1 false
   br i1 %750, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread
 
-.critedge.i625:                                   ; preds = %742
-  %751 = getelementptr inbounds nuw i8, ptr %.val.i624, i64 16
+.critedge.i626:                                   ; preds = %742
+  %751 = getelementptr inbounds nuw i8, ptr %.val.i625, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread: ; preds = %740, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i630, %742
+_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread: ; preds = %740, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i631, %742
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit: ; preds = %.critedge.i625, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i630
-  %.in.i626 = phi ptr [ %751, %.critedge.i625 ], [ %31, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i630 ]
-  %752 = load i64, ptr %.in.i626, align 8
-  %.fr1164 = freeze i64 %752
+_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit: ; preds = %.critedge.i626, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i631
+  %.in.i627 = phi ptr [ %751, %.critedge.i626 ], [ %31, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i631 ]
+  %752 = load i64, ptr %.in.i627, align 8
+  %.fr1165 = freeze i64 %752
   %753 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val4.i627 = load i8, ptr %753, align 8, !tbaa !65, !range !48, !noundef !49
-  %754 = trunc nuw i8 %.val4.i627 to i1
-  %755 = icmp ult i64 %.fr1164, 64
-  %or.cond.i628 = and i1 %755, %754
-  %756 = icmp ult i64 %.fr1164, 32
-  %spec.select.i629 = or i1 %756, %or.cond.i628
+  %.val4.i628 = load i8, ptr %753, align 8, !tbaa !65, !range !48, !noundef !49
+  %754 = trunc nuw i8 %.val4.i628 to i1
+  %755 = icmp ult i64 %.fr1165, 64
+  %or.cond.i629 = and i1 %755, %754
+  %756 = icmp ult i64 %.fr1165, 32
+  %spec.select.i630 = or i1 %756, %or.cond.i629
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br i1 %spec.select.i629, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i630, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 757:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -23146,50 +23146,50 @@ _ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit: ; preds = %.critedge.i6
 
 759:                                              ; preds = %757
   %760 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i615 = load ptr, ptr %760, align 8, !tbaa !65
-  %761 = load i8, ptr %.val.i615, align 8, !tbaa !375
+  %.val.i616 = load ptr, ptr %760, align 8, !tbaa !65
+  %761 = load i8, ptr %.val.i616, align 8, !tbaa !375
   switch i8 %761, label %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread [
     i8 4, label %762
     i8 1, label %769
   ]
 
 762:                                              ; preds = %759
-  %763 = getelementptr inbounds i8, ptr %.val.i615, i64 -8
-  %764 = getelementptr inbounds nuw i8, ptr %.val.i615, i64 24
+  %763 = getelementptr inbounds i8, ptr %.val.i616, i64 -8
+  %764 = getelementptr inbounds nuw i8, ptr %.val.i616, i64 24
   %765 = load i32, ptr %764, align 8, !tbaa !675
   %766 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %763, ptr noundef nonnull align 8 dereferenceable(8) %32) #25
   %767 = icmp ne i32 %765, 0
   %not..i = xor i1 %766, true
   %768 = select i1 %not..i, i1 true, i1 %767
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i616
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i617
 
 769:                                              ; preds = %759
-  %770 = getelementptr inbounds nuw i8, ptr %.val.i615, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i616
+  %770 = getelementptr inbounds nuw i8, ptr %.val.i616, i64 16
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i617
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i616: ; preds = %769, %762
-  %.in.i617 = phi ptr [ %32, %762 ], [ %770, %769 ]
-  %.1.i.i618 = phi i1 [ %768, %762 ], [ false, %769 ]
-  %771 = load i64, ptr %.in.i617, align 8
-  %.fr1162 = freeze i64 %771
-  %772 = icmp eq i64 %.fr1162, 0
-  %or.cond.i619 = or i1 %.1.i.i618, %772
-  br i1 %or.cond.i619, label %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread, label %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i617: ; preds = %769, %762
+  %.in.i618 = phi ptr [ %32, %762 ], [ %770, %769 ]
+  %.1.i.i619 = phi i1 [ %768, %762 ], [ false, %769 ]
+  %771 = load i64, ptr %.in.i618, align 8
+  %.fr1163 = freeze i64 %771
+  %772 = icmp eq i64 %.fr1163, 0
+  %or.cond.i620 = or i1 %.1.i.i619, %772
+  br i1 %or.cond.i620, label %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread, label %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread: ; preds = %757, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i616, %759
+_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread: ; preds = %757, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i617, %759
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i616
+_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i617
   %773 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val5.i620 = load i8, ptr %773, align 8, !tbaa !65, !range !48, !noundef !49
-  %774 = trunc nuw i8 %.val5.i620 to i1
-  %775 = icmp ult i64 %.fr1162, 64
+  %.val5.i621 = load i8, ptr %773, align 8, !tbaa !65, !range !48, !noundef !49
+  %774 = trunc nuw i8 %.val5.i621 to i1
+  %775 = icmp ult i64 %.fr1163, 64
   %or.cond12.i = and i1 %775, %774
-  %776 = icmp ult i64 %.fr1162, 32
-  %spec.select.i621 = or i1 %776, %or.cond12.i
+  %776 = icmp ult i64 %.fr1163, 32
+  %spec.select.i622 = or i1 %776, %or.cond12.i
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br i1 %spec.select.i621, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i622, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 777:                                              ; preds = %347
   %778 = getelementptr i8, ptr %314, i64 72
@@ -23243,38 +23243,38 @@ _ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i:  ; preds = %788
 802:                                              ; preds = %800
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %803 = load i8, ptr %.val495.i, align 8, !tbaa !375
-  switch i8 %803, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i611
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i604
+  switch i8 %803, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610.thread [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i612
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i605
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i604: ; preds = %802
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i605: ; preds = %802
   %804 = getelementptr inbounds nuw i8, ptr %.val495.i, i64 16
-  br label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609
+  br label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i611: ; preds = %802
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i612: ; preds = %802
   %805 = getelementptr inbounds i8, ptr %.val495.i, i64 -8
   %806 = getelementptr inbounds nuw i8, ptr %.val495.i, i64 24
   %807 = load i32, ptr %806, align 8, !tbaa !675
   %808 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %805, ptr noundef nonnull align 8 dereferenceable(8) %33) #25
-  br i1 %808, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i612, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609.thread
+  br i1 %808, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i613, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610.thread
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i612: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i611
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i613: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i612
   %809 = icmp eq i32 %807, 0
-  br label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609
+  br label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610
 
-_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i611, %802
+_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i612, %802
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i604, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i612
-  %.in.i.i605 = phi ptr [ %804, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i604 ], [ %33, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i612 ]
-  %.014.i.i606 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i604 ], [ %809, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i612 ]
-  %810 = load i64, ptr %.in.i.i605, align 8, !tbaa !53
-  %.not.i.i607 = icmp ult i64 %810, 1024
-  %spec.select.i.i608 = select i1 %.not.i.i607, i1 %.014.i.i606, i1 false
+_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i605, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i613
+  %.in.i.i606 = phi ptr [ %804, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i605 ], [ %33, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i613 ]
+  %.014.i.i607 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i605 ], [ %809, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i613 ]
+  %810 = load i64, ptr %.in.i.i606, align 8, !tbaa !53
+  %.not.i.i608 = icmp ult i64 %810, 1024
+  %spec.select.i.i609 = select i1 %.not.i.i608, i1 %.014.i.i607, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br i1 %spec.select.i.i608, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i609, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 811:                                              ; preds = %347
   %812 = getelementptr i8, ptr %314, i64 72
@@ -23288,37 +23288,37 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609: ; preds = %_ZN12_GLOBA
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %814 = load i8, ptr %.val497.i, align 8, !tbaa !375
   switch i8 %814, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i601
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i595
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i602
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i596
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i595: ; preds = %813
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i596: ; preds = %813
   %815 = getelementptr inbounds nuw i8, ptr %.val497.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i601: ; preds = %813
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i602: ; preds = %813
   %816 = getelementptr inbounds i8, ptr %.val497.i, i64 -8
   %817 = getelementptr inbounds nuw i8, ptr %.val497.i, i64 24
   %818 = load i32, ptr %817, align 8, !tbaa !675
   %819 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %816, ptr noundef nonnull align 8 dereferenceable(8) %34) #25
-  br i1 %819, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i602, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread
+  br i1 %819, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i603, label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i602: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i601
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i603: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i602
   %820 = icmp eq i32 %818, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i
 
-_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i601, %813
+_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i602, %813
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i595, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i602
-  %.in.i.i596 = phi ptr [ %815, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i595 ], [ %34, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i602 ]
-  %.014.i.i597 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i595 ], [ %820, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i602 ]
-  %821 = load i64, ptr %.in.i.i596, align 8, !tbaa !53
-  %.not.i.i598 = icmp ult i64 %821, 2048
-  %spec.select.i.i599 = select i1 %.not.i.i598, i1 %.014.i.i597, i1 false
+_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i596, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i603
+  %.in.i.i597 = phi ptr [ %815, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i596 ], [ %34, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i603 ]
+  %.014.i.i598 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i596 ], [ %820, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i603 ]
+  %821 = load i64, ptr %.in.i.i597, align 8, !tbaa !53
+  %.not.i.i599 = icmp ult i64 %821, 2048
+  %spec.select.i.i600 = select i1 %.not.i.i599, i1 %.014.i.i598, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br i1 %spec.select.i.i599, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i600, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 822:                                              ; preds = %347
   %823 = icmp eq i32 %318, 2
@@ -23327,51 +23327,51 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i: ; preds = %_ZN12_GLOBAL__
 824:                                              ; preds = %822
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %825 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i583 = load ptr, ptr %825, align 8, !tbaa !65
-  %826 = load i8, ptr %.val.i583, align 8, !tbaa !375
-  switch i8 %826, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread834 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i592
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i584
+  %.val.i584 = load ptr, ptr %825, align 8, !tbaa !65
+  %826 = load i8, ptr %.val.i584, align 8, !tbaa !375
+  switch i8 %826, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread835 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i593
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i585
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i584: ; preds = %824
-  %827 = getelementptr inbounds nuw i8, ptr %.val.i583, i64 16
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i585: ; preds = %824
+  %827 = getelementptr inbounds nuw i8, ptr %.val.i584, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i592: ; preds = %824
-  %828 = getelementptr inbounds i8, ptr %.val.i583, i64 -8
-  %829 = getelementptr inbounds nuw i8, ptr %.val.i583, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i593: ; preds = %824
+  %828 = getelementptr inbounds i8, ptr %.val.i584, i64 -8
+  %829 = getelementptr inbounds nuw i8, ptr %.val.i584, i64 24
   %830 = load i32, ptr %829, align 8, !tbaa !675
   %831 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %828, ptr noundef nonnull align 8 dereferenceable(8) %35) #25
-  br i1 %831, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i593, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread834
+  br i1 %831, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i594, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread835
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i593: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i592
-  %.fr1161 = freeze i32 %830
-  %832 = icmp eq i32 %.fr1161, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i594: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i593
+  %.fr1162 = freeze i32 %830
+  %832 = icmp eq i32 %.fr1162, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread834: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i592, %824
+_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread835: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i593, %824
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i584, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i593
-  %.in.i585 = phi ptr [ %827, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i584 ], [ %35, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i593 ]
-  %.036.i586 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i584 ], [ %832, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i593 ]
-  %833 = load i64, ptr %.in.i585, align 8, !tbaa !53
-  %.fr1158 = freeze i64 %833
+_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i585, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i594
+  %.in.i586 = phi ptr [ %827, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i585 ], [ %35, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i594 ]
+  %.036.i587 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i585 ], [ %832, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i594 ]
+  %833 = load i64, ptr %.in.i586, align 8, !tbaa !53
+  %.fr1159 = freeze i64 %833
   %834 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val2.i587 = load i8, ptr %834, align 8, !tbaa !65, !range !48, !noundef !49
-  %835 = trunc nuw i8 %.val2.i587 to i1
-  %836 = icmp ugt i64 %.fr1158, 4294967295
-  %or.cond.not.i.i588 = or i1 %836, %835
-  %837 = shl nuw i64 %.fr1158, 32
+  %.val2.i588 = load i8, ptr %834, align 8, !tbaa !65, !range !48, !noundef !49
+  %835 = trunc nuw i8 %.val2.i588 to i1
+  %836 = icmp ugt i64 %.fr1159, 4294967295
+  %or.cond.not.i.i589 = or i1 %836, %835
+  %837 = shl nuw i64 %.fr1159, 32
   %838 = ashr exact i64 %837, 32
-  %.0.i.i589 = select i1 %or.cond.not.i.i588, i64 %.fr1158, i64 %838
-  %839 = add i64 %.0.i.i589, 16
+  %.0.i.i590 = select i1 %or.cond.not.i.i589, i64 %.fr1159, i64 %838
+  %839 = add i64 %.0.i.i590, 16
   %840 = icmp ult i64 %839, 32
-  %spec.select.i590 = and i1 %.036.i586, %840
+  %spec.select.i591 = and i1 %.036.i587, %840
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br i1 %spec.select.i590, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i591, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 841:                                              ; preds = %347
   %842 = icmp eq i32 %318, 2
@@ -23380,51 +23380,51 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 843:                                              ; preds = %841
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %844 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i571 = load ptr, ptr %844, align 8, !tbaa !65
-  %845 = load i8, ptr %.val.i571, align 8, !tbaa !375
-  switch i8 %845, label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread839 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i580
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i572
+  %.val.i572 = load ptr, ptr %844, align 8, !tbaa !65
+  %845 = load i8, ptr %.val.i572, align 8, !tbaa !375
+  switch i8 %845, label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread840 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i581
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i573
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i572: ; preds = %843
-  %846 = getelementptr inbounds nuw i8, ptr %.val.i571, i64 16
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i573: ; preds = %843
+  %846 = getelementptr inbounds nuw i8, ptr %.val.i572, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i580: ; preds = %843
-  %847 = getelementptr inbounds i8, ptr %.val.i571, i64 -8
-  %848 = getelementptr inbounds nuw i8, ptr %.val.i571, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i581: ; preds = %843
+  %847 = getelementptr inbounds i8, ptr %.val.i572, i64 -8
+  %848 = getelementptr inbounds nuw i8, ptr %.val.i572, i64 24
   %849 = load i32, ptr %848, align 8, !tbaa !675
   %850 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %847, ptr noundef nonnull align 8 dereferenceable(8) %36) #25
-  br i1 %850, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i581, label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread839
+  br i1 %850, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i582, label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread840
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i581: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i580
-  %.fr1157 = freeze i32 %849
-  %851 = icmp eq i32 %.fr1157, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i582: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i581
+  %.fr1158 = freeze i32 %849
+  %851 = icmp eq i32 %.fr1158, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread839: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i580, %843
+_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread840: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i581, %843
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i572, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i581
-  %.in.i573 = phi ptr [ %846, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i572 ], [ %36, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i581 ]
-  %.036.i574 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i572 ], [ %851, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i581 ]
-  %852 = load i64, ptr %.in.i573, align 8, !tbaa !53
-  %.fr1154 = freeze i64 %852
+_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i573, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i582
+  %.in.i574 = phi ptr [ %846, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i573 ], [ %36, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i582 ]
+  %.036.i575 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i573 ], [ %851, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i582 ]
+  %852 = load i64, ptr %.in.i574, align 8, !tbaa !53
+  %.fr1155 = freeze i64 %852
   %853 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val2.i575 = load i8, ptr %853, align 8, !tbaa !65, !range !48, !noundef !49
-  %854 = trunc nuw i8 %.val2.i575 to i1
-  %855 = icmp ugt i64 %.fr1154, 4294967295
-  %or.cond.not.i.i576 = or i1 %855, %854
-  %856 = shl nuw i64 %.fr1154, 32
+  %.val2.i576 = load i8, ptr %853, align 8, !tbaa !65, !range !48, !noundef !49
+  %854 = trunc nuw i8 %.val2.i576 to i1
+  %855 = icmp ugt i64 %.fr1155, 4294967295
+  %or.cond.not.i.i577 = or i1 %855, %854
+  %856 = shl nuw i64 %.fr1155, 32
   %857 = ashr exact i64 %856, 32
-  %.0.i.i577 = select i1 %or.cond.not.i.i576, i64 %.fr1154, i64 %857
-  %858 = add i64 %.0.i.i577, 15
+  %.0.i.i578 = select i1 %or.cond.not.i.i577, i64 %.fr1155, i64 %857
+  %858 = add i64 %.0.i.i578, 15
   %859 = icmp ult i64 %858, 32
-  %spec.select.i578 = and i1 %.036.i574, %859
+  %spec.select.i579 = and i1 %.036.i575, %859
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br i1 %spec.select.i578, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i579, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 860:                                              ; preds = %347
   %861 = icmp eq i32 %318, 2
@@ -23433,51 +23433,51 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit: ; preds = %_ZN12_GLOBAL__
 862:                                              ; preds = %860
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %863 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i559 = load ptr, ptr %863, align 8, !tbaa !65
-  %864 = load i8, ptr %.val.i559, align 8, !tbaa !375
-  switch i8 %864, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread844 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i568
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i560
+  %.val.i560 = load ptr, ptr %863, align 8, !tbaa !65
+  %864 = load i8, ptr %.val.i560, align 8, !tbaa !375
+  switch i8 %864, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread845 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i569
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i561
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i560: ; preds = %862
-  %865 = getelementptr inbounds nuw i8, ptr %.val.i559, i64 16
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i561: ; preds = %862
+  %865 = getelementptr inbounds nuw i8, ptr %.val.i560, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i568: ; preds = %862
-  %866 = getelementptr inbounds i8, ptr %.val.i559, i64 -8
-  %867 = getelementptr inbounds nuw i8, ptr %.val.i559, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i569: ; preds = %862
+  %866 = getelementptr inbounds i8, ptr %.val.i560, i64 -8
+  %867 = getelementptr inbounds nuw i8, ptr %.val.i560, i64 24
   %868 = load i32, ptr %867, align 8, !tbaa !675
   %869 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %866, ptr noundef nonnull align 8 dereferenceable(8) %37) #25
-  br i1 %869, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i569, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread844
+  br i1 %869, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i570, label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread845
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i569: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i568
-  %.fr1153 = freeze i32 %868
-  %870 = icmp eq i32 %.fr1153, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i570: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i569
+  %.fr1154 = freeze i32 %868
+  %870 = icmp eq i32 %.fr1154, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread844: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i568, %862
+_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread845: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i569, %862
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i560, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i569
-  %.in.i561 = phi ptr [ %865, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i560 ], [ %37, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i569 ]
-  %.036.i562 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i560 ], [ %870, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i569 ]
-  %871 = load i64, ptr %.in.i561, align 8, !tbaa !53
-  %.fr1150 = freeze i64 %871
+_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i561, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i570
+  %.in.i562 = phi ptr [ %865, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i561 ], [ %37, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i570 ]
+  %.036.i563 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i561 ], [ %870, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i570 ]
+  %871 = load i64, ptr %.in.i562, align 8, !tbaa !53
+  %.fr1151 = freeze i64 %871
   %872 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val2.i563 = load i8, ptr %872, align 8, !tbaa !65, !range !48, !noundef !49
-  %873 = trunc nuw i8 %.val2.i563 to i1
-  %874 = icmp ugt i64 %.fr1150, 4294967295
-  %or.cond.not.i.i564 = or i1 %874, %873
-  %875 = shl nuw i64 %.fr1150, 32
+  %.val2.i564 = load i8, ptr %872, align 8, !tbaa !65, !range !48, !noundef !49
+  %873 = trunc nuw i8 %.val2.i564 to i1
+  %874 = icmp ugt i64 %.fr1151, 4294967295
+  %or.cond.not.i.i565 = or i1 %874, %873
+  %875 = shl nuw i64 %.fr1151, 32
   %876 = ashr exact i64 %875, 32
-  %.0.i.i565 = select i1 %or.cond.not.i.i564, i64 %.fr1150, i64 %876
-  %877 = add i64 %.0.i.i565, 32
+  %.0.i.i566 = select i1 %or.cond.not.i.i565, i64 %.fr1151, i64 %876
+  %877 = add i64 %.0.i.i566, 32
   %878 = icmp ult i64 %877, 64
-  %spec.select.i566 = and i1 %.036.i562, %878
+  %spec.select.i567 = and i1 %.036.i563, %878
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br i1 %spec.select.i566, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i567, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 879:                                              ; preds = %347
   %880 = icmp eq i32 %318, 2
@@ -23486,54 +23486,54 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 881:                                              ; preds = %879
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %882 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i547 = load ptr, ptr %882, align 8, !tbaa !65
-  %883 = load i8, ptr %.val.i547, align 8, !tbaa !375
-  switch i8 %883, label %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread849 [
+  %.val.i548 = load ptr, ptr %882, align 8, !tbaa !65
+  %883 = load i8, ptr %.val.i548, align 8, !tbaa !375
+  switch i8 %883, label %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread850 [
     i8 4, label %884
     i8 1, label %890
   ]
 
 884:                                              ; preds = %881
-  %885 = getelementptr inbounds i8, ptr %.val.i547, i64 -8
-  %886 = getelementptr inbounds nuw i8, ptr %.val.i547, i64 24
+  %885 = getelementptr inbounds i8, ptr %.val.i548, i64 -8
+  %886 = getelementptr inbounds nuw i8, ptr %.val.i548, i64 24
   %887 = load i32, ptr %886, align 8, !tbaa !675
   %888 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %885, ptr noundef nonnull align 8 dereferenceable(8) %38) #25
-  %.fr1149 = freeze i32 %887
-  %889 = icmp eq i32 %.fr1149, 0
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i548
+  %.fr1150 = freeze i32 %887
+  %889 = icmp eq i32 %.fr1150, 0
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i549
 
 890:                                              ; preds = %881
-  %891 = getelementptr inbounds nuw i8, ptr %.val.i547, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i548
+  %891 = getelementptr inbounds nuw i8, ptr %.val.i548, i64 16
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i549
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i548: ; preds = %890, %884
-  %.in.i549 = phi ptr [ %38, %884 ], [ %891, %890 ]
-  %.05.i550 = phi i1 [ %889, %884 ], [ true, %890 ]
-  %.1.i.i551 = phi i1 [ %888, %884 ], [ true, %890 ]
-  %892 = load i64, ptr %.in.i549, align 8
-  %.fr1146 = freeze i64 %892
-  %893 = icmp ne i64 %.fr1146, 0
-  %or.cond.i552 = and i1 %.1.i.i551, %893
-  br i1 %or.cond.i552, label %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread849
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i549: ; preds = %890, %884
+  %.in.i550 = phi ptr [ %38, %884 ], [ %891, %890 ]
+  %.05.i551 = phi i1 [ %889, %884 ], [ true, %890 ]
+  %.1.i.i552 = phi i1 [ %888, %884 ], [ true, %890 ]
+  %892 = load i64, ptr %.in.i550, align 8
+  %.fr1147 = freeze i64 %892
+  %893 = icmp ne i64 %.fr1147, 0
+  %or.cond.i553 = and i1 %.1.i.i552, %893
+  br i1 %or.cond.i553, label %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread850
 
-_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread849: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i548, %881
+_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread850: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i549, %881
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i548
+_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i549
   %894 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val4.i554 = load i8, ptr %894, align 8, !tbaa !65, !range !48, !noundef !49
-  %895 = trunc nuw i8 %.val4.i554 to i1
-  %896 = icmp ugt i64 %.fr1146, 4294967295
-  %or.cond.not.i.i555 = or i1 %896, %895
-  %897 = shl nuw i64 %.fr1146, 32
+  %.val4.i555 = load i8, ptr %894, align 8, !tbaa !65, !range !48, !noundef !49
+  %895 = trunc nuw i8 %.val4.i555 to i1
+  %896 = icmp ugt i64 %.fr1147, 4294967295
+  %or.cond.not.i.i556 = or i1 %896, %895
+  %897 = shl nuw i64 %.fr1147, 32
   %898 = ashr exact i64 %897, 32
-  %.0.i.i556 = select i1 %or.cond.not.i.i555, i64 %.fr1146, i64 %898
-  %899 = add i64 %.0.i.i556, 32
+  %.0.i.i557 = select i1 %or.cond.not.i.i556, i64 %.fr1147, i64 %898
+  %899 = add i64 %.0.i.i557, 32
   %900 = icmp ult i64 %899, 64
-  %spec.select.i557 = and i1 %.05.i550, %900
+  %spec.select.i558 = and i1 %.05.i551, %900
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br i1 %spec.select.i557, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i558, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 901:                                              ; preds = %347
   %902 = getelementptr i8, ptr %314, i64 72
@@ -23544,41 +23544,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit: ; preds = %_ZN12_GLOBAL
 904:                                              ; preds = %901
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %905 = load i8, ptr %.val499.i, align 8, !tbaa !375
-  switch i8 %905, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread854 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i544
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i539
+  switch i8 %905, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread855 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i545
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i540
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i539: ; preds = %904
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i540: ; preds = %904
   %906 = getelementptr inbounds nuw i8, ptr %.val499.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i544: ; preds = %904
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i545: ; preds = %904
   %907 = getelementptr inbounds i8, ptr %.val499.i, i64 -8
   %908 = getelementptr inbounds nuw i8, ptr %.val499.i, i64 24
   %909 = load i32, ptr %908, align 8, !tbaa !675
   %910 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %907, ptr noundef nonnull align 8 dereferenceable(8) %39) #25
-  br i1 %910, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i545, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread854
+  br i1 %910, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i546, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread855
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i545: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i544
-  %.fr1145 = freeze i32 %909
-  %911 = icmp eq i32 %.fr1145, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i546: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i545
+  %.fr1146 = freeze i32 %909
+  %911 = icmp eq i32 %.fr1146, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread854: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i544, %904
+_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread855: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i545, %904
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i539, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i545
-  %.in.i540 = phi ptr [ %906, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i539 ], [ %39, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i545 ]
-  %.014.i541 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i539 ], [ %911, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i545 ]
-  %912 = load i64, ptr %.in.i540, align 8, !tbaa !53
-  %.fr1144 = freeze i64 %912
-  %913 = and i64 %.fr1144, -125
+_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i540, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i546
+  %.in.i541 = phi ptr [ %906, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i540 ], [ %39, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i546 ]
+  %.014.i542 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i540 ], [ %911, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i546 ]
+  %912 = load i64, ptr %.in.i541, align 8, !tbaa !53
+  %.fr1145 = freeze i64 %912
+  %913 = and i64 %.fr1145, -125
   %914 = icmp eq i64 %913, 0
-  %spec.select.i542 = and i1 %.014.i541, %914
+  %spec.select.i543 = and i1 %.014.i542, %914
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br i1 %spec.select.i542, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i543, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 915:                                              ; preds = %347
   %916 = getelementptr i8, ptr %314, i64 72
@@ -23589,41 +23589,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit: ; preds = %_ZN12_GLOBAL__
 918:                                              ; preds = %915
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %919 = load i8, ptr %.val501.i, align 8, !tbaa !375
-  switch i8 %919, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread859 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i536
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i531
+  switch i8 %919, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread860 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i537
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i532
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i531: ; preds = %918
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i532: ; preds = %918
   %920 = getelementptr inbounds nuw i8, ptr %.val501.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i536: ; preds = %918
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i537: ; preds = %918
   %921 = getelementptr inbounds i8, ptr %.val501.i, i64 -8
   %922 = getelementptr inbounds nuw i8, ptr %.val501.i, i64 24
   %923 = load i32, ptr %922, align 8, !tbaa !675
   %924 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %921, ptr noundef nonnull align 8 dereferenceable(8) %40) #25
-  br i1 %924, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i537, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread859
+  br i1 %924, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i538, label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread860
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i537: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i536
-  %.fr1143 = freeze i32 %923
-  %925 = icmp eq i32 %.fr1143, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i538: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i537
+  %.fr1144 = freeze i32 %923
+  %925 = icmp eq i32 %.fr1144, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread859: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i536, %918
+_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread860: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i537, %918
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i531, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i537
-  %.in.i532 = phi ptr [ %920, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i531 ], [ %40, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i537 ]
-  %.014.i533 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i531 ], [ %925, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i537 ]
-  %926 = load i64, ptr %.in.i532, align 8, !tbaa !53
-  %.fr1142 = freeze i64 %926
-  %927 = and i64 %.fr1142, -253
+_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i532, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i538
+  %.in.i533 = phi ptr [ %920, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i532 ], [ %40, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i538 ]
+  %.014.i534 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i532 ], [ %925, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i538 ]
+  %926 = load i64, ptr %.in.i533, align 8, !tbaa !53
+  %.fr1143 = freeze i64 %926
+  %927 = and i64 %.fr1143, -253
   %928 = icmp eq i64 %927, 0
-  %spec.select.i534 = and i1 %.014.i533, %928
+  %spec.select.i535 = and i1 %.014.i534, %928
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br i1 %spec.select.i534, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i535, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 929:                                              ; preds = %347
   %930 = getelementptr i8, ptr %314, i64 72
@@ -23634,41 +23634,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit: ; preds = %_ZN12_GLOBAL__
 932:                                              ; preds = %929
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %933 = load i8, ptr %.val503.i, align 8, !tbaa !375
-  switch i8 %933, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread864 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i528
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i523
+  switch i8 %933, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread865 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i529
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i524
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i523: ; preds = %932
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i524: ; preds = %932
   %934 = getelementptr inbounds nuw i8, ptr %.val503.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i528: ; preds = %932
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i529: ; preds = %932
   %935 = getelementptr inbounds i8, ptr %.val503.i, i64 -8
   %936 = getelementptr inbounds nuw i8, ptr %.val503.i, i64 24
   %937 = load i32, ptr %936, align 8, !tbaa !675
   %938 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %935, ptr noundef nonnull align 8 dereferenceable(8) %41) #25
-  br i1 %938, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i529, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread864
+  br i1 %938, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i530, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread865
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i529: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i528
-  %.fr1141 = freeze i32 %937
-  %939 = icmp eq i32 %.fr1141, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i530: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i529
+  %.fr1142 = freeze i32 %937
+  %939 = icmp eq i32 %.fr1142, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread864: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i528, %932
+_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread865: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i529, %932
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i523, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i529
-  %.in.i524 = phi ptr [ %934, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i523 ], [ %41, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i529 ]
-  %.014.i525 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i523 ], [ %939, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i529 ]
-  %940 = load i64, ptr %.in.i524, align 8, !tbaa !53
-  %.fr1140 = freeze i64 %940
-  %941 = and i64 %.fr1140, -249
+_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i524, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i530
+  %.in.i525 = phi ptr [ %934, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i524 ], [ %41, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i530 ]
+  %.014.i526 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i524 ], [ %939, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i530 ]
+  %940 = load i64, ptr %.in.i525, align 8, !tbaa !53
+  %.fr1141 = freeze i64 %940
+  %941 = and i64 %.fr1141, -249
   %942 = icmp eq i64 %941, 0
-  %spec.select.i526 = and i1 %.014.i525, %942
+  %spec.select.i527 = and i1 %.014.i526, %942
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br i1 %spec.select.i526, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i527, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 943:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -23681,83 +23681,83 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit.thread: ; preds = %943
 
 945:                                              ; preds = %943
   %946 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val4.i.i501 = load ptr, ptr %946, align 8, !tbaa !65
-  %947 = load i8, ptr %.val4.i.i501, align 8, !tbaa !375
-  switch i8 %947, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i511
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i502
+  %.val4.i.i502 = load ptr, ptr %946, align 8, !tbaa !65
+  %947 = load i8, ptr %.val4.i.i502, align 8, !tbaa !375
+  switch i8 %947, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i512
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i503
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i502: ; preds = %945
-  %948 = getelementptr inbounds nuw i8, ptr %.val4.i.i501, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i503
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i503: ; preds = %945
+  %948 = getelementptr inbounds nuw i8, ptr %.val4.i.i502, i64 16
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i504
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i511: ; preds = %945
-  %949 = getelementptr inbounds i8, ptr %.val4.i.i501, i64 -8
-  %950 = getelementptr inbounds nuw i8, ptr %.val4.i.i501, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i512: ; preds = %945
+  %949 = getelementptr inbounds i8, ptr %.val4.i.i502, i64 -8
+  %950 = getelementptr inbounds nuw i8, ptr %.val4.i.i502, i64 24
   %951 = load i32, ptr %950, align 8, !tbaa !675
   %952 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %949, ptr noundef nonnull align 8 dereferenceable(8) %44) #25
-  br i1 %952, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i503, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i512
+  br i1 %952, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i504, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i513
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i512: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i511
-  %.val.pre.i.i513 = load ptr, ptr %946, align 8, !tbaa !65
-  %.pre14.i.i514 = load i8, ptr %.val.pre.i.i513, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i513: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i512
+  %.val.pre.i.i514 = load ptr, ptr %946, align 8, !tbaa !65
+  %.pre14.i.i515 = load i8, ptr %.val.pre.i.i514, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i512, %945
-  %953 = phi i8 [ %.pre14.i.i514, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i512 ], [ %947, %945 ]
-  %.val.i.i516 = phi ptr [ %.val.pre.i.i513, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i512 ], [ %.val4.i.i501, %945 ]
-  %.not.i.i.i517 = icmp eq i8 %953, 4
-  br i1 %.not.i.i.i517, label %954, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i518
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i513, %945
+  %953 = phi i8 [ %.pre14.i.i515, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i513 ], [ %947, %945 ]
+  %.val.i.i517 = phi ptr [ %.val.pre.i.i514, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i513 ], [ %.val4.i.i502, %945 ]
+  %.not.i.i.i518 = icmp eq i8 %953, 4
+  br i1 %.not.i.i.i518, label %954, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i519
 
-954:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515
-  %955 = getelementptr inbounds nuw i8, ptr %.val.i.i516, i64 24
+954:                                              ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516
+  %955 = getelementptr inbounds nuw i8, ptr %.val.i.i517, i64 24
   %956 = load i32, ptr %955, align 8, !tbaa !675
-  %957 = getelementptr inbounds nuw i8, ptr %.val.i.i516, i64 16
+  %957 = getelementptr inbounds nuw i8, ptr %.val.i.i517, i64 16
   %958 = load ptr, ptr %957, align 8, !tbaa !927
-  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i518
+  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i519
 
-_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i518: ; preds = %954, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515
-  %.2.i.i519 = phi i32 [ %956, %954 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515 ]
-  %.08.i.i.i520 = phi ptr [ %958, %954 ], [ %.val.i.i516, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i515 ]
+_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i519: ; preds = %954, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516
+  %.2.i.i520 = phi i32 [ %956, %954 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516 ]
+  %.08.i.i.i521 = phi ptr [ %958, %954 ], [ %.val.i.i517, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i516 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %42, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  %959 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i520, ptr noundef nonnull align 8 dereferenceable(28) %42, ptr noundef null, ptr noundef nonnull %43) #25
+  %959 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i521, ptr noundef nonnull align 8 dereferenceable(28) %42, ptr noundef null, ptr noundef nonnull %43) #25
   %960 = load i32, ptr %202, align 8
   %961 = icmp eq i32 %960, 0
-  %.0.i.i.i521 = select i1 %959, i1 %961, i1 false
+  %.0.i.i.i522 = select i1 %959, i1 %961, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i503: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i511, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i502
-  %.in.i.i504 = phi ptr [ %948, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i502 ], [ %44, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i511 ]
-  %.19.i.i505 = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i502 ], [ %951, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i511 ]
-  %962 = load i64, ptr %.in.i.i504, align 8, !tbaa !53
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i504: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i512, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i503
+  %.in.i.i505 = phi ptr [ %948, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i503 ], [ %44, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i512 ]
+  %.19.i.i506 = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i503 ], [ %951, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i512 ]
+  %962 = load i64, ptr %.in.i.i505, align 8, !tbaa !53
   %963 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val5.i.i506 = load i8, ptr %963, align 8, !tbaa !65, !range !48, !noundef !49
-  %964 = trunc nuw i8 %.val5.i.i506 to i1
+  %.val5.i.i507 = load i8, ptr %963, align 8, !tbaa !65, !range !48, !noundef !49
+  %964 = trunc nuw i8 %.val5.i.i507 to i1
   %965 = icmp ugt i64 %962, 4294967295
-  %or.cond.not.i.i.i507 = or i1 %965, %964
+  %or.cond.not.i.i.i508 = or i1 %965, %964
   %966 = shl nuw i64 %962, 32
   %967 = ashr exact i64 %966, 32
-  %.0.i6.i.i508 = select i1 %or.cond.not.i.i.i507, i64 %962, i64 %967
-  %968 = add i64 %.0.i6.i.i508, 256
+  %.0.i6.i.i509 = select i1 %or.cond.not.i.i.i508, i64 %962, i64 %967
+  %968 = add i64 %.0.i6.i.i509, 256
   %969 = icmp ult i64 %968, 512
-  %970 = and i64 %.0.i6.i.i508, 1
+  %970 = and i64 %.0.i6.i.i509, 1
   %971 = icmp eq i64 %970, 0
   %972 = and i1 %969, %971
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i518, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i503
-  %.0.i.i509 = phi i32 [ %.19.i.i505, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i503 ], [ %.2.i.i519, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i518 ]
-  %.0.in.i.i510 = phi i1 [ %972, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i503 ], [ %.0.i.i.i521, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i518 ]
-  %.0.i.i509.fr = freeze i32 %.0.i.i509
-  %973 = icmp eq i32 %.0.i.i509.fr, 0
-  %.0.in.i.i510.fr = freeze i1 %.0.in.i.i510
-  %974 = and i1 %.0.in.i.i510.fr, %973
+_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i519, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i504
+  %.0.i.i510 = phi i32 [ %.19.i.i506, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i504 ], [ %.2.i.i520, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i519 ]
+  %.0.in.i.i511 = phi i1 [ %972, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i504 ], [ %.0.i.i.i522, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i519 ]
+  %.0.i.i510.fr = freeze i32 %.0.i.i510
+  %973 = icmp eq i32 %.0.i.i510.fr, 0
+  %.0.in.i.i511.fr = freeze i1 %.0.in.i.i511
+  %974 = and i1 %.0.in.i.i511.fr, %973
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br i1 %974, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -23770,41 +23770,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N
 978:                                              ; preds = %975
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %979 = load i8, ptr %.val505.i, align 8, !tbaa !375
-  switch i8 %979, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread872 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i498
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i493
+  switch i8 %979, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread873 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i499
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i494
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i493: ; preds = %978
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i494: ; preds = %978
   %980 = getelementptr inbounds nuw i8, ptr %.val505.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i498: ; preds = %978
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i499: ; preds = %978
   %981 = getelementptr inbounds i8, ptr %.val505.i, i64 -8
   %982 = getelementptr inbounds nuw i8, ptr %.val505.i, i64 24
   %983 = load i32, ptr %982, align 8, !tbaa !675
   %984 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %981, ptr noundef nonnull align 8 dereferenceable(8) %45) #25
-  br i1 %984, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i499, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread872
+  br i1 %984, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i500, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread873
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i499: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i498
-  %.fr1139 = freeze i32 %983
-  %985 = icmp eq i32 %.fr1139, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i500: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i499
+  %.fr1140 = freeze i32 %983
+  %985 = icmp eq i32 %.fr1140, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread872: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i498, %978
+_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread873: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i499, %978
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i493, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i499
-  %.in.i494 = phi ptr [ %980, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i493 ], [ %45, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i499 ]
-  %.014.i495 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i493 ], [ %985, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i499 ]
-  %986 = load i64, ptr %.in.i494, align 8, !tbaa !53
-  %.fr1138 = freeze i64 %986
-  %987 = and i64 %.fr1138, -505
+_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i494, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i500
+  %.in.i495 = phi ptr [ %980, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i494 ], [ %45, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i500 ]
+  %.014.i496 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i494 ], [ %985, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i500 ]
+  %986 = load i64, ptr %.in.i495, align 8, !tbaa !53
+  %.fr1139 = freeze i64 %986
+  %987 = and i64 %.fr1139, -505
   %988 = icmp eq i64 %987, 0
-  %spec.select.i496 = and i1 %.014.i495, %988
+  %spec.select.i497 = and i1 %.014.i496, %988
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br i1 %spec.select.i496, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i497, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 989:                                              ; preds = %347
   %990 = getelementptr i8, ptr %314, i64 72
@@ -23815,43 +23815,43 @@ _ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL_
 992:                                              ; preds = %989
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %993 = load i8, ptr %.val507.i, align 8, !tbaa !375
-  switch i8 %993, label %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread877 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i490
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i484
+  switch i8 %993, label %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread878 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i491
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i485
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i484: ; preds = %992
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i485: ; preds = %992
   %994 = getelementptr inbounds nuw i8, ptr %.val507.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i490: ; preds = %992
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i491: ; preds = %992
   %995 = getelementptr inbounds i8, ptr %.val507.i, i64 -8
   %996 = getelementptr inbounds nuw i8, ptr %.val507.i, i64 24
   %997 = load i32, ptr %996, align 8, !tbaa !675
   %998 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %995, ptr noundef nonnull align 8 dereferenceable(8) %46) #25
-  br i1 %998, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i491, label %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread877
+  br i1 %998, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i492, label %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread878
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i491: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i490
-  %.fr1137 = freeze i32 %997
-  %999 = icmp eq i32 %.fr1137, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i492: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i491
+  %.fr1138 = freeze i32 %997
+  %999 = icmp eq i32 %.fr1138, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread877: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i490, %992
+_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread878: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i491, %992
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i484, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i491
-  %.in.i485 = phi ptr [ %994, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i484 ], [ %46, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i491 ]
-  %.014.i486 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i484 ], [ %999, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i491 ]
-  %1000 = load i64, ptr %.in.i485, align 8, !tbaa !53
-  %.fr1135 = freeze i64 %1000
-  %1001 = and i64 %.fr1135, -1021
+_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i485, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i492
+  %.in.i486 = phi ptr [ %994, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i485 ], [ %46, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i492 ]
+  %.014.i487 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i485 ], [ %999, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i492 ]
+  %1000 = load i64, ptr %.in.i486, align 8, !tbaa !53
+  %.fr1136 = freeze i64 %1000
+  %1001 = and i64 %.fr1136, -1021
   %1002 = icmp eq i64 %1001, 0
-  %1003 = icmp ne i64 %.fr1135, 0
-  %or.cond.i487 = and i1 %1003, %1002
-  %spec.select.i488 = and i1 %.014.i486, %or.cond.i487
+  %1003 = icmp ne i64 %.fr1136, 0
+  %or.cond.i488 = and i1 %1003, %1002
+  %spec.select.i489 = and i1 %.014.i487, %or.cond.i488
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br i1 %spec.select.i488, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i489, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1004:                                             ; preds = %347
   %1005 = icmp eq i32 %318, 2
@@ -23860,57 +23860,57 @@ _ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit: ; preds = %_ZN12_
 1006:                                             ; preds = %1004
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1007 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i474 = load ptr, ptr %1007, align 8, !tbaa !65
-  %1008 = load i8, ptr %.val.i474, align 8, !tbaa !375
-  switch i8 %1008, label %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread882 [
+  %.val.i475 = load ptr, ptr %1007, align 8, !tbaa !65
+  %1008 = load i8, ptr %.val.i475, align 8, !tbaa !375
+  switch i8 %1008, label %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread883 [
     i8 4, label %1009
     i8 1, label %1015
   ]
 
 1009:                                             ; preds = %1006
-  %1010 = getelementptr inbounds i8, ptr %.val.i474, i64 -8
-  %1011 = getelementptr inbounds nuw i8, ptr %.val.i474, i64 24
+  %1010 = getelementptr inbounds i8, ptr %.val.i475, i64 -8
+  %1011 = getelementptr inbounds nuw i8, ptr %.val.i475, i64 24
   %1012 = load i32, ptr %1011, align 8, !tbaa !675
   %1013 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1010, ptr noundef nonnull align 8 dereferenceable(8) %47) #25
-  %.fr1134 = freeze i32 %1012
-  %1014 = icmp eq i32 %.fr1134, 0
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i475
+  %.fr1135 = freeze i32 %1012
+  %1014 = icmp eq i32 %.fr1135, 0
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i476
 
 1015:                                             ; preds = %1006
-  %1016 = getelementptr inbounds nuw i8, ptr %.val.i474, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i475
+  %1016 = getelementptr inbounds nuw i8, ptr %.val.i475, i64 16
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i476
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i475: ; preds = %1015, %1009
-  %.in.i476 = phi ptr [ %47, %1009 ], [ %1016, %1015 ]
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i476: ; preds = %1015, %1009
+  %.in.i477 = phi ptr [ %47, %1009 ], [ %1016, %1015 ]
   %.05.i = phi i1 [ %1014, %1009 ], [ true, %1015 ]
-  %.1.i.i477 = phi i1 [ %1013, %1009 ], [ true, %1015 ]
-  %1017 = load i64, ptr %.in.i476, align 8
-  %.fr1131 = freeze i64 %1017
-  %1018 = icmp ne i64 %.fr1131, 0
-  %or.cond.i478 = and i1 %.1.i.i477, %1018
-  br i1 %or.cond.i478, label %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread882
+  %.1.i.i478 = phi i1 [ %1013, %1009 ], [ true, %1015 ]
+  %1017 = load i64, ptr %.in.i477, align 8
+  %.fr1132 = freeze i64 %1017
+  %1018 = icmp ne i64 %.fr1132, 0
+  %or.cond.i479 = and i1 %.1.i.i478, %1018
+  br i1 %or.cond.i479, label %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread883
 
-_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread882: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i475, %1006
+_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread883: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i476, %1006
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i475
+_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i476
   %1019 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %.val4.i = load i8, ptr %1019, align 8, !tbaa !65, !range !48, !noundef !49
   %1020 = trunc nuw i8 %.val4.i to i1
-  %1021 = icmp ugt i64 %.fr1131, 4294967295
-  %or.cond.not.i.i480 = or i1 %1021, %1020
-  %1022 = shl nuw i64 %.fr1131, 32
+  %1021 = icmp ugt i64 %.fr1132, 4294967295
+  %or.cond.not.i.i481 = or i1 %1021, %1020
+  %1022 = shl nuw i64 %.fr1132, 32
   %1023 = ashr exact i64 %1022, 32
-  %.0.i.i481 = select i1 %or.cond.not.i.i480, i64 %.fr1131, i64 %1023
-  %1024 = add i64 %.0.i.i481, 512
+  %.0.i.i482 = select i1 %or.cond.not.i.i481, i64 %.fr1132, i64 %1023
+  %1024 = add i64 %.0.i.i482, 512
   %1025 = icmp ult i64 %1024, 1024
-  %1026 = and i64 %.0.i.i481, 15
+  %1026 = and i64 %.0.i.i482, 15
   %1027 = icmp eq i64 %1026, 0
   %1028 = and i1 %1025, %1027
-  %spec.select.i482 = and i1 %.05.i, %1028
+  %spec.select.i483 = and i1 %.05.i, %1028
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br i1 %spec.select.i482, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i483, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1029:                                             ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -23923,83 +23923,83 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit.thread: ; preds = %1029
 
 1031:                                             ; preds = %1029
   %1032 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val4.i.i452 = load ptr, ptr %1032, align 8, !tbaa !65
-  %1033 = load i8, ptr %.val4.i.i452, align 8, !tbaa !375
-  switch i8 %1033, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i462
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i453
+  %.val4.i.i453 = load ptr, ptr %1032, align 8, !tbaa !65
+  %1033 = load i8, ptr %.val4.i.i453, align 8, !tbaa !375
+  switch i8 %1033, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i463
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i454
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i453: ; preds = %1031
-  %1034 = getelementptr inbounds nuw i8, ptr %.val4.i.i452, i64 16
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i454
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i454: ; preds = %1031
+  %1034 = getelementptr inbounds nuw i8, ptr %.val4.i.i453, i64 16
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i455
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i462: ; preds = %1031
-  %1035 = getelementptr inbounds i8, ptr %.val4.i.i452, i64 -8
-  %1036 = getelementptr inbounds nuw i8, ptr %.val4.i.i452, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i463: ; preds = %1031
+  %1035 = getelementptr inbounds i8, ptr %.val4.i.i453, i64 -8
+  %1036 = getelementptr inbounds nuw i8, ptr %.val4.i.i453, i64 24
   %1037 = load i32, ptr %1036, align 8, !tbaa !675
   %1038 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1035, ptr noundef nonnull align 8 dereferenceable(8) %50) #25
-  br i1 %1038, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i454, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i463
+  br i1 %1038, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i455, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i464
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i463: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i462
-  %.val.pre.i.i464 = load ptr, ptr %1032, align 8, !tbaa !65
-  %.pre14.i.i465 = load i8, ptr %.val.pre.i.i464, align 8, !tbaa !375
-  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i464: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i463
+  %.val.pre.i.i465 = load ptr, ptr %1032, align 8, !tbaa !65
+  %.pre14.i.i466 = load i8, ptr %.val.pre.i.i465, align 8, !tbaa !375
+  br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i463, %1031
-  %1039 = phi i8 [ %.pre14.i.i465, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i463 ], [ %1033, %1031 ]
-  %.val.i.i467 = phi ptr [ %.val.pre.i.i464, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i463 ], [ %.val4.i.i452, %1031 ]
-  %.not.i.i.i468 = icmp eq i8 %1039, 4
-  br i1 %.not.i.i.i468, label %1040, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i469
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i464, %1031
+  %1039 = phi i8 [ %.pre14.i.i466, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i464 ], [ %1033, %1031 ]
+  %.val.i.i468 = phi ptr [ %.val.pre.i.i465, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i464 ], [ %.val4.i.i453, %1031 ]
+  %.not.i.i.i469 = icmp eq i8 %1039, 4
+  br i1 %.not.i.i.i469, label %1040, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i470
 
-1040:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466
-  %1041 = getelementptr inbounds nuw i8, ptr %.val.i.i467, i64 24
+1040:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467
+  %1041 = getelementptr inbounds nuw i8, ptr %.val.i.i468, i64 24
   %1042 = load i32, ptr %1041, align 8, !tbaa !675
-  %1043 = getelementptr inbounds nuw i8, ptr %.val.i.i467, i64 16
+  %1043 = getelementptr inbounds nuw i8, ptr %.val.i.i468, i64 16
   %1044 = load ptr, ptr %1043, align 8, !tbaa !927
-  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i469
+  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i470
 
-_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i469: ; preds = %1040, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466
-  %.2.i.i470 = phi i32 [ %1042, %1040 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466 ]
-  %.08.i.i.i471 = phi ptr [ %1044, %1040 ], [ %.val.i.i467, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i466 ]
+_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i470: ; preds = %1040, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467
+  %.2.i.i471 = phi i32 [ %1042, %1040 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467 ]
+  %.08.i.i.i472 = phi ptr [ %1044, %1040 ], [ %.val.i.i468, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i467 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %48, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
-  %1045 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i471, ptr noundef nonnull align 8 dereferenceable(28) %48, ptr noundef null, ptr noundef nonnull %49) #25
+  %1045 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i472, ptr noundef nonnull align 8 dereferenceable(28) %48, ptr noundef null, ptr noundef nonnull %49) #25
   %1046 = load i32, ptr %201, align 8
   %1047 = icmp eq i32 %1046, 0
-  %.0.i.i.i472 = select i1 %1045, i1 %1047, i1 false
+  %.0.i.i.i473 = select i1 %1045, i1 %1047, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i454: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i462, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i453
-  %.in.i.i455 = phi ptr [ %1034, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i453 ], [ %50, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i462 ]
-  %.19.i.i456 = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i453 ], [ %1037, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i462 ]
-  %1048 = load i64, ptr %.in.i.i455, align 8, !tbaa !53
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i455: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i463, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i454
+  %.in.i.i456 = phi ptr [ %1034, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i454 ], [ %50, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i463 ]
+  %.19.i.i457 = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i454 ], [ %1037, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i463 ]
+  %1048 = load i64, ptr %.in.i.i456, align 8, !tbaa !53
   %1049 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val5.i.i457 = load i8, ptr %1049, align 8, !tbaa !65, !range !48, !noundef !49
-  %1050 = trunc nuw i8 %.val5.i.i457 to i1
+  %.val5.i.i458 = load i8, ptr %1049, align 8, !tbaa !65, !range !48, !noundef !49
+  %1050 = trunc nuw i8 %.val5.i.i458 to i1
   %1051 = icmp ugt i64 %1048, 4294967295
-  %or.cond.not.i.i.i458 = or i1 %1051, %1050
+  %or.cond.not.i.i.i459 = or i1 %1051, %1050
   %1052 = shl nuw i64 %1048, 32
   %1053 = ashr exact i64 %1052, 32
-  %.0.i6.i.i459 = select i1 %or.cond.not.i.i.i458, i64 %1048, i64 %1053
-  %1054 = add i64 %.0.i6.i.i459, 2048
+  %.0.i6.i.i460 = select i1 %or.cond.not.i.i.i459, i64 %1048, i64 %1053
+  %1054 = add i64 %.0.i6.i.i460, 2048
   %1055 = icmp ult i64 %1054, 4096
-  %1056 = and i64 %.0.i6.i.i459, 1
+  %1056 = and i64 %.0.i6.i.i460, 1
   %1057 = icmp eq i64 %1056, 0
   %1058 = and i1 %1055, %1057
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i469, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i454
-  %.0.i.i460 = phi i32 [ %.19.i.i456, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i454 ], [ %.2.i.i470, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i469 ]
-  %.0.in.i.i461 = phi i1 [ %1058, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i454 ], [ %.0.i.i.i472, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i469 ]
-  %.0.i.i460.fr = freeze i32 %.0.i.i460
-  %1059 = icmp eq i32 %.0.i.i460.fr, 0
-  %.0.in.i.i461.fr = freeze i1 %.0.in.i.i461
-  %1060 = and i1 %.0.in.i.i461.fr, %1059
+_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i470, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i455
+  %.0.i.i461 = phi i32 [ %.19.i.i457, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i455 ], [ %.2.i.i471, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i470 ]
+  %.0.in.i.i462 = phi i1 [ %1058, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i455 ], [ %.0.i.i.i473, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i470 ]
+  %.0.i.i461.fr = freeze i32 %.0.i.i461
+  %1059 = icmp eq i32 %.0.i.i461.fr, 0
+  %.0.in.i.i462.fr = freeze i1 %.0.in.i.i462
+  %1060 = and i1 %.0.in.i.i462.fr, %1059
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br i1 %1060, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -24012,41 +24012,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__
 1064:                                             ; preds = %1061
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %1065 = load i8, ptr %.val509.i, align 8, !tbaa !375
-  switch i8 %1065, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread890 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i449
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i444
+  switch i8 %1065, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread891 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i450
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i445
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i444: ; preds = %1064
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i445: ; preds = %1064
   %1066 = getelementptr inbounds nuw i8, ptr %.val509.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i449: ; preds = %1064
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i450: ; preds = %1064
   %1067 = getelementptr inbounds i8, ptr %.val509.i, i64 -8
   %1068 = getelementptr inbounds nuw i8, ptr %.val509.i, i64 24
   %1069 = load i32, ptr %1068, align 8, !tbaa !675
   %1070 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1067, ptr noundef nonnull align 8 dereferenceable(8) %51) #25
-  br i1 %1070, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i450, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread890
+  br i1 %1070, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i451, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread891
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i450: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i449
-  %.fr1130 = freeze i32 %1069
-  %1071 = icmp eq i32 %.fr1130, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i451: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i450
+  %.fr1131 = freeze i32 %1069
+  %1071 = icmp eq i32 %.fr1131, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread890: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i449, %1064
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread891: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i450, %1064
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i444, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i450
-  %.in.i445 = phi ptr [ %1066, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i444 ], [ %51, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i450 ]
-  %.014.i446 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i444 ], [ %1071, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i450 ]
-  %1072 = load i64, ptr %.in.i445, align 8, !tbaa !53
-  %.fr1129 = freeze i64 %1072
-  %1073 = and i64 %.fr1129, -3
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i445, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i451
+  %.in.i446 = phi ptr [ %1066, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i445 ], [ %51, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i451 ]
+  %.014.i447 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i445 ], [ %1071, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i451 ]
+  %1072 = load i64, ptr %.in.i446, align 8, !tbaa !53
+  %.fr1130 = freeze i64 %1072
+  %1073 = and i64 %.fr1130, -3
   %1074 = icmp eq i64 %1073, 0
-  %spec.select.i447 = and i1 %.014.i446, %1074
+  %spec.select.i448 = and i1 %.014.i447, %1074
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  br i1 %spec.select.i447, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i448, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1075:                                             ; preds = %347
   %1076 = getelementptr i8, ptr %314, i64 72
@@ -24058,40 +24058,40 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N
 1078:                                             ; preds = %1075
   %1079 = load i8, ptr %.val511.i, align 8, !tbaa !375
   switch i8 %1079, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i441
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i436
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i442
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i437
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i436: ; preds = %1078
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i437: ; preds = %1078
   %1080 = getelementptr inbounds nuw i8, ptr %.val511.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i441: ; preds = %1078
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i442: ; preds = %1078
   %1081 = getelementptr inbounds i8, ptr %.val511.i, i64 -8
   %1082 = getelementptr inbounds nuw i8, ptr %.val511.i, i64 24
   %1083 = load i32, ptr %1082, align 8, !tbaa !675
   %1084 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1081, ptr noundef nonnull align 8 dereferenceable(8) %52) #25
-  br i1 %1084, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i442, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread
+  br i1 %1084, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i443, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i442: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i441
-  %.fr1128 = freeze i32 %1083
-  %1085 = icmp eq i32 %.fr1128, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i443: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i442
+  %.fr1129 = freeze i32 %1083
+  %1085 = icmp eq i32 %.fr1129, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread: ; preds = %1075, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i441, %1078
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread: ; preds = %1075, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i442, %1078
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i436, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i442
-  %.in.i437 = phi ptr [ %1080, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i436 ], [ %52, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i442 ]
-  %.014.i438 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i436 ], [ %1085, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i442 ]
-  %1086 = load i64, ptr %.in.i437, align 8, !tbaa !53
-  %.fr1127 = freeze i64 %1086
-  %1087 = add i64 %.fr1127, -32
-  %or.cond.i439 = icmp ult i64 %1087, 224
-  %spec.select.i440 = and i1 %.014.i438, %or.cond.i439
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i437, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i443
+  %.in.i438 = phi ptr [ %1080, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i437 ], [ %52, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i443 ]
+  %.014.i439 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i437 ], [ %1085, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i443 ]
+  %1086 = load i64, ptr %.in.i438, align 8, !tbaa !53
+  %.fr1128 = freeze i64 %1086
+  %1087 = add i64 %.fr1128, -32
+  %or.cond.i440 = icmp ult i64 %1087, 224
+  %spec.select.i441 = and i1 %.014.i439, %or.cond.i440
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  br i1 %spec.select.i440, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i441, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1088:                                             ; preds = %347
   %1089 = icmp eq i32 %318, 2
@@ -24100,54 +24100,54 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit: ; preds = %_ZN12_GLOBAL__N
 1090:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %1091 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i426 = load ptr, ptr %1091, align 8, !tbaa !65
-  %1092 = load i8, ptr %.val.i426, align 8, !tbaa !375
-  switch i8 %1092, label %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread898 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i432
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i427
+  %.val.i427 = load ptr, ptr %1091, align 8, !tbaa !65
+  %1092 = load i8, ptr %.val.i427, align 8, !tbaa !375
+  switch i8 %1092, label %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread899 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i433
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i428
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i427: ; preds = %1090
-  %1093 = getelementptr inbounds nuw i8, ptr %.val.i426, i64 16
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i428: ; preds = %1090
+  %1093 = getelementptr inbounds nuw i8, ptr %.val.i427, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i432: ; preds = %1090
-  %1094 = getelementptr inbounds i8, ptr %.val.i426, i64 -8
-  %1095 = getelementptr inbounds nuw i8, ptr %.val.i426, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i433: ; preds = %1090
+  %1094 = getelementptr inbounds i8, ptr %.val.i427, i64 -8
+  %1095 = getelementptr inbounds nuw i8, ptr %.val.i427, i64 24
   %1096 = load i32, ptr %1095, align 8, !tbaa !675
   %1097 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1094, ptr noundef nonnull align 8 dereferenceable(8) %53) #25
-  br i1 %1097, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i433, label %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread898
+  br i1 %1097, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i434, label %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread899
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i433: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i432
-  %.fr1126 = freeze i32 %1096
-  %1098 = icmp eq i32 %.fr1126, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i434: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i433
+  %.fr1127 = freeze i32 %1096
+  %1098 = icmp eq i32 %.fr1127, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread898: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i432, %1090
+_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread899: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i433, %1090
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i427, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i433
-  %.in.i428 = phi ptr [ %1093, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i427 ], [ %53, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i433 ]
-  %.036.i = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i427 ], [ %1098, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i433 ]
-  %1099 = load i64, ptr %.in.i428, align 8, !tbaa !53
-  %.fr1123 = freeze i64 %1099
+_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i428, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i434
+  %.in.i429 = phi ptr [ %1093, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i428 ], [ %53, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i434 ]
+  %.036.i = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i428 ], [ %1098, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i434 ]
+  %1099 = load i64, ptr %.in.i429, align 8, !tbaa !53
+  %.fr1124 = freeze i64 %1099
   %1100 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %.val2.i = load i8, ptr %1100, align 8, !tbaa !65, !range !48, !noundef !49
   %1101 = trunc nuw i8 %.val2.i to i1
-  %1102 = icmp ugt i64 %.fr1123, 4294967295
-  %or.cond.not.i.i429 = or i1 %1102, %1101
-  %1103 = shl nuw i64 %.fr1123, 32
+  %1102 = icmp ugt i64 %.fr1124, 4294967295
+  %or.cond.not.i.i430 = or i1 %1102, %1101
+  %1103 = shl nuw i64 %.fr1124, 32
   %1104 = ashr exact i64 %1103, 32
-  %.0.i.i430 = select i1 %or.cond.not.i.i429, i64 %.fr1123, i64 %1104
-  %1105 = add i64 %.0.i.i430, 2048
+  %.0.i.i431 = select i1 %or.cond.not.i.i430, i64 %.fr1124, i64 %1104
+  %1105 = add i64 %.0.i.i431, 2048
   %1106 = icmp ult i64 %1105, 4096
-  %1107 = and i64 %.0.i.i430, 31
+  %1107 = and i64 %.0.i.i431, 31
   %1108 = icmp eq i64 %1107, 0
   %1109 = and i1 %1106, %1108
-  %spec.select.i431 = and i1 %.036.i, %1109
+  %spec.select.i432 = and i1 %.036.i, %1109
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br i1 %spec.select.i431, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i432, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1110:                                             ; preds = %347
   %1111 = getelementptr i8, ptr %314, i64 72
@@ -24158,41 +24158,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit: ; preds = %_ZN12_GLOB
 1113:                                             ; preds = %1110
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %1114 = load i8, ptr %.val513.i, align 8, !tbaa !375
-  switch i8 %1114, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread903 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i423
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i418
+  switch i8 %1114, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread904 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i424
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i419
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i418: ; preds = %1113
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i419: ; preds = %1113
   %1115 = getelementptr inbounds nuw i8, ptr %.val513.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i423: ; preds = %1113
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i424: ; preds = %1113
   %1116 = getelementptr inbounds i8, ptr %.val513.i, i64 -8
   %1117 = getelementptr inbounds nuw i8, ptr %.val513.i, i64 24
   %1118 = load i32, ptr %1117, align 8, !tbaa !675
   %1119 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1116, ptr noundef nonnull align 8 dereferenceable(8) %54) #25
-  br i1 %1119, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i424, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread903
+  br i1 %1119, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i425, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread904
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i424: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i423
-  %.fr1122 = freeze i32 %1118
-  %1120 = icmp eq i32 %.fr1122, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i425: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i424
+  %.fr1123 = freeze i32 %1118
+  %1120 = icmp eq i32 %.fr1123, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread903: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i423, %1113
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread904: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i424, %1113
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i418, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i424
-  %.in.i419 = phi ptr [ %1115, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i418 ], [ %54, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i424 ]
-  %.014.i420 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i418 ], [ %1120, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i424 ]
-  %1121 = load i64, ptr %.in.i419, align 8, !tbaa !53
-  %.fr1121 = freeze i64 %1121
-  %1122 = and i64 %.fr1121, -31
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i419, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i425
+  %.in.i420 = phi ptr [ %1115, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i419 ], [ %54, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i425 ]
+  %.014.i421 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i419 ], [ %1120, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i425 ]
+  %1121 = load i64, ptr %.in.i420, align 8, !tbaa !53
+  %.fr1122 = freeze i64 %1121
+  %1122 = and i64 %.fr1122, -31
   %1123 = icmp eq i64 %1122, 0
-  %spec.select.i421 = and i1 %.014.i420, %1123
+  %spec.select.i422 = and i1 %.014.i421, %1123
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br i1 %spec.select.i421, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i422, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1124:                                             ; preds = %347
   %1125 = getelementptr i8, ptr %314, i64 72
@@ -24203,41 +24203,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N
 1127:                                             ; preds = %1124
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %1128 = load i8, ptr %.val515.i, align 8, !tbaa !375
-  switch i8 %1128, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread908 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i415
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i410
+  switch i8 %1128, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread909 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i416
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i411
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i410: ; preds = %1127
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i411: ; preds = %1127
   %1129 = getelementptr inbounds nuw i8, ptr %.val515.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i415: ; preds = %1127
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i416: ; preds = %1127
   %1130 = getelementptr inbounds i8, ptr %.val515.i, i64 -8
   %1131 = getelementptr inbounds nuw i8, ptr %.val515.i, i64 24
   %1132 = load i32, ptr %1131, align 8, !tbaa !675
   %1133 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1130, ptr noundef nonnull align 8 dereferenceable(8) %55) #25
-  br i1 %1133, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i416, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread908
+  br i1 %1133, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i417, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread909
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i416: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i415
-  %.fr1120 = freeze i32 %1132
-  %1134 = icmp eq i32 %.fr1120, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i417: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i416
+  %.fr1121 = freeze i32 %1132
+  %1134 = icmp eq i32 %.fr1121, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread908: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i415, %1127
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread909: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i416, %1127
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i410, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i416
-  %.in.i411 = phi ptr [ %1129, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i410 ], [ %55, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i416 ]
-  %.014.i412 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i410 ], [ %1134, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i416 ]
-  %1135 = load i64, ptr %.in.i411, align 8, !tbaa !53
-  %.fr1119 = freeze i64 %1135
-  %1136 = and i64 %.fr1119, -63
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i411, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i417
+  %.in.i412 = phi ptr [ %1129, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i411 ], [ %55, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i417 ]
+  %.014.i413 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i411 ], [ %1134, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i417 ]
+  %1135 = load i64, ptr %.in.i412, align 8, !tbaa !53
+  %.fr1120 = freeze i64 %1135
+  %1136 = and i64 %.fr1120, -63
   %1137 = icmp eq i64 %1136, 0
-  %spec.select.i413 = and i1 %.014.i412, %1137
+  %spec.select.i414 = and i1 %.014.i413, %1137
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br i1 %spec.select.i413, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i414, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1138:                                             ; preds = %347
   %1139 = getelementptr i8, ptr %314, i64 72
@@ -24248,41 +24248,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N
 1141:                                             ; preds = %1138
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %1142 = load i8, ptr %.val517.i, align 8, !tbaa !375
-  switch i8 %1142, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread913 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i407
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i401
+  switch i8 %1142, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread914 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i408
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i402
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i401: ; preds = %1141
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i402: ; preds = %1141
   %1143 = getelementptr inbounds nuw i8, ptr %.val517.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i407: ; preds = %1141
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i408: ; preds = %1141
   %1144 = getelementptr inbounds i8, ptr %.val517.i, i64 -8
   %1145 = getelementptr inbounds nuw i8, ptr %.val517.i, i64 24
   %1146 = load i32, ptr %1145, align 8, !tbaa !675
   %1147 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1144, ptr noundef nonnull align 8 dereferenceable(8) %56) #25
-  br i1 %1147, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i408, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread913
+  br i1 %1147, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i409, label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread914
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i408: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i407
-  %.fr1118 = freeze i32 %1146
-  %1148 = icmp eq i32 %.fr1118, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i409: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i408
+  %.fr1119 = freeze i32 %1146
+  %1148 = icmp eq i32 %.fr1119, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread913: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i407, %1141
+_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread914: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i408, %1141
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i401, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i408
-  %.in.i402 = phi ptr [ %1143, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i401 ], [ %56, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i408 ]
-  %.014.i403 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i401 ], [ %1148, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i408 ]
-  %1149 = load i64, ptr %.in.i402, align 8, !tbaa !53
-  %.fr1117 = freeze i64 %1149
-  %1150 = add i64 %.fr1117, -1
-  %or.cond.i404 = icmp ult i64 %1150, 31
-  %spec.select.i405 = and i1 %.014.i403, %or.cond.i404
+_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i402, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i409
+  %.in.i403 = phi ptr [ %1143, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i402 ], [ %56, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i409 ]
+  %.014.i404 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i402 ], [ %1148, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i409 ]
+  %1149 = load i64, ptr %.in.i403, align 8, !tbaa !53
+  %.fr1118 = freeze i64 %1149
+  %1150 = add i64 %.fr1118, -1
+  %or.cond.i405 = icmp ult i64 %1150, 31
+  %spec.select.i406 = and i1 %.014.i404, %or.cond.i405
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br i1 %spec.select.i405, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i406, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1151:                                             ; preds = %347
   %1152 = getelementptr i8, ptr %314, i64 72
@@ -24293,41 +24293,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit: ; preds = %_ZN12_GLOBAL
 1154:                                             ; preds = %1151
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %1155 = load i8, ptr %.val519.i, align 8, !tbaa !375
-  switch i8 %1155, label %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread918 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i398
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i392
+  switch i8 %1155, label %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread919 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i399
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i393
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i392: ; preds = %1154
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i393: ; preds = %1154
   %1156 = getelementptr inbounds nuw i8, ptr %.val519.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i398: ; preds = %1154
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i399: ; preds = %1154
   %1157 = getelementptr inbounds i8, ptr %.val519.i, i64 -8
   %1158 = getelementptr inbounds nuw i8, ptr %.val519.i, i64 24
   %1159 = load i32, ptr %1158, align 8, !tbaa !675
   %1160 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1157, ptr noundef nonnull align 8 dereferenceable(8) %57) #25
-  br i1 %1160, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i399, label %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread918
+  br i1 %1160, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i400, label %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread919
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i399: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i398
-  %.fr1116 = freeze i32 %1159
-  %1161 = icmp eq i32 %.fr1116, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i400: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i399
+  %.fr1117 = freeze i32 %1159
+  %1161 = icmp eq i32 %.fr1117, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread918: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i398, %1154
+_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread919: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i399, %1154
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i392, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i399
-  %.in.i393 = phi ptr [ %1156, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i392 ], [ %57, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i399 ]
-  %.014.i394 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i392 ], [ %1161, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i399 ]
-  %1162 = load i64, ptr %.in.i393, align 8, !tbaa !53
-  %.fr1115 = freeze i64 %1162
-  %1163 = add i64 %.fr1115, -4
-  %or.cond.i395 = icmp ult i64 %1163, 28
-  %spec.select.i396 = and i1 %.014.i394, %or.cond.i395
+_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i393, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i400
+  %.in.i394 = phi ptr [ %1156, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i393 ], [ %57, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i400 ]
+  %.014.i395 = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i393 ], [ %1161, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i400 ]
+  %1162 = load i64, ptr %.in.i394, align 8, !tbaa !53
+  %.fr1116 = freeze i64 %1162
+  %1163 = add i64 %.fr1116, -4
+  %or.cond.i396 = icmp ult i64 %1163, 28
+  %spec.select.i397 = and i1 %.014.i395, %or.cond.i396
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  br i1 %spec.select.i396, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i397, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1164:                                             ; preds = %347
   %1165 = getelementptr i8, ptr %314, i64 72
@@ -24339,39 +24339,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit: ; preds = %_ZN12_GLOBAL__N_
 1167:                                             ; preds = %1164
   %1168 = load i8, ptr %.val521.i, align 8, !tbaa !375
   switch i8 %1168, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i389
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i385
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i390
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i386
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i385: ; preds = %1167
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i386: ; preds = %1167
   %1169 = getelementptr inbounds nuw i8, ptr %.val521.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i389: ; preds = %1167
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i390: ; preds = %1167
   %1170 = getelementptr inbounds i8, ptr %.val521.i, i64 -8
   %1171 = getelementptr inbounds nuw i8, ptr %.val521.i, i64 24
   %1172 = load i32, ptr %1171, align 8, !tbaa !675
   %1173 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1170, ptr noundef nonnull align 8 dereferenceable(8) %58) #25
-  br i1 %1173, label %thread-pre-split.i.i390, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread
+  br i1 %1173, label %thread-pre-split.i.i391, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread
 
-thread-pre-split.i.i390:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i389
-  %.fr1114 = freeze i32 %1172
-  %1174 = icmp eq i32 %.fr1114, 0
+thread-pre-split.i.i391:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i390
+  %.fr1115 = freeze i32 %1172
+  %1174 = icmp eq i32 %.fr1115, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread: ; preds = %1164, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i389, %1167
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread: ; preds = %1164, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i390, %1167
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i385, %thread-pre-split.i.i390
-  %.in.i.i386 = phi ptr [ %58, %thread-pre-split.i.i390 ], [ %1169, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i385 ]
-  %.014.i.i387 = phi i1 [ %1174, %thread-pre-split.i.i390 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i385 ]
-  %1175 = load i64, ptr %.in.i.i386, align 8, !tbaa !53
-  %.fr1113 = freeze i64 %1175
-  %1176 = icmp ult i64 %.fr1113, 1024
-  %spec.select.i.i388 = and i1 %.014.i.i387, %1176
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i386, %thread-pre-split.i.i391
+  %.in.i.i387 = phi ptr [ %58, %thread-pre-split.i.i391 ], [ %1169, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i386 ]
+  %.014.i.i388 = phi i1 [ %1174, %thread-pre-split.i.i391 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i386 ]
+  %1175 = load i64, ptr %.in.i.i387, align 8, !tbaa !53
+  %.fr1114 = freeze i64 %1175
+  %1176 = icmp ult i64 %.fr1114, 1024
+  %spec.select.i.i389 = and i1 %.014.i.i388, %1176
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br i1 %spec.select.i.i388, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i389, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1177:                                             ; preds = %347
   %1178 = getelementptr i8, ptr %314, i64 72
@@ -24383,39 +24383,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
 1180:                                             ; preds = %1177
   %1181 = load i8, ptr %.val523.i, align 8, !tbaa !375
   switch i8 %1181, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i382
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i378
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i383
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i379
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i378: ; preds = %1180
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i379: ; preds = %1180
   %1182 = getelementptr inbounds nuw i8, ptr %.val523.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i382: ; preds = %1180
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i383: ; preds = %1180
   %1183 = getelementptr inbounds i8, ptr %.val523.i, i64 -8
   %1184 = getelementptr inbounds nuw i8, ptr %.val523.i, i64 24
   %1185 = load i32, ptr %1184, align 8, !tbaa !675
   %1186 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1183, ptr noundef nonnull align 8 dereferenceable(8) %59) #25
-  br i1 %1186, label %thread-pre-split.i.i383, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread
+  br i1 %1186, label %thread-pre-split.i.i384, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread
 
-thread-pre-split.i.i383:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i382
-  %.fr1112 = freeze i32 %1185
-  %1187 = icmp eq i32 %.fr1112, 0
+thread-pre-split.i.i384:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i383
+  %.fr1113 = freeze i32 %1185
+  %1187 = icmp eq i32 %.fr1113, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread: ; preds = %1177, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i382, %1180
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread: ; preds = %1177, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i383, %1180
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i378, %thread-pre-split.i.i383
-  %.in.i.i379 = phi ptr [ %59, %thread-pre-split.i.i383 ], [ %1182, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i378 ]
-  %.014.i.i380 = phi i1 [ %1187, %thread-pre-split.i.i383 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i378 ]
-  %1188 = load i64, ptr %.in.i.i379, align 8, !tbaa !53
-  %.fr1111 = freeze i64 %1188
-  %1189 = icmp ult i64 %.fr1111, 2048
-  %spec.select.i.i381 = and i1 %.014.i.i380, %1189
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i379, %thread-pre-split.i.i384
+  %.in.i.i380 = phi ptr [ %59, %thread-pre-split.i.i384 ], [ %1182, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i379 ]
+  %.014.i.i381 = phi i1 [ %1187, %thread-pre-split.i.i384 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i379 ]
+  %1188 = load i64, ptr %.in.i.i380, align 8, !tbaa !53
+  %.fr1112 = freeze i64 %1188
+  %1189 = icmp ult i64 %.fr1112, 2048
+  %spec.select.i.i382 = and i1 %.014.i.i381, %1189
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  br i1 %spec.select.i.i381, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i382, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1190:                                             ; preds = %347
   %1191 = icmp eq i32 %318, 2
@@ -24424,43 +24424,43 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
 1192:                                             ; preds = %1190
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %1193 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i368 = load ptr, ptr %1193, align 8, !tbaa !65
-  %1194 = load i8, ptr %.val.i368, align 8, !tbaa !375
-  switch i8 %1194, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread929 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i375
-    i8 1, label %.critedge.i369
+  %.val.i369 = load ptr, ptr %1193, align 8, !tbaa !65
+  %1194 = load i8, ptr %.val.i369, align 8, !tbaa !375
+  switch i8 %1194, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread930 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i376
+    i8 1, label %.critedge.i370
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i375: ; preds = %1192
-  %1195 = getelementptr inbounds i8, ptr %.val.i368, i64 -8
-  %1196 = getelementptr inbounds nuw i8, ptr %.val.i368, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i376: ; preds = %1192
+  %1195 = getelementptr inbounds i8, ptr %.val.i369, i64 -8
+  %1196 = getelementptr inbounds nuw i8, ptr %.val.i369, i64 24
   %1197 = load i32, ptr %1196, align 8, !tbaa !675
   %1198 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1195, ptr noundef nonnull align 8 dereferenceable(8) %60) #25
   %1199 = icmp eq i32 %1197, 0
   %1200 = select i1 %1198, i1 %1199, i1 false
-  br i1 %1200, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread929
+  br i1 %1200, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread930
 
-.critedge.i369:                                   ; preds = %1192
-  %1201 = getelementptr inbounds nuw i8, ptr %.val.i368, i64 16
+.critedge.i370:                                   ; preds = %1192
+  %1201 = getelementptr inbounds nuw i8, ptr %.val.i369, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread929: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i375, %1192
+_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread930: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i376, %1192
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit: ; preds = %.critedge.i369, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i375
-  %.in.i370 = phi ptr [ %1201, %.critedge.i369 ], [ %60, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i375 ]
-  %1202 = load i64, ptr %.in.i370, align 8, !tbaa !53
-  %.fr1108 = freeze i64 %1202
+_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit: ; preds = %.critedge.i370, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i376
+  %.in.i371 = phi ptr [ %1201, %.critedge.i370 ], [ %60, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i376 ]
+  %1202 = load i64, ptr %.in.i371, align 8, !tbaa !53
+  %.fr1109 = freeze i64 %1202
   %1203 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %.val3.i371 = load i8, ptr %1203, align 8, !tbaa !65, !range !48, !noundef !49
-  %1204 = trunc nuw i8 %.val3.i371 to i1
-  %1205 = icmp ugt i64 %.fr1108, 4294967295
-  %or.cond.not.i.i372 = or i1 %1205, %1204
-  %1206 = shl nuw i64 %.fr1108, 32
+  %.val3.i372 = load i8, ptr %1203, align 8, !tbaa !65, !range !48, !noundef !49
+  %1204 = trunc nuw i8 %.val3.i372 to i1
+  %1205 = icmp ugt i64 %.fr1109, 4294967295
+  %or.cond.not.i.i373 = or i1 %1205, %1204
+  %1206 = shl nuw i64 %.fr1109, 32
   %1207 = ashr exact i64 %1206, 32
-  %.0.i.i373 = select i1 %or.cond.not.i.i372, i64 %.fr1108, i64 %1207
-  %1208 = add i64 %.0.i.i373, 33554432
+  %.0.i.i374 = select i1 %or.cond.not.i.i373, i64 %.fr1109, i64 %1207
+  %1208 = add i64 %.0.i.i374, 33554432
   %1209 = icmp ult i64 %1208, 67108864
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br i1 %1209, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
@@ -24474,41 +24474,41 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit: ; preds = %.critedge.i369, %_Z
 1213:                                             ; preds = %1210
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %1214 = load i8, ptr %.val525.i, align 8, !tbaa !375
-  switch i8 %1214, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread934 [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i365
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i362
+  switch i8 %1214, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread935 [
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i366
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i363
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i362: ; preds = %1213
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i363: ; preds = %1213
   %1215 = getelementptr inbounds nuw i8, ptr %.val525.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i365: ; preds = %1213
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i366: ; preds = %1213
   %1216 = getelementptr inbounds i8, ptr %.val525.i, i64 -8
   %1217 = getelementptr inbounds nuw i8, ptr %.val525.i, i64 24
   %1218 = load i32, ptr %1217, align 8, !tbaa !675
   %1219 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1216, ptr noundef nonnull align 8 dereferenceable(8) %61) #25
-  br i1 %1219, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i366, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread934
+  br i1 %1219, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i367, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread935
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i366: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i365
-  %.fr1107 = freeze i32 %1218
-  %1220 = icmp eq i32 %.fr1107, 0
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i367: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i366
+  %.fr1108 = freeze i32 %1218
+  %1220 = icmp eq i32 %.fr1108, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread934: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i365, %1213
+_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread935: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i366, %1213
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i362, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i366
-  %.in.i363 = phi ptr [ %1215, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i362 ], [ %61, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i366 ]
-  %.014.i = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i362 ], [ %1220, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i366 ]
-  %1221 = load i64, ptr %.in.i363, align 8, !tbaa !53
-  %.fr1106 = freeze i64 %1221
-  %1222 = and i64 %.fr1106, -121
+_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i363, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i367
+  %.in.i364 = phi ptr [ %1215, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i363 ], [ %61, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i367 ]
+  %.014.i = phi i1 [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i363 ], [ %1220, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i367 ]
+  %1221 = load i64, ptr %.in.i364, align 8, !tbaa !53
+  %.fr1107 = freeze i64 %1221
+  %1222 = and i64 %.fr1107, -121
   %1223 = icmp eq i64 %1222, 0
-  %spec.select.i364 = and i1 %.014.i, %1223
+  %spec.select.i365 = and i1 %.014.i, %1223
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  br i1 %spec.select.i364, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i365, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1224:                                             ; preds = %347
   %1225 = getelementptr i8, ptr %314, i64 72
@@ -24520,39 +24520,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit: ; preds = %_ZN12_GLOBAL_
 1227:                                             ; preds = %1224
   %1228 = load i8, ptr %.val527.i, align 8, !tbaa !375
   switch i8 %1228, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i359
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i355
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i360
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i356
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i355: ; preds = %1227
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i356: ; preds = %1227
   %1229 = getelementptr inbounds nuw i8, ptr %.val527.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i359: ; preds = %1227
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i360: ; preds = %1227
   %1230 = getelementptr inbounds i8, ptr %.val527.i, i64 -8
   %1231 = getelementptr inbounds nuw i8, ptr %.val527.i, i64 24
   %1232 = load i32, ptr %1231, align 8, !tbaa !675
   %1233 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1230, ptr noundef nonnull align 8 dereferenceable(8) %62) #25
-  br i1 %1233, label %thread-pre-split.i.i360, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread
+  br i1 %1233, label %thread-pre-split.i.i361, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread
 
-thread-pre-split.i.i360:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i359
-  %.fr1105 = freeze i32 %1232
-  %1234 = icmp eq i32 %.fr1105, 0
+thread-pre-split.i.i361:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i360
+  %.fr1106 = freeze i32 %1232
+  %1234 = icmp eq i32 %.fr1106, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread: ; preds = %1224, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i359, %1227
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread: ; preds = %1224, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i360, %1227
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i355, %thread-pre-split.i.i360
-  %.in.i.i356 = phi ptr [ %62, %thread-pre-split.i.i360 ], [ %1229, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i355 ]
-  %.014.i.i357 = phi i1 [ %1234, %thread-pre-split.i.i360 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i355 ]
-  %1235 = load i64, ptr %.in.i.i356, align 8, !tbaa !53
-  %.fr1104 = freeze i64 %1235
-  %1236 = icmp ult i64 %.fr1104, 2
-  %spec.select.i.i358 = and i1 %.014.i.i357, %1236
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i356, %thread-pre-split.i.i361
+  %.in.i.i357 = phi ptr [ %62, %thread-pre-split.i.i361 ], [ %1229, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i356 ]
+  %.014.i.i358 = phi i1 [ %1234, %thread-pre-split.i.i361 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i356 ]
+  %1235 = load i64, ptr %.in.i.i357, align 8, !tbaa !53
+  %.fr1105 = freeze i64 %1235
+  %1236 = icmp ult i64 %.fr1105, 2
+  %spec.select.i.i359 = and i1 %.014.i.i358, %1236
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  br i1 %spec.select.i.i358, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i359, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1237:                                             ; preds = %347
   %1238 = getelementptr i8, ptr %314, i64 72
@@ -24564,39 +24564,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1240:                                             ; preds = %1237
   %1241 = load i8, ptr %.val529.i, align 8, !tbaa !375
   switch i8 %1241, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i352
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i348
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i353
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i349
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i348: ; preds = %1240
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i349: ; preds = %1240
   %1242 = getelementptr inbounds nuw i8, ptr %.val529.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i352: ; preds = %1240
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i353: ; preds = %1240
   %1243 = getelementptr inbounds i8, ptr %.val529.i, i64 -8
   %1244 = getelementptr inbounds nuw i8, ptr %.val529.i, i64 24
   %1245 = load i32, ptr %1244, align 8, !tbaa !675
   %1246 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1243, ptr noundef nonnull align 8 dereferenceable(8) %63) #25
-  br i1 %1246, label %thread-pre-split.i.i353, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread
+  br i1 %1246, label %thread-pre-split.i.i354, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread
 
-thread-pre-split.i.i353:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i352
-  %.fr1103 = freeze i32 %1245
-  %1247 = icmp eq i32 %.fr1103, 0
+thread-pre-split.i.i354:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i353
+  %.fr1104 = freeze i32 %1245
+  %1247 = icmp eq i32 %.fr1104, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread: ; preds = %1237, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i352, %1240
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread: ; preds = %1237, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i353, %1240
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i348, %thread-pre-split.i.i353
-  %.in.i.i349 = phi ptr [ %63, %thread-pre-split.i.i353 ], [ %1242, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i348 ]
-  %.014.i.i350 = phi i1 [ %1247, %thread-pre-split.i.i353 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i348 ]
-  %1248 = load i64, ptr %.in.i.i349, align 8, !tbaa !53
-  %.fr1102 = freeze i64 %1248
-  %1249 = icmp ult i64 %.fr1102, 4
-  %spec.select.i.i351 = and i1 %.014.i.i350, %1249
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i349, %thread-pre-split.i.i354
+  %.in.i.i350 = phi ptr [ %63, %thread-pre-split.i.i354 ], [ %1242, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i349 ]
+  %.014.i.i351 = phi i1 [ %1247, %thread-pre-split.i.i354 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i349 ]
+  %1248 = load i64, ptr %.in.i.i350, align 8, !tbaa !53
+  %.fr1103 = freeze i64 %1248
+  %1249 = icmp ult i64 %.fr1103, 4
+  %spec.select.i.i352 = and i1 %.014.i.i351, %1249
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  br i1 %spec.select.i.i351, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i352, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1250:                                             ; preds = %347
   %1251 = getelementptr i8, ptr %314, i64 72
@@ -24608,39 +24608,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1253:                                             ; preds = %1250
   %1254 = load i8, ptr %.val531.i, align 8, !tbaa !375
   switch i8 %1254, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i345
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i341
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i346
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i342
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i341: ; preds = %1253
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i342: ; preds = %1253
   %1255 = getelementptr inbounds nuw i8, ptr %.val531.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i345: ; preds = %1253
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i346: ; preds = %1253
   %1256 = getelementptr inbounds i8, ptr %.val531.i, i64 -8
   %1257 = getelementptr inbounds nuw i8, ptr %.val531.i, i64 24
   %1258 = load i32, ptr %1257, align 8, !tbaa !675
   %1259 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1256, ptr noundef nonnull align 8 dereferenceable(8) %64) #25
-  br i1 %1259, label %thread-pre-split.i.i346, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread
+  br i1 %1259, label %thread-pre-split.i.i347, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread
 
-thread-pre-split.i.i346:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i345
-  %.fr1101 = freeze i32 %1258
-  %1260 = icmp eq i32 %.fr1101, 0
+thread-pre-split.i.i347:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i346
+  %.fr1102 = freeze i32 %1258
+  %1260 = icmp eq i32 %.fr1102, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread: ; preds = %1250, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i345, %1253
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread: ; preds = %1250, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i346, %1253
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i341, %thread-pre-split.i.i346
-  %.in.i.i342 = phi ptr [ %64, %thread-pre-split.i.i346 ], [ %1255, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i341 ]
-  %.014.i.i343 = phi i1 [ %1260, %thread-pre-split.i.i346 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i341 ]
-  %1261 = load i64, ptr %.in.i.i342, align 8, !tbaa !53
-  %.fr1100 = freeze i64 %1261
-  %1262 = icmp ult i64 %.fr1100, 8
-  %spec.select.i.i344 = and i1 %.014.i.i343, %1262
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i342, %thread-pre-split.i.i347
+  %.in.i.i343 = phi ptr [ %64, %thread-pre-split.i.i347 ], [ %1255, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i342 ]
+  %.014.i.i344 = phi i1 [ %1260, %thread-pre-split.i.i347 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i342 ]
+  %1261 = load i64, ptr %.in.i.i343, align 8, !tbaa !53
+  %.fr1101 = freeze i64 %1261
+  %1262 = icmp ult i64 %.fr1101, 8
+  %spec.select.i.i345 = and i1 %.014.i.i344, %1262
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  br i1 %spec.select.i.i344, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i345, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1263:                                             ; preds = %347
   %1264 = getelementptr i8, ptr %314, i64 72
@@ -24652,39 +24652,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1266:                                             ; preds = %1263
   %1267 = load i8, ptr %.val533.i, align 8, !tbaa !375
   switch i8 %1267, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i338
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i334
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i339
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i335
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i334: ; preds = %1266
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i335: ; preds = %1266
   %1268 = getelementptr inbounds nuw i8, ptr %.val533.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i338: ; preds = %1266
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i339: ; preds = %1266
   %1269 = getelementptr inbounds i8, ptr %.val533.i, i64 -8
   %1270 = getelementptr inbounds nuw i8, ptr %.val533.i, i64 24
   %1271 = load i32, ptr %1270, align 8, !tbaa !675
   %1272 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1269, ptr noundef nonnull align 8 dereferenceable(8) %65) #25
-  br i1 %1272, label %thread-pre-split.i.i339, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread
+  br i1 %1272, label %thread-pre-split.i.i340, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread
 
-thread-pre-split.i.i339:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i338
-  %.fr1099 = freeze i32 %1271
-  %1273 = icmp eq i32 %.fr1099, 0
+thread-pre-split.i.i340:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i339
+  %.fr1100 = freeze i32 %1271
+  %1273 = icmp eq i32 %.fr1100, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread: ; preds = %1263, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i338, %1266
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread: ; preds = %1263, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i339, %1266
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i334, %thread-pre-split.i.i339
-  %.in.i.i335 = phi ptr [ %65, %thread-pre-split.i.i339 ], [ %1268, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i334 ]
-  %.014.i.i336 = phi i1 [ %1273, %thread-pre-split.i.i339 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i334 ]
-  %1274 = load i64, ptr %.in.i.i335, align 8, !tbaa !53
-  %.fr1098 = freeze i64 %1274
-  %1275 = icmp ult i64 %.fr1098, 16
-  %spec.select.i.i337 = and i1 %.014.i.i336, %1275
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i335, %thread-pre-split.i.i340
+  %.in.i.i336 = phi ptr [ %65, %thread-pre-split.i.i340 ], [ %1268, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i335 ]
+  %.014.i.i337 = phi i1 [ %1273, %thread-pre-split.i.i340 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i335 ]
+  %1274 = load i64, ptr %.in.i.i336, align 8, !tbaa !53
+  %.fr1099 = freeze i64 %1274
+  %1275 = icmp ult i64 %.fr1099, 16
+  %spec.select.i.i338 = and i1 %.014.i.i337, %1275
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  br i1 %spec.select.i.i337, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i338, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1276:                                             ; preds = %347
   %1277 = getelementptr i8, ptr %314, i64 72
@@ -24696,39 +24696,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1279:                                             ; preds = %1276
   %1280 = load i8, ptr %.val482.i, align 8, !tbaa !375
   switch i8 %1280, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i331
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i327
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i332
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i328
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i327: ; preds = %1279
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i328: ; preds = %1279
   %1281 = getelementptr inbounds nuw i8, ptr %.val482.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i331: ; preds = %1279
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i332: ; preds = %1279
   %1282 = getelementptr inbounds i8, ptr %.val482.i, i64 -8
   %1283 = getelementptr inbounds nuw i8, ptr %.val482.i, i64 24
   %1284 = load i32, ptr %1283, align 8, !tbaa !675
   %1285 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1282, ptr noundef nonnull align 8 dereferenceable(8) %66) #25
-  br i1 %1285, label %thread-pre-split.i.i332, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread
+  br i1 %1285, label %thread-pre-split.i.i333, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread
 
-thread-pre-split.i.i332:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i331
-  %.fr1097 = freeze i32 %1284
-  %1286 = icmp eq i32 %.fr1097, 0
+thread-pre-split.i.i333:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i332
+  %.fr1098 = freeze i32 %1284
+  %1286 = icmp eq i32 %.fr1098, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread: ; preds = %1276, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i331, %1279
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread: ; preds = %1276, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i332, %1279
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i327, %thread-pre-split.i.i332
-  %.in.i.i328 = phi ptr [ %66, %thread-pre-split.i.i332 ], [ %1281, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i327 ]
-  %.014.i.i329 = phi i1 [ %1286, %thread-pre-split.i.i332 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i327 ]
-  %1287 = load i64, ptr %.in.i.i328, align 8, !tbaa !53
-  %.fr1096 = freeze i64 %1287
-  %1288 = icmp ult i64 %.fr1096, 32
-  %spec.select.i.i330 = and i1 %.014.i.i329, %1288
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i328, %thread-pre-split.i.i333
+  %.in.i.i329 = phi ptr [ %66, %thread-pre-split.i.i333 ], [ %1281, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i328 ]
+  %.014.i.i330 = phi i1 [ %1286, %thread-pre-split.i.i333 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i328 ]
+  %1287 = load i64, ptr %.in.i.i329, align 8, !tbaa !53
+  %.fr1097 = freeze i64 %1287
+  %1288 = icmp ult i64 %.fr1097, 32
+  %spec.select.i.i331 = and i1 %.014.i.i330, %1288
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  br i1 %spec.select.i.i330, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i331, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1289:                                             ; preds = %347
   %1290 = getelementptr i8, ptr %314, i64 72
@@ -24740,39 +24740,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1292:                                             ; preds = %1289
   %1293 = load i8, ptr %.val535.i, align 8, !tbaa !375
   switch i8 %1293, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i324
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i320
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i325
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i321
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i320: ; preds = %1292
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i321: ; preds = %1292
   %1294 = getelementptr inbounds nuw i8, ptr %.val535.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i324: ; preds = %1292
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i325: ; preds = %1292
   %1295 = getelementptr inbounds i8, ptr %.val535.i, i64 -8
   %1296 = getelementptr inbounds nuw i8, ptr %.val535.i, i64 24
   %1297 = load i32, ptr %1296, align 8, !tbaa !675
   %1298 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1295, ptr noundef nonnull align 8 dereferenceable(8) %67) #25
-  br i1 %1298, label %thread-pre-split.i.i325, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread
+  br i1 %1298, label %thread-pre-split.i.i326, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread
 
-thread-pre-split.i.i325:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i324
-  %.fr1095 = freeze i32 %1297
-  %1299 = icmp eq i32 %.fr1095, 0
+thread-pre-split.i.i326:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i325
+  %.fr1096 = freeze i32 %1297
+  %1299 = icmp eq i32 %.fr1096, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread: ; preds = %1289, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i324, %1292
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread: ; preds = %1289, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i325, %1292
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i320, %thread-pre-split.i.i325
-  %.in.i.i321 = phi ptr [ %67, %thread-pre-split.i.i325 ], [ %1294, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i320 ]
-  %.014.i.i322 = phi i1 [ %1299, %thread-pre-split.i.i325 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i320 ]
-  %1300 = load i64, ptr %.in.i.i321, align 8, !tbaa !53
-  %.fr1094 = freeze i64 %1300
-  %1301 = icmp ult i64 %.fr1094, 64
-  %spec.select.i.i323 = and i1 %.014.i.i322, %1301
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i321, %thread-pre-split.i.i326
+  %.in.i.i322 = phi ptr [ %67, %thread-pre-split.i.i326 ], [ %1294, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i321 ]
+  %.014.i.i323 = phi i1 [ %1299, %thread-pre-split.i.i326 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i321 ]
+  %1300 = load i64, ptr %.in.i.i322, align 8, !tbaa !53
+  %.fr1095 = freeze i64 %1300
+  %1301 = icmp ult i64 %.fr1095, 64
+  %spec.select.i.i324 = and i1 %.014.i.i323, %1301
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  br i1 %spec.select.i.i323, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i324, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1302:                                             ; preds = %347
   %1303 = getelementptr i8, ptr %314, i64 72
@@ -24784,39 +24784,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1305:                                             ; preds = %1302
   %1306 = load i8, ptr %.val537.i, align 8, !tbaa !375
   switch i8 %1306, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i317
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i313
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i318
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i314
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i313: ; preds = %1305
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i314: ; preds = %1305
   %1307 = getelementptr inbounds nuw i8, ptr %.val537.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i317: ; preds = %1305
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i318: ; preds = %1305
   %1308 = getelementptr inbounds i8, ptr %.val537.i, i64 -8
   %1309 = getelementptr inbounds nuw i8, ptr %.val537.i, i64 24
   %1310 = load i32, ptr %1309, align 8, !tbaa !675
   %1311 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1308, ptr noundef nonnull align 8 dereferenceable(8) %68) #25
-  br i1 %1311, label %thread-pre-split.i.i318, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread
+  br i1 %1311, label %thread-pre-split.i.i319, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread
 
-thread-pre-split.i.i318:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i317
-  %.fr1093 = freeze i32 %1310
-  %1312 = icmp eq i32 %.fr1093, 0
+thread-pre-split.i.i319:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i318
+  %.fr1094 = freeze i32 %1310
+  %1312 = icmp eq i32 %.fr1094, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread: ; preds = %1302, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i317, %1305
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread: ; preds = %1302, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i318, %1305
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i313, %thread-pre-split.i.i318
-  %.in.i.i314 = phi ptr [ %68, %thread-pre-split.i.i318 ], [ %1307, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i313 ]
-  %.014.i.i315 = phi i1 [ %1312, %thread-pre-split.i.i318 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i313 ]
-  %1313 = load i64, ptr %.in.i.i314, align 8, !tbaa !53
-  %.fr1092 = freeze i64 %1313
-  %1314 = icmp ult i64 %.fr1092, 128
-  %spec.select.i.i316 = and i1 %.014.i.i315, %1314
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i314, %thread-pre-split.i.i319
+  %.in.i.i315 = phi ptr [ %68, %thread-pre-split.i.i319 ], [ %1307, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i314 ]
+  %.014.i.i316 = phi i1 [ %1312, %thread-pre-split.i.i319 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i314 ]
+  %1313 = load i64, ptr %.in.i.i315, align 8, !tbaa !53
+  %.fr1093 = freeze i64 %1313
+  %1314 = icmp ult i64 %.fr1093, 128
+  %spec.select.i.i317 = and i1 %.014.i.i316, %1314
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  br i1 %spec.select.i.i316, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i317, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1315:                                             ; preds = %347
   %1316 = getelementptr i8, ptr %314, i64 72
@@ -24828,39 +24828,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1318:                                             ; preds = %1315
   %1319 = load i8, ptr %.val539.i, align 8, !tbaa !375
   switch i8 %1319, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i310
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i306
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i311
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i307
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i306: ; preds = %1318
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i307: ; preds = %1318
   %1320 = getelementptr inbounds nuw i8, ptr %.val539.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i310: ; preds = %1318
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i311: ; preds = %1318
   %1321 = getelementptr inbounds i8, ptr %.val539.i, i64 -8
   %1322 = getelementptr inbounds nuw i8, ptr %.val539.i, i64 24
   %1323 = load i32, ptr %1322, align 8, !tbaa !675
   %1324 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1321, ptr noundef nonnull align 8 dereferenceable(8) %69) #25
-  br i1 %1324, label %thread-pre-split.i.i311, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread
+  br i1 %1324, label %thread-pre-split.i.i312, label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread
 
-thread-pre-split.i.i311:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i310
-  %.fr1091 = freeze i32 %1323
-  %1325 = icmp eq i32 %.fr1091, 0
+thread-pre-split.i.i312:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i311
+  %.fr1092 = freeze i32 %1323
+  %1325 = icmp eq i32 %.fr1092, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread: ; preds = %1315, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i310, %1318
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread: ; preds = %1315, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i311, %1318
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i306, %thread-pre-split.i.i311
-  %.in.i.i307 = phi ptr [ %69, %thread-pre-split.i.i311 ], [ %1320, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i306 ]
-  %.014.i.i308 = phi i1 [ %1325, %thread-pre-split.i.i311 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i306 ]
-  %1326 = load i64, ptr %.in.i.i307, align 8, !tbaa !53
-  %.fr1090 = freeze i64 %1326
-  %1327 = icmp ult i64 %.fr1090, 256
-  %spec.select.i.i309 = and i1 %.014.i.i308, %1327
+_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i307, %thread-pre-split.i.i312
+  %.in.i.i308 = phi ptr [ %69, %thread-pre-split.i.i312 ], [ %1320, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i307 ]
+  %.014.i.i309 = phi i1 [ %1325, %thread-pre-split.i.i312 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i307 ]
+  %1326 = load i64, ptr %.in.i.i308, align 8, !tbaa !53
+  %.fr1091 = freeze i64 %1326
+  %1327 = icmp ult i64 %.fr1091, 256
+  %spec.select.i.i310 = and i1 %.014.i.i309, %1327
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br i1 %spec.select.i.i309, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i310, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1328:                                             ; preds = %347
   %1329 = getelementptr i8, ptr %314, i64 72
@@ -24872,39 +24872,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit:  ; preds = %_ZN12_GLOBAL__N_112
 1331:                                             ; preds = %1328
   %1332 = load i8, ptr %.val541.i, align 8, !tbaa !375
   switch i8 %1332, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i303
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i299
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i304
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i300
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i299: ; preds = %1331
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i300: ; preds = %1331
   %1333 = getelementptr inbounds nuw i8, ptr %.val541.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i303: ; preds = %1331
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i304: ; preds = %1331
   %1334 = getelementptr inbounds i8, ptr %.val541.i, i64 -8
   %1335 = getelementptr inbounds nuw i8, ptr %.val541.i, i64 24
   %1336 = load i32, ptr %1335, align 8, !tbaa !675
   %1337 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1334, ptr noundef nonnull align 8 dereferenceable(8) %70) #25
-  br i1 %1337, label %thread-pre-split.i.i304, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread
+  br i1 %1337, label %thread-pre-split.i.i305, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread
 
-thread-pre-split.i.i304:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i303
-  %.fr1089 = freeze i32 %1336
-  %1338 = icmp eq i32 %.fr1089, 0
+thread-pre-split.i.i305:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i304
+  %.fr1090 = freeze i32 %1336
+  %1338 = icmp eq i32 %.fr1090, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread: ; preds = %1328, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i303, %1331
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread: ; preds = %1328, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i304, %1331
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i299, %thread-pre-split.i.i304
-  %.in.i.i300 = phi ptr [ %70, %thread-pre-split.i.i304 ], [ %1333, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i299 ]
-  %.014.i.i301 = phi i1 [ %1338, %thread-pre-split.i.i304 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i299 ]
-  %1339 = load i64, ptr %.in.i.i300, align 8, !tbaa !53
-  %.fr1088 = freeze i64 %1339
-  %1340 = icmp ult i64 %.fr1088, 65536
-  %spec.select.i.i302 = and i1 %.014.i.i301, %1340
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i300, %thread-pre-split.i.i305
+  %.in.i.i301 = phi ptr [ %70, %thread-pre-split.i.i305 ], [ %1333, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i300 ]
+  %.014.i.i302 = phi i1 [ %1338, %thread-pre-split.i.i305 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i300 ]
+  %1339 = load i64, ptr %.in.i.i301, align 8, !tbaa !53
+  %.fr1089 = freeze i64 %1339
+  %1340 = icmp ult i64 %.fr1089, 65536
+  %spec.select.i.i303 = and i1 %.014.i.i302, %1340
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  br i1 %spec.select.i.i302, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i303, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1341:                                             ; preds = %347
   %1342 = getelementptr i8, ptr %314, i64 72
@@ -24916,39 +24916,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
 1344:                                             ; preds = %1341
   %1345 = load i8, ptr %.val543.i, align 8, !tbaa !375
   switch i8 %1345, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i296
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i292
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i297
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i293
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i292: ; preds = %1344
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i293: ; preds = %1344
   %1346 = getelementptr inbounds nuw i8, ptr %.val543.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i296: ; preds = %1344
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i297: ; preds = %1344
   %1347 = getelementptr inbounds i8, ptr %.val543.i, i64 -8
   %1348 = getelementptr inbounds nuw i8, ptr %.val543.i, i64 24
   %1349 = load i32, ptr %1348, align 8, !tbaa !675
   %1350 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1347, ptr noundef nonnull align 8 dereferenceable(8) %71) #25
-  br i1 %1350, label %thread-pre-split.i.i297, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread
+  br i1 %1350, label %thread-pre-split.i.i298, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread
 
-thread-pre-split.i.i297:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i296
-  %.fr1087 = freeze i32 %1349
-  %1351 = icmp eq i32 %.fr1087, 0
+thread-pre-split.i.i298:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i297
+  %.fr1088 = freeze i32 %1349
+  %1351 = icmp eq i32 %.fr1088, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread: ; preds = %1341, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i296, %1344
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread: ; preds = %1341, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i297, %1344
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i292, %thread-pre-split.i.i297
-  %.in.i.i293 = phi ptr [ %71, %thread-pre-split.i.i297 ], [ %1346, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i292 ]
-  %.014.i.i294 = phi i1 [ %1351, %thread-pre-split.i.i297 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i292 ]
-  %1352 = load i64, ptr %.in.i.i293, align 8, !tbaa !53
-  %.fr1086 = freeze i64 %1352
-  %1353 = icmp ult i64 %.fr1086, 4294967296
-  %spec.select.i.i295 = and i1 %.014.i.i294, %1353
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i293, %thread-pre-split.i.i298
+  %.in.i.i294 = phi ptr [ %71, %thread-pre-split.i.i298 ], [ %1346, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i293 ]
+  %.014.i.i295 = phi i1 [ %1351, %thread-pre-split.i.i298 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i293 ]
+  %1352 = load i64, ptr %.in.i.i294, align 8, !tbaa !53
+  %.fr1087 = freeze i64 %1352
+  %1353 = icmp ult i64 %.fr1087, 4294967296
+  %spec.select.i.i296 = and i1 %.014.i.i295, %1353
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
-  br i1 %spec.select.i.i295, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i296, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1354:                                             ; preds = %347
   %1355 = getelementptr i8, ptr %314, i64 72
@@ -24960,39 +24960,39 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
 1357:                                             ; preds = %1354
   %1358 = load i8, ptr %.val545.i, align 8, !tbaa !375
   switch i8 %1358, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i289
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i285
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i290
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i286
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i285: ; preds = %1357
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i286: ; preds = %1357
   %1359 = getelementptr inbounds nuw i8, ptr %.val545.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i289: ; preds = %1357
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i290: ; preds = %1357
   %1360 = getelementptr inbounds i8, ptr %.val545.i, i64 -8
   %1361 = getelementptr inbounds nuw i8, ptr %.val545.i, i64 24
   %1362 = load i32, ptr %1361, align 8, !tbaa !675
   %1363 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1360, ptr noundef nonnull align 8 dereferenceable(8) %72) #25
-  br i1 %1363, label %thread-pre-split.i.i290, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread
+  br i1 %1363, label %thread-pre-split.i.i291, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread
 
-thread-pre-split.i.i290:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i289
-  %.fr1085 = freeze i32 %1362
-  %1364 = icmp eq i32 %.fr1085, 0
+thread-pre-split.i.i291:                          ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i290
+  %.fr1086 = freeze i32 %1362
+  %1364 = icmp eq i32 %.fr1086, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread: ; preds = %1354, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i289, %1357
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread: ; preds = %1354, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i290, %1357
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i285, %thread-pre-split.i.i290
-  %.in.i.i286 = phi ptr [ %72, %thread-pre-split.i.i290 ], [ %1359, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i285 ]
-  %.014.i.i287 = phi i1 [ %1364, %thread-pre-split.i.i290 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i285 ]
-  %1365 = load i64, ptr %.in.i.i286, align 8, !tbaa !53
-  %.fr1084 = freeze i64 %1365
-  %1366 = icmp ult i64 %.fr1084, 281474976710656
-  %spec.select.i.i288 = and i1 %.014.i.i287, %1366
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i286, %thread-pre-split.i.i291
+  %.in.i.i287 = phi ptr [ %72, %thread-pre-split.i.i291 ], [ %1359, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i286 ]
+  %.014.i.i288 = phi i1 [ %1364, %thread-pre-split.i.i291 ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i286 ]
+  %1365 = load i64, ptr %.in.i.i287, align 8, !tbaa !53
+  %.fr1085 = freeze i64 %1365
+  %1366 = icmp ult i64 %.fr1085, 281474976710656
+  %spec.select.i.i289 = and i1 %.014.i.i288, %1366
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  br i1 %spec.select.i.i288, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i289, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1367:                                             ; preds = %347
   %1368 = getelementptr i8, ptr %314, i64 72
@@ -25004,28 +25004,28 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
 1370:                                             ; preds = %1367
   %1371 = load i8, ptr %.val547.i, align 8, !tbaa !375
   switch i8 %1371, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i283
-    i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread972
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i284
+    i8 1, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread973
   ]
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread972: ; preds = %1370
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread973: ; preds = %1370
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i283: ; preds = %1370
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i284: ; preds = %1370
   %1372 = getelementptr inbounds i8, ptr %.val547.i, i64 -8
   %1373 = getelementptr inbounds nuw i8, ptr %.val547.i, i64 24
   %1374 = load i32, ptr %1373, align 8, !tbaa !675
   %1375 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1372, ptr noundef nonnull align 8 dereferenceable(8) %73) #25
   br i1 %1375, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread: ; preds = %1367, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i283, %1370
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread: ; preds = %1367, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i284, %1370
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i283
-  %.fr1083 = freeze i32 %1374
-  %1376 = icmp eq i32 %.fr1083, 0
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i284
+  %.fr1084 = freeze i32 %1374
+  %1376 = icmp eq i32 %.fr1084, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br i1 %1376, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -25039,47 +25039,47 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
   %.val15.i = load ptr, ptr %1380, align 8, !tbaa !65
   %1381 = load i8, ptr %.val15.i, align 8, !tbaa !375
   switch i8 %1381, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i274
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i272
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i275
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i273
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i272: ; preds = %1379
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i273: ; preds = %1379
   %1382 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 16
   br label %1394
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i274: ; preds = %1379
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i275: ; preds = %1379
   %1383 = getelementptr inbounds i8, ptr %.val15.i, i64 -8
   %1384 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 24
   %1385 = load i32, ptr %1384, align 8, !tbaa !675
   %1386 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1383, ptr noundef nonnull align 8 dereferenceable(8) %76) #25
   br i1 %1386, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i274
-  %.val.pre.i275 = load ptr, ptr %1380, align 8, !tbaa !65
-  %.pre35.i = load i8, ptr %.val.pre.i275, align 8, !tbaa !375
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i275
+  %.val.pre.i276 = load ptr, ptr %1380, align 8, !tbaa !65
+  %.pre35.i = load i8, ptr %.val.pre.i276, align 8, !tbaa !375
   br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i274
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i275
   %1387 = freeze i32 %1385
   br label %1394
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i, %1379
   %1388 = phi i8 [ %.pre35.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i ], [ %1381, %1379 ]
-  %.val.i276 = phi ptr [ %.val.pre.i275, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i ], [ %.val15.i, %1379 ]
-  %.not.i.i277 = icmp eq i8 %1388, 4
-  br i1 %.not.i.i277, label %1389, label %1403
+  %.val.i277 = phi ptr [ %.val.pre.i276, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24_crit_edge.i ], [ %.val15.i, %1379 ]
+  %.not.i.i278 = icmp eq i8 %1388, 4
+  br i1 %.not.i.i278, label %1389, label %1403
 
 1389:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i
-  %1390 = getelementptr inbounds nuw i8, ptr %.val.i276, i64 24
+  %1390 = getelementptr inbounds nuw i8, ptr %.val.i277, i64 24
   %1391 = load i32, ptr %1390, align 8, !tbaa !675
-  %1392 = getelementptr inbounds nuw i8, ptr %.val.i276, i64 16
+  %1392 = getelementptr inbounds nuw i8, ptr %.val.i277, i64 16
   %1393 = load ptr, ptr %1392, align 8, !tbaa !927
   br label %1403
 
-1394:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i272
-  %.in.i273 = phi ptr [ %1382, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i272 ], [ %76, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i ]
-  %.121.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i272 ], [ %1387, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i ]
-  %1395 = load i64, ptr %.in.i273, align 8, !tbaa !53
+1394:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i273
+  %.in.i274 = phi ptr [ %1382, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i273 ], [ %76, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i ]
+  %.121.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i273 ], [ %1387, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i ]
+  %1395 = load i64, ptr %.in.i274, align 8, !tbaa !53
   %1396 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %.val16.i = load i8, ptr %1396, align 8, !tbaa !65, !range !48, !noundef !49
   %1397 = trunc nuw i8 %.val16.i to i1
@@ -25094,18 +25094,18 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
 
 1403:                                             ; preds = %1389, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i
   %.2.i = phi i32 [ %1391, %1389 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i ]
-  %.08.i.i278 = phi ptr [ %1393, %1389 ], [ %.val.i276, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i ]
+  %.08.i.i279 = phi ptr [ %1393, %1389 ], [ %.val.i277, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread24.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %74, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
-  %1404 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i278, ptr noundef nonnull align 8 dereferenceable(28) %74, ptr noundef null, ptr noundef nonnull %75) #25
+  %1404 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i279, ptr noundef nonnull align 8 dereferenceable(28) %74, ptr noundef null, ptr noundef nonnull %75) #25
   %1405 = load i32, ptr %200, align 8
   %1406 = icmp eq i32 %1405, 0
-  %.0.i.i279 = select i1 %1404, i1 %1406, i1 false
+  %.0.i.i280 = select i1 %1404, i1 %1406, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  br i1 %.0.i.i279, label %switch.early.test.i, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm12Ev.exit.thread
+  br i1 %.0.i.i280, label %switch.early.test.i, label %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm12Ev.exit.thread
 
 1407:                                             ; preds = %1394
   %1408 = icmp eq i32 %.121.i, 0
@@ -25140,45 +25140,45 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit.thread: ; preds = %1410
 
 1412:                                             ; preds = %1410
   %1413 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val4.i.i262 = load ptr, ptr %1413, align 8, !tbaa !65
-  %1414 = load i8, ptr %.val4.i.i262, align 8, !tbaa !375
+  %.val4.i.i263 = load ptr, ptr %1413, align 8, !tbaa !65
+  %1414 = load i8, ptr %.val4.i.i263, align 8, !tbaa !375
   switch i8 %1414, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i267
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i263
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i268
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i264
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i263: ; preds = %1412
-  %1415 = getelementptr inbounds nuw i8, ptr %.val4.i.i262, i64 16
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i264: ; preds = %1412
+  %1415 = getelementptr inbounds nuw i8, ptr %.val4.i.i263, i64 16
   br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i267: ; preds = %1412
-  %1416 = getelementptr inbounds i8, ptr %.val4.i.i262, i64 -8
-  %1417 = getelementptr inbounds nuw i8, ptr %.val4.i.i262, i64 24
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i268: ; preds = %1412
+  %1416 = getelementptr inbounds i8, ptr %.val4.i.i263, i64 -8
+  %1417 = getelementptr inbounds nuw i8, ptr %.val4.i.i263, i64 24
   %1418 = load i32, ptr %1417, align 8, !tbaa !675
   %1419 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1416, ptr noundef nonnull align 8 dereferenceable(8) %79) #25
   br i1 %1419, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i267
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i268
   %.val.pre.i.i = load ptr, ptr %1413, align 8, !tbaa !65
   %.pre14.i.i = load i8, ptr %.val.pre.i.i, align 8, !tbaa !375
   br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i, %1412
   %1420 = phi i8 [ %.pre14.i.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i ], [ %1414, %1412 ]
-  %.val.i.i268 = phi ptr [ %.val.pre.i.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i ], [ %.val4.i.i262, %1412 ]
-  %.not.i.i.i269 = icmp eq i8 %1420, 4
-  br i1 %.not.i.i.i269, label %1421, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i
+  %.val.i.i269 = phi ptr [ %.val.pre.i.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10_crit_edge.i.i ], [ %.val4.i.i263, %1412 ]
+  %.not.i.i.i270 = icmp eq i8 %1420, 4
+  br i1 %.not.i.i.i270, label %1421, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i
 
 1421:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i
-  %1422 = getelementptr inbounds nuw i8, ptr %.val.i.i268, i64 24
+  %1422 = getelementptr inbounds nuw i8, ptr %.val.i.i269, i64 24
   %1423 = load i32, ptr %1422, align 8, !tbaa !675
-  %1424 = getelementptr inbounds nuw i8, ptr %.val.i.i268, i64 16
+  %1424 = getelementptr inbounds nuw i8, ptr %.val.i.i269, i64 16
   %1425 = load ptr, ptr %1424, align 8, !tbaa !927
   br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i
 
 _ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i: ; preds = %1421, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i
-  %.2.i.i270 = phi i32 [ %1423, %1421 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i ]
-  %.08.i.i.i = phi ptr [ %1425, %1421 ], [ %.val.i.i268, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i ]
+  %.2.i.i271 = phi i32 [ %1423, %1421 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i ]
+  %.08.i.i.i = phi ptr [ %1425, %1421 ], [ %.val.i.i269, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread10.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %77, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
@@ -25191,10 +25191,10 @@ _ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISC
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i267, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i263
-  %.in.i.i264 = phi ptr [ %1415, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i263 ], [ %79, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i267 ]
-  %.19.i.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i263 ], [ %1418, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i267 ]
-  %1429 = load i64, ptr %.in.i.i264, align 8, !tbaa !53
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i268, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i264
+  %.in.i.i265 = phi ptr [ %1415, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i264 ], [ %79, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i268 ]
+  %.19.i.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i264 ], [ %1418, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i268 ]
+  %1429 = load i64, ptr %.in.i.i265, align 8, !tbaa !53
   %1430 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %.val5.i.i = load i8, ptr %1430, align 8, !tbaa !65, !range !48, !noundef !49
   %1431 = trunc nuw i8 %.val5.i.i to i1
@@ -25211,12 +25211,12 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
   br label %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit
 
 _ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i
-  %.0.i.i265 = phi i32 [ %.19.i.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i ], [ %.2.i.i270, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i ]
-  %.0.in.i.i266 = phi i1 [ %1439, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i ], [ %.0.i.i.i, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i ]
-  %.0.i.i265.fr = freeze i32 %.0.i.i265
-  %1440 = icmp eq i32 %.0.i.i265.fr, 0
-  %.0.in.i.i266.fr = freeze i1 %.0.in.i.i266
-  %1441 = and i1 %.0.in.i.i266.fr, %1440
+  %.0.i.i266 = phi i32 [ %.19.i.i, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i ], [ %.2.i.i271, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i ]
+  %.0.in.i.i267 = phi i1 [ %1439, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._crit_edge.i.i ], [ %.0.i.i.i, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i.i ]
+  %.0.i.i266.fr = freeze i32 %.0.i.i266
+  %1440 = icmp eq i32 %.0.i.i266.fr, 0
+  %.0.in.i.i267.fr = freeze i1 %.0.in.i.i267
+  %1441 = and i1 %.0.in.i.i267.fr, %1440
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br i1 %1441, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -25230,7 +25230,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit: ; preds = %_ZN12_GLOBAL__
 1445:                                             ; preds = %1442
   %1446 = load i8, ptr %.val549.i, align 8, !tbaa !375
   switch i8 %1446, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i261
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i262
     i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i
   ]
 
@@ -25238,19 +25238,19 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
   %1447 = getelementptr inbounds nuw i8, ptr %.val549.i, i64 16
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i261: ; preds = %1445
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i262: ; preds = %1445
   %1448 = getelementptr inbounds i8, ptr %.val549.i, i64 -8
   %1449 = getelementptr inbounds nuw i8, ptr %.val549.i, i64 24
   %1450 = load i32, ptr %1449, align 8, !tbaa !675
   %1451 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1448, ptr noundef nonnull align 8 dereferenceable(8) %80) #25
   br i1 %1451, label %thread-pre-split.i.i, label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread
 
-thread-pre-split.i.i:                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i261
-  %.fr1082 = freeze i32 %1450
-  %1452 = icmp eq i32 %.fr1082, 0
+thread-pre-split.i.i:                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i262
+  %.fr1083 = freeze i32 %1450
+  %1452 = icmp eq i32 %.fr1083, 0
   br label %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread: ; preds = %1442, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i261, %1445
+_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread: ; preds = %1442, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i.i262, %1445
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
@@ -25258,11 +25258,11 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
   %.in.i.i = phi ptr [ %80, %thread-pre-split.i.i ], [ %1447, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i ]
   %.014.i.i = phi i1 [ %1452, %thread-pre-split.i.i ], [ true, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i.i ]
   %1453 = load i64, ptr %.in.i.i, align 8, !tbaa !53
-  %.fr1081 = freeze i64 %1453
-  %1454 = icmp ult i64 %.fr1081, 1048576
-  %spec.select.i.i260 = and i1 %.014.i.i, %1454
+  %.fr1082 = freeze i64 %1453
+  %1454 = icmp ult i64 %.fr1082, 1048576
+  %spec.select.i.i261 = and i1 %.014.i.i, %1454
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  br i1 %spec.select.i.i260, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i.i261, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1455:                                             ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -25274,74 +25274,74 @@ _ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit: ; preds = %_ZN12_GLOBAL__N_112
   %.val5.i = load ptr, ptr %1458, align 8, !tbaa !65
   %1459 = load i8, ptr %.val5.i, align 8, !tbaa !375
   switch i8 %1459, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i249
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i245
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i250
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i246
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i245: ; preds = %1457
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i246: ; preds = %1457
   %1460 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 16
-  br label %thread-pre-split.i258
+  br label %thread-pre-split.i259
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i249: ; preds = %1457
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i250: ; preds = %1457
   %1461 = getelementptr inbounds i8, ptr %.val5.i, i64 -8
   %1462 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 24
   %1463 = load i32, ptr %1462, align 8, !tbaa !675
   %1464 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1461, ptr noundef nonnull align 8 dereferenceable(8) %83) #25
-  br i1 %1464, label %thread-pre-split.i258, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i
+  br i1 %1464, label %thread-pre-split.i259, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i249
-  %.val.pre.i250 = load ptr, ptr %1458, align 8, !tbaa !65
-  %.pre.i251 = load i8, ptr %.val.pre.i250, align 8, !tbaa !375
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i250
+  %.val.pre.i251 = load ptr, ptr %1458, align 8, !tbaa !65
+  %.pre.i252 = load i8, ptr %.val.pre.i251, align 8, !tbaa !375
   br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i, %1457
-  %1465 = phi i8 [ %.pre.i251, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i ], [ %1459, %1457 ]
-  %.val.i252 = phi ptr [ %.val.pre.i250, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i ], [ %.val5.i, %1457 ]
-  %.not.i.i253 = icmp eq i8 %1465, 4
-  br i1 %.not.i.i253, label %1466, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i254
+  %1465 = phi i8 [ %.pre.i252, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i ], [ %1459, %1457 ]
+  %.val.i253 = phi ptr [ %.val.pre.i251, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11_crit_edge.i ], [ %.val5.i, %1457 ]
+  %.not.i.i254 = icmp eq i8 %1465, 4
+  br i1 %.not.i.i254, label %1466, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i255
 
 1466:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i
-  %1467 = getelementptr inbounds nuw i8, ptr %.val.i252, i64 24
+  %1467 = getelementptr inbounds nuw i8, ptr %.val.i253, i64 24
   %1468 = load i32, ptr %1467, align 8, !tbaa !675
-  %1469 = getelementptr inbounds nuw i8, ptr %.val.i252, i64 16
+  %1469 = getelementptr inbounds nuw i8, ptr %.val.i253, i64 16
   %1470 = load ptr, ptr %1469, align 8, !tbaa !927
   %1471 = freeze i32 %1468
-  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i254
+  br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i255
 
-_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i254: ; preds = %1466, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i
-  %.1.i255 = phi i32 [ %1471, %1466 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i ]
-  %.08.i.i256 = phi ptr [ %1470, %1466 ], [ %.val.i252, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i ]
+_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i255: ; preds = %1466, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i
+  %.1.i256 = phi i32 [ %1471, %1466 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i ]
+  %.08.i.i257 = phi ptr [ %1470, %1466 ], [ %.val.i253, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread11.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %81, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
-  %1472 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i256, ptr noundef nonnull align 8 dereferenceable(28) %81, ptr noundef null, ptr noundef nonnull %82) #25
+  %1472 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i257, ptr noundef nonnull align 8 dereferenceable(28) %81, ptr noundef null, ptr noundef nonnull %82) #25
   %1473 = load i32, ptr %198, align 8
   %1474 = icmp eq i32 %1473, 0
-  %.0.i.i257 = select i1 %1472, i1 %1474, i1 false
+  %.0.i.i258 = select i1 %1472, i1 %1474, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  br i1 %.0.i.i257, label %1475, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread
+  br i1 %.0.i.i258, label %1475, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread
 
-1475:                                             ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i254
+1475:                                             ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i255
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
-  switch i32 %.1.i255, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread [
+  switch i32 %.1.i256, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread [
     i32 7, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
     i32 2, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
   ]
 
-thread-pre-split.i258:                            ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i249, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i245
-  %.in.i246 = phi ptr [ %1460, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i245 ], [ %83, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i249 ]
-  %.0710.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i245 ], [ %1463, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i249 ]
-  %1476 = load i64, ptr %.in.i246, align 8, !tbaa !53
+thread-pre-split.i259:                            ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i250, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i246
+  %.in.i247 = phi ptr [ %1460, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i246 ], [ %83, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i250 ]
+  %.0710.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i246 ], [ %1463, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i250 ]
+  %1476 = load i64, ptr %.in.i247, align 8, !tbaa !53
   %1477 = icmp ult i64 %1476, 1048576
   br i1 %1477, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread: ; preds = %1455, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i254, %thread-pre-split.i258
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread: ; preds = %1455, %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i255, %thread-pre-split.i259
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit: ; preds = %thread-pre-split.i258
+_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit: ; preds = %thread-pre-split.i259
   %.0710.i.fr = freeze i32 %.0710.i
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   switch i32 %.0710.i.fr, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread [
@@ -25360,42 +25360,42 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit: ; preds = %thread-pre-spli
   %.val19.i = load ptr, ptr %1481, align 8, !tbaa !65
   %1482 = load i8, ptr %.val19.i, align 8, !tbaa !375
   switch i8 %1482, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i238
-    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i237
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i239
+    i8 1, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i238
   ]
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i237: ; preds = %1480
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i238: ; preds = %1480
   %1483 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 16
   br label %thread-pre-split.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i238: ; preds = %1480
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i239: ; preds = %1480
   %1484 = getelementptr inbounds i8, ptr %.val19.i, i64 -8
   %1485 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 24
   %1486 = load i32, ptr %1485, align 8, !tbaa !675
   %1487 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1484, ptr noundef nonnull align 8 dereferenceable(8) %86) #25
   br i1 %1487, label %thread-pre-split.i, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i238
-  %.val.pre.i239 = load ptr, ptr %1481, align 8, !tbaa !65
-  %.pre.i240 = load i8, ptr %.val.pre.i239, align 8, !tbaa !375
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i239
+  %.val.pre.i240 = load ptr, ptr %1481, align 8, !tbaa !65
+  %.pre.i241 = load i8, ptr %.val.pre.i240, align 8, !tbaa !375
   br label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i, %1480
-  %1488 = phi i8 [ %.pre.i240, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i ], [ %1482, %1480 ]
-  %.val.i241 = phi ptr [ %.val.pre.i239, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i ], [ %.val19.i, %1480 ]
-  %.not.i.i242 = icmp eq i8 %1488, 4
-  br i1 %.not.i.i242, label %1489, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i
+  %1488 = phi i8 [ %.pre.i241, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i ], [ %1482, %1480 ]
+  %.val.i242 = phi ptr [ %.val.pre.i240, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25_crit_edge.i ], [ %.val19.i, %1480 ]
+  %.not.i.i243 = icmp eq i8 %1488, 4
+  br i1 %.not.i.i243, label %1489, label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i
 
 1489:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i
-  %1490 = getelementptr inbounds nuw i8, ptr %.val.i241, i64 24
+  %1490 = getelementptr inbounds nuw i8, ptr %.val.i242, i64 24
   %1491 = load i32, ptr %1490, align 8, !tbaa !675
-  %1492 = getelementptr inbounds nuw i8, ptr %.val.i241, i64 16
+  %1492 = getelementptr inbounds nuw i8, ptr %.val.i242, i64 16
   %1493 = load ptr, ptr %1492, align 8, !tbaa !927
   br label %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i
 
 _ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i: ; preds = %1489, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i
   %.1.i = phi i32 [ %1491, %1489 ], [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i ]
-  %.08.i.i = phi ptr [ %1493, %1489 ], [ %.val.i241, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i ]
+  %.08.i.i = phi ptr [ %1493, %1489 ], [ %.val.i242, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread25.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %84, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
@@ -25403,10 +25403,10 @@ _ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISC
   %1494 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i, ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef null, ptr noundef nonnull %85) #25
   %1495 = load i32, ptr %197, align 8
   %1496 = icmp eq i32 %1495, 0
-  %.0.i.i243 = select i1 %1494, i1 %1496, i1 false
+  %.0.i.i244 = select i1 %1494, i1 %1496, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  br i1 %.0.i.i243, label %1497, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread
+  br i1 %.0.i.i244, label %1497, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread
 
 1497:                                             ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISCVMCExpr11VariantKindE.exit.i
   switch i32 %.1.i, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread [
@@ -25417,9 +25417,9 @@ _ZN12_GLOBAL__N_114RISCVAsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_11RISC
     i32 14, label %1501
   ]
 
-thread-pre-split.i:                               ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i238, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i237
-  %.in.i = phi ptr [ %1483, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i237 ], [ %86, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i238 ]
-  %.02124.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i237 ], [ %1486, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i238 ]
+thread-pre-split.i:                               ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i239, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i238
+  %.in.i = phi ptr [ %1483, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i238 ], [ %86, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i239 ]
+  %.02124.i = phi i32 [ 0, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i238 ], [ %1486, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i239 ]
   %1498 = load i64, ptr %.in.i, align 8, !tbaa !53
   %1499 = icmp ult i64 %1498, 1048576
   br i1 %1499, label %1500, label %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread
@@ -25445,14 +25445,14 @@ _ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread: ; preds = %1478, 
 1502:                                             ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %1503 = icmp eq i32 %318, 2
-  br i1 %1503, label %1504, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread991
+  br i1 %1503, label %1504, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread992
 
 1504:                                             ; preds = %1502
   %1505 = getelementptr inbounds nuw i8, ptr %314, i64 72
   %.val8.i = load ptr, ptr %1505, align 8, !tbaa !65
   %1506 = load i8, ptr %.val8.i, align 8, !tbaa !375
   switch i8 %1506, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i [
-    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232
+    i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233
     i8 1, label %.thread.i
   ]
 
@@ -25462,7 +25462,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread: ; preds = %1478, 
   store i64 %1508, ptr %89, align 8, !tbaa !53
   br label %1516
 
-_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232: ; preds = %1504
+_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233: ; preds = %1504
   %1509 = getelementptr inbounds i8, ptr %.val8.i, i64 -8
   %1510 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 24
   %1511 = load i32, ptr %1510, align 8, !tbaa !675
@@ -25474,7 +25474,7 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
     i32 1, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread
   ]
 
-1513:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232
+1513:                                             ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233
   br i1 %1512, label %1514, label %._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread_crit_edge.i
 
 ._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread_crit_edge.i: ; preds = %1513
@@ -25483,7 +25483,7 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
 
 1514:                                             ; preds = %1513
   %1515 = icmp eq i32 %1511, 0
-  br i1 %1515, label %1516, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread991
+  br i1 %1515, label %1516, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread992
 
 1516:                                             ; preds = %1514, %.thread.i
   %1517 = getelementptr inbounds nuw i8, ptr %314, i64 80
@@ -25492,19 +25492,19 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
   br i1 %1518, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread, label %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i: ; preds = %._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread_crit_edge.i, %1504
-  %.val.i233 = phi ptr [ %.val.pre.i, %._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread_crit_edge.i ], [ %.val8.i, %1504 ]
+  %.val.i234 = phi ptr [ %.val.pre.i, %._ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread_crit_edge.i ], [ %.val8.i, %1504 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
-  %1519 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.val.i233, ptr noundef nonnull align 8 dereferenceable(28) %87, ptr noundef null, ptr noundef nonnull %88) #25
+  %1519 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %.val.i234, ptr noundef nonnull align 8 dereferenceable(28) %87, ptr noundef null, ptr noundef nonnull %88) #25
   %1520 = load i32, ptr %195, align 8
   %1521 = icmp ne i32 %1520, 0
   %not..i.i = xor i1 %1519, true
   %or.cond.i.i = select i1 %not..i.i, i1 true, i1 %1521
   %1522 = load ptr, ptr %87, align 8
-  %.not.i.i234 = icmp eq ptr %1522, null
-  %or.cond4.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not.i.i234
+  %.not.i.i235 = icmp eq ptr %1522, null
+  %or.cond4.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not.i.i235
   br i1 %or.cond4.i.i, label %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread, label %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i
 
 _ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i
@@ -25515,28 +25515,28 @@ _ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread: 
 
 _ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.thread.i
   %1523 = load ptr, ptr %196, align 8, !tbaa !928
-  %.fr1077 = freeze ptr %1523
-  %.not1078 = icmp eq ptr %.fr1077, null
+  %.fr1078 = freeze ptr %1523
+  %.not1079 = icmp eq ptr %.fr1078, null
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
-  br i1 %.not1078, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  br i1 %.not1079, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i232, %1516
+_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233, %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i233, %1516
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread991: ; preds = %1502, %1514
+_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread992: ; preds = %1502, %1514
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 _ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit: ; preds = %1516
   %1524 = load i64, ptr %89, align 8, !tbaa !53
-  %.fr1076 = freeze i64 %1524
-  %1525 = add i64 %.fr1076, 2147483648
-  %spec.select.i231 = icmp ult i64 %1525, 6442450944
+  %.fr1077 = freeze i64 %1524
+  %1525 = add i64 %.fr1077, 2147483648
+  %spec.select.i232 = icmp ult i64 %1525, 6442450944
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
-  br i1 %spec.select.i231, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i232, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 1526:                                             ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
@@ -25545,16 +25545,16 @@ _ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit: ; preds = %1516
 
 1528:                                             ; preds = %1526
   %1529 = getelementptr inbounds nuw i8, ptr %314, i64 72
-  %.val.i228 = load ptr, ptr %1529, align 8, !tbaa !65
-  %1530 = load i8, ptr %.val.i228, align 8, !tbaa !375
+  %.val.i229 = load ptr, ptr %1529, align 8, !tbaa !65
+  %1530 = load i8, ptr %.val.i229, align 8, !tbaa !375
   switch i8 %1530, label %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread [
     i8 4, label %_ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i
     i8 1, label %.critedge.i
   ]
 
 _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RISCVMCExpr11VariantKindE.exit.i: ; preds = %1528
-  %1531 = getelementptr inbounds i8, ptr %.val.i228, i64 -8
-  %1532 = getelementptr inbounds nuw i8, ptr %.val.i228, i64 24
+  %1531 = getelementptr inbounds i8, ptr %.val.i229, i64 -8
+  %1532 = getelementptr inbounds nuw i8, ptr %.val.i229, i64 24
   %1533 = load i32, ptr %1532, align 8, !tbaa !675
   %1534 = call noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantERl(ptr noundef nonnull align 8 dereferenceable(36) %1531, ptr noundef nonnull align 8 dereferenceable(8) %90) #25
   %1535 = icmp eq i32 %1533, 0
@@ -25562,7 +25562,7 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
   br i1 %1536, label %1539, label %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread
 
 .critedge.i:                                      ; preds = %1528
-  %1537 = getelementptr inbounds nuw i8, ptr %.val.i228, i64 16
+  %1537 = getelementptr inbounds nuw i8, ptr %.val.i229, i64 16
   %1538 = load i64, ptr %1537, align 8, !tbaa !378
   store i64 %1538, ptr %90, align 8, !tbaa !53
   br label %1539
@@ -25571,9 +25571,9 @@ _ZN12_GLOBAL__N_112RISCVOperand19evaluateConstantImmEPKN4llvm6MCExprERlRNS1_11RI
   %1540 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %.val3.i = load i8, ptr %1540, align 8, !tbaa !65, !range !48, !noundef !49
   %1541 = trunc nuw i8 %.val3.i to i1
-  br i1 %1541, label %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread998, label %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit
+  br i1 %1541, label %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread999, label %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit
 
-_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread998: ; preds = %1539
+_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread999: ; preds = %1539
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
@@ -25585,15 +25585,15 @@ _ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit: ; preds = %1539
   %1542 = load i64, ptr %90, align 8, !tbaa !53
   %.fr = freeze i64 %1542
   %1543 = add i64 %.fr, 2147483648
-  %spec.select.i229 = icmp ult i64 %1543, 6442450944
+  %spec.select.i230 = icmp ult i64 %1543, 6442450944
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
-  br i1 %spec.select.i229, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
+  br i1 %spec.select.i230, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
 _ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i: ; preds = %347
   %1544 = icmp eq i32 %318, 1
   br i1 %1544, label %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
 
-_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i767, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.thread.i, %472, %492, %512, %532, %_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i, %_ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i, %788, %596, %595, %579, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit566.i, %567, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i, %552, %468, %467, %466
+_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i768, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.thread.i, %472, %492, %512, %532, %_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i, %_ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i, %788, %596, %595, %579, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit566.i, %567, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i, %552, %468, %467, %466
   %1545 = getelementptr inbounds nuw i8, ptr %314, i64 72
   %.sroa.0.0.copyload.i.i = load i32, ptr %1545, align 8, !tbaa !274
   %1546 = add i32 %.sroa.0.0.copyload.i.i, -1
@@ -25639,26 +25639,26 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i: ; preds = %1556
   %.not856.i = icmp eq i32 %1575, 0
   br i1 %.not856.i, label %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit: ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %1475, %1475, %811, %800, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609, %781, %777, %702, %653, %648, %628, %445, %443, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread998, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread972, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i768, %_ZL16matchTokenStringN4llvm9StringRefE.exit.i, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i, %1553, %_ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i, %596, %595, %579, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit566.i, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit, %468, %467, %466, %_ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit, %1409, %1501
-  %1576 = add nuw i32 %.01411226, 1
-  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020
+_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit: ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %1475, %1475, %811, %800, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610, %781, %777, %702, %653, %648, %628, %445, %443, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread999, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread973, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit5.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i769, %_ZL16matchTokenStringN4llvm9StringRefE.exit.i, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i, %1553, %_ZNK12_GLOBAL__N_112RISCVOperand5isGPREv.exit.i, %596, %595, %579, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit566.i, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand16isGPRPairAsFPR64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isGPRAsFPR16Ev.exit, %468, %467, %466, %_ZNK12_GLOBAL__N_112RISCVOperand8isAnyRegEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isAnyRegCEv.exit, %1409, %1501
+  %1576 = add nuw i32 %.01411227, 1
+  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021
 
-_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread: ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %1475, %811, %800, %348, %373, %469, %489, %509, %529, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609.thread, %466, %467, %468, %579, %595, %596, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i, %1556, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread, %1210, %1190, %1151, %1138, %1124, %1110, %1088, %1061, %1004, %989, %975, %929, %915, %901, %879, %860, %841, %822, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread, %580, %426, %311, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i, %327, %443, %445, %628, %648, %653, %702, %777, %781, %785, %564, %549, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread796, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread804, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread834, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread839, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread844, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread849, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread854, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread859, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread864, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread872, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread877, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread882, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread890, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread898, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread903, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread908, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread913, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread918, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread929, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread934, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm12Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread991, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread
-  %.0.i184.ph = phi i32 [ 12, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread ], [ 12, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit ], [ 11, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i ], [ 11, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread991 ], [ 11, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit ], [ 42, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread ], [ 43, %1475 ], [ 43, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread ], [ 43, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit ], [ 41, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread ], [ 41, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit ], [ 24, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit.thread ], [ 24, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit ], [ 21, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm12Ev.exit.thread ], [ 54, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread ], [ 54, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit ], [ 48, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread ], [ 48, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit ], [ 46, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread ], [ 46, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit ], [ 39, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread ], [ 39, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit ], [ 59, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread ], [ 59, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit ], [ 56, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread ], [ 56, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit ], [ 53, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread ], [ 53, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit ], [ 49, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread ], [ 49, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit ], [ 47, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread ], [ 47, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit ], [ 45, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread ], [ 45, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit ], [ 40, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread ], [ 40, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit ], [ 35, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread ], [ 35, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit ], [ 58, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread934 ], [ 58, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit ], [ 26, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread929 ], [ 26, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit ], [ 38, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread ], [ 38, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit ], [ 36, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread ], [ 36, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit ], [ 50, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread918 ], [ 50, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit ], [ 52, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread913 ], [ 52, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit ], [ 55, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread908 ], [ 55, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit ], [ 51, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread903 ], [ 51, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit ], [ 23, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread898 ], [ 23, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit ], [ 60, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread ], [ 60, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit ], [ 44, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread890 ], [ 44, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit ], [ 22, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit.thread ], [ 22, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit ], [ 20, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread882 ], [ 20, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit ], [ 37, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread877 ], [ 37, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit ], [ 63, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread872 ], [ 63, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit ], [ 31, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit.thread ], [ 31, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit ], [ 62, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread864 ], [ 62, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit ], [ 61, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread859 ], [ 61, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit ], [ 57, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread854 ], [ 57, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit ], [ 30, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread849 ], [ 30, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit ], [ 29, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread844 ], [ 29, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit ], [ 28, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread839 ], [ 28, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit ], [ 27, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread834 ], [ 27, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit ], [ 65, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread ], [ 65, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit ], [ 64, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread ], [ 64, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit ], [ 34, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread ], [ 34, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit ], [ 33, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread ], [ 33, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit ], [ 25, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit.thread ], [ 25, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit ], [ 19, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit.thread ], [ 19, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit ], [ 15, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread ], [ 15, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit.thread ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit ], [ 13, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread804 ], [ 13, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit ], [ 10, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread ], [ 10, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit ], [ 8, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread796 ], [ 8, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit ], [ 7, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread ], [ 7, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit ], [ 0, %549 ], [ 0, %564 ], [ 0, %785 ], [ 66, %781 ], [ 67, %777 ], [ 32, %702 ], [ 18, %653 ], [ 16, %648 ], [ 32, %628 ], [ 17, %445 ], [ 9, %443 ], [ 0, %327 ], [ 0, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i ], [ 0, %311 ], [ 8, %426 ], [ 13, %580 ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609 ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i ], [ 27, %822 ], [ 28, %841 ], [ 29, %860 ], [ 30, %879 ], [ 57, %901 ], [ 61, %915 ], [ 62, %929 ], [ 63, %975 ], [ 37, %989 ], [ 20, %1004 ], [ 44, %1061 ], [ 23, %1088 ], [ 51, %1110 ], [ 55, %1124 ], [ 52, %1138 ], [ 50, %1151 ], [ 26, %1190 ], [ 58, %1210 ], [ 11, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread ], [ 0, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i ], [ 0, %1556 ], [ 0, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i ], [ 0, %596 ], [ 0, %595 ], [ 0, %579 ], [ 0, %468 ], [ 0, %467 ], [ 0, %466 ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i609.thread ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread ], [ 0, %529 ], [ 0, %509 ], [ 0, %489 ], [ 0, %469 ], [ 0, %373 ], [ 0, %348 ], [ 68, %800 ], [ 68, %811 ]
+_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread: ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit, %1475, %811, %800, %348, %373, %469, %489, %509, %529, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610.thread, %466, %467, %468, %579, %595, %596, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i, %1556, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread, %1210, %1190, %1151, %1138, %1124, %1110, %1088, %1061, %1004, %989, %975, %929, %915, %901, %879, %860, %841, %822, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread, %580, %426, %311, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i, %327, %443, %445, %628, %648, %653, %702, %777, %781, %785, %564, %549, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread797, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread805, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread835, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread840, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread845, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread850, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread855, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread860, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread865, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread873, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread878, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread883, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread891, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread899, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread904, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread909, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread914, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread919, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread930, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread935, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm12Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread992, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread
+  %.0.i184.ph = phi i32 [ 12, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit.thread ], [ 12, %_ZNK12_GLOBAL__N_112RISCVOperand22isImmXLenLI_RestrictedEv.exit ], [ 11, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i ], [ 11, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit.thread992 ], [ 11, %_ZNK12_GLOBAL__N_112RISCVOperand11isImmXLenLIEv.exit ], [ 42, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm20AUIPCEv.exit.thread ], [ 43, %1475 ], [ 43, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit.thread ], [ 43, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm20LUIEv.exit ], [ 41, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit.thread ], [ 41, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm20Ev.exit ], [ 24, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit.thread ], [ 24, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm13Lsb0Ev.exit ], [ 21, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm12Ev.exit.thread ], [ 54, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit.thread ], [ 54, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm64Ev.exit ], [ 48, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit.thread ], [ 48, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm48Ev.exit ], [ 46, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit.thread ], [ 46, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm32Ev.exit ], [ 39, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit.thread ], [ 39, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm16Ev.exit ], [ 59, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit.thread ], [ 59, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm8Ev.exit ], [ 56, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit.thread ], [ 56, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm7Ev.exit ], [ 53, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit.thread ], [ 53, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm6Ev.exit ], [ 49, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.thread ], [ 49, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit ], [ 47, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit.thread ], [ 47, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm4Ev.exit ], [ 45, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit.thread ], [ 45, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm3Ev.exit ], [ 40, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit.thread ], [ 40, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm2Ev.exit ], [ 35, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit.thread ], [ 35, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm1Ev.exit ], [ 58, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit.thread935 ], [ 58, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm7Lsb000Ev.exit ], [ 26, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit.thread930 ], [ 26, %_ZNK12_GLOBAL__N_112RISCVOperand8isSImm26Ev.exit ], [ 38, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit.thread ], [ 38, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm11Ev.exit ], [ 36, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit.thread ], [ 36, %_ZNK12_GLOBAL__N_112RISCVOperand8isUImm10Ev.exit ], [ 50, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit.thread919 ], [ 50, %_ZNK12_GLOBAL__N_112RISCVOperand10isUImm5GT3Ev.exit ], [ 52, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit.thread914 ], [ 52, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImm5NonZeroEv.exit ], [ 55, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit.thread909 ], [ 55, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm6Lsb0Ev.exit ], [ 51, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit.thread904 ], [ 51, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm5Lsb0Ev.exit ], [ 23, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit.thread899 ], [ 23, %_ZNK12_GLOBAL__N_112RISCVOperand16isSImm12Lsb00000Ev.exit ], [ 60, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit.thread ], [ 60, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm8GE32Ev.exit ], [ 44, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit.thread891 ], [ 44, %_ZNK12_GLOBAL__N_112RISCVOperand11isUImm2Lsb0Ev.exit ], [ 22, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit.thread ], [ 22, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm12Lsb0Ev.exit ], [ 20, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit.thread883 ], [ 20, %_ZNK12_GLOBAL__N_112RISCVOperand22isSImm10Lsb0000NonZeroEv.exit ], [ 37, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit.thread878 ], [ 37, %_ZNK12_GLOBAL__N_112RISCVOperand20isUImm10Lsb00NonZeroEv.exit ], [ 63, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit.thread873 ], [ 63, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm9Lsb000Ev.exit ], [ 31, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit.thread ], [ 31, %_ZNK12_GLOBAL__N_112RISCVOperand11isSImm9Lsb0Ev.exit ], [ 62, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit.thread865 ], [ 62, %_ZNK12_GLOBAL__N_112RISCVOperand13isUImm8Lsb000Ev.exit ], [ 61, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit.thread860 ], [ 61, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm8Lsb00Ev.exit ], [ 57, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit.thread855 ], [ 57, %_ZNK12_GLOBAL__N_112RISCVOperand12isUImm7Lsb00Ev.exit ], [ 30, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit.thread850 ], [ 30, %_ZNK12_GLOBAL__N_112RISCVOperand14isSImm6NonZeroEv.exit ], [ 29, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit.thread845 ], [ 29, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm6Ev.exit ], [ 28, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit.thread840 ], [ 28, %_ZNK12_GLOBAL__N_112RISCVOperand12isSImm5Plus1Ev.exit ], [ 27, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit.thread835 ], [ 27, %_ZNK12_GLOBAL__N_112RISCVOperand7isSImm5Ev.exit ], [ 65, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit.thread ], [ 65, %_ZNK12_GLOBAL__N_112RISCVOperand21isUImmLog2XLenNonZeroEv.exit ], [ 64, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit.thread ], [ 64, %_ZNK12_GLOBAL__N_112RISCVOperand14isUImmLog2XLenEv.exit ], [ 34, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit.thread ], [ 34, %_ZNK12_GLOBAL__N_112RISCVOperand16isTPRelAddSymbolEv.exit ], [ 33, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit.thread ], [ 33, %_ZNK12_GLOBAL__N_112RISCVOperand19isTLSDESCCallSymbolEv.exit ], [ 25, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit.thread ], [ 25, %_ZNK12_GLOBAL__N_112RISCVOperand15isSImm21Lsb0JALEv.exit ], [ 19, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit.thread ], [ 19, %_ZNK12_GLOBAL__N_112RISCVOperand9isRnumArgEv.exit ], [ 15, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit.thread ], [ 15, %_ZNK12_GLOBAL__N_112RISCVOperand18isPseudoJumpSymbolEv.exit ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit.thread ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand11isLoadFPImmEv.exit ], [ 13, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit.thread805 ], [ 13, %_ZNK12_GLOBAL__N_112RISCVOperand9isImmZeroEv.exit ], [ 10, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit.thread ], [ 10, %_ZNK12_GLOBAL__N_112RISCVOperand12isCallSymbolEv.exit ], [ 8, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread797 ], [ 8, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit ], [ 7, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit.thread ], [ 7, %_ZNK12_GLOBAL__N_112RISCVOperand12isBareSymbolEv.exit ], [ 0, %549 ], [ 0, %564 ], [ 0, %785 ], [ 66, %781 ], [ 67, %777 ], [ 32, %702 ], [ 18, %653 ], [ 16, %648 ], [ 32, %628 ], [ 17, %445 ], [ 9, %443 ], [ 0, %327 ], [ 0, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i ], [ 0, %311 ], [ 8, %426 ], [ 13, %580 ], [ 14, %_ZNK12_GLOBAL__N_112RISCVOperand7isUImm5Ev.exit.i.thread ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610 ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i ], [ 27, %822 ], [ 28, %841 ], [ 29, %860 ], [ 30, %879 ], [ 57, %901 ], [ 61, %915 ], [ 62, %929 ], [ 63, %975 ], [ 37, %989 ], [ 20, %1004 ], [ 44, %1061 ], [ 23, %1088 ], [ 51, %1110 ], [ 55, %1124 ], [ 52, %1138 ], [ 50, %1151 ], [ 26, %1190 ], [ 58, %1210 ], [ 11, %_ZN12_GLOBAL__N_114RISCVAsmParser12isSymbolDiffEPKN4llvm6MCExprE.exit.i.thread ], [ 0, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit635.i ], [ 0, %1556 ], [ 0, %_ZNK12_GLOBAL__N_112RISCVOperand9isGPRPairEv.exit.thread.i ], [ 0, %596 ], [ 0, %595 ], [ 0, %579 ], [ 0, %468 ], [ 0, %467 ], [ 0, %466 ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i610.thread ], [ 68, %_ZNK12_GLOBAL__N_112RISCVOperand10isVTypeImmEj.exit.i.thread ], [ 0, %529 ], [ 0, %509 ], [ 0, %489 ], [ 0, %469 ], [ 0, %373 ], [ 0, %348 ], [ 68, %800 ], [ 68, %811 ]
   %1577 = load ptr, ptr %0, align 8, !tbaa !3
   %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 96
   %1579 = load ptr, ptr %1578, align 8
   %1580 = call noundef i32 %1579(ptr noundef nonnull align 8 dereferenceable(561) %0, ptr noundef nonnull align 8 dereferenceable(48) %314, i32 noundef %243) #25
   %.not164 = icmp eq i32 %1580, 4
-  %1581 = add i32 %.01411226, 1
-  br i1 %.not164, label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020, label %1582
+  %1581 = add i32 %.01411227, 1
+  br i1 %.not164, label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021, label %1582
 
 1582:                                             ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread
   %1583 = icmp ne i32 %1580, 0
   %or.cond = and i1 %.not9.i.i.i.i.i, %1583
   %spec.select = select i1 %or.cond, i32 %1580, i32 %.0.i184.ph
   %1584 = icmp eq i32 %spec.select, 0
-  br i1 %1584, label %1585, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013
+  br i1 %1584, label %1585, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014
 
 1585:                                             ; preds = %1582
   %1586 = icmp eq i8 %242, 1
@@ -25675,7 +25675,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread: ; preds = %_ZNK12_GLOB
   %1595 = load i16, ptr %1594, align 2, !tbaa !925
   %1596 = zext i16 %1595 to i32
   %.not.i187 = icmp ult i32 %1593, %1596
-  br i1 %.not.i187, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013
+  br i1 %.not.i187, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014
 
 _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189: ; preds = %1587
   %1597 = load i32, ptr %1589, align 8, !tbaa !926
@@ -25688,8 +25688,8 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189: ; preds = %1587
   %1604 = and i32 %1598, 7
   %1605 = shl nuw nsw i32 1, %1604
   %1606 = and i32 %1605, %1603
-  %.not1187 = icmp eq i32 %1606, 0
-  br i1 %.not1187, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread
+  %.not1188 = icmp eq i32 %1606, 0
+  br i1 %.not1188, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread
 
 _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread: ; preds = %1585, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189
   %1607 = and i64 %.sroa.0.2, 1
@@ -25707,7 +25707,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread: ; preds = %15
   %1616 = shl nuw i64 %1615, 1
   %1617 = and i64 %.sroa.0.2, -288230376151711743
   %1618 = or i64 %1616, %1617
-  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020
+  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021
 
 1619:                                             ; preds = %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread
   %1620 = inttoptr i64 %.sroa.0.2 to ptr
@@ -25719,37 +25719,37 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread: ; preds = %15
   %1626 = load i64, ptr %1625, align 8, !tbaa !53
   %1627 = or i64 %1626, %1621
   store i64 %1627, ptr %1625, align 8, !tbaa !53
-  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020
+  br label %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021
 
-_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013: ; preds = %1587, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189, %1582
-  %1628 = trunc nuw i8 %.01191233 to i1
-  br i1 %1628, label %.thread1044, label %1629
+_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014: ; preds = %1587, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189, %1582
+  %1628 = trunc nuw i8 %.01191234 to i1
+  br i1 %1628, label %.thread1045, label %1629
 
-1629:                                             ; preds = %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013
-  %1630 = icmp ne ptr %.01511230, %.0.lcssa.i.i.i
+1629:                                             ; preds = %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014
+  %1630 = icmp ne ptr %.01511231, %.0.lcssa.i.i.i
   %1631 = load i64, ptr %3, align 8
   %.not165 = icmp ugt i64 %1631, %244
   %or.cond170 = select i1 %1630, i1 %.not165, i1 false
-  br i1 %or.cond170, label %.thread1044, label %1632
+  br i1 %or.cond170, label %.thread1045, label %1632
 
 1632:                                             ; preds = %1629
   %1633 = icmp ne i64 %1631, %244
   %1634 = icmp ne i32 %spec.select, 0
   %or.cond6 = or i1 %1634, %1633
   %1635 = select i1 %.not9.i.i.i.i.i, i1 %or.cond6, i1 false
-  %.7 = select i1 %1635, i32 %spec.select, i32 %.01271232
+  %.7 = select i1 %1635, i32 %spec.select, i32 %.01271233
   store i64 %244, ptr %3, align 8, !tbaa !53
-  br label %.thread1044
+  br label %.thread1045
 
-_ZN4llvm14SmallBitVector3setEjj.exit.thread1020:  ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread, %1619, %1608, %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, %302, %291
+_ZN4llvm14SmallBitVector3setEjj.exit.thread1021:  ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread, %1619, %1608, %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, %302, %291
   %.sroa.0.3 = phi i64 [ %.sroa.0.2, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread ], [ %.sroa.0.2, %1619 ], [ %1618, %1608 ], [ %.sroa.0.2, %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit ], [ %.sroa.0.2, %302 ], [ %301, %291 ]
-  %.11421026 = phi i32 [ %1581, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread ], [ %.01411226, %1619 ], [ %.01411226, %1608 ], [ %1576, %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit ], [ %.01411226, %302 ], [ %.01411226, %291 ]
+  %.11421027 = phi i32 [ %1581, %_ZNK12_GLOBAL__N_112RISCVOperand9isCLUIImmEv.exit.thread ], [ %.01411227, %1619 ], [ %.01411227, %1608 ], [ %1576, %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit ], [ %.01411227, %302 ], [ %.01411227, %291 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not162 = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not162, label %_ZN4llvm14SmallBitVector3setEjj.exit.thread, label %240, !llvm.loop !932
 
-_ZN4llvm14SmallBitVector3setEjj.exit.thread:      ; preds = %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020, %249, %260
-  %.sroa.0.4 = phi i64 [ %.sroa.0.2, %260 ], [ %259, %249 ], [ %.sroa.0.3, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1020 ]
+_ZN4llvm14SmallBitVector3setEjj.exit.thread:      ; preds = %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021, %249, %260
+  %.sroa.0.4 = phi i64 [ %.sroa.0.2, %260 ], [ %259, %249 ], [ %.sroa.0.3, %_ZN4llvm14SmallBitVector3setEjj.exit.thread1021 ]
   br i1 %.not9.i.i.i.i.i, label %1655, label %1636
 
 1636:                                             ; preds = %_ZN4llvm14SmallBitVector3setEjj.exit.thread
@@ -25821,11 +25821,11 @@ _ZNK4llvm13FeatureBitset5countEv.exit203:         ; preds = %_ZNK4llvm13FeatureB
 
 1654:                                             ; preds = %1653, %_ZNK4llvm13FeatureBitset5countEv.exit203
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
-  br label %.thread1044
+  br label %.thread1045
 
 1655:                                             ; preds = %_ZN4llvm14SmallBitVector3setEjj.exit.thread
   store i32 0, ptr %210, align 8, !tbaa !26
-  %1656 = getelementptr inbounds nuw i8, ptr %.01511230, i64 2
+  %1656 = getelementptr inbounds nuw i8, ptr %.01511231, i64 2
   %1657 = load i16, ptr %1656, align 2, !tbaa !939
   %1658 = zext i16 %1657 to i32
   store i32 %1658, ptr %2, align 8, !tbaa !380
@@ -25838,7 +25838,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit203:         ; preds = %_ZNK4llvm13FeatureB
 
 1663:                                             ; preds = %1655
   store i32 0, ptr %210, align 8, !tbaa !26
-  br label %.thread1044
+  br label %.thread1045
 
 1664:                                             ; preds = %1655
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
@@ -25854,27 +25854,27 @@ _ZNK4llvm13FeatureBitset5countEv.exit203:         ; preds = %_ZNK4llvm13FeatureB
   br label %1674
 
 1671:                                             ; preds = %_ZNK4llvm14SmallBitVector9referencecvbEv.exit
-  %1672 = getelementptr inbounds nuw i8, ptr %.01511230, i64 4
+  %1672 = getelementptr inbounds nuw i8, ptr %.01511231, i64 4
   %1673 = load i16, ptr %1672, align 2, !tbaa !940
   br i1 %5, label %1685, label %1729
 
 1674:                                             ; preds = %1664, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit
-  %indvars.iv1262 = phi i64 [ 0, %1664 ], [ %indvars.iv.next1263, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit ]
-  %.01171229 = phi i32 [ 0, %1664 ], [ %1684, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit ]
-  %indvars.iv.next1263 = add nuw nsw i64 %indvars.iv1262, 1
-  %1675 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv.next1263
-  store i32 %.01171229, ptr %1675, align 4, !tbaa !274
+  %indvars.iv1263 = phi i64 [ 0, %1664 ], [ %indvars.iv.next1264, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit ]
+  %.01171230 = phi i32 [ 0, %1664 ], [ %1684, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit ]
+  %indvars.iv.next1264 = add nuw nsw i64 %indvars.iv1263, 1
+  %1675 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv.next1264
+  store i32 %.01171230, ptr %1675, align 4, !tbaa !274
   br i1 %.not.i.i206, label %1678, label %1676
 
 1676:                                             ; preds = %1674
-  %1677 = shl nuw nsw i64 1, %indvars.iv1262
+  %1677 = shl nuw nsw i64 1, %indvars.iv1263
   %.reass.reass.reass = and i64 %1677, %invariant.op
   br label %_ZNK4llvm14SmallBitVector9referencecvbEv.exit
 
 1678:                                             ; preds = %1674
   %1679 = load ptr, ptr %1670, align 8, !tbaa !25
   %1680 = load i64, ptr %1679, align 8, !tbaa !53
-  %1681 = shl nuw nsw i64 1, %indvars.iv1262
+  %1681 = shl nuw nsw i64 1, %indvars.iv1263
   %1682 = and i64 %1680, %1681
   br label %_ZNK4llvm14SmallBitVector9referencecvbEv.exit
 
@@ -25882,27 +25882,30 @@ _ZNK4llvm14SmallBitVector9referencecvbEv.exit:    ; preds = %1676, %1678
   %.0.in.i.i = phi i64 [ %.reass.reass.reass, %1676 ], [ %1682, %1678 ]
   %.0.i.i207 = icmp ne i64 %.0.in.i.i, 0
   %1683 = zext i1 %.0.i.i207 to i32
-  %1684 = add i32 %.01171229, %1683
-  %exitcond.not = icmp eq i64 %indvars.iv.next1263, 7
+  %1684 = add i32 %.01171230, %1683
+  %exitcond.not = icmp eq i64 %indvars.iv.next1264, 7
   br i1 %exitcond.not, label %1671, label %1674, !llvm.loop !941
 
 1685:                                             ; preds = %1671
-  %1686 = getelementptr inbounds nuw i8, ptr %.01511230, i64 4
+  %1686 = getelementptr inbounds nuw i8, ptr %.01511231, i64 4
   %1687 = zext i16 %1673 to i32
   %1688 = load ptr, ptr %0, align 8, !tbaa !3
   %1689 = getelementptr inbounds nuw i8, ptr %1688, i64 120
   %1690 = load ptr, ptr %1689, align 8
   call void %1690(ptr noundef nonnull align 8 dereferenceable(561) %0, i32 noundef %1687, ptr noundef nonnull align 8 dereferenceable(16) %1) #25
   %1691 = load i16, ptr %1686, align 2, !tbaa !940
+  %.not44.i = icmp eq i16 %1691, 46
+  br i1 %.not44.i, label %.loopexit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %1685
   %1692 = zext i16 %1691 to i64
   %1693 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %1692
   %1694 = load i8, ptr %1693, align 1, !tbaa !65
-  %.not44.i = icmp eq i8 %1694, 0
-  br i1 %.not44.i, label %.loopexit, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1685, %.critedge38.i
-  %1695 = phi i8 [ %1728, %.critedge38.i ], [ %1694, %1685 ]
-  %.02945.i = phi ptr [ %1727, %.critedge38.i ], [ %1693, %1685 ]
+.lr.ph.i:                                         ; preds = %.critedge38.i, %.lr.ph.preheader.i
+  %1695 = phi i8 [ %1728, %.critedge38.i ], [ %1694, %.lr.ph.preheader.i ]
+  %.02945.i = phi ptr [ %1727, %.critedge38.i ], [ %1693, %.lr.ph.preheader.i ]
   %cond1.i = icmp eq i8 %1695, 2
   br i1 %cond1.i, label %1696, label %.critedge38.i
 
@@ -25951,32 +25954,32 @@ _ZNK4llvm14SmallBitVector9referencecvbEv.exit:    ; preds = %1676, %1678
 1729:                                             ; preds = %1671
   %1730 = load i16, ptr %1656, align 2, !tbaa !939
   %1731 = zext i16 %1730 to i32
+  store i32 %1731, ptr %2, align 8, !tbaa !380
+  %.not10.i = icmp eq i16 %1673, 46
+  br i1 %.not10.i, label %_ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit, label %.lr.ph.i209
+
+.lr.ph.i209:                                      ; preds = %1729
   %1732 = zext i16 %1673 to i64
   %1733 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %1732
-  store i32 %1731, ptr %2, align 8, !tbaa !380
   %1734 = load i8, ptr %1733, align 1, !tbaa !65
-  %.not10.i = icmp eq i8 %1734, 0
-  br i1 %.not10.i, label %_ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit, label %.lr.ph.i209.preheader
-
-.lr.ph.i209.preheader:                            ; preds = %1729
   %invariant.op97 = and i64 %1669, %1666
   %invariant.op98 = and i64 %1669, %1666
   %invariant.op99 = and i64 %1669, %1666
-  br label %.lr.ph.i209
+  br label %1735
 
-.lr.ph.i209:                                      ; preds = %.lr.ph.i209.preheader, %2427
-  %1735 = phi i8 [ %2429, %2427 ], [ %1734, %.lr.ph.i209.preheader ]
-  %.011.i210 = phi ptr [ %2428, %2427 ], [ %1733, %.lr.ph.i209.preheader ]
-  %1736 = getelementptr inbounds nuw i8, ptr %.011.i210, i64 1
-  %1737 = load i8, ptr %1736, align 1, !tbaa !65
-  %1738 = zext i8 %1737 to i32
-  %1739 = zext i8 %1737 to i64
-  %1740 = getelementptr inbounds nuw i32, ptr %97, i64 %1739
-  %1741 = load i32, ptr %1740, align 4, !tbaa !274
-  %1742 = sub i32 %1738, %1741
-  switch i8 %1735, label %1743 [
-    i8 1, label %1744
-    i8 2, label %1761
+1735:                                             ; preds = %2427, %.lr.ph.i209
+  %1736 = phi i8 [ %1734, %.lr.ph.i209 ], [ %2429, %2427 ]
+  %.011.i210 = phi ptr [ %1733, %.lr.ph.i209 ], [ %2428, %2427 ]
+  %1737 = getelementptr inbounds nuw i8, ptr %.011.i210, i64 1
+  %1738 = load i8, ptr %1737, align 1, !tbaa !65
+  %1739 = zext i8 %1738 to i32
+  %1740 = zext i8 %1738 to i64
+  %1741 = getelementptr inbounds nuw i32, ptr %97, i64 %1740
+  %1742 = load i32, ptr %1741, align 4, !tbaa !274
+  %1743 = sub i32 %1739, %1742
+  switch i8 %1736, label %1744 [
+    i8 1, label %1745
+    i8 2, label %1762
     i8 3, label %1779
     i8 4, label %1787
     i8 5, label %1804
@@ -26013,50 +26016,46 @@ _ZNK4llvm14SmallBitVector9referencecvbEv.exit:    ; preds = %1676, %1678
     i8 36, label %2415
   ]
 
-1743:                                             ; preds = %.lr.ph.i209
+1744:                                             ; preds = %1735
   unreachable
 
-1744:                                             ; preds = %.lr.ph.i209
-  %1745 = zext i32 %1742 to i64
-  %1746 = load ptr, ptr %1, align 8, !tbaa !25
-  %1747 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1746, i64 %1745
-  %1748 = load ptr, ptr %1747, align 8, !tbaa !300
-  %1749 = getelementptr i8, ptr %1748, i64 72
-  %.val.i = load i32, ptr %1749, align 8, !tbaa !274
-  %1750 = load i32, ptr %210, align 8, !tbaa !26
-  %1751 = load i32, ptr %212, align 4, !tbaa !27
-  %.not.i.i.not.i.i.i.i = icmp ult i32 %1750, %1751
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i, label %1752, !prof !33
+1745:                                             ; preds = %1735
+  %1746 = zext i32 %1743 to i64
+  %1747 = load ptr, ptr %1, align 8, !tbaa !25
+  %1748 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1747, i64 %1746
+  %1749 = load ptr, ptr %1748, align 8, !tbaa !300
+  %1750 = getelementptr i8, ptr %1749, i64 72
+  %.val.i = load i32, ptr %1750, align 8, !tbaa !274
+  %1751 = load i32, ptr %210, align 8, !tbaa !26
+  %1752 = load i32, ptr %212, align 4, !tbaa !27
+  %.not.i.i.not.i.i.i.i = icmp ult i32 %1751, %1752
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i, label %1753, !prof !33
 
-1752:                                             ; preds = %1744
-  %1753 = zext i32 %1750 to i64
-  %1754 = add nuw nsw i64 %1753, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull %213, i64 noundef %1754, i64 noundef 16) #25
+1753:                                             ; preds = %1745
+  %1754 = zext i32 %1751 to i64
+  %1755 = add nuw nsw i64 %1754, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull %213, i64 noundef %1755, i64 noundef 16) #25
   %.pre.i.i.i.i = load i32, ptr %210, align 8, !tbaa !26
   br label %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i
 
-_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i: ; preds = %1752, %1744
-  %1755 = phi i32 [ %1750, %1744 ], [ %.pre.i.i.i.i, %1752 ]
+_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i: ; preds = %1753, %1745
+  %1756 = phi i32 [ %1751, %1745 ], [ %.pre.i.i.i.i, %1753 ]
   %.sroa.3.8.insert.ext.i.i.i = zext i32 %.val.i to i64
-  %1756 = load ptr, ptr %211, align 8, !tbaa !25
-  %1757 = zext i32 %1755 to i64
-  %1758 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1756, i64 %1757
-  store i8 1, ptr %1758, align 1
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1758, i64 8
+  %1757 = load ptr, ptr %211, align 8, !tbaa !25
+  %1758 = zext i32 %1756 to i64
+  %1759 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1757, i64 %1758
+  store i8 1, ptr %1759, align 1
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1759, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 1
-  %1759 = load i32, ptr %210, align 8, !tbaa !26
-  %1760 = add i32 %1759, 1
-  store i32 %1760, ptr %210, align 8, !tbaa !26
+  %1760 = load i32, ptr %210, align 8, !tbaa !26
+  %1761 = add i32 %1760, 1
+  store i32 %1761, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1761:                                             ; preds = %.lr.ph.i209
-  %1762 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %1739
-  %1763 = load i8, ptr %1762, align 1, !tbaa !65
-  %.not130.i = icmp eq i8 %1763, -1
-  br i1 %.not130.i, label %2427, label %1764
-
-1764:                                             ; preds = %1761
-  %1765 = zext i8 %1763 to i64
+1762:                                             ; preds = %1735
+  %1763 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %1740
+  %1764 = load i8, ptr %1763, align 1, !tbaa !65
+  %1765 = zext i8 %1764 to i64
   %1766 = load ptr, ptr %211, align 8, !tbaa !25
   %1767 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1766, i64 %1765
   %.sroa.039.0.copyload.i = load i8, ptr %1767, align 8, !tbaa !410
@@ -26067,7 +26066,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i: ; pred
   %.not.i.i.not.i.i.i = icmp ult i32 %1768, %1769
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i, label %1770, !prof !33
 
-1770:                                             ; preds = %1764
+1770:                                             ; preds = %1762
   %1771 = zext i32 %1768 to i64
   %1772 = add nuw nsw i64 %1771, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull %213, i64 noundef %1772, i64 noundef 16) #25
@@ -26075,9 +26074,9 @@ _ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i: ; pred
   %.pre.i = load ptr, ptr %211, align 8, !tbaa !25
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %1770, %1764
-  %1773 = phi ptr [ %1766, %1764 ], [ %.pre.i, %1770 ]
-  %1774 = phi i32 [ %1768, %1764 ], [ %.pre.i.i.i, %1770 ]
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %1770, %1762
+  %1773 = phi ptr [ %1766, %1762 ], [ %.pre.i, %1770 ]
+  %1774 = phi i32 [ %1768, %1762 ], [ %.pre.i.i.i, %1770 ]
   %1775 = zext i32 %1774 to i64
   %1776 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1773, i64 %1775
   store i8 %.sroa.039.0.copyload.i, ptr %1776, align 1
@@ -26088,8 +26087,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %1770, %1764
   store i32 %1778, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1779:                                             ; preds = %.lr.ph.i209
-  %1780 = zext i32 %1742 to i64
+1779:                                             ; preds = %1735
+  %1780 = zext i32 %1743 to i64
   %1781 = load ptr, ptr %1, align 8, !tbaa !25
   %1782 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1781, i64 %1780
   %1783 = load ptr, ptr %1782, align 8, !tbaa !300
@@ -26101,8 +26100,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %1770, %1764
   call fastcc void @_ZN12_GLOBAL__N_112RISCVOperand7addExprERN4llvm6MCInstEPKNS1_6MCExprEb(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %.val135.i, i1 noundef zeroext %1786)
   br label %2427
 
-1787:                                             ; preds = %.lr.ph.i209
-  %1788 = zext i32 %1742 to i64
+1787:                                             ; preds = %1735
+  %1788 = zext i32 %1743 to i64
   %1789 = load ptr, ptr %1, align 8, !tbaa !25
   %1790 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1789, i64 %1788
   %1791 = load ptr, ptr %1790, align 8, !tbaa !300
@@ -26134,7 +26133,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit153.i: ; p
   store i32 %1803, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1804:                                             ; preds = %.lr.ph.i209
+1804:                                             ; preds = %1735
   %1805 = load i32, ptr %210, align 8, !tbaa !26
   %1806 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i154.i = icmp ult i32 %1805, %1806
@@ -26160,8 +26159,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit157.i: ; preds = %1807, %1804
   store i32 %1815, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1816:                                             ; preds = %.lr.ph.i209
-  %1817 = zext i32 %1742 to i64
+1816:                                             ; preds = %1735
+  %1817 = zext i32 %1743 to i64
   %1818 = load ptr, ptr %1, align 8, !tbaa !25
   %1819 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1818, i64 %1817
   %1820 = load ptr, ptr %1819, align 8, !tbaa !300
@@ -26193,7 +26192,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit162.i: ; p
   store i32 %1832, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1833:                                             ; preds = %.lr.ph.i209
+1833:                                             ; preds = %1735
   %1834 = load i32, ptr %210, align 8, !tbaa !26
   %1835 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i163.i = icmp ult i32 %1834, %1835
@@ -26219,7 +26218,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit166.i: ; preds = %1836, %1833
   store i32 %1844, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1845:                                             ; preds = %.lr.ph.i209
+1845:                                             ; preds = %1735
   %1846 = load i32, ptr %210, align 8, !tbaa !26
   %1847 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i169.i = icmp ult i32 %1846, %1847
@@ -26245,7 +26244,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit172.i: ; preds = %1848, %1845
   store i32 %1856, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1857:                                             ; preds = %.lr.ph.i209
+1857:                                             ; preds = %1735
   %1858 = load i32, ptr %210, align 8, !tbaa !26
   %1859 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i175.i = icmp ult i32 %1858, %1859
@@ -26271,7 +26270,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit178.i: ; preds = %1860, %1857
   store i32 %1868, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1869:                                             ; preds = %.lr.ph.i209
+1869:                                             ; preds = %1735
   %1870 = load i32, ptr %210, align 8, !tbaa !26
   %1871 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i181.i = icmp ult i32 %1870, %1871
@@ -26297,7 +26296,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit184.i: ; preds = %1872, %1869
   store i32 %1880, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1881:                                             ; preds = %.lr.ph.i209
+1881:                                             ; preds = %1735
   %1882 = load i32, ptr %210, align 8, !tbaa !26
   %1883 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i187.i = icmp ult i32 %1882, %1883
@@ -26323,8 +26322,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit190.i: ; preds = %1884, %1881
   store i32 %1892, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1893:                                             ; preds = %.lr.ph.i209
-  %1894 = zext i32 %1742 to i64
+1893:                                             ; preds = %1735
+  %1894 = zext i32 %1743 to i64
   %1895 = load ptr, ptr %1, align 8, !tbaa !25
   %1896 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1895, i64 %1894
   %1897 = load ptr, ptr %1896, align 8, !tbaa !300
@@ -26356,8 +26355,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand16addRlistOperandsERN4llvm6MCInstEj.exit.i: ; pr
   store i32 %1910, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1911:                                             ; preds = %.lr.ph.i209
-  %1912 = zext i32 %1742 to i64
+1911:                                             ; preds = %1735
+  %1912 = zext i32 %1743 to i64
   %1913 = load ptr, ptr %1, align 8, !tbaa !25
   %1914 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1913, i64 %1912
   %1915 = load ptr, ptr %1914, align 8, !tbaa !300
@@ -26389,8 +26388,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand16addSpimmOperandsERN4llvm6MCInstEj.exit.i: ; pr
   store i32 %1928, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1929:                                             ; preds = %.lr.ph.i209
-  %1930 = zext i32 %1742 to i64
+1929:                                             ; preds = %1735
+  %1930 = zext i32 %1743 to i64
   %1931 = load ptr, ptr %1, align 8, !tbaa !25
   %1932 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1931, i64 %1930
   %1933 = load ptr, ptr %1932, align 8, !tbaa !300
@@ -26422,8 +26421,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand28addCSRSystemRegisterOperandsERN4llvm6MCInstEj.
   store i32 %1946, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1947:                                             ; preds = %.lr.ph.i209
-  %1948 = zext i32 %1742 to i64
+1947:                                             ; preds = %1735
+  %1948 = zext i32 %1743 to i64
   %1949 = load ptr, ptr %1, align 8, !tbaa !25
   %1950 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %1949, i64 %1948
   %1951 = load ptr, ptr %1950, align 8, !tbaa !300
@@ -26480,8 +26479,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand17addRegRegOperandsERN4llvm6MCInstEj.exit.i: ; p
   store i32 %1974, ptr %210, align 8, !tbaa !26
   br label %2427
 
-1975:                                             ; preds = %.lr.ph.i209
-  %1976 = add nsw i32 %1738, -1
+1975:                                             ; preds = %1735
+  %1976 = add nsw i32 %1739, -1
   br i1 %.not.i.i206, label %1980, label %1977
 
 1977:                                             ; preds = %1975
@@ -26569,7 +26568,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exi
   br label %2427
 
 2017:                                             ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.i
-  %2018 = zext i32 %1742 to i64
+  %2018 = zext i32 %1743 to i64
   %2019 = load ptr, ptr %1, align 8, !tbaa !25
   %2020 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2019, i64 %2018
   %2021 = load ptr, ptr %2020, align 8, !tbaa !300
@@ -26601,8 +26600,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit213.i: 
   store i32 %2034, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2035:                                             ; preds = %.lr.ph.i209
-  %2036 = add nsw i32 %1738, -1
+2035:                                             ; preds = %1735
+  %2036 = add nsw i32 %1739, -1
   br i1 %.not.i.i206, label %2040, label %2037
 
 2037:                                             ; preds = %2035
@@ -26688,7 +26687,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exi
   br label %2427
 
 2076:                                             ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit217.i
-  %2077 = zext i32 %1742 to i64
+  %2077 = zext i32 %1743 to i64
   %2078 = load ptr, ptr %1, align 8, !tbaa !25
   %2079 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2078, i64 %2077
   %2080 = load ptr, ptr %2079, align 8, !tbaa !300
@@ -26720,8 +26719,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit232.i: 
   store i32 %2093, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2094:                                             ; preds = %.lr.ph.i209
-  %2095 = zext i32 %1742 to i64
+2094:                                             ; preds = %1735
+  %2095 = zext i32 %1743 to i64
   %2096 = load ptr, ptr %1, align 8, !tbaa !25
   %2097 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2096, i64 %2095
   %2098 = load ptr, ptr %2097, align 8, !tbaa !300
@@ -26753,7 +26752,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit237.i: 
   store i32 %2111, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2112:                                             ; preds = %.lr.ph.i209
+2112:                                             ; preds = %1735
   %2113 = load i32, ptr %210, align 8, !tbaa !26
   %2114 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i238.i = icmp ult i32 %2113, %2114
@@ -26779,8 +26778,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit241.i: ; preds = %2115, %2112
   store i32 %2123, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2124:                                             ; preds = %.lr.ph.i209
-  %2125 = zext i32 %1742 to i64
+2124:                                             ; preds = %1735
+  %2125 = zext i32 %1743 to i64
   %2126 = load ptr, ptr %1, align 8, !tbaa !25
   %2127 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2126, i64 %2125
   %2128 = load ptr, ptr %2127, align 8, !tbaa !300
@@ -26812,8 +26811,8 @@ _ZNK12_GLOBAL__N_112RISCVOperand19addFenceArgOperandsERN4llvm6MCInstEj.exit.i: ;
   store i32 %2141, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2142:                                             ; preds = %.lr.ph.i209
-  %2143 = zext i32 %1742 to i64
+2142:                                             ; preds = %1735
+  %2143 = zext i32 %1743 to i64
   %2144 = load ptr, ptr %1, align 8, !tbaa !25
   %2145 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2144, i64 %2143
   %2146 = load ptr, ptr %2145, align 8, !tbaa !300
@@ -26911,7 +26910,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand16addFPImmOperandsERN4llvm6MCInstEj.exit.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %2427
 
-2182:                                             ; preds = %.lr.ph.i209
+2182:                                             ; preds = %1735
   %2183 = load i32, ptr %210, align 8, !tbaa !26
   %2184 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i250.i = icmp ult i32 %2183, %2184
@@ -26937,7 +26936,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit253.i: ; preds = %2185, %2182
   store i32 %2193, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2194:                                             ; preds = %.lr.ph.i209
+2194:                                             ; preds = %1735
   %2195 = load i32, ptr %210, align 8, !tbaa !26
   %2196 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i254.i = icmp ult i32 %2195, %2196
@@ -26963,7 +26962,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit257.i: ; preds = %2197, %2194
   store i32 %2205, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2206:                                             ; preds = %.lr.ph.i209
+2206:                                             ; preds = %1735
   %2207 = load i32, ptr %210, align 8, !tbaa !26
   %2208 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i258.i = icmp ult i32 %2207, %2208
@@ -26989,7 +26988,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit261.i: ; preds = %2209, %2206
   store i32 %2217, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2218:                                             ; preds = %.lr.ph.i209
+2218:                                             ; preds = %1735
   %2219 = load i32, ptr %210, align 8, !tbaa !26
   %2220 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i264.i = icmp ult i32 %2219, %2220
@@ -27015,7 +27014,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit267.i: ; preds = %2221, %2218
   store i32 %2229, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2230:                                             ; preds = %.lr.ph.i209
+2230:                                             ; preds = %1735
   %2231 = load i32, ptr %210, align 8, !tbaa !26
   %2232 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i268.i = icmp ult i32 %2231, %2232
@@ -27041,7 +27040,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit271.i: ; preds = %2233, %2230
   store i32 %2241, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2242:                                             ; preds = %.lr.ph.i209
+2242:                                             ; preds = %1735
   %2243 = load i32, ptr %210, align 8, !tbaa !26
   %2244 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i272.i = icmp ult i32 %2243, %2244
@@ -27067,7 +27066,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit275.i: ; preds = %2245, %2242
   store i32 %2253, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2254:                                             ; preds = %.lr.ph.i209
+2254:                                             ; preds = %1735
   %2255 = load i32, ptr %210, align 8, !tbaa !26
   %2256 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i276.i = icmp ult i32 %2255, %2256
@@ -27093,7 +27092,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit279.i: ; preds = %2257, %2254
   store i32 %2265, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2266:                                             ; preds = %.lr.ph.i209
+2266:                                             ; preds = %1735
   %2267 = load i32, ptr %210, align 8, !tbaa !26
   %2268 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i280.i = icmp ult i32 %2267, %2268
@@ -27119,7 +27118,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit283.i: ; preds = %2269, %2266
   store i32 %2277, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2278:                                             ; preds = %.lr.ph.i209
+2278:                                             ; preds = %1735
   %2279 = load i32, ptr %210, align 8, !tbaa !26
   %2280 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i284.i = icmp ult i32 %2279, %2280
@@ -27145,7 +27144,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit287.i: ; preds = %2281, %2278
   store i32 %2289, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2290:                                             ; preds = %.lr.ph.i209
+2290:                                             ; preds = %1735
   %2291 = load i32, ptr %210, align 8, !tbaa !26
   %2292 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i288.i = icmp ult i32 %2291, %2292
@@ -27171,7 +27170,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit291.i: ; preds = %2293, %2290
   store i32 %2301, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2302:                                             ; preds = %.lr.ph.i209
+2302:                                             ; preds = %1735
   %2303 = load i32, ptr %210, align 8, !tbaa !26
   %2304 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i292.i = icmp ult i32 %2303, %2304
@@ -27197,8 +27196,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit295.i: ; preds = %2305, %2302
   store i32 %2313, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2314:                                             ; preds = %.lr.ph.i209
-  %2315 = add nsw i32 %1738, -1
+2314:                                             ; preds = %1735
+  %2315 = add nsw i32 %1739, -1
   br i1 %.not.i.i206, label %2319, label %2316
 
 2316:                                             ; preds = %2314
@@ -27284,7 +27283,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exi
   br label %2427
 
 2355:                                             ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit299.i
-  %2356 = zext i32 %1742 to i64
+  %2356 = zext i32 %1743 to i64
   %2357 = load ptr, ptr %1, align 8, !tbaa !25
   %2358 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2357, i64 %2356
   %2359 = load ptr, ptr %2358, align 8, !tbaa !300
@@ -27316,7 +27315,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit316.i: ; p
   store i32 %2371, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2372:                                             ; preds = %.lr.ph.i209
+2372:                                             ; preds = %1735
   %2373 = load i32, ptr %210, align 8, !tbaa !26
   %2374 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i319.i = icmp ult i32 %2373, %2374
@@ -27342,8 +27341,8 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit322.i: ; preds = %2375, %2372
   store i32 %2383, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2384:                                             ; preds = %.lr.ph.i209
-  %2385 = zext i32 %1742 to i64
+2384:                                             ; preds = %1735
+  %2385 = zext i32 %1743 to i64
   %2386 = load ptr, ptr %1, align 8, !tbaa !25
   %2387 = getelementptr inbounds nuw %"class.std::unique_ptr.216", ptr %2386, i64 %2385
   %2388 = load ptr, ptr %2387, align 8, !tbaa !300
@@ -27409,7 +27408,7 @@ _ZNK12_GLOBAL__N_112RISCVOperand17addVTypeIOperandsERN4llvm6MCInstEj.exit.i: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %2427
 
-2415:                                             ; preds = %.lr.ph.i209
+2415:                                             ; preds = %1735
   %2416 = load i32, ptr %210, align 8, !tbaa !26
   %2417 = load i32, ptr %212, align 4, !tbaa !27
   %.not.i.i.not.i.i328.i = icmp ult i32 %2416, %2417
@@ -27435,11 +27434,11 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit331.i: ; preds = %2418, %2415
   store i32 %2426, ptr %210, align 8, !tbaa !26
   br label %2427
 
-2427:                                             ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit331.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addVTypeIOperandsERN4llvm6MCInstEj.exit.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit322.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit316.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exit310.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit295.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit291.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit287.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit283.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit279.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit275.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit271.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit267.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit261.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit257.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit253.i, %_ZNK12_GLOBAL__N_112RISCVOperand16addFPImmOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand19addFenceArgOperandsERN4llvm6MCInstEj.exit.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit241.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit237.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit232.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exit227.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit213.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addRegRegOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand28addCSRSystemRegisterOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand16addSpimmOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand16addRlistOperandsERN4llvm6MCInstEj.exit.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit190.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit184.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit178.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit172.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit166.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit162.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit157.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit153.i, %1779, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i, %1761, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i
+2427:                                             ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit331.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addVTypeIOperandsERN4llvm6MCInstEj.exit.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit322.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit316.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exit310.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit295.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit291.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit287.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit283.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit279.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit275.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit271.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit267.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit261.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit257.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit253.i, %_ZNK12_GLOBAL__N_112RISCVOperand16addFPImmOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand19addFenceArgOperandsERN4llvm6MCInstEj.exit.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit241.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit237.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit232.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exit227.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addFRMArgOperandsERN4llvm6MCInstEj.exit213.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_112RISCVOperandESt14default_deleteIS1_EED2Ev.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand17addRegRegOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand28addCSRSystemRegisterOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand16addSpimmOperandsERN4llvm6MCInstEj.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand16addRlistOperandsERN4llvm6MCInstEj.exit.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit190.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit184.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit178.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit172.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit166.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit162.i, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit157.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit153.i, %1779, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i, %_ZNK12_GLOBAL__N_112RISCVOperand14addRegOperandsERN4llvm6MCInstEj.exit.i
   %2428 = getelementptr inbounds nuw i8, ptr %.011.i210, i64 2
   %2429 = load i8, ptr %2428, align 1, !tbaa !65
   %.not.i211 = icmp eq i8 %2429, 0
-  br i1 %.not.i211, label %_ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit, label %.lr.ph.i209, !llvm.loop !968
+  br i1 %.not.i211, label %_ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit, label %1735, !llvm.loop !968
 
 _ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit: ; preds = %2427, %1729
   %2430 = load ptr, ptr %0, align 8, !tbaa !3
@@ -27450,22 +27449,25 @@ _ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15Smal
   br i1 %.not168, label %2434, label %2474
 
 2434:                                             ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit
-  %2435 = getelementptr inbounds nuw i8, ptr %.01511230, i64 4
+  %2435 = getelementptr inbounds nuw i8, ptr %.01511231, i64 4
   %2436 = load i16, ptr %2435, align 2, !tbaa !940
+  %.not44.i217 = icmp eq i16 %2436, 46
+  br i1 %.not44.i217, label %.loopexit, label %.lr.ph.preheader.i218
+
+.lr.ph.preheader.i218:                            ; preds = %2434
   %2437 = zext i16 %2436 to i64
   %2438 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %2437
   %2439 = load i8, ptr %2438, align 1, !tbaa !65
-  %.not44.i217 = icmp eq i8 %2439, 0
-  br i1 %.not44.i217, label %.loopexit, label %.lr.ph.i218
+  br label %.lr.ph.i219
 
-.lr.ph.i218:                                      ; preds = %2434, %.critedge38.i221
-  %2440 = phi i8 [ %2473, %.critedge38.i221 ], [ %2439, %2434 ]
-  %.02945.i219 = phi ptr [ %2472, %.critedge38.i221 ], [ %2438, %2434 ]
-  %cond1.i220 = icmp eq i8 %2440, 2
-  br i1 %cond1.i220, label %2441, label %.critedge38.i221
+.lr.ph.i219:                                      ; preds = %.critedge38.i222, %.lr.ph.preheader.i218
+  %2440 = phi i8 [ %2473, %.critedge38.i222 ], [ %2439, %.lr.ph.preheader.i218 ]
+  %.02945.i220 = phi ptr [ %2472, %.critedge38.i222 ], [ %2438, %.lr.ph.preheader.i218 ]
+  %cond1.i221 = icmp eq i8 %2440, 2
+  br i1 %cond1.i221, label %2441, label %.critedge38.i222
 
-2441:                                             ; preds = %.lr.ph.i218
-  %2442 = getelementptr inbounds nuw i8, ptr %.02945.i219, i64 1
+2441:                                             ; preds = %.lr.ph.i219
+  %2442 = getelementptr inbounds nuw i8, ptr %.02945.i220, i64 1
   %2443 = load i8, ptr %2442, align 1, !tbaa !65
   %2444 = zext i8 %2443 to i64
   %2445 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %2444
@@ -27483,8 +27485,8 @@ _ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15Smal
   %2457 = getelementptr inbounds nuw i32, ptr %97, i64 %2456
   %2458 = load i32, ptr %2457, align 4, !tbaa !274
   %2459 = sub i32 %2451, %2458
-  %.not36.i224 = icmp eq i32 %2455, %2459
-  br i1 %.not36.i224, label %.critedge38.i221, label %2460
+  %.not36.i225 = icmp eq i32 %2455, %2459
+  br i1 %.not36.i225, label %.critedge38.i222, label %2460
 
 2460:                                             ; preds = %2441
   %2461 = zext i32 %2455 to i64
@@ -27498,54 +27500,54 @@ _ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15Smal
   %2469 = getelementptr inbounds nuw i8, ptr %2468, i64 128
   %2470 = load ptr, ptr %2469, align 8
   %2471 = call noundef zeroext i1 %2470(ptr noundef nonnull align 8 dereferenceable(561) %0, ptr noundef nonnull align 8 dereferenceable(48) %2466, ptr noundef nonnull align 8 dereferenceable(48) %2467) #25
-  br i1 %2471, label %.critedge38.i221, label %.loopexit.sink.split
+  br i1 %2471, label %.critedge38.i222, label %.loopexit.sink.split
 
-.critedge38.i221:                                 ; preds = %2460, %2441, %.lr.ph.i218
-  %2472 = getelementptr inbounds nuw i8, ptr %.02945.i219, i64 2
+.critedge38.i222:                                 ; preds = %2460, %2441, %.lr.ph.i219
+  %2472 = getelementptr inbounds nuw i8, ptr %.02945.i220, i64 2
   %2473 = load i8, ptr %2472, align 1, !tbaa !65
-  %.not.i222 = icmp eq i8 %2473, 0
-  br i1 %.not.i222, label %.loopexit, label %.lr.ph.i218, !llvm.loop !942
+  %.not.i223 = icmp eq i8 %2473, 0
+  br i1 %.not.i223, label %.loopexit, label %.lr.ph.i219, !llvm.loop !942
 
 2474:                                             ; preds = %_ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERKNS1_14SmallBitVectorENS1_8ArrayRefIjEE.exit
   store i32 0, ptr %210, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
-  br label %.thread1044
+  br label %.thread1045
 
-.thread1044:                                      ; preds = %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread, %1629, %1632, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013, %1663, %1654, %2474
-  %.sroa.0.5 = phi i64 [ %.sroa.0.4, %2474 ], [ %.sroa.0.4, %1663 ], [ %.sroa.0.4, %1654 ], [ %.sroa.0.2, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013 ], [ %.sroa.0.2, %1629 ], [ %.sroa.0.2, %1632 ], [ %.sroa.0.2, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
-  %.21161052 = phi i1 [ %.01141234, %2474 ], [ %.01141234, %1663 ], [ true, %1654 ], [ %.01141234, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013 ], [ %.01141234, %1629 ], [ %.01141234, %1632 ], [ %.01141234, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
-  %.21211051 = phi i8 [ 1, %2474 ], [ 1, %1663 ], [ %.01191233, %1654 ], [ 1, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013 ], [ 0, %1629 ], [ 0, %1632 ], [ %.01191233, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
-  %.81050 = phi i32 [ %2433, %2474 ], [ %1662, %1663 ], [ %.01271232, %1654 ], [ %.01271232, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1013 ], [ %.01271232, %1629 ], [ %.7, %1632 ], [ %.01271232, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
-  %2475 = getelementptr inbounds nuw i8, ptr %.01511230, i64 14
+.thread1045:                                      ; preds = %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread, %1629, %1632, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014, %1663, %1654, %2474
+  %.sroa.0.5 = phi i64 [ %.sroa.0.4, %2474 ], [ %.sroa.0.4, %1663 ], [ %.sroa.0.4, %1654 ], [ %.sroa.0.2, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014 ], [ %.sroa.0.2, %1629 ], [ %.sroa.0.2, %1632 ], [ %.sroa.0.2, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
+  %.21161053 = phi i1 [ %.01141235, %2474 ], [ %.01141235, %1663 ], [ true, %1654 ], [ %.01141235, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014 ], [ %.01141235, %1629 ], [ %.01141235, %1632 ], [ %.01141235, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
+  %.21211052 = phi i8 [ 1, %2474 ], [ 1, %1663 ], [ %.01191234, %1654 ], [ 1, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014 ], [ 0, %1629 ], [ 0, %1632 ], [ %.01191234, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
+  %.81051 = phi i32 [ %2433, %2474 ], [ %1662, %1663 ], [ %.01271233, %1654 ], [ %.01271233, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit189.thread1014 ], [ %.01271233, %1629 ], [ %.7, %1632 ], [ %.01271233, %_ZN4llvm14SmallBitVector3setEjj.exit.thread.thread ]
+  %2475 = getelementptr inbounds nuw i8, ptr %.01511231, i64 14
   %.not161 = icmp eq ptr %2475, %.sroa.3.0.i.i
-  br i1 %.not161, label %.thread1059, label %215, !llvm.loop !969
+  br i1 %.not161, label %.thread1060, label %215, !llvm.loop !969
 
 .loopexit.sink.split:                             ; preds = %2460, %1715
   %.lcssa.sink = phi i64 [ %1719, %1715 ], [ %2464, %2460 ]
   store i64 %.lcssa.sink, ptr %3, align 8, !tbaa !53
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge38.i221, %.critedge38.i, %.loopexit.sink.split, %1685, %2434
-  %.6.ph = phi i32 [ 4, %2434 ], [ 4, %1685 ], [ 1, %.loopexit.sink.split ], [ 4, %.critedge38.i ], [ 4, %.critedge38.i221 ]
+.loopexit:                                        ; preds = %.critedge38.i222, %.critedge38.i, %.loopexit.sink.split, %1685, %2434
+  %.6.ph = phi i32 [ 4, %2434 ], [ 4, %1685 ], [ 1, %.loopexit.sink.split ], [ 4, %.critedge38.i ], [ 4, %.critedge38.i222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread
 
-.thread1059:                                      ; preds = %.thread1044
-  %2476 = trunc nuw i8 %.21211051 to i1
+.thread1060:                                      ; preds = %.thread1045
+  %2476 = trunc nuw i8 %.21211052 to i1
   %.not = xor i1 %2476, true
-  %or.cond8 = select i1 %.not, i1 %.21161052, i1 false
+  %or.cond8 = select i1 %.not, i1 %.21161053, i1 false
   br i1 %or.cond8, label %2477, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread
 
-2477:                                             ; preds = %.thread1059
+2477:                                             ; preds = %.thread1060
   store i64 0, ptr %3, align 8, !tbaa !53
   br label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread
 
-_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread: ; preds = %.loopexit, %.thread1059, %2477
-  %.sroa.0.0 = phi i64 [ %.sroa.0.4, %.loopexit ], [ %.sroa.0.5, %2477 ], [ %.sroa.0.5, %.thread1059 ]
-  %.1 = phi i32 [ %.6.ph, %.loopexit ], [ 2, %2477 ], [ %.81050, %.thread1059 ]
+_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread: ; preds = %.loopexit, %.thread1060, %2477
+  %.sroa.0.0 = phi i64 [ %.sroa.0.4, %.loopexit ], [ %.sroa.0.5, %2477 ], [ %.sroa.0.5, %.thread1060 ]
+  %.1 = phi i32 [ %.6.ph, %.loopexit ], [ 2, %2477 ], [ %.81051, %.thread1060 ]
   %2478 = and i64 %.sroa.0.0, 1
-  %.not.i226 = icmp eq i64 %2478, 0
-  br i1 %.not.i226, label %2479, label %_ZN4llvm14SmallBitVectorD2Ev.exit
+  %.not.i227 = icmp eq i64 %2478, 0
+  br i1 %.not.i227, label %2479, label %_ZN4llvm14SmallBitVectorD2Ev.exit
 
 2479:                                             ; preds = %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread
   %2480 = inttoptr i64 %.sroa.0.0 to ptr

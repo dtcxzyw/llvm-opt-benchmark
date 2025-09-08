@@ -2212,14 +2212,14 @@ define internal fastcc range(i64 -1, 15) i64 @ws_enc_write_head(ptr noundef %0, 
   %.055.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 10
   %.055.sroa.gep67 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.055.sroa.gep68 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %.sink91.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %.sink91.sroa.gep99 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %.sink91.sroa.gep100 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %.sink93.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %.sink93.sroa.gep103 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.sink93.sroa.gep104 = getelementptr inbounds nuw i8, ptr %7, i64 9
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.63, i64 noundef %3) #7
-  br label %.sink.split92
+  br label %.sink.split94
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2229,7 +2229,7 @@ define internal fastcc range(i64 -1, 15) i64 @ws_enc_write_head(ptr noundef %0, 
 
 14:                                               ; preds = %10
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.64, i64 noundef %12) #7
-  br label %.sink.split92
+  br label %.sink.split94
 
 15:                                               ; preds = %10
   %16 = and i32 %2, -5
@@ -2251,12 +2251,12 @@ define internal fastcc range(i64 -1, 15) i64 @ws_enc_write_head(ptr noundef %0, 
 
 ws_frame_flags2op.exit:                           ; preds = %19
   %24 = load i8, ptr %20, align 16, !tbaa !124
-  %.not = icmp eq i8 %24, 0
+  %.not = icmp eq i64 %.07.i, 0
   br i1 %.not, label %ws_frame_flags2op.exit.thread, label %25
 
 ws_frame_flags2op.exit.thread:                    ; preds = %17, %ws_frame_flags2op.exit
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.65, i32 noundef %2) #7
-  br label %.sink.split92
+  br label %.sink.split94
 
 25:                                               ; preds = %ws_frame_flags2op.exit
   %26 = and i32 %2, 4
@@ -2345,11 +2345,11 @@ ws_frame_flags2op.exit.thread:                    ; preds = %17, %ws_frame_flags
   br label %71
 
 71:                                               ; preds = %63, %68, %39
-  %.sink91.sroa.phi = phi ptr [ %.sink91.sroa.gep, %63 ], [ %.sink91.sroa.gep99, %68 ], [ %.sink91.sroa.gep100, %39 ]
-  %.sink89 = phi i8 [ %67, %63 ], [ %70, %68 ], [ %60, %39 ]
+  %.sink93.sroa.phi = phi ptr [ %.sink93.sroa.gep, %63 ], [ %.sink93.sroa.gep103, %68 ], [ %.sink93.sroa.gep104, %39 ]
+  %.sink91 = phi i8 [ %67, %63 ], [ %70, %68 ], [ %60, %39 ]
   %.055.sroa.phi = phi ptr [ %.055.sroa.gep67, %63 ], [ %.055.sroa.gep68, %68 ], [ %.055.sroa.gep, %39 ]
   %.055 = phi i64 [ 8, %63 ], [ 6, %68 ], [ 14, %39 ]
-  store i8 %.sink89, ptr %.sink91.sroa.phi, align 1, !tbaa !84
+  store i8 %.sink91, ptr %.sink93.sroa.phi, align 1, !tbaa !84
   store i64 %3, ptr %1, align 8, !tbaa !138
   store i64 %3, ptr %11, align 8, !tbaa !92
   %.not.i66 = icmp eq ptr %0, null
@@ -2416,14 +2416,14 @@ ws_enc_info.exit:                                 ; preds = %71, %72, %79, %ws_f
 
 102:                                              ; preds = %ws_enc_info.exit
   %.not65 = icmp eq i64 %100, %.055
-  br i1 %.not65, label %103, label %.sink.split92
+  br i1 %.not65, label %103, label %.sink.split94
 
-.sink.split92:                                    ; preds = %102, %9, %14, %ws_frame_flags2op.exit.thread
+.sink.split94:                                    ; preds = %102, %9, %14, %ws_frame_flags2op.exit.thread
   store i32 55, ptr %5, align 4, !tbaa !96
   br label %103
 
-103:                                              ; preds = %.sink.split92, %102, %ws_enc_info.exit
-  %.0 = phi i64 [ -1, %ws_enc_info.exit ], [ %.055, %102 ], [ -1, %.sink.split92 ]
+103:                                              ; preds = %.sink.split94, %102, %ws_enc_info.exit
+  %.0 = phi i64 [ -1, %ws_enc_info.exit ], [ %.055, %102 ], [ -1, %.sink.split94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

@@ -515,1099 +515,1108 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
   %7 = load ptr, ptr %0, align 8
   %8 = load i16, ptr %7, align 8
   %9 = trunc i32 %1 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  br label %11
+  %.mask = and i32 %1, 255
+  %10 = zext nneg i32 %.mask to i64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  br label %12
 
-11:                                               ; preds = %yyStackOverflow.exit, %4
-  %.037 = phi i16 [ %8, %4 ], [ %655, %yyStackOverflow.exit ]
-  %12 = icmp ugt i16 %.037, 165
-  br i1 %12, label %yy_find_shift_action.exit, label %.preheader.i
+12:                                               ; preds = %yyStackOverflow.exit, %4
+  %.037 = phi i16 [ %8, %4 ], [ %659, %yyStackOverflow.exit ]
+  %13 = icmp ugt i16 %.037, 165
+  br i1 %13, label %yy_find_shift_action.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %11
-  %13 = zext nneg i16 %.037 to i64
-  %14 = getelementptr i16, ptr @yy_shift_ofst, i64 %13
-  %15 = load i16, ptr %14, align 2
-  %16 = zext i16 %15 to i64
-  br label %17
+.preheader.i:                                     ; preds = %12
+  %14 = zext nneg i16 %.037 to i64
+  %15 = getelementptr i16, ptr @yy_shift_ofst, i64 %14
+  %16 = load i16, ptr %15, align 2
+  %17 = zext i16 %16 to i64
+  %18 = add nuw nsw i64 %17, %10
+  %19 = getelementptr i8, ptr @yy_lookahead, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %.not23.i = icmp eq i8 %20, %9
+  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
 
-17:                                               ; preds = %22, %.preheader.i
-  %.015.i = phi i8 [ %24, %22 ], [ %9, %.preheader.i ]
-  %18 = zext i8 %.015.i to i64
-  %19 = add nuw nsw i64 %18, %16
-  %20 = getelementptr i8, ptr @yy_lookahead, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %.not.i = icmp eq i8 %21, %.015.i
-  br i1 %.not.i, label %27, label %22
+.lr.ph.i:                                         ; preds = %.preheader.i, %25
+  %21 = phi i64 [ %28, %25 ], [ %10, %.preheader.i ]
+  %.01524.i = phi i8 [ %27, %25 ], [ %9, %.preheader.i ]
+  %22 = add i8 %.01524.i, -2
+  %.not17.i = icmp ult i8 %22, 23
+  br i1 %.not17.i, label %25, label %.thread.i
 
-22:                                               ; preds = %17
-  %23 = getelementptr i8, ptr @yyFallback, i64 %18
-  %24 = load i8, ptr %23, align 1
-  %.not17.not.i = icmp eq i8 %24, 0
-  br i1 %.not17.not.i, label %.thread.i, label %17
-
-.thread.i:                                        ; preds = %22
-  %25 = getelementptr i16, ptr @yy_default, i64 %13
-  %26 = load i16, ptr %25, align 2
+.thread.i:                                        ; preds = %.lr.ph.i
+  %23 = getelementptr i16, ptr @yy_default, i64 %14
+  %24 = load i16, ptr %23, align 2
   br label %yy_find_shift_action.exit
 
-27:                                               ; preds = %17
-  %28 = getelementptr i16, ptr @yy_action, i64 %19
-  %29 = load i16, ptr %28, align 2
+25:                                               ; preds = %.lr.ph.i
+  %26 = getelementptr i8, ptr @yyFallback, i64 %21
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i64
+  %29 = add nuw nsw i64 %28, %17
+  %30 = getelementptr i8, ptr @yy_lookahead, i64 %29
+  %31 = load i8, ptr %30, align 1
+  %.not.i = icmp eq i8 %31, %27
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+
+._crit_edge.i:                                    ; preds = %25, %.preheader.i
+  %.lcssa.i = phi i64 [ %18, %.preheader.i ], [ %29, %25 ]
+  %32 = getelementptr i16, ptr @yy_action, i64 %.lcssa.i
+  %33 = load i16, ptr %32, align 2
   br label %yy_find_shift_action.exit
 
-yy_find_shift_action.exit:                        ; preds = %11, %.thread.i, %27
-  %.0.i = phi i16 [ %29, %27 ], [ %.037, %11 ], [ %26, %.thread.i ]
-  %30 = icmp ugt i16 %.0.i, 531
-  br i1 %30, label %31, label %658
+yy_find_shift_action.exit:                        ; preds = %12, %.thread.i, %._crit_edge.i
+  %.0.i = phi i16 [ %33, %._crit_edge.i ], [ %.037, %12 ], [ %24, %.thread.i ]
+  %34 = icmp ugt i16 %.0.i, 531
+  br i1 %34, label %35, label %662
 
-31:                                               ; preds = %yy_find_shift_action.exit
-  %32 = zext i16 %.0.i to i64
-  %33 = add nuw nsw i64 %32, 4294966764
-  %34 = and i64 %33, 4294967295
-  %35 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
+35:                                               ; preds = %yy_find_shift_action.exit
+  %36 = zext i16 %.0.i to i64
+  %37 = add nuw nsw i64 %36, 4294966764
+  %38 = and i64 %37, 4294967295
+  %39 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %38
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp eq i8 %40, 0
   %.pre = load ptr, ptr %0, align 8
-  br i1 %37, label %38, label %45
+  br i1 %41, label %42, label %49
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %10, align 8
-  %.not = icmp ult ptr %.pre, %39
-  br i1 %.not, label %45, label %40
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %11, align 8
+  %.not = icmp ult ptr %.pre, %43
+  br i1 %.not, label %49, label %44
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = icmp ugt ptr %.pre, %41
-  br i1 %42, label %.lr.ph.preheader.i, label %yyStackOverflow.exit.thread
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = icmp ugt ptr %.pre, %45
+  br i1 %46, label %.lr.ph.preheader.i, label %yyStackOverflow.exit.thread
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %44
   %.promoted6.i = ptrtoint ptr %.pre to i64
-  %43 = ptrtoint ptr %0 to i64
-  %reass.sub.i = add i64 %43, 24
+  %47 = ptrtoint ptr %0 to i64
+  %reass.sub.i = add i64 %47, 24
   %.not.i40 = sub i64 %reass.sub.i, %.promoted6.i
-  %44 = and i64 %.not.i40, -16
-  %scevgep.i = getelementptr i8, ptr %.pre, i64 %44
+  %48 = and i64 %.not.i40, -16
+  %scevgep.i = getelementptr i8, ptr %.pre, i64 %48
   store ptr %scevgep.i, ptr %0, align 8
   br label %yyStackOverflow.exit.thread
 
-45:                                               ; preds = %38, %31
-  %46 = load ptr, ptr %5, align 8
+49:                                               ; preds = %42, %35
+  %50 = load ptr, ptr %5, align 8
   switch i16 %.0.i, label %yyStackOverflow.exit [
-    i16 532, label %47
-    i16 533, label %82
-    i16 534, label %98
-    i16 535, label %106
-    i16 546, label %106
-    i16 547, label %106
-    i16 548, label %106
-    i16 549, label %106
-    i16 551, label %106
-    i16 554, label %106
-    i16 562, label %106
-    i16 563, label %106
-    i16 587, label %106
-    i16 595, label %106
-    i16 596, label %106
-    i16 536, label %112
-    i16 537, label %117
-    i16 538, label %122
-    i16 539, label %127
-    i16 540, label %139
-    i16 541, label %149
-    i16 542, label %160
-    i16 543, label %171
-    i16 544, label %182
-    i16 545, label %192
-    i16 594, label %192
-    i16 550, label %200
-    i16 552, label %207
-    i16 553, label %217
-    i16 555, label %225
-    i16 556, label %236
-    i16 557, label %247
-    i16 577, label %247
-    i16 558, label %251
-    i16 578, label %251
-    i16 559, label %256
-    i16 560, label %262
-    i16 561, label %272
-    i16 564, label %280
-    i16 565, label %294
-    i16 566, label %308
-    i16 567, label %322
-    i16 568, label %336
-    i16 569, label %350
-    i16 589, label %350
-    i16 570, label %363
-    i16 588, label %363
-    i16 571, label %378
-    i16 572, label %393
-    i16 573, label %410
-    i16 574, label %410
-    i16 575, label %410
-    i16 576, label %414
-    i16 592, label %414
-    i16 597, label %414
-    i16 601, label %414
-    i16 579, label %418
-    i16 580, label %428
-    i16 581, label %434
-    i16 582, label %445
-    i16 583, label %458
-    i16 584, label %468
-    i16 585, label %478
-    i16 586, label %488
-    i16 590, label %496
-    i16 591, label %527
-    i16 593, label %556
-    i16 598, label %560
-    i16 599, label %565
-    i16 600, label %571
-    i16 602, label %577
-    i16 603, label %584
-    i16 604, label %592
-    i16 605, label %600
-    i16 606, label %609
-    i16 607, label %618
-    i16 608, label %629
+    i16 532, label %51
+    i16 533, label %86
+    i16 534, label %102
+    i16 535, label %110
+    i16 546, label %110
+    i16 547, label %110
+    i16 548, label %110
+    i16 549, label %110
+    i16 551, label %110
+    i16 554, label %110
+    i16 562, label %110
+    i16 563, label %110
+    i16 587, label %110
+    i16 595, label %110
+    i16 596, label %110
+    i16 536, label %116
+    i16 537, label %121
+    i16 538, label %126
+    i16 539, label %131
+    i16 540, label %143
+    i16 541, label %153
+    i16 542, label %164
+    i16 543, label %175
+    i16 544, label %186
+    i16 545, label %196
+    i16 594, label %196
+    i16 550, label %204
+    i16 552, label %211
+    i16 553, label %221
+    i16 555, label %229
+    i16 556, label %240
+    i16 557, label %251
+    i16 577, label %251
+    i16 558, label %255
+    i16 578, label %255
+    i16 559, label %260
+    i16 560, label %266
+    i16 561, label %276
+    i16 564, label %284
+    i16 565, label %298
+    i16 566, label %312
+    i16 567, label %326
+    i16 568, label %340
+    i16 569, label %354
+    i16 589, label %354
+    i16 570, label %367
+    i16 588, label %367
+    i16 571, label %382
+    i16 572, label %397
+    i16 573, label %414
+    i16 574, label %414
+    i16 575, label %414
+    i16 576, label %418
+    i16 592, label %418
+    i16 597, label %418
+    i16 601, label %418
+    i16 579, label %422
+    i16 580, label %432
+    i16 581, label %438
+    i16 582, label %449
+    i16 583, label %462
+    i16 584, label %472
+    i16 585, label %482
+    i16 586, label %492
+    i16 590, label %500
+    i16 591, label %531
+    i16 593, label %560
+    i16 598, label %564
+    i16 599, label %569
+    i16 600, label %575
+    i16 602, label %581
+    i16 603, label %588
+    i16 604, label %596
+    i16 605, label %604
+    i16 606, label %613
+    i16 607, label %622
+    i16 608, label %633
   ]
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @pbl_set_node_name(ptr noundef %49, i32 noundef %53, ptr noundef %55)
-  %57 = load ptr, ptr %48, align 8
-  %58 = getelementptr i8, ptr %57, i64 8
-  %.val.i = load ptr, ptr %58, align 8
-  %59 = load ptr, ptr %50, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %.val.i, ptr %60, align 8
-  %61 = load ptr, ptr %46, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %50, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr @g_hash_table_lookup(ptr noundef %63, ptr noundef %66)
-  %.not643.i = icmp eq ptr %67, null
-  br i1 %.not643.i, label %72, label %68
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %57 = load i32, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call ptr @pbl_set_node_name(ptr noundef %53, i32 noundef %57, ptr noundef %59)
+  %61 = load ptr, ptr %52, align 8
+  %62 = getelementptr i8, ptr %61, i64 8
+  %.val.i = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %54, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store ptr %.val.i, ptr %64, align 8
+  %65 = load ptr, ptr %50, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %54, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call ptr @g_hash_table_lookup(ptr noundef %67, ptr noundef %70)
+  %.not643.i = icmp eq ptr %71, null
+  br i1 %.not643.i, label %76, label %72
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %48, align 8
-  %70 = tail call ptr @pbl_merge_children(ptr noundef nonnull %67, ptr noundef %69)
-  %71 = load ptr, ptr %48, align 8
-  tail call void @pbl_free_node(ptr noundef %71)
+72:                                               ; preds = %51
+  %73 = load ptr, ptr %52, align 8
+  %74 = tail call ptr @pbl_merge_children(ptr noundef nonnull %71, ptr noundef %73)
+  %75 = load ptr, ptr %52, align 8
+  tail call void @pbl_free_node(ptr noundef %75)
   br label %yyStackOverflow.exit
 
-72:                                               ; preds = %47
-  %73 = load ptr, ptr %46, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %50, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noalias ptr @g_strdup(ptr noundef %78)
-  %80 = load ptr, ptr %48, align 8
-  %81 = tail call i32 @g_hash_table_insert(ptr noundef %75, ptr noundef %79, ptr noundef %80)
+76:                                               ; preds = %51
+  %77 = load ptr, ptr %50, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %54, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call noalias ptr @g_strdup(ptr noundef %82)
+  %84 = load ptr, ptr %52, align 8
+  %85 = tail call i32 @g_hash_table_insert(ptr noundef %79, ptr noundef %83, ptr noundef %84)
   br label %yyStackOverflow.exit
 
-82:                                               ; preds = %45
-  %83 = getelementptr i8, ptr %.pre, i64 -8
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 @strcmp(ptr noundef %84, ptr noundef nonnull dereferenceable(7) @.str.7) #13
-  %.not.i41 = icmp eq i32 %85, 0
-  br i1 %.not.i41, label %86, label %90
-
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %46, i64 8
+86:                                               ; preds = %49
+  %87 = getelementptr i8, ptr %.pre, i64 -8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store i32 3, ptr %89, align 8
+  %89 = tail call i32 @strcmp(ptr noundef %88, ptr noundef nonnull dereferenceable(7) @.str.7) #13
+  %.not.i41 = icmp eq i32 %89, 0
+  br i1 %.not.i41, label %90, label %94
+
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i32 3, ptr %93, align 8
   br label %yyStackOverflow.exit
 
-90:                                               ; preds = %82
-  %91 = tail call i32 @strcmp(ptr noundef %84, ptr noundef nonnull dereferenceable(7) @.str.8) #13
-  %.not642.i = icmp eq i32 %91, 0
-  br i1 %.not642.i, label %92, label %96
+94:                                               ; preds = %86
+  %95 = tail call i32 @strcmp(ptr noundef %88, ptr noundef nonnull dereferenceable(7) @.str.8) #13
+  %.not642.i = icmp eq i32 %95, 0
+  br i1 %.not642.i, label %96, label %100
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 2, ptr %95, align 8
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i32 2, ptr %99, align 8
   br label %yyStackOverflow.exit
 
-96:                                               ; preds = %90
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %46, ptr noundef nonnull @.str.9, ptr noundef %84)
-  %97 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  store i8 1, ptr %97, align 8
+100:                                              ; preds = %94
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %50, ptr noundef nonnull @.str.9, ptr noundef %88)
+  %101 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  store i8 1, ptr %101, align 8
   br label %yyStackOverflow.exit
 
-98:                                               ; preds = %45
-  %99 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %102)
-  %104 = tail call ptr @pbl_create_node(ptr noundef %100, i32 noundef %103, i32 noundef 1, ptr noundef nonnull @.str.10)
-  %105 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %104, ptr %105, align 8
+102:                                              ; preds = %49
+  %103 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %106)
+  %108 = tail call ptr @pbl_create_node(ptr noundef %104, i32 noundef %107, i32 noundef 1, ptr noundef nonnull @.str.10)
+  %109 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %108, ptr %109, align 8
   br label %yyStackOverflow.exit
 
-106:                                              ; preds = %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45
-  %107 = getelementptr i8, ptr %.pre, i64 -8
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr @pbl_add_child(ptr noundef %108, ptr noundef %110)
-  store ptr %108, ptr %107, align 8
+110:                                              ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
+  %111 = getelementptr i8, ptr %.pre, i64 -8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call ptr @pbl_add_child(ptr noundef %112, ptr noundef %114)
+  store ptr %112, ptr %111, align 8
   br label %yyStackOverflow.exit
 
-112:                                              ; preds = %45
-  %113 = load ptr, ptr %46, align 8
-  %114 = getelementptr i8, ptr %.pre, i64 -8
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %113, ptr noundef %115)
+116:                                              ; preds = %49
+  %117 = load ptr, ptr %50, align 8
+  %118 = getelementptr i8, ptr %.pre, i64 -8
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %117, ptr noundef %119)
   br label %yyStackOverflow.exit
 
-117:                                              ; preds = %45
-  %118 = load ptr, ptr %46, align 8
-  %119 = getelementptr i8, ptr %.pre, i64 -8
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %118, ptr noundef %120)
+121:                                              ; preds = %49
+  %122 = load ptr, ptr %50, align 8
+  %123 = getelementptr i8, ptr %.pre, i64 -8
+  %124 = load ptr, ptr %123, align 8
+  %125 = tail call zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %122, ptr noundef %124)
   br label %yyStackOverflow.exit
 
-122:                                              ; preds = %45
-  %123 = load ptr, ptr %46, align 8
-  %124 = getelementptr i8, ptr %.pre, i64 -8
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %123, ptr noundef %125)
-  br label %yyStackOverflow.exit
-
-127:                                              ; preds = %45
+126:                                              ; preds = %49
+  %127 = load ptr, ptr %50, align 8
   %128 = getelementptr i8, ptr %.pre, i64 -8
   %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store ptr %130, ptr %133, align 8
-  %134 = load ptr, ptr %128, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %136 = load i32, ptr %135, align 8
-  %137 = load ptr, ptr %131, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store i32 %136, ptr %138, align 8
+  %130 = tail call zeroext i1 @pbl_add_proto_file_to_be_parsed(ptr noundef %127, ptr noundef %129)
   br label %yyStackOverflow.exit
 
-139:                                              ; preds = %45
-  %140 = getelementptr i8, ptr %.pre, i64 -24
-  %141 = getelementptr i8, ptr %.pre, i64 -8
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %140, align 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.11, ptr noundef %143, ptr noundef nonnull @.str.12, ptr noundef null)
-  %145 = getelementptr inbounds nuw i8, ptr %46, i64 16
+131:                                              ; preds = %49
+  %132 = getelementptr i8, ptr %.pre, i64 -8
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  store ptr %134, ptr %137, align 8
+  %138 = load ptr, ptr %132, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load i32, ptr %139, align 8
+  %141 = load ptr, ptr %135, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  store i32 %140, ptr %142, align 8
+  br label %yyStackOverflow.exit
+
+143:                                              ; preds = %49
+  %144 = getelementptr i8, ptr %.pre, i64 -24
+  %145 = getelementptr i8, ptr %.pre, i64 -8
   %146 = load ptr, ptr %145, align 8
-  %147 = tail call ptr @g_slist_prepend(ptr noundef %146, ptr noundef %144)
-  store ptr %147, ptr %145, align 8
-  %148 = load ptr, ptr %140, align 8
-  store ptr %144, ptr %148, align 8
+  store ptr %146, ptr %144, align 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.11, ptr noundef %147, ptr noundef nonnull @.str.12, ptr noundef null)
+  %149 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %150 = load ptr, ptr %149, align 8
+  %151 = tail call ptr @g_slist_prepend(ptr noundef %150, ptr noundef %148)
+  store ptr %151, ptr %149, align 8
+  %152 = load ptr, ptr %144, align 8
+  store ptr %148, ptr %152, align 8
   br label %yyStackOverflow.exit
 
-149:                                              ; preds = %45
-  %150 = getelementptr i8, ptr %.pre, i64 -8
-  %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %154 = load ptr, ptr %153, align 8
+153:                                              ; preds = %49
+  %154 = getelementptr i8, ptr %.pre, i64 -8
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %152, ptr noundef %155, ptr noundef null)
-  %157 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr @g_slist_prepend(ptr noundef %158, ptr noundef %156)
-  store ptr %159, ptr %157, align 8
-  store ptr %156, ptr %151, align 8
-  store ptr %151, ptr %150, align 8
-  br label %yyStackOverflow.exit
-
-160:                                              ; preds = %45
-  %161 = getelementptr i8, ptr %.pre, i64 -24
+  %159 = load ptr, ptr %158, align 8
+  %160 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %156, ptr noundef %159, ptr noundef null)
+  %161 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %162 = load ptr, ptr %161, align 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %165 = load ptr, ptr %164, align 8
+  %163 = tail call ptr @g_slist_prepend(ptr noundef %162, ptr noundef %160)
+  store ptr %163, ptr %161, align 8
+  store ptr %160, ptr %155, align 8
+  store ptr %155, ptr %154, align 8
+  br label %yyStackOverflow.exit
+
+164:                                              ; preds = %49
+  %165 = getelementptr i8, ptr %.pre, i64 -24
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %163, ptr noundef nonnull @.str.13, ptr noundef %166, ptr noundef null)
-  %168 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %169 = load ptr, ptr %168, align 8
-  %170 = tail call ptr @g_slist_prepend(ptr noundef %169, ptr noundef %167)
-  store ptr %170, ptr %168, align 8
-  store ptr %167, ptr %162, align 8
-  store ptr %162, ptr %161, align 8
-  br label %yyStackOverflow.exit
-
-171:                                              ; preds = %45
-  %172 = getelementptr i8, ptr %.pre, i64 -8
+  %170 = load ptr, ptr %169, align 8
+  %171 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %167, ptr noundef nonnull @.str.13, ptr noundef %170, ptr noundef null)
+  %172 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %176 = load ptr, ptr %175, align 8
+  %174 = tail call ptr @g_slist_prepend(ptr noundef %173, ptr noundef %171)
+  store ptr %174, ptr %172, align 8
+  store ptr %171, ptr %166, align 8
+  store ptr %166, ptr %165, align 8
+  br label %yyStackOverflow.exit
+
+175:                                              ; preds = %49
+  %176 = getelementptr i8, ptr %.pre, i64 -8
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %174, ptr noundef nonnull @.str.13, ptr noundef %177, ptr noundef null)
-  %179 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %180 = load ptr, ptr %179, align 8
-  %181 = tail call ptr @g_slist_prepend(ptr noundef %180, ptr noundef %178)
-  store ptr %181, ptr %179, align 8
-  store ptr %178, ptr %173, align 8
-  store ptr %173, ptr %172, align 8
-  br label %yyStackOverflow.exit
-
-182:                                              ; preds = %45
-  %183 = getelementptr i8, ptr %.pre, i64 -56
-  %184 = getelementptr i8, ptr %.pre, i64 -8
-  %185 = load ptr, ptr %184, align 8
+  %181 = load ptr, ptr %180, align 8
+  %182 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %178, ptr noundef nonnull @.str.13, ptr noundef %181, ptr noundef null)
+  %183 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %185 = tail call ptr @g_slist_prepend(ptr noundef %184, ptr noundef %182)
   store ptr %185, ptr %183, align 8
-  %186 = getelementptr i8, ptr %.pre, i64 -40
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = load i32, ptr %188, align 8
-  %190 = load ptr, ptr %187, align 8
-  %191 = tail call ptr @pbl_set_node_name(ptr noundef %185, i32 noundef %189, ptr noundef %190)
+  store ptr %182, ptr %177, align 8
+  store ptr %177, ptr %176, align 8
   br label %yyStackOverflow.exit
 
-192:                                              ; preds = %45, %45
-  %193 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %196 = load ptr, ptr %195, align 8
-  %197 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %196)
-  %198 = tail call ptr @pbl_create_node(ptr noundef %194, i32 noundef %197, i32 noundef 2, ptr noundef nonnull @.str.10)
-  %199 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %198, ptr %199, align 8
+186:                                              ; preds = %49
+  %187 = getelementptr i8, ptr %.pre, i64 -56
+  %188 = getelementptr i8, ptr %.pre, i64 -8
+  %189 = load ptr, ptr %188, align 8
+  store ptr %189, ptr %187, align 8
+  %190 = getelementptr i8, ptr %.pre, i64 -40
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %193 = load i32, ptr %192, align 8
+  %194 = load ptr, ptr %191, align 8
+  %195 = tail call ptr @pbl_set_node_name(ptr noundef %189, i32 noundef %193, ptr noundef %194)
   br label %yyStackOverflow.exit
 
-200:                                              ; preds = %45
-  %201 = getelementptr i8, ptr %.pre, i64 -8
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = tail call ptr @pbl_merge_children(ptr noundef %202, ptr noundef %204)
-  %206 = load ptr, ptr %203, align 8
-  tail call void @pbl_free_node(ptr noundef %206)
-  store ptr %202, ptr %201, align 8
+196:                                              ; preds = %49, %49
+  %197 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %200 = load ptr, ptr %199, align 8
+  %201 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %200)
+  %202 = tail call ptr @pbl_create_node(ptr noundef %198, i32 noundef %201, i32 noundef 2, ptr noundef nonnull @.str.10)
+  %203 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %202, ptr %203, align 8
   br label %yyStackOverflow.exit
 
-207:                                              ; preds = %45
-  %208 = getelementptr i8, ptr %.pre, i64 -56
-  %209 = getelementptr i8, ptr %.pre, i64 -8
-  %210 = load ptr, ptr %209, align 8
-  store ptr %210, ptr %208, align 8
-  %211 = getelementptr i8, ptr %.pre, i64 -40
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %214 = load i32, ptr %213, align 8
-  %215 = load ptr, ptr %212, align 8
-  %216 = tail call ptr @pbl_set_node_name(ptr noundef %210, i32 noundef %214, ptr noundef %215)
+204:                                              ; preds = %49
+  %205 = getelementptr i8, ptr %.pre, i64 -8
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = tail call ptr @pbl_merge_children(ptr noundef %206, ptr noundef %208)
+  %210 = load ptr, ptr %207, align 8
+  tail call void @pbl_free_node(ptr noundef %210)
+  store ptr %206, ptr %205, align 8
   br label %yyStackOverflow.exit
 
-217:                                              ; preds = %45
-  %218 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %221 = load ptr, ptr %220, align 8
-  %222 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %221)
-  %223 = tail call ptr @pbl_create_node(ptr noundef %219, i32 noundef %222, i32 noundef 6, ptr noundef nonnull @.str.10)
-  %224 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %223, ptr %224, align 8
+211:                                              ; preds = %49
+  %212 = getelementptr i8, ptr %.pre, i64 -56
+  %213 = getelementptr i8, ptr %.pre, i64 -8
+  %214 = load ptr, ptr %213, align 8
+  store ptr %214, ptr %212, align 8
+  %215 = getelementptr i8, ptr %.pre, i64 -40
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %218 = load i32, ptr %217, align 8
+  %219 = load ptr, ptr %216, align 8
+  %220 = tail call ptr @pbl_set_node_name(ptr noundef %214, i32 noundef %218, ptr noundef %219)
   br label %yyStackOverflow.exit
 
-225:                                              ; preds = %45
-  %226 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr i8, ptr %.pre, i64 -88
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  %231 = load i32, ptr %230, align 8
-  %232 = load ptr, ptr %229, align 8
-  %233 = getelementptr i8, ptr %.pre, i64 -56
-  %234 = load i32, ptr %233, align 8
-  %235 = tail call ptr @pbl_create_enum_value_node(ptr noundef %227, i32 noundef %231, ptr noundef %232, i32 noundef %234)
-  store ptr %235, ptr %228, align 8
+221:                                              ; preds = %49
+  %222 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %225 = load ptr, ptr %224, align 8
+  %226 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %225)
+  %227 = tail call ptr @pbl_create_node(ptr noundef %223, i32 noundef %226, i32 noundef 6, ptr noundef nonnull @.str.10)
+  %228 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %227, ptr %228, align 8
   br label %yyStackOverflow.exit
 
-236:                                              ; preds = %45
-  %237 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr i8, ptr %.pre, i64 -24
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %242 = load i32, ptr %241, align 8
-  %243 = load ptr, ptr %240, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %245 = load i32, ptr %244, align 8
-  %246 = tail call ptr @pbl_create_enum_value_node(ptr noundef %238, i32 noundef %242, ptr noundef %243, i32 noundef %245)
-  store ptr %246, ptr %239, align 8
+229:                                              ; preds = %49
+  %230 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr i8, ptr %.pre, i64 -88
+  %233 = load ptr, ptr %232, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %235 = load i32, ptr %234, align 8
+  %236 = load ptr, ptr %233, align 8
+  %237 = getelementptr i8, ptr %.pre, i64 -56
+  %238 = load i32, ptr %237, align 8
+  %239 = tail call ptr @pbl_create_enum_value_node(ptr noundef %231, i32 noundef %235, ptr noundef %236, i32 noundef %238)
+  store ptr %239, ptr %232, align 8
   br label %yyStackOverflow.exit
 
-247:                                              ; preds = %45, %45
+240:                                              ; preds = %49
+  %241 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr i8, ptr %.pre, i64 -24
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = load i32, ptr %245, align 8
+  %247 = load ptr, ptr %244, align 8
   %248 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %249 = load i64, ptr %248, align 8
-  %250 = trunc i64 %249 to i32
-  store i32 %250, ptr %248, align 8
+  %249 = load i32, ptr %248, align 8
+  %250 = tail call ptr @pbl_create_enum_value_node(ptr noundef %242, i32 noundef %246, ptr noundef %247, i32 noundef %249)
+  store ptr %250, ptr %243, align 8
   br label %yyStackOverflow.exit
 
-251:                                              ; preds = %45, %45
-  %252 = getelementptr i8, ptr %.pre, i64 -8
-  %253 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %254 = load i64, ptr %253, align 8
-  %255 = trunc i64 %254 to i32
-  store i32 %255, ptr %252, align 8
+251:                                              ; preds = %49, %49
+  %252 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %253 = load i64, ptr %252, align 8
+  %254 = trunc i64 %253 to i32
+  store i32 %254, ptr %252, align 8
   br label %yyStackOverflow.exit
 
-256:                                              ; preds = %45
-  %257 = getelementptr i8, ptr %.pre, i64 -8
-  %258 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %259 = load i64, ptr %258, align 8
-  %260 = trunc i64 %259 to i32
-  %261 = sub i32 0, %260
-  store i32 %261, ptr %257, align 8
+255:                                              ; preds = %49, %49
+  %256 = getelementptr i8, ptr %.pre, i64 -8
+  %257 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %258 = load i64, ptr %257, align 8
+  %259 = trunc i64 %258 to i32
+  store i32 %259, ptr %256, align 8
   br label %yyStackOverflow.exit
 
-262:                                              ; preds = %45
-  %263 = getelementptr i8, ptr %.pre, i64 -56
-  %264 = getelementptr i8, ptr %.pre, i64 -8
-  %265 = load ptr, ptr %264, align 8
-  store ptr %265, ptr %263, align 8
-  %266 = getelementptr i8, ptr %.pre, i64 -40
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  %269 = load i32, ptr %268, align 8
-  %270 = load ptr, ptr %267, align 8
-  %271 = tail call ptr @pbl_set_node_name(ptr noundef %265, i32 noundef %269, ptr noundef %270)
+260:                                              ; preds = %49
+  %261 = getelementptr i8, ptr %.pre, i64 -8
+  %262 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %263 = load i64, ptr %262, align 8
+  %264 = trunc i64 %263 to i32
+  %265 = sub i32 0, %264
+  store i32 %265, ptr %261, align 8
   br label %yyStackOverflow.exit
 
-272:                                              ; preds = %45
-  %273 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %276 = load ptr, ptr %275, align 8
-  %277 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %276)
-  %278 = tail call ptr @pbl_create_node(ptr noundef %274, i32 noundef %277, i32 noundef 8, ptr noundef nonnull @.str.10)
-  %279 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %278, ptr %279, align 8
+266:                                              ; preds = %49
+  %267 = getelementptr i8, ptr %.pre, i64 -56
+  %268 = getelementptr i8, ptr %.pre, i64 -8
+  %269 = load ptr, ptr %268, align 8
+  store ptr %269, ptr %267, align 8
+  %270 = getelementptr i8, ptr %.pre, i64 -40
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  %273 = load i32, ptr %272, align 8
+  %274 = load ptr, ptr %271, align 8
+  %275 = tail call ptr @pbl_set_node_name(ptr noundef %269, i32 noundef %273, ptr noundef %274)
   br label %yyStackOverflow.exit
 
-280:                                              ; preds = %45
-  %281 = getelementptr i8, ptr %.pre, i64 -120
-  %282 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr i8, ptr %.pre, i64 -104
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  %287 = load i32, ptr %286, align 8
-  %288 = load ptr, ptr %285, align 8
-  %289 = getelementptr i8, ptr %.pre, i64 -72
-  %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr i8, ptr %.pre, i64 -8
-  %292 = load ptr, ptr %291, align 8
-  %293 = tail call ptr @pbl_create_method_node(ptr noundef %283, i32 noundef %287, ptr noundef %288, ptr noundef %290, i1 noundef zeroext false, ptr noundef %292, i1 noundef zeroext false)
-  store ptr %293, ptr %281, align 8
+276:                                              ; preds = %49
+  %277 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %280 = load ptr, ptr %279, align 8
+  %281 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %280)
+  %282 = tail call ptr @pbl_create_node(ptr noundef %278, i32 noundef %281, i32 noundef 8, ptr noundef nonnull @.str.10)
+  %283 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %282, ptr %283, align 8
   br label %yyStackOverflow.exit
 
-294:                                              ; preds = %45
-  %295 = getelementptr i8, ptr %.pre, i64 -136
-  %296 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr i8, ptr %.pre, i64 -120
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %301 = load i32, ptr %300, align 8
-  %302 = load ptr, ptr %299, align 8
-  %303 = getelementptr i8, ptr %.pre, i64 -72
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr i8, ptr %.pre, i64 -8
-  %306 = load ptr, ptr %305, align 8
-  %307 = tail call ptr @pbl_create_method_node(ptr noundef %297, i32 noundef %301, ptr noundef %302, ptr noundef %304, i1 noundef zeroext true, ptr noundef %306, i1 noundef zeroext false)
-  store ptr %307, ptr %295, align 8
+284:                                              ; preds = %49
+  %285 = getelementptr i8, ptr %.pre, i64 -120
+  %286 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %287 = load ptr, ptr %286, align 8
+  %288 = getelementptr i8, ptr %.pre, i64 -104
+  %289 = load ptr, ptr %288, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
+  %291 = load i32, ptr %290, align 8
+  %292 = load ptr, ptr %289, align 8
+  %293 = getelementptr i8, ptr %.pre, i64 -72
+  %294 = load ptr, ptr %293, align 8
+  %295 = getelementptr i8, ptr %.pre, i64 -8
+  %296 = load ptr, ptr %295, align 8
+  %297 = tail call ptr @pbl_create_method_node(ptr noundef %287, i32 noundef %291, ptr noundef %292, ptr noundef %294, i1 noundef zeroext false, ptr noundef %296, i1 noundef zeroext false)
+  store ptr %297, ptr %285, align 8
   br label %yyStackOverflow.exit
 
-308:                                              ; preds = %45
-  %309 = getelementptr i8, ptr %.pre, i64 -136
-  %310 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr i8, ptr %.pre, i64 -120
-  %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  %315 = load i32, ptr %314, align 8
-  %316 = load ptr, ptr %313, align 8
-  %317 = getelementptr i8, ptr %.pre, i64 -88
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr i8, ptr %.pre, i64 -8
-  %320 = load ptr, ptr %319, align 8
-  %321 = tail call ptr @pbl_create_method_node(ptr noundef %311, i32 noundef %315, ptr noundef %316, ptr noundef %318, i1 noundef zeroext false, ptr noundef %320, i1 noundef zeroext true)
-  store ptr %321, ptr %309, align 8
+298:                                              ; preds = %49
+  %299 = getelementptr i8, ptr %.pre, i64 -136
+  %300 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr i8, ptr %.pre, i64 -120
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  %305 = load i32, ptr %304, align 8
+  %306 = load ptr, ptr %303, align 8
+  %307 = getelementptr i8, ptr %.pre, i64 -72
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr i8, ptr %.pre, i64 -8
+  %310 = load ptr, ptr %309, align 8
+  %311 = tail call ptr @pbl_create_method_node(ptr noundef %301, i32 noundef %305, ptr noundef %306, ptr noundef %308, i1 noundef zeroext true, ptr noundef %310, i1 noundef zeroext false)
+  store ptr %311, ptr %299, align 8
   br label %yyStackOverflow.exit
 
-322:                                              ; preds = %45
-  %323 = getelementptr i8, ptr %.pre, i64 -152
-  %324 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr i8, ptr %.pre, i64 -136
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  %329 = load i32, ptr %328, align 8
-  %330 = load ptr, ptr %327, align 8
-  %331 = getelementptr i8, ptr %.pre, i64 -88
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr i8, ptr %.pre, i64 -8
-  %334 = load ptr, ptr %333, align 8
-  %335 = tail call ptr @pbl_create_method_node(ptr noundef %325, i32 noundef %329, ptr noundef %330, ptr noundef %332, i1 noundef zeroext true, ptr noundef %334, i1 noundef zeroext true)
-  store ptr %335, ptr %323, align 8
+312:                                              ; preds = %49
+  %313 = getelementptr i8, ptr %.pre, i64 -136
+  %314 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr i8, ptr %.pre, i64 -120
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
+  %319 = load i32, ptr %318, align 8
+  %320 = load ptr, ptr %317, align 8
+  %321 = getelementptr i8, ptr %.pre, i64 -88
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr i8, ptr %.pre, i64 -8
+  %324 = load ptr, ptr %323, align 8
+  %325 = tail call ptr @pbl_create_method_node(ptr noundef %315, i32 noundef %319, ptr noundef %320, ptr noundef %322, i1 noundef zeroext false, ptr noundef %324, i1 noundef zeroext true)
+  store ptr %325, ptr %313, align 8
   br label %yyStackOverflow.exit
 
-336:                                              ; preds = %45
-  %337 = getelementptr i8, ptr %.pre, i64 -88
-  %338 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr i8, ptr %.pre, i64 -72
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  %343 = load i32, ptr %342, align 8
-  %344 = load ptr, ptr %341, align 8
-  %345 = getelementptr i8, ptr %.pre, i64 -40
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr i8, ptr %.pre, i64 -8
-  %348 = load ptr, ptr %347, align 8
-  %349 = tail call ptr @pbl_create_method_node(ptr noundef %339, i32 noundef %343, ptr noundef %344, ptr noundef %346, i1 noundef zeroext true, ptr noundef %348, i1 noundef zeroext true)
-  store ptr %349, ptr %337, align 8
+326:                                              ; preds = %49
+  %327 = getelementptr i8, ptr %.pre, i64 -152
+  %328 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %329 = load ptr, ptr %328, align 8
+  %330 = getelementptr i8, ptr %.pre, i64 -136
+  %331 = load ptr, ptr %330, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
+  %333 = load i32, ptr %332, align 8
+  %334 = load ptr, ptr %331, align 8
+  %335 = getelementptr i8, ptr %.pre, i64 -88
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr i8, ptr %.pre, i64 -8
+  %338 = load ptr, ptr %337, align 8
+  %339 = tail call ptr @pbl_create_method_node(ptr noundef %329, i32 noundef %333, ptr noundef %334, ptr noundef %336, i1 noundef zeroext true, ptr noundef %338, i1 noundef zeroext true)
+  store ptr %339, ptr %327, align 8
   br label %yyStackOverflow.exit
 
-350:                                              ; preds = %45, %45
-  %351 = getelementptr inbounds nuw i8, ptr %46, i64 8
+340:                                              ; preds = %49
+  %341 = getelementptr i8, ptr %.pre, i64 -88
+  %342 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %343 = load ptr, ptr %342, align 8
+  %344 = getelementptr i8, ptr %.pre, i64 -72
+  %345 = load ptr, ptr %344, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
+  %347 = load i32, ptr %346, align 8
+  %348 = load ptr, ptr %345, align 8
+  %349 = getelementptr i8, ptr %.pre, i64 -40
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr i8, ptr %.pre, i64 -8
   %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr i8, ptr %.pre, i64 -40
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  %356 = load i32, ptr %355, align 8
-  %357 = getelementptr i8, ptr %.pre, i64 -56
+  %353 = tail call ptr @pbl_create_method_node(ptr noundef %343, i32 noundef %347, ptr noundef %348, ptr noundef %350, i1 noundef zeroext true, ptr noundef %352, i1 noundef zeroext true)
+  store ptr %353, ptr %341, align 8
+  br label %yyStackOverflow.exit
+
+354:                                              ; preds = %49, %49
+  %355 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr i8, ptr %.pre, i64 -40
   %358 = load ptr, ptr %357, align 8
-  %359 = load ptr, ptr %354, align 8
-  %360 = getelementptr i8, ptr %.pre, i64 -8
-  %361 = load i32, ptr %360, align 8
-  %362 = tail call ptr @pbl_create_field_node(ptr noundef %352, i32 noundef %356, ptr noundef null, ptr noundef %358, ptr noundef %359, i32 noundef %361, ptr noundef null)
-  store ptr %362, ptr %357, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
+  %360 = load i32, ptr %359, align 8
+  %361 = getelementptr i8, ptr %.pre, i64 -56
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr %358, align 8
+  %364 = getelementptr i8, ptr %.pre, i64 -8
+  %365 = load i32, ptr %364, align 8
+  %366 = tail call ptr @pbl_create_field_node(ptr noundef %356, i32 noundef %360, ptr noundef null, ptr noundef %362, ptr noundef %363, i32 noundef %365, ptr noundef null)
+  store ptr %366, ptr %361, align 8
   br label %yyStackOverflow.exit
 
-363:                                              ; preds = %45, %45
-  %364 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr i8, ptr %.pre, i64 -88
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  %369 = load i32, ptr %368, align 8
-  %370 = getelementptr i8, ptr %.pre, i64 -104
+367:                                              ; preds = %49, %49
+  %368 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr i8, ptr %.pre, i64 -88
   %371 = load ptr, ptr %370, align 8
-  %372 = load ptr, ptr %367, align 8
-  %373 = getelementptr i8, ptr %.pre, i64 -56
-  %374 = load i32, ptr %373, align 8
-  %375 = getelementptr i8, ptr %.pre, i64 -24
-  %376 = load ptr, ptr %375, align 8
-  %377 = tail call ptr @pbl_create_field_node(ptr noundef %365, i32 noundef %369, ptr noundef null, ptr noundef %371, ptr noundef %372, i32 noundef %374, ptr noundef %376)
-  store ptr %377, ptr %370, align 8
-  br label %yyStackOverflow.exit
-
-378:                                              ; preds = %45
-  %379 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %373 = load i32, ptr %372, align 8
+  %374 = getelementptr i8, ptr %.pre, i64 -104
+  %375 = load ptr, ptr %374, align 8
+  %376 = load ptr, ptr %371, align 8
+  %377 = getelementptr i8, ptr %.pre, i64 -56
+  %378 = load i32, ptr %377, align 8
+  %379 = getelementptr i8, ptr %.pre, i64 -24
   %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr i8, ptr %.pre, i64 -40
-  %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
-  %384 = load i32, ptr %383, align 8
-  %385 = getelementptr i8, ptr %.pre, i64 -72
+  %381 = tail call ptr @pbl_create_field_node(ptr noundef %369, i32 noundef %373, ptr noundef null, ptr noundef %375, ptr noundef %376, i32 noundef %378, ptr noundef %380)
+  store ptr %381, ptr %374, align 8
+  br label %yyStackOverflow.exit
+
+382:                                              ; preds = %49
+  %383 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %384 = load ptr, ptr %383, align 8
+  %385 = getelementptr i8, ptr %.pre, i64 -40
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr i8, ptr %.pre, i64 -56
-  %388 = load ptr, ptr %387, align 8
-  %389 = load ptr, ptr %382, align 8
-  %390 = getelementptr i8, ptr %.pre, i64 -8
-  %391 = load i32, ptr %390, align 8
-  %392 = tail call ptr @pbl_create_field_node(ptr noundef %380, i32 noundef %384, ptr noundef %386, ptr noundef %388, ptr noundef %389, i32 noundef %391, ptr noundef null)
-  store ptr %392, ptr %385, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  %388 = load i32, ptr %387, align 8
+  %389 = getelementptr i8, ptr %.pre, i64 -72
+  %390 = load ptr, ptr %389, align 8
+  %391 = getelementptr i8, ptr %.pre, i64 -56
+  %392 = load ptr, ptr %391, align 8
+  %393 = load ptr, ptr %386, align 8
+  %394 = getelementptr i8, ptr %.pre, i64 -8
+  %395 = load i32, ptr %394, align 8
+  %396 = tail call ptr @pbl_create_field_node(ptr noundef %384, i32 noundef %388, ptr noundef %390, ptr noundef %392, ptr noundef %393, i32 noundef %395, ptr noundef null)
+  store ptr %396, ptr %389, align 8
   br label %yyStackOverflow.exit
 
-393:                                              ; preds = %45
-  %394 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr i8, ptr %.pre, i64 -88
-  %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  %399 = load i32, ptr %398, align 8
-  %400 = getelementptr i8, ptr %.pre, i64 -120
+397:                                              ; preds = %49
+  %398 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr i8, ptr %.pre, i64 -88
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr i8, ptr %.pre, i64 -104
-  %403 = load ptr, ptr %402, align 8
-  %404 = load ptr, ptr %397, align 8
-  %405 = getelementptr i8, ptr %.pre, i64 -56
-  %406 = load i32, ptr %405, align 8
-  %407 = getelementptr i8, ptr %.pre, i64 -24
-  %408 = load ptr, ptr %407, align 8
-  %409 = tail call ptr @pbl_create_field_node(ptr noundef %395, i32 noundef %399, ptr noundef %401, ptr noundef %403, ptr noundef %404, i32 noundef %406, ptr noundef %408)
-  store ptr %409, ptr %400, align 8
-  br label %yyStackOverflow.exit
-
-410:                                              ; preds = %45, %45, %45
-  %411 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
+  %403 = load i32, ptr %402, align 8
+  %404 = getelementptr i8, ptr %.pre, i64 -120
+  %405 = load ptr, ptr %404, align 8
+  %406 = getelementptr i8, ptr %.pre, i64 -104
+  %407 = load ptr, ptr %406, align 8
+  %408 = load ptr, ptr %401, align 8
+  %409 = getelementptr i8, ptr %.pre, i64 -56
+  %410 = load i32, ptr %409, align 8
+  %411 = getelementptr i8, ptr %.pre, i64 -24
   %412 = load ptr, ptr %411, align 8
-  %413 = load ptr, ptr %412, align 8
-  store ptr %413, ptr %411, align 8
+  %413 = tail call ptr @pbl_create_field_node(ptr noundef %399, i32 noundef %403, ptr noundef %405, ptr noundef %407, ptr noundef %408, i32 noundef %410, ptr noundef %412)
+  store ptr %413, ptr %404, align 8
   br label %yyStackOverflow.exit
 
-414:                                              ; preds = %45, %45, %45, %45
+414:                                              ; preds = %49, %49, %49
   %415 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %416 = load ptr, ptr %415, align 8
   %417 = load ptr, ptr %416, align 8
   store ptr %417, ptr %415, align 8
   br label %yyStackOverflow.exit
 
-418:                                              ; preds = %45
-  %419 = getelementptr inbounds nuw i8, ptr %46, i64 8
+418:                                              ; preds = %49, %49, %49, %49
+  %419 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %422 = load ptr, ptr %421, align 8
-  %423 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %422)
-  %424 = tail call ptr @pbl_create_node(ptr noundef %420, i32 noundef %423, i32 noundef 10, ptr noundef nonnull @.str.14)
-  %425 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %421 = load ptr, ptr %420, align 8
+  store ptr %421, ptr %419, align 8
+  br label %yyStackOverflow.exit
+
+422:                                              ; preds = %49
+  %423 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %424 = load ptr, ptr %423, align 8
+  %425 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %426 = load ptr, ptr %425, align 8
-  %427 = tail call ptr @pbl_add_child(ptr noundef %424, ptr noundef %426)
-  store ptr %424, ptr %425, align 8
-  br label %yyStackOverflow.exit
-
-428:                                              ; preds = %45
-  %429 = getelementptr i8, ptr %.pre, i64 -24
+  %427 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %426)
+  %428 = tail call ptr @pbl_create_node(ptr noundef %424, i32 noundef %427, i32 noundef 10, ptr noundef nonnull @.str.14)
+  %429 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %432 = load ptr, ptr %431, align 8
-  %433 = tail call ptr @pbl_add_child(ptr noundef %430, ptr noundef %432)
-  store ptr %430, ptr %429, align 8
+  %431 = tail call ptr @pbl_add_child(ptr noundef %428, ptr noundef %430)
+  store ptr %428, ptr %429, align 8
   br label %yyStackOverflow.exit
 
-434:                                              ; preds = %45
-  %435 = getelementptr inbounds nuw i8, ptr %46, i64 8
+432:                                              ; preds = %49
+  %433 = getelementptr i8, ptr %.pre, i64 -24
+  %434 = load ptr, ptr %433, align 8
+  %435 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr i8, ptr %.pre, i64 -24
-  %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  %440 = load i32, ptr %439, align 8
-  %441 = load ptr, ptr %438, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %443 = load ptr, ptr %442, align 8
-  %444 = tail call ptr @pbl_create_option_node(ptr noundef %436, i32 noundef %440, ptr noundef %441, ptr noundef %443)
-  store ptr %444, ptr %437, align 8
+  %437 = tail call ptr @pbl_add_child(ptr noundef %434, ptr noundef %436)
+  store ptr %434, ptr %433, align 8
   br label %yyStackOverflow.exit
 
-445:                                              ; preds = %45
-  %446 = getelementptr inbounds nuw i8, ptr %46, i64 8
+438:                                              ; preds = %49
+  %439 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %440 = load ptr, ptr %439, align 8
+  %441 = getelementptr i8, ptr %.pre, i64 -24
+  %442 = load ptr, ptr %441, align 8
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
+  %444 = load i32, ptr %443, align 8
+  %445 = load ptr, ptr %442, align 8
+  %446 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr i8, ptr %.pre, i64 -24
-  %449 = load ptr, ptr %448, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
-  %451 = load i32, ptr %450, align 8
-  %452 = load ptr, ptr %449, align 8
-  %453 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.15)
-  %454 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %455 = load ptr, ptr %454, align 8
-  %456 = tail call ptr @g_slist_prepend(ptr noundef %455, ptr noundef %453)
-  store ptr %456, ptr %454, align 8
-  %457 = tail call ptr @pbl_create_option_node(ptr noundef %447, i32 noundef %451, ptr noundef %452, ptr noundef %453)
-  store ptr %457, ptr %448, align 8
+  %448 = tail call ptr @pbl_create_option_node(ptr noundef %440, i32 noundef %444, ptr noundef %445, ptr noundef %447)
+  store ptr %448, ptr %441, align 8
   br label %yyStackOverflow.exit
 
-458:                                              ; preds = %45
-  %459 = getelementptr i8, ptr %.pre, i64 -88
-  %460 = getelementptr i8, ptr %.pre, i64 -8
-  %461 = load ptr, ptr %460, align 8
-  store ptr %461, ptr %459, align 8
-  %462 = getelementptr i8, ptr %.pre, i64 -72
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
-  %465 = load i32, ptr %464, align 8
-  %466 = load ptr, ptr %463, align 8
-  %467 = tail call ptr @pbl_set_node_name(ptr noundef %461, i32 noundef %465, ptr noundef %466)
+449:                                              ; preds = %49
+  %450 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr i8, ptr %.pre, i64 -24
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  %455 = load i32, ptr %454, align 8
+  %456 = load ptr, ptr %453, align 8
+  %457 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.15)
+  %458 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %459 = load ptr, ptr %458, align 8
+  %460 = tail call ptr @g_slist_prepend(ptr noundef %459, ptr noundef %457)
+  store ptr %460, ptr %458, align 8
+  %461 = tail call ptr @pbl_create_option_node(ptr noundef %451, i32 noundef %455, ptr noundef %456, ptr noundef %457)
+  store ptr %461, ptr %452, align 8
   br label %yyStackOverflow.exit
 
-468:                                              ; preds = %45
-  %469 = getelementptr i8, ptr %.pre, i64 -8
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr i8, ptr %.pre, i64 -104
-  store ptr %470, ptr %471, align 8
-  %472 = getelementptr i8, ptr %.pre, i64 -72
-  %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
-  %475 = load i32, ptr %474, align 8
-  %476 = load ptr, ptr %473, align 8
-  %477 = tail call ptr @pbl_set_node_name(ptr noundef %470, i32 noundef %475, ptr noundef %476)
+462:                                              ; preds = %49
+  %463 = getelementptr i8, ptr %.pre, i64 -88
+  %464 = getelementptr i8, ptr %.pre, i64 -8
+  %465 = load ptr, ptr %464, align 8
+  store ptr %465, ptr %463, align 8
+  %466 = getelementptr i8, ptr %.pre, i64 -72
+  %467 = load ptr, ptr %466, align 8
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
+  %469 = load i32, ptr %468, align 8
+  %470 = load ptr, ptr %467, align 8
+  %471 = tail call ptr @pbl_set_node_name(ptr noundef %465, i32 noundef %469, ptr noundef %470)
   br label %yyStackOverflow.exit
 
-478:                                              ; preds = %45
-  %479 = getelementptr i8, ptr %.pre, i64 -56
-  %480 = getelementptr i8, ptr %.pre, i64 -8
-  %481 = load ptr, ptr %480, align 8
-  store ptr %481, ptr %479, align 8
-  %482 = getelementptr i8, ptr %.pre, i64 -40
-  %483 = load ptr, ptr %482, align 8
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
-  %485 = load i32, ptr %484, align 8
-  %486 = load ptr, ptr %483, align 8
-  %487 = tail call ptr @pbl_set_node_name(ptr noundef %481, i32 noundef %485, ptr noundef %486)
+472:                                              ; preds = %49
+  %473 = getelementptr i8, ptr %.pre, i64 -8
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr i8, ptr %.pre, i64 -104
+  store ptr %474, ptr %475, align 8
+  %476 = getelementptr i8, ptr %.pre, i64 -72
+  %477 = load ptr, ptr %476, align 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
+  %479 = load i32, ptr %478, align 8
+  %480 = load ptr, ptr %477, align 8
+  %481 = tail call ptr @pbl_set_node_name(ptr noundef %474, i32 noundef %479, ptr noundef %480)
   br label %yyStackOverflow.exit
 
-488:                                              ; preds = %45
-  %489 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %492 = load ptr, ptr %491, align 8
-  %493 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %492)
-  %494 = tail call ptr @pbl_create_node(ptr noundef %490, i32 noundef %493, i32 noundef 4, ptr noundef nonnull @.str.10)
-  %495 = getelementptr i8, ptr %.pre, i64 24
-  store ptr %494, ptr %495, align 8
+482:                                              ; preds = %49
+  %483 = getelementptr i8, ptr %.pre, i64 -56
+  %484 = getelementptr i8, ptr %.pre, i64 -8
+  %485 = load ptr, ptr %484, align 8
+  store ptr %485, ptr %483, align 8
+  %486 = getelementptr i8, ptr %.pre, i64 -40
+  %487 = load ptr, ptr %486, align 8
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
+  %489 = load i32, ptr %488, align 8
+  %490 = load ptr, ptr %487, align 8
+  %491 = tail call ptr @pbl_set_node_name(ptr noundef %485, i32 noundef %489, ptr noundef %490)
   br label %yyStackOverflow.exit
 
-496:                                              ; preds = %45
-  %497 = getelementptr i8, ptr %.pre, i64 -184
-  %498 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr i8, ptr %.pre, i64 -88
-  %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
-  %503 = load i32, ptr %502, align 8
-  %504 = load ptr, ptr %501, align 8
-  %505 = getelementptr i8, ptr %.pre, i64 -56
-  %506 = load i32, ptr %505, align 8
-  %507 = getelementptr i8, ptr %.pre, i64 -24
-  %508 = load ptr, ptr %507, align 8
-  %509 = tail call ptr @pbl_create_map_field_node(ptr noundef %499, i32 noundef %503, ptr noundef %504, i32 noundef %506, ptr noundef %508)
-  store ptr %509, ptr %497, align 8
-  %510 = load ptr, ptr %498, align 8
-  %511 = load ptr, ptr %500, align 8
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
-  %513 = load i32, ptr %512, align 8
-  %514 = getelementptr i8, ptr %.pre, i64 -152
-  %515 = load ptr, ptr %514, align 8
-  %516 = tail call ptr @pbl_create_field_node(ptr noundef %510, i32 noundef %513, ptr noundef null, ptr noundef %515, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null)
-  %517 = tail call ptr @pbl_add_child(ptr noundef %509, ptr noundef %516)
-  %518 = load ptr, ptr %497, align 8
-  %519 = load ptr, ptr %498, align 8
-  %520 = load ptr, ptr %500, align 8
-  %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
-  %522 = load i32, ptr %521, align 8
-  %523 = getelementptr i8, ptr %.pre, i64 -120
-  %524 = load ptr, ptr %523, align 8
-  %525 = tail call ptr @pbl_create_field_node(ptr noundef %519, i32 noundef %522, ptr noundef null, ptr noundef %524, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null)
-  %526 = tail call ptr @pbl_add_child(ptr noundef %518, ptr noundef %525)
+492:                                              ; preds = %49
+  %493 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %494 = load ptr, ptr %493, align 8
+  %495 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %496 = load ptr, ptr %495, align 8
+  %497 = tail call i32 @protobuf_lang_get_lineno(ptr noundef %496)
+  %498 = tail call ptr @pbl_create_node(ptr noundef %494, i32 noundef %497, i32 noundef 4, ptr noundef nonnull @.str.10)
+  %499 = getelementptr i8, ptr %.pre, i64 24
+  store ptr %498, ptr %499, align 8
   br label %yyStackOverflow.exit
 
-527:                                              ; preds = %45
-  %528 = getelementptr i8, ptr %.pre, i64 -136
-  %529 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr i8, ptr %.pre, i64 -40
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
-  %534 = load i32, ptr %533, align 8
-  %535 = load ptr, ptr %532, align 8
-  %536 = getelementptr i8, ptr %.pre, i64 -8
-  %537 = load i32, ptr %536, align 8
-  %538 = tail call ptr @pbl_create_map_field_node(ptr noundef %530, i32 noundef %534, ptr noundef %535, i32 noundef %537, ptr noundef null)
-  store ptr %538, ptr %528, align 8
-  %539 = load ptr, ptr %529, align 8
-  %540 = load ptr, ptr %531, align 8
-  %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
-  %542 = load i32, ptr %541, align 8
-  %543 = getelementptr i8, ptr %.pre, i64 -104
-  %544 = load ptr, ptr %543, align 8
-  %545 = tail call ptr @pbl_create_field_node(ptr noundef %539, i32 noundef %542, ptr noundef null, ptr noundef %544, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null)
-  %546 = tail call ptr @pbl_add_child(ptr noundef %538, ptr noundef %545)
-  %547 = load ptr, ptr %528, align 8
-  %548 = load ptr, ptr %529, align 8
-  %549 = load ptr, ptr %531, align 8
-  %550 = getelementptr inbounds nuw i8, ptr %549, i64 8
-  %551 = load i32, ptr %550, align 8
-  %552 = getelementptr i8, ptr %.pre, i64 -72
-  %553 = load ptr, ptr %552, align 8
-  %554 = tail call ptr @pbl_create_field_node(ptr noundef %548, i32 noundef %551, ptr noundef null, ptr noundef %553, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null)
-  %555 = tail call ptr @pbl_add_child(ptr noundef %547, ptr noundef %554)
+500:                                              ; preds = %49
+  %501 = getelementptr i8, ptr %.pre, i64 -184
+  %502 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %503 = load ptr, ptr %502, align 8
+  %504 = getelementptr i8, ptr %.pre, i64 -88
+  %505 = load ptr, ptr %504, align 8
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
+  %507 = load i32, ptr %506, align 8
+  %508 = load ptr, ptr %505, align 8
+  %509 = getelementptr i8, ptr %.pre, i64 -56
+  %510 = load i32, ptr %509, align 8
+  %511 = getelementptr i8, ptr %.pre, i64 -24
+  %512 = load ptr, ptr %511, align 8
+  %513 = tail call ptr @pbl_create_map_field_node(ptr noundef %503, i32 noundef %507, ptr noundef %508, i32 noundef %510, ptr noundef %512)
+  store ptr %513, ptr %501, align 8
+  %514 = load ptr, ptr %502, align 8
+  %515 = load ptr, ptr %504, align 8
+  %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
+  %517 = load i32, ptr %516, align 8
+  %518 = getelementptr i8, ptr %.pre, i64 -152
+  %519 = load ptr, ptr %518, align 8
+  %520 = tail call ptr @pbl_create_field_node(ptr noundef %514, i32 noundef %517, ptr noundef null, ptr noundef %519, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null)
+  %521 = tail call ptr @pbl_add_child(ptr noundef %513, ptr noundef %520)
+  %522 = load ptr, ptr %501, align 8
+  %523 = load ptr, ptr %502, align 8
+  %524 = load ptr, ptr %504, align 8
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 8
+  %526 = load i32, ptr %525, align 8
+  %527 = getelementptr i8, ptr %.pre, i64 -120
+  %528 = load ptr, ptr %527, align 8
+  %529 = tail call ptr @pbl_create_field_node(ptr noundef %523, i32 noundef %526, ptr noundef null, ptr noundef %528, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null)
+  %530 = tail call ptr @pbl_add_child(ptr noundef %522, ptr noundef %529)
   br label %yyStackOverflow.exit
 
-556:                                              ; preds = %45
-  %557 = getelementptr i8, ptr %.pre, i64 -56
-  store ptr null, ptr %557, align 8
-  %558 = getelementptr i8, ptr %.pre, i64 -8
-  %559 = load ptr, ptr %558, align 8
-  tail call void @pbl_free_node(ptr noundef %559)
+531:                                              ; preds = %49
+  %532 = getelementptr i8, ptr %.pre, i64 -136
+  %533 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %534 = load ptr, ptr %533, align 8
+  %535 = getelementptr i8, ptr %.pre, i64 -40
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
+  %538 = load i32, ptr %537, align 8
+  %539 = load ptr, ptr %536, align 8
+  %540 = getelementptr i8, ptr %.pre, i64 -8
+  %541 = load i32, ptr %540, align 8
+  %542 = tail call ptr @pbl_create_map_field_node(ptr noundef %534, i32 noundef %538, ptr noundef %539, i32 noundef %541, ptr noundef null)
+  store ptr %542, ptr %532, align 8
+  %543 = load ptr, ptr %533, align 8
+  %544 = load ptr, ptr %535, align 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
+  %546 = load i32, ptr %545, align 8
+  %547 = getelementptr i8, ptr %.pre, i64 -104
+  %548 = load ptr, ptr %547, align 8
+  %549 = tail call ptr @pbl_create_field_node(ptr noundef %543, i32 noundef %546, ptr noundef null, ptr noundef %548, ptr noundef nonnull @.str.16, i32 noundef 1, ptr noundef null)
+  %550 = tail call ptr @pbl_add_child(ptr noundef %542, ptr noundef %549)
+  %551 = load ptr, ptr %532, align 8
+  %552 = load ptr, ptr %533, align 8
+  %553 = load ptr, ptr %535, align 8
+  %554 = getelementptr inbounds nuw i8, ptr %553, i64 8
+  %555 = load i32, ptr %554, align 8
+  %556 = getelementptr i8, ptr %.pre, i64 -72
+  %557 = load ptr, ptr %556, align 8
+  %558 = tail call ptr @pbl_create_field_node(ptr noundef %552, i32 noundef %555, ptr noundef null, ptr noundef %557, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null)
+  %559 = tail call ptr @pbl_add_child(ptr noundef %551, ptr noundef %558)
   br label %yyStackOverflow.exit
 
-560:                                              ; preds = %45
-  %561 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %562 = load ptr, ptr %561, align 8
+560:                                              ; preds = %49
+  %561 = getelementptr i8, ptr %.pre, i64 -56
+  store ptr null, ptr %561, align 8
+  %562 = getelementptr i8, ptr %.pre, i64 -8
   %563 = load ptr, ptr %562, align 8
-  %564 = tail call i64 @g_ascii_strtoull(ptr noundef %563, ptr noundef null, i32 noundef 10)
-  store i64 %564, ptr %561, align 8
+  tail call void @pbl_free_node(ptr noundef %563)
   br label %yyStackOverflow.exit
 
-565:                                              ; preds = %45
-  %566 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+564:                                              ; preds = %49
+  %565 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %566 = load ptr, ptr %565, align 8
   %567 = load ptr, ptr %566, align 8
-  %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr i8, ptr %568, i64 1
-  %570 = tail call i64 @g_ascii_strtoull(ptr noundef %569, ptr noundef null, i32 noundef 8)
-  store i64 %570, ptr %566, align 8
+  %568 = tail call i64 @g_ascii_strtoull(ptr noundef %567, ptr noundef null, i32 noundef 10)
+  store i64 %568, ptr %565, align 8
   br label %yyStackOverflow.exit
 
-571:                                              ; preds = %45
-  %572 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %573 = load ptr, ptr %572, align 8
-  %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr i8, ptr %574, i64 2
-  %576 = tail call i64 @g_ascii_strtoull(ptr noundef %575, ptr noundef null, i32 noundef 16)
-  store i64 %576, ptr %572, align 8
+569:                                              ; preds = %49
+  %570 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %571 = load ptr, ptr %570, align 8
+  %572 = load ptr, ptr %571, align 8
+  %573 = getelementptr i8, ptr %572, i64 1
+  %574 = tail call i64 @g_ascii_strtoull(ptr noundef %573, ptr noundef null, i32 noundef 8)
+  store i64 %574, ptr %570, align 8
   br label %yyStackOverflow.exit
 
-577:                                              ; preds = %45
-  %578 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %579 = load i64, ptr %578, align 8
-  %580 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %579)
-  %581 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %582 = load ptr, ptr %581, align 8
-  %583 = tail call ptr @g_slist_prepend(ptr noundef %582, ptr noundef %580)
-  store ptr %583, ptr %581, align 8
-  store ptr %580, ptr %578, align 8
+575:                                              ; preds = %49
+  %576 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %577 = load ptr, ptr %576, align 8
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr i8, ptr %578, i64 2
+  %580 = tail call i64 @g_ascii_strtoull(ptr noundef %579, ptr noundef null, i32 noundef 16)
+  store i64 %580, ptr %576, align 8
   br label %yyStackOverflow.exit
 
-584:                                              ; preds = %45
-  %585 = getelementptr i8, ptr %.pre, i64 -8
-  %586 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %587 = load i64, ptr %586, align 8
-  %588 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %587)
-  %589 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %590 = load ptr, ptr %589, align 8
-  %591 = tail call ptr @g_slist_prepend(ptr noundef %590, ptr noundef %588)
-  store ptr %591, ptr %589, align 8
-  store ptr %588, ptr %585, align 8
+581:                                              ; preds = %49
+  %582 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %583 = load i64, ptr %582, align 8
+  %584 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %583)
+  %585 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %586 = load ptr, ptr %585, align 8
+  %587 = tail call ptr @g_slist_prepend(ptr noundef %586, ptr noundef %584)
+  store ptr %587, ptr %585, align 8
+  store ptr %584, ptr %582, align 8
   br label %yyStackOverflow.exit
 
-592:                                              ; preds = %45
-  %593 = getelementptr i8, ptr %.pre, i64 -8
-  %594 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %595 = load i64, ptr %594, align 8
-  %596 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i64 noundef %595)
-  %597 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %598 = load ptr, ptr %597, align 8
-  %599 = tail call ptr @g_slist_prepend(ptr noundef %598, ptr noundef %596)
-  store ptr %599, ptr %597, align 8
-  store ptr %596, ptr %593, align 8
+588:                                              ; preds = %49
+  %589 = getelementptr i8, ptr %.pre, i64 -8
+  %590 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %591 = load i64, ptr %590, align 8
+  %592 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %591)
+  %593 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %594 = load ptr, ptr %593, align 8
+  %595 = tail call ptr @g_slist_prepend(ptr noundef %594, ptr noundef %592)
+  store ptr %595, ptr %593, align 8
+  store ptr %592, ptr %589, align 8
   br label %yyStackOverflow.exit
 
-600:                                              ; preds = %45
-  %601 = getelementptr i8, ptr %.pre, i64 -8
-  %602 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %603 = load ptr, ptr %602, align 8
-  %604 = load ptr, ptr %603, align 8
-  %605 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.20, ptr noundef %604, ptr noundef null)
-  %606 = getelementptr inbounds nuw i8, ptr %46, i64 16
+596:                                              ; preds = %49
+  %597 = getelementptr i8, ptr %.pre, i64 -8
+  %598 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %599 = load i64, ptr %598, align 8
+  %600 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i64 noundef %599)
+  %601 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %602 = load ptr, ptr %601, align 8
+  %603 = tail call ptr @g_slist_prepend(ptr noundef %602, ptr noundef %600)
+  store ptr %603, ptr %601, align 8
+  store ptr %600, ptr %597, align 8
+  br label %yyStackOverflow.exit
+
+604:                                              ; preds = %49
+  %605 = getelementptr i8, ptr %.pre, i64 -8
+  %606 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %607 = load ptr, ptr %606, align 8
-  %608 = tail call ptr @g_slist_prepend(ptr noundef %607, ptr noundef %605)
-  store ptr %608, ptr %606, align 8
-  store ptr %605, ptr %601, align 8
+  %608 = load ptr, ptr %607, align 8
+  %609 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.20, ptr noundef %608, ptr noundef null)
+  %610 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %611 = load ptr, ptr %610, align 8
+  %612 = tail call ptr @g_slist_prepend(ptr noundef %611, ptr noundef %609)
+  store ptr %612, ptr %610, align 8
+  store ptr %609, ptr %605, align 8
   br label %yyStackOverflow.exit
 
-609:                                              ; preds = %45
-  %610 = getelementptr i8, ptr %.pre, i64 -8
-  %611 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %612 = load ptr, ptr %611, align 8
-  %613 = load ptr, ptr %612, align 8
-  %614 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.21, ptr noundef %613, ptr noundef null)
-  %615 = getelementptr inbounds nuw i8, ptr %46, i64 16
+613:                                              ; preds = %49
+  %614 = getelementptr i8, ptr %.pre, i64 -8
+  %615 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %616 = load ptr, ptr %615, align 8
-  %617 = tail call ptr @g_slist_prepend(ptr noundef %616, ptr noundef %614)
-  store ptr %617, ptr %615, align 8
-  store ptr %614, ptr %610, align 8
-  br label %yyStackOverflow.exit
-
-618:                                              ; preds = %45
-  %619 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %617 = load ptr, ptr %616, align 8
+  %618 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.21, ptr noundef %617, ptr noundef null)
+  %619 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %620 = load ptr, ptr %619, align 8
-  %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr i8, ptr %621, i64 1
-  %623 = tail call i64 @strlen(ptr noundef %621) #13
-  %624 = add i64 %623, -2
-  %625 = tail call noalias ptr @g_strndup(ptr noundef %622, i64 noundef %624)
-  %626 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %627 = load ptr, ptr %626, align 8
-  %628 = tail call ptr @g_slist_prepend(ptr noundef %627, ptr noundef %625)
-  store ptr %628, ptr %626, align 8
-  store ptr %625, ptr %619, align 8
+  %621 = tail call ptr @g_slist_prepend(ptr noundef %620, ptr noundef %618)
+  store ptr %621, ptr %619, align 8
+  store ptr %618, ptr %614, align 8
   br label %yyStackOverflow.exit
 
-629:                                              ; preds = %45
-  %630 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+622:                                              ; preds = %49
+  %623 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %624 = load ptr, ptr %623, align 8
+  %625 = load ptr, ptr %624, align 8
+  %626 = getelementptr i8, ptr %625, i64 1
+  %627 = tail call i64 @strlen(ptr noundef %625) #13
+  %628 = add i64 %627, -2
+  %629 = tail call noalias ptr @g_strndup(ptr noundef %626, i64 noundef %628)
+  %630 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %631 = load ptr, ptr %630, align 8
-  %632 = load ptr, ptr %631, align 8
-  %633 = getelementptr i8, ptr %632, i64 1
-  %634 = tail call i64 @strlen(ptr noundef %632) #13
-  %635 = add i64 %634, -2
-  %636 = tail call noalias ptr @g_strndup(ptr noundef %633, i64 noundef %635)
-  %637 = getelementptr i8, ptr %.pre, i64 -8
-  %638 = load ptr, ptr %637, align 8
-  %639 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %638, ptr noundef %636, ptr noundef null)
-  %640 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %641 = load ptr, ptr %640, align 8
-  %642 = tail call ptr @g_slist_prepend(ptr noundef %641, ptr noundef %639)
-  store ptr %642, ptr %640, align 8
-  tail call void @g_free(ptr noundef %636)
-  store ptr %639, ptr %637, align 8
+  %632 = tail call ptr @g_slist_prepend(ptr noundef %631, ptr noundef %629)
+  store ptr %632, ptr %630, align 8
+  store ptr %629, ptr %623, align 8
   br label %yyStackOverflow.exit
 
-yyStackOverflow.exit:                             ; preds = %629, %618, %609, %600, %592, %584, %577, %571, %565, %560, %556, %527, %496, %488, %478, %468, %458, %445, %434, %428, %418, %414, %410, %393, %378, %363, %350, %336, %322, %308, %294, %280, %272, %262, %256, %251, %247, %236, %225, %217, %207, %200, %192, %182, %171, %160, %149, %139, %127, %122, %117, %112, %106, %98, %96, %92, %86, %72, %68, %45
-  %643 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %34
-  %644 = load i8, ptr %643, align 1
-  %645 = sext i8 %36 to i64
-  %646 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %645
-  %647 = load i16, ptr %646, align 8
-  %648 = zext i16 %647 to i64
-  %649 = getelementptr i16, ptr @yy_reduce_ofst, i64 %648
-  %650 = load i16, ptr %649, align 2
-  %651 = sext i16 %650 to i64
-  %652 = zext i8 %644 to i64
-  %653 = getelementptr i16, ptr @yy_action, i64 %651
-  %654 = getelementptr i16, ptr %653, i64 %652
-  %655 = load i16, ptr %654, align 2
-  %656 = getelementptr i8, ptr %646, i64 16
-  store ptr %656, ptr %0, align 8
-  store i16 %655, ptr %656, align 8
-  %657 = getelementptr i8, ptr %646, i64 18
-  store i8 %644, ptr %657, align 2
-  br label %11
+633:                                              ; preds = %49
+  %634 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %635 = load ptr, ptr %634, align 8
+  %636 = load ptr, ptr %635, align 8
+  %637 = getelementptr i8, ptr %636, i64 1
+  %638 = tail call i64 @strlen(ptr noundef %636) #13
+  %639 = add i64 %638, -2
+  %640 = tail call noalias ptr @g_strndup(ptr noundef %637, i64 noundef %639)
+  %641 = getelementptr i8, ptr %.pre, i64 -8
+  %642 = load ptr, ptr %641, align 8
+  %643 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %642, ptr noundef %640, ptr noundef null)
+  %644 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %645 = load ptr, ptr %644, align 8
+  %646 = tail call ptr @g_slist_prepend(ptr noundef %645, ptr noundef %643)
+  store ptr %646, ptr %644, align 8
+  tail call void @g_free(ptr noundef %640)
+  store ptr %643, ptr %641, align 8
+  br label %yyStackOverflow.exit
 
-658:                                              ; preds = %yy_find_shift_action.exit
-  %659 = icmp samesign ult i16 %.0.i, 529
-  br i1 %659, label %660, label %678
+yyStackOverflow.exit:                             ; preds = %633, %622, %613, %604, %596, %588, %581, %575, %569, %564, %560, %531, %500, %492, %482, %472, %462, %449, %438, %432, %422, %418, %414, %397, %382, %367, %354, %340, %326, %312, %298, %284, %276, %266, %260, %255, %251, %240, %229, %221, %211, %204, %196, %186, %175, %164, %153, %143, %131, %126, %121, %116, %110, %102, %100, %96, %90, %76, %72, %49
+  %647 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %38
+  %648 = load i8, ptr %647, align 1
+  %649 = sext i8 %40 to i64
+  %650 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %649
+  %651 = load i16, ptr %650, align 8
+  %652 = zext i16 %651 to i64
+  %653 = getelementptr i16, ptr @yy_reduce_ofst, i64 %652
+  %654 = load i16, ptr %653, align 2
+  %655 = sext i16 %654 to i64
+  %656 = zext i8 %648 to i64
+  %657 = getelementptr i16, ptr @yy_action, i64 %655
+  %658 = getelementptr i16, ptr %657, i64 %656
+  %659 = load i16, ptr %658, align 2
+  %660 = getelementptr i8, ptr %650, i64 16
+  store ptr %660, ptr %0, align 8
+  store i16 %659, ptr %660, align 8
+  %661 = getelementptr i8, ptr %650, i64 18
+  store i8 %648, ptr %661, align 2
+  br label %12
 
-660:                                              ; preds = %658
-  %661 = load ptr, ptr %0, align 8
-  %662 = getelementptr i8, ptr %661, i64 16
-  store ptr %662, ptr %0, align 8
-  %663 = load ptr, ptr %10, align 8
-  %664 = icmp ugt ptr %662, %663
-  br i1 %664, label %665, label %670
+662:                                              ; preds = %yy_find_shift_action.exit
+  %663 = icmp samesign ult i16 %.0.i, 529
+  br i1 %663, label %664, label %682
 
-665:                                              ; preds = %660
-  store ptr %661, ptr %0, align 8
-  %666 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %667 = icmp ugt ptr %661, %666
-  br i1 %667, label %.lr.ph.preheader.i.i, label %yy_shift.exit
+664:                                              ; preds = %662
+  %665 = load ptr, ptr %0, align 8
+  %666 = getelementptr i8, ptr %665, i64 16
+  store ptr %666, ptr %0, align 8
+  %667 = load ptr, ptr %11, align 8
+  %668 = icmp ugt ptr %666, %667
+  br i1 %668, label %669, label %674
 
-.lr.ph.preheader.i.i:                             ; preds = %665
-  %.promoted6.i.i = ptrtoint ptr %661 to i64
-  %668 = ptrtoint ptr %0 to i64
-  %reass.sub.i.i = add i64 %668, 24
+669:                                              ; preds = %664
+  store ptr %665, ptr %0, align 8
+  %670 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %671 = icmp ugt ptr %665, %670
+  br i1 %671, label %.lr.ph.preheader.i.i, label %yy_shift.exit
+
+.lr.ph.preheader.i.i:                             ; preds = %669
+  %.promoted6.i.i = ptrtoint ptr %665 to i64
+  %672 = ptrtoint ptr %0 to i64
+  %reass.sub.i.i = add i64 %672, 24
   %.not.i.i = sub i64 %reass.sub.i.i, %.promoted6.i.i
-  %669 = and i64 %.not.i.i, -16
-  %scevgep.i.i = getelementptr i8, ptr %661, i64 %669
+  %673 = and i64 %.not.i.i, -16
+  %scevgep.i.i = getelementptr i8, ptr %665, i64 %673
   store ptr %scevgep.i.i, ptr %0, align 8
   br label %yy_shift.exit
 
-670:                                              ; preds = %660
-  %671 = icmp samesign ugt i16 %.0.i, 165
-  %672 = add nuw nsw i16 %.0.i, 194
-  %spec.select.i = select i1 %671, i16 %672, i16 %.0.i
-  store i16 %spec.select.i, ptr %662, align 8
-  %673 = getelementptr i8, ptr %661, i64 18
-  store i8 %9, ptr %673, align 2
-  %674 = getelementptr i8, ptr %661, i64 24
-  store ptr %2, ptr %674, align 8
+674:                                              ; preds = %664
+  %675 = icmp samesign ugt i16 %.0.i, 165
+  %676 = add nuw nsw i16 %.0.i, 194
+  %spec.select.i = select i1 %675, i16 %676, i16 %.0.i
+  store i16 %spec.select.i, ptr %666, align 8
+  %677 = getelementptr i8, ptr %665, i64 18
+  store i8 %9, ptr %677, align 2
+  %678 = getelementptr i8, ptr %665, i64 24
+  store ptr %2, ptr %678, align 8
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %665, %.lr.ph.preheader.i.i, %670
-  %675 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %676 = load i32, ptr %675, align 8
-  %677 = add i32 %676, -1
-  store i32 %677, ptr %675, align 8
+yy_shift.exit:                                    ; preds = %669, %.lr.ph.preheader.i.i, %674
+  %679 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %680 = load i32, ptr %679, align 8
+  %681 = add i32 %680, -1
+  store i32 %681, ptr %679, align 8
   br label %yyStackOverflow.exit.thread
 
-678:                                              ; preds = %658
-  %679 = icmp eq i16 %.0.i, 530
-  br i1 %679, label %680, label %684
+682:                                              ; preds = %662
+  %683 = icmp eq i16 %.0.i, 530
+  br i1 %683, label %684, label %688
 
-680:                                              ; preds = %678
-  %681 = load ptr, ptr %0, align 8
-  %682 = getelementptr i8, ptr %681, i64 -16
-  store ptr %682, ptr %0, align 8
-  %683 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1, ptr %683, align 8
+684:                                              ; preds = %682
+  %685 = load ptr, ptr %0, align 8
+  %686 = getelementptr i8, ptr %685, i64 -16
+  store ptr %686, ptr %0, align 8
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 -1, ptr %687, align 8
   br label %yyStackOverflow.exit.thread
 
-684:                                              ; preds = %678
-  %685 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %686 = load i32, ptr %685, align 8
-  %687 = icmp slt i32 %686, 1
-  br i1 %687, label %688, label %694
-
-688:                                              ; preds = %684
-  %689 = load ptr, ptr %5, align 8
-  %.not.i42 = icmp eq ptr %2, null
-  br i1 %.not.i42, label %692, label %690
-
-690:                                              ; preds = %688
-  %691 = load ptr, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %689, ptr noundef nonnull @.str.22, ptr noundef %691)
-  br label %yy_syntax_error.exit
+688:                                              ; preds = %682
+  %689 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %690 = load i32, ptr %689, align 8
+  %691 = icmp slt i32 %690, 1
+  br i1 %691, label %692, label %698
 
 692:                                              ; preds = %688
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %689, ptr noundef nonnull @.str.23)
+  %693 = load ptr, ptr %5, align 8
+  %.not.i42 = icmp eq ptr %2, null
+  br i1 %.not.i42, label %696, label %694
+
+694:                                              ; preds = %692
+  %695 = load ptr, ptr %2, align 8
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %693, ptr noundef nonnull @.str.22, ptr noundef %695)
   br label %yy_syntax_error.exit
 
-yy_syntax_error.exit:                             ; preds = %690, %692
-  %693 = getelementptr inbounds nuw i8, ptr %689, i64 48
-  store i8 1, ptr %693, align 8
-  store ptr %689, ptr %5, align 8
-  br label %694
+696:                                              ; preds = %692
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %693, ptr noundef nonnull @.str.23)
+  br label %yy_syntax_error.exit
 
-694:                                              ; preds = %yy_syntax_error.exit, %684
-  store i32 3, ptr %685, align 8
-  br i1 %6, label %695, label %yyStackOverflow.exit.thread
+yy_syntax_error.exit:                             ; preds = %694, %696
+  %697 = getelementptr inbounds nuw i8, ptr %693, i64 48
+  store i8 1, ptr %697, align 8
+  store ptr %693, ptr %5, align 8
+  br label %698
 
-695:                                              ; preds = %694
-  %696 = load ptr, ptr %5, align 8
-  %697 = getelementptr inbounds nuw i8, ptr %0, i64 24
+698:                                              ; preds = %yy_syntax_error.exit, %688
+  store i32 3, ptr %689, align 8
+  br i1 %6, label %699, label %yyStackOverflow.exit.thread
+
+699:                                              ; preds = %698
+  %700 = load ptr, ptr %5, align 8
+  %701 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i43 = load ptr, ptr %0, align 8
-  %698 = icmp ugt ptr %.promoted.i43, %697
-  br i1 %698, label %.lr.ph.preheader.i44, label %yy_parse_failed.exit
+  %702 = icmp ugt ptr %.promoted.i43, %701
+  br i1 %702, label %.lr.ph.preheader.i44, label %yy_parse_failed.exit
 
-.lr.ph.preheader.i44:                             ; preds = %695
+.lr.ph.preheader.i44:                             ; preds = %699
   %.promoted8.i = ptrtoint ptr %.promoted.i43 to i64
-  %699 = ptrtoint ptr %0 to i64
-  %reass.sub.i45 = add i64 %699, 24
+  %703 = ptrtoint ptr %0 to i64
+  %reass.sub.i45 = add i64 %703, 24
   %.not.i46 = sub i64 %reass.sub.i45, %.promoted8.i
-  %700 = and i64 %.not.i46, -16
-  %scevgep.i47 = getelementptr i8, ptr %.promoted.i43, i64 %700
+  %704 = and i64 %.not.i46, -16
+  %scevgep.i47 = getelementptr i8, ptr %.promoted.i43, i64 %704
   store ptr %scevgep.i47, ptr %0, align 8
   br label %yy_parse_failed.exit
 
-yy_parse_failed.exit:                             ; preds = %695, %.lr.ph.preheader.i44
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %696, ptr noundef nonnull @.str.24)
-  %701 = getelementptr inbounds nuw i8, ptr %696, i64 48
-  store i8 1, ptr %701, align 8
-  store ptr %696, ptr %5, align 8
-  store i32 -1, ptr %685, align 8
+yy_parse_failed.exit:                             ; preds = %699, %.lr.ph.preheader.i44
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %700, ptr noundef nonnull @.str.24)
+  %705 = getelementptr inbounds nuw i8, ptr %700, i64 48
+  store i8 1, ptr %705, align 8
+  store ptr %700, ptr %5, align 8
+  store i32 -1, ptr %689, align 8
   br label %yyStackOverflow.exit.thread
 
-yyStackOverflow.exit.thread:                      ; preds = %.lr.ph.preheader.i, %40, %yy_shift.exit, %yy_parse_failed.exit, %694, %680
+yyStackOverflow.exit.thread:                      ; preds = %.lr.ph.preheader.i, %44, %yy_shift.exit, %yy_parse_failed.exit, %698, %684
   ret void
 }
 

@@ -2806,8 +2806,8 @@ define internal i32 @dissect_aim_tlv_value_client_short_capabilities(ptr noundef
 
 14:                                               ; preds = %16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 33
-  br i1 %exitcond.i.i.i, label %aim_find_short_capability.exit.thread.i, label %16, !llvm.loop !18
+  %.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 33
+  br i1 %.not.i.i.i, label %aim_find_short_capability.exit.thread.i, label %16, !llvm.loop !18
 
 aim_find_short_capability.exit.thread.i:          ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2867,8 +2867,8 @@ define internal fastcc noundef i32 @dissect_aim_capability(ptr noundef %0, ptr n
 
 10:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 33
-  br i1 %exitcond.i, label %aim_find_capability.exit.thread, label %12, !llvm.loop !18
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 33
+  br i1 %.not.i, label %aim_find_capability.exit.thread, label %12, !llvm.loop !18
 
 aim_find_capability.exit.thread:                  ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4184,12 +4184,12 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noun
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0)
   %16 = add i32 %12, 2
   %17 = icmp eq i16 %13, 3
-  br i1 %17, label %18, label %105
+  br i1 %17, label %18, label %100
 
 18:                                               ; preds = %3
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %16)
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %105
+  br i1 %20, label %21, label %100
 
 21:                                               ; preds = %18
   %cond = icmp eq i16 %9, 2
@@ -4202,7 +4202,7 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noun
   %26 = load i32, ptr @hf_aim_icbm_rendezvous_nak, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef 0)
   %28 = add i32 %12, 6
-  br label %105
+  br label %100
 
 29:                                               ; preds = %21
   %30 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %16)
@@ -4230,104 +4230,95 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noun
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %45, align 8
-  br label %50
+  br label %46
 
-46:                                               ; preds = %50
+46:                                               ; preds = %46, %29
+  %.not.i.i.i = phi i1 [ false, %29 ], [ true, %46 ]
+  %indvars.iv.i.i.i = phi i64 [ 0, %29 ], [ 1, %46 ]
   %47 = getelementptr %struct._aim_client_plugin, ptr @known_client_plugins, i64 %indvars.iv.i.i.i
-  br i1 %exitcond.i.i.i, label %aim_find_plugin.exit.thread.i.i, label %50, !llvm.loop !37
-
-aim_find_plugin.exit.thread.i.i:                  ; preds = %46
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %48 = load i32, ptr @hf_aim_messaging_plugin, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %48, ptr noundef %30, i32 noundef 4, i32 noundef 16, i32 noundef 0)
-  br label %dissect_aim_plugin.exit.i
-
-50:                                               ; preds = %46, %29
-  %exitcond.i.i.i = phi i1 [ false, %29 ], [ true, %46 ]
-  %indvars.iv.i.i.i = phi i64 [ 1, %29 ], [ 2, %46 ]
-  %51 = phi ptr [ @known_client_plugins, %29 ], [ %47, %46 ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %52, ptr noundef nonnull dereferenceable(16) %5, i64 16)
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %48, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %.not8.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not8.i.i.i, label %aim_find_plugin.exit.i.i, label %46
+  %brmerge.i.i.i = or i1 %.not.i.i.i, %.not8.i.i.i
+  br i1 %brmerge.i.i.i, label %aim_find_plugin.exit.i.i, label %46
 
-aim_find_plugin.exit.i.i:                         ; preds = %50
+aim_find_plugin.exit.i.i:                         ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = load i32, ptr @hf_aim_messaging_plugin, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %53, ptr noundef %30, i32 noundef 4, i32 noundef 16, i32 noundef 0)
-  %.not17.i.i = icmp eq ptr %51, null
-  br i1 %.not17.i.i, label %dissect_aim_plugin.exit.i, label %55
+  %49 = load i32, ptr @hf_aim_messaging_plugin, align 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %49, ptr noundef %30, i32 noundef 4, i32 noundef 16, i32 noundef 0)
+  %.not1718.i.i = icmp ne ptr %47, null
+  %.not17.not.i.i = and i1 %.not1718.i.i, %.not8.i.i.i
+  br i1 %.not17.not.i.i, label %51, label %dissect_aim_plugin.exit.i
 
-55:                                               ; preds = %aim_find_plugin.exit.i.i
-  %56 = load ptr, ptr %51, align 8
+51:                                               ; preds = %aim_find_plugin.exit.i.i
+  %52 = load ptr, ptr %47, align 8
   br label %dissect_aim_plugin.exit.i
 
-dissect_aim_plugin.exit.i:                        ; preds = %55, %aim_find_plugin.exit.i.i, %aim_find_plugin.exit.thread.i.i
-  %57 = phi ptr [ %54, %55 ], [ %54, %aim_find_plugin.exit.i.i ], [ %49, %aim_find_plugin.exit.thread.i.i ]
-  %58 = phi ptr [ %56, %55 ], [ @.str.110, %aim_find_plugin.exit.i.i ], [ @.str.110, %aim_find_plugin.exit.thread.i.i ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.768, ptr noundef %58)
+dissect_aim_plugin.exit.i:                        ; preds = %51, %aim_find_plugin.exit.i.i
+  %53 = phi ptr [ %52, %51 ], [ @.str.110, %aim_find_plugin.exit.i.i ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.768, ptr noundef %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %59 = load i32, ptr @hf_aim_messaging_unknown_uint16, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %59, ptr noundef %30, i32 noundef 20, i32 noundef 2, i32 noundef -2147483648)
-  %61 = load i32, ptr @hf_aim_icbm_client_err_client_caps_flags, align 4
-  %62 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %61, ptr noundef %30, i32 noundef 22, i32 noundef 4, i32 noundef 0)
-  %63 = load i32, ptr @hf_aim_messaging_unknown_uint8, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %63, ptr noundef %30, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %65 = load i32, ptr @hf_aim_icbm_client_err_downcounter, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %65, ptr noundef %30, i32 noundef 27, i32 noundef 2, i32 noundef -2147483648)
-  %67 = zext i16 %33 to i32
-  %68 = add nuw nsw i32 %67, 2
-  %69 = call zeroext i16 @tvb_get_letohs(ptr noundef %30, i32 noundef %68)
-  %70 = load i32, ptr @hf_aim_icbm_client_err_length, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %70, ptr noundef %30, i32 noundef %68, i32 noundef 2, i32 noundef -2147483648)
-  %72 = add nuw nsw i32 %67, 4
-  %73 = load i32, ptr @hf_aim_icbm_client_err_downcounter, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %73, ptr noundef %30, i32 noundef %72, i32 noundef 2, i32 noundef -2147483648)
-  %75 = add nuw nsw i32 %67, 6
-  %76 = load i32, ptr @hf_aim_messaging_unknown_data, align 4
-  %77 = zext i16 %69 to i32
-  %78 = add nsw i32 %77, -2
-  %79 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %76, ptr noundef %30, i32 noundef %75, i32 noundef %78, i32 noundef 0)
-  %80 = add nuw nsw i32 %72, %77
+  %54 = load i32, ptr @hf_aim_messaging_unknown_uint16, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %54, ptr noundef %30, i32 noundef 20, i32 noundef 2, i32 noundef -2147483648)
+  %56 = load i32, ptr @hf_aim_icbm_client_err_client_caps_flags, align 4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %56, ptr noundef %30, i32 noundef 22, i32 noundef 4, i32 noundef 0)
+  %58 = load i32, ptr @hf_aim_messaging_unknown_uint8, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %58, ptr noundef %30, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %60 = load i32, ptr @hf_aim_icbm_client_err_downcounter, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %60, ptr noundef %30, i32 noundef 27, i32 noundef 2, i32 noundef -2147483648)
+  %62 = zext i16 %33 to i32
+  %63 = add nuw nsw i32 %62, 2
+  %64 = call zeroext i16 @tvb_get_letohs(ptr noundef %30, i32 noundef %63)
+  %65 = load i32, ptr @hf_aim_icbm_client_err_length, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %65, ptr noundef %30, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648)
+  %67 = add nuw nsw i32 %62, 4
+  %68 = load i32, ptr @hf_aim_icbm_client_err_downcounter, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %68, ptr noundef %30, i32 noundef %67, i32 noundef 2, i32 noundef -2147483648)
+  %70 = add nuw nsw i32 %62, 6
+  %71 = load i32, ptr @hf_aim_messaging_unknown_data, align 4
+  %72 = zext i16 %64 to i32
+  %73 = add nsw i32 %72, -2
+  %74 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %71, ptr noundef %30, i32 noundef %70, i32 noundef %73, i32 noundef 0)
+  %75 = add nuw nsw i32 %67, %72
   %or.cond7.i.i = icmp ne i64 %.sroa.0.0.copyload.i, 0
-  %81 = icmp ne i64 %.sroa.4.0.copyload.i, 0
-  %narrow.i.not.i = select i1 %or.cond7.i.i, i1 true, i1 %81
-  br i1 %narrow.i.not.i, label %101, label %82
+  %76 = icmp ne i64 %.sroa.4.0.copyload.i, 0
+  %narrow.i.not.i = select i1 %or.cond7.i.i, i1 true, i1 %76
+  br i1 %narrow.i.not.i, label %96, label %77
 
-82:                                               ; preds = %dissect_aim_plugin.exit.i
-  %83 = call ptr @tvb_new_subset_remaining(ptr noundef %30, i32 noundef %80)
+77:                                               ; preds = %dissect_aim_plugin.exit.i
+  %78 = call ptr @tvb_new_subset_remaining(ptr noundef %30, i32 noundef %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %84 = load i32, ptr @hf_aim_rendezvous_extended_data_message_type, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %84, ptr noundef %83, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %86 = load i32, ptr @hf_aim_rendezvous_extended_data_message_flags, align 4
-  %87 = load i32, ptr @ett_aim_extended_data_message_flags, align 4
-  %88 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %83, i32 noundef 1, i32 noundef %86, i32 noundef %87, ptr noundef nonnull @dissect_aim_rendezvous_extended_message.flags, i32 noundef 0)
-  %89 = load i32, ptr @hf_aim_rendezvous_extended_data_message_status_code, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %89, ptr noundef %83, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %91 = load i32, ptr @hf_aim_rendezvous_extended_data_message_priority_code, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %91, ptr noundef %83, i32 noundef 4, i32 noundef 2, i32 noundef 0)
-  %93 = call zeroext i16 @tvb_get_letohs(ptr noundef %83, i32 noundef 6)
-  %94 = zext i16 %93 to i32
-  store i32 %94, ptr %4, align 4
-  %95 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text_length, align 4
-  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %95, ptr noundef %83, i32 noundef 6, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
-  %97 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text, align 4
-  %98 = load i32, ptr %4, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %97, ptr noundef %83, i32 noundef 8, i32 noundef %98, i32 noundef 0)
-  %100 = call i32 @tvb_reported_length(ptr noundef %83)
+  %79 = load i32, ptr @hf_aim_rendezvous_extended_data_message_type, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %79, ptr noundef %78, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %81 = load i32, ptr @hf_aim_rendezvous_extended_data_message_flags, align 4
+  %82 = load i32, ptr @ett_aim_extended_data_message_flags, align 4
+  %83 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %78, i32 noundef 1, i32 noundef %81, i32 noundef %82, ptr noundef nonnull @dissect_aim_rendezvous_extended_message.flags, i32 noundef 0)
+  %84 = load i32, ptr @hf_aim_rendezvous_extended_data_message_status_code, align 4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %84, ptr noundef %78, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %86 = load i32, ptr @hf_aim_rendezvous_extended_data_message_priority_code, align 4
+  %87 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %86, ptr noundef %78, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+  %88 = call zeroext i16 @tvb_get_letohs(ptr noundef %78, i32 noundef 6)
+  %89 = zext i16 %88 to i32
+  store i32 %89, ptr %4, align 4
+  %90 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text_length, align 4
+  %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %90, ptr noundef %78, i32 noundef 6, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
+  %92 = load i32, ptr @hf_aim_rendezvous_extended_data_message_text, align 4
+  %93 = load i32, ptr %4, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %92, ptr noundef %78, i32 noundef 8, i32 noundef %93, i32 noundef 0)
+  %95 = call i32 @tvb_reported_length(ptr noundef %78)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dissect_aim_tlv_value_extended_data.exit
 
-101:                                              ; preds = %dissect_aim_plugin.exit.i
-  %102 = load i32, ptr @hf_aim_messaging_plugin_specific_data, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %102, ptr noundef %30, i32 noundef %80, i32 noundef -1, i32 noundef 0)
+96:                                               ; preds = %dissect_aim_plugin.exit.i
+  %97 = load i32, ptr @hf_aim_messaging_plugin_specific_data, align 4
+  %98 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %97, ptr noundef %30, i32 noundef %75, i32 noundef -1, i32 noundef 0)
   br label %dissect_aim_tlv_value_extended_data.exit
 
-dissect_aim_tlv_value_extended_data.exit:         ; preds = %82, %101
-  %104 = call i32 @tvb_reported_length(ptr noundef %30)
-  br label %105
+dissect_aim_tlv_value_extended_data.exit:         ; preds = %77, %96
+  %99 = call i32 @tvb_reported_length(ptr noundef %30)
+  br label %100
 
-105:                                              ; preds = %22, %dissect_aim_tlv_value_extended_data.exit, %18, %3
+100:                                              ; preds = %22, %dissect_aim_tlv_value_extended_data.exit, %18, %3
   %.0 = phi i32 [ %28, %22 ], [ %16, %dissect_aim_tlv_value_extended_data.exit ], [ %16, %18 ], [ %16, %3 ]
   ret i32 %.0
 }
@@ -4419,7 +4410,7 @@ define internal noundef i32 @dissect_aim_tlv_value_messageblock(ptr noundef %0, 
   %52 = add i32 %31, %51
   %53 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %52)
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %20, label %.loopexit, !llvm.loop !38
+  br i1 %54, label %20, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %30, %4, %28
   %.1 = phi i32 [ %23, %28 ], [ %16, %4 ], [ %52, %30 ]
@@ -4476,7 +4467,7 @@ define internal noundef i32 @dissect_aim_tlv_value_string08_array(ptr noundef %0
   %14 = add i32 %13, %12
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %14)
   %16 = icmp sgt i32 %15, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %14, %.lr.ph ]
@@ -4503,7 +4494,7 @@ define internal noundef i32 @dissect_aim_snac_signon_logon(ptr noundef %0, ptr n
   %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -4521,7 +4512,7 @@ define internal noundef i32 @dissect_aim_snac_signon_logon_reply(ptr noundef %0,
   %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -4646,7 +4637,7 @@ define internal noundef i32 @dissect_aim_snac_ssi_list(ptr noundef %0, ptr nound
   %19 = tail call fastcc i32 @dissect_ssi_item(ptr noundef %0, ptr noundef %1, i32 noundef %.030, ptr noundef %18)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 3, %3 ], [ %19, %.lr.ph ]
@@ -4681,7 +4672,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_ssi_ssi_items(ptr noundef
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.013, i32 noundef %13, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.938)
   %16 = tail call fastcc i32 @dissect_ssi_item(ptr noundef %0, ptr noundef %1, i32 noundef %.013, ptr noundef %15)
   %17 = icmp sgt i32 %4, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %16, %.lr.ph ]
@@ -4825,7 +4816,7 @@ define internal fastcc i32 @dissect_ssi_item(ptr noundef %0, ptr noundef %1, i32
   %.041 = phi i32 [ %31, %.lr.ph ], [ %27, %14 ]
   %31 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.041, ptr noundef %3, ptr noundef nonnull @aim_client_tlvs)
   %32 = icmp slt i32 %31, %29
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %.0.lcssa = phi i32 [ %27, %14 ], [ %31, %.lr.ph ]
@@ -5017,4 +5008,3 @@ attributes #12 = { nounwind }
 !41 = distinct !{!41, !9}
 !42 = distinct !{!42, !9}
 !43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}

@@ -6730,7 +6730,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
 
 .critedge:                                        ; preds = %.thread182, %159
   %162 = icmp sgt i8 %.sroa.0.0.copyload.i108, -1
-  br i1 %162, label %202, label %163, !prof !222
+  br i1 %162, label %204, label %163, !prof !222
 
 163:                                              ; preds = %.critedge
   %164 = icmp samesign ult i8 %.sroa.0.0.copyload.i108, -64
@@ -6745,76 +6745,78 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %169 = getelementptr inbounds nuw i8, ptr %.0152, i64 1
   %170 = load i8, ptr %.0152, align 1, !tbaa !40
   %171 = icmp eq i8 %170, 104
-  %172 = icmp eq i8 %166, 0
-  %or.cond4 = and i1 %172, %171
-  br i1 %or.cond4, label %173, label %179
+  %172 = icmp eq i8 %.0154, 99
+  %173 = icmp eq i8 %.0154, 104
+  %174 = or i1 %172, %173
+  %or.cond4 = and i1 %174, %171
+  br i1 %or.cond4, label %175, label %181
 
-173:                                              ; preds = %168
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  store i8 1, ptr %174, align 1, !tbaa !108
-  %175 = icmp eq ptr %169, %1
-  br i1 %175, label %.critedge71, label %176, !prof !215
+175:                                              ; preds = %168
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 13
+  store i8 1, ptr %176, align 1, !tbaa !108
+  %177 = icmp eq ptr %169, %1
+  br i1 %177, label %.critedge71, label %178, !prof !215
 
-176:                                              ; preds = %173
-  %177 = getelementptr inbounds nuw i8, ptr %.0152, i64 2
-  %178 = load i8, ptr %169, align 1, !tbaa !40
-  br label %190
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %.0152, i64 2
+  %180 = load i8, ptr %169, align 1, !tbaa !40
+  br label %192
 
-179:                                              ; preds = %168
-  %180 = icmp eq i8 %170, 108
-  %181 = icmp eq i8 %166, 2
-  %or.cond6 = and i1 %181, %180
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  br i1 %or.cond6, label %183, label %188
+181:                                              ; preds = %168
+  %182 = icmp eq i8 %170, 108
+  %183 = icmp eq i8 %166, 2
+  %or.cond6 = and i1 %183, %182
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 13
+  br i1 %or.cond6, label %185, label %190
 
-183:                                              ; preds = %179
-  store i8 3, ptr %182, align 1, !tbaa !108
-  %184 = icmp eq ptr %169, %1
-  br i1 %184, label %.critedge71, label %185, !prof !215
+185:                                              ; preds = %181
+  store i8 3, ptr %184, align 1, !tbaa !108
+  %186 = icmp eq ptr %169, %1
+  br i1 %186, label %.critedge71, label %187, !prof !215
 
-185:                                              ; preds = %183
-  %186 = getelementptr inbounds nuw i8, ptr %.0152, i64 2
-  %187 = load i8, ptr %169, align 1, !tbaa !40
-  br label %190
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %.0152, i64 2
+  %189 = load i8, ptr %169, align 1, !tbaa !40
+  br label %192
 
-188:                                              ; preds = %179
-  store i8 %166, ptr %182, align 1, !tbaa !108
-  %189 = icmp eq i8 %166, 2
-  br label %190
+190:                                              ; preds = %181
+  store i8 %166, ptr %184, align 1, !tbaa !108
+  %191 = icmp eq i8 %166, 2
+  br label %192
 
-190:                                              ; preds = %185, %188, %176
-  %191 = phi i1 [ false, %176 ], [ false, %185 ], [ %189, %188 ]
-  %.5159 = phi i8 [ %178, %176 ], [ %187, %185 ], [ %170, %188 ]
-  %.6 = phi ptr [ %177, %176 ], [ %186, %185 ], [ %169, %188 ]
-  %192 = zext i8 %.5159 to i64
-  %193 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %192
-  %.sroa.0.0.copyload.i109 = load i8, ptr %193, align 1, !tbaa !40
-  %194 = icmp ne i8 %.5159, 118
-  %195 = icmp sgt i8 %.sroa.0.0.copyload.i109, -1
-  %or.cond192 = select i1 %194, i1 %195, i1 false
-  br i1 %or.cond192, label %196, label %.critedge71, !prof !223
+192:                                              ; preds = %187, %190, %178
+  %193 = phi i1 [ false, %178 ], [ false, %187 ], [ %191, %190 ]
+  %.5159 = phi i8 [ %180, %178 ], [ %189, %187 ], [ %170, %190 ]
+  %.6 = phi ptr [ %179, %178 ], [ %188, %187 ], [ %169, %190 ]
+  %194 = zext i8 %.5159 to i64
+  %195 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %194
+  %.sroa.0.0.copyload.i109 = load i8, ptr %195, align 1, !tbaa !40
+  %196 = icmp ne i8 %.5159, 118
+  %197 = icmp sgt i8 %.sroa.0.0.copyload.i109, -1
+  %or.cond192 = select i1 %196, i1 %197, i1 false
+  br i1 %or.cond192, label %198, label %.critedge71, !prof !223
 
-196:                                              ; preds = %190
-  %197 = icmp eq i8 %.5159, 99
-  %or.cond9 = and i1 %197, %191
-  br i1 %or.cond9, label %198, label %202
+198:                                              ; preds = %192
+  %199 = icmp eq i8 %.5159, 99
+  %or.cond9 = and i1 %199, %193
+  br i1 %or.cond9, label %200, label %204
 
-198:                                              ; preds = %196
-  %199 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %200 = load i8, ptr %199, align 4, !tbaa !105
-  %201 = or i8 %200, 32
-  store i8 %201, ptr %199, align 4, !tbaa !105
-  br label %202
+200:                                              ; preds = %198
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %202 = load i8, ptr %201, align 4, !tbaa !105
+  %203 = or i8 %202, 32
+  store i8 %203, ptr %201, align 4, !tbaa !105
+  br label %204
 
-202:                                              ; preds = %198, %196, %.critedge
-  %.5153 = phi ptr [ %.0152, %.critedge ], [ %.6, %198 ], [ %.6, %196 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload.i108, %.critedge ], [ %.sroa.0.0.copyload.i109, %198 ], [ %.sroa.0.0.copyload.i109, %196 ]
-  %203 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  store i8 %.sroa.0.0, ptr %203, align 2, !tbaa !109
+204:                                              ; preds = %200, %198, %.critedge
+  %.5153 = phi ptr [ %.0152, %.critedge ], [ %.6, %200 ], [ %.6, %198 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload.i108, %.critedge ], [ %.sroa.0.0.copyload.i109, %200 ], [ %.sroa.0.0.copyload.i109, %198 ]
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  store i8 %.sroa.0.0, ptr %205, align 2, !tbaa !109
   br label %.critedge71
 
-.critedge71:                                      ; preds = %38, %202, %159, %163, %190, %183, %173, %165, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107, %128, %126, %99, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89, %71, %67, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ null, %67 ], [ null, %71 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89 ], [ null, %99 ], [ null, %126 ], [ null, %128 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread ], [ %.5153, %202 ], [ null, %159 ], [ null, %163 ], [ null, %190 ], [ null, %183 ], [ null, %173 ], [ null, %165 ], [ null, %38 ]
+.critedge71:                                      ; preds = %38, %204, %159, %163, %192, %185, %175, %165, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107, %128, %126, %99, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89, %71, %67, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit, %7, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ null, %67 ], [ null, %71 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89 ], [ null, %99 ], [ null, %126 ], [ null, %128 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread ], [ %.5153, %204 ], [ null, %159 ], [ null, %163 ], [ null, %192 ], [ null, %185 ], [ null, %175 ], [ null, %165 ], [ null, %38 ]
   ret ptr %.0
 }
 

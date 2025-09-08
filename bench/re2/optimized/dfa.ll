@@ -9417,24 +9417,8 @@ entry:
   %idxprom = zext nneg i8 %add85 to i64
   %arrayidx = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN3re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 %idxprom
   %.unpack = load i64, ptr %arrayidx, align 16
-  %8 = and i64 %.unpack, 1
-  %memptr.isvirtual.not = icmp eq i64 %8, 0
-  br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
-
-memptr.virtual:                                   ; preds = %entry
-  %vtable = load ptr, ptr %this, align 8
-  %9 = getelementptr i8, ptr %vtable, i64 %.unpack
-  %10 = getelementptr i8, ptr %9, i64 -1
-  %memptr.virtualfn = load ptr, ptr %10, align 8, !nosanitize !4
-  br label %memptr.end
-
-memptr.nonvirtual:                                ; preds = %entry
   %memptr.nonvirtualfn = inttoptr i64 %.unpack to ptr
-  br label %memptr.end
-
-memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %11 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  %call = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params)
+  %call = tail call noundef zeroext i1 %memptr.nonvirtualfn(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %params)
   ret i1 %call
 }
 
@@ -9826,7 +9810,7 @@ if.then16:                                        ; preds = %invoke.cont14
   store i8 1, ptr %failed, align 1
   br label %cleanup
 
-lpad:                                             ; preds = %memptr.end.i, %if.end
+lpad:                                             ; preds = %if.end32, %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3re23DFA8RWLockerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %l) #24
@@ -9862,29 +9846,13 @@ if.end32:                                         ; preds = %if.end17
   %idxprom.i = zext nneg i8 %add85.i to i64
   %arrayidx.i = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN3re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 %idxprom.i
   %.unpack.i = load i64, ptr %arrayidx.i, align 16
-  %12 = and i64 %.unpack.i, 1
-  %memptr.isvirtual.not.i = icmp eq i64 %12, 0
-  br i1 %memptr.isvirtual.not.i, label %memptr.nonvirtual.i, label %memptr.virtual.i
-
-memptr.virtual.i:                                 ; preds = %if.end32
-  %vtable.i = load ptr, ptr %this, align 8
-  %13 = getelementptr i8, ptr %vtable.i, i64 %.unpack.i
-  %14 = getelementptr i8, ptr %13, i64 -1
-  %memptr.virtualfn.i = load ptr, ptr %14, align 8, !nosanitize !4
-  br label %memptr.end.i
-
-memptr.nonvirtual.i:                              ; preds = %if.end32
   %memptr.nonvirtualfn.i = inttoptr i64 %.unpack.i to ptr
-  br label %memptr.end.i
-
-memptr.end.i:                                     ; preds = %memptr.nonvirtual.i, %memptr.virtual.i
-  %15 = phi ptr [ %memptr.virtualfn.i, %memptr.virtual.i ], [ %memptr.nonvirtualfn.i, %memptr.nonvirtual.i ]
-  %call.i9 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params)
+  %call.i9 = invoke noundef zeroext i1 %memptr.nonvirtualfn.i(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params)
           to label %invoke.cont33 unwind label %lpad
 
-invoke.cont33:                                    ; preds = %memptr.end.i
-  %16 = load i8, ptr %failed.i, align 8
-  %tobool37 = trunc i8 %16 to i1
+invoke.cont33:                                    ; preds = %if.end32
+  %12 = load i8, ptr %failed.i, align 8
+  %tobool37 = trunc i8 %12 to i1
   br i1 %tobool37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %invoke.cont33
@@ -9892,8 +9860,8 @@ if.then38:                                        ; preds = %invoke.cont33
   br label %cleanup
 
 if.end39:                                         ; preds = %invoke.cont33
-  %17 = load ptr, ptr %ep.i, align 8
-  store ptr %17, ptr %epp, align 8
+  %13 = load ptr, ptr %ep.i, align 8
+  store ptr %13, ptr %epp, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end17, %if.end39, %if.then38, %if.then22, %if.then16

@@ -252,30 +252,29 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = icmp eq i32 %0, 4
-  br i1 %3, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %8
-  %.0689 = phi i32 [ %4, %8 ], [ 0, %1 ]
-  %4 = add i32 %.0689, 1
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr %struct.anon, ptr @error_codes, i64 %5
-  %7 = load ptr, ptr %6, align 16, !tbaa !3
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge10, label %8, !llvm.loop !10
+3:                                                ; preds = %5
+  %4 = add nuw nsw i32 %.0610, 1
+  %.not = icmp eq i32 %4, 105
+  br i1 %.not, label %.split.loop.exit8, label %5, !llvm.loop !3
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !12
-  %11 = icmp eq i64 %10, %2
-  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+5:                                                ; preds = %1, %3
+  %.0610 = phi i32 [ 0, %1 ], [ %4, %3 ]
+  %6 = zext nneg i32 %.0610 to i64
+  %7 = getelementptr %struct.anon, ptr @error_codes, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !5
+  %10 = icmp eq i64 %9, %2
+  br i1 %10, label %.split.loop.exit, label %3
 
-._crit_edge10:                                    ; preds = %.lr.ph
-  br label %._crit_edge, !llvm.loop !10
+.split.loop.exit:                                 ; preds = %5
+  %11 = load ptr, ptr %7, align 16, !tbaa !12
+  br label %.split.loop.exit8
 
-._crit_edge:                                      ; preds = %8, %._crit_edge10, %1
-  %.lcssa = phi ptr [ null, %._crit_edge10 ], [ @.str.1, %1 ], [ %7, %8 ]
-  ret ptr %.lcssa
+.split.loop.exit8:                                ; preds = %3, %.split.loop.exit
+  %spec.select = phi ptr [ %11, %.split.loop.exit ], [ null, %3 ]
+  ret ptr %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1830,28 +1829,23 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @add_error_constants(ptr noundef %0) unnamed_addr #1 {
-  br label %7
+  br label %2
 
-2:                                                ; preds = %7
-  %3 = add i32 %.0913, 1
-  %4 = sext i32 %3 to i64
-  %5 = getelementptr %struct.anon, ptr @error_codes, i64 %4
-  %6 = load ptr, ptr %5, align 16, !tbaa !3
-  %.not.not = icmp eq ptr %6, null
-  br i1 %.not.not, label %14, label %7, !llvm.loop !61
+2:                                                ; preds = %2, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr %struct.anon, ptr @error_codes, i64 %indvars.iv
+  %4 = load ptr, ptr %3, align 16, !tbaa !12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !5
+  %7 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef %4, i64 noundef %6) #5
+  %8 = icmp slt i32 %7, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not.not = icmp eq i64 %indvars.iv.next, 105
+  %or.cond = select i1 %8, i1 true, i1 %.not.not
+  br i1 %or.cond, label %9, label %2, !llvm.loop !61
 
-7:                                                ; preds = %1, %2
-  %8 = phi ptr [ @.str.1, %1 ], [ %6, %2 ]
-  %9 = phi ptr [ @error_codes, %1 ], [ %5, %2 ]
-  %.0913 = phi i32 [ 0, %1 ], [ %3, %2 ]
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !12
-  %12 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %11) #5
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %2
-
-14:                                               ; preds = %2, %7
-  %.lobit = ashr i32 %12, 31
+9:                                                ; preds = %2
+  %.lobit = ashr i32 %7, 31
   ret i32 %.lobit
 }
 
@@ -2277,21 +2271,21 @@ attributes #6 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !5, i64 0}
-!4 = !{!"", !5, i64 0, !9, i64 8}
-!5 = !{!"p1 omnipotent char", !6, i64 0}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"long", !7, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!4, !9, i64 8}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !11, i64 8}
+!6 = !{!"", !7, i64 0, !11, i64 8}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"long", !9, i64 0}
+!12 = !{!6, !7, i64 0}
 !13 = !{!14, !15, i64 0}
 !14 = !{!"", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !16, i64 104, !16, i64 108, !17, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144, !17, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !15, i64 208, !15, i64 216}
-!15 = !{!"p1 _ZTS7_object", !6, i64 0}
-!16 = !{!"int", !7, i64 0}
-!17 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
+!15 = !{!"p1 _ZTS7_object", !8, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = !{!"p1 _ZTS11_typeobject", !8, i64 0}
 !18 = !{!14, !15, i64 8}
 !19 = !{!14, !15, i64 16}
 !20 = !{!14, !15, i64 24}
@@ -2311,20 +2305,20 @@ attributes #6 = { nounwind willreturn memory(read) }
 !34 = !{!14, !15, i64 88}
 !35 = !{!14, !15, i64 96}
 !36 = !{!15, !15, i64 0}
-!37 = !{!7, !7, i64 0}
+!37 = !{!9, !9, i64 0}
 !38 = !{!17, !17, i64 0}
 !39 = !{!40, !17, i64 8}
-!40 = !{!"_object", !7, i64 0, !17, i64 8}
-!41 = !{!42, !9, i64 168}
-!42 = !{!"_typeobject", !43, i64 0, !5, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !9, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !9, i64 168, !5, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !9, i64 208, !6, i64 216, !6, i64 224, !44, i64 232, !45, i64 240, !46, i64 248, !17, i64 256, !15, i64 264, !6, i64 272, !6, i64 280, !9, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !15, i64 336, !15, i64 344, !15, i64 352, !6, i64 360, !15, i64 368, !6, i64 376, !16, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !47, i64 410}
-!43 = !{!"", !40, i64 0, !9, i64 16}
-!44 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
-!45 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
-!46 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
-!47 = !{!"short", !7, i64 0}
-!48 = !{!9, !9, i64 0}
-!49 = !{!43, !9, i64 16}
-!50 = distinct !{!50, !11}
+!40 = !{!"_object", !9, i64 0, !17, i64 8}
+!41 = !{!42, !11, i64 168}
+!42 = !{!"_typeobject", !43, i64 0, !7, i64 24, !11, i64 32, !11, i64 40, !8, i64 48, !11, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !11, i64 168, !7, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !11, i64 208, !8, i64 216, !8, i64 224, !44, i64 232, !45, i64 240, !46, i64 248, !17, i64 256, !15, i64 264, !8, i64 272, !8, i64 280, !11, i64 288, !8, i64 296, !8, i64 304, !8, i64 312, !8, i64 320, !8, i64 328, !15, i64 336, !15, i64 344, !15, i64 352, !8, i64 360, !15, i64 368, !8, i64 376, !16, i64 384, !8, i64 392, !8, i64 400, !9, i64 408, !47, i64 410}
+!43 = !{!"", !40, i64 0, !11, i64 16}
+!44 = !{!"p1 _ZTS11PyMethodDef", !8, i64 0}
+!45 = !{!"p1 _ZTS11PyMemberDef", !8, i64 0}
+!46 = !{!"p1 _ZTS11PyGetSetDef", !8, i64 0}
+!47 = !{!"short", !9, i64 0}
+!48 = !{!11, !11, i64 0}
+!49 = !{!43, !11, i64 16}
+!50 = distinct !{!50, !4}
 !51 = !{!14, !16, i64 108}
 !52 = !{!14, !16, i64 104}
 !53 = !{!14, !15, i64 208}
@@ -2335,4 +2329,4 @@ attributes #6 = { nounwind willreturn memory(read) }
 !58 = !{!14, !15, i64 192}
 !59 = !{!14, !15, i64 200}
 !60 = !{!14, !15, i64 216}
-!61 = distinct !{!61, !11}
+!61 = distinct !{!61, !4}

@@ -344,7 +344,7 @@ declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) #0 align 16 {
-  switch i32 %1, label %266 [
+  switch i32 %1, label %264 [
     i32 0, label %8
     i32 1, label %8
     i32 2, label %8
@@ -362,7 +362,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 120) #15
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %266, label %13
+  br i1 %12, label %264, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr %struct.analog_parameters, ptr @tv_modes_parameters, i64 %9
@@ -440,7 +440,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 59:                                               ; preds = %55
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.12, i32 noundef %54, i32 noundef %56, i32 noundef %.pre) #14
-  br label %265
+  br label %263
 
 60:                                               ; preds = %55, %51
   %61 = sub i32 %47, %3
@@ -469,7 +469,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 ._crit_edge:                                      ; preds = %68
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.14, i32 noundef %67, i32 noundef %70, i32 noundef %.pre22) #14
-  br label %265
+  br label %263
 
 73:                                               ; preds = %68, %65
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -505,7 +505,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 ._crit_edge23:                                    ; preds = %89
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.16, i32 noundef %88, i32 noundef %90, i32 noundef %.pre25) #14
-  br label %265
+  br label %263
 
 93:                                               ; preds = %89, %85
   %94 = sub i32 %61, %81
@@ -542,7 +542,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 115:                                              ; preds = %108, %101
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.18, i32 noundef %100) #14
-  br label %265
+  br label %263
 
 116:                                              ; preds = %98
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 68
@@ -592,7 +592,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 ._crit_edge26:                                    ; preds = %140
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.20, i32 noundef %139, i32 noundef %142, i32 noundef %.pre28) #14
-  br label %265
+  br label %263
 
 145:                                              ; preds = %140, %137
   %146 = sub i32 %94, %133
@@ -621,14 +621,14 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 ._crit_edge29:                                    ; preds = %153
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.22, i32 noundef %152, i32 noundef %155, i32 noundef %.pre31) #14
-  br label %265
+  br label %263
 
 158:                                              ; preds = %153, %150
   %159 = add i32 %133, %3
   %160 = add i32 %159, %81
   %161 = add i32 %160, %146
   %162 = icmp eq i32 %161, %47
-  br i1 %162, label %163, label %265
+  br i1 %162, label %163, label %263
 
 163:                                              ; preds = %158
   %164 = trunc i64 %24 to i32
@@ -725,7 +725,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
 
 223:                                              ; preds = %216
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.27, i32 noundef %221, i32 noundef %23) #14
-  br label %265
+  br label %263
 
 224:                                              ; preds = %216
   %225 = trunc i32 %4 to i16
@@ -740,57 +740,53 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(a
   %231 = trunc i32 %23 to i16
   %232 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i16 %231, ptr %232, align 4
-  %233 = icmp ult i32 %23, 65536
-  br i1 %233, label %234, label %265
-
-234:                                              ; preds = %224
-  %235 = getelementptr inbounds nuw i8, ptr %11, i64 62
-  store i8 64, ptr %235, align 2
-  %236 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %237 = select i1 %5, i32 26, i32 10
-  store i32 %237, ptr %236, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %11, i64 62
+  store i8 64, ptr %233, align 2
+  %234 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %235 = select i1 %5, i32 26, i32 10
+  store i32 %235, ptr %234, align 8
   tail call void @drm_mode_set_name(ptr noundef nonnull %11)
-  br i1 %16, label %241, label %238
+  br i1 %16, label %239, label %236
 
-238:                                              ; preds = %234
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %240 = load ptr, ptr %239, align 8
-  br label %241
+236:                                              ; preds = %224
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %238 = load ptr, ptr %237, align 8
+  br label %239
 
-241:                                              ; preds = %238, %234
-  %242 = phi ptr [ %240, %238 ], [ null, %234 ]
-  %243 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %244 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %11)
-  %245 = load i32, ptr %11, align 8
-  %246 = load i16, ptr %166, align 4
+239:                                              ; preds = %236, %224
+  %240 = phi ptr [ %238, %236 ], [ null, %224 ]
+  %241 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %242 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %11)
+  %243 = load i32, ptr %11, align 8
+  %244 = load i16, ptr %166, align 4
+  %245 = zext i16 %244 to i32
+  %246 = load i16, ptr %168, align 2
   %247 = zext i16 %246 to i32
-  %248 = load i16, ptr %168, align 2
+  %248 = load i16, ptr %170, align 8
   %249 = zext i16 %248 to i32
-  %250 = load i16, ptr %170, align 8
+  %250 = load i16, ptr %172, align 2
   %251 = zext i16 %250 to i32
-  %252 = load i16, ptr %172, align 2
+  %252 = load i16, ptr %226, align 2
   %253 = zext i16 %252 to i32
-  %254 = load i16, ptr %226, align 2
+  %254 = load i16, ptr %228, align 8
   %255 = zext i16 %254 to i32
-  %256 = load i16, ptr %228, align 8
+  %256 = load i16, ptr %230, align 2
   %257 = zext i16 %256 to i32
-  %258 = load i16, ptr %230, align 2
+  %258 = load i16, ptr %232, align 4
   %259 = zext i16 %258 to i32
-  %260 = load i16, ptr %232, align 4
-  %261 = zext i16 %260 to i32
-  %262 = load i8, ptr %235, align 2
-  %263 = zext i8 %262 to i32
-  %264 = load i32, ptr %236, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %242, i32 noundef 2, ptr noundef nonnull @.str.28, ptr noundef nonnull %243, i32 noundef %244, i32 noundef %245, i32 noundef %247, i32 noundef %249, i32 noundef %251, i32 noundef %253, i32 noundef %255, i32 noundef %257, i32 noundef %259, i32 noundef %261, i32 noundef %263, i32 noundef %264) #14
-  br label %266
+  %260 = load i8, ptr %233, align 2
+  %261 = zext i8 %260 to i32
+  %262 = load i32, ptr %234, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %240, i32 noundef 2, ptr noundef nonnull @.str.28, ptr noundef nonnull %241, i32 noundef %242, i32 noundef %243, i32 noundef %245, i32 noundef %247, i32 noundef %249, i32 noundef %251, i32 noundef %253, i32 noundef %255, i32 noundef %257, i32 noundef %259, i32 noundef %261, i32 noundef %262) #14
+  br label %264
 
-265:                                              ; preds = %224, %223, %158, %._crit_edge29, %._crit_edge26, %115, %._crit_edge23, %._crit_edge, %59
+263:                                              ; preds = %223, %158, %._crit_edge29, %._crit_edge26, %115, %._crit_edge23, %._crit_edge, %59
   tail call void @kfree(ptr noundef nonnull %11) #14
-  br label %266
+  br label %264
 
-266:                                              ; preds = %265, %241, %8, %6
-  %267 = phi ptr [ null, %265 ], [ null, %6 ], [ null, %8 ], [ %11, %241 ]
-  ret ptr %267
+264:                                              ; preds = %263, %239, %8, %6
+  %265 = phi ptr [ null, %263 ], [ null, %6 ], [ null, %8 ], [ %11, %239 ]
+  ret ptr %265
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

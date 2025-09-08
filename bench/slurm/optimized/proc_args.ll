@@ -2952,36 +2952,35 @@ define dso_local i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
   %spec.select30 = getelementptr inbounds nuw i8, ptr %storemerge, i64 %spec.select30.idx
   br label %20
 
-20:                                               ; preds = %17, %32
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %32 ]
-  %21 = phi ptr [ @.str.143, %17 ], [ %34, %32 ]
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
-  %sext = shl i64 %22, 32
-  %23 = ashr exact i64 %sext, 32
-  %24 = tail call i32 @xstrncasecmp(ptr noundef nonnull %spec.select30, ptr noundef nonnull %21, i64 noundef %23) #21
-  %.not18 = icmp eq i32 %24, 0
-  br i1 %.not18, label %25, label %32
+20:                                               ; preds = %17, %33
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %33 ]
+  %21 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 16
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #22
+  %sext = shl i64 %23, 32
+  %24 = ashr exact i64 %sext, 32
+  %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %spec.select30, ptr noundef nonnull %22, i64 noundef %24) #21
+  %.not18 = icmp eq i32 %25, 0
+  br i1 %.not18, label %26, label %33
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %spec.select30, i64 %23
-  %27 = tail call zeroext i1 @xstring_is_whitespace(ptr noundef nonnull %26) #21
-  br i1 %27, label %28, label %32
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %spec.select30, i64 %24
+  %28 = tail call zeroext i1 @xstring_is_whitespace(ptr noundef nonnull %27) #21
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv, i32 1
-  %30 = load i16, ptr %29, align 8
-  %31 = zext i16 %30 to i32
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %31 = load i16, ptr %30, align 8
+  %32 = zext i16 %31 to i32
   br label %.loopexit
 
-32:                                               ; preds = %25, %20
+33:                                               ; preds = %26, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next
-  %34 = load ptr, ptr %33, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond, label %.loopexit, label %20, !llvm.loop !22
+  %34 = icmp eq i64 %indvars.iv.next, 18
+  br i1 %34, label %.loopexit, label %20, !llvm.loop !22
 
-.loopexit:                                        ; preds = %32, %28, %7
-  %.0 = phi i32 [ %spec.select, %7 ], [ %31, %28 ], [ 0, %32 ]
+.loopexit:                                        ; preds = %33, %29, %7
+  %.0 = phi i32 [ %spec.select, %7 ], [ %32, %29 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2996,114 +2995,104 @@ define dso_local ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef
   %6 = zext i16 %2 to i64
   %7 = and i64 %6, 256
   %.not.not = icmp eq i64 %7, 0
-  br i1 %.not.not, label %8, label %.thread16
+  br i1 %.not.not, label %8, label %.thread14
 
 8:                                                ; preds = %3
   %9 = and i64 %6, 1
   %.not7 = icmp eq i64 %9, 0
   br i1 %.not7, label %11, label %.thread
 
-.thread16:                                        ; preds = %3
+.thread14:                                        ; preds = %3
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.83) #21
   %10 = and i64 %6, 1
-  %.not717 = icmp eq i64 %10, 0
-  br i1 %.not717, label %.thread18, label %.thread
+  %.not715 = icmp eq i64 %10, 0
+  br i1 %.not715, label %.thread16, label %.thread
 
-.thread:                                          ; preds = %.thread16, %8
+.thread:                                          ; preds = %.thread14, %8
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.85) #21
-  br label %.thread18
+  br label %.thread16
 
-.thread18:                                        ; preds = %.thread16, %.thread
+.thread16:                                        ; preds = %.thread14, %.thread
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.86) #21
   br label %11
 
-11:                                               ; preds = %8, %.thread18
+11:                                               ; preds = %8, %.thread16
   %12 = zext i16 %0 to i32
-  %13 = icmp eq i16 %0, 1
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br label %14
 
-.lr.ph:                                           ; preds = %11, %14
-  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %11 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.i, label %21, label %14, !llvm.loop !23
+13:                                               ; preds = %14
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 18
+  br i1 %.not.i, label %22, label %14, !llvm.loop !23
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next.i, i32 1
-  %16 = load i16, ptr %15, align 8
-  %17 = icmp eq i16 %0, %16
-  br i1 %17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+14:                                               ; preds = %13, %11
+  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %13 ]
+  %15 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i16, ptr %16, align 8
+  %18 = icmp eq i16 %0, %17
+  br i1 %18, label %19, label %13
 
-._crit_edge.loopexit:                             ; preds = %14
-  %18 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next.i
-  %19 = load ptr, ptr %18, align 16
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %.lcssa = phi ptr [ @.str.143, %11 ], [ %19, %._crit_edge.loopexit ]
-  %20 = call ptr @xstrdup(ptr noundef nonnull %.lcssa) #21
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %15, align 16
+  %21 = call ptr @xstrdup(ptr noundef %20) #21
   br label %sig_num2name.exit
 
-21:                                               ; preds = %.lr.ph
-  %22 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.89, i32 noundef %12) #21
+22:                                               ; preds = %13
+  %23 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.89, i32 noundef %12) #21
   br label %sig_num2name.exit
 
-sig_num2name.exit:                                ; preds = %._crit_edge, %21
-  %.1.i = phi ptr [ %22, %21 ], [ %20, %._crit_edge ]
+sig_num2name.exit:                                ; preds = %19, %22
+  %.1.i = phi ptr [ %23, %22 ], [ %21, %19 ]
   store ptr %.1.i, ptr %5, align 8
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef %.1.i) #21
   call void @slurm_xfree(ptr noundef nonnull %5) #21
   %.not8 = icmp eq i16 %1, 60
-  br i1 %.not8, label %25, label %23
+  br i1 %.not8, label %26, label %24
 
-23:                                               ; preds = %sig_num2name.exit
-  %24 = zext i16 %1 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.87, i32 noundef %24) #21
-  br label %25
+24:                                               ; preds = %sig_num2name.exit
+  %25 = zext i16 %1 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.87, i32 noundef %25) #21
+  br label %26
 
-25:                                               ; preds = %23, %sig_num2name.exit
-  %26 = load ptr, ptr %4, align 8
+26:                                               ; preds = %24, %sig_num2name.exit
+  %27 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %26
+  ret ptr %27
 }
 
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sig_num2name(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = icmp eq i32 %0, 1
-  br i1 %2, label %10, label %.lr.ph
+  br label %3
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv20 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv20, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond, label %12, label %3, !llvm.loop !23
+2:                                                ; preds = %3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 18
+  br i1 %.not, label %12, label %3, !llvm.loop !23
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next, i32 1
-  %5 = load i16, ptr %4, align 8
-  %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %0, %6
-  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i16, ptr %5, align 8
+  %7 = zext i16 %6 to i32
+  %8 = icmp eq i32 %0, %7
+  br i1 %8, label %9, label %2
 
-._crit_edge:                                      ; preds = %3
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next
-  %9 = load ptr, ptr %8, align 16
-  br label %10
-
-10:                                               ; preds = %._crit_edge, %1
-  %.lcssa = phi ptr [ %9, %._crit_edge ], [ @.str.143, %1 ]
-  %11 = tail call ptr @xstrdup(ptr noundef nonnull %.lcssa) #21
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 16
+  %11 = tail call ptr @xstrdup(ptr noundef %10) #21
   br label %14
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %2
   %13 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.89, i32 noundef %0) #21
   br label %14
 
-14:                                               ; preds = %10, %12
-  %.1 = phi ptr [ %13, %12 ], [ %11, %10 ]
+14:                                               ; preds = %9, %12
+  %.1 = phi ptr [ %13, %12 ], [ %11, %9 ]
   ret ptr %.1
 }
 

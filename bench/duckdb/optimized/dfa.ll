@@ -10071,25 +10071,9 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12Sea
   %13 = zext nneg i8 %12 to i64
   %14 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 %13
   %.unpack = load i64, ptr %14, align 16, !tbaa !104
-  %15 = and i64 %.unpack, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %21, label %16
-
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %0, align 8, !tbaa !143
-  %18 = getelementptr i8, ptr %17, i64 %.unpack
-  %19 = getelementptr i8, ptr %18, i64 -1
-  %20 = load ptr, ptr %19, align 8, !nosanitize !118
-  br label %23
-
-21:                                               ; preds = %2
-  %22 = inttoptr i64 %.unpack to ptr
-  br label %23
-
-23:                                               ; preds = %21, %16
-  %24 = phi ptr [ %20, %16 ], [ %22, %21 ]
-  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %1)
-  ret i1 %25
+  %15 = inttoptr i64 %.unpack to ptr
+  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1)
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10460,7 +10444,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23DFA6SearchERKNS_11StringPieceE
 
 15:                                               ; preds = %9
   store i8 1, ptr %6, align 1, !tbaa !3
-  br label %80
+  br label %71
 
 16:                                               ; preds = %9
   store i8 0, ptr %6, align 1, !tbaa !3
@@ -10482,8 +10466,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23DFA6SearchERKNS_11StringPieceE
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #21
   unreachable
 
-common.resume:                                    ; preds = %79, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %79 ]
+common.resume:                                    ; preds = %70, %23
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %20
@@ -10525,18 +10509,18 @@ _ZN10duckdb_re23DFA8RWLockerC2EPNS_5MutexE.exit:  ; preds = %16
 
 39:                                               ; preds = %38
   store i8 1, ptr %6, align 1, !tbaa !3
-  br label %78
+  br label %69
 
 40:                                               ; preds = %_ZN10duckdb_re23DFA8RWLockerC2EPNS_5MutexE.exit
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %70
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %30, align 8, !tbaa !169
   %magicptr = ptrtoint ptr %43 to i64
   switch i64 %magicptr, label %49 [
-    i64 1, label %78
+    i64 1, label %69
     i64 2, label %44
   ]
 
@@ -10548,7 +10532,7 @@ _ZN10duckdb_re23DFA8RWLockerC2EPNS_5MutexE.exit:  ; preds = %16
   %storemerge.idx = select i1 %45, i64 %48, i64 0
   %storemerge = getelementptr inbounds nuw i8, ptr %46, i64 %storemerge.idx
   store ptr %storemerge, ptr %7, align 8, !tbaa !218
-  br label %78
+  br label %69
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -10562,61 +10546,45 @@ _ZN10duckdb_re23DFA8RWLockerC2EPNS_5MutexE.exit:  ; preds = %16
   %58 = zext nneg i8 %57 to i64
   %59 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 %58
   %.unpack.i = load i64, ptr %59, align 16, !tbaa !104
-  %60 = and i64 %.unpack.i, 1
-  %.not.i = icmp eq i64 %60, 0
-  br i1 %.not.i, label %66, label %61
+  %60 = inttoptr i64 %.unpack.i to ptr
+  %61 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %11)
+          to label %_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit unwind label %65
 
-61:                                               ; preds = %49
-  %62 = load ptr, ptr %0, align 8, !tbaa !143
-  %63 = getelementptr i8, ptr %62, i64 %.unpack.i
-  %64 = getelementptr i8, ptr %63, i64 -1
-  %65 = load ptr, ptr %64, align 8, !nosanitize !118
-  br label %68
+_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit: ; preds = %49
+  %62 = load i8, ptr %32, align 8, !tbaa !178, !range !117, !noundef !118
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %64, label %67
 
-66:                                               ; preds = %49
-  %67 = inttoptr i64 %.unpack.i to ptr
-  br label %68
-
-68:                                               ; preds = %66, %61
-  %69 = phi ptr [ %65, %61 ], [ %67, %66 ]
-  %70 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %11)
-          to label %_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit unwind label %74
-
-_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit: ; preds = %68
-  %71 = load i8, ptr %32, align 8, !tbaa !178, !range !117, !noundef !118
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %76
-
-73:                                               ; preds = %_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit
+64:                                               ; preds = %_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit
   store i8 1, ptr %6, align 1, !tbaa !3
-  br label %78
+  br label %69
 
-74:                                               ; preds = %68
-  %75 = landingpad { ptr, i32 }
+65:                                               ; preds = %49
+  %66 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %70
 
-76:                                               ; preds = %_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit
-  %77 = load ptr, ptr %33, align 8, !tbaa !180
-  store ptr %77, ptr %7, align 8, !tbaa !218
-  br label %78
+67:                                               ; preds = %_ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit
+  %68 = load ptr, ptr %33, align 8, !tbaa !180
+  store ptr %68, ptr %7, align 8, !tbaa !218
+  br label %69
 
-78:                                               ; preds = %73, %76, %42, %44, %39
-  %.1 = phi i1 [ true, %44 ], [ false, %39 ], [ false, %42 ], [ false, %73 ], [ %70, %76 ]
+69:                                               ; preds = %64, %67, %42, %44, %39
+  %.1 = phi i1 [ true, %44 ], [ false, %39 ], [ false, %42 ], [ false, %64 ], [ %61, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN10duckdb_re23DFA8RWLockerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %80
+  br label %71
 
-79:                                               ; preds = %74, %40
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %41, %40 ]
+70:                                               ; preds = %65, %40
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN10duckdb_re23DFA8RWLockerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
-80:                                               ; preds = %78, %15
-  %.0 = phi i1 [ %.1, %78 ], [ false, %15 ]
+71:                                               ; preds = %69, %15
+  %.0 = phi i1 [ %.1, %69 ], [ false, %15 ]
   ret i1 %.0
 }
 

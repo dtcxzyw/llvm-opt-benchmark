@@ -3330,11 +3330,13 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
 
 .preheader368:                                    ; preds = %660
   %233 = getelementptr inbounds nuw [16 x i32], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 %230
-  %234 = load i32, ptr %233, align 16, !tbaa !27
-  %.not123418 = icmp eq i32 %234, -1
-  br i1 %.not123418, label %.loopexit369, label %.lr.ph
+  switch i32 %.3107, label %.lr.ph [
+    i32 255, label %.loopexit369
+    i32 0, label %.loopexit369
+  ]
 
 .lr.ph:                                           ; preds = %.preheader368
+  %234 = load i32, ptr %233, align 16, !tbaa !27
   %235 = load ptr, ptr %0, align 8, !tbaa !191
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 120
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 128
@@ -3369,8 +3371,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   %256 = mul nuw <2 x i64> %255, %253
   %257 = bitcast <2 x i64> %256 to <4 x float>
   %258 = and <4 x i32> %.sroa.0349.12.vec.insert, <i32 0, i32 -1, i32 0, i32 -1>
-  %.inner625 = shufflevector <4 x i32> %258, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %259 = bitcast <4 x i32> %.inner625 to <2 x i64>
+  %.inner624 = shufflevector <4 x i32> %258, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %259 = bitcast <4 x i32> %.inner624 to <2 x i64>
   %260 = mul nuw <2 x i64> %255, %259
   %261 = bitcast <2 x i64> %260 to <4 x float>
   %262 = shufflevector <4 x float> %257, <4 x float> %261, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
@@ -4450,7 +4452,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit:
           cleanup
   br label %708
 
-.loopexit369:                                     ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit, %.preheader368, %.thread354, %229, %229
+.loopexit369:                                     ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit, %.preheader368, %.preheader368, %.thread354, %229, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %705 = add nuw nsw i32 %storemerge114420, 1

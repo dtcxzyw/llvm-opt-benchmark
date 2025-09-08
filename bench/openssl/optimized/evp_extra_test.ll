@@ -10204,260 +10204,256 @@ define internal fastcc range(i32 0, 2) i32 @test_set_get_raw_keys_int(i32 nounde
   store i64 1, ptr %10, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !19
-  %.not = icmp eq i32 %1, 0
-  %.pre = sext i32 %0 to i64
-  br i1 %.not, label %._crit_edge, label %12
+  %.not = icmp ne i32 %1, 0
+  %12 = icmp ult i32 %0, 4
+  %or.cond = and i1 %12, %.not
+  br i1 %or.cond, label %133, label %13
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds %struct.keys_st, ptr @keys, i64 %.pre, i32 2
-  %14 = load ptr, ptr %13, align 8, !tbaa !93
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %134, label %._crit_edge
+13:                                               ; preds = %3
+  %14 = sext i32 %0 to i64
+  %15 = getelementptr inbounds %struct.keys_st, ptr @keys, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !108
+  %.not56 = icmp ne ptr %17, null
+  br i1 %.not56, label %21, label %18
 
-._crit_edge:                                      ; preds = %3, %12
-  %16 = getelementptr inbounds %struct.keys_st, ptr @keys, i64 %.pre
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !108
-  %.not56 = icmp ne ptr %18, null
-  br i1 %.not56, label %22, label %19
+18:                                               ; preds = %13
+  %19 = load i32, ptr %15, align 8, !tbaa !91
+  %20 = tail call ptr @OBJ_nid2sn(i32 noundef %19) #9
+  br label %21
 
-19:                                               ; preds = %._crit_edge
-  %20 = load i32, ptr %16, align 8, !tbaa !91
-  %21 = tail call ptr @OBJ_nid2sn(i32 noundef %20) #9
-  br label %22
+21:                                               ; preds = %13, %18
+  %22 = phi ptr [ %20, %18 ], [ %17, %13 ]
+  br i1 %.not, label %23, label %35
 
-22:                                               ; preds = %._crit_edge, %19
-  %23 = phi ptr [ %21, %19 ], [ %18, %._crit_edge ]
-  br i1 %.not, label %36, label %24
-
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 36
-  %26 = load i32, ptr %25, align 4, !tbaa !94
-  %27 = sext i32 %26 to i64
-  store i64 %27, ptr %8, align 8, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !93
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %25 = load i32, ptr %24, align 4, !tbaa !94
+  %26 = sext i32 %25 to i64
+  store i64 %26, ptr %8, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !93
   %.not60 = icmp ne i32 %2, 0
   %brmerge = or i1 %.not60, %.not56
-  br i1 %brmerge, label %30, label %33
+  br i1 %brmerge, label %29, label %32
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr @testctx, align 8, !tbaa !6
-  %32 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %31, ptr noundef %23, ptr noundef null, ptr noundef %29, i64 noundef %27) #9
-  br label %81
+29:                                               ; preds = %23
+  %30 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %31 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %30, ptr noundef %22, ptr noundef null, ptr noundef %28, i64 noundef %26) #9
+  br label %80
 
-33:                                               ; preds = %24
-  %34 = load i32, ptr %16, align 8, !tbaa !91
-  %35 = tail call ptr @EVP_PKEY_new_raw_public_key(i32 noundef %34, ptr noundef null, ptr noundef %29, i64 noundef %27) #9
-  br label %81
+32:                                               ; preds = %23
+  %33 = load i32, ptr %15, align 8, !tbaa !91
+  %34 = tail call ptr @EVP_PKEY_new_raw_public_key(i32 noundef %33, ptr noundef null, ptr noundef %28, i64 noundef %26) #9
+  br label %80
 
-36:                                               ; preds = %22
-  %37 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !109
-  %39 = sext i32 %38 to i64
-  store i64 %39, ptr %8, align 8, !tbaa !15
-  %40 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !110
-  %42 = icmp eq ptr %41, @ml_kem_seed
-  br i1 %42, label %43, label %73
+35:                                               ; preds = %21
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %37 = load i32, ptr %36, align 8, !tbaa !109
+  %38 = sext i32 %37 to i64
+  store i64 %38, ptr %8, align 8, !tbaa !15
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !110
+  %41 = icmp eq ptr %40, @ml_kem_seed
+  br i1 %41, label %42, label %72
 
-43:                                               ; preds = %36
+42:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !111
-  %44 = load ptr, ptr @testctx, align 8, !tbaa !6
-  %45 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %44, ptr noundef %23, ptr noundef null) #9
-  %46 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 2976, ptr noundef nonnull @.str.177, ptr noundef %45) #9
-  %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %ml_kem_seed_to_priv.exit, label %47
+  %43 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %44 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %43, ptr noundef %22, ptr noundef null) #9
+  %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 2976, ptr noundef nonnull @.str.177, ptr noundef %44) #9
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %ml_kem_seed_to_priv.exit, label %46
 
-47:                                               ; preds = %43
-  %48 = tail call i32 @EVP_PKEY_fromdata_init(ptr noundef %45) #9
-  %49 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.18, i32 noundef 2977, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.112, i32 noundef %48, i32 noundef 0) #9
-  %.not12.i = icmp eq i32 %49, 0
-  br i1 %.not12.i, label %ml_kem_seed_to_priv.exit, label %50
+46:                                               ; preds = %42
+  %47 = tail call i32 @EVP_PKEY_fromdata_init(ptr noundef %44) #9
+  %48 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.18, i32 noundef 2977, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.112, i32 noundef %47, i32 noundef 0) #9
+  %.not12.i = icmp eq i32 %48, 0
+  br i1 %.not12.i, label %ml_kem_seed_to_priv.exit, label %49
 
-50:                                               ; preds = %47
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.12, ptr noundef nonnull @ml_kem_seed, i64 noundef %39) #9
-  %51 = call i32 @EVP_PKEY_fromdata(ptr noundef %45, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4) #9
-  %52 = call i32 @test_int_gt(ptr noundef nonnull @.str.18, i32 noundef 2981, ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.112, i32 noundef %51, i32 noundef 0) #9
-  %.not13.i = icmp eq i32 %52, 0
-  br i1 %.not13.i, label %ml_kem_seed_to_priv.exit, label %53
+49:                                               ; preds = %46
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.12, ptr noundef nonnull @ml_kem_seed, i64 noundef %38) #9
+  %50 = call i32 @EVP_PKEY_fromdata(ptr noundef %44, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4) #9
+  %51 = call i32 @test_int_gt(ptr noundef nonnull @.str.18, i32 noundef 2981, ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.112, i32 noundef %50, i32 noundef 0) #9
+  %.not13.i = icmp eq i32 %51, 0
+  br i1 %.not13.i, label %ml_kem_seed_to_priv.exit, label %52
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %5, align 8, !tbaa !21
-  %55 = call i32 @EVP_PKEY_todata(ptr noundef %54, i32 noundef 1, ptr noundef nonnull %6) #9
-  %56 = icmp ne i32 %55, 0
-  %57 = zext i1 %56 to i32
-  %58 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 2985, ptr noundef nonnull @.str.315, i32 noundef %57) #9
-  %.not14.i = icmp eq i32 %58, 0
-  br i1 %.not14.i, label %ml_kem_seed_to_priv.exit, label %59
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %5, align 8, !tbaa !21
+  %54 = call i32 @EVP_PKEY_todata(ptr noundef %53, i32 noundef 1, ptr noundef nonnull %6) #9
+  %55 = icmp ne i32 %54, 0
+  %56 = zext i1 %55 to i32
+  %57 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 2985, ptr noundef nonnull @.str.315, i32 noundef %56) #9
+  %.not14.i = icmp eq i32 %57, 0
+  br i1 %.not14.i, label %ml_kem_seed_to_priv.exit, label %58
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %6, align 8, !tbaa !111
-  %61 = call ptr @OSSL_PARAM_locate_const(ptr noundef %60, ptr noundef nonnull @.str.316) #9
-  %62 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 2989, ptr noundef nonnull @.str.207, ptr noundef %61) #9
-  %.not15.i = icmp eq i32 %62, 0
-  br i1 %.not15.i, label %ml_kem_seed_to_priv.exit, label %63
+58:                                               ; preds = %52
+  %59 = load ptr, ptr %6, align 8, !tbaa !111
+  %60 = call ptr @OSSL_PARAM_locate_const(ptr noundef %59, ptr noundef nonnull @.str.316) #9
+  %61 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 2989, ptr noundef nonnull @.str.207, ptr noundef %60) #9
+  %.not15.i = icmp eq i32 %61, 0
+  br i1 %.not15.i, label %ml_kem_seed_to_priv.exit, label %62
 
-63:                                               ; preds = %59
-  %64 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef %61, ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull %8) #9
-  %65 = icmp ne i32 %64, 0
-  %66 = zext i1 %65 to i32
-  %67 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 2990, ptr noundef nonnull @.str.317, i32 noundef %66) #9
-  %.not16.i = icmp ne i32 %67, 0
+62:                                               ; preds = %58
+  %63 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef %60, ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull %8) #9
+  %64 = icmp ne i32 %63, 0
+  %65 = zext i1 %64 to i32
+  %66 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 2990, ptr noundef nonnull @.str.317, i32 noundef %65) #9
+  %.not16.i = icmp ne i32 %66, 0
   %spec.select.i = zext i1 %.not16.i to i32
   br label %ml_kem_seed_to_priv.exit
 
-ml_kem_seed_to_priv.exit:                         ; preds = %43, %47, %50, %53, %59, %63
-  %.0.i = phi i32 [ 0, %59 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ], [ 0, %43 ], [ %spec.select.i, %63 ]
-  %68 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @EVP_PKEY_free(ptr noundef %68) #9
-  %69 = load ptr, ptr %6, align 8, !tbaa !111
-  call void @OSSL_PARAM_free(ptr noundef %69) #9
-  call void @EVP_PKEY_CTX_free(ptr noundef %45) #9
+ml_kem_seed_to_priv.exit:                         ; preds = %42, %46, %49, %52, %58, %62
+  %.0.i = phi i32 [ 0, %58 ], [ 0, %52 ], [ 0, %49 ], [ 0, %46 ], [ 0, %42 ], [ %spec.select.i, %62 ]
+  %67 = load ptr, ptr %5, align 8, !tbaa !21
+  call void @EVP_PKEY_free(ptr noundef %67) #9
+  %68 = load ptr, ptr %6, align 8, !tbaa !111
+  call void @OSSL_PARAM_free(ptr noundef %68) #9
+  call void @EVP_PKEY_CTX_free(ptr noundef %44) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %70 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3045, ptr noundef nonnull @.str.288, i32 noundef %.0.i) #9
-  %.not57 = icmp eq i32 %70, 0
-  br i1 %.not57, label %132, label %71
+  %69 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3045, ptr noundef nonnull @.str.288, i32 noundef %.0.i) #9
+  %.not57 = icmp eq i32 %69, 0
+  br i1 %.not57, label %131, label %70
 
-71:                                               ; preds = %ml_kem_seed_to_priv.exit
-  %72 = load ptr, ptr %11, align 8, !tbaa !19
-  br label %73
+70:                                               ; preds = %ml_kem_seed_to_priv.exit
+  %71 = load ptr, ptr %11, align 8, !tbaa !19
+  br label %72
 
-73:                                               ; preds = %71, %36
-  %.150 = phi ptr [ %72, %71 ], [ %41, %36 ]
+72:                                               ; preds = %70, %35
+  %.150 = phi ptr [ %71, %70 ], [ %40, %35 ]
   %.not58 = icmp ne i32 %2, 0
   %brmerge79 = or i1 %.not58, %.not56
-  %74 = load i64, ptr %8, align 8, !tbaa !15
-  br i1 %brmerge79, label %75, label %78
+  %73 = load i64, ptr %8, align 8, !tbaa !15
+  br i1 %brmerge79, label %74, label %77
 
-75:                                               ; preds = %73
-  %76 = load ptr, ptr @testctx, align 8, !tbaa !6
-  %77 = call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %76, ptr noundef %23, ptr noundef null, ptr noundef %.150, i64 noundef %74) #9
-  br label %81
+74:                                               ; preds = %72
+  %75 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %76 = call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %75, ptr noundef %22, ptr noundef null, ptr noundef %.150, i64 noundef %73) #9
+  br label %80
 
-78:                                               ; preds = %73
-  %79 = load i32, ptr %16, align 8, !tbaa !91
-  %80 = call ptr @EVP_PKEY_new_raw_private_key(i32 noundef %79, ptr noundef null, ptr noundef %.150, i64 noundef %74) #9
-  br label %81
+77:                                               ; preds = %72
+  %78 = load i32, ptr %15, align 8, !tbaa !91
+  %79 = call ptr @EVP_PKEY_new_raw_private_key(i32 noundef %78, ptr noundef null, ptr noundef %.150, i64 noundef %73) #9
+  br label %80
 
-81:                                               ; preds = %75, %78, %30, %33
-  %.049 = phi ptr [ %29, %30 ], [ %29, %33 ], [ %.150, %75 ], [ %.150, %78 ]
-  %.048 = phi ptr [ %32, %30 ], [ %35, %33 ], [ %77, %75 ], [ %80, %78 ]
-  %82 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 3065, ptr noundef nonnull @.str.144, ptr noundef %.048) #9
-  %.not62 = icmp eq i32 %82, 0
-  br i1 %.not62, label %132, label %83
+80:                                               ; preds = %74, %77, %29, %32
+  %.049 = phi ptr [ %28, %29 ], [ %28, %32 ], [ %.150, %74 ], [ %.150, %77 ]
+  %.048 = phi ptr [ %31, %29 ], [ %34, %32 ], [ %76, %74 ], [ %79, %77 ]
+  %81 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 3065, ptr noundef nonnull @.str.144, ptr noundef %.048) #9
+  %.not62 = icmp eq i32 %81, 0
+  br i1 %.not62, label %131, label %82
 
-83:                                               ; preds = %81
-  %84 = call i32 @EVP_PKEY_eq(ptr noundef %.048, ptr noundef %.048) #9
-  %85 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 3066, ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.43, i32 noundef %84, i32 noundef 1) #9
-  %.not63 = icmp eq i32 %85, 0
-  br i1 %.not63, label %132, label %86
+82:                                               ; preds = %80
+  %83 = call i32 @EVP_PKEY_eq(ptr noundef %.048, ptr noundef %.048) #9
+  %84 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 3066, ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.43, i32 noundef %83, i32 noundef 1) #9
+  %.not63 = icmp eq i32 %84, 0
+  br i1 %.not63, label %131, label %85
 
-86:                                               ; preds = %83
-  br i1 %.not, label %87, label %.critedge
+85:                                               ; preds = %82
+  br i1 %.not, label %.critedge, label %86
 
-87:                                               ; preds = %86
-  %88 = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %9) #9
-  %89 = icmp ne i32 %88, 0
-  %90 = zext i1 %89 to i32
-  %91 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3067, ptr noundef nonnull @.str.290, i32 noundef %90) #9
-  %.not64 = icmp eq i32 %91, 0
-  br i1 %.not64, label %132, label %96
+86:                                               ; preds = %85
+  %87 = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %9) #9
+  %88 = icmp ne i32 %87, 0
+  %89 = zext i1 %88 to i32
+  %90 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3067, ptr noundef nonnull @.str.290, i32 noundef %89) #9
+  %.not64 = icmp eq i32 %90, 0
+  br i1 %.not64, label %131, label %95
 
-.critedge:                                        ; preds = %86
-  %92 = call i32 @EVP_PKEY_get_raw_public_key(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %9) #9
-  %93 = icmp ne i32 %92, 0
-  %94 = zext i1 %93 to i32
-  %95 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3068, ptr noundef nonnull @.str.291, i32 noundef %94) #9
-  %.not65 = icmp eq i32 %95, 0
-  br i1 %.not65, label %132, label %96
+.critedge:                                        ; preds = %85
+  %91 = call i32 @EVP_PKEY_get_raw_public_key(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %9) #9
+  %92 = icmp ne i32 %91, 0
+  %93 = zext i1 %92 to i32
+  %94 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3068, ptr noundef nonnull @.str.291, i32 noundef %93) #9
+  %.not65 = icmp eq i32 %94, 0
+  br i1 %.not65, label %131, label %95
 
-96:                                               ; preds = %87, %.critedge
-  %97 = load i64, ptr %9, align 8, !tbaa !15
-  %98 = load i64, ptr %8, align 8, !tbaa !15
-  %99 = icmp eq i64 %97, %98
-  %100 = zext i1 %99 to i32
-  %101 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3069, ptr noundef nonnull @.str.292, i32 noundef %100) #9
-  %.not66 = icmp eq i32 %101, 0
-  br i1 %.not66, label %132, label %102
+95:                                               ; preds = %86, %.critedge
+  %96 = load i64, ptr %9, align 8, !tbaa !15
+  %97 = load i64, ptr %8, align 8, !tbaa !15
+  %98 = icmp eq i64 %96, %97
+  %99 = zext i1 %98 to i32
+  %100 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3069, ptr noundef nonnull @.str.292, i32 noundef %99) #9
+  %.not66 = icmp eq i32 %100, 0
+  br i1 %.not66, label %131, label %101
 
-102:                                              ; preds = %96
+101:                                              ; preds = %95
   %.not67 = icmp eq i32 %0, 1
-  br i1 %.not67, label %113, label %103
+  br i1 %.not67, label %112, label %102
+
+102:                                              ; preds = %101
+  br i1 %.not, label %.critedge75, label %103
 
 103:                                              ; preds = %102
-  br i1 %.not, label %104, label %.critedge75
+  %104 = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef %.048, ptr noundef nonnull %7, ptr noundef nonnull %10) #9
+  %105 = icmp ne i32 %104, 0
+  %106 = zext i1 %105 to i32
+  %107 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 3077, ptr noundef nonnull @.str.293, i32 noundef %106) #9
+  %.not68 = icmp eq i32 %107, 0
+  br i1 %.not68, label %131, label %112
 
-104:                                              ; preds = %103
-  %105 = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef %.048, ptr noundef nonnull %7, ptr noundef nonnull %10) #9
-  %106 = icmp ne i32 %105, 0
-  %107 = zext i1 %106 to i32
-  %108 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 3077, ptr noundef nonnull @.str.293, i32 noundef %107) #9
-  %.not68 = icmp eq i32 %108, 0
-  br i1 %.not68, label %132, label %113
+.critedge75:                                      ; preds = %102
+  %108 = call i32 @EVP_PKEY_get_raw_public_key(ptr noundef %.048, ptr noundef nonnull %7, ptr noundef nonnull %10) #9
+  %109 = icmp ne i32 %108, 0
+  %110 = zext i1 %109 to i32
+  %111 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 3079, ptr noundef nonnull @.str.294, i32 noundef %110) #9
+  %.not69 = icmp eq i32 %111, 0
+  br i1 %.not69, label %131, label %112
 
-.critedge75:                                      ; preds = %103
-  %109 = call i32 @EVP_PKEY_get_raw_public_key(ptr noundef %.048, ptr noundef nonnull %7, ptr noundef nonnull %10) #9
-  %110 = icmp ne i32 %109, 0
-  %111 = zext i1 %110 to i32
-  %112 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 3079, ptr noundef nonnull @.str.294, i32 noundef %111) #9
-  %.not69 = icmp eq i32 %112, 0
-  br i1 %.not69, label %132, label %113
+112:                                              ; preds = %103, %.critedge75, %101
+  %113 = load i64, ptr %9, align 8, !tbaa !15
+  %114 = call i64 @llvm.umax.i64(i64 %113, i64 80)
+  %115 = call noalias ptr @CRYPTO_zalloc(i64 noundef %114, ptr noundef nonnull @.str.18, i32 noundef 3082) #9
+  %116 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 3082, ptr noundef nonnull @.str.295, ptr noundef %115) #9
+  %.not70 = icmp eq i32 %116, 0
+  br i1 %.not70, label %131, label %117
 
-113:                                              ; preds = %104, %.critedge75, %102
-  %114 = load i64, ptr %9, align 8, !tbaa !15
-  %115 = call i64 @llvm.umax.i64(i64 %114, i64 80)
-  %116 = call noalias ptr @CRYPTO_zalloc(i64 noundef %115, ptr noundef nonnull @.str.18, i32 noundef 3082) #9
-  %117 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 3082, ptr noundef nonnull @.str.295, ptr noundef %116) #9
-  %.not70 = icmp eq i32 %117, 0
-  br i1 %.not70, label %132, label %118
+117:                                              ; preds = %112
+  br i1 %.not, label %.critedge77, label %118
 
-118:                                              ; preds = %113
-  br i1 %.not, label %119, label %.critedge77
+118:                                              ; preds = %117
+  %119 = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef %.048, ptr noundef %115, ptr noundef nonnull %9) #9
+  %120 = icmp ne i32 %119, 0
+  %121 = zext i1 %120 to i32
+  %122 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3084, ptr noundef nonnull @.str.296, i32 noundef %121) #9
+  %.not71 = icmp eq i32 %122, 0
+  br i1 %.not71, label %131, label %127
 
-119:                                              ; preds = %118
-  %120 = call i32 @EVP_PKEY_get_raw_private_key(ptr noundef %.048, ptr noundef %116, ptr noundef nonnull %9) #9
-  %121 = icmp ne i32 %120, 0
-  %122 = zext i1 %121 to i32
-  %123 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3084, ptr noundef nonnull @.str.296, i32 noundef %122) #9
-  %.not71 = icmp eq i32 %123, 0
-  br i1 %.not71, label %132, label %128
+.critedge77:                                      ; preds = %117
+  %123 = call i32 @EVP_PKEY_get_raw_public_key(ptr noundef %.048, ptr noundef %115, ptr noundef nonnull %9) #9
+  %124 = icmp ne i32 %123, 0
+  %125 = zext i1 %124 to i32
+  %126 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3085, ptr noundef nonnull @.str.297, i32 noundef %125) #9
+  %.not72 = icmp eq i32 %126, 0
+  br i1 %.not72, label %131, label %127
 
-.critedge77:                                      ; preds = %118
-  %124 = call i32 @EVP_PKEY_get_raw_public_key(ptr noundef %.048, ptr noundef %116, ptr noundef nonnull %9) #9
-  %125 = icmp ne i32 %124, 0
-  %126 = zext i1 %125 to i32
-  %127 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 3085, ptr noundef nonnull @.str.297, i32 noundef %126) #9
-  %.not72 = icmp eq i32 %127, 0
-  br i1 %.not72, label %132, label %128
-
-128:                                              ; preds = %119, %.critedge77
-  %129 = load i64, ptr %8, align 8, !tbaa !15
-  %130 = load i64, ptr %9, align 8, !tbaa !15
-  %131 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 3086, ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.299, ptr noundef %.049, i64 noundef %129, ptr noundef %116, i64 noundef %130) #9
-  %.not73 = icmp ne i32 %131, 0
+127:                                              ; preds = %118, %.critedge77
+  %128 = load i64, ptr %8, align 8, !tbaa !15
+  %129 = load i64, ptr %9, align 8, !tbaa !15
+  %130 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 3086, ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.299, ptr noundef %.049, i64 noundef %128, ptr noundef %115, i64 noundef %129) #9
+  %.not73 = icmp ne i32 %130, 0
   %spec.select = zext i1 %.not73 to i32
-  br label %132
+  br label %131
 
-132:                                              ; preds = %128, %119, %.critedge77, %113, %104, %.critedge75, %81, %83, %87, %.critedge, %96, %ml_kem_seed_to_priv.exit
-  %.052 = phi i32 [ 0, %.critedge77 ], [ 0, %119 ], [ 0, %113 ], [ 0, %.critedge75 ], [ 0, %104 ], [ 0, %96 ], [ 0, %.critedge ], [ 0, %87 ], [ 0, %83 ], [ 0, %81 ], [ 0, %ml_kem_seed_to_priv.exit ], [ %spec.select, %128 ]
-  %.051 = phi ptr [ %116, %.critedge77 ], [ %116, %119 ], [ %116, %113 ], [ null, %.critedge75 ], [ null, %104 ], [ null, %96 ], [ null, %.critedge ], [ null, %87 ], [ null, %83 ], [ null, %81 ], [ null, %ml_kem_seed_to_priv.exit ], [ %116, %128 ]
-  %.1 = phi ptr [ %.048, %.critedge77 ], [ %.048, %119 ], [ %.048, %113 ], [ %.048, %.critedge75 ], [ %.048, %104 ], [ %.048, %96 ], [ %.048, %.critedge ], [ %.048, %87 ], [ %.048, %83 ], [ %.048, %81 ], [ null, %ml_kem_seed_to_priv.exit ], [ %.048, %128 ]
-  %133 = load ptr, ptr %11, align 8, !tbaa !19
-  call void @CRYPTO_free(ptr noundef %133, ptr noundef nonnull @.str.18, i32 noundef 3091) #9
+131:                                              ; preds = %127, %118, %.critedge77, %112, %103, %.critedge75, %80, %82, %86, %.critedge, %95, %ml_kem_seed_to_priv.exit
+  %.052 = phi i32 [ 0, %.critedge77 ], [ 0, %118 ], [ 0, %112 ], [ 0, %.critedge75 ], [ 0, %103 ], [ 0, %95 ], [ 0, %.critedge ], [ 0, %86 ], [ 0, %82 ], [ 0, %80 ], [ 0, %ml_kem_seed_to_priv.exit ], [ %spec.select, %127 ]
+  %.051 = phi ptr [ %115, %.critedge77 ], [ %115, %118 ], [ %115, %112 ], [ null, %.critedge75 ], [ null, %103 ], [ null, %95 ], [ null, %.critedge ], [ null, %86 ], [ null, %82 ], [ null, %80 ], [ null, %ml_kem_seed_to_priv.exit ], [ %115, %127 ]
+  %.1 = phi ptr [ %.048, %.critedge77 ], [ %.048, %118 ], [ %.048, %112 ], [ %.048, %.critedge75 ], [ %.048, %103 ], [ %.048, %95 ], [ %.048, %.critedge ], [ %.048, %86 ], [ %.048, %82 ], [ %.048, %80 ], [ null, %ml_kem_seed_to_priv.exit ], [ %.048, %127 ]
+  %132 = load ptr, ptr %11, align 8, !tbaa !19
+  call void @CRYPTO_free(ptr noundef %132, ptr noundef nonnull @.str.18, i32 noundef 3091) #9
   call void @CRYPTO_free(ptr noundef %.051, ptr noundef nonnull @.str.18, i32 noundef 3092) #9
   call void @EVP_PKEY_free(ptr noundef %.1) #9
-  br label %134
+  br label %133
 
-134:                                              ; preds = %12, %132
-  %.0 = phi i32 [ %.052, %132 ], [ 1, %12 ]
+133:                                              ; preds = %3, %131
+  %.0 = phi i32 [ %.052, %131 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

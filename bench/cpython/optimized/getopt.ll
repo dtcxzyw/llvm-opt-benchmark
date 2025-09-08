@@ -120,19 +120,19 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   br i1 %.not4563, label %._crit_edge, label %.lr.ph
 
 45:                                               ; preds = %.lr.ph
-  %46 = tail call i32 @wcscmp(ptr noundef nonnull %51, ptr noundef nonnull %34) #5
-  %.not45 = icmp eq i32 %46, 0
-  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  %46 = sext i32 %51 to i64
+  %47 = getelementptr %struct._PyOS_LongOption, ptr @longopts, i64 %46
+  %48 = load ptr, ptr %47, align 16, !tbaa !15
+  %49 = tail call i32 @wcscmp(ptr noundef nonnull %48, ptr noundef nonnull %34) #5
+  %.not45 = icmp eq i32 %49, 0
+  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %43, %45
-  %47 = phi i32 [ %48, %45 ], [ 0, %43 ]
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %2, align 4, !tbaa !4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct._PyOS_LongOption, ptr @longopts, i64 %49
-  %51 = load ptr, ptr %50, align 16, !tbaa !17
-  %.not44 = icmp eq ptr %51, null
-  br i1 %.not44, label %52, label %45, !llvm.loop !15
+  %50 = phi i32 [ %51, %45 ], [ 0, %43 ]
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %2, align 4, !tbaa !4
+  %.not44 = icmp eq i32 %51, 4
+  br i1 %.not44, label %52, label %45, !llvm.loop !17
 
 52:                                               ; preds = %.lr.ph
   %53 = load i32, ptr @_PyOS_opterr, align 4, !tbaa !4
@@ -149,7 +149,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   br label %115
 
 ._crit_edge:                                      ; preds = %45, %43
-  %.053.lcssa = phi ptr [ @longopts, %43 ], [ %50, %45 ]
+  %.053.lcssa = phi ptr [ @longopts, %43 ], [ %47, %45 ]
   store ptr @.str, ptr @opt_ptr, align 8, !tbaa !10
   %61 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !19
@@ -300,9 +300,9 @@ attributes #7 = { cold nounwind }
 !12 = !{!"any pointer", !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !11, i64 0}
-!18 = !{!"", !11, i64 0, !5, i64 8, !5, i64 12}
-!19 = !{!18, !5, i64 8}
-!20 = !{!18, !5, i64 12}
+!15 = !{!16, !11, i64 0}
+!16 = !{!"", !11, i64 0, !5, i64 8, !5, i64 12}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!16, !5, i64 8}
+!20 = !{!16, !5, i64 12}

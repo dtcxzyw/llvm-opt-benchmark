@@ -1279,20 +1279,19 @@ define hidden void @_ZN2os19print_active_localeEP12outputStream(ptr noundef nonn
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = phi i32 [ 6, %1 ], [ %9, %2 ]
-  %4 = tail call ptr @setlocale(i32 noundef %3, ptr noundef null) #28
-  %5 = getelementptr inbounds nuw %struct.anon.2, ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %.not8 = icmp eq ptr %4, null
-  %7 = select i1 %.not8, ptr @.str.57, ptr %4
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.56, ptr noundef %6, ptr noundef nonnull %7) #28
+  %3 = getelementptr inbounds nuw %struct.anon.2, ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv
+  %4 = load i32, ptr %3, align 16
+  %5 = tail call ptr @setlocale(i32 noundef %4, ptr noundef null) #28
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %.not8 = icmp eq ptr %5, null
+  %8 = select i1 %.not8, ptr @.str.57, ptr %5
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.56, ptr noundef %7, ptr noundef nonnull %8) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.anon.2, ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv.next
-  %9 = load i32, ptr %8, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %10, label %2, !llvm.loop !14
+  %.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %.not, label %9, label %2, !llvm.loop !14
 
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   ret void
 }
 

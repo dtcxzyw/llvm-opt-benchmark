@@ -397,8 +397,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_default_huffman_table
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   br label %6
 
-6:                                                ; preds = %1, %35
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %35 ]
+6:                                                ; preds = %1, %36
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %36 ]
   %7 = getelementptr inbounds nuw %struct.anon, ptr @init_default_huffman_tables.ht, i64 %indvars.iv
   %8 = load i32, ptr %7, align 16, !tbaa !76
   %9 = sext i32 %8 to i64
@@ -412,37 +412,38 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_default_huffman_table
   %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load ptr, ptr %17, align 16, !tbaa !80
-  %19 = icmp eq i32 %8, 1
-  %20 = zext i1 %19 to i32
-  %21 = load ptr, ptr %3, align 8, !tbaa !41
-  %22 = tail call i32 @ff_mjpeg_build_vlc(ptr noundef nonnull %14, ptr noundef %16, ptr noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %36, label %24
+  %19 = and i64 %indvars.iv, 6
+  %20 = icmp eq i64 %19, 2
+  %21 = zext i1 %20 to i32
+  %22 = load ptr, ptr %3, align 8, !tbaa !41
+  %23 = tail call i32 @ff_mjpeg_build_vlc(ptr noundef nonnull %14, ptr noundef %16, ptr noundef %18, i32 noundef %21, ptr noundef %22) #14
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %37, label %25
 
-24:                                               ; preds = %6
-  %25 = icmp slt i32 %8, 2
-  br i1 %25, label %26, label %35
+25:                                               ; preds = %6
+  %26 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %26, label %27, label %36
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds [4 x [16 x i8]], ptr %4, i64 %9
-  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %13
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 1 dereferenceable(16) %29, i64 16, i1 false)
-  %30 = getelementptr inbounds [4 x [256 x i8]], ptr %5, i64 %9
-  %31 = getelementptr inbounds [256 x i8], ptr %30, i64 %13
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !81
-  %34 = sext i32 %33 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %31, ptr align 1 %18, i64 %34, i1 false)
-  br label %35
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds [4 x [16 x i8]], ptr %4, i64 %9
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %13
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 1 dereferenceable(16) %30, i64 16, i1 false)
+  %31 = getelementptr inbounds [4 x [256 x i8]], ptr %5, i64 %9
+  %32 = getelementptr inbounds [256 x i8], ptr %31, i64 %13
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %34 = load i32, ptr %33, align 8, !tbaa !81
+  %35 = sext i32 %34 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %32, ptr align 1 %18, i64 %35, i1 false)
+  br label %36
 
-35:                                               ; preds = %24, %26
+36:                                               ; preds = %25, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %36, label %6, !llvm.loop !82
+  br i1 %exitcond.not, label %37, label %6, !llvm.loop !82
 
-36:                                               ; preds = %35, %6
-  %.0 = phi i32 [ %22, %6 ], [ 0, %35 ]
+37:                                               ; preds = %36, %6
+  %.0 = phi i32 [ %23, %6 ], [ 0, %36 ]
   ret i32 %.0
 }
 
