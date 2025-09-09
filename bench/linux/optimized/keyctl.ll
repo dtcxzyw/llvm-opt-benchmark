@@ -2148,7 +2148,7 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %5 to i64
   %9 = icmp eq ptr %5, inttoptr (i64 -13 to ptr)
-  br i1 %9, label %10, label %53
+  br i1 %9, label %10, label %56
 
 10:                                               ; preds = %7
   %11 = tail call ptr @key_get_instantiation_authkey(i32 noundef %0) #11
@@ -2157,7 +2157,7 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
 
 13:                                               ; preds = %10
   %14 = ptrtoint ptr %11 to i64
-  br label %53
+  br label %56
 
 15:                                               ; preds = %10
   tail call void @key_put(ptr noundef %11) #11
@@ -2167,7 +2167,7 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %16 to i64
-  br label %53
+  br label %56
 
 20:                                               ; preds = %15, %3
   %21 = phi ptr [ %16, %15 ], [ %5, %3 ]
@@ -2208,23 +2208,23 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
   %45 = call i64 @_copy_to_user(ptr noundef nonnull %1, ptr noundef %44, i64 noundef %43) #11
   %46 = icmp eq i64 %45, 0
   %47 = select i1 %46, i64 %26, i64 -14
-  br label %48
+  br label %call void asm sideeffect "13
 
-48:                                               ; preds = %42, %38
+call void asm sideeffect "13:    ; preds = %42, %38
   %49 = phi i64 [ %26, %38 ], [ %47, %42 ]
   %50 = load ptr, ptr %4, align 8
   call void @kfree(ptr noundef %50) #11
   br label %51
 
-51:                                               ; preds = %48, %36, %32, %28
+46:                                               ; preds = %48, %36, %32, %28
   %52 = phi i64 [ 1, %28 ], [ %49, %48 ], [ %26, %36 ], [ %35, %32 ]
   call void @key_put(ptr noundef %24) #11
-  br label %53
+  br label %56
 
-53:                                               ; preds = %51, %18, %13, %7
-  %54 = phi i64 [ %14, %13 ], [ %19, %18 ], [ %52, %51 ], [ %8, %7 ]
+56:                                               ; preds = %51, %18, %13, %7
+  %57 = phi i64 [ %14, %13 ], [ %19, %18 ], [ %52, %51 ], [ %8, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %54
+  ret i64 %57
 }
 
 ; Function Attrs: null_pointer_is_valid

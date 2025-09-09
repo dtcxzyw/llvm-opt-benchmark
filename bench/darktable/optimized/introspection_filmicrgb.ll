@@ -10505,7 +10505,7 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8, !tbaa !430
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %99
+  br i1 %.not, label %7, label %100
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 704
@@ -10513,7 +10513,7 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 480
   %11 = load i32, ptr %10, align 32, !tbaa !475
   %.not57 = icmp eq i32 %11, 0
-  br i1 %.not57, label %99, label %12
+  br i1 %.not57, label %100, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -10613,8 +10613,8 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
 .thread76:                                        ; preds = %39
   switch i32 %.pr67.ph, label %.thread62 [
     i32 2, label %62
-    i32 1, label %.thread76.thread
-    i32 0, label %76
+    i32 1, label %71
+    i32 0, label %77
   ]
 
 62:                                               ; preds = %.thread76, %.thread
@@ -10629,40 +10629,40 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %67, i64 noundef %68) #20
   %70 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.165, i32 noundef 5) #20
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %69, ptr noundef %70) #20
-  br label %86
+  br label %87
 
-.thread76.thread:                                 ; preds = %.thread70, %.thread76
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 256
-  %72 = load ptr, ptr %71, align 64, !tbaa !451
-  %73 = tail call i64 @gtk_widget_get_type() #35
-  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %73) #20
-  %75 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.166, i32 noundef 5) #20
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %74, ptr noundef %75) #20
-  br label %86
+71:                                               ; preds = %.thread70, %.thread76
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 256
+  %73 = load ptr, ptr %72, align 64, !tbaa !451
+  %74 = tail call i64 @gtk_widget_get_type() #35
+  %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef %74) #20
+  %76 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.166, i32 noundef 5) #20
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %75, ptr noundef %76) #20
+  br label %87
 
-76:                                               ; preds = %.thread76
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 256
-  %78 = load ptr, ptr %77, align 64, !tbaa !451
-  %79 = tail call i64 @gtk_widget_get_type() #35
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #20
-  %81 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.167, i32 noundef 5) #20
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %80, ptr noundef %81) #20
-  br label %86
+77:                                               ; preds = %.thread76
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 256
+  %79 = load ptr, ptr %78, align 64, !tbaa !451
+  %80 = tail call i64 @gtk_widget_get_type() #35
+  %81 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %80) #20
+  %82 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.167, i32 noundef 5) #20
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %81, ptr noundef %82) #20
+  br label %87
 
 .thread62:                                        ; preds = %.thread76, %62
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 256
-  %83 = load ptr, ptr %82, align 64, !tbaa !451
-  %84 = tail call i64 @gtk_widget_get_type() #35
-  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef %84) #20
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %85, ptr noundef nonnull @.str.168) #20
-  br label %86
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 256
+  %84 = load ptr, ptr %83, align 64, !tbaa !451
+  %85 = tail call i64 @gtk_widget_get_type() #35
+  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %85) #20
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %86, ptr noundef nonnull @.str.168) #20
+  br label %87
 
-86:                                               ; preds = %.thread76.thread, %.thread62, %76, %65
-  %87 = load i32, ptr %34, align 4, !tbaa !549
-  %.not61 = icmp eq i32 %35, %87
-  br i1 %.not61, label %99, label %88
+87:                                               ; preds = %71, %.thread62, %77, %65
+  %88 = load i32, ptr %34, align 4, !tbaa !549
+  %.not61 = icmp eq i32 %35, %88
+  br i1 %.not61, label %100, label %88
 
-88:                                               ; preds = %86
+94:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %90 = load ptr, ptr %89, align 64, !tbaa !451
   %91 = tail call i64 @gtk_widget_get_type() #35
@@ -10673,16 +10673,16 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
 93:                                               ; preds = %33
   store i32 2, ptr %34, align 4, !tbaa !549
   %.not59 = icmp eq i32 %35, 2
-  br i1 %.not59, label %99, label %94
+  br i1 %.not59, label %100, label %95
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 256
-  %96 = load ptr, ptr %95, align 64, !tbaa !451
-  %97 = tail call i64 @gtk_widget_get_type() #35
-  %98 = tail call ptr @g_type_check_instance_cast(ptr noundef %96, i64 noundef %97) #20
-  br label %99
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 256
+  %97 = load ptr, ptr %96, align 64, !tbaa !451
+  %98 = tail call i64 @gtk_widget_get_type() #35
+  %99 = tail call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef %98) #20
+  br label %100
 
-99:                                               ; preds = %7, %93, %94, %86, %88, %3
+100:                                              ; preds = %7, %93, %95, %87, %88, %3
   %.052 = phi i32 [ 1, %3 ], [ 0, %7 ], [ 1, %88 ], [ 1, %86 ], [ 0, %94 ], [ 0, %93 ]
   ret i32 %.052
 }

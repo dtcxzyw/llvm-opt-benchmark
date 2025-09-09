@@ -2200,12 +2200,12 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %10, label %124
+  br i1 %9, label %10, label %125
 
 10:                                               ; preds = %4
   %11 = add nuw nsw i32 %8, 1
   store i32 %11, ptr %7, align 8, !tbaa !28
-  br label %124
+  br label %125
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2213,7 +2213,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = icmp slt i32 %14, %16
-  br i1 %17, label %18, label %124
+  br i1 %17, label %18, label %125
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8, !tbaa !10
@@ -2377,15 +2377,15 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
 
 119:                                              ; preds = %109, %111, %115, %99, %105
   %120 = icmp samesign ult i32 %.3, 65536
-  br i1 %120, label %124, label %121
+  br i1 %120, label %125, label %121
 
 121:                                              ; preds = %119
   store i32 %.3, ptr %2, align 8, !tbaa !39
   %122 = lshr i32 %.3, 10
   %123 = add nuw nsw i32 %122, 55232
-  br label %124
+  br label %125
 
-124:                                              ; preds = %12, %121, %119, %4, %10
+125:                                              ; preds = %12, %121, %119, %4, %10
   %.065 = phi i32 [ %6, %10 ], [ %6, %4 ], [ %123, %121 ], [ %.3, %119 ], [ -1, %12 ]
   ret i32 %.065
 }

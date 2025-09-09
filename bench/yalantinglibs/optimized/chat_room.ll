@@ -49215,9 +49215,9 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   store i8 %4, ptr %arrayidx7.i.i.i, align 1
   %sub8.i.i.i = add i32 %__pos.015.i.i.i, -2
   %cmp.i8.i.i = icmp samesign ugt i32 %__val.addr.016.i.i.i, 9999
-  br i1 %cmp.i8.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !116
+  br i1 %cmp.i8.i.i, label %while.body.i.i.i, label %while.end.i.i.i.loopexit, !llvm.loop !116
 
-while.end.i.i.i:                                  ; preds = %while.body.i.i.i
+while.end.i.i.i.loopexit:                         ; preds = %while.body.i.i.i
   %conv.i23.i4 = zext nneg i32 %retval.0.i.i.i.ph to i64
   %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.016.i.i.i, 999
   br i1 %cmp9.i.i.i, label %if.then.i.i.i1, label %if.else.i.i.i

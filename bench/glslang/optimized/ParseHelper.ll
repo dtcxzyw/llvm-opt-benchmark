@@ -35072,8 +35072,8 @@ _ZNK7glslang11TPublicType7isImageEv.exit:         ; preds = %48
   br i1 %or.cond, label %57, label %.critedge
 
 57:                                               ; preds = %53
-  %trunc44 = trunc i32 %50 to i8
-  switch i8 %trunc44, label %_ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.exit [
+  %trunc43 = trunc i32 %50 to i8
+  switch i8 %trunc43, label %_ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.exit [
     i8 1, label %58
     i8 9, label %switch.lookup52
     i8 8, label %switch.lookup58
@@ -35115,8 +35115,8 @@ _ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasic
 .critedge:                                        ; preds = %_ZNK7glslang11TPublicType7isImageEv.exit, %_ZNK7glslang11TPublicType7isImageEv.exit, %48, %45, %44, %53, %_ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasicTypeE.exit, %25, %14, %23, %5
   %65 = load i64, ptr %6, align 8
   %66 = and i64 %65, 8589934592
-  %.not45 = icmp eq i64 %66, 0
-  br i1 %.not45, label %71, label %67
+  %.not44 = icmp eq i64 %66, 0
+  br i1 %.not44, label %71, label %67
 
 67:                                               ; preds = %.critedge
   %68 = load ptr, ptr %0, align 8
@@ -35129,22 +35129,22 @@ _ZN7glslang13TParseContext21mapLegacyLayoutFormatENS_13TLayoutFormatENS_10TBasic
 71:                                               ; preds = %5, %5, %10, %67, %.critedge
   %72 = phi i64 [ %7, %5 ], [ %7, %5 ], [ %13, %10 ], [ %.pre, %67 ], [ %65, %.critedge ]
   %73 = and i64 %72, 288230376151711744
-  %.not46 = icmp eq i64 %73, 0
-  br i1 %.not46, label %78, label %74
+  %.not45 = icmp eq i64 %73, 0
+  br i1 %.not45, label %78, label %74
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 344
   %77 = load ptr, ptr %76, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %77(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.393, ptr noundef nonnull @.str.394, ptr noundef nonnull @.str.2) #22
-  %.pre49 = load i64, ptr %6, align 8
+  %.pre48 = load i64, ptr %6, align 8
   br label %78
 
 78:                                               ; preds = %74, %71
-  %79 = phi i64 [ %.pre49, %74 ], [ %72, %71 ]
+  %79 = phi i64 [ %.pre48, %74 ], [ %72, %71 ]
   %80 = and i64 %79, 576460752303423488
-  %.not47 = icmp eq i64 %80, 0
-  br i1 %.not47, label %85, label %81
+  %.not46 = icmp eq i64 %80, 0
+  br i1 %.not46, label %85, label %81
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %0, align 8

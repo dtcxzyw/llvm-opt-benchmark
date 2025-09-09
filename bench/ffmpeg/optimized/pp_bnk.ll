@@ -277,8 +277,8 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = load i32, ptr %4, align 8, !tbaa !28
-  %.not7393 = icmp sgt i32 %5, 0
-  br i1 %.not7393, label %.lr.ph, label %.thread81
+  %.not7389 = icmp sgt i32 %5, 0
+  br i1 %.not7389, label %.lr.ph, label %.thread77
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -292,10 +292,10 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %.pre = load i32, ptr %6, align 8, !tbaa !59
   br label %14
 
-14:                                               ; preds = %.lr.ph, %80
-  %15 = phi i32 [ %.pre, %.lr.ph ], [ %83, %80 ]
-  %16 = phi i32 [ %5, %.lr.ph ], [ %84, %80 ]
-  %.05794 = phi i32 [ 0, %.lr.ph ], [ %82, %80 ]
+14:                                               ; preds = %.lr.ph, %79
+  %15 = phi i32 [ %.pre, %.lr.ph ], [ %82, %80 ]
+  %16 = phi i32 [ %5, %.lr.ph ], [ %83, %80 ]
+  %.05790 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
   %17 = urem i32 %15, %16
   store i32 %17, ptr %6, align 8, !tbaa !59
   %18 = load ptr, ptr %7, align 8, !tbaa !31
@@ -306,7 +306,7 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !34
   %25 = icmp eq i32 %22, %24
-  br i1 %25, label %80, label %26
+  br i1 %25, label %79, label %26
 
 26:                                               ; preds = %14
   %27 = load ptr, ptr %8, align 8, !tbaa !27
@@ -319,7 +319,7 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
 
 33:                                               ; preds = %26
   %34 = trunc i64 %31 to i32
-  br label %.thread81
+  br label %.thread77
 
 35:                                               ; preds = %26
   %36 = load i64, ptr %20, align 8, !tbaa !32
@@ -327,7 +327,7 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %38 = zext i32 %37 to i64
   %39 = add nsw i64 %36, %38
   %.not = icmp eq i64 %31, %39
-  br i1 %.not, label %40, label %.thread81
+  br i1 %.not, label %40, label %.thread77
 
 40:                                               ; preds = %35
   %41 = load i32, ptr %23, align 8, !tbaa !34
@@ -346,8 +346,8 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
 48:                                               ; preds = %44
   %49 = load i32, ptr %21, align 4, !tbaa !35
   store i32 %49, ptr %23, align 8, !tbaa !34
-  %.pre110 = load i32, ptr %6, align 8, !tbaa !59
-  br label %80
+  %.pre103 = load i32, ptr %6, align 8, !tbaa !59
+  br label %79
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %10, align 8, !tbaa !60
@@ -358,14 +358,14 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %53 = shl nuw nsw i32 %spec.select, 1
   %54 = tail call i32 @av_new_packet(ptr noundef nonnull %1, i32 noundef %53) #6
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %.thread81, label %._crit_edge
+  br i1 %55, label %.thread77, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52
-  %.pre109 = load ptr, ptr %10, align 8, !tbaa !60
+  %.pre102 = load ptr, ptr %10, align 8, !tbaa !60
   br label %56
 
 56:                                               ; preds = %._crit_edge, %50
-  %57 = phi ptr [ %.pre109, %._crit_edge ], [ %51, %50 ]
+  %57 = phi ptr [ %.pre102, %._crit_edge ], [ %51, %50 ]
   %58 = load ptr, ptr %8, align 8, !tbaa !27
   %59 = load i32, ptr %6, align 8, !tbaa !59
   %60 = mul i32 %59, %spec.select
@@ -383,7 +383,7 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %67 = icmp slt i32 %46, 0
   br i1 %67, label %.thread81, label %.thread77
 
-.thread77:                                        ; preds = %65, %66
+.thread77:; preds = %65, %66
   %.05879.in = phi i32 [ %46, %66 ], [ %spec.select, %65 ]
   %68 = load i32, ptr %21, align 4, !tbaa !35
   %69 = add i32 %68, %.05879.in
@@ -409,20 +409,20 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread77, %78
-  %79 = add i32 %72, 1
-  store i32 %79, ptr %6, align 8, !tbaa !59
-  br label %.thread81
+  %78 = add i32 %72, 1
+  store i32 %78, ptr %6, align 8, !tbaa !59
+  br label %.thread77
 
-80:                                               ; preds = %48, %14, %76
-  %81 = phi i32 [ %.pre110, %48 ], [ %17, %14 ], [ 0, %76 ]
-  %82 = add nuw nsw i32 %.05794, 1
-  %83 = add i32 %81, 1
-  store i32 %83, ptr %6, align 8, !tbaa !59
-  %84 = load i32, ptr %4, align 8, !tbaa !28
-  %.not73 = icmp slt i32 %82, %84
-  br i1 %.not73, label %14, label %.thread81, !llvm.loop !64
+79:                                               ; preds = %48, %14, %76
+  %80 = phi i32 [ %.pre103, %48 ], [ %17, %14 ], [ 0, %76 ]
+  %81 = add nuw nsw i32 %.05790, 1
+  %82 = add i32 %80, 1
+  store i32 %82, ptr %6, align 8, !tbaa !59
+  %83 = load i32, ptr %4, align 8, !tbaa !28
+  %.not73 = icmp slt i32 %81, %83
+  br i1 %.not73, label %14, label %.thread77, !llvm.loop !64
 
-.thread81:                                        ; preds = %80, %35, %52, %56, %65, %66, %2, %.loopexit, %33
+.thread77:                                        ; preds = %79, %35, %52, %56, %65, %66, %2, %.loopexit, %33
   %spec.select74 = phi i32 [ 0, %.loopexit ], [ %34, %33 ], [ -541478725, %2 ], [ -541478725, %80 ], [ -5, %35 ], [ %54, %52 ], [ %63, %56 ], [ -541478725, %65 ], [ %46, %66 ]
   ret i32 %spec.select74
 }

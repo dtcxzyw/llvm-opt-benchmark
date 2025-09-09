@@ -5690,12 +5690,12 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %13
 
-._crit_edge:                                      ; preds = %140, %4
+._crit_edge:                                      ; preds = %139, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-13:                                               ; preds = %.lr.ph, %140
+13:                                               ; preds = %.lr.ph, %139
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %140 ]
   %.071 = phi i1 [ false, %.lr.ph ], [ %.2, %140 ]
   %14 = icmp eq i64 %indvars.iv, %10
@@ -5726,7 +5726,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   store i64 %24, ptr %8, align 8, !tbaa !113
   %25 = trunc nsw i64 %indvars.iv to i32
   store i32 %25, ptr %9, align 4, !tbaa !76
-  br label %140
+  br label %139
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -5822,12 +5822,12 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   br i1 %or.cond3, label %87, label %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42"
 
 87:                                               ; preds = %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit"
-  %88 = call i32 @llvm.umax.i32(i32 %29, i32 97)
-  %89 = call i32 @llvm.umin.i32(i32 %32, i32 122)
-  %.not35 = icmp samesign ugt i32 %88, %89
-  br i1 %.not35, label %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42", label %90
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %29, i32 97)
+  %88 = call i32 @llvm.umin.i32(i32 %32, i32 122)
+  %.not35 = icmp samesign ugt i32 %spec.store.select, %88
+  br i1 %.not35, label %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42", label %89
 
-90:                                               ; preds = %87
+89:                                               ; preds = %87
   %91 = add nsw i32 %88, -32
   %92 = add nsw i32 %89, -32
   %93 = add nsw i32 %88, -33
@@ -5839,7 +5839,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   %.not.i40 = icmp eq i64 %98, 0
   br i1 %.not.i40, label %99, label %107
 
-99:                                               ; preds = %90
+99:; preds = %90
   %100 = or i64 %94, %97
   store i64 %100, ptr %12, align 8, !tbaa !113
   %101 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %91)
@@ -5851,7 +5851,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   store i32 %104, ptr %106, align 4, !tbaa !76
   br label %107
 
-107:                                              ; preds = %99, %90
+107:; preds = %99, %89
   %108 = load i64, ptr %7, align 8, !tbaa !113
   %109 = add nsw i32 %89, -96
   %110 = zext nneg i32 %109 to i64
@@ -5860,7 +5860,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   %.not24.i38 = icmp eq i64 %112, 0
   br i1 %.not24.i38, label %113, label %122
 
-113:                                              ; preds = %107
+113:; preds = %107
   %114 = or i64 %108, %111
   store i64 %114, ptr %7, align 8, !tbaa !113
   %115 = add nsw i32 %89, -31
@@ -5873,44 +5873,44 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   store i32 %119, ptr %121, align 4, !tbaa !76
   br label %122
 
-122:                                              ; preds = %113, %107
+122:; preds = %113, %107
   %123 = trunc nsw i64 %indvars.iv to i32
   br label %124
 
-124:                                              ; preds = %126, %122
-  %.3 = phi i32 [ %.265, %122 ], [ %131, %126 ]
+124:; preds = %126, %122
+  %.021.i39 = phi i32 [ %.265, %122 ], [ %131, %126 ]
   %.021.i39 = phi i32 [ %91, %122 ], [ %133, %126 ]
   %125 = icmp slt i32 %.021.i39, 256
   br i1 %125, label %126, label %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42"
 
-126:                                              ; preds = %124
+126:; preds = %124
   %127 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %.021.i39)
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i32, ptr %6, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !76
-  %131 = call i32 @llvm.smin.i32(i32 %130, i32 %.3)
+  %131 = call i32 @llvm.smin.i32(i32 %130, i32 %.021.i39)
   store i32 %123, ptr %129, align 4, !tbaa !76
   %132 = icmp eq i32 %127, %92
   %133 = add nsw i32 %127, 1
   br i1 %132, label %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42", label %124
 
-"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42": ; preds = %126, %124, %87, %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit"
+"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42":; preds = %126, %124, %87, %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit"
   %.063 = phi i32 [ %.265, %87 ], [ %.265, %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit" ], [ %.3, %124 ], [ %131, %126 ]
   %.not36 = icmp eq i32 %.063, %3
-  br i1 %.not36, label %140, label %134
+  br i1 %.not36, label %139, label %133
 
-134:                                              ; preds = %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42"
-  %135 = trunc nsw i64 %indvars.iv to i32
-  %136 = sub nsw i32 %.063, %135
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %136, i32 32767)
-  %137 = load i16, ptr %81, align 2, !tbaa !8
+133:                                              ; preds = %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42"
+  %134 = trunc nsw i64 %indvars.iv to i32
+  %135 = sub nsw i32 %.063, %134
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %135, i32 32767)
+  %136 = load i16, ptr %81, align 2, !tbaa !8
   %.tr = trunc i32 %.sroa.speculated to i16
-  %138 = shl i16 %.tr, 1
-  %139 = or i16 %137, %138
-  store i16 %139, ptr %81, align 2, !tbaa !8
-  br label %140
+  %137 = shl i16 %.tr, 1
+  %138 = or i16 %136, %137
+  store i16 %138, ptr %81, align 2, !tbaa !8
+  br label %139
 
-140:                                              ; preds = %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42", %134, %23
+139:                                              ; preds = %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42", %133, %23
   %.2 = phi i1 [ false, %23 ], [ true, %134 ], [ true, %"_ZZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS2_EEiiENK3$_0clEii.exit42" ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not.not = icmp sgt i64 %indvars.iv, %11

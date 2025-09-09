@@ -280,7 +280,7 @@ define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly captures(add
 
 13:                                               ; preds = %3
   store i8 0, ptr %1, align 1, !tbaa !32
-  br label %mem_read.exit.thread35
+  br label %mem_read.exit.thread
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -326,52 +326,52 @@ define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly captures(add
   %31 = icmp ne ptr %1, null
   %32 = icmp ne i64 %.pre.i, 0
   %or.cond.i = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond.i, label %mem_read.exit.thread, label %.thread.i
+  br i1 %or.cond.i, label %33, label %.thread.i
 
-mem_read.exit.thread:                             ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %34, i64 %spec.select3335.i, i1 false)
-  %35 = load i64, ptr %.0.i, align 8, !tbaa !22
-  %36 = sub i64 %35, %spec.select3335.i
-  store i64 %36, ptr %.0.i, align 8, !tbaa !22
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !23
-  %39 = sub i64 %38, %spec.select3335.i
-  store i64 %39, ptr %37, align 8, !tbaa !23
-  %40 = load ptr, ptr %33, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %spec.select3335.i
-  store ptr %41, ptr %33, align 8, !tbaa !20
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %35, i64 %spec.select3335.i, i1 false)
+  %36 = load i64, ptr %.0.i, align 8, !tbaa !22
+  %37 = sub i64 %36, %spec.select3335.i
+  store i64 %37, ptr %.0.i, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !23
+  %40 = sub i64 %39, %spec.select3335.i
+  store i64 %40, ptr %38, align 8, !tbaa !23
+  %41 = load ptr, ptr %34, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %spec.select3335.i
+  store ptr %42, ptr %34, align 8, !tbaa !20
   br label %49
 
 .thread.i:                                        ; preds = %29, %.loopexit
-  %42 = phi i32 [ %spec.select33.i, %29 ], [ %.1, %.loopexit ]
-  %43 = icmp eq i64 %.pre.i, 0
-  br i1 %43, label %44, label %mem_read.exit
+  %43 = phi i32 [ %spec.select33.i, %29 ], [ %.1, %.loopexit ]
+  %44 = icmp eq i64 %.pre.i, 0
+  br i1 %44, label %45, label %mem_read.exit
 
-44:                                               ; preds = %.thread.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = load i32, ptr %45, align 8, !tbaa !29
-  %.not32.i = icmp eq i32 %46, 0
-  br i1 %.not32.i, label %mem_read.exit.thread35, label %47
+45:                                               ; preds = %.thread.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %47 = load i32, ptr %46, align 8, !tbaa !29
+  %.not32.i = icmp eq i32 %47, 0
+  br i1 %.not32.i, label %mem_read.exit.thread, label %48
 
-47:                                               ; preds = %44
+48:                                               ; preds = %45
   tail call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 9) #7
   br label %mem_read.exit
 
-mem_read.exit:                                    ; preds = %.thread.i, %47
-  %.026.i = phi i32 [ %46, %47 ], [ %42, %.thread.i ]
-  %48 = icmp sgt i32 %.026.i, 0
-  br i1 %48, label %49, label %mem_read.exit.thread35
+mem_read.exit:                                    ; preds = %.thread.i, %48
+  %.026.i = phi i32 [ %47, %47 ], [ %43, %.thread.i ]
+  %49 = icmp sgt i32 %.026.i, 0
+  br i1 %49, label %50, label %mem_read.exit.thread
 
-49:                                               ; preds = %mem_read.exit.thread, %mem_read.exit
+50:                                               ; preds = %33, %mem_read.exit
   %.026.i34 = phi i32 [ %spec.select33.i, %mem_read.exit.thread ], [ %.026.i, %mem_read.exit ]
   %50 = zext nneg i32 %.026.i34 to i64
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %50
   store i8 0, ptr %51, align 1, !tbaa !32
   br label %mem_read.exit.thread35
 
-mem_read.exit.thread35:                           ; preds = %44, %mem_read.exit, %49, %13
+mem_read.exit.thread:                             ; preds = %45, %mem_read.exit, %50, %13
   %.026 = phi i32 [ 0, %13 ], [ %.026.i34, %49 ], [ %.026.i, %mem_read.exit ], [ 0, %44 ]
   ret i32 %.026
 }

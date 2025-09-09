@@ -33921,7 +33921,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1ae791be4385d97bE.exit: ; preds = %143,
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_resolver..lock..ResolverManifest$GT$17h2b7adf03ee1b4077E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %17) #32
           to label %165 unwind label %163
 
-163:                                              ; preds = %.body, %"_ZN4core3ptr132drop_in_place$LT$std..collections..hash..set..HashSet$LT$uv_normalize..package_name..PackageName$C$rustc_hash..FxBuildHasher$GT$$GT$17h86eee31bcc42b540E.exit", %355, %353, %350, %348, %345, %341, %337, %334, %275, %272, %260, %.body120, %250, %248, %246, %.body112, %170, %169, %168, %167, %166, %165, %161
+163:                                              ; preds = %.body, %"_ZN4core3ptr132drop_in_place$LT$std..collections..hash..set..HashSet$LT$uv_normalize..package_name..PackageName$C$rustc_hash..FxBuildHasher$GT$$GT$17h86eee31bcc42b540E.exit", %356, %354, %350, %348, %345, %341, %337, %334, %275, %272, %260, %.body120, %250, %248, %246, %.body112, %170, %169, %168, %167, %166, %165, %161
   %164 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #34
@@ -34171,7 +34171,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1ae791be4385d97bE.exit: ; preds = %143,
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..Conflicts$GT$$GT$17h0794ee8eee558a0cE"(ptr noalias noundef align 8 dereferenceable(24) %251) #32
           to label %.body120 unwind label %163
 
-252:                                              ; preds = %355, %352, %.body120
+252:                                              ; preds = %356, %353, %.body120
   %eh.lpad-body121.pn.pn = phi { ptr, i32 } [ %eh.lpad-body121.pn, %.body120 ], [ %.pn70, %355 ], [ %.pn70, %352 ]
   resume { ptr, i32 } %eh.lpad-body121.pn.pn
 
@@ -34438,7 +34438,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %5
 
 347:                                              ; preds = %348, %343
   %cond79 = icmp eq i8 %.sroa.022.2, 0
-  br i1 %cond79, label %352, label %350
+  br i1 %cond79, label %353, label %350
 
 348:                                              ; preds = %343
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -34450,15 +34450,15 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %5
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..Conflicts$GT$$GT$17h0794ee8eee558a0cE"(ptr noalias noundef align 8 dereferenceable(24) %351) #32
           to label %353 unwind label %163
 
-352:                                              ; preds = %347, %353
-  br i1 %.sroa.047.2, label %355, label %252
+353:                                              ; preds = %347, %353
+  br i1 %.sroa.047.2, label %356, label %252
 
-353:                                              ; preds = %350
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_resolver..lock..ResolverManifest$GT$17h2b7adf03ee1b4077E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %354) #32
+354:                                              ; preds = %350
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_resolver..lock..ResolverManifest$GT$17h2b7adf03ee1b4077E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %355) #32
           to label %352 unwind label %163
 
-355:                                              ; preds = %352
+356:                                              ; preds = %353
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$uv_resolver..lock..PackageWire$GT$$GT$17hecadbe1d13ed4c90E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #32
           to label %252 unwind label %163
 }

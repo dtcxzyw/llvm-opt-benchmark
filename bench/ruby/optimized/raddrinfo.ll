@@ -1744,29 +1744,29 @@ declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
 define i64 @rsock_unixaddr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.10, i64 noundef 7) #21
   %4 = zext i32 %1 to i64
-  br label %5
+  br label %6
 
-5:                                                ; preds = %7, %2
+6:                                                ; preds = %8, %2
   %.0.idx.i.i = phi i64 [ %4, %2 ], [ %.0.add.i.i, %7 ]
-  %6 = icmp sgt i64 %.0.idx.i.i, 2
-  br i1 %6, label %7, label %unixsocket_len.exit.i
+  %7 = icmp sgt i64 %.0.idx.i.i, 2
+  br i1 %7, label %8, label %unixsocket_len.exit.i
 
-7:                                                ; preds = %5
+8:                                                ; preds = %6
   %.0.add.i.i = add nsw i64 %.0.idx.i.i, -1
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add.i.i
-  %8 = load i8, ptr %.ptr.i.i, align 1, !tbaa !49
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %5, label %unixsocket_len.exit.thread.i.loopexit, !llvm.loop !93
+  %9 = load i8, ptr %.ptr.i.i, align 1, !tbaa !49
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %6, label %unixsocket_len.exit.i, !llvm.loop !93
 
 unixsocket_len.exit.i:                            ; preds = %5
   %10 = icmp ugt i32 %1, 1
   br i1 %10, label %unixsocket_len.exit.thread.i, label %14
 
-unixsocket_len.exit.thread.i.loopexit:            ; preds = %7
+unixsocket_len.exit.i:                            ; preds = %7
   %11 = add nsw i64 %.0.idx.i.i, -2
   br label %unixsocket_len.exit.thread.i
 
-unixsocket_len.exit.thread.i:                     ; preds = %unixsocket_len.exit.thread.i.loopexit, %unixsocket_len.exit.i
+unixsocket_len.exit.thread.i:                     ; preds = %unixsocket_len.exit.i, %unixsocket_len.exit.i
   %.0.idx.lcssa.i7.i = phi i64 [ 0, %unixsocket_len.exit.i ], [ %11, %unixsocket_len.exit.thread.i.loopexit ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = tail call i64 @rb_str_new(ptr noundef nonnull %12, i64 noundef %.0.idx.lcssa.i7.i) #21

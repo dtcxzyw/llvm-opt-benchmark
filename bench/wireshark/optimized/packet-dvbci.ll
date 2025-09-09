@@ -1686,13 +1686,13 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   br i1 %.not, label %pref_key_string_to_bin.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #15
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #16
   %20 = and i64 %19, 4294967295
   %.not.i = icmp eq i64 %20, 32
   br i1 %.not.i, label %21, label %pref_key_string_to_bin.exit
 
 21:                                               ; preds = %18
-  %22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
+  %22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #17
   store ptr %22, ptr @dvbci_sek_bin, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %23, align 1
@@ -1708,7 +1708,7 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   %28 = getelementptr i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
   store i8 %29, ptr %24, align 1
-  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #17
+  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #18
   %31 = trunc i64 %30 to i8
   %32 = load ptr, ptr @dvbci_sek_bin, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1726,13 +1726,13 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   br i1 %.not10, label %pref_key_string_to_bin.exit9, label %35
 
 35:                                               ; preds = %pref_key_string_to_bin.exit
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #15
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #16
   %37 = and i64 %36, 4294967295
   %.not.i3 = icmp eq i64 %37, 32
   br i1 %.not.i3, label %38, label %pref_key_string_to_bin.exit9
 
 38:                                               ; preds = %35
-  %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #17
   store ptr %39, ptr @dvbci_siv_bin, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %40, align 1
@@ -1748,7 +1748,7 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   %45 = getelementptr i8, ptr %43, i64 1
   %46 = load i8, ptr %45, align 1
   store i8 %46, ptr %41, align 1
-  %47 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #17
+  %47 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #18
   %48 = trunc i64 %47 to i8
   %49 = load ptr, ptr @dvbci_siv_bin, align 8
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
@@ -4940,7 +4940,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %40 to i64
-  %64 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef %63) #18
+  %64 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef %63) #19
   %65 = load ptr, ptr %7, align 8
   %66 = load ptr, ptr %61, align 8
   %67 = call ptr @tvb_memdup(ptr noundef %66, ptr noundef %1, i32 noundef %35, i64 noundef %63)

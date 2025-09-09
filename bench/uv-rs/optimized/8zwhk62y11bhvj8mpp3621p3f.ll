@@ -8011,8 +8011,8 @@ _ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16: ; preds = %2
           to label %55 unwind label %47
 
 .sink.split:                                      ; preds = %35, %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16
-  %.sink = phi i64 [ 0, %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16 ], [ %24, %35 ]
-  call fastcc void @_ZN5regex5regex6string5Regex8replacen17hda2b0a8a02d012c2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes12STRAY_QUOTES17h0bf8d50d02940cc1E, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %.sink, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  %.sroa.3.0.i.sink = phi i64 [ 0, %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16 ], [ %24, %35 ]
+  call fastcc void @_ZN5regex5regex6string5Regex8replacen17hda2b0a8a02d012c2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes12STRAY_QUOTES17h0bf8d50d02940cc1E, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %.sroa.3.0.i.sink, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %50

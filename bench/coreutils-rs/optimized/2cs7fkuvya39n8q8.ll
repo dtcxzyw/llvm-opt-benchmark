@@ -323,7 +323,7 @@ define void @_ZN5uu_df10filesystem10Filesystem3new17he403037032768331E(ptr noali
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %16 unwind label %14
 
-14:                                               ; preds = %.invoke, %23, %.thread, %20, %16
+14:                                               ; preds = %.invoke, %22, %.thread, %20, %16
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef align 8 dereferenceable(24) %2) #19
@@ -352,20 +352,20 @@ define void @_ZN5uu_df10filesystem10Filesystem3new17he403037032768331E(ptr noali
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %.thread
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8, !range !21, !noalias !99, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i.i.i, label %28, label %23
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !range !21, !noalias !99, !noundef !4
+  %.not.i.i.i.i.i = icmp eq i64 %21, 0
+  br i1 %.not.i.i.i.i.i, label %28, label %22
 
-23:                                               ; preds = %.noexc
-  %24 = load ptr, ptr %4, align 8, !noalias !99, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %26 = load i64, ptr %25, align 8, !noalias !99, !noundef !4
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607"(ptr noalias noundef nonnull readonly align 1 %27, ptr noundef nonnull %24, i64 noundef %22, i64 noundef %26)
+22:                                               ; preds = %.noexc
+  %23 = load ptr, ptr %4, align 8, !noalias !99, !nonnull !4, !noundef !4
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %25 = load i64, ptr %24, align 8, !noalias !99, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607"(ptr noalias noundef nonnull readonly align 1 %26, ptr noundef nonnull %23, i64 noundef %21, i64 noundef %25)
           to label %28 unwind label %14
 
-28:                                               ; preds = %23, %.noexc
+27:                                               ; preds = %23, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !99
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 -9223372036854775808, ptr %0, align 8

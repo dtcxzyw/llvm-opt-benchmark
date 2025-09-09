@@ -2564,8 +2564,8 @@ default.unreachable:                              ; preds = %.preheader
   br label %.preheader
 
 .sink.split.i:                                    ; preds = %55, %137, %135, %129, %126, %115, %110, %105, %69, %63, %51, %43
-  %.sink234.sink.i = phi i32 [ %133, %135 ], [ 7, %51 ], [ %41, %43 ], [ 1, %115 ], [ 1, %129 ], [ 1, %126 ], [ 1, %105 ], [ 1, %110 ], [ 7, %137 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
-  %186 = add i32 %38, %.sink234.sink.i
+  %.sink230.sink.i = phi i32 [ %133, %135 ], [ 7, %51 ], [ %41, %43 ], [ 1, %115 ], [ 1, %129 ], [ 1, %126 ], [ 1, %105 ], [ 1, %110 ], [ 7, %137 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
+  %186 = add i32 %38, %.sink230.sink.i
   br label %dis_field_vp.exit
 
 dis_field_vp.exit:                                ; preds = %5, %.sink.split.i

@@ -129,9 +129,9 @@ _ZL11btSolveL1_2PKfPfii.exit:                     ; preds = %._crit_edge.i
   %69 = icmp sgt i32 %.0334.in358, 6
   br i1 %69, label %.lr.ph375.preheader, label %._crit_edge
 
-.lr.ph375.preheader:                              ; preds = %_ZL11btSolveL1_2PKfPfii.exit, %.preheader347
-  %.1374.ph = phi float [ 0.000000e+00, %_ZL11btSolveL1_2PKfPfii.exit ], [ %151, %.preheader347 ]
-  %.1322373.ph = phi float [ 0.000000e+00, %_ZL11btSolveL1_2PKfPfii.exit ], [ %150, %.preheader347 ]
+.lr.ph375.preheader:; preds = %_ZL11btSolveL1_2PKfPfii.exit, %.preheader347
+  %.0321.lcssa = phi float [ 0.000000e+00, %_ZL11btSolveL1_2PKfPfii.exit ], [ %151, %.preheader347 ]
+  %.0.lcssa = phi float [ 0.000000e+00, %_ZL11btSolveL1_2PKfPfii.exit ], [ %150, %.preheader347 ]
   %.1324372.ph = phi float [ 0.000000e+00, %_ZL11btSolveL1_2PKfPfii.exit ], [ %149, %.preheader347 ]
   %.1326371.ph = phi ptr [ %1, %_ZL11btSolveL1_2PKfPfii.exit ], [ %153, %.preheader347 ]
   %.1330370.ph = phi ptr [ %13, %_ZL11btSolveL1_2PKfPfii.exit ], [ %152, %.preheader347 ]
@@ -246,8 +246,8 @@ _ZL11btSolveL1_2PKfPfii.exit:                     ; preds = %._crit_edge.i
   br i1 %154, label %.lr.ph, label %.preheader347, !llvm.loop !11
 
 .lr.ph375:                                        ; preds = %.lr.ph375.preheader, %.lr.ph375
-  %.1374 = phi float [ %166, %.lr.ph375 ], [ %.1374.ph, %.lr.ph375.preheader ]
-  %.1322373 = phi float [ %165, %.lr.ph375 ], [ %.1322373.ph, %.lr.ph375.preheader ]
+  %.1374 = phi float [ %166, %.lr.ph375 ], [ %.0321.lcssa, %.lr.ph375.preheader ]
+  %.1322373 = phi float [ %165, %.lr.ph375 ], [ %.0.lcssa, %.lr.ph375.preheader ]
   %.1324372 = phi float [ %164, %.lr.ph375 ], [ %.1324372.ph, %.lr.ph375.preheader ]
   %.1326371 = phi ptr [ %168, %.lr.ph375 ], [ %.1326371.ph, %.lr.ph375.preheader ]
   %.1330370 = phi ptr [ %167, %.lr.ph375 ], [ %.1330370.ph, %.lr.ph375.preheader ]
@@ -461,12 +461,12 @@ _ZL11btSolveL1_1PKfPfii.exit:                     ; preds = %._crit_edge.i344
   br i1 %281, label %.lr.ph398, label %._crit_edge399, !llvm.loop !17
 
 ._crit_edge399:                                   ; preds = %.lr.ph398, %.preheader348, %.preheader
-  %.0333.lcssa448451453459 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader348 ], [ %indvars.iv.next, %.lr.ph398 ]
+  %.0333.lcssa435438440446 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader348 ], [ %indvars.iv.next, %.lr.ph398 ]
   %.3332.lcssa = phi ptr [ %.2331.lcssa, %.preheader ], [ %0, %.preheader348 ], [ %278, %.lr.ph398 ]
   %.3.lcssa = phi float [ %.2.lcssa, %.preheader ], [ 0.000000e+00, %.preheader348 ], [ %277, %.lr.ph398 ]
   %282 = load float, ptr %.3332.lcssa, align 4, !tbaa !4
   %283 = fsub float %282, %.3.lcssa
-  %284 = and i64 %.0333.lcssa448451453459, 4294967295
+  %284 = and i64 %.0333.lcssa435438440446, 4294967295
   %285 = getelementptr inbounds nuw float, ptr %1, i64 %284
   %286 = fdiv float 1.000000e+00, %283
   store float %286, ptr %285, align 4, !tbaa !4
