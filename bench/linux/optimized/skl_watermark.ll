@@ -2779,14 +2779,14 @@ define dso_local void @intel_mbus_dbox_update(ptr noundef %0) local_unnamed_addr
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 7544
   br label %59
 
-59:                                               ; preds = %96, %52
-  %60 = phi ptr [ %48, %52 ], [ %97, %96 ]
-  %61 = phi i64 [ 0, %52 ], [ %98, %96 ]
+59:                                               ; preds = %92, %52
+  %60 = phi ptr [ %48, %52 ], [ %93, %92 ]
+  %61 = phi i64 [ 0, %52 ], [ %94, %92 ]
   %62 = load ptr, ptr %53, align 8
   %63 = getelementptr %struct.__drm_crtcs_state, ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %96, label %66
+  br i1 %65, label %92, label %66
 
 66:                                               ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -2794,73 +2794,62 @@ define dso_local void @intel_mbus_dbox_update(ptr noundef %0) local_unnamed_addr
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 336
   %70 = load i8, ptr %69, align 8, !range !9, !noundef !10
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %96, label %72
+  br i1 %71, label %92, label %72
 
 72:                                               ; preds = %66
   %73 = load i16, ptr %4, align 8
   %74 = icmp ugt i16 %73, 13
-  br i1 %74, label %75, label %89
+  br i1 %74, label %75, label %85
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %64, i64 1648
   %77 = load i32, ptr %76, align 8
-  %78 = load i8, ptr %54, align 1
-  switch i32 %77, label %82 [
-    i32 0, label %84
-    i32 3, label %79
-    i32 1, label %80
-    i32 2, label %81
-  ]
+  %78 = icmp ult i32 %77, 4
+  br i1 %78, label %switch.lookup, label %79
 
 79:                                               ; preds = %75
-  br label %84
-
-80:                                               ; preds = %75
-  br label %84
-
-81:                                               ; preds = %75
-  br label %84
-
-82:                                               ; preds = %75
   tail call void asm sideeffect "1078: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1078) #15, !srcloc !58
-  %83 = sext i32 %77 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.50, i64 noundef %83) #15
+  %80 = sext i32 %77 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.50, i64 noundef %80) #15
   tail call void asm sideeffect "1079: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1079b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1079) #15, !srcloc !59
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 3568, i32 2313, i64 12) #15, !srcloc !60
   tail call void asm sideeffect "1080: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1080b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1080) #15, !srcloc !61
   tail call void asm sideeffect "1081: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1081b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1081) #15, !srcloc !62
-  br label %88
+  br label %84
 
-84:                                               ; preds = %81, %80, %79, %75
-  %85 = phi i8 [ 1, %79 ], [ 4, %80 ], [ 2, %81 ], [ 8, %75 ]
-  %86 = and i8 %85, %78
-  %87 = icmp eq i8 %86, 0
-  br i1 %87, label %89, label %88
+switch.lookup:                                    ; preds = %75
+  %81 = load i8, ptr %54, align 1
+  %switch.shiftamt = shl nuw nsw i32 %77, 3
+  %switch.downshift = lshr i32 16909320, %switch.shiftamt
+  %switch.masked = trunc i32 %switch.downshift to i8
+  %82 = and i8 %81, %switch.masked
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %85, label %84
 
-88:                                               ; preds = %84, %82
-  br label %89
+84:                                               ; preds = %switch.lookup, %79
+  br label %85
 
-89:                                               ; preds = %88, %84, %72
-  %90 = phi i32 [ %56, %88 ], [ %47, %72 ], [ %55, %84 ]
-  %91 = getelementptr inbounds nuw i8, ptr %64, i64 1648
-  %92 = load i32, ptr %91, align 8
-  %93 = shl i32 %92, 12
-  %94 = add i32 %93, 458812
-  %95 = load ptr, ptr %58, align 8
-  tail call void %95(ptr noundef nonnull %57, i32 %94, i32 noundef %90, i1 noundef zeroext true) #15
+85:                                               ; preds = %84, %switch.lookup, %72
+  %86 = phi i32 [ %56, %84 ], [ %47, %72 ], [ %55, %switch.lookup ]
+  %87 = getelementptr inbounds nuw i8, ptr %64, i64 1648
+  %88 = load i32, ptr %87, align 8
+  %89 = shl i32 %88, 12
+  %90 = add i32 %89, 458812
+  %91 = load ptr, ptr %58, align 8
+  tail call void %91(ptr noundef nonnull %57, i32 %90, i32 noundef %86, i1 noundef zeroext true) #15
   %.pre = load ptr, ptr %2, align 8
-  br label %96
+  br label %92
 
-96:                                               ; preds = %89, %66, %59
-  %97 = phi ptr [ %.pre, %89 ], [ %60, %66 ], [ %60, %59 ]
-  %98 = add nuw nsw i64 %61, 1
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 728
-  %100 = load i32, ptr %99, align 8
-  %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %98, %101
-  br i1 %102, label %59, label %.loopexit, !llvm.loop !63
+92:                                               ; preds = %85, %66, %59
+  %93 = phi ptr [ %.pre, %85 ], [ %60, %66 ], [ %60, %59 ]
+  %94 = add nuw nsw i64 %61, 1
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 728
+  %96 = load i32, ptr %95, align 8
+  %97 = sext i32 %96 to i64
+  %98 = icmp slt i64 %94, %97
+  br i1 %98, label %59, label %.loopexit, !llvm.loop !63
 
-.loopexit:                                        ; preds = %96, %44, %20, %7, %1
+.loopexit:                                        ; preds = %92, %44, %20, %7, %1
   ret void
 }
 

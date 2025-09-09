@@ -6468,31 +6468,26 @@ define dso_local noundef range(i32 0, 2) i32 @selinux_audit_rule_known(ptr nound
   %8 = zext i32 %3 to i64
   br label %9
 
-9:                                                ; preds = %13, %5
-  %10 = phi i64 [ 0, %5 ], [ %14, %13 ]
+9:                                                ; preds = %14, %5
+  %10 = phi i64 [ 0, %5 ], [ %15, %14 ]
   %11 = getelementptr %struct.audit_field, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 8
-  switch i32 %12, label %13 [
-    i32 13, label %.loopexit
-    i32 14, label %.loopexit
-    i32 15, label %.loopexit
-    i32 16, label %.loopexit
-    i32 17, label %.loopexit
-    i32 19, label %.loopexit
-    i32 20, label %.loopexit
-    i32 21, label %.loopexit
-    i32 22, label %.loopexit
-    i32 23, label %.loopexit
-  ]
+  %switch.tableidx = add i32 %12, -13
+  %13 = icmp ult i32 %switch.tableidx, 11
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 2015, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %14
 
-13:                                               ; preds = %9
-  %14 = add nuw nsw i64 %10, 1
-  %15 = icmp eq i64 %14, %8
-  br i1 %15, label %.loopexit, label %9, !llvm.loop !91
+14:                                               ; preds = %9
+  %15 = add nuw nsw i64 %10, 1
+  %16 = icmp eq i64 %15, %8
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !91
 
-.loopexit:                                        ; preds = %13, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %1
-  %16 = phi i32 [ 0, %1 ], [ 0, %13 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ]
-  ret i32 %16
+.loopexit:                                        ; preds = %14, %9, %1
+  %17 = phi i32 [ 0, %1 ], [ 1, %9 ], [ 0, %14 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

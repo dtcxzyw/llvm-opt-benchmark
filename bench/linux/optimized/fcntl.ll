@@ -1597,7 +1597,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %11 = inttoptr i64 %10 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = icmp eq i64 %10, 0
-  br i1 %12, label %144, label %13
+  br i1 %12, label %141, label %13
 
 13:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !19
@@ -1608,7 +1608,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   br i1 %17, label %19, label %18, !prof !7
 
 18:                                               ; preds = %13
-  switch i32 %1, label %139 [
+  switch i32 %1, label %136 [
     i32 0, label %19
     i32 1030, label %19
     i32 1, label %19
@@ -1621,19 +1621,19 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %21 = tail call i32 @security_file_fcntl(ptr noundef nonnull %11, i32 noundef %1, i64 noundef %20) #6
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
-  br i1 %23, label %24, label %139
+  br i1 %23, label %24, label %136
 
 24:                                               ; preds = %19
-  switch i32 %1, label %137 [
+  switch i32 %1, label %134 [
     i32 5, label %25
     i32 12, label %59
     i32 36, label %59
-    i32 6, label %89
-    i32 7, label %89
-    i32 13, label %112
-    i32 14, label %112
-    i32 37, label %112
-    i32 38, label %112
+    i32 6, label %86
+    i32 7, label %86
+    i32 13, label %109
+    i32 14, label %109
+    i32 37, label %109
+    i32 38, label %109
   ]
 
 25:                                               ; preds = %24
@@ -1646,7 +1646,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %139
+  br label %136
 
 30:                                               ; preds = %25
   %31 = load i16, ptr %7, align 4
@@ -1673,12 +1673,12 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %46 = call i32 @fcntl_getlk(ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %8) #6
   %47 = sext i32 %46 to i64
   %48 = icmp eq i32 %46, 0
-  br i1 %48, label %49, label %139
+  br i1 %48, label %49, label %136
 
 49:                                               ; preds = %30
   %50 = load i64, ptr %38, align 8
   %51 = icmp slt i64 %50, 2147483648
-  br i1 %51, label %52, label %139
+  br i1 %51, label %52, label %136
 
 52:                                               ; preds = %49
   %53 = load i64, ptr %42, align 8
@@ -1692,7 +1692,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 56:                                               ; preds = %55, %52
   %57 = call fastcc i32 @put_compat_flock(ptr noundef nonnull %8, ptr noundef %26), !range !24
   %58 = sext i32 %57 to i64
-  br label %139
+  br label %136
 
 59:                                               ; preds = %24, %24
   %60 = inttoptr i64 %20 to ptr
@@ -1704,7 +1704,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 
 63:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %139
+  br label %136
 
 64:                                               ; preds = %59
   %65 = load i16, ptr %6, align 2
@@ -1726,138 +1726,125 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %76, ptr %77, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i32 %1, label %80 [
-    i32 12, label %81
-    i32 13, label %78
-    i32 14, label %79
-  ]
+  %switch.tableidx = add i32 %1, -12
+  %78 = icmp ult i32 %switch.tableidx, 3
+  %switch.offset = add i32 %1, -7
+  %79 = select i1 %78, i32 %switch.offset, i32 %1
+  %80 = call i32 @fcntl_getlk(ptr noundef nonnull %11, i32 noundef %79, ptr noundef nonnull %8) #6
+  %81 = sext i32 %80 to i64
+  %82 = icmp eq i32 %80, 0
+  br i1 %82, label %83, label %136
 
-78:                                               ; preds = %64
-  br label %81
+83:                                               ; preds = %64
+  %84 = call fastcc i32 @put_compat_flock64(ptr noundef nonnull %8, ptr noundef %60), !range !24
+  %85 = sext i32 %84 to i64
+  br label %136
 
-79:                                               ; preds = %64
-  br label %81
-
-80:                                               ; preds = %64
-  br label %81
-
-81:                                               ; preds = %80, %79, %78, %64
-  %82 = phi i32 [ %1, %80 ], [ 7, %79 ], [ 6, %78 ], [ 5, %64 ]
-  %83 = call i32 @fcntl_getlk(ptr noundef nonnull %11, i32 noundef %82, ptr noundef nonnull %8) #6
-  %84 = sext i32 %83 to i64
-  %85 = icmp eq i32 %83, 0
-  br i1 %85, label %86, label %139
-
-86:                                               ; preds = %81
-  %87 = call fastcc i32 @put_compat_flock64(ptr noundef nonnull %8, ptr noundef %60), !range !24
-  %88 = sext i32 %87 to i64
-  br label %139
-
-89:                                               ; preds = %24, %24
-  %90 = inttoptr i64 %20 to ptr
+86:                                               ; preds = %24, %24
+  %87 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !19
-  %91 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %90, i64 noundef 16) #6
-  %92 = icmp eq i64 %91, 0
-  br i1 %92, label %94, label %93
+  %88 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %87, i64 noundef 16) #6
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %91, label %90
 
-93:                                               ; preds = %89
+90:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %139
+  br label %136
 
-94:                                               ; preds = %89
-  %95 = load i16, ptr %5, align 4
-  store i16 %95, ptr %8, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %97 = load i16, ptr %96, align 2
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i16 %97, ptr %98, align 2
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %101, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %105, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %108, ptr %109, align 8
+91:                                               ; preds = %86
+  %92 = load i16, ptr %5, align 4
+  store i16 %92, ptr %8, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %94 = load i16, ptr %93, align 2
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i16 %94, ptr %95, align 2
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %98, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %101 = load i32, ptr %100, align 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %102, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %105 = load i32, ptr %104, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 %105, ptr %106, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %110 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %1, ptr noundef nonnull %8) #6
-  %111 = sext i32 %110 to i64
-  br label %139
+  %107 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %1, ptr noundef nonnull %8) #6
+  %108 = sext i32 %107 to i64
+  br label %136
 
-112:                                              ; preds = %24, %24, %24, %24
-  %113 = inttoptr i64 %20 to ptr
+109:                                              ; preds = %24, %24, %24, %24
+  %110 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !19
-  %114 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %113, i64 noundef 24) #6
-  %115 = icmp eq i64 %114, 0
-  br i1 %115, label %117, label %116
+  %111 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %110, i64 noundef 24) #6
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %114, label %113
 
-116:                                              ; preds = %112
+113:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %139
+  br label %136
 
-117:                                              ; preds = %112
-  %118 = load i16, ptr %4, align 2
-  store i16 %118, ptr %8, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %120 = load i16, ptr %119, align 2
-  %121 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i16 %120, ptr %121, align 2
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 4
+114:                                              ; preds = %109
+  %115 = load i16, ptr %4, align 2
+  store i16 %115, ptr %8, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %117 = load i16, ptr %116, align 2
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i16 %117, ptr %118, align 2
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %120 = load i64, ptr %119, align 2
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %120, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %123 = load i64, ptr %122, align 2
-  %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %123, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %126 = load i64, ptr %125, align 2
-  %127 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %126, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %129 = load i32, ptr %128, align 2
-  %130 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %129, ptr %130, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %126 = load i32, ptr %125, align 2
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 %126, ptr %127, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  switch i32 %1, label %132 [
-    i32 14, label %131
-    i32 13, label %133
+  switch i32 %1, label %129 [
+    i32 14, label %128
+    i32 13, label %130
   ]
 
-131:                                              ; preds = %117
-  br label %133
+128:                                              ; preds = %114
+  br label %130
 
-132:                                              ; preds = %117
-  br label %133
+129:                                              ; preds = %114
+  br label %130
 
-133:                                              ; preds = %117, %132, %131
-  %134 = phi i32 [ %1, %132 ], [ 7, %131 ], [ 6, %117 ]
-  %135 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %134, ptr noundef nonnull %8) #6
-  %136 = sext i32 %135 to i64
-  br label %139
+130:                                              ; preds = %114, %129, %128
+  %131 = phi i32 [ %1, %129 ], [ 7, %128 ], [ 6, %114 ]
+  %132 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %131, ptr noundef nonnull %8) #6
+  %133 = sext i32 %132 to i64
+  br label %136
 
-137:                                              ; preds = %24
-  %138 = tail call fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef %20, ptr noundef nonnull %11)
-  br label %139
+134:                                              ; preds = %24
+  %135 = tail call fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef %20, ptr noundef nonnull %11)
+  br label %136
 
-139:                                              ; preds = %116, %93, %63, %49, %29, %137, %133, %94, %86, %81, %56, %30, %19, %18
-  %140 = phi i64 [ %22, %19 ], [ %138, %137 ], [ -14, %116 ], [ %136, %133 ], [ -14, %93 ], [ %111, %94 ], [ -14, %63 ], [ %84, %81 ], [ %88, %86 ], [ -14, %29 ], [ %47, %30 ], [ %58, %56 ], [ -9, %18 ], [ -75, %49 ]
-  %141 = and i64 %9, 1
-  %142 = icmp eq i64 %141, 0
-  br i1 %142, label %144, label %143
+136:                                              ; preds = %113, %90, %63, %49, %29, %134, %130, %91, %83, %64, %56, %30, %19, %18
+  %137 = phi i64 [ %22, %19 ], [ %135, %134 ], [ -14, %113 ], [ %133, %130 ], [ -14, %90 ], [ %108, %91 ], [ -14, %63 ], [ %81, %64 ], [ %85, %83 ], [ -14, %29 ], [ %47, %30 ], [ %58, %56 ], [ -9, %18 ], [ -75, %49 ]
+  %138 = and i64 %9, 1
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %141, label %140
 
-143:                                              ; preds = %139
+140:                                              ; preds = %136
   call void @fput(ptr noundef nonnull %11) #6
-  br label %144
+  br label %141
 
-144:                                              ; preds = %143, %139, %3
-  %145 = phi i64 [ -9, %3 ], [ %140, %139 ], [ %140, %143 ]
+141:                                              ; preds = %140, %136, %3
+  %142 = phi i64 [ -9, %3 ], [ %137, %136 ], [ %137, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i64 %145
+  ret i64 %142
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

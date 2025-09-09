@@ -2108,55 +2108,41 @@ define dso_local ptr @drm_dp_downstream_mode(ptr noundef %0, ptr noundef readonl
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %27, label %8
+  br i1 %7, label %22, label %8
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %1, align 1
   %10 = icmp ult i8 %9, 17
-  br i1 %10, label %27, label %11
+  br i1 %10, label %22, label %11
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %2, align 1
   %13 = zext i8 %12 to i32
   %14 = and i32 %13, 7
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %16, label %27
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
   %17 = add nsw i32 %13, -16
   %18 = lshr i32 %17, 4
-  switch i32 %18, label %27 [
-    i32 0, label %24
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-    i32 6, label %23
-  ]
+  %19 = icmp ult i32 %17, 112
+  %switch.maskindex = trunc i32 %18 to i8
+  %switch.shifted = lshr i8 95, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %22
 
-19:                                               ; preds = %16
-  br label %24
+switch.lookup:                                    ; preds = %16
+  %20 = shl nuw nsw i32 %18, 3
+  %switch.shiftamt = zext nneg i32 %20 to i56
+  %switch.downshift = lshr i56 5348042073249030, %switch.shiftamt
+  %switch.masked = trunc i56 %switch.downshift to i8
+  %21 = tail call ptr @drm_display_mode_from_cea_vic(ptr noundef %0, i8 noundef zeroext %switch.masked) #18
+  br label %22
 
-20:                                               ; preds = %16
-  br label %24
-
-21:                                               ; preds = %16
-  br label %24
-
-22:                                               ; preds = %16
-  br label %24
-
-23:                                               ; preds = %16
-  br label %24
-
-24:                                               ; preds = %23, %22, %21, %20, %19, %16
-  %25 = phi i8 [ 19, %23 ], [ 4, %22 ], [ 20, %21 ], [ 5, %20 ], [ 21, %19 ], [ 6, %16 ]
-  %26 = tail call ptr @drm_display_mode_from_cea_vic(ptr noundef %0, i8 noundef zeroext %25) #18
-  br label %27
-
-27:                                               ; preds = %24, %16, %11, %8, %3
-  %28 = phi ptr [ %26, %24 ], [ null, %3 ], [ null, %8 ], [ null, %16 ], [ null, %11 ]
-  ret ptr %28
+22:                                               ; preds = %16, %switch.lookup, %11, %8, %3
+  %23 = phi ptr [ %21, %switch.lookup ], [ null, %3 ], [ null, %8 ], [ null, %16 ], [ null, %11 ]
+  ret ptr %23
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3224,32 +3210,13 @@ declare dso_local i64 @strnlen(ptr noundef captures(none), i64 noundef) local_un
 define dso_local noundef zeroext range(i8 0, 17) i8 @drm_dp_dsc_sink_bpp_incr(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 15
   %3 = load i8, ptr %2, align 1
-  switch i8 %3, label %8 [
-    i8 0, label %9
-    i8 1, label %4
-    i8 2, label %5
-    i8 3, label %6
-    i8 4, label %7
-  ]
-
-4:                                                ; preds = %1
-  br label %9
-
-5:                                                ; preds = %1
-  br label %9
-
-6:                                                ; preds = %1
-  br label %9
-
-7:                                                ; preds = %1
-  br label %9
-
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %8, %7, %6, %5, %4, %1
-  %10 = phi i8 [ 0, %8 ], [ 1, %7 ], [ 2, %6 ], [ 4, %5 ], [ 8, %4 ], [ 16, %1 ]
-  ret i8 %10
+  %4 = icmp ult i8 %3, 5
+  %switch.cast = zext i8 %3 to i40
+  %switch.shiftamt = shl nuw nsw i40 %switch.cast, 3
+  %switch.downshift = lshr i40 4328785936, %switch.shiftamt
+  %switch.masked = trunc i40 %switch.downshift to i8
+  %5 = select i1 %4, i8 %switch.masked, i8 0
+  ret i8 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)

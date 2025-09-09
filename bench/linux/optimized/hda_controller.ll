@@ -2391,155 +2391,152 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
   %37 = load i8, ptr %36, align 4
   %38 = and i8 %37, 4
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %122, label %40
+  br i1 %39, label %120, label %40
 
 40:                                               ; preds = %30
-  switch i32 %1, label %122 [
-    i32 1, label %42
-    i32 4, label %42
-    i32 6, label %42
-    i32 3, label %41
-    i32 5, label %41
-    i32 0, label %41
-  ]
+  %41 = icmp ult i32 %1, 7
+  %switch.maskindex = trunc i32 %1 to i8
+  %switch.shifted = lshr i8 123, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %41, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %120
 
-41:                                               ; preds = %40, %40, %40
-  br label %42
-
-42:                                               ; preds = %41, %40, %40, %40
-  %43 = phi i1 [ false, %41 ], [ true, %40 ], [ true, %40 ], [ true, %40 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
+switch.lookup:                                    ; preds = %40
+  %switch.cast = trunc nuw i32 %1 to i7
+  %switch.downshift = lshr i7 -46, %switch.cast
+  %switch.masked = trunc i7 %switch.downshift to i1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, %46
-  br i1 %48, label %.loopexit6, label %.preheader5
+  %46 = icmp eq ptr %45, %44
+  br i1 %46, label %.loopexit6, label %.preheader5
 
-.preheader5:                                      ; preds = %42, %69
-  %49 = phi ptr [ %70, %69 ], [ %45, %42 ]
-  %50 = phi ptr [ %72, %69 ], [ %47, %42 ]
-  %51 = phi i32 [ %71, %69 ], [ 0, %42 ]
-  %52 = getelementptr i8, ptr %50, i64 -232
-  %53 = load ptr, ptr %52, align 8
+.preheader5:                                      ; preds = %switch.lookup, %67
+  %47 = phi ptr [ %68, %67 ], [ %43, %switch.lookup ]
+  %48 = phi ptr [ %70, %67 ], [ %45, %switch.lookup ]
+  %49 = phi i32 [ %69, %67 ], [ 0, %switch.lookup ]
+  %50 = getelementptr i8, ptr %48, i64 -232
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %0, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %0, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %54, %56
-  br i1 %57, label %58, label %69
+  %55 = icmp eq ptr %52, %54
+  br i1 %55, label %56, label %67
 
-58:                                               ; preds = %.preheader5
-  %59 = getelementptr i8, ptr %50, i64 -40
+56:                                               ; preds = %.preheader5
+  %57 = getelementptr i8, ptr %48, i64 -40
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 392
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 392
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 165
-  %64 = load i8, ptr %63, align 1
-  %65 = zext nneg i8 %64 to i32
-  %66 = shl nuw i32 1, %65
-  %67 = or i32 %66, %51
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %0, ptr %68, align 8
-  %.pre = load ptr, ptr %44, align 8
-  br label %69
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 165
+  %62 = load i8, ptr %61, align 1
+  %63 = zext nneg i8 %62 to i32
+  %64 = shl nuw i32 1, %63
+  %65 = or i32 %64, %49
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %0, ptr %66, align 8
+  %.pre = load ptr, ptr %42, align 8
+  br label %67
 
-69:                                               ; preds = %58, %.preheader5
-  %70 = phi ptr [ %49, %.preheader5 ], [ %.pre, %58 ]
-  %71 = phi i32 [ %51, %.preheader5 ], [ %67, %58 ]
-  %72 = load ptr, ptr %50, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %74 = icmp eq ptr %72, %73
-  br i1 %74, label %.loopexit6, label %.preheader5, !llvm.loop !65
+67:                                               ; preds = %56, %.preheader5
+  %68 = phi ptr [ %47, %.preheader5 ], [ %.pre, %56 ]
+  %69 = phi i32 [ %49, %.preheader5 ], [ %65, %56 ]
+  %70 = load ptr, ptr %48, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %.loopexit6, label %.preheader5, !llvm.loop !65
 
-.loopexit6:                                       ; preds = %69, %42
-  %75 = phi i32 [ 0, %42 ], [ %71, %69 ]
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 1192
-  tail call void @_raw_spin_lock(ptr noundef nonnull %76) #15
-  tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext true, i32 noundef %75, i32 noundef %35) #15
-  %77 = load ptr, ptr %44, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, %78
-  br i1 %80, label %.loopexit, label %.preheader
+.loopexit6:                                       ; preds = %67, %switch.lookup
+  %73 = phi i32 [ 0, %switch.lookup ], [ %69, %67 ]
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 1192
+  tail call void @_raw_spin_lock(ptr noundef nonnull %74) #15
+  tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext true, i32 noundef %73, i32 noundef %35) #15
+  %75 = load ptr, ptr %42, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, %76
+  br i1 %78, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit6
-  br i1 %43, label %.preheader.split.us, label %.preheader.split
+  br i1 %switch.masked, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %97
-  %81 = phi ptr [ %98, %97 ], [ %77, %.preheader ]
-  %82 = phi ptr [ %99, %97 ], [ %79, %.preheader ]
-  %83 = getelementptr i8, ptr %82, i64 -232
-  %84 = load ptr, ptr %83, align 8
+.preheader.split.us:                              ; preds = %.preheader, %95
+  %79 = phi ptr [ %96, %95 ], [ %75, %.preheader ]
+  %80 = phi ptr [ %97, %95 ], [ %77, %.preheader ]
+  %81 = getelementptr i8, ptr %80, i64 -232
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %0, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %0, align 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %85, %87
-  br i1 %88, label %89, label %97
+  %86 = icmp eq ptr %83, %85
+  br i1 %86, label %87, label %95
 
-89:                                               ; preds = %.preheader.split.us
-  %90 = getelementptr i8, ptr %82, i64 -40
+87:                                               ; preds = %.preheader.split.us
+  %88 = getelementptr i8, ptr %80, i64 -40
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 392
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 392
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 288
-  %95 = load i8, ptr %94, align 8
-  %96 = or i8 %95, 2
-  store i8 %96, ptr %94, align 8
-  tail call void @snd_hdac_stream_start(ptr noundef %93) #15
-  %.pre9 = load ptr, ptr %44, align 8
-  br label %97
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 288
+  %93 = load i8, ptr %92, align 8
+  %94 = or i8 %93, 2
+  store i8 %94, ptr %92, align 8
+  tail call void @snd_hdac_stream_start(ptr noundef %91) #15
+  %.pre9 = load ptr, ptr %42, align 8
+  br label %95
 
-97:                                               ; preds = %89, %.preheader.split.us
-  %98 = phi ptr [ %.pre9, %89 ], [ %81, %.preheader.split.us ]
-  %99 = load ptr, ptr %82, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %101 = icmp eq ptr %99, %100
-  br i1 %101, label %.loopexit, label %.preheader.split.us, !llvm.loop !66
+95:                                               ; preds = %87, %.preheader.split.us
+  %96 = phi ptr [ %.pre9, %87 ], [ %79, %.preheader.split.us ]
+  %97 = load ptr, ptr %80, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %99 = icmp eq ptr %97, %98
+  br i1 %99, label %.loopexit, label %.preheader.split.us, !llvm.loop !66
 
-.preheader.split:                                 ; preds = %.preheader, %115
-  %102 = phi ptr [ %116, %115 ], [ %77, %.preheader ]
-  %103 = phi ptr [ %117, %115 ], [ %79, %.preheader ]
-  %104 = getelementptr i8, ptr %103, i64 -232
-  %105 = load ptr, ptr %104, align 8
+.preheader.split:                                 ; preds = %.preheader, %113
+  %100 = phi ptr [ %114, %113 ], [ %75, %.preheader ]
+  %101 = phi ptr [ %115, %113 ], [ %77, %.preheader ]
+  %102 = getelementptr i8, ptr %101, i64 -232
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %0, align 8
   %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %0, align 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %106, %108
-  br i1 %109, label %110, label %115
+  %107 = icmp eq ptr %104, %106
+  br i1 %107, label %108, label %113
 
-110:                                              ; preds = %.preheader.split
-  %111 = getelementptr i8, ptr %103, i64 -40
+108:                                              ; preds = %.preheader.split
+  %109 = getelementptr i8, ptr %101, i64 -40
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 392
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 392
-  %114 = load ptr, ptr %113, align 8
-  tail call void @snd_hdac_stream_stop(ptr noundef %114) #15
-  %.pre8 = load ptr, ptr %44, align 8
-  br label %115
+  tail call void @snd_hdac_stream_stop(ptr noundef %112) #15
+  %.pre8 = load ptr, ptr %42, align 8
+  br label %113
 
-115:                                              ; preds = %110, %.preheader.split
-  %116 = phi ptr [ %.pre8, %110 ], [ %102, %.preheader.split ]
-  %117 = load ptr, ptr %103, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  %119 = icmp eq ptr %117, %118
-  br i1 %119, label %.loopexit, label %.preheader.split, !llvm.loop !66
+113:                                              ; preds = %108, %.preheader.split
+  %114 = phi ptr [ %.pre8, %108 ], [ %100, %.preheader.split ]
+  %115 = load ptr, ptr %101, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  %117 = icmp eq ptr %115, %116
+  br i1 %117, label %.loopexit, label %.preheader.split, !llvm.loop !66
 
-.loopexit:                                        ; preds = %115, %97, %.loopexit6
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %76) #15
-  tail call void @snd_hdac_stream_sync(ptr noundef %9, i1 noundef zeroext %43, i32 noundef %75) #15
-  tail call void @_raw_spin_lock(ptr noundef nonnull %76) #15
-  tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext false, i32 noundef %75, i32 noundef %35) #15
-  br i1 %43, label %120, label %121
+.loopexit:                                        ; preds = %113, %95, %.loopexit6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %74) #15
+  tail call void @snd_hdac_stream_sync(ptr noundef %9, i1 noundef zeroext %switch.masked, i32 noundef %73) #15
+  tail call void @_raw_spin_lock(ptr noundef nonnull %74) #15
+  tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext false, i32 noundef %73, i32 noundef %35) #15
+  br i1 %switch.masked, label %118, label %119
 
-120:                                              ; preds = %.loopexit
-  tail call void @snd_hdac_stream_timecounter_init(ptr noundef %9, i32 noundef %75) #15
-  br label %121
+118:                                              ; preds = %.loopexit
+  tail call void @snd_hdac_stream_timecounter_init(ptr noundef %9, i32 noundef %73) #15
+  br label %119
 
-121:                                              ; preds = %120, %.loopexit
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %76) #15
-  br label %122
+119:                                              ; preds = %118, %.loopexit
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %74) #15
+  br label %120
 
-122:                                              ; preds = %121, %40, %30
-  %123 = phi i32 [ 0, %121 ], [ -32, %30 ], [ -22, %40 ]
-  ret i32 %123
+120:                                              ; preds = %40, %119, %30
+  %121 = phi i32 [ 0, %119 ], [ -32, %30 ], [ -22, %40 ]
+  ret i32 %121
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
