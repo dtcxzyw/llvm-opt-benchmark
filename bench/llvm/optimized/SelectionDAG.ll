@@ -99987,7 +99987,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG14getTokenFactorERKNS_5SDLo
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit
-  %14 = phi i64 [ %9, %.lr.ph ], [ %33, %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
+  %14 = phi i64 [ %9, %.lr.ph ], [ %32, %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
   %15 = add nsw i64 %14, -65535
   %16 = load ptr, ptr %2, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %16, i64 %15
@@ -100013,7 +100013,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE5eraseEPKS1_S4_.exit: ; preds = %19, %13
   store ptr %.fca.0.extract1, ptr %6, align 8
   store i32 %.fca.1.extract2, ptr %.sroa.24.0..sroa_idx, align 8
   %22 = load ptr, ptr %2, align 8, !tbaa !25
-  %23 = trunc i64 %15 to i32
+  %23 = trunc nuw i64 %15 to i32
   store i32 %23, ptr %7, align 8, !tbaa !26
   %24 = load i32, ptr %12, align 4, !tbaa !27
   %.not.i22 = icmp ugt i32 %24, %23
@@ -100025,43 +100025,42 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE5eraseEPKS1_S4_.exit: ; preds = %19, %13
   br label %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit
 
 27:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_7SDValueEE5eraseEPKS1_S4_.exit
-  %28 = and i64 %15, 4294967295
-  %29 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %22, i64 %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !753
-  %30 = load i32, ptr %7, align 8, !tbaa !26
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %7, align 8, !tbaa !26
+  %28 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %22, i64 %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !753
+  %29 = load i32, ptr %7, align 8, !tbaa !26
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %7, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit: ; preds = %25, %27
-  %32 = phi i32 [ %.pre, %25 ], [ %31, %27 ]
+  %31 = phi i32 [ %.pre, %25 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %33 = zext i32 %32 to i64
-  %34 = icmp ugt i32 %32, 65535
-  br i1 %34, label %13, label %._crit_edge, !llvm.loop !1664
+  %32 = zext i32 %31 to i64
+  %33 = icmp ugt i32 %31, 65535
+  br i1 %33, label %13, label %._crit_edge, !llvm.loop !1664
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit, %3
-  %.lcssa = phi i64 [ %9, %3 ], [ %33, %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
-  %35 = load ptr, ptr %2, align 8, !tbaa !25
+  %.lcssa = phi i64 [ %9, %3 ], [ %32, %_ZN4llvm15SmallVectorImplINS_7SDValueEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
+  %34 = load ptr, ptr %2, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %35, ptr %4, align 8
+  store ptr %34, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %37 = load ptr, ptr %36, align 8, !tbaa !438
-  %.not.i23 = icmp eq ptr %37, null
-  br i1 %.not.i23, label %_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE.exit26, label %38
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %36 = load ptr, ptr %35, align 8, !tbaa !438
+  %.not.i23 = icmp eq ptr %36, null
+  br i1 %.not.i23, label %_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE.exit26, label %37
 
-38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.sroa.0.0.copyload.i.i24 = load i32, ptr %39, align 8, !tbaa !66
+37:                                               ; preds = %._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.0.0.copyload.i.i24 = load i32, ptr %38, align 8, !tbaa !66
   br label %_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE.exit26
 
-_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE.exit26: ; preds = %._crit_edge, %38
-  %.sroa.0.0.i25 = phi i32 [ 0, %._crit_edge ], [ %.sroa.0.0.copyload.i.i24, %38 ]
-  %40 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %1, i16 1, ptr null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %4, i32 %.sroa.0.0.i25)
+_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEE.exit26: ; preds = %._crit_edge, %37
+  %.sroa.0.0.i25 = phi i32 [ 0, %._crit_edge ], [ %.sroa.0.0.copyload.i.i24, %37 ]
+  %39 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %1, i16 1, ptr null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %4, i32 %.sroa.0.0.i25)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret { ptr, i32 } %40
+  ret { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

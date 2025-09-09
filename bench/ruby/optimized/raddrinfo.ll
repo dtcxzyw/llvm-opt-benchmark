@@ -1744,30 +1744,32 @@ declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
 define i64 @rsock_unixaddr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.10, i64 noundef 7) #21
   %4 = zext i32 %1 to i64
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
-  br label %6
+  br label %5
 
-6:                                                ; preds = %8, %2
-  %.0.idx.i.i = phi i64 [ %4, %2 ], [ %.0.add.i.i, %8 ]
-  %7 = icmp sgt i64 %.0.idx.i.i, 2
-  br i1 %7, label %8, label %unixsocket_len.exit.i
+5:                                                ; preds = %7, %2
+  %.0.idx.i.i = phi i64 [ %4, %2 ], [ %.0.add.i.i, %7 ]
+  %6 = icmp sgt i64 %.0.idx.i.i, 2
+  br i1 %6, label %7, label %unixsocket_len.exit.i
 
-8:                                                ; preds = %6
+7:                                                ; preds = %5
   %.0.add.i.i = add nsw i64 %.0.idx.i.i, -1
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add.i.i
-  %9 = load i8, ptr %.ptr.i.i, align 1, !tbaa !49
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %6, label %unixsocket_len.exit.thread.i, !llvm.loop !93
+  %8 = load i8, ptr %.ptr.i.i, align 1, !tbaa !49
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %5, label %unixsocket_len.exit.thread.i.loopexit, !llvm.loop !93
 
-unixsocket_len.exit.i:                            ; preds = %6
-  %11 = icmp ugt i32 %1, 1
-  br i1 %11, label %unixsocket_len.exit.thread.i, label %14
+unixsocket_len.exit.i:                            ; preds = %5
+  %10 = icmp ugt i32 %1, 1
+  br i1 %10, label %unixsocket_len.exit.thread.i, label %14
 
-unixsocket_len.exit.thread.i:                     ; preds = %8, %unixsocket_len.exit.i
-  %.0.idx.lcssa.i7.i = phi i64 [ %5, %unixsocket_len.exit.i ], [ %.0.idx.i.i, %8 ]
-  %gepdiff.i.i = add nsw i64 %.0.idx.lcssa.i7.i, -2
+unixsocket_len.exit.thread.i.loopexit:            ; preds = %7
+  %11 = add nsw i64 %.0.idx.i.i, -2
+  br label %unixsocket_len.exit.thread.i
+
+unixsocket_len.exit.thread.i:                     ; preds = %unixsocket_len.exit.thread.i.loopexit, %unixsocket_len.exit.i
+  %.0.idx.lcssa.i7.i = phi i64 [ 0, %unixsocket_len.exit.i ], [ %11, %unixsocket_len.exit.thread.i.loopexit ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %13 = tail call i64 @rb_str_new(ptr noundef nonnull %12, i64 noundef %gepdiff.i.i) #21
+  %13 = tail call i64 @rb_str_new(ptr noundef nonnull %12, i64 noundef %.0.idx.lcssa.i7.i) #21
   br label %rsock_unixpath_str.exit
 
 14:                                               ; preds = %unixsocket_len.exit.i

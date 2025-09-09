@@ -35903,7 +35903,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN5clang9UninitUseElN9__gnu_
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit
-  %27 = phi i64 [ %11, %.lr.ph ], [ %606, %_ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit ]
+  %27 = phi i64 [ %11, %.lr.ph ], [ %604, %_ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit ]
   %.050 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit ]
   %.01749 = phi i64 [ %2, %.lr.ph ], [ %101, %_ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit ]
   %28 = icmp eq i64 %.01749, 0
@@ -36694,7 +36694,7 @@ _ZSt22__move_median_to_firstIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_it
 
 399:                                              ; preds = %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit, %_ZSt22__move_median_to_firstIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_SC_T0_.exit.i
   %.013.i.i = phi ptr [ %.050, %_ZSt22__move_median_to_firstIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_SC_T0_.exit.i ], [ %.114.i.i, %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
-  %.0.i.i = phi ptr [ %13, %_ZSt22__move_median_to_firstIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_SC_T0_.exit.i ], [ %604, %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
+  %.0.i.i = phi ptr [ %13, %_ZSt22__move_median_to_firstIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_SC_T0_.exit.i ], [ %602, %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
   %400 = load i8, ptr %18, align 2, !tbaa !1399, !range !865, !noundef !866
   %401 = trunc nuw i8 %400 to i1
   br label %402
@@ -37138,31 +37138,28 @@ _ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit.i.i: ; preds = %590
   %595 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -36
   %596 = load i32, ptr %595, align 4, !tbaa !824
   %597 = icmp ult i32 %596, %591
-  br i1 %597, label %598, label %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24
+  br i1 %597, label %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24, label %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24.thread
 
-598:                                              ; preds = %594
+_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24: ; preds = %594
   store i32 0, ptr %593, align 8, !tbaa !724
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %538, ptr noundef nonnull %540, i64 noundef %592, i64 noundef 16) #24
   %.pre54 = load i32, ptr %24, align 8, !tbaa !724
   %.pre55.pre.pre60.pre = load ptr, ptr %22, align 8, !tbaa !723
   %.pre63 = zext i32 %.pre54 to i64
-  br label %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24
+  %.not.i.i.i4.i = icmp eq i32 %.pre54, 0
+  br i1 %.not.i.i.i4.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9UninitUse6BranchELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i26, label %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24.thread
 
-_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24: ; preds = %594, %598
-  %.pre-phi = phi i64 [ %.pre63, %598 ], [ %592, %594 ]
-  %.pre55.pre.pre60 = phi ptr [ %.pre55.pre.pre60.pre, %598 ], [ %.pre56, %594 ]
-  %.not.i.i.i4.i = icmp samesign eq i64 %.pre-phi, 0
-  br i1 %.not.i.i.i4.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9UninitUse6BranchELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i26, label %599
-
-599:                                              ; preds = %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24
-  %600 = load ptr, ptr %538, align 8, !tbaa !723
-  %gepdiff.i.i25 = shl nuw nsw i64 %.pre-phi, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %600, ptr align 8 %.pre55.pre.pre60, i64 %gepdiff.i.i25, i1 false)
+_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24.thread: ; preds = %594, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24
+  %.pre55.pre.pre60100 = phi ptr [ %.pre55.pre.pre60.pre, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24 ], [ %.pre56, %594 ]
+  %.pre-phi99 = phi i64 [ %.pre63, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24 ], [ %592, %594 ]
+  %598 = load ptr, ptr %538, align 8, !tbaa !723
+  %gepdiff.i.i25 = shl nuw nsw i64 %.pre-phi99, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %598, ptr align 8 %.pre55.pre.pre60100, i64 %gepdiff.i.i25, i1 false)
   %.pre55.pre.pre = load ptr, ptr %22, align 8, !tbaa !723
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9UninitUse6BranchELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i26
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9UninitUse6BranchELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i26: ; preds = %599, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24
-  %.pre55.pre = phi ptr [ %.pre55.pre.pre, %599 ], [ %.pre55.pre.pre60, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24 ]
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9UninitUse6BranchELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i26: ; preds = %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24.thread, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24
+  %.pre55.pre = phi ptr [ %.pre55.pre.pre, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24.thread ], [ %.pre55.pre.pre60.pre, %_ZSt4moveIPN5clang9UninitUse6BranchES3_ET0_T_S5_S4_.exit35.i.i24 ]
   store i32 %591, ptr %593, align 8, !tbaa !724
   br label %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.sink.split.i
 
@@ -37172,25 +37169,25 @@ _ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.sink.split.i: ;
   br label %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.i
 
 _ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.sink.split.i, %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit
-  %601 = phi ptr [ %.pre55, %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.sink.split.i ], [ %.pre56, %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit ]
-  %602 = icmp eq ptr %601, %23
-  br i1 %602, label %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit, label %603
+  %599 = phi ptr [ %.pre55, %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.sink.split.i ], [ %.pre56, %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit ]
+  %600 = icmp eq ptr %599, %23
+  br i1 %600, label %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit, label %601
 
-603:                                              ; preds = %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.i
-  call void @free(ptr noundef %601) #24
+601:                                              ; preds = %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.i
+  call void @free(ptr noundef %599) #24
   br label %_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit
 
-_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.i, %603
+_ZSt4swapIN5clang9UninitUseEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9UninitUse6BranchEEaSEOS4_.exit.i, %601
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %604 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 64
+  %602 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 64
   br label %399, !llvm.loop !1698
 
 _ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit: ; preds = %517
   call fastcc void @_ZSt16__introsort_loopIPN5clang9UninitUseElN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_T1_(ptr noundef %.1.i.i, ptr noundef %.050, i64 noundef %101)
-  %605 = ptrtoint ptr %.1.i.i to i64
-  %606 = sub i64 %605, %9
-  %607 = icmp sgt i64 %606, 1024
-  br i1 %607, label %26, label %_ZSt14__partial_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_T0_.exit, !llvm.loop !1699
+  %603 = ptrtoint ptr %.1.i.i to i64
+  %604 = sub i64 %603, %9
+  %605 = icmp sgt i64 %604, 1024
+  br i1 %605, label %26, label %_ZSt14__partial_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_T0_.exit, !llvm.loop !1699
 
 _ZSt14__partial_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEET_SC_SC_T0_.exit, %_ZSt10__pop_heapIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_SC_RT0_.exit, %3
   ret void

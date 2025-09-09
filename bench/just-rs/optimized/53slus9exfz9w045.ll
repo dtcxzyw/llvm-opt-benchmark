@@ -14815,10 +14815,8 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %12, align 8, !alias.scope !2580, !noalias !2583
   call fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef align 8 dereferenceable(48) %4)
   %13 = load i64, ptr %5, align 8, !range !190, !noalias !2577, !noundef !4
-  %trunc.i = trunc nuw i64 %13 to i1
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !2577
-  %.sroa.3.0.i = select i1 %trunc.i, i64 %15, i64 undef
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2577
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2577
   %switch.not.not = icmp eq i64 %13, 0
@@ -14826,19 +14824,19 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   br i1 %switch.not.not, label %24, label %16
 
 16:                                               ; preds = %3
-  %17 = icmp eq i64 %.sroa.3.0.i, 0
+  %17 = icmp eq i64 %15, 0
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %16
-  %.not.i.i = icmp ult i64 %.sroa.3.0.i, %2
+  %.not.i.i = icmp ult i64 %15, %2
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %19
 
 19:                                               ; preds = %18
-  %20 = icmp eq i64 %.sroa.3.0.i, %2
+  %20 = icmp eq i64 %15, %2
   br i1 %20, label %26, label %25
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 %.sroa.3.0.i
+  %21 = getelementptr inbounds i8, ptr %1, i64 %15
   %22 = load i8, ptr %21, align 1, !alias.scope !2585, !noalias !2590, !noundef !4
   %23 = icmp sgt i8 %22, -65
   br i1 %23, label %26, label %25
@@ -14848,12 +14846,12 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   br label %171
 
 25:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %19
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.sroa.3.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.caf4ea2b214629a3b5d633b8bc0e9fab.103) #28
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.caf4ea2b214629a3b5d633b8bc0e9fab.103) #28
   unreachable
 
 26:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %19, %16
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.sroa.3.0.i
-  %28 = sub i64 %2, %.sroa.3.0.i
+  %27 = getelementptr inbounds i8, ptr %1, i64 %15
+  %28 = sub i64 %2, %15
   %.not.i.i24 = icmp ugt i64 %28, 1
   br i1 %.not.i.i24, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i26", label %29
 
@@ -14887,7 +14885,7 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %43 = and i8 %40, 31
   %44 = zext nneg i8 %43 to i32
-  %45 = icmp ne i64 %.sroa.3.0.i, 1
+  %45 = icmp ne i64 %15, 1
   tail call void @llvm.assume(i1 %45)
   %46 = load i8, ptr %42, align 1, !alias.scope !2597, !noalias !2600, !noundef !4
   %47 = shl nuw nsw i32 %44, 6
@@ -14903,7 +14901,7 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.llvm.16801050463324468979.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.llvm.16801050463324468979.exit13.i.i"
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %55 = icmp ne i64 %.sroa.3.0.i, 2
+  %55 = icmp ne i64 %15, 2
   tail call void @llvm.assume(i1 %55)
   %56 = load i8, ptr %54, align 1, !alias.scope !2597, !noalias !2600, !noundef !4
   %57 = shl nuw nsw i32 %49, 6
@@ -14917,7 +14915,7 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
 
 64:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.llvm.16801050463324468979.exit15.i.i"
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %66 = icmp ne i64 %.sroa.3.0.i, 3
+  %66 = icmp ne i64 %15, 3
   tail call void @llvm.assume(i1 %66)
   %67 = load i8, ptr %65, align 1, !alias.scope !2597, !noalias !2600, !noundef !4
   %68 = shl nuw nsw i32 %44, 18

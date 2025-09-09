@@ -1479,13 +1479,14 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %90 = and i64 %.240.val, 549755813888
   %91 = icmp ne i64 %90, 0
   %or.cond16 = and i1 %91, %89
-  br i1 %or.cond16, label %.thread11, label %94
+  br i1 %or.cond16, label %.thread36, label %94
 
-.thread11:                                        ; preds = %88
+.thread36:                                        ; preds = %88
   %92 = add nsw i32 %77, -12
   store i32 %92, ptr %5, align 4, !tbaa !20
   %93 = or disjoint i64 %83, -4294967296
-  br label %101
+  tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %93, i64 %.232.val, i64 %.240.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
+  br label %102
 
 94:                                               ; preds = %86, %88, %75
   %95 = phi i32 [ %87, %86 ], [ %77, %88 ], [ %77, %75 ]
@@ -1502,17 +1503,18 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %100 = select i1 %.not20.not, i32 12904, i32 12906
   br label %101
 
-101:                                              ; preds = %.thread11, %97, %94
-  %102 = phi i32 [ %95, %94 ], [ %95, %97 ], [ %92, %.thread11 ]
-  %.036 = phi i64 [ %.137, %94 ], [ %spec.select, %97 ], [ %93, %.thread11 ]
-  %.0 = phi i32 [ 12904, %94 ], [ %100, %97 ], [ 12906, %.thread11 ]
+101:                                              ; preds = %97, %94
+  %.036 = phi i64 [ %.137, %94 ], [ %spec.select, %97 ]
+  %.0 = phi i32 [ 12904, %94 ], [ %100, %97 ]
   tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %.036, i64 %.232.val, i64 %.240.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %116, label %103
+  %.not = icmp eq i32 %95, 0
+  br i1 %.not, label %116, label %102
 
-103:                                              ; preds = %101
+102:                                              ; preds = %.thread36, %101
+  %.042 = phi i32 [ 12906, %.thread36 ], [ %.0, %101 ]
+  %103 = phi i32 [ %92, %.thread36 ], [ %95, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 %.0, ptr %6, align 4, !tbaa !20
+  store i32 %.042, ptr %6, align 4, !tbaa !20
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !9
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1520,17 +1522,17 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %.not.i51 = icmp ult i32 %105, %107
   br i1 %.not.i51, label %110, label %108, !prof !13
 
-108:                                              ; preds = %103
+108:                                              ; preds = %102
   %109 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_11RISCVMatInt4InstELb1EE18growAndEmplaceBackIJRjRiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_.exit
 
-110:                                              ; preds = %103
+110:                                              ; preds = %102
   %111 = zext i32 %105 to i64
   %112 = load ptr, ptr %1, align 8, !tbaa !3
   %113 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %112, i64 %111
-  store i32 %.0, ptr %113, align 4, !tbaa !14
+  store i32 %.042, ptr %113, align 4, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  store i32 %102, ptr %114, align 4, !tbaa !16
+  store i32 %103, ptr %114, align 4, !tbaa !16
   %115 = add nuw i32 %105, 1
   store i32 %115, ptr %104, align 8, !tbaa !9
   br label %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_.exit

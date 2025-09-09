@@ -1604,16 +1604,15 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %179 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %153, ptr noundef nonnull @ei_eap_mitm_attacks)
   %180 = load i32, ptr @hf_eap_md5_value_size, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %180, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
-  %182 = icmp slt i32 %176, %177
+  %182 = icmp samesign ult i32 %176, %177
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %174
   %184 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %181, ptr noundef nonnull @ei_eap_md5_value_size_overflow)
-  %.pre = and i32 %176, 255
   br label %185
 
 185:                                              ; preds = %183, %174
-  %.pre-phi = phi i32 [ %.pre, %183 ], [ %177, %174 ]
+  %.pre-phi = phi i32 [ %176, %183 ], [ %177, %174 ]
   %186 = load i32, ptr @hf_eap_md5_value, align 4
   %187 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %186, ptr noundef %0, i32 noundef 6, i32 noundef %.pre-phi, i32 noundef 0)
   %188 = icmp sgt i32 %178, 0
@@ -2012,7 +2011,7 @@ switch.lookup573:                                 ; preds = %376
 391:                                              ; preds = %158, %158
   %392 = load i32, ptr @hf_eap_aka_subtype, align 4
   %393 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %392, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
-  %394 = icmp ult i16 %104, 8
+  %394 = icmp samesign ult i32 %159, 3
   br i1 %394, label %dissect_eap_aka.exit, label %395
 
 395:                                              ; preds = %391

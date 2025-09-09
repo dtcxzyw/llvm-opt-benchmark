@@ -6634,9 +6634,8 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   %431 = lshr i32 %417, 6
   %432 = and i32 %417, 7
   switch i32 %431, label %436 [
-    i32 0, label %435
-    i32 2, label %435
     i32 4, label %435
+    i32 2, label %435
   ]
 
 433:                                              ; preds = %440, %429
@@ -6644,7 +6643,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %434, i64 noundef %428, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
           to label %405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-435:                                              ; preds = %430, %430, %430
+435:                                              ; preds = %430, %430
   %.old1 = icmp samesign ult i32 %432, 3
   br i1 %.old1, label %440, label %439
 
@@ -7957,9 +7956,8 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   %431 = lshr i32 %417, 6
   %432 = and i32 %417, 7
   switch i32 %431, label %436 [
-    i32 0, label %435
-    i32 2, label %435
     i32 4, label %435
+    i32 2, label %435
   ]
 
 433:                                              ; preds = %440, %429
@@ -7967,7 +7965,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17h5a097263c1c8444fE.exit: ; preds
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef %434, i64 noundef %428, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
           to label %405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-435:                                              ; preds = %430, %430, %430
+435:                                              ; preds = %430, %430
   %.old1 = icmp samesign ult i32 %432, 3
   br i1 %.old1, label %440, label %439
 

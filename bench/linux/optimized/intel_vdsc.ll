@@ -197,8 +197,8 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 
 88:                                               ; preds = %78
   %89 = load i16, ptr %80, align 2
-  %.fr10 = freeze i16 %89
-  %90 = lshr i16 %.fr10, 4
+  %.fr12 = freeze i16 %89
+  %90 = lshr i16 %.fr12, 4
   %91 = zext nneg i16 %90 to i32
   %92 = load i8, ptr %85, align 1
   %93 = zext i8 %92 to i32
@@ -211,10 +211,12 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 
 99:                                               ; preds = %88
   %100 = tail call i32 @llvm.umin.i32(i32 %97, i32 42)
-  %101 = mul nuw nsw i32 %100, 9
-  %102 = add nsw i32 %101, -72
-  %103 = udiv i32 %102, 100
-  %104 = add nuw nsw i32 %103, 12
+  %101 = trunc nuw nsw i32 %100 to i16
+  %102 = mul nuw nsw i16 %101, 9
+  %.lhs.trunc = add nsw i16 %102, -72
+  %103 = udiv i16 %.lhs.trunc, 100
+  %narrow = add nuw nsw i16 %103, 12
+  %104 = zext nneg i16 %narrow to i32
   br label %108
 
 105:                                              ; preds = %88
@@ -262,11 +264,11 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br label %139
 
 139:                                              ; preds = %124, %108
-  %140 = icmp ugt i16 %.fr10, 191
+  %140 = icmp ugt i16 %.fr12, 191
   br i1 %140, label %157, label %141
 
 141:                                              ; preds = %139
-  %142 = icmp samesign ugt i16 %.fr10, 159
+  %142 = icmp samesign ugt i16 %.fr12, 159
   br i1 %142, label %143, label %149
 
 143:                                              ; preds = %141
@@ -278,7 +280,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br label %157
 
 149:                                              ; preds = %141
-  %150 = icmp samesign ugt i16 %.fr10, 127
+  %150 = icmp samesign ugt i16 %.fr12, 127
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %149
@@ -294,8 +296,8 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 4790
   store i16 %158, ptr %159, align 2
   %160 = shl nuw nsw i16 %90, 1
-  %.lhs.trunc = add nuw nsw i16 %160, 8191
-  %161 = udiv i16 %.lhs.trunc, %160
+  %.lhs.trunc7 = add nuw nsw i16 %160, 8191
+  %161 = udiv i16 %.lhs.trunc7, %160
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 4784
   store i16 %161, ptr %162, align 2
   %163 = add i8 %94, -13
@@ -310,14 +312,14 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 4781
   store i8 %167, ptr %169, align 1
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 4820
-  %171 = icmp ult i16 %.fr10, 208
+  %171 = icmp ult i16 %.fr12, 208
   %172 = add nsw i32 %91, -12
   br i1 %123, label %262, label %173
 
 173:                                              ; preds = %157
   %174 = add nsw i32 %91, -8
-  %175 = icmp ult i16 %.fr10, 144
-  %176 = icmp ult i16 %.fr10, 272
+  %175 = icmp ult i16 %.fr12, 144
+  %176 = icmp ult i16 %.fr12, 272
   br i1 %175, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %173, %.split.us
@@ -347,7 +349,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br i1 %195, label %.loopexit, label %.split.us, !llvm.loop !7
 
 .split:                                           ; preds = %173
-  %196 = icmp ult i16 %.fr10, 176
+  %196 = icmp ult i16 %.fr12, 176
   br i1 %196, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
@@ -378,8 +380,8 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %219 = trunc i32 %218 to i8
   %220 = add i8 %213, %219
   %221 = and i8 %220, 63
-  %.idx.us8 = mul nuw nsw i64 %197, 3
-  %222 = getelementptr i8, ptr %170, i64 %.idx.us8
+  %.idx.us10 = mul nuw nsw i64 %197, 3
+  %222 = getelementptr i8, ptr %170, i64 %.idx.us10
   %223 = getelementptr i8, ptr %222, i64 2
   store i8 %221, ptr %223, align 1
   %224 = add nuw nsw i64 %197, 1
@@ -439,9 +441,9 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 
 262:                                              ; preds = %157
   %263 = add nsw i32 %91, -6
-  %264 = icmp ult i16 %.fr10, 112
-  %265 = icmp ult i16 %.fr10, 144
-  %266 = icmp ult i16 %.fr10, 256
+  %264 = icmp ult i16 %.fr12, 112
+  %265 = icmp ult i16 %.fr12, 144
+  %266 = icmp ult i16 %.fr12, 256
   br label %267
 
 267:                                              ; preds = %315, %262

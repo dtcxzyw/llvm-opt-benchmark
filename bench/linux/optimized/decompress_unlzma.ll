@@ -133,7 +133,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
 66:                                               ; preds = %63
   %67 = call i32 @llvm.usub.sat.i32(i32 %64, i32 17)
   %68 = trunc nuw i32 %67 to i8
-  %.lhs.trunc = add i8 %68, 8
+  %.lhs.trunc = add nuw i8 %68, 8
   %69 = udiv i8 %.lhs.trunc, 9
   %.zext = zext nneg i8 %69 to i32
   %70 = mul nsw i32 %.zext, -9
@@ -147,9 +147,11 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %76 = add nuw nsw i32 %.zext, 5
   %77 = call i32 @llvm.umin.i32(i32 %71, i32 9)
   %78 = sub nsw i32 %76, %77
-  %79 = udiv i32 %78, 5
-  %80 = mul nsw i32 %79, -5
-  %81 = add nuw nsw i32 %79, 1
+  %.lhs.trunc20 = trunc nuw nsw i32 %78 to i8
+  %79 = udiv i8 %.lhs.trunc20, 5
+  %.zext21 = zext nneg i8 %79 to i32
+  %80 = mul nsw i32 %.zext21, -5
+  %81 = add nuw nsw i32 %.zext21, 1
   %82 = add nsw i32 %.zext, -4
   %83 = add nsw i32 %82, %80
   br label %.thread16

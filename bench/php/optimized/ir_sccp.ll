@@ -2030,7 +2030,6 @@ ir_is_dead_load_ex.exit.thread:                   ; preds = %961, %ir_is_dead_lo
 
 .lr.ph533.preheader:                              ; preds = %.lr.ph526
   %991 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %987, i32 2)
   br label %.lr.ph533
 
 .lr.ph533:                                        ; preds = %.lr.ph533.preheader, %ir_sccp_add_input.exit369
@@ -2078,7 +2077,7 @@ ir_sccp_add_input.exit369:                        ; preds = %999, %1002, %1014, 
   %.1 = phi i1 [ %.0531, %994 ], [ %.0531, %.lr.ph533 ], [ true, %1014 ], [ true, %1002 ], [ true, %999 ]
   %1015 = add nuw nsw i32 %.3292530, 1
   %1016 = getelementptr inbounds nuw i8, ptr %.3305529, i64 4
-  %exitcond595.not = icmp eq i32 %.3292530, %umax
+  %exitcond595.not = icmp eq i32 %.3292530, %987
   br i1 %exitcond595.not, label %ir_sccp_add_input.exit373, label %.lr.ph533
 
 1017:                                             ; preds = %984, %981
@@ -2730,7 +2729,7 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
   %230 = getelementptr i8, ptr %221, i64 %229
   %scevgep268.i = getelementptr i8, ptr %230, i64 8
   %231 = add nsw i32 %225, -1
-  %232 = zext i32 %231 to i64
+  %232 = zext nneg i32 %231 to i64
   %233 = shl nuw nsw i64 %232, 2
   %234 = add nuw nsw i32 %225, 1
   %wide.trip.count275.i = zext nneg i32 %234 to i64

@@ -13080,13 +13080,13 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.loopexit.
   %spec.select.i.i1.i.i.i = select i1 %205, ptr @_hb_NullPool, ptr %202
   %206 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i.i, i64 2
   %207 = load i16, ptr %206, align 1, !tbaa !40
-  %cond.i = icmp eq i16 %207, 0
-  br i1 %cond.i, label %_ZL13_cmap_closureP9hb_face_tPK8hb_set_tPS1_.exit, label %.lr.ph.i.i.i.i.i
+  %.not7.i.i.i.i.i = icmp eq i16 %207, 0
+  br i1 %.not7.i.i.i.i.i, label %_ZL13_cmap_closureP9hb_face_tPK8hb_set_tPS1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
-  %208 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i.i, i64 4
-  %209 = call noundef i16 @llvm.bswap.i16(i16 %207)
-  %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i16 %209 to i32
+  %208 = call noundef i16 @llvm.bswap.i16(i16 %207)
+  %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i16 %208 to i32
+  %209 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i.i, i64 4
   %210 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i.i, i64 8
   %.val1.i.i.i.i.i48.i.i = load i32, ptr %210, align 1, !tbaa !4, !noalias !487
   %211 = icmp eq i32 %.val1.i.i.i.i.i48.i.i, 0
@@ -13113,22 +13113,22 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.loopexit.
 
 "_ZNR9hb_iter_tI13hb_map_iter_tIS0_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS3_NS2_8OffsetToINS2_12CmapSubtableENS2_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS2_4cmapEELSC_0ELSD_0EERKS7_EppEv.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %216
   %.val358.i.i.i52.i.i = phi i32 [ %224, %216 ], [ %.sroa.2.8.insert.ext.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.sroa.040.051.i.i = phi ptr [ %217, %216 ], [ %208, %.lr.ph.i.i.i.i.i ]
+  %.sroa.040.051.i.i = phi ptr [ %217, %216 ], [ %209, %.lr.ph.i.i.i.i.i ]
   %224 = add i32 %.val358.i.i.i52.i.i, -1
   %.not.i.i.i.i3.i = icmp eq i32 %224, 0
   br i1 %.not.i.i.i.i3.i, label %_ZL13_cmap_closureP9hb_face_tPK8hb_set_tPS1_.exit, label %216, !llvm.loop !492
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %216, %.lr.ph.i.i.i.i.i
-  %.sroa.641.1.i8.i = phi i32 [ %.sroa.2.8.insert.ext.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %224, %216 ]
-  %.sroa.040.1.i7.i = phi ptr [ %208, %.lr.ph.i.i.i.i.i ], [ %217, %216 ]
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.040.1.i7.i, i64 4
+  %.sroa.641.170.i.i = phi i32 [ %.sroa.2.8.insert.ext.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %224, %216 ]
+  %.sroa.040.169.i.i = phi ptr [ %209, %.lr.ph.i.i.i.i.i ], [ %217, %216 ]
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.040.169.i.i, i64 4
   %.val1.i.i.i.i.i.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 1, !tbaa !4
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i", %.lr.ph.i.preheader.i.i.i
   %.val1.i.i.i.i.i.i.i.i = phi i32 [ %.val1.i.i.i.i6.i.i.i.i, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.val1.i.i.i.i.i.pre.i.i.i, %.lr.ph.i.preheader.i.i.i ]
-  %.lcssa1015.i.i.i.i = phi i32 [ %230, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.641.1.i8.i, %.lr.ph.i.preheader.i.i.i ]
-  %.lcssa91214.i.i.i.i = phi ptr [ %232, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.040.1.i7.i, %.lr.ph.i.preheader.i.i.i ]
+  %.lcssa1015.i.i.i.i = phi i32 [ %230, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.641.170.i.i, %.lr.ph.i.preheader.i.i.i ]
+  %.lcssa91214.i.i.i.i = phi ptr [ %232, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.040.169.i.i, %.lr.ph.i.preheader.i.i.i ]
   %225 = icmp eq i32 %.val1.i.i.i.i.i.i.i.i, 0
   %226 = call i32 @llvm.bswap.i32(i32 %.val1.i.i.i.i.i.i.i.i)
   %227 = zext i32 %226 to i64
@@ -20917,11 +20917,11 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noun
 
 39:                                               ; preds = %24
   %40 = add nsw i32 %7, -1
-  %41 = icmp ugt i32 %40, 1
+  %41 = icmp samesign ugt i32 %40, 1
   br i1 %41, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %39
-  %wide.trip.count = zext i32 %40 to i64
+  %wide.trip.count = zext nneg i32 %40 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46

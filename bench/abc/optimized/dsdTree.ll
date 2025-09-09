@@ -343,8 +343,7 @@ define i32 @Dsd_TreeGetAigCost_rec(ptr noundef readonly captures(none) %0) local
   %.0 = phi i32 [ %9, %8 ], [ %12, %10 ], [ 0, %6 ], [ %spec.select, %13 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !14
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17

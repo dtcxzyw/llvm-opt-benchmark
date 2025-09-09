@@ -6154,7 +6154,7 @@ default.unreachable151:                           ; preds = %4
 
 66:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
-  %.sroa.01.0.i = tail call i16 @llvm.abs.i16(i16 %17, i1 false)
+  %.sroa.01.0.i = tail call i16 @llvm.abs.i16(i16 %17, i1 true)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %68 = load i8, ptr %67, align 4, !alias.scope !416, !noalias !419, !noundef !4
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 60
@@ -6222,7 +6222,7 @@ default.unreachable151:                           ; preds = %4
 
 107:                                              ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  %.sroa.01.0.i68 = tail call i32 @llvm.abs.i32(i32 %26, i1 false)
+  %.sroa.01.0.i68 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %109 = load i8, ptr %108, align 4, !alias.scope !422, !noalias !425, !noundef !4
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 60
@@ -6279,7 +6279,7 @@ default.unreachable151:                           ; preds = %4
 
 144:                                              ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  %.sroa.01.0.i71 = tail call i32 @llvm.abs.i32(i32 %35, i1 false)
+  %.sroa.01.0.i71 = tail call i32 @llvm.abs.i32(i32 %35, i1 true)
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %146 = load i8, ptr %145, align 4, !alias.scope !428, !noalias !431, !noundef !4
   %147 = getelementptr inbounds nuw i8, ptr %11, i64 60
@@ -6336,7 +6336,7 @@ default.unreachable151:                           ; preds = %4
 
 181:                                              ; preds = %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  %.sroa.01.0.i74 = tail call i32 @llvm.abs.i32(i32 %44, i1 false)
+  %.sroa.01.0.i74 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %183 = load i8, ptr %182, align 4, !alias.scope !434, !noalias !437, !noundef !4
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 60
@@ -6394,7 +6394,7 @@ default.unreachable151:                           ; preds = %4
 218:                                              ; preds = %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !443
-  %.sroa.01.0.i77 = tail call i32 @llvm.abs.i32(i32 %53, i1 false)
+  %.sroa.01.0.i77 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %220 = load i8, ptr %219, align 4, !alias.scope !440, !noalias !445, !noundef !4
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 60

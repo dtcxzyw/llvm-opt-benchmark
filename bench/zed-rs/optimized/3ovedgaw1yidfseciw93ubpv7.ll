@@ -96934,10 +96934,8 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h13436
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %7, align 8, !range !2142, !noalias !21893, !noundef !4
-  %trunc.i.i.i.i = trunc nuw i32 %31 to i1
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !21893, !nonnull !4
-  %.sroa.3.0.i.i.i.i = select i1 %trunc.i.i.i.i, ptr %33, ptr %12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !21893
   %switch.not.not.i.i.i = icmp eq i32 %31, 0
   br i1 %switch.not.not.i.i.i, label %34, label %36
@@ -96980,7 +96978,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h13436
 
 "_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h8bb76cb6461002e2E.exit.sink.split.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i"
   %.sink16.i.i.i = phi i64 [ %.sroa.6.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i" ], [ %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i" ]
-  %.sroa.0.0.ph.i.i.i = phi ptr [ %.sroa.3.0.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i" ]
+  %.sroa.0.0.ph.i.i.i = phi ptr [ %33, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i" ]
   %45 = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !21890, !noalias !21943, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %.sink16.i.i.i, i64 noundef 1) #50, !noalias !21883
   br label %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17ha0a8072de2944d81E.exit.i.i"
@@ -97017,7 +97015,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h13436
           to label %.thread13 unwind label %83, !noalias !21883
 
 "_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17ha0a8072de2944d81E.exit.i.i": ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h8bb76cb6461002e2E.exit.sink.split.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i"
-  %52 = phi ptr [ %.sroa.3.0.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i" ], [ %.sroa.0.0.ph.i.i.i, %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h8bb76cb6461002e2E.exit.sink.split.i.i.i" ]
+  %52 = phi ptr [ %33, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i.i.i.i" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit.i10.i.i.i" ], [ %.sroa.0.0.ph.i.i.i, %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h8bb76cb6461002e2E.exit.sink.split.i.i.i" ]
   store ptr %52, ptr %13, align 8, !noalias !21883
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !21883
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !21883

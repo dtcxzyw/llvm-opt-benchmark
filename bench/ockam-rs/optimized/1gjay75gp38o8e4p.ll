@@ -49,21 +49,16 @@ define hidden noundef i64 @_ZN12sharded_slab3tid12Registration8register17h01062c
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17had9bfb2cfa035341E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 %4)
   %5 = load i64, ptr %2, align 8, !range !4, !noundef !5
-  %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i8, ptr %8, align 8, !range !7
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", label %11
+  br i1 %10, label %22, label %11
 
-"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread": ; preds = %1
+"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread": ; preds = %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i", %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %22
-
-"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit": ; preds = %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i", %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %trunc, label %.thread, label %22
+  br label %.thread
 
 11:                                               ; preds = %1
   %12 = trunc nuw i8 %9 to i1
@@ -82,7 +77,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i: ; preds = %20, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i, %13, %11
   %18 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !8
   %19 = icmp eq i32 %18, 2
-  br i1 %19, label %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i", label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
+  br i1 %19, label %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i", label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread"
 
 20:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -91,9 +86,10 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
 
 "_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i": ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i
   tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %7), !noalias !17
-  br label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
+  br label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread"
 
-22:                                               ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
+22:                                               ; preds = %1
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc nuw i8 %9 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i64, ptr %24, align 8, !noundef !5
@@ -150,7 +146,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.th
 50:                                               ; preds = %49, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
   br i1 %26, label %.thread, label %52
 
-.thread:                                          ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit", %50
+.thread:                                          ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", %50
   %51 = tail call noundef i64 @"_ZN12sharded_slab3tid12Registration8register28_$u7b$$u7b$closure$u7d$$u7d$17h6258ec6b953a8ce7E.llvm.1214941078669613289"()
   br label %52
 

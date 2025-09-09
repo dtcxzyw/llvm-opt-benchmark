@@ -12344,7 +12344,7 @@ _ZL13stbi__get16beP13stbi__context.exit.i:        ; preds = %_ZL19stbi__refill_b
 
 528:                                              ; preds = %526, %_ZL13stbi__get16beP13stbi__context.exit.i
   %.082.i = phi i32 [ %525, %_ZL13stbi__get16beP13stbi__context.exit.i ], [ %527, %526 ]
-  %529 = icmp sgt i32 %.082.i, %.084294.i
+  %529 = icmp samesign ugt i32 %.082.i, %.084294.i
   br i1 %529, label %.loopexit263.sink.split.i, label %530
 
 530:                                              ; preds = %528
@@ -12585,7 +12585,7 @@ _ZL13stbi__readvalP13stbi__contextiPh.exit235.i:  ; preds = %614
 
 .loopexit.i:                                      ; preds = %616, %_ZL13stbi__copyvaliPhPKh.exit213.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit207.preheader.i
   %.5.i = phi ptr [ %.3293.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit207.preheader.i ], [ %578, %_ZL13stbi__copyvaliPhPKh.exit213.i ], [ %618, %616 ]
-  %.183.i = phi i32 [ %.082.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit207.preheader.i ], [ %.082.i, %_ZL13stbi__copyvaliPhPKh.exit213.i ], [ %580, %616 ]
+  %.183.i = phi i32 [ 0, %_ZL13stbi__readvalP13stbi__contextiPh.exit207.preheader.i ], [ %.082.i, %_ZL13stbi__copyvaliPhPKh.exit213.i ], [ %580, %616 ]
   %619 = sub nsw i32 %.084294.i, %.183.i
   %620 = icmp sgt i32 %619, 0
   br i1 %620, label %447, label %.loopexit265.i, !llvm.loop !92
@@ -24781,10 +24781,10 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
 
 ._crit_edge817:                                   ; preds = %.loopexit714
   %300 = icmp slt i32 %6, 8
-  br i1 %300, label %.lr.ph854, label %473
+  br i1 %300, label %.lr.ph854, label %471
 
 ._crit_edge817.thread:                            ; preds = %.preheader729
-  br i1 %9, label %474, label %.loopexit693
+  br i1 %9, label %472, label %.loopexit693
 
 .lr.ph854:                                        ; preds = %._crit_edge817
   %301 = zext i32 %11 to i64
@@ -25087,62 +25087,62 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   %458 = load i8, ptr %457, align 1
   store i8 %458, ptr %455, align 1
   %indvars.iv.next964 = add nsw i64 %indvars.iv963, -1
-  %459 = icmp sgt i64 %indvars.iv963, 0
-  br i1 %459, label %.lr.ph852, label %.loopexit, !llvm.loop !218
+  %.not1027 = icmp eq i64 %indvars.iv963, 0
+  br i1 %.not1027, label %.loopexit, label %.lr.ph852, !llvm.loop !218
 
 .lr.ph849:                                        ; preds = %.preheader687, %.lr.ph849
   %indvars.iv960 = phi i64 [ %indvars.iv.next961, %.lr.ph849 ], [ %312, %.preheader687 ]
-  %460 = shl nsw i64 %indvars.iv960, 2
-  %461 = getelementptr inbounds nuw i8, ptr %453, i64 %460
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 3
-  store i8 -1, ptr %462, align 1
-  %463 = mul nuw nsw i64 %indvars.iv960, 3
-  %464 = getelementptr inbounds nuw i8, ptr %453, i64 %463
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 2
-  %466 = load i8, ptr %465, align 1
-  %467 = getelementptr inbounds nuw i8, ptr %461, i64 2
-  store i8 %466, ptr %467, align 1
-  %468 = getelementptr inbounds nuw i8, ptr %464, i64 1
-  %469 = load i8, ptr %468, align 1
-  %470 = getelementptr inbounds nuw i8, ptr %461, i64 1
-  store i8 %469, ptr %470, align 1
-  %471 = load i8, ptr %464, align 1
-  store i8 %471, ptr %461, align 1
+  %459 = shl nsw i64 %indvars.iv960, 2
+  %460 = getelementptr inbounds nuw i8, ptr %453, i64 %459
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 3
+  store i8 -1, ptr %461, align 1
+  %462 = mul nuw nsw i64 %indvars.iv960, 3
+  %463 = getelementptr inbounds nuw i8, ptr %453, i64 %462
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 2
+  %465 = load i8, ptr %464, align 1
+  %466 = getelementptr inbounds nuw i8, ptr %460, i64 2
+  store i8 %465, ptr %466, align 1
+  %467 = getelementptr inbounds nuw i8, ptr %463, i64 1
+  %468 = load i8, ptr %467, align 1
+  %469 = getelementptr inbounds nuw i8, ptr %460, i64 1
+  store i8 %468, ptr %469, align 1
+  %470 = load i8, ptr %463, align 1
+  store i8 %470, ptr %460, align 1
   %indvars.iv.next961 = add nsw i64 %indvars.iv960, -1
-  %472 = icmp sgt i64 %indvars.iv960, 0
-  br i1 %472, label %.lr.ph849, label %.loopexit, !llvm.loop !219
+  %.not1026 = icmp eq i64 %indvars.iv960, 0
+  br i1 %.not1026, label %.loopexit, label %.lr.ph849, !llvm.loop !219
 
 .loopexit:                                        ; preds = %.lr.ph849, %.lr.ph852, %.preheader687, %.preheader, %.thread661
   %indvars.iv.next967 = add nuw nsw i64 %indvars.iv966, 1
   %exitcond970.not = icmp eq i64 %indvars.iv.next967, %wide.trip.count969
   br i1 %exitcond970.not, label %.loopexit693, label %313, !llvm.loop !220
 
-473:                                              ; preds = %._crit_edge817
-  br i1 %9, label %474, label %.loopexit693
+471:                                              ; preds = %._crit_edge817
+  br i1 %9, label %472, label %.loopexit693
 
-474:                                              ; preds = %._crit_edge817.thread, %473
-  %475 = mul i32 %11, %5
-  %.not857 = icmp eq i32 %475, 0
+472:                                              ; preds = %._crit_edge817.thread, %471
+  %473 = mul i32 %11, %5
+  %.not857 = icmp eq i32 %473, 0
   br i1 %.not857, label %.loopexit693, label %.lr.ph822.preheader
 
-.lr.ph822.preheader:                              ; preds = %474
-  %476 = load ptr, ptr %31, align 8
+.lr.ph822.preheader:                              ; preds = %472
+  %474 = load ptr, ptr %31, align 8
   br label %.lr.ph822
 
 .lr.ph822:                                        ; preds = %.lr.ph822.preheader, %.lr.ph822
-  %.0820 = phi ptr [ %485, %.lr.ph822 ], [ %476, %.lr.ph822.preheader ]
-  %.8562818 = phi i32 [ %484, %.lr.ph822 ], [ 0, %.lr.ph822.preheader ]
-  %477 = load i8, ptr %.0820, align 1
-  %478 = zext i8 %477 to i16
-  %479 = shl nuw i16 %478, 8
-  %480 = getelementptr inbounds nuw i8, ptr %.0820, i64 1
-  %481 = load i8, ptr %480, align 1
-  %482 = zext i8 %481 to i16
-  %483 = or disjoint i16 %479, %482
-  store i16 %483, ptr %.0820, align 2
-  %484 = add nuw i32 %.8562818, 1
-  %485 = getelementptr i8, ptr %.0820, i64 2
-  %exitcond959.not = icmp eq i32 %484, %475
+  %.0820 = phi ptr [ %483, %.lr.ph822 ], [ %474, %.lr.ph822.preheader ]
+  %.8562818 = phi i32 [ %482, %.lr.ph822 ], [ 0, %.lr.ph822.preheader ]
+  %475 = load i8, ptr %.0820, align 1
+  %476 = zext i8 %475 to i16
+  %477 = shl nuw i16 %476, 8
+  %478 = getelementptr inbounds nuw i8, ptr %.0820, i64 1
+  %479 = load i8, ptr %478, align 1
+  %480 = zext i8 %479 to i16
+  %481 = or disjoint i16 %477, %480
+  store i16 %481, ptr %.0820, align 2
+  %482 = add nuw i32 %.8562818, 1
+  %483 = getelementptr i8, ptr %.0820, i64 2
+  %exitcond959.not = icmp eq i32 %482, %473
   br i1 %exitcond959.not, label %.loopexit693, label %.lr.ph822, !llvm.loop !221
 
 .loopexit693.sink.split:                          ; preds = %57, %_ZL21stbi__mad3sizes_validiiii.exit._crit_edge, %_ZL21stbi__mul2sizes_validii.exit12.i, %_ZL21stbi__mul2sizes_validii.exit.i, %32, %_ZL21stbi__mul2sizes_validii.exit.thread15.i, %_ZL17stbi__malloc_mad3iiii.exit, %_ZL17stbi__malloc_mad3iiii.exit.thread
@@ -25150,8 +25150,8 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   store ptr %.str.59.sink, ptr @_ZL22stbi__g_failure_reason, align 8
   br label %.loopexit693
 
-.loopexit693:                                     ; preds = %.loopexit, %.lr.ph822, %.loopexit693.sink.split, %._crit_edge817.thread, %474, %473
-  %.0514 = phi i32 [ 1, %473 ], [ 1, %474 ], [ 1, %._crit_edge817.thread ], [ 0, %.loopexit693.sink.split ], [ 1, %.lr.ph822 ], [ 1, %.loopexit ]
+.loopexit693:                                     ; preds = %.loopexit, %.lr.ph822, %.loopexit693.sink.split, %._crit_edge817.thread, %472, %471
+  %.0514 = phi i32 [ 1, %471 ], [ 1, %472 ], [ 1, %._crit_edge817.thread ], [ 0, %.loopexit693.sink.split ], [ 1, %.lr.ph822 ], [ 1, %.loopexit ]
   ret i32 %.0514
 }
 
@@ -32954,13 +32954,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   %wide.trip.count97 = zext nneg i32 %2 to i64
   br label %44
 
-44:                                               ; preds = %.lr.ph81, %81
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next95, %81 ]
+44:                                               ; preds = %.lr.ph81, %79
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next95, %79 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv94
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %81, label %48
+  br i1 %.not, label %79, label %48
 
 48:                                               ; preds = %44
   %49 = zext i8 %46 to i64
@@ -32985,37 +32985,33 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   %67 = getelementptr inbounds i16, ptr %43, i64 %64
   store i16 %66, ptr %67, align 2
   %68 = icmp ult i8 %46, 10
-  br i1 %68, label %69, label %.loopexit
+  br i1 %68, label %.lr.ph78, label %.loopexit
 
-69:                                               ; preds = %48
+.lr.ph78:                                         ; preds = %48
   %trunc.i.i = trunc i32 %51 to i16
   %rev.i.i = tail call i16 @llvm.bitreverse.i16(i16 %trunc.i.i)
-  %70 = zext i16 %rev.i.i to i32
-  %71 = sub nuw nsw i32 16, %47
-  %72 = lshr i32 %70, %71
-  %73 = icmp samesign ult i32 %72, 512
-  br i1 %73, label %.lr.ph78, label %.loopexit
+  %69 = zext i16 %rev.i.i to i32
+  %70 = sub nuw nsw i32 16, %47
+  %71 = lshr i32 %69, %70
+  %72 = shl nuw nsw i32 1, %47
+  %73 = zext nneg i32 %71 to i64
+  %74 = zext nneg i32 %72 to i64
+  br label %75
 
-.lr.ph78:                                         ; preds = %69
-  %74 = shl nuw nsw i32 1, %47
-  %75 = zext nneg i32 %72 to i64
-  %76 = zext nneg i32 %74 to i64
-  br label %77
+75:                                               ; preds = %.lr.ph78, %75
+  %indvars.iv91 = phi i64 [ %73, %.lr.ph78 ], [ %indvars.iv.next92, %75 ]
+  %76 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv91
+  store i16 %63, ptr %76, align 2
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %74
+  %77 = icmp samesign ult i64 %indvars.iv.next92, 512
+  br i1 %77, label %75, label %.loopexit, !llvm.loop !257
 
-77:                                               ; preds = %.lr.ph78, %77
-  %indvars.iv91 = phi i64 [ %75, %.lr.ph78 ], [ %indvars.iv.next92, %77 ]
-  %78 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv91
-  store i16 %63, ptr %78, align 2
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %76
-  %79 = icmp samesign ult i64 %indvars.iv.next92, 512
-  br i1 %79, label %77, label %.loopexit, !llvm.loop !257
+.loopexit:                                        ; preds = %75, %48
+  %78 = add nsw i32 %51, 1
+  store i32 %78, ptr %50, align 4
+  br label %79
 
-.loopexit:                                        ; preds = %77, %69, %48
-  %80 = add nsw i32 %51, 1
-  store i32 %80, ptr %50, align 4
-  br label %81
-
-81:                                               ; preds = %44, %.loopexit
+79:                                               ; preds = %44, %.loopexit
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %.loopexit70, label %44, !llvm.loop !258
@@ -33025,8 +33021,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   store ptr %.str.105.sink, ptr @_ZL22stbi__g_failure_reason, align 8
   br label %.loopexit70
 
-.loopexit70:                                      ; preds = %81, %.loopexit70.sink.split, %40
-  %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %81 ]
+.loopexit70:                                      ; preds = %79, %.loopexit70.sink.split, %40
+  %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %79 ]
   ret i32 %.062
 }
 

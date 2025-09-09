@@ -80,7 +80,7 @@ define range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) %0, ptr
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @__func__.ASN1_get_object) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 224, ptr noundef null) #13
-  br label %81
+  br label %80
 
 9:                                                ; preds = %5
   %10 = load i8, ptr %6, align 1, !tbaa !8
@@ -139,13 +139,13 @@ define range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) %0, ptr
   store i32 %13, ptr %3, align 4, !tbaa !11
   %40 = load i8, ptr %.152, align 1, !tbaa !8
   %41 = icmp eq i8 %40, -128
-  br i1 %41, label %69, label %42
+  br i1 %41, label %68, label %42
 
 42:                                               ; preds = %39
   %43 = and i8 %40, 127
   %44 = getelementptr inbounds nuw i8, ptr %.152, i64 1
   %.not.i = icmp sgt i8 %40, -1
-  br i1 %.not.i, label %67, label %45
+  br i1 %.not.i, label %66, label %45
 
 45:                                               ; preds = %42
   %46 = zext nneg i8 %43 to i32
@@ -159,100 +159,99 @@ define range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) %0, ptr
   br i1 %.not3234.i, label %.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader33.i
-  %49 = add nsw i32 %46, -1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr i8, ptr %.152, i64 %50
-  %scevgep.i = getelementptr i8, ptr %51, i64 2
+  %49 = zext nneg i8 %43 to i64
+  %50 = getelementptr i8, ptr %.152, i64 %49
+  %scevgep.i = getelementptr i8, ptr %50, i64 1
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %54, %.lr.ph.preheader.i
-  %.036.i = phi i32 [ %56, %54 ], [ %46, %.lr.ph.preheader.i ]
-  %.12935.i = phi ptr [ %55, %54 ], [ %44, %.lr.ph.preheader.i ]
-  %52 = load i8, ptr %.12935.i, align 1, !tbaa !8
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %54, label %.critedge.i
+.lr.ph.i:                                         ; preds = %53, %.lr.ph.preheader.i
+  %.036.i = phi i32 [ %55, %53 ], [ %46, %.lr.ph.preheader.i ]
+  %.12935.i = phi ptr [ %54, %53 ], [ %44, %.lr.ph.preheader.i ]
+  %51 = load i8, ptr %.12935.i, align 1, !tbaa !8
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %53, label %.critedge.i
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = getelementptr inbounds nuw i8, ptr %.12935.i, i64 1
-  %56 = add nsw i32 %.036.i, -1
-  %.not32.i = icmp eq i32 %56, 0
+53:                                               ; preds = %.lr.ph.i
+  %54 = getelementptr inbounds nuw i8, ptr %.12935.i, i64 1
+  %55 = add nsw i32 %.036.i, -1
+  %.not32.i = icmp eq i32 %55, 0
   br i1 %.not32.i, label %.thread, label %.lr.ph.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %57 = icmp samesign ugt i32 %.036.i, 8
-  br i1 %57, label %asn1_get_length.exit.thread, label %.preheader.i
+  %56 = icmp samesign ugt i32 %.036.i, 8
+  br i1 %56, label %asn1_get_length.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
   %.not47.i = icmp eq i32 %.036.i, 0
   br i1 %.not47.i, label %.thread, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %.preheader.i, %.lr.ph44.i
-  %.143.i = phi i32 [ %63, %.lr.ph44.i ], [ %.036.i, %.preheader.i ]
-  %.12742.i = phi i64 [ %62, %.lr.ph44.i ], [ 0, %.preheader.i ]
-  %.241.i = phi ptr [ %59, %.lr.ph44.i ], [ %.12935.i, %.preheader.i ]
-  %58 = shl i64 %.12742.i, 8
-  %59 = getelementptr inbounds nuw i8, ptr %.241.i, i64 1
-  %60 = load i8, ptr %.241.i, align 1, !tbaa !8
-  %61 = zext i8 %60 to i64
-  %62 = or disjoint i64 %58, %61
-  %63 = add nsw i32 %.143.i, -1
-  %64 = icmp samesign ugt i32 %.143.i, 1
-  br i1 %64, label %.lr.ph44.i, label %._crit_edge.i, !llvm.loop !14
+  %.143.i = phi i32 [ %62, %.lr.ph44.i ], [ %.036.i, %.preheader.i ]
+  %.12742.i = phi i64 [ %61, %.lr.ph44.i ], [ 0, %.preheader.i ]
+  %.241.i = phi ptr [ %58, %.lr.ph44.i ], [ %.12935.i, %.preheader.i ]
+  %57 = shl i64 %.12742.i, 8
+  %58 = getelementptr inbounds nuw i8, ptr %.241.i, i64 1
+  %59 = load i8, ptr %.241.i, align 1, !tbaa !8
+  %60 = zext i8 %59 to i64
+  %61 = or disjoint i64 %57, %60
+  %62 = add nsw i32 %.143.i, -1
+  %63 = icmp samesign ugt i32 %.143.i, 1
+  br i1 %63, label %.lr.ph44.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph44.i
-  %65 = zext nneg i32 %.036.i to i64
-  %scevgep49.i = getelementptr i8, ptr %.12935.i, i64 %65
-  %66 = icmp slt i64 %58, 0
-  br i1 %66, label %asn1_get_length.exit.thread, label %.thread
+  %64 = zext nneg i32 %.036.i to i64
+  %scevgep49.i = getelementptr i8, ptr %.12935.i, i64 %64
+  %65 = icmp slt i64 %57, 0
+  br i1 %65, label %asn1_get_length.exit.thread, label %.thread
 
-67:                                               ; preds = %42
-  %68 = zext nneg i8 %43 to i64
+66:                                               ; preds = %42
+  %67 = zext nneg i8 %43 to i64
   br label %.thread
 
-.thread:                                          ; preds = %54, %67, %.preheader33.i, %.preheader.i, %._crit_edge.i
-  %.028.i.ph = phi ptr [ %44, %.preheader33.i ], [ %.12935.i, %.preheader.i ], [ %44, %67 ], [ %scevgep49.i, %._crit_edge.i ], [ %scevgep.i, %54 ]
-  %.026.i.ph = phi i64 [ 0, %.preheader33.i ], [ 0, %.preheader.i ], [ %68, %67 ], [ %62, %._crit_edge.i ], [ 0, %54 ]
+.thread:                                          ; preds = %53, %66, %.preheader33.i, %.preheader.i, %._crit_edge.i
+  %.028.i.ph = phi ptr [ %44, %.preheader33.i ], [ %.12935.i, %.preheader.i ], [ %44, %66 ], [ %scevgep49.i, %._crit_edge.i ], [ %scevgep.i, %53 ]
+  %.026.i.ph = phi i64 [ 0, %.preheader33.i ], [ 0, %.preheader.i ], [ %67, %66 ], [ %61, %._crit_edge.i ], [ 0, %53 ]
   store i64 %.026.i.ph, ptr %1, align 8, !tbaa !15
-  br label %71
+  br label %70
 
-69:                                               ; preds = %39
-  %70 = getelementptr inbounds nuw i8, ptr %.152, i64 1
+68:                                               ; preds = %39
+  %69 = getelementptr inbounds nuw i8, ptr %.152, i64 1
   store i64 0, ptr %1, align 8, !tbaa !15
   %.not42 = icmp eq i32 %12, 0
-  br i1 %.not42, label %asn1_get_length.exit.thread, label %71
+  br i1 %.not42, label %asn1_get_length.exit.thread, label %70
 
-71:                                               ; preds = %.thread, %69
-  %72 = phi i64 [ %.026.i.ph, %.thread ], [ 0, %69 ]
-  %.028.i64 = phi ptr [ %.028.i.ph, %.thread ], [ %70, %69 ]
-  %.04963 = phi i32 [ 0, %.thread ], [ 1, %69 ]
-  %73 = ptrtoint ptr %.028.i64 to i64
-  %74 = ptrtoint ptr %6 to i64
-  %.neg = add i64 %4, %74
-  %75 = sub i64 %.neg, %73
-  %76 = icmp sgt i64 %72, %75
-  br i1 %76, label %77, label %79
+70:                                               ; preds = %.thread, %68
+  %71 = phi i64 [ %.026.i.ph, %.thread ], [ 0, %68 ]
+  %.028.i64 = phi ptr [ %.028.i.ph, %.thread ], [ %69, %68 ]
+  %.04963 = phi i32 [ 0, %.thread ], [ 1, %68 ]
+  %72 = ptrtoint ptr %.028.i64 to i64
+  %73 = ptrtoint ptr %6 to i64
+  %.neg = add i64 %4, %73
+  %74 = sub i64 %.neg, %72
+  %75 = icmp sgt i64 %71, %74
+  br i1 %75, label %76, label %78
 
-77:                                               ; preds = %71
+76:                                               ; preds = %70
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @__func__.ASN1_get_object) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 155, ptr noundef null) #13
-  %78 = or disjoint i32 %12, 128
-  br label %79
+  %77 = or disjoint i32 %12, 128
+  br label %78
 
-79:                                               ; preds = %77, %71
-  %.032 = phi i32 [ %78, %77 ], [ %12, %71 ]
+78:                                               ; preds = %76, %70
+  %.032 = phi i32 [ %77, %76 ], [ %12, %70 ]
   store ptr %.028.i64, ptr %0, align 8, !tbaa !3
-  %80 = or i32 %.032, %.04963
-  br label %81
+  %79 = or i32 %.032, %.04963
+  br label %80
 
-asn1_get_length.exit.thread:                      ; preds = %21, %._crit_edge.i, %.critedge.i, %45, %69, %35, %28, %16
+asn1_get_length.exit.thread:                      ; preds = %21, %._crit_edge.i, %.critedge.i, %45, %68, %35, %28, %16
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @__func__.ASN1_get_object) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 123, ptr noundef null) #13
-  br label %81
+  br label %80
 
-81:                                               ; preds = %asn1_get_length.exit.thread, %79, %8
-  %.029 = phi i32 [ 128, %8 ], [ 128, %asn1_get_length.exit.thread ], [ %80, %79 ]
+80:                                               ; preds = %asn1_get_length.exit.thread, %78, %8
+  %.029 = phi i32 [ 128, %8 ], [ 128, %asn1_get_length.exit.thread ], [ %79, %78 ]
   ret i32 %.029
 }
 

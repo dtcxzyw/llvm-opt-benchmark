@@ -375,11 +375,11 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 22
   br label %67
 
-67:                                               ; preds = %.lr.ph158, %154
-  %68 = phi ptr [ %62, %.lr.ph158 ], [ %155, %154 ]
+67:                                               ; preds = %.lr.ph158, %153
+  %68 = phi ptr [ %62, %.lr.ph158 ], [ %154, %153 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %70 = load i8, ptr %69, align 1, !tbaa !31
-  switch i8 %70, label %152 [
+  switch i8 %70, label %151 [
     i8 114, label %71
     i8 115, label %73
     i8 116, label %111
@@ -389,7 +389,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
     i8 120, label %113
     i8 121, label %113
     i8 123, label %113
-    i8 122, label %149
+    i8 122, label %148
   ]
 
 71:                                               ; preds = %67
@@ -504,7 +504,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %124 = getelementptr i8, ptr %68, i64 4
   %.val127 = load i8, ptr %124, align 1, !tbaa !31
   %.not = icmp sgt i8 %.val127, -1
-  br i1 %.not, label %136, label %125
+  br i1 %.not, label %.lr.ph.preheader, label %125
 
 125:                                              ; preds = %123
   %126 = icmp ult i16 %119, 11
@@ -524,75 +524,70 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %133 = load i32, ptr %132, align 1
   %134 = zext i32 %133 to i64
   %135 = add nuw nsw i64 %134, %120
-  br label %136
+  br label %.lr.ph.preheader
 
-136:                                              ; preds = %131, %123
+.lr.ph.preheader:                                 ; preds = %131, %123
   %.0101 = phi i64 [ %135, %131 ], [ %120, %123 ]
   %.0100 = phi ptr [ %129, %131 ], [ %68, %123 ]
   %.0100.val = load i16, ptr %.0100, align 1
-  %137 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 2) #19
-  %138 = add nsw i64 %.0101, -2
-  %.not113154 = icmp eq i64 %138, 0
-  br i1 %.not113154, label %._crit_edge, label %.lr.ph
+  %136 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 2) #19
+  %137 = add nsw i64 %.0101, -2
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %136, %140
-  %.0156 = phi i64 [ %142, %140 ], [ 0, %136 ]
-  %.1102155 = phi i64 [ %144, %140 ], [ %138, %136 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %139
+  %.0156 = phi i64 [ %141, %139 ], [ 0, %.lr.ph.preheader ]
+  %.1102155 = phi i64 [ %143, %139 ], [ %137, %.lr.ph.preheader ]
   %spec.store.select = call i64 @llvm.umin.i64(i64 %.1102155, i64 32768)
-  %139 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %spec.store.select, ptr noundef null) #19
-  %.not115 = icmp eq ptr %139, null
-  br i1 %.not115, label %.thread, label %140
+  %138 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %spec.store.select, ptr noundef null) #19
+  %.not115 = icmp eq ptr %138, null
+  br i1 %.not115, label %.thread, label %139
 
 .thread:                                          ; preds = %.lr.ph
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13) #19
   br label %.thread135
 
-140:                                              ; preds = %.lr.ph
-  %141 = trunc nuw nsw i64 %spec.store.select to i32
-  %142 = call i64 @cm_zlib_crc32(i64 noundef %.0156, ptr noundef nonnull %139, i32 noundef %141) #19
-  %143 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %spec.store.select) #19
-  %144 = sub i64 %.1102155, %spec.store.select
-  %.not113 = icmp eq i64 %144, 0
+139:                                              ; preds = %.lr.ph
+  %140 = trunc nuw nsw i64 %spec.store.select to i32
+  %141 = call i64 @cm_zlib_crc32(i64 noundef %.0156, ptr noundef nonnull %138, i32 noundef %140) #19
+  %142 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %spec.store.select) #19
+  %143 = sub i64 %.1102155, %spec.store.select
+  %.not113 = icmp eq i64 %143, 0
   br i1 %.not113, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
 
-._crit_edge.loopexit:                             ; preds = %140
-  %145 = trunc i64 %142 to i16
-  br label %._crit_edge
+._crit_edge.loopexit:                             ; preds = %139
+  %144 = trunc i64 %141 to i16
+  %.not114 = icmp eq i16 %.0100.val, %144
+  br i1 %.not114, label %146, label %145
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %136
-  %.0.lcssa = phi i16 [ 0, %136 ], [ %145, %._crit_edge.loopexit ]
-  %.not114 = icmp eq i16 %.0100.val, %.0.lcssa
-  br i1 %.not114, label %147, label %146
-
-146:                                              ; preds = %._crit_edge
+145:                                              ; preds = %._crit_edge.loopexit
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #19
   br label %.thread135
 
-147:                                              ; preds = %._crit_edge
-  %148 = icmp eq i8 %70, 123
-  br i1 %148, label %.thread135, label %154
+146:                                              ; preds = %._crit_edge.loopexit
+  %147 = icmp eq i8 %70, 123
+  br i1 %147, label %.thread135, label %153
 
-149:                                              ; preds = %67
-  %150 = call fastcc i32 @read_header(ptr noundef nonnull %0, ptr noundef %1, i8 noundef signext 122)
-  %151 = icmp slt i32 %150, -20
-  br i1 %151, label %.thread135, label %154
+148:                                              ; preds = %67
+  %149 = call fastcc i32 @read_header(ptr noundef nonnull %0, ptr noundef %1, i8 noundef signext 122)
+  %150 = icmp slt i32 %149, -20
+  br i1 %150, label %.thread135, label %153
 
-152:                                              ; preds = %67
+151:                                              ; preds = %67
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13) #19
   br label %.thread135
 
 .sink.split:                                      ; preds = %104, %71
   %.sink = phi i64 [ 7, %71 ], [ %82, %104 ]
-  %153 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.sink) #19
-  br label %154
+  %152 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.sink) #19
+  br label %153
 
-154:                                              ; preds = %.sink.split, %147, %149
-  %155 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #19
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %.thread135, label %67
+153:                                              ; preds = %.sink.split, %146, %148
+  %154 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #19
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %.thread135, label %67
 
-.thread135:                                       ; preds = %154, %85, %128, %147, %149, %61, %.thread, %146, %127, %122, %111, %110, %103, %97, %84, %72, %152, %skip_sfx.exit.thread, %17
-  %.098 = phi i32 [ 1, %17 ], [ -30, %skip_sfx.exit.thread ], [ -30, %.thread ], [ -30, %146 ], [ -30, %127 ], [ -30, %122 ], [ %112, %111 ], [ -30, %110 ], [ -30, %103 ], [ -30, %97 ], [ -30, %84 ], [ -30, %72 ], [ -30, %152 ], [ -30, %61 ], [ -30, %154 ], [ -30, %85 ], [ -30, %128 ], [ 1, %147 ], [ %150, %149 ]
+.thread135:                                       ; preds = %153, %85, %128, %146, %148, %61, %.thread, %145, %127, %122, %111, %110, %103, %97, %84, %72, %151, %skip_sfx.exit.thread, %17
+  %.098 = phi i32 [ 1, %17 ], [ -30, %skip_sfx.exit.thread ], [ -30, %.thread ], [ -30, %145 ], [ -30, %127 ], [ -30, %122 ], [ %112, %111 ], [ -30, %110 ], [ -30, %103 ], [ -30, %97 ], [ -30, %84 ], [ -30, %72 ], [ -30, %151 ], [ -30, %61 ], [ -30, %153 ], [ -30, %85 ], [ -30, %128 ], [ 1, %146 ], [ %149, %148 ]
   ret i32 %.098
 }
 
@@ -1367,7 +1362,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
 
 51:                                               ; preds = %35
   %52 = and i64 %31, 4294967295
-  %53 = trunc nsw i64 %47 to i32
+  %53 = trunc nuw nsw i64 %47 to i32
   %54 = tail call i64 @cm_zlib_crc32(i64 noundef %52, ptr noundef nonnull %48, i32 noundef %53) #19
   %55 = trunc i64 %54 to i16
   %.not424 = icmp eq i16 %.sroa.0473.0.copyload, %55

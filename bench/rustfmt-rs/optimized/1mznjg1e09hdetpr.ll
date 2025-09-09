@@ -18690,10 +18690,8 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 
 49:                                               ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
   %50 = load i64, ptr %10, align 8, !range !386, !noalias !3296, !noundef !8
-  %trunc.i = trunc nuw i64 %50 to i1
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %52 = load i64, ptr %51, align 8, !noalias !3296
-  %.sroa.3.0.i = select i1 %trunc.i, i64 %52, i64 undef
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3296
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3296
   %switch.not.not = icmp eq i64 %50, 0
@@ -18703,19 +18701,19 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %54 = load i64, ptr %21, align 8, !noundef !8
   %55 = add i64 %4, 1
   %56 = add i64 %55, %54
-  %57 = icmp eq i64 %.sroa.3.0.i, 0
+  %57 = icmp eq i64 %52, 0
   br i1 %57, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.17476841346288807550.exit.thread", label %58
 
 58:                                               ; preds = %53
-  %.not.i.i = icmp ult i64 %.sroa.3.0.i, %42
+  %.not.i.i = icmp ult i64 %52, %42
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i", label %59
 
 59:                                               ; preds = %58
-  %60 = icmp eq i64 %.sroa.3.0.i, %42
+  %60 = icmp eq i64 %52, %42
   br i1 %60, label %72, label %71
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i": ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.fca.0.extract.i, i64 %.sroa.3.0.i
+  %61 = getelementptr inbounds i8, ptr %.fca.0.extract.i, i64 %52
   %62 = load i8, ptr %61, align 1, !alias.scope !3304, !noundef !8
   %63 = icmp sgt i8 %62, -65
   br i1 %63, label %72, label %71
@@ -18741,15 +18739,15 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br label %112
 
 71:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i", %59
-  invoke void @_ZN4core3str16slice_error_fail17hb5c4f833c44f34d2E(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract.i, i64 noundef %42, i64 noundef 0, i64 noundef %.sroa.3.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac9b56db96481140084a14b3a62254c9.204) #50
+  invoke void @_ZN4core3str16slice_error_fail17hb5c4f833c44f34d2E(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract.i, i64 noundef %42, i64 noundef 0, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac9b56db96481140084a14b3a62254c9.204) #50
           to label %81 unwind label %40
 
 72:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i", %59
-  %73 = icmp ult i64 %.sroa.3.0.i, 16
+  %73 = icmp ult i64 %52, 16
   br i1 %73, label %.lr.ph.i.i, label %74
 
 74:                                               ; preds = %72
-  %75 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17ha85ea343b2146d16E(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract.i, i64 noundef %.sroa.3.0.i)
+  %75 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17ha85ea343b2146d16E(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract.i, i64 noundef %52)
           to label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.17476841346288807550.exit" unwind label %40
 
 .lr.ph.i.i:                                       ; preds = %72, %79

@@ -199,7 +199,7 @@ define { ptr, i64 } @"_ZN76_$LT$http..uri..Uri$u20$as$u20$actix_router..resource
 _ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit: ; preds = %1
   %5 = load i8, ptr %0, align 8, !range !34, !noundef !13
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread, label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread
+  br i1 %.not, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5, label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread
 
 _ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread: ; preds = %1, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -222,37 +222,35 @@ _ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread: ; preds = %1, %_ZN4ht
   %16 = icmp ne i64 %3, %12
   %17 = icmp eq ptr %10, null
   %or.cond.i = or i1 %17, %16
-  br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit
+  br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 %12
   %19 = load i8, ptr %18, align 1, !alias.scope !35, !noundef !13
   %20 = icmp sgt i8 %19, -65
-  br i1 %20, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i"
+  br i1 %20, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i"
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i": ; preds = %11
   %.old.i = icmp eq ptr %10, null
-  br i1 %.old.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread
+  br i1 %.old.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i": ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %15
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %3, i64 noundef 0, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.7) #12
   unreachable
 
-_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread, %15, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
-  %.sroa.4.0.i = phi i64 [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %3, %15 ], [ %3, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread ]
-  %21 = icmp eq i64 %.sroa.4.0.i, 0
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i, i64 1)
-  %spec.select = select i1 %21, ptr @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.8, ptr %10
-  br label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread
+_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
+  %spec.select = select i1 %4, ptr @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.8, ptr %10
+  br label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5
 
-_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread: ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i", %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit
-  %.sroa.3.0 = phi i64 [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ]
-  %.sroa.0.0 = phi ptr [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.9, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.8, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ]
-  %22 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %22)
-  %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %24
+_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5: ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %15, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit
+  %.sroa.3.0 = phi i64 [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %3, %15 ], [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ]
+  %.sroa.0.0 = phi ptr [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.9, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.8, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %10, %15 ], [ %10, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ]
+  %21 = icmp ne ptr %.sroa.0.0, null
+  tail call void @llvm.assume(i1 %21)
+  %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %23
 }
 
 ; Function Attrs: nonlazybind uwtable

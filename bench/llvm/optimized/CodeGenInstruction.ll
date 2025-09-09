@@ -7401,9 +7401,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23: ; preds = 
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 6, ptr %92, align 4, !tbaa !321
   %93 = icmp ugt i32 %87, 447
-  br i1 %93, label %_ZN4llvm9BitVectorC2Ejb.exit.loopexit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
+  br i1 %93, label %_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
 
-_ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23
+_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23
   store i32 0, ptr %91, align 8, !tbaa !76
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %86, ptr noundef nonnull %90, i64 noundef %89, i64 noundef 8) #18
   %94 = load ptr, ptr %86, align 8, !tbaa !75
@@ -7413,8 +7413,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %_ZNSt7__cxx1112basi
   %.not.i.i = icmp samesign ult i32 %87, 64
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.thread
 
-_ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
-  %.sink = phi ptr [ %94, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %90, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
+_ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit
+  %.sink = phi ptr [ %94, %_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit ], [ %90, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %89, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.sink, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !71
   store i32 %88, ptr %91, align 8, !tbaa !76
@@ -7423,7 +7423,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZSt6fill_nIPmmmET_
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %7, ptr %96, align 8, !tbaa !225
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %97, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 16, i1 false)
   br label %.lr.ph.preheader.i.i.i.i.i
 
 _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
@@ -7433,7 +7433,7 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZSt6fill_nIPmmmET_
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %7, ptr %99, align 8, !tbaa !225
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %100, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 16, i1 false)
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4llvm14CGIOperandList14ConstraintInfoESaIS2_EEC2EmRKS3_.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZN4llvm9BitVectorC2Ejb.exit.thread, %_ZN4llvm9BitVectorC2Ejb.exit
@@ -7447,12 +7447,13 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZSt6fill_nIPmmmET_
   br label %_ZNSt6vectorIN4llvm14CGIOperandList14ConstraintInfoESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt6vectorIN4llvm14CGIOperandList14ConstraintInfoESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZN4llvm9BitVectorC2Ejb.exit, %.lr.ph.preheader.i.i.i.i.i
+  %105 = phi ptr [ %101, %.lr.ph.preheader.i.i.i.i.i ], [ %100, %_ZN4llvm9BitVectorC2Ejb.exit ]
   %.sink.i = phi ptr [ %104, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZN4llvm9BitVectorC2Ejb.exit ]
   %.0.lcssa.i.i.i.i.i25 = phi ptr [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZN4llvm9BitVectorC2Ejb.exit ]
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %.sink.i, ptr %106, align 8, !tbaa !324
-  store ptr %.0.lcssa.i.i.i.i.i25, ptr %105, align 8, !tbaa !323
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store ptr %.sink.i, ptr %107, align 8, !tbaa !324
+  store ptr %.0.lcssa.i.i.i.i.i25, ptr %106, align 8, !tbaa !323
   ret void
 }
 

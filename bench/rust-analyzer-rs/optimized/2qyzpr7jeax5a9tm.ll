@@ -119759,19 +119759,10 @@ define hidden void @"_ZN6hir_ty6layout3adt19layout_of_adt_query28_$u7b$$u7b$clos
 
 41:                                               ; preds = %24
   %42 = load i64, ptr %6, align 16, !range !227, !noundef !9
-  %trunc = trunc nuw i64 %42 to i1
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load i128, ptr %43, align 16
   %45 = icmp eq i64 %42, 0
-  br i1 %45, label %.thread, label %46
-
-.thread:                                          ; preds = %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %52
-
-.noexc13:                                         ; preds = %51, %50
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %trunc, label %61, label %52
+  br i1 %45, label %52, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -119781,15 +119772,16 @@ define hidden void @"_ZN6hir_ty6layout3adt19layout_of_adt_query28_$u7b$$u7b$clos
 
 50:                                               ; preds = %46
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$hir_ty..mir..lower..MirLowerError$GT$17hf1df335e88dc9a28E"(ptr noalias noundef align 8 dereferenceable(32) %43)
-          to label %.noexc13 unwind label %32
+          to label %61 unwind label %32
 
 51:                                               ; preds = %46
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..MirEvalError$GT$17hce28eedcadd7e80fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %47)
-          to label %.noexc13 unwind label %32
+          to label %61 unwind label %32
 
-52:                                               ; preds = %.thread, %.noexc13
-  call void @llvm.experimental.noalias.scope.decl(metadata !32017)
-  call void @llvm.experimental.noalias.scope.decl(metadata !32020)
+52:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32017)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32020)
   %53 = load ptr, ptr %5, align 8, !alias.scope !32023, !nonnull !9, !noundef !9
   %54 = atomicrmw sub ptr %53, i64 1 release, align 8, !noalias !32023
   %55 = icmp eq i64 %54, 1
@@ -119810,7 +119802,8 @@ define hidden void @"_ZN6hir_ty6layout3adt19layout_of_adt_query28_$u7b$$u7b$clos
   store i128 1, ptr %0, align 16
   br label %68
 
-61:                                               ; preds = %.noexc13
+61:                                               ; preds = %50, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i128 0, ptr %0, align 16
   call void @llvm.experimental.noalias.scope.decl(metadata !32024)
   call void @llvm.experimental.noalias.scope.decl(metadata !32027)

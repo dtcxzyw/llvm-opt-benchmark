@@ -22,7 +22,7 @@ define hidden ptr @find_line_end(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = tail call ptr @memchr(ptr noundef %0, i32 noundef 10, i64 noundef %6) #13
+  %7 = tail call ptr @memchr(ptr noundef %0, i32 noundef 10, i64 noundef %6) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -224,11 +224,11 @@ define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(addres
   store i8 %29, ptr %6, align 1
   store i8 %43, ptr %17, align 1
   store i8 0, ptr %18, align 1
-  %49 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #14
+  %49 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #13
   %50 = trunc i64 %49 to i8
   store i8 %50, ptr %4, align 1
   %51 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
-  %52 = call i64 @strtoul(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 16) #14
+  %52 = call i64 @strtoul(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 16) #13
   %53 = trunc i64 %52 to i8
   store i8 %53, ptr %4, align 1
   %54 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
@@ -274,7 +274,7 @@ is_byte_sep.exit:                                 ; preds = %48
   store i8 %23, ptr %7, align 1
   store i8 %27, ptr %19, align 1
   store i8 0, ptr %20, align 1
-  %66 = call i64 @strtoul(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #14
+  %66 = call i64 @strtoul(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #13
   %67 = trunc i64 %66 to i8
   store i8 %67, ptr %4, align 1
   %68 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
@@ -302,7 +302,7 @@ is_byte_sep.exit71:                               ; preds = %65
 72:                                               ; preds = %71, %71, %71
   store i8 %23, ptr %8, align 1
   store i8 0, ptr %21, align 1
-  %73 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #14
+  %73 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #13
   %74 = trunc i64 %73 to i8
   store i8 %74, ptr %4, align 1
   %75 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
@@ -319,7 +319,7 @@ is_byte_sep.exit72:                               ; preds = %22
 80:                                               ; preds = %is_byte_sep.exit72
   store i8 %23, ptr %8, align 1
   store i8 0, ptr %21, align 1
-  %81 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #14
+  %81 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #13
   %82 = trunc i64 %81 to i8
   store i8 %82, ptr %4, align 1
   %83 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
@@ -619,7 +619,7 @@ define noundef zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not23, label %.loopexit, label %38
 
 38:                                               ; preds = %33
-  %39 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #14
+  %39 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #13
   %40 = trunc i64 %39 to i8
   store i8 %40, ptr %4, align 1
   br label %41
@@ -641,7 +641,7 @@ define noundef zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @uri_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = tail call i64 @strlen(ptr noundef %0) #13
+  %3 = tail call i64 @strlen(ptr noundef %0) #12
   %4 = tail call zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noundef %3)
   ret i1 %4
 }
@@ -1101,7 +1101,7 @@ define noalias ptr @convert_string_to_hex(ptr noundef readonly captures(none) %0
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %.outer50._crit_edge
-  %32 = tail call noalias ptr @g_malloc(i64 noundef %.043.ph.lcssa60) #15
+  %32 = tail call noalias ptr @g_malloc(i64 noundef %.043.ph.lcssa60) #14
   %33 = load i8, ptr %0, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.outer._crit_edge, label %.lr.ph67.lr.ph
@@ -1285,7 +1285,7 @@ define i64 @ws_label_strcpy(ptr noundef writeonly captures(none) %0, i64 noundef
 6:                                                ; preds = %5
   %7 = getelementptr i8, ptr %0, i64 %2
   store i8 0, ptr %7, align 1
-  %8 = tail call i64 @strlen(ptr noundef %3) #13
+  %8 = tail call i64 @strlen(ptr noundef %3) #12
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %.lr.ph141, label %.loopexit
 
@@ -1488,7 +1488,6 @@ switch.lookup:                                    ; preds = %38
 
 .lr.ph:                                           ; preds = %113
   %114 = getelementptr i8, ptr %0, i64 %.0123139
-  %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
   br label %117
 
 ._crit_edge:                                      ; preds = %117
@@ -1504,7 +1503,7 @@ switch.lookup:                                    ; preds = %38
   %120 = getelementptr i8, ptr %114, i64 %.0136
   store i8 %119, ptr %120, align 1
   %121 = add nuw nsw i64 %.0136, 1
-  %exitcond.not = icmp eq i64 %121, %smax
+  %exitcond.not = icmp eq i64 %121, %20
   br i1 %exitcond.not, label %._crit_edge, label %117, !llvm.loop !20
 
 122:                                              ; preds = %._crit_edge, %113
@@ -1520,7 +1519,7 @@ switch.lookup:                                    ; preds = %38
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @ws_label_strcat(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #9 {
-  %5 = tail call i64 @strlen(ptr noundef %0) #13
+  %5 = tail call i64 @strlen(ptr noundef %0) #12
   %6 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef %1, i64 noundef %5, ptr noundef %2, i32 noundef %3)
   ret i64 %6
 }
@@ -1537,9 +1536,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
-
 attributes #0 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1552,10 +1548,9 @@ attributes #8 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstro
 attributes #9 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind }
-attributes #15 = { allocsize(0) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

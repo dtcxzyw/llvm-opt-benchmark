@@ -3160,11 +3160,11 @@ define hidden range(i32 0, 2) i32 @noodExecStreaming(ptr noundef readonly %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %18 = add nsw i64 %12, -1
   %. = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
-  %19 = sub i64 0, %.
+  %19 = sub nsw i64 0, %.
   %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %22 = getelementptr inbounds i8, ptr %21, i64 %19
-  %23 = trunc i64 %. to i32
+  %23 = trunc nuw nsw i64 %. to i32
   switch i32 %23, label %partial_load_u64a.exit [
     i32 8, label %24
     i32 7, label %26
@@ -3244,7 +3244,7 @@ partial_load_u64a.exit:                           ; preds = %17, %24, %26, %39, 
   %.0.i64 = phi i64 [ %25, %24 ], [ %38, %26 ], [ %46, %39 ], [ %54, %47 ], [ %57, %55 ], [ %65, %58 ], [ %68, %66 ], [ %71, %69 ], [ 0, %17 ]
   store i64 %.0.i64, ptr %8, align 16
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 %.
-  %73 = trunc i64 %20 to i32
+  %73 = trunc nuw nsw i64 %20 to i32
   switch i32 %73, label %partial_load_u64a.exit66 [
     i32 8, label %74
     i32 7, label %76
@@ -3323,7 +3323,7 @@ partial_load_u64a.exit:                           ; preds = %17, %24, %26, %39, 
 partial_load_u64a.exit66:                         ; preds = %partial_load_u64a.exit, %74, %76, %89, %97, %105, %108, %116, %119
   %.0.i65 = phi i64 [ %75, %74 ], [ %88, %76 ], [ %96, %89 ], [ %104, %97 ], [ %107, %105 ], [ %115, %108 ], [ %118, %116 ], [ %121, %119 ], [ 0, %partial_load_u64a.exit ]
   store i64 %.0.i65, ptr %72, align 1
-  %122 = add i64 %., %20
+  %122 = add nuw nsw i64 %., %20
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = xor i64 %., -1

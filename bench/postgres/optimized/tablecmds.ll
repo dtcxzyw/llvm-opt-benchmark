@@ -7413,7 +7413,7 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
   %.not43 = icmp eq i32 %11, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %24, %1
+._crit_edge:                                      ; preds = %23, %1
   %12 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #15
   br i1 %12, label %13, label %.thread
 
@@ -7431,37 +7431,36 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
   %.sroa.022.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.022.sroa.3.0.extract.shift to i32
   %.sroa.423.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %18 = and i64 %.sroa.022.0.copyload, 4294967295
-  br label %32
+  br label %31
 
-.lr.ph:                                           ; preds = %1, %24
-  %19 = phi i32 [ %28, %24 ], [ %11, %1 ]
-  %20 = phi i32 [ 8, %24 ], [ %7, %1 ]
-  %.024.in44 = phi i1 [ false, %24 ], [ %4, %1 ]
-  %21 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #15
-  %22 = and i8 %21, -33
-  %23 = icmp ne i8 %22, 73
-  %or.cond.not = and i1 %23, %.024.in44
-  br i1 %or.cond.not, label %24, label %29
+.lr.ph:                                           ; preds = %1, %23
+  %19 = phi i32 [ %27, %23 ], [ %11, %1 ]
+  %.024.in44 = phi i1 [ false, %23 ], [ %4, %1 ]
+  %20 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #15
+  %21 = and i8 %20, -33
+  %22 = icmp ne i8 %21, 73
+  %or.cond.not = and i1 %22, %.024.in44
+  br i1 %or.cond.not, label %23, label %28
 
-24:                                               ; preds = %.lr.ph
-  tail call void @UnlockRelationOid(i32 noundef %19, i32 noundef %20) #15
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i8, ptr %6, align 4, !range !6, !noundef !7
-  %27 = zext nneg i8 %26 to i32
-  %28 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %25, i32 noundef 8, i32 noundef %27, ptr noundef nonnull @RangeVarCallbackForAlterRelation, ptr noundef nonnull %0) #15
-  %.not = icmp eq i32 %28, 0
+23:                                               ; preds = %.lr.ph
+  tail call void @UnlockRelationOid(i32 noundef %19, i32 noundef 4) #15
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i8, ptr %6, align 4, !range !6, !noundef !7
+  %26 = zext nneg i8 %25 to i32
+  %27 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %24, i32 noundef 8, i32 noundef %26, ptr noundef nonnull @RangeVarCallbackForAlterRelation, ptr noundef nonnull %0) #15
+  %.not = icmp eq i32 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8
-  tail call void @RenameRelationInternal(i32 noundef %19, ptr noundef %31, i1 noundef zeroext false, i1 noundef zeroext %.024.in44)
-  br label %32
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8
+  tail call void @RenameRelationInternal(i32 noundef %19, ptr noundef %30, i1 noundef zeroext false, i1 noundef zeroext %.024.in44)
+  br label %31
 
-32:                                               ; preds = %.thread, %29
-  %.sroa.423.2 = phi i32 [ 0, %29 ], [ %.sroa.423.0.copyload, %.thread ]
-  %.sroa.022.sroa.0.2 = phi i64 [ 1259, %29 ], [ %18, %.thread ]
-  %.sroa.022.sroa.3.2 = phi i32 [ %19, %29 ], [ %.sroa.022.sroa.3.0.extract.trunc, %.thread ]
+31:                                               ; preds = %.thread, %28
+  %.sroa.423.2 = phi i32 [ 0, %28 ], [ %.sroa.423.0.copyload, %.thread ]
+  %.sroa.022.sroa.0.2 = phi i64 [ 1259, %28 ], [ %18, %.thread ]
+  %.sroa.022.sroa.3.2 = phi i32 [ %19, %28 ], [ %.sroa.022.sroa.3.0.extract.trunc, %.thread ]
   %.sroa.022.sroa.3.0.insert.ext = zext i32 %.sroa.022.sroa.3.2 to i64
   %.sroa.022.sroa.3.0.insert.shift = shl nuw i64 %.sroa.022.sroa.3.0.insert.ext, 32
   %.sroa.022.sroa.0.0.insert.insert = or disjoint i64 %.sroa.022.sroa.3.0.insert.shift, %.sroa.022.sroa.0.2
@@ -11931,8 +11930,8 @@ define internal fastcc void @ATRewriteCatalogs(ptr noundef nonnull captures(addr
   %186 = shl nsw i64 %185, 4
   %187 = getelementptr i8, ptr %163, i64 %186
   %188 = getelementptr i8, ptr %187, i64 24
-  %189 = sext i32 %183 to i64
-  %190 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %188, i64 %189
+  %189 = zext nneg i32 %183 to i64
+  %190 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %188, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 89
   %192 = load i8, ptr %191, align 1
   %.not.i273 = icmp eq i8 %192, 0
