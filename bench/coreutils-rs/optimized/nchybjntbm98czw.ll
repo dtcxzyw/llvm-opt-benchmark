@@ -2816,7 +2816,7 @@ define internal fastcc void @_ZN5uu_dd9parseargs16parse_bytes_no_x17h7518c8a3e6b
   %switch.not.not = icmp eq i64 %23, 0
   br i1 %switch.not.not, label %48, label %49
 
-default.unreachable198:                           ; preds = %52
+default.unreachable197:                           ; preds = %52
   unreachable
 
 48:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h5a6ab99f8235f45cE.exit122"

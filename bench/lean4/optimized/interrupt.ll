@@ -389,8 +389,8 @@ define void @_ZN4lean9sleep_forEjj(i32 noundef %0, i32 noundef %1) local_unnamed
 .lr.ph:                                           ; preds = %2
   %8 = zext i32 %spec.store.select to i64
   %9 = udiv i32 %spec.store.select, 1000
-  %.zext13 = zext nneg i32 %9 to i64
-  %.neg.i.i5 = mul nsw i64 %.zext13, -1000
+  %.zext = zext nneg i32 %9 to i64
+  %.neg.i.i5 = mul nsw i64 %.zext, -1000
   %10 = add nsw i64 %.neg.i.i5, %8
   %11 = mul nsw i64 %10, 1000000
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -435,7 +435,7 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
 26:                                               ; preds = %.lr.ph, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit7
   %.011 = phi i32 [ 0, %.lr.ph ], [ %34, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.zext13, ptr %3, align 8, !tbaa !32
+  store i64 %.zext, ptr %3, align 8, !tbaa !32
   store i64 %11, ptr %12, align 8, !tbaa !34
   br label %27
 

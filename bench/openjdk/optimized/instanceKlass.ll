@@ -10984,7 +10984,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %_ZN9Bytecodes7code_
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i:       ; preds = %72, %69
   %75 = phi i32 [ %74, %72 ], [ %71, %69 ]
   %76 = icmp ult i32 %75, 239
-  br i1 %76, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i
+  br i1 %76, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i:   ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
   %77 = zext nneg i32 %75 to i64
@@ -10993,15 +10993,15 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i:   ; preds = %_ZN9Bytecodes7code_
   %80 = and i8 %79, 15
   %81 = zext nneg i8 %80 to i32
   %.not.i3.i.i = icmp eq i8 %80, 0
-  br i1 %.not.i3.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i
+  br i1 %.not.i3.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit.i:        ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
+_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i: ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
   %82 = call noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %75, ptr noundef nonnull %53, ptr noundef null) #26
   %83 = icmp slt i32 %82, 1
   br i1 %83, label %_ZN14BytecodeStream4nextEv.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i: ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
-  %.021.i = phi i32 [ %82, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i ], [ %81, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %67, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
+_ZN9Bytecodes9length_atEP6MethodPh.exit.i:        ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
+  %.0.i = phi i32 [ %82, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i ], [ %81, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %67, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
   %84 = load i32, ptr %14, align 8
   %85 = load i32, ptr %13, align 8
   %86 = sub nsw i32 %85, %.021.i

@@ -51299,13 +51299,13 @@ _ZN3std4sync6poison4once4Once9call_once17hb4451c0581a82bc3E.exit: ; preds = %.no
   call void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$yara_x..compiler..linters..Linter$GT$$GT$$GT$17hf62fb23e17099ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %233)
   ret void
 
-234:                                              ; preds = %264, %251, %248, %134, %31, %200, %308, %311, %306, %304, %302, %299, %297, %295, %293, %291, %289, %287, %285, %283, %280, %278, %275, %273, %271, %269, %267, %"_ZN4core3ptr97drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$yara_x..symbols..SymbolTable$GT$$GT$$GT$17hf5a6f2c5d598a0e8E.exit68", %256, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17ha33fe906cdda539bE.exit", %254, %253, %252, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$wasmtime..runtime..module..Module$GT$$GT$17hd334d67510e971bcE.exit", %244, %243, %242, %241, %240, %239, %238, %237, %.body63, %194, %188, %184, %178, %172, %166, %160, %154, %148, %"_ZN4core3ptr97drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$yara_x..symbols..SymbolTable$GT$$GT$$GT$17hf5a6f2c5d598a0e8E.exit", %122, %118, %111, %91, %35
+234:                                              ; preds = %264, %251, %248, %134, %31, %200, %309, %312, %307, %305, %303, %299, %297, %295, %293, %291, %289, %287, %285, %283, %280, %278, %275, %273, %271, %269, %267, %"_ZN4core3ptr97drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$yara_x..symbols..SymbolTable$GT$$GT$$GT$17hf5a6f2c5d598a0e8E.exit68", %256, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17ha33fe906cdda539bE.exit", %254, %253, %252, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$wasmtime..runtime..module..Module$GT$$GT$17hd334d67510e971bcE.exit", %244, %243, %242, %241, %240, %239, %238, %237, %.body63, %194, %188, %184, %178, %172, %166, %160, %154, %148, %"_ZN4core3ptr97drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$yara_x..symbols..SymbolTable$GT$$GT$$GT$17hf5a6f2c5d598a0e8E.exit", %122, %118, %111, %91, %35
   %235 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #30
   unreachable
 
-236:                                              ; preds = %311, %.body63
+236:                                              ; preds = %312, %.body63
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %.body63 ], [ %.pn.pn.pn, %311 ]
   resume { ptr, i32 } %.pn42.pn
 
@@ -51471,60 +51471,60 @@ _ZN3std4sync6poison4once4Once9call_once17hb4451c0581a82bc3E.exit: ; preds = %.no
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h78c7c06798876cbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %290) #29
           to label %293 unwind label %234
 
-291:                                              ; preds = %282, %293
-  %292 = getelementptr inbounds nuw i8, ptr %1, i64 2624
-  invoke void @"_ZN4core3ptr114drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$17hc9c25a1ddb465c20E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %292) #29
+290:                                              ; preds = %282, %293
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 2624
+  invoke void @"_ZN4core3ptr114drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$17hc9c25a1ddb465c20E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %291) #29
           to label %295 unwind label %234
 
-293:                                              ; preds = %289
-  %294 = getelementptr inbounds nuw i8, ptr %1, i64 2176
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$yara_x..compiler..IdentId$GT$$GT$17h015f10085edfd3ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %294) #29
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 2176
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$yara_x..compiler..IdentId$GT$$GT$17h015f10085edfd3ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %293) #29
           to label %291 unwind label %234
 
-295:                                              ; preds = %291
-  %296 = getelementptr inbounds nuw i8, ptr %1, i64 2656
-  invoke void @"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$$LP$alloc..string..String$C$alloc..string..String$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h73198f0528cb2ae1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %296) #29
+294:                                              ; preds = %291
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 2656
+  invoke void @"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$$LP$alloc..string..String$C$alloc..string..String$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h73198f0528cb2ae1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %295) #29
           to label %297 unwind label %234
 
-297:                                              ; preds = %295
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 2688
-  invoke void @"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$17h1f8ed475ced26ae7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %298) #29
+296:                                              ; preds = %295
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 2688
+  invoke void @"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$17h1f8ed475ced26ae7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %297) #29
           to label %299 unwind label %234
 
-299:                                              ; preds = %297
-  %300 = getelementptr inbounds nuw i8, ptr %1, i64 2200
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$yara_x..types..structure..Struct$GT$17h3ff135b3c5cc3ab9E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %300) #29
+298:                                              ; preds = %296
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 2200
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$yara_x..types..structure..Struct$GT$17h3ff135b3c5cc3ab9E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %299) #29
           to label %301 unwind label %234
 
-301:                                              ; preds = %299
-  br i1 %.sroa.02.0, label %304, label %302
+302:                                              ; preds = %299
+  br i1 %.sroa.02.0, label %305, label %303
 
-302:                                              ; preds = %304, %301
-  %303 = getelementptr inbounds nuw i8, ptr %1, i64 2432
-  invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$yara_x..compiler..errors..CompileError$GT$$GT$17h0ebd50b417519327E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %303) #29
+303:                                              ; preds = %305, %302
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 2432
+  invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$yara_x..compiler..errors..CompileError$GT$$GT$17h0ebd50b417519327E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %304) #29
           to label %306 unwind label %234
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds nuw i8, ptr %1, i64 2304
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$yara_x..compiler..Warnings$GT$17hed523940c18653d0E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %305) #29
+305:                                              ; preds = %302
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 2304
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$yara_x..compiler..Warnings$GT$17hed523940c18653d0E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %306) #29
           to label %302 unwind label %234
 
-306:                                              ; preds = %302
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 2720
-  invoke void @"_ZN4core3ptr114drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$17hc9c25a1ddb465c20E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %307) #29
+307:                                              ; preds = %303
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 2720
+  invoke void @"_ZN4core3ptr114drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$17hc9c25a1ddb465c20E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %308) #29
           to label %308 unwind label %234
 
-308:                                              ; preds = %306
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 2880
-  %.val = load ptr, ptr %309, align 8, !align !17, !noundef !6
-  %310 = getelementptr inbounds nuw i8, ptr %1, i64 2888
-  %.val50 = load ptr, ptr %310, align 8
+309:                                              ; preds = %307
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 2880
+  %.val = load ptr, ptr %310, align 8, !align !17, !noundef !6
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 2888
+  %.val50 = load ptr, ptr %311, align 8
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$GT$17hc538e4629d3fef1eE"(ptr %.val, ptr %.val50) #29
           to label %311 unwind label %234
 
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds nuw i8, ptr %1, i64 2456
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$yara_x..compiler..linters..Linter$GT$$GT$$GT$17hf62fb23e17099ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %312) #29
+312:                                              ; preds = %309
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 2456
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$yara_x..compiler..linters..Linter$GT$$GT$$GT$17hf62fb23e17099ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %313) #29
           to label %236 unwind label %234
 }
 

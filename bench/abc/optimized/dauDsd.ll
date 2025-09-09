@@ -5202,14 +5202,14 @@ Dau_Dsd6DecomposeTripleVarsOuter.exit:            ; preds = %Dau_DsdTranslate.ex
 Abc_TtSuppFindFirst.exit.i:                       ; preds = %195, %193
   %.06.i.i = phi i32 [ %.07.i.i, %193 ], [ -1, %195 ]
   %197 = ashr i32 %.06.i.i, 1
-  %invariant.op323 = and i32 %96, %190
+  %invariant.op301 = and i32 %96, %190
   br label %198
 
 198:                                              ; preds = %200, %Abc_TtSuppFindFirst.exit.i
   %.07.i90.i = phi i32 [ 0, %Abc_TtSuppFindFirst.exit.i ], [ %201, %200 ]
   %199 = shl nuw i32 1, %.07.i90.i
-  %.reass216.reass = and i32 %199, %invariant.op323
-  %.not.i91.i = icmp eq i32 %.reass216.reass, 0
+  %.reass208.reass = and i32 %199, %invariant.op301
+  %.not.i91.i = icmp eq i32 %.reass208.reass, 0
   br i1 %.not.i91.i, label %200, label %Abc_TtSuppFindFirst.exit94.i
 
 200:                                              ; preds = %198
@@ -5463,31 +5463,31 @@ Abc_TtSuppOnlyOne.exit.thread:                    ; preds = %Abc_TtSuppFindFirst
   %.049.in123 = phi i32 [ %.049.in135157, %314 ], [ %.043, %22 ]
   %.245 = phi i32 [ %315, %314 ], [ %.043, %22 ]
   %331 = icmp eq i32 %.049.in123, 0
-  br i1 %331, label %.loopexit.thread, label %22
+  br i1 %331, label %332, label %22
 
-.loopexit.thread:                                 ; preds = %.loopexit, %Abc_TtSuppOnlyOne.exit.thread
+332:                                              ; preds = %.loopexit, %Abc_TtSuppOnlyOne.exit.thread
   %.245178 = phi i32 [ %.043, %Abc_TtSuppOnlyOne.exit.thread ], [ %.245, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %332 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
-  %333 = icmp slt i32 %332, 0
-  br i1 %333, label %Abc_Clock.exit66, label %334
+  %333 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %334 = icmp slt i32 %333, 0
+  br i1 %334, label %Abc_Clock.exit66, label %335
 
-334:                                              ; preds = %.loopexit.thread
-  %335 = load i64, ptr %5, align 8, !tbaa !89
-  %336 = mul nsw i64 %335, 1000000
-  %337 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %338 = load i64, ptr %337, align 8, !tbaa !91
-  %339 = sdiv i64 %338, 1000
-  %340 = add nsw i64 %339, %336
+335:                                              ; preds = %332
+  %336 = load i64, ptr %5, align 8, !tbaa !89
+  %337 = mul nsw i64 %336, 1000000
+  %338 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %339 = load i64, ptr %338, align 8, !tbaa !91
+  %340 = sdiv i64 %339, 1000
+  %341 = add nsw i64 %340, %337
   br label %Abc_Clock.exit66
 
-Abc_Clock.exit66:                                 ; preds = %.loopexit.thread, %334
-  %.0.i65 = phi i64 [ %340, %334 ], [ -1, %.loopexit.thread ]
+Abc_Clock.exit66:                                 ; preds = %332, %335
+  %.0.i65 = phi i64 [ %341, %334 ], [ -1, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %341 = add i64 %.0.i65, %.0.i.neg139
-  %342 = load i64, ptr @s_Times.2, align 16, !tbaa !29
-  %343 = add nsw i64 %341, %342
-  store i64 %343, ptr @s_Times.2, align 16, !tbaa !29
+  %342 = add i64 %.0.i65, %.0.i.neg139
+  %343 = load i64, ptr @s_Times.2, align 16, !tbaa !29
+  %344 = add nsw i64 %342, %343
+  store i64 %344, ptr @s_Times.2, align 16, !tbaa !29
   br label %.thread96
 
 .thread96:                                        ; preds = %Abc_Clock.exit64, %Abc_Clock.exit62, %Dau_Dsd6DecomposeTripleVarsOuter.exit, %Abc_Clock.exit66
@@ -10837,14 +10837,14 @@ Abc_TtCheckEqualCofs.exit210.thread257:           ; preds = %84
 
 140:                                              ; preds = %123
   %141 = add nsw i32 %125, %59
-  br i1 %37, label %.preheader121.lr.ph.i166, label %Abc_TtCheckEqualCofs.exit210.thread.thread.thread448
+  br i1 %37, label %.preheader121.lr.ph.i166, label %Abc_TtCheckEqualCofs.exit210.thread.thread.thread445
 
 .preheader121.lr.ph.i166:                         ; preds = %140
   %.not.i167 = icmp eq i32 %124, 31
   %142 = shl i32 2, %124
   %143 = sext i32 %142 to i64
   %or.cond = or i1 %.not.i167, %.not.i76
-  br i1 %or.cond, label %Abc_TtCheckEqualCofs.exit210.thread.thread.thread448, label %.preheader121.us.us.preheader.i170
+  br i1 %or.cond, label %Abc_TtCheckEqualCofs.exit210.thread.thread.thread445, label %.preheader121.us.us.preheader.i170
 
 .preheader121.us.us.preheader.i170:               ; preds = %.preheader121.lr.ph.i166
   %144 = sext i32 %141 to i64
@@ -10923,7 +10923,7 @@ Abc_TtCheckEqualCofs.exit210.thread.thread.thread: ; preds = %126, %.preheader.l
   %171 = shl nuw i32 1, %170
   br label %176
 
-Abc_TtCheckEqualCofs.exit210.thread.thread.thread448: ; preds = %140, %.preheader121.lr.ph.i166
+Abc_TtCheckEqualCofs.exit210.thread.thread.thread445: ; preds = %140, %.preheader121.lr.ph.i166
   %172 = add nsw i32 %83, -6
   %173 = shl nuw i32 1, %172
   br label %192
@@ -10978,7 +10978,7 @@ Abc_TtCheckEqualCofs.exit210.thread.thread:       ; preds = %Abc_TtCheckEqualCof
   %191 = icmp ult ptr %190, %35
   br i1 %191, label %.preheader.us.i146, label %Abc_TtCheckEqualCofs.exit163, !llvm.loop !134
 
-192:                                              ; preds = %Abc_TtCheckEqualCofs.exit210.thread.thread.thread448, %Abc_TtCheckEqualCofs.exit210.thread.thread
+192:                                              ; preds = %Abc_TtCheckEqualCofs.exit210.thread.thread.thread445, %Abc_TtCheckEqualCofs.exit210.thread.thread
   %193 = phi i32 [ %173, %Abc_TtCheckEqualCofs.exit210.thread.thread.thread448 ], [ %175, %Abc_TtCheckEqualCofs.exit210.thread.thread ]
   %194 = phi i32 [ %172, %Abc_TtCheckEqualCofs.exit210.thread.thread.thread448 ], [ %174, %Abc_TtCheckEqualCofs.exit210.thread.thread ]
   %195 = phi i32 [ 2, %Abc_TtCheckEqualCofs.exit210.thread.thread.thread448 ], [ %155, %Abc_TtCheckEqualCofs.exit210.thread.thread ]
@@ -11144,7 +11144,7 @@ Abc_TtCheckEqualCofs.exit116.thread260:           ; preds = %210
   %266 = add nsw i32 %83, -6
   %.not137.i78 = icmp eq i32 %266, 31
   %or.cond351 = select i1 %68, i1 true, i1 %.not137.i78
-  br i1 %or.cond351, label %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449, label %.preheader121.us.us.preheader.i79
+  br i1 %or.cond351, label %Abc_TtCheckEqualCofs.exit116.thread.thread.thread446, label %.preheader121.us.us.preheader.i79
 
 .preheader121.us.us.preheader.i79:                ; preds = %265
   %267 = shl nuw i32 1, %266
@@ -11227,7 +11227,7 @@ Abc_TtCheckEqualCofs.exit116.thread:              ; preds = %._crit_edge125.spli
 
 Abc_TtCheckEqualCofs.exit116.thread.thread:       ; preds = %Abc_TtCheckEqualCofs.exit116.thread
   %297 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %297, label %Abc_TtCheckEqualCofs.exit116.thread.thread.thread, label %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449
+  br i1 %297, label %Abc_TtCheckEqualCofs.exit116.thread.thread.thread, label %Abc_TtCheckEqualCofs.exit116.thread.thread.thread446
 
 Abc_TtCheckEqualCofs.exit116.thread.thread.thread: ; preds = %Abc_TtCheckEqualCofs.exit116.thread.thread
   br i1 %37, label %.preheader.lr.ph.i, label %Abc_TtCheckEqualCofs.exit
@@ -11266,13 +11266,13 @@ Abc_TtCheckEqualCofs.exit116.thread.thread.thread: ; preds = %Abc_TtCheckEqualCo
   %309 = icmp ult ptr %308, %35
   br i1 %309, label %.preheader.us.i, label %Abc_TtCheckEqualCofs.exit, !llvm.loop !134
 
-Abc_TtCheckEqualCofs.exit116.thread.thread.thread449: ; preds = %265, %Abc_TtCheckEqualCofs.exit116.thread.thread
+Abc_TtCheckEqualCofs.exit116.thread.thread.thread446: ; preds = %265, %Abc_TtCheckEqualCofs.exit116.thread.thread
   %310 = phi i32 [ %281, %Abc_TtCheckEqualCofs.exit116.thread.thread ], [ 2, %265 ]
   %311 = add nsw i32 %83, -6
   %312 = shl nuw i32 1, %311
   br i1 %37, label %.preheader121.lr.ph.i, label %Abc_TtCheckEqualCofs.exit
 
-.preheader121.lr.ph.i:                            ; preds = %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449
+.preheader121.lr.ph.i:                            ; preds = %Abc_TtCheckEqualCofs.exit116.thread.thread.thread446
   %313 = shl i32 2, %311
   br i1 %.not.i76, label %Abc_TtCheckEqualCofs.exit, label %.preheader121.lr.ph.split.us.i
 
@@ -11322,7 +11322,7 @@ Abc_TtCheckEqualCofs.exit116.thread.thread.thread449: ; preds = %265, %Abc_TtChe
   %324 = icmp ult ptr %323, %35
   br i1 %324, label %.preheader121.us.us.i, label %Abc_TtCheckEqualCofs.exit, !llvm.loop !137
 
-Abc_TtCheckEqualCofs.exit:                        ; preds = %._crit_edge125.split.us.us.us.i, %._crit_edge.us.i, %290, %291, %303, %317, %.preheader.lr.ph.i96, %252, %233, %Abc_TtCheckEqualCofs.exit116.thread260, %282, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread, %.preheader.lr.ph.i, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449, %.preheader121.lr.ph.i, %.preheader121.lr.ph.split.us.i
+Abc_TtCheckEqualCofs.exit:                        ; preds = %._crit_edge125.split.us.us.us.i, %._crit_edge.us.i, %290, %291, %303, %317, %.preheader.lr.ph.i96, %252, %233, %Abc_TtCheckEqualCofs.exit116.thread260, %282, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread, %.preheader.lr.ph.i, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread446, %.preheader121.lr.ph.i, %.preheader121.lr.ph.split.us.i
   %325 = phi i32 [ %225, %Abc_TtCheckEqualCofs.exit116.thread260 ], [ %281, %282 ], [ %281, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread ], [ %310, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449 ], [ %281, %.preheader.lr.ph.i ], [ %310, %.preheader121.lr.ph.i ], [ %310, %.preheader121.lr.ph.split.us.i ], [ 2, %233 ], [ 2, %252 ], [ 2, %.preheader.lr.ph.i96 ], [ %310, %317 ], [ %281, %303 ], [ %281, %291 ], [ %281, %290 ], [ %281, %._crit_edge.us.i ], [ %310, %._crit_edge125.split.us.us.us.i ]
   %.0.i66 = phi i32 [ %231, %Abc_TtCheckEqualCofs.exit116.thread260 ], [ 1, %282 ], [ 1, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread ], [ 1, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449 ], [ 1, %.preheader.lr.ph.i ], [ 1, %.preheader121.lr.ph.i ], [ poison, %.preheader121.lr.ph.split.us.i ], [ 1, %233 ], [ 1, %252 ], [ 1, %.preheader.lr.ph.i96 ], [ 0, %317 ], [ 0, %303 ], [ 1, %290 ], [ 0, %291 ], [ 1, %._crit_edge.us.i ], [ 1, %._crit_edge125.split.us.us.us.i ]
   %326 = or disjoint i32 %.0.i66, %325
@@ -11682,14 +11682,14 @@ Dau_DsdDecomposeTripleVarsOuter.exit:             ; preds = %.lr.ph18.preheader.
 Abc_TtSuppFindFirst.exit.i:                       ; preds = %485, %483
   %.06.i.i = phi i32 [ %.07.i.i, %483 ], [ -1, %485 ]
   %487 = ashr i32 %.06.i.i, 1
-  %invariant.op709 = and i32 %341, %480
+  %invariant.op675 = and i32 %341, %480
   br label %488
 
 488:                                              ; preds = %490, %Abc_TtSuppFindFirst.exit.i
   %.07.i89.i = phi i32 [ 0, %Abc_TtSuppFindFirst.exit.i ], [ %491, %490 ]
   %489 = shl nuw i32 1, %.07.i89.i
-  %.reass521.reass = and i32 %489, %invariant.op709
-  %.not.i90.i = icmp eq i32 %.reass521.reass, 0
+  %.reass510.reass = and i32 %489, %invariant.op675
+  %.not.i90.i = icmp eq i32 %.reass510.reass, 0
   br i1 %.not.i90.i, label %490, label %Abc_TtSuppFindFirst.exit93.i
 
 490:                                              ; preds = %488
@@ -11772,8 +11772,8 @@ Abc_TtCofactor0p.exit.thread250.i:                ; preds = %Abc_TtSuppFindFirst
   br i1 %exitcond60.not.i.i, label %.lr.ph.i107.i, label %532, !llvm.loop !71
 
 539:                                              ; preds = %529
-  %brmerge523 = or i1 %43, %.not.i76
-  br i1 %brmerge523, label %Abc_TtCofactor1p.exit.thread.i, label %.preheader.us.i.i
+  %brmerge512 = or i1 %43, %.not.i76
+  br i1 %brmerge512, label %Abc_TtCofactor1p.exit.thread.i, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %539, %._crit_edge.us.i.i
   %.051.us.i.i = phi ptr [ %545, %._crit_edge.us.i.i ], [ %8, %539 ]
@@ -11818,8 +11818,8 @@ Abc_TtCofactor0p.exit.thread250.i:                ; preds = %Abc_TtSuppFindFirst
   br i1 %exitcond62.not.i.i, label %Abc_TtCofactor1p.exit.thread.i, label %549, !llvm.loop !76
 
 Abc_TtCofactor0p.exit.thread.i.thread268:         ; preds = %._crit_edge.us.i.i
-  %brmerge525 = or i1 %43, %.not.i76
-  br i1 %brmerge525, label %Abc_TtCofactor1p.exit.thread.i, label %.preheader.us.i102.i
+  %brmerge514 = or i1 %43, %.not.i76
+  br i1 %brmerge514, label %Abc_TtCofactor1p.exit.thread.i, label %.preheader.us.i102.i
 
 .preheader.us.i102.i:                             ; preds = %Abc_TtCofactor0p.exit.thread.i.thread268, %._crit_edge.us.i106.i
   %.053.us.i.i = phi ptr [ %563, %._crit_edge.us.i106.i ], [ %21, %Abc_TtCofactor0p.exit.thread.i.thread268 ]
@@ -12442,31 +12442,31 @@ Abc_TtSuppOnlyOne.exit.thread:                    ; preds = %479, %474, %Dau_Dsd
   %.049.in340 = phi i32 [ %.049.in349391, %789 ], [ %.043, %27 ]
   %.245 = phi i32 [ %790, %789 ], [ %.043, %27 ]
   %806 = icmp eq i32 %.049.in340, 0
-  br i1 %806, label %.loopexit.thread, label %27
+  br i1 %806, label %807, label %27
 
-.loopexit.thread:                                 ; preds = %.loopexit, %Abc_TtSuppOnlyOne.exit.thread
+807:                                              ; preds = %.loopexit, %Abc_TtSuppOnlyOne.exit.thread
   %.245446 = phi i32 [ %.043, %Abc_TtSuppOnlyOne.exit.thread ], [ %.245, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %807 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
-  %808 = icmp slt i32 %807, 0
-  br i1 %808, label %Abc_Clock.exit65, label %809
+  %808 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %809 = icmp slt i32 %808, 0
+  br i1 %809, label %Abc_Clock.exit65, label %810
 
-809:                                              ; preds = %.loopexit.thread
-  %810 = load i64, ptr %5, align 8, !tbaa !89
-  %811 = mul nsw i64 %810, 1000000
-  %812 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %813 = load i64, ptr %812, align 8, !tbaa !91
-  %814 = sdiv i64 %813, 1000
-  %815 = add nsw i64 %814, %811
+810:                                              ; preds = %807
+  %811 = load i64, ptr %5, align 8, !tbaa !89
+  %812 = mul nsw i64 %811, 1000000
+  %813 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %814 = load i64, ptr %813, align 8, !tbaa !91
+  %815 = sdiv i64 %814, 1000
+  %816 = add nsw i64 %815, %812
   br label %Abc_Clock.exit65
 
-Abc_Clock.exit65:                                 ; preds = %.loopexit.thread, %809
-  %.0.i64 = phi i64 [ %815, %809 ], [ -1, %.loopexit.thread ]
+Abc_Clock.exit65:                                 ; preds = %807, %810
+  %.0.i64 = phi i64 [ %816, %809 ], [ -1, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %816 = add i64 %.0.i64, %.0.i.neg354
-  %817 = load i64, ptr @s_Times.2, align 16, !tbaa !29
-  %818 = add nsw i64 %816, %817
-  store i64 %818, ptr @s_Times.2, align 16, !tbaa !29
+  %817 = add i64 %.0.i64, %.0.i.neg354
+  %818 = load i64, ptr @s_Times.2, align 16, !tbaa !29
+  %819 = add nsw i64 %817, %818
+  store i64 %819, ptr @s_Times.2, align 16, !tbaa !29
   br label %.thread283
 
 .thread283:                                       ; preds = %Abc_Clock.exit63, %Abc_Clock.exit61, %Dau_DsdDecomposeTripleVarsOuter.exit, %Abc_Clock.exit65

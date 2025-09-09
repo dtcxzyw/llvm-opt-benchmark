@@ -7431,9 +7431,9 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
   %.sroa.022.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.022.sroa.3.0.extract.shift to i32
   %.sroa.423.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %18 = and i64 %.sroa.022.0.copyload, 4294967295
-  br label %31
+  br label %32
 
-.lr.ph:                                           ; preds = %1, %23
+24:                                               ; preds = %1, %23
   %19 = phi i32 [ %27, %23 ], [ %11, %1 ]
   %.024.in44 = phi i1 [ false, %23 ], [ %4, %1 ]
   %20 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #15
@@ -7451,13 +7451,13 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8
-  tail call void @RenameRelationInternal(i32 noundef %19, ptr noundef %30, i1 noundef zeroext false, i1 noundef zeroext %.024.in44)
-  br label %31
+29:                                               ; preds = %.lr.ph
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %31 = load ptr, ptr %30, align 8
+  tail call void @RenameRelationInternal(i32 noundef %19, ptr noundef %31, i1 noundef zeroext false, i1 noundef zeroext %.024.in44)
+  br label %32
 
-31:                                               ; preds = %.thread, %28
+32:                                               ; preds = %.thread, %29
   %.sroa.423.2 = phi i32 [ 0, %28 ], [ %.sroa.423.0.copyload, %.thread ]
   %.sroa.022.sroa.0.2 = phi i64 [ 1259, %28 ], [ %18, %.thread ]
   %.sroa.022.sroa.3.2 = phi i32 [ %19, %28 ], [ %.sroa.022.sroa.3.0.extract.trunc, %.thread ]

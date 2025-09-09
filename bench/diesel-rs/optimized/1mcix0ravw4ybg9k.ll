@@ -3829,7 +3829,7 @@ define void @"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel.
   %43 = icmp eq i8 %42, 7
   br i1 %43, label %46, label %44
 
-default.unreachable97:                            ; preds = %44
+default.unreachable96:                            ; preds = %44
   unreachable
 
 44:                                               ; preds = %2
@@ -4121,7 +4121,7 @@ default.unreachable97:                            ; preds = %44
 155:                                              ; preds = %147
   %156 = add i64 %.sroa.6.0.i, 1
   %157 = icmp eq i64 %156, 0
-  br i1 %157, label %.thread230.ithread-pre-split.i.i, label %158
+  br i1 %157, label %.thread229.ithread-pre-split.i.i, label %158
 
 158:                                              ; preds = %155, %.thread188.i.i.i
   %159 = phi i64 [ %154, %.thread188.i.i.i ], [ %156, %155 ]
@@ -4144,20 +4144,20 @@ default.unreachable97:                            ; preds = %44
 
 166:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i134.i.i.i"
   %167 = sub nuw i64 %.sroa.6.0.i, %159
-  br label %.thread230.i.i.i
+  br label %.thread229.i.i.i
 
-.thread230.ithread-pre-split.i.i:                 ; preds = %155
+.thread229.ithread-pre-split.i.i:                 ; preds = %155
   %.pr.i.i = load i8, ptr %90, align 1, !alias.scope !853, !noalias !854
-  br label %.thread230.i.i.i
+  br label %.thread229.i.i.i
 
-.thread230.i.i.i:                                 ; preds = %.thread230.ithread-pre-split.i.i, %166
+.thread229.i.i.i:                                 ; preds = %.thread229.ithread-pre-split.i.i, %166
   %168 = phi i8 [ %.pr.i.i, %.thread230.ithread-pre-split.i.i ], [ %163, %166 ]
   %169 = phi ptr [ %90, %.thread230.ithread-pre-split.i.i ], [ %162, %166 ]
   %170 = phi i64 [ -1, %.thread230.ithread-pre-split.i.i ], [ %167, %166 ]
   %171 = icmp sgt i8 %168, -1
   br i1 %171, label %182, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdea141c5e85412d7E.exit13.i.i.i.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdea141c5e85412d7E.exit13.i.i.i.i": ; preds = %.thread230.i.i.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdea141c5e85412d7E.exit13.i.i.i.i": ; preds = %.thread229.i.i.i
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 1
   %173 = and i8 %168, 31
   %174 = zext nneg i8 %173 to i32
@@ -4171,7 +4171,7 @@ default.unreachable97:                            ; preds = %44
   %181 = icmp samesign ugt i8 %168, -33
   br i1 %181, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdea141c5e85412d7E.exit15.i.i.i.i", label %204
 
-182:                                              ; preds = %.thread230.i.i.i
+182:                                              ; preds = %.thread229.i.i.i
   %183 = zext nneg i8 %168 to i32
   br label %204
 

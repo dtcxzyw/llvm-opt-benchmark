@@ -4448,23 +4448,23 @@ dissect_CursorHeader.exit:                        ; preds = %11, %18
 44:                                               ; preds = %dissect_CursorHeader.exit
   switch i8 %13, label %.thread [
     i8 0, label %49
-    i8 1, label %.thread47
+    i8 1, label %45
   ]
 
-.thread47:                                        ; preds = %44
+45:                                               ; preds = %44
   %45 = add nuw nsw i32 %37, 7
   %46 = lshr i32 %45, 2
   %47 = and i32 %46, 32766
   %48 = mul nuw nsw i32 %47, %39
   br label %52
 
-49:                                               ; preds = %44
+49:; preds = %44
   %50 = shl nuw nsw i32 %37, 2
   %51 = mul i32 %50, %39
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %.thread, label %52
 
-52:                                               ; preds = %.thread47, %49
+52:                                               ; preds = %45, %49
   %.050 = phi i32 [ %48, %.thread47 ], [ %51, %49 ]
   %53 = load i32, ptr @hf_spice_cursor_data, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %53, ptr noundef %0, i32 noundef %36, i32 noundef %.050, i32 noundef 0)

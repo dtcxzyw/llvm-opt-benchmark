@@ -2066,8 +2066,8 @@ define void @"_ZN86_$LT$actix_files..path_buf..PathBufWrap$u20$as$u20$actix_web.
 _ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %16 = load i8, ptr %15, align 8, !range !364, !noundef !4
-  %.not13.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not13.i.i.i, label %"_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit", label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i.i
+  %.not10.i.i.i = icmp eq i8 %16, 0
+  br i1 %.not10.i.i.i, label %"_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit", label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i.i
 
 _ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i.i: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i, %11
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -2125,87 +2125,87 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i.i: ; preds = %
 
 37:                                               ; preds = %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i.i, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i.i"
   %.sroa.4.0.i.i.ph.i = phi i64 [ %spec.select.i.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i.i ], [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i.i" ]
-  %.0.sroa.speculated.i21.i = tail call noundef range(i64 0, 65536) i64 @llvm.umin.i64(i64 range(i64 0, 65536) %8, i64 %.sroa.4.0.i.i.ph.i)
-  br i1 %14, label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i, label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
+  %.0.sroa.speculated.i22.i = tail call noundef range(i64 0, 65536) i64 @llvm.umin.i64(i64 range(i64 0, 65536) %8, i64 %.sroa.4.0.i.i.ph.i)
+  br i1 %14, label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i16.i, label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
 
-_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i: ; preds = %37
+_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i16.i: ; preds = %37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 112
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !364
   %38 = icmp eq i8 %.pre, 0
-  br i1 %38, label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i", label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge
+  br i1 %38, label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i", label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i16.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge
 
-_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i
+_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i16.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i16.i
   %.phi.trans.insert1 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %.pre2 = load i16, ptr %.phi.trans.insert1, align 8
   %.phi.trans.insert3 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %.pre4 = load ptr, ptr %.phi.trans.insert3, align 8
   br label %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
 
-_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge, %37
-  %spec.select.i.i14.i = phi ptr [ @anon.2c6cd919f5e2d791ec1f2903047be799.30, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge ], [ %21, %37 ]
-  %39 = phi ptr [ %.pre4, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge ], [ %21, %37 ]
+_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i16.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge, %37
+  %39 = phi ptr [ @anon.2c6cd919f5e2d791ec1f2903047be799.30, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge ], [ %21, %37 ]
+  %40 = phi ptr [ %.pre4, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge ], [ %21, %37 ]
   %40 = phi i16 [ %.pre2, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i._ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i_crit_edge ], [ %18, %37 ]
   switch i16 %40, label %41 [
     i16 -1, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i
     i16 0, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i"
   ]
 
-41:                                               ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i, %.thread
+45:                                               ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i, %.thread
   %.in = phi i16 [ %18, %.thread ], [ %40, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i ]
   %42 = phi ptr [ %21, %.thread ], [ %39, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i ]
   %.0.sroa.speculated.i2132.i1416 = phi i64 [ %.0.sroa.speculated.i2131.i, %.thread ], [ %.0.sroa.speculated.i21.i, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i ]
   %43 = zext i16 %.in to i64
   %.not.i.i.i.i.i6.i = icmp ugt i64 %13, %43
-  br i1 %.not.i.i.i.i.i6.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i", label %44
+  br i1 %.not.i.i.i.i.i6.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i13.i", label %46
 
-44:                                               ; preds = %41
-  %45 = icmp ne i64 %13, %43
-  %46 = icmp eq ptr %42, null
-  %or.cond.i.i.i7.i = or i1 %46, %45
+46:                                               ; preds = %45
+  %47 = icmp ne i64 %13, %43
+  %48 = icmp eq ptr %42, null
+  %or.cond.i.i.i7.i = or i1 %48, %47
   br i1 %or.cond.i.i.i7.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i.i8.i", label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i": ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %43
-  %48 = load i8, ptr %47, align 1, !alias.scope !370, !noundef !4
-  %49 = icmp sgt i8 %48, -65
-  br i1 %49, label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i.i8.i"
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i13.i": ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %43
+  %50 = load i8, ptr %49, align 1, !alias.scope !370, !noundef !4
+  %51 = icmp sgt i8 %50, -65
+  br i1 %51, label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i.i8.i"
 
-"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i": ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
-  %.old.i.i.i11.i = icmp ne ptr %39, null
+"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i14.i": ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
+  %.old.i.i.i15.i = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %.old.i.i.i11.i)
   br label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
 
-"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i.i8.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i", %44
+"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i.i.i8.i":; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i", %44
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %13, i64 noundef 0, i64 noundef %43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2c6cd919f5e2d791ec1f2903047be799.29) #21
   unreachable
 
-_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
+_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8.i: ; preds = %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread.i.i5.i
   %spec.select.i.i.i13.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
 
-"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i": ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i", %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i", %44, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i, %32
+"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i":; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i", %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i", %44, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i, %32
   %.0.sroa.speculated.i22.i = phi i64 [ %.0.sroa.speculated.i.i, %32 ], [ %.0.sroa.speculated.i21.i, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i ], [ %.0.sroa.speculated.i21.i, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i" ], [ %.0.sroa.speculated.i2132.i1416, %44 ], [ %.0.sroa.speculated.i2132.i1416, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i" ], [ %.0.sroa.speculated.i21.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i ]
   %.sroa.4.0.i.i3.i = phi i64 [ %34, %32 ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i ], [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i" ], [ %13, %44 ], [ %43, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i" ], [ %spec.select.i.i.i13.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i ]
-  %.sroa.0.0.i.i4.i = phi ptr [ %36, %32 ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.4.llvm.10116804099265645101, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.30, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i" ], [ %42, %44 ], [ %42, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i" ], [ %spec.select.i.i14.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i ]
+  %.sroa.0.0.i.i4.i = phi ptr [ %36, %32 ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.4.llvm.10116804099265645101, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i15.i ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.30, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i.i.i10.i" ], [ %42, %44 ], [ %42, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i9.i" ], [ %39, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i ]
   %50 = icmp eq i64 %.0.sroa.speculated.i22.i, 0
   br i1 %50, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", label %51
 
-51:                                               ; preds = %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
+51:; preds = %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
   %.not.i.i18.i = icmp ult i64 %.0.sroa.speculated.i22.i, %.sroa.4.0.i.i3.i
   br i1 %.not.i.i18.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %52
 
-52:                                               ; preds = %51
+52:; preds = %51
   %53 = icmp eq i64 %.0.sroa.speculated.i22.i, %.sroa.4.0.i.i3.i
   br i1 %53, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %51
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i":; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i, i64 %.0.sroa.speculated.i22.i
   %55 = load i8, ptr %54, align 1, !alias.scope !375, !noundef !4
   %56 = icmp sgt i8 %55, -65
   %57 = sub nuw i64 %.sroa.4.0.i.i3.i, %.0.sroa.speculated.i22.i
   br i1 %56, label %"_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
-"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i": ; preds = %52, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
+"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i":; preds = %52, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i"
   %.0.sroa.speculated.i22.i21 = phi i64 [ %.0.sroa.speculated.i22.i, %52 ], [ 0, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i" ]
   %58 = phi i64 [ 0, %52 ], [ %.sroa.4.0.i.i3.i, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit17.i" ]
   %59 = icmp ne ptr %.sroa.0.0.i.i4.i, null
@@ -2217,12 +2217,12 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i: ; preds =
   unreachable
 
 "_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit": ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
-  %.sroa.0.0.i.i4.i27 = phi ptr [ %.sroa.0.0.i.i4.i, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.sroa.0.0.i.i4.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.4.llvm.10116804099265645101, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
-  %.0.sroa.speculated.i22.i22 = phi i64 [ %.0.sroa.speculated.i22.i21, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.0.sroa.speculated.i22.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
-  %60 = phi i64 [ %58, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %57, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i27, i64 %.0.sroa.speculated.i22.i22
+  %.sroa.0.0.i.i4.i22 = phi ptr [ %.sroa.0.0.i.i4.i, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.sroa.0.0.i.i4.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.4.llvm.10116804099265645101, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
+  %.0.sroa.speculated.i23.i17 = phi i64 [ %.0.sroa.speculated.i22.i21, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.0.sroa.speculated.i22.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
+  %63 = phi i64 [ %58, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %57, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i22, i64 %.0.sroa.speculated.i23.i17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN11actix_files8path_buf11PathBufWrap10parse_path17hec1a22edd47e4ef5E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %60, i1 noundef zeroext false)
+  call void @_ZN11actix_files8path_buf11PathBufWrap10parse_path17hec1a22edd47e4ef5E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %64, i64 noundef %63, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

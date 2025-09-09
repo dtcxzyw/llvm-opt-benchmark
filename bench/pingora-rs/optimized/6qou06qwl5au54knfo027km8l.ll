@@ -556,17 +556,17 @@ define { ptr, i64 } @_ZN12pingora_http13RequestHeader18uri_file_extension17h3e36
   %23 = icmp ne i64 %17, %19
   %.not.i = icmp eq ptr %15, null
   %or.cond.i = or i1 %.not.i, %23
-  br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9, !prof !33
+  br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread, !prof !33
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 %19
   %26 = load i8, ptr %25, align 1, !alias.scope !34, !noundef !11
   %27 = icmp sgt i8 %26, -65
-  br i1 %27, label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i"
+  br i1 %27, label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i"
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i": ; preds = %18
   %.not.old.i = icmp eq ptr %15, null
-  br i1 %.not.old.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9, !prof !37
+  br i1 %.not.old.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread, !prof !37
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.thread.i": ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i", %24, %22
   tail call void @_ZN4core3str16slice_error_fail17hc6990271b5365929E(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, i64 noundef 0, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad37fb0b0341a3e76a450d43a359e130.11) #15
@@ -576,9 +576,9 @@ _ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit: ; preds = %10
   %28 = icmp eq i64 %17, 0
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   %spec.select = select i1 %28, ptr @anon.ad37fb0b0341a3e76a450d43a359e130.12, ptr %15
-  br label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9
+  br label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread
 
-_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9: ; preds = %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit, %22, %24, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i"
+_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread: ; preds = %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit, %22, %24, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i"
   %spec.select.i8 = phi i64 [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i" ], [ %17, %22 ], [ %19, %24 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit ]
   %29 = phi ptr [ @anon.ad37fb0b0341a3e76a450d43a359e130.12, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i" ], [ %15, %22 ], [ %15, %24 ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !38
@@ -597,7 +597,7 @@ _ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9: ; preds =
   store i32 46, ptr %35, align 8, !alias.scope !42, !noalias !45
   br label %36
 
-36:                                               ; preds = %56, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9
+36:                                               ; preds = %56, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread
   %37 = phi i64 [ %spec.select.i8, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9 ], [ %52, %56 ]
   %38 = phi i64 [ 0, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9 ], [ %57, %56 ]
   %39 = sub nuw i64 %37, %38

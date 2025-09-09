@@ -13080,8 +13080,8 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.loopexit.
   %spec.select.i.i1.i.i.i = select i1 %205, ptr @_hb_NullPool, ptr %202
   %206 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i.i, i64 2
   %207 = load i16, ptr %206, align 1, !tbaa !40
-  %.not7.i.i.i.i.i = icmp eq i16 %207, 0
-  br i1 %.not7.i.i.i.i.i, label %_ZL13_cmap_closureP9hb_face_tPK8hb_set_tPS1_.exit, label %.lr.ph.i.i.i.i.i
+  %cond.i = icmp eq i16 %207, 0
+  br i1 %cond.i, label %_ZL13_cmap_closureP9hb_face_tPK8hb_set_tPS1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
   %208 = call noundef i16 @llvm.bswap.i16(i16 %207)
@@ -13119,16 +13119,16 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.loopexit.
   br i1 %.not.i.i.i.i3.i, label %_ZL13_cmap_closureP9hb_face_tPK8hb_set_tPS1_.exit, label %216, !llvm.loop !492
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %216, %.lr.ph.i.i.i.i.i
-  %.sroa.641.170.i.i = phi i32 [ %.sroa.2.8.insert.ext.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %224, %216 ]
-  %.sroa.040.169.i.i = phi ptr [ %209, %.lr.ph.i.i.i.i.i ], [ %217, %216 ]
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.040.169.i.i, i64 4
+  %.sroa.641.1.i8.i = phi i32 [ %.sroa.2.8.insert.ext.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %224, %216 ]
+  %.sroa.040.1.i7.i = phi ptr [ %209, %.lr.ph.i.i.i.i.i ], [ %217, %216 ]
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.040.1.i7.i, i64 4
   %.val1.i.i.i.i.i.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 1, !tbaa !4
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i", %.lr.ph.i.preheader.i.i.i
   %.val1.i.i.i.i.i.i.i.i = phi i32 [ %.val1.i.i.i.i6.i.i.i.i, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.val1.i.i.i.i.i.pre.i.i.i, %.lr.ph.i.preheader.i.i.i ]
-  %.lcssa1015.i.i.i.i = phi i32 [ %230, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.641.170.i.i, %.lr.ph.i.preheader.i.i.i ]
-  %.lcssa91214.i.i.i.i = phi ptr [ %232, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.040.169.i.i, %.lr.ph.i.preheader.i.i.i ]
+  %.lcssa1015.i.i.i.i = phi i32 [ %230, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.641.1.i8.i, %.lr.ph.i.preheader.i.i.i ]
+  %.lcssa91214.i.i.i.i = phi ptr [ %232, %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS1_I17hb_sorted_array_tIKN2OT14EncodingRecordEEMS4_NS3_8OffsetToINS3_12CmapSubtableENS3_7IntTypeIjLj4EEEvLb1EEEL24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_38PKNS3_4cmapEELSD_0ELSE_0EEZNKSK_14closure_glyphsEPK8hb_set_tPSP_EUlRKS8_E_RK4$_19LSE_0EESU_EppEv.exit.i.i.i.i" ], [ %.sroa.040.1.i7.i, %.lr.ph.i.preheader.i.i.i ]
   %225 = icmp eq i32 %.val1.i.i.i.i.i.i.i.i, 0
   %226 = call i32 @llvm.bswap.i32(i32 %.val1.i.i.i.i.i.i.i.i)
   %227 = zext i32 %226 to i64

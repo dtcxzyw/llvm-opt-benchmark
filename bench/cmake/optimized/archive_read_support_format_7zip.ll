@@ -5070,7 +5070,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   %214 = trunc nuw nsw i64 %indvars.iv.next345 to i32
   br i1 %211, label %.lr.ph323, label %219
 
-.lr.ph323:                                        ; preds = %176, %._crit_edge317
+.lr.ph323:; preds = %176, %._crit_edge317
   %.7.lcssa366 = phi i64 [ %210, %._crit_edge317 ], [ %.2183, %176 ]
   %.2211.lcssa365 = phi i32 [ %214, %._crit_edge317 ], [ 0, %176 ]
   %215 = sub nuw nsw i32 4, %.2211.lcssa365

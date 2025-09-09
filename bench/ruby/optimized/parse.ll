@@ -50214,7 +50214,7 @@ tokadd.exit:                                      ; preds = %parser_precise_mbcl
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %._crit_edge.i, %41
-  %45 = phi ptr [ %33, %._crit_edge.i ], [ %.pre, %41 ]
+  %.0 = phi ptr [ %33, %._crit_edge.i ], [ %.pre, %41 ]
   %46 = phi i32 [ %36, %._crit_edge.i ], [ %.pre13.i, %41 ]
   %47 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %44, %41 ]
   %48 = sub i32 %46, %30

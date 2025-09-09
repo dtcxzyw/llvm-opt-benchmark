@@ -6724,9 +6724,9 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br i1 %exitcond130.not.i.i, label %._crit_edge.i.i, label %435, !llvm.loop !127
 
 ._crit_edge.i.i:                                  ; preds = %435
-  br i1 %416, label %.lr.ph110.i.preheader.i, label %.loopexit.i.i
+  br i1 %416, label %.preheader92.i.i, label %.loopexit.i.i
 
-.lr.ph110.i.preheader.i:                          ; preds = %._crit_edge.i.i
+.preheader92.i.i:                                 ; preds = %._crit_edge.i.i
   %449 = add nsw i64 %417, -3
   br label %.lr.ph110.i.i
 

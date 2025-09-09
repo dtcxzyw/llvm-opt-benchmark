@@ -89005,22 +89005,22 @@ define void @_ZN14deltalake_core6writer5utils15ShareableBuffer10into_inner17h463
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11044)
   %5 = cmpxchg ptr %1, i64 1, i64 0 monotonic monotonic, align 8, !noalias !11044
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %5, 1
-  br i1 %.sroa.18.0.in.i.i, label %6, label %.thread
+  br i1 %.sroa.18.0.in.i.i, label %.thread5, label %.thread
 
-6:                                                ; preds = %2
+.thread5:                                         ; preds = %2
   fence acquire
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !11044
   store ptr %1, ptr %3, align 8, !noalias !11044
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30f5b83fed62b2c0E.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !11044
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11044
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.5.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.16..sroa_idx, i64 24, i1 false)
-  br label %15
+  br label %14
 
 .thread:                                          ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -89041,7 +89041,7 @@ define void @_ZN14deltalake_core6writer5utils15ShareableBuffer10into_inner17h463
   store i64 -9223372036854775808, ptr %0, align 8
   br label %15
 
-15:                                               ; preds = %6, %14
+14:                                               ; preds = %.thread5, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret void
 }

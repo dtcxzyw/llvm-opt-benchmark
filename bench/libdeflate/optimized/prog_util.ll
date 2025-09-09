@@ -707,18 +707,18 @@ define dso_local range(i32 -1, 13) i32 @parse_compression_level(i8 noundef signe
   %4 = sext i8 %0 to i32
   %5 = add i8 %0, -58
   %or.cond = icmp ult i8 %5, -10
-  br i1 %or.cond, label %21, label %6
+  br i1 %or.cond, label %22, label %6
 
 6:                                                ; preds = %2
   %7 = add nsw i32 %4, -48
   %8 = load i8, ptr %spec.store.select, align 1, !tbaa !23
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %.thread, label %9
+  br i1 %.not, label %23, label %9
 
 9:                                                ; preds = %6
   %10 = add i8 %8, -58
   %or.cond26 = icmp ult i8 %10, -10
-  br i1 %or.cond26, label %21, label %11
+  br i1 %or.cond26, label %22, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 1
@@ -726,7 +726,7 @@ define dso_local range(i32 -1, 13) i32 @parse_compression_level(i8 noundef signe
   %14 = icmp ne i8 %13, 0
   %15 = icmp eq i32 %7, 0
   %or.cond6 = select i1 %14, i1 true, i1 %15
-  br i1 %or.cond6, label %21, label %16
+  br i1 %or.cond6, label %22, label %16
 
 16:                                               ; preds = %11
   %17 = mul nuw nsw i32 %7, 10
@@ -736,11 +736,11 @@ define dso_local range(i32 -1, 13) i32 @parse_compression_level(i8 noundef signe
   %20 = icmp samesign ugt i32 %19, 12
   br i1 %20, label %21, label %.thread
 
-21:                                               ; preds = %16, %11, %9, %2
+22:                                               ; preds = %16, %11, %9, %2
   tail call void (ptr, ...) @msg(ptr noundef nonnull @.str.15, i32 noundef %4, ptr noundef nonnull %spec.store.select)
-  br label %.thread
+  br label %23
 
-.thread:                                          ; preds = %6, %16, %21
+23:                                               ; preds = %6, %16, %22
   %.022 = phi i32 [ -1, %21 ], [ %19, %16 ], [ %7, %6 ]
   ret i32 %.022
 }

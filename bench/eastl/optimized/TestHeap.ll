@@ -499,8 +499,8 @@ if.then.i190:                                     ; preds = %for.body37
   %add.ptr39.idx = shl nuw nsw i64 %idx.ext38, 2
   %sub.ptr.sub.i.i = add nsw i64 %add.ptr39.idx, -4
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
-  %div.i.i.i1263.lhs.trunc = add nuw nsw i64 %sub.ptr.div.i.i, 4294967295
-  %div.i.i.i126312641267 = lshr i64 %div.i.i.i1263.lhs.trunc, 1
+  %sub.i.i.i = add nuw nsw i64 %sub.ptr.div.i.i, 4294967295
+  %div.i.i.i126312641267 = lshr i64 %sub.i.i.i, 1
   %div.i.i.i1263.zext = and i64 %div.i.i.i126312641267, 2147483647
   %cmp24.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 8
   br i1 %cmp24.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i

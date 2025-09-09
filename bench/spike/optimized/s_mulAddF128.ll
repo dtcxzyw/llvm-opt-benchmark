@@ -40,18 +40,18 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 29:                                               ; preds = %7
   %30 = or i64 %15, %1
   %.not297 = icmp eq i64 %30, 0
-  br i1 %.not297, label %31, label %216
+  br i1 %.not297, label %31, label %217
 
 31:                                               ; preds = %29
   %32 = icmp ne i64 %17, 32767
   %33 = or i64 %18, %3
   %.not298 = icmp eq i64 %33, 0
   %or.cond = or i1 %32, %.not298
-  br i1 %or.cond, label %34, label %216
+  br i1 %or.cond, label %34, label %217
 
 34:                                               ; preds = %31
   %35 = or i64 %33, %17
-  br label %220
+  br label %221
 
 36:                                               ; preds = %7
   %37 = icmp eq i64 %17, 32767
@@ -60,12 +60,12 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 38:                                               ; preds = %36
   %39 = or i64 %18, %3
   %.not296 = icmp eq i64 %39, 0
-  br i1 %.not296, label %40, label %216
+  br i1 %.not296, label %40, label %217
 
 40:                                               ; preds = %38
   %41 = or i64 %1, %15
   %42 = or i64 %41, %14
-  br label %220
+  br label %221
 
 43:                                               ; preds = %36
   %44 = icmp eq i64 %23, 32767
@@ -74,7 +74,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 45:                                               ; preds = %43
   %46 = or i64 %24, %5
   %.not295 = icmp eq i64 %46, 0
-  br i1 %.not295, label %241, label %228
+  br i1 %.not295, label %242, label %229
 
 47:                                               ; preds = %43
   %.not = icmp eq i64 %14, 0
@@ -83,7 +83,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 48:                                               ; preds = %47
   %49 = or i64 %15, %1
   %.not270 = icmp eq i64 %49, 0
-  br i1 %.not270, label %232, label %50
+  br i1 %.not270, label %233, label %50
 
 50:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -106,7 +106,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 52:                                               ; preds = %51
   %53 = or i64 %18, %3
   %.not272 = icmp eq i64 %53, 0
-  br i1 %.not272, label %232, label %54
+  br i1 %.not272, label %233, label %54
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -326,7 +326,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %152 = load i64, ptr %8, align 16
   %153 = icmp ne i64 %152, 0
   %or.cond7 = select i1 %or.cond4, i1 true, i1 %153
-  br i1 %or.cond7, label %154, label %236
+  br i1 %or.cond7, label %154, label %237
 
 154:                                              ; preds = %142
   store i64 %146, ptr %63, align 8, !tbaa !3
@@ -466,71 +466,71 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.sroa.37.6 = phi i64 [ %207, %201 ], [ %191, %184 ], [ %.sroa.37.5, %183 ]
   %.5 = phi i64 [ %.3, %201 ], [ %180, %184 ], [ %180, %183 ]
   %.2 = phi i1 [ %.0244, %201 ], [ %.1, %184 ], [ %.1, %183 ]
-  %214 = add nsw i64 %.5, -1
-  %215 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %.2, i64 noundef %214, i64 noundef %.sroa.37.6, i64 noundef %.sroa.073.6, i64 noundef %.2254) #6
-  br label %244
+  %215 = add nsw i64 %.5, -1
+  %216 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %.2, i64 noundef %215, i64 noundef %.sroa.37.6, i64 noundef %.sroa.073.6, i64 noundef %.2254) #6
+  br label %245
 
-216:                                              ; preds = %31, %38, %29
-  %217 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #6
-  %218 = extractvalue { i64, i64 } %217, 0
-  %219 = extractvalue { i64, i64 } %217, 1
-  br label %228
+217:                                              ; preds = %31, %38, %29
+  %218 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #6
+  %219 = extractvalue { i64, i64 } %218, 0
+  %220 = extractvalue { i64, i64 } %218, 1
+  br label %229
 
-220:                                              ; preds = %40, %34
+221:                                              ; preds = %40, %34
   %.0245 = phi i64 [ %35, %34 ], [ %42, %40 ]
   %.not299 = icmp eq i64 %.0245, 0
-  br i1 %.not299, label %227, label %221
+  br i1 %.not299, label %228, label %222
 
-221:                                              ; preds = %220
-  %222 = select i1 %27, i64 -281474976710656, i64 9223090561878065152
+222:                                              ; preds = %221
+  %223 = select i1 %27, i64 -281474976710656, i64 9223090561878065152
   %.not300 = icmp eq i64 %23, 32767
-  br i1 %.not300, label %223, label %241
+  br i1 %.not300, label %224, label %242
 
-223:                                              ; preds = %221
-  %224 = or i64 %24, %5
-  %.not301 = icmp eq i64 %224, 0
-  br i1 %.not301, label %225, label %228
+224:                                              ; preds = %222
+  %225 = or i64 %24, %5
+  %.not301 = icmp eq i64 %225, 0
+  br i1 %.not301, label %226, label %229
 
-225:                                              ; preds = %223
-  %226 = xor i1 %27, %21
-  br i1 %226, label %227, label %241
+226:                                              ; preds = %224
+  %227 = xor i1 %27, %21
+  br i1 %227, label %228, label %242
 
-227:                                              ; preds = %225, %220
+228:                                              ; preds = %226, %221
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #6
-  br label %228
+  br label %229
 
-228:                                              ; preds = %45, %223, %227, %216
-  %.sroa.0128.0 = phi i64 [ %218, %216 ], [ 0, %223 ], [ 0, %227 ], [ 0, %45 ]
-  %.sroa.12.0 = phi i64 [ %219, %216 ], [ %222, %223 ], [ 9223231299366420480, %227 ], [ 0, %45 ]
-  %229 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %.sroa.12.0, i64 noundef %.sroa.0128.0, i64 noundef %4, i64 noundef %5) #6
-  %230 = extractvalue { i64, i64 } %229, 0
-  %231 = extractvalue { i64, i64 } %229, 1
-  br label %241
+229:                                              ; preds = %45, %224, %228, %217
+  %.sroa.0128.0 = phi i64 [ %219, %216 ], [ 0, %223 ], [ 0, %227 ], [ 0, %45 ]
+  %.sroa.12.0 = phi i64 [ %220, %216 ], [ %223, %223 ], [ 9223231299366420480, %227 ], [ 0, %45 ]
+  %230 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %.sroa.12.0, i64 noundef %.sroa.0128.0, i64 noundef %4, i64 noundef %5) #6
+  %231 = extractvalue { i64, i64 } %230, 0
+  %232 = extractvalue { i64, i64 } %230, 1
+  br label %242
 
-232:                                              ; preds = %52, %48
-  %233 = or i64 %5, %24
-  %234 = or i64 %233, %23
-  %.not273 = icmp eq i64 %234, 0
-  %235 = xor i1 %27, %21
-  %or.cond310 = and i1 %.not273, %235
-  br i1 %or.cond310, label %236, label %241
+233:                                              ; preds = %52, %48
+  %234 = or i64 %5, %24
+  %235 = or i64 %234, %23
+  %.not273 = icmp eq i64 %235, 0
+  %236 = xor i1 %27, %21
+  %or.cond310 = and i1 %.not273, %236
+  br i1 %or.cond310, label %237, label %242
 
-236:                                              ; preds = %232, %142
-  %237 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  %238 = load i8, ptr %237, align 1, !tbaa !7
-  %239 = icmp eq i8 %238, 2
-  %240 = select i1 %239, i64 -9223372036854775808, i64 0
-  br label %241
+237:                                              ; preds = %233, %142
+  %238 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %239 = load i8, ptr %238, align 1, !tbaa !7
+  %240 = icmp eq i8 %239, 2
+  %241 = select i1 %240, i64 -9223372036854775808, i64 0
+  br label %242
 
-241:                                              ; preds = %45, %232, %236, %225, %221, %228
-  %.sroa.0128.1 = phi i64 [ %230, %228 ], [ 0, %221 ], [ 0, %225 ], [ 0, %236 ], [ %5, %232 ], [ %5, %45 ]
-  %.sroa.12.1 = phi i64 [ %231, %228 ], [ %222, %221 ], [ %222, %225 ], [ %240, %236 ], [ %4, %232 ], [ %4, %45 ]
-  %242 = insertvalue { i64, i64 } poison, i64 %.sroa.0128.1, 0
-  %243 = insertvalue { i64, i64 } %242, i64 %.sroa.12.1, 1
-  br label %244
+242:                                              ; preds = %45, %233, %237, %226, %222, %229
+  %.sroa.0128.1 = phi i64 [ %231, %228 ], [ 0, %221 ], [ 0, %225 ], [ 0, %236 ], [ %5, %232 ], [ %5, %45 ]
+  %.sroa.12.1 = phi i64 [ %232, %228 ], [ %223, %221 ], [ %223, %225 ], [ %241, %236 ], [ %4, %232 ], [ %4, %45 ]
+  %243 = insertvalue { i64, i64 } poison, i64 %.sroa.0128.1, 0
+  %244 = insertvalue { i64, i64 } %243, i64 %.sroa.12.1, 1
+  br label %245
 
-244:                                              ; preds = %241, %213
-  %.fca.1.insert.merged = phi { i64, i64 } [ %243, %241 ], [ %215, %213 ]
+245:                                              ; preds = %242, %213
+  %.fca.1.insert.merged = phi { i64, i64 } [ %244, %241 ], [ %216, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret { i64, i64 } %.fca.1.insert.merged

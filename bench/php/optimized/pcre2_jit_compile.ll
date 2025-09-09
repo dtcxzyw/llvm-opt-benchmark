@@ -148880,14 +148880,14 @@ set_jumps.exit:                                   ; preds = %sljit_set_label.exi
   %3115 = icmp eq i32 %.1187245.i, 0
   %.215.i = select i1 %3115, i32 32768, i32 0
   %.not208.i = icmp samesign ult i32 %.0188244.i, 8
-  br i1 %.not208.i, label %._crit_edge251.i.loopexit3268, label %3060
+  br i1 %.not208.i, label %._crit_edge251.i.loopexit3271, label %3060
 
-._crit_edge251.i.loopexit3268:                    ; preds = %3114
-  %.pre3284 = load ptr, ptr %2789, align 8, !tbaa !362
+._crit_edge251.i.loopexit3271:                    ; preds = %3114
+  %.pre3287 = load ptr, ptr %2789, align 8, !tbaa !362
   br label %._crit_edge251.i
 
-._crit_edge251.i:                                 ; preds = %2993, %._crit_edge251.i.loopexit3268
-  %3116 = phi ptr [ %.pre3284, %._crit_edge251.i.loopexit3268 ], [ %2788, %2993 ]
+._crit_edge251.i:                                 ; preds = %2993, %._crit_edge251.i.loopexit3271
+  %3116 = phi ptr [ %.pre3287, %._crit_edge251.i.loopexit3268 ], [ %2788, %2993 ]
   %.lcssa3033.sink = phi i64 [ %.4196.i, %._crit_edge251.i.loopexit3268 ], [ %2995, %2993 ]
   store i64 %.lcssa3033.sink, ptr %6, align 8, !tbaa !359
   %3117 = icmp ne ptr %11, %2
@@ -149840,8 +149840,8 @@ sljit_emit_cmp.exit1392.critedge:                 ; preds = %3550
   br label %sljit_emit_op2u.exit3070.thread
 
 sljit_emit_op2u.exit3070.thread:                  ; preds = %3504, %3558, %3516
-  %.pr3585 = load i32, ptr %7, align 8, !tbaa !110
-  %.not.i1727 = icmp eq i32 %.pr3585, 0
+  %.pr3588 = load i32, ptr %7, align 8, !tbaa !110
+  %.not.i1727 = icmp eq i32 %.pr3588, 0
   br i1 %.not.i1727, label %sljit_emit_op2u.exit3070.thread.thread, label %sljit_emit_cmp.exit1392, !prof !367
 
 sljit_emit_op2u.exit3070.thread.thread:           ; preds = %sljit_emit_op2u.exit3070, %sljit_emit_op2u.exit3070.thread
@@ -150295,7 +150295,7 @@ sljit_emit_op2.exit1424:                          ; preds = %3727, %3723, %3718
   %3774 = getelementptr inbounds nuw i8, ptr %3770, i64 16
   br label %3775
 
-emit_x86_instruction.exit.thread:                 ; preds = %3767
+3775:                                             ; preds = %3767
   store i32 2, ptr %7, align 8, !tbaa !110
   br label %sljit_emit_op2u.exit1434
 
@@ -150426,11 +150426,11 @@ sljit_emit_op2u.exit1434:                         ; preds = %emit_x86_instructio
   br i1 %.not.i3081, label %3831, label %sljit_emit_op_flags.exit3094, !prof !111
 
 3831:                                             ; preds = %3829
-  %.not3241 = icmp eq i32 %.2611, %.16082558
+  %.not3244 = icmp eq i32 %.2611, %.16082558
   %3832 = load ptr, ptr %3379, align 8, !tbaa !104
   %3833 = getelementptr inbounds nuw i8, ptr %3832, i64 8
   %3834 = load i64, ptr %3833, align 8, !tbaa !118
-  br i1 %.not3241, label %3858, label %3835
+  br i1 %.not3244, label %3858, label %3835
 
 3835:                                             ; preds = %3831
   %3836 = add i64 %3834, 6
@@ -150770,11 +150770,11 @@ sljit_emit_op2u.exit1451:                         ; preds = %emit_x86_instructio
   br i1 %.not.i3115, label %3989, label %sljit_emit_op_flags.exit3094, !prof !111
 
 3989:                                             ; preds = %3987
-  %.not3240 = icmp eq i32 %.2611, %.16082558
+  %.not3243 = icmp eq i32 %.2611, %.16082558
   %3990 = load ptr, ptr %3379, align 8, !tbaa !104
   %3991 = getelementptr inbounds nuw i8, ptr %3990, i64 8
   %3992 = load i64, ptr %3991, align 8, !tbaa !118
-  br i1 %.not3240, label %4016, label %3993
+  br i1 %.not3243, label %4016, label %3993
 
 3993:                                             ; preds = %3989
   %3994 = add i64 %3992, 6

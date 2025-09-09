@@ -14986,7 +14986,7 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %33 = icmp samesign ult i64 %indvars.iv, %31
   %34 = icmp ult i64 %.170.ph99, 65536
   %or.cond = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond, label %.lr.ph.split, label %.critedge.loopexit127
+  br i1 %or.cond, label %.lr.ph.split, label %.critedge.loopexit124
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -15038,11 +15038,11 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %60 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit127:                            ; preds = %.lr.ph
+.critedge.loopexit124:                            ; preds = %.lr.ph
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit127, %.critedge.loopexit, %24
+.critedge:                                        ; preds = %.critedge.loopexit124, %.critedge.loopexit, %24
   %.172.ph.lcssa = phi i32 [ %.07181, %24 ], [ %60, %.critedge.loopexit ], [ %61, %.critedge.loopexit127 ]
   %62 = icmp eq i32 %.172.ph.lcssa, 0
   br i1 %62, label %.loopexit, label %.critedge.thread
@@ -15084,19 +15084,19 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %.not78 = icmp slt i32 %67, %78
   br i1 %.not78, label %82, label %81
 
-81:                                               ; preds = %74
+73:                                               ; preds = %74
   store i32 0, ptr %10, align 8, !tbaa !76
   store i64 0, ptr %75, align 8, !tbaa !85
   br label %82
 
-82:                                               ; preds = %74, %81
+83:                                               ; preds = %74, %73
   %83 = sub nsw i64 %68, %80
   %84 = load ptr, ptr %26, align 8, !tbaa !96
   call void @listRewind(ptr noundef %84, ptr noundef nonnull %3) #26
   %85 = icmp sgt i64 %83, 0
   br i1 %85, label %.lr.ph104, label %.loopexit
 
-.lr.ph104:                                        ; preds = %.thread124, %82
+.lr.ph104:                                        ; preds = %.thread124, %83
   %.067126 = phi i64 [ %68, %.thread124 ], [ %83, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -15131,7 +15131,7 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %105 = icmp sgt i64 %100, 0
   br i1 %105, label %88, label %.loopexit, !llvm.loop !286
 
-.loopexit:                                        ; preds = %99, %82, %97, %.critedge.thread, %.critedge
+.loopexit:                                        ; preds = %99, %83, %97, %.critedge.thread, %.critedge
   %.0 = phi i32 [ 0, %.critedge ], [ -1, %.critedge.thread ], [ 0, %97 ], [ 0, %82 ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

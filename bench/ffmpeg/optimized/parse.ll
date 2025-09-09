@@ -935,9 +935,9 @@ ff_sqrt.exit.thread:                              ; preds = %82
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %110, ptr %111, align 8, !tbaa !63
   %.not159 = icmp eq ptr %110, null
-  br i1 %.not159, label %150, label %.lr.ph188
+  br i1 %.not159, label %150, label %.preheader
 
-.lr.ph188:                                        ; preds = %108
+.preheader:                                       ; preds = %108
   %112 = add nuw nsw i32 %.0134, %.0135
   %113 = shl nuw nsw i32 %.0135, 1
   br label %114

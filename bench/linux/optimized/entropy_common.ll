@@ -610,11 +610,11 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
 
 12:                                               ; preds = %10
   %13 = tail call fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8)
-  br label %.thread
+  br label %.thread10
 
 14:                                               ; preds = %10
   %15 = icmp eq i64 %6, 0
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.thread10, label %16
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %5, align 1
@@ -627,17 +627,17 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   %22 = add nsw i64 %18, -126
   %23 = lshr i64 %22, 1
   %24 = icmp ult i64 %23, %6
-  br i1 %24, label %25, label %.thread
+  br i1 %24, label %25, label %.thread10
 
 25:                                               ; preds = %20
   %26 = icmp ult i64 %21, %1
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %.thread10
 
 27:                                               ; preds = %25
   %28 = getelementptr i8, ptr %5, i64 1
   br label %29
 
-29:                                               ; preds = %27, %29
+.preheader11:                                     ; preds = %27, %.preheader11
   %30 = phi i64 [ %39, %29 ], [ 0, %27 ]
   %31 = lshr exact i64 %30, 1
   %32 = getelementptr i8, ptr %28, i64 %31
@@ -651,7 +651,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   store i8 %37, ptr %38, align 1
   %39 = add nuw nsw i64 %30, 2
   %40 = icmp samesign ult i64 %39, %21
-  br i1 %40, label %29, label %.loopexit.thread, !llvm.loop !11
+  br i1 %40, label %.preheader11, label %.loopexit.thread, !llvm.loop !11
 
 .loopexit.thread:                                 ; preds = %29
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
@@ -659,23 +659,23 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
 
 41:                                               ; preds = %16
   %42 = icmp ugt i64 %6, %18
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.thread10
 
 43:                                               ; preds = %41
   %44 = add i64 %1, -1
   %45 = getelementptr i8, ptr %5, i64 1
   %46 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %44, ptr noundef %45, i64 noundef %18, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 0) #10
   %47 = icmp ult i64 %46, -119
-  br i1 %47, label %.loopexit, label %.thread
+  br i1 %47, label %.loopexit, label %.thread10
 
 .loopexit:                                        ; preds = %43
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
-  %48 = icmp eq i64 %46, 0
-  br i1 %48, label %.thread, label %.preheader.preheader
+  %50 = icmp eq i64 %46, 0
+  br i1 %50, label %.thread10, label %.preheader
 
-.preheader.preheader:                             ; preds = %.loopexit.thread, %.loopexit
-  %49 = phi i64 [ %21, %.loopexit.thread ], [ %46, %.loopexit ]
-  %50 = phi i64 [ %23, %.loopexit.thread ], [ %18, %.loopexit ]
+.preheader:                                       ; preds = %.loopexit.thread, %.loopexit
+  %51 = phi i64 [ %21, %.loopexit.thread ], [ %46, %.loopexit ]
+  %52 = phi i64 [ %23, %.loopexit.thread ], [ %18, %.loopexit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %57
@@ -685,7 +685,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   %54 = getelementptr i8, ptr %0, i64 %51
   %55 = load i8, ptr %54, align 1
   %56 = icmp ugt i8 %55, 12
-  br i1 %56, label %.thread, label %57
+  br i1 %56, label %.thread10, label %57
 
 57:                                               ; preds = %.preheader
   %58 = zext nneg i8 %55 to i64
@@ -705,13 +705,13 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
 
 70:                                               ; preds = %57
   %71 = icmp eq i32 %66, 0
-  br i1 %71, label %.thread, label %72
+  br i1 %71, label %.thread10, label %72
 
 72:                                               ; preds = %70
   %73 = tail call i32 @llvm.ctlz.i32(i32 %66, i1 true), !range !5
   %74 = xor i32 %73, 31
   %75 = icmp samesign ugt i32 %74, 11
-  br i1 %75, label %.thread, label %76
+  br i1 %75, label %.thread10, label %76
 
 76:                                               ; preds = %72
   %77 = sub nuw nsw i32 32, %73
@@ -722,7 +722,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   %81 = xor i32 %80, 31
   %82 = shl nuw i32 1, %81
   %83 = icmp eq i32 %82, %79
-  br i1 %83, label %84, label %.thread
+  br i1 %83, label %84, label %.thread10
 
 84:                                               ; preds = %76
   %85 = sub nuw nsw i32 32, %80
@@ -740,16 +740,16 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   %95 = and i32 %93, 1
   %96 = icmp eq i32 %95, 0
   %97 = and i1 %94, %96
-  br i1 %97, label %98, label %.thread
+  br i1 %97, label %98, label %.thread10
 
 98:                                               ; preds = %84
   %99 = trunc nuw i64 %49 to i32
   %100 = add i32 %99, 1
   store i32 %100, ptr %3, align 4
   %101 = add nuw nsw i64 %50, 1
-  br label %.thread
+  br label %.thread10
 
-.thread:                                          ; preds = %.preheader, %.loopexit, %98, %84, %76, %72, %70, %43, %41, %25, %20, %14, %12
+.thread10:                                        ; preds = %.preheader, %.loopexit, %98, %84, %76, %72, %70, %43, %41, %25, %20, %14, %12
   %102 = phi i64 [ %13, %12 ], [ %101, %98 ], [ -72, %14 ], [ -72, %20 ], [ -20, %25 ], [ -72, %41 ], [ %46, %43 ], [ -20, %70 ], [ -20, %84 ], [ -20, %72 ], [ -20, %76 ], [ -20, %.loopexit ], [ -20, %.preheader ]
   ret i64 %102
 }
@@ -757,7 +757,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #5 align 16 {
   %10 = icmp eq i64 %6, 0
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.thread10, label %11
 
 11:                                               ; preds = %9
   %12 = load i8, ptr %5, align 1
@@ -770,17 +770,17 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %17 = add nsw i64 %13, -126
   %18 = lshr i64 %17, 1
   %19 = icmp ult i64 %18, %6
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %.thread10
 
 20:                                               ; preds = %15
   %21 = icmp ult i64 %16, %1
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %.thread10
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %5, i64 1
-  br label %24
+  br label %.thread10
 
-24:                                               ; preds = %24, %22
+.thread:                                          ; preds = %24, %22
   %25 = phi i64 [ 0, %22 ], [ %34, %24 ]
   %26 = lshr exact i64 %25, 1
   %27 = getelementptr i8, ptr %23, i64 %26
@@ -794,7 +794,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   store i8 %32, ptr %33, align 1
   %34 = add nuw nsw i64 %25, 2
   %35 = icmp samesign ult i64 %34, %16
-  br i1 %35, label %24, label %.loopexit.thread, !llvm.loop !11
+  br i1 %35, label %.thread10, label %.loopexit.thread, !llvm.loop !11
 
 .loopexit.thread:                                 ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
@@ -802,23 +802,23 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
 
 36:                                               ; preds = %11
   %37 = icmp ugt i64 %6, %13
-  br i1 %37, label %38, label %.thread
+  br i1 %37, label %38, label %.thread10
 
 38:                                               ; preds = %36
   %39 = add i64 %1, -1
   %40 = getelementptr i8, ptr %5, i64 1
   %41 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %39, ptr noundef %40, i64 noundef %13, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 1) #10
   %42 = icmp ult i64 %41, -119
-  br i1 %42, label %.loopexit, label %.thread
+  br i1 %42, label %.loopexit, label %.thread10
 
 .loopexit:                                        ; preds = %38
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
-  %43 = icmp eq i64 %41, 0
-  br i1 %43, label %.thread, label %.preheader.preheader
+  %45 = icmp eq i64 %41, 0
+  br i1 %45, label %.thread10, label %.preheader
 
-.preheader.preheader:                             ; preds = %.loopexit.thread, %.loopexit
-  %44 = phi i64 [ %16, %.loopexit.thread ], [ %41, %.loopexit ]
-  %45 = phi i64 [ %18, %.loopexit.thread ], [ %13, %.loopexit ]
+.preheader:                                       ; preds = %.loopexit.thread, %.loopexit
+  %46 = phi i64 [ %16, %.loopexit.thread ], [ %41, %.loopexit ]
+  %47 = phi i64 [ %18, %.loopexit.thread ], [ %13, %.loopexit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %52
@@ -828,7 +828,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %49 = getelementptr i8, ptr %0, i64 %46
   %50 = load i8, ptr %49, align 1
   %51 = icmp ugt i8 %50, 12
-  br i1 %51, label %.thread, label %52
+  br i1 %51, label %.thread10, label %52
 
 52:                                               ; preds = %.preheader
   %53 = zext nneg i8 %50 to i64
@@ -848,13 +848,13 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
 
 65:                                               ; preds = %52
   %66 = icmp eq i32 %61, 0
-  br i1 %66, label %.thread, label %67
+  br i1 %66, label %.thread10, label %67
 
 67:                                               ; preds = %65
   %68 = tail call i32 @llvm.ctlz.i32(i32 %61, i1 true), !range !5
   %69 = xor i32 %68, 31
   %70 = icmp samesign ugt i32 %69, 11
-  br i1 %70, label %.thread, label %71
+  br i1 %70, label %.thread10, label %71
 
 71:                                               ; preds = %67
   %72 = sub nuw nsw i32 32, %68
@@ -865,7 +865,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %76 = xor i32 %75, 31
   %77 = shl nuw i32 1, %76
   %78 = icmp eq i32 %77, %74
-  br i1 %78, label %79, label %.thread
+  br i1 %78, label %79, label %.thread10
 
 79:                                               ; preds = %71
   %80 = sub nuw nsw i32 32, %75
@@ -883,16 +883,16 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %90 = and i32 %88, 1
   %91 = icmp eq i32 %90, 0
   %92 = and i1 %89, %91
-  br i1 %92, label %93, label %.thread
+  br i1 %92, label %93, label %.thread10
 
 93:                                               ; preds = %79
   %94 = trunc nuw i64 %44 to i32
   %95 = add i32 %94, 1
   store i32 %95, ptr %3, align 4
   %96 = add nuw nsw i64 %45, 1
-  br label %.thread
+  br label %.thread10
 
-.thread:                                          ; preds = %.preheader, %.loopexit, %93, %79, %71, %67, %65, %38, %36, %20, %15, %9
+.thread10:                                        ; preds = %.preheader, %.loopexit, %93, %79, %71, %67, %65, %38, %36, %20, %15, %9
   %97 = phi i64 [ %96, %93 ], [ -72, %9 ], [ -72, %15 ], [ -20, %20 ], [ -72, %36 ], [ %41, %38 ], [ -20, %65 ], [ -20, %79 ], [ -20, %67 ], [ -20, %71 ], [ -20, %.loopexit ], [ -20, %.preheader ]
   ret i64 %97
 }
