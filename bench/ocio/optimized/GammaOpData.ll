@@ -3125,15 +3125,15 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData10mayCom
 
 13:                                               ; preds = %9
   %14 = icmp ult i32 %6, 10
-  br i1 %14, label %switch.lookup23, label %switch.lookup
+  br i1 %14, label %switch.lookup23, label %15
 
 switch.lookup23:                                  ; preds = %13
   %switch.cast24 = trunc nuw i32 %6 to i10
   %switch.downshift26 = lshr i10 51, %switch.cast24
   %switch.masked27 = trunc i10 %switch.downshift26 to i1
-  br label %switch.lookup
+  br label %15
 
-switch.lookup:                                    ; preds = %11, %7, %9, %13, %switch.lookup23
+15:                                               ; preds = %11, %7, %9, %13, %switch.lookup23
   %.0 = phi i1 [ %switch.masked27, %switch.lookup23 ], [ false, %13 ], [ false, %9 ], [ %spec.select, %7 ], [ %spec.select28, %11 ]
   ret i1 %.0
 }

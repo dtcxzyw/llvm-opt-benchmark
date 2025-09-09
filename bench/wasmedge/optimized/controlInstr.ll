@@ -1292,10 +1292,10 @@ switch.lookup:                                    ; preds = %40
   %switch.shiftamt84 = shl nuw nsw i24 %switch.cast83, 3
   %switch.downshift85 = lshr i24 7367530, %switch.shiftamt84
   %switch.masked86 = trunc i24 %switch.downshift85 to i8
-  %49 = icmp eq i8 %20, %switch.masked86
-  br i1 %49, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit, label %50
+  %48 = icmp eq i8 %20, %switch.masked86
+  br i1 %48, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit, label %49
 
-50:                                               ; preds = %switch.lookup
+49:                                               ; preds = %switch.lookup
   switch i8 %20, label %51 [
     i8 115, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
     i8 112, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
@@ -1310,64 +1310,64 @@ switch.lookup:                                    ; preds = %40
     i8 111, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
   ]
 
-53:                                               ; preds = %52
+52:                                               ; preds = %52
   %.off = add i8 %20, -109
   %switch = icmp ult i8 %.off, 2
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
 _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40:    ; preds = %18, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %55 = load i8, ptr %54, align 1
-  switch i8 %55, label %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 [
-    i8 115, label %56
-    i8 114, label %56
-    i8 113, label %56
-    i8 112, label %56
-    i8 111, label %56
-    i8 110, label %56
-    i8 109, label %56
-    i8 108, label %56
-    i8 107, label %56
-    i8 106, label %56
-    i8 105, label %56
-    i8 -128, label %56
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %54 = load i8, ptr %53, align 1
+  switch i8 %54, label %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 [
+    i8 115, label %55
+    i8 114, label %55
+    i8 113, label %55
+    i8 112, label %55
+    i8 111, label %55
+    i8 110, label %55
+    i8 109, label %55
+    i8 108, label %55
+    i8 107, label %55
+    i8 106, label %55
+    i8 105, label %55
+    i8 -128, label %55
   ]
 
-56:                                               ; preds = %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = zext i32 %58 to i64
-  %.not = icmp ugt i64 %1, %59
+55:                                               ; preds = %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = zext i32 %57 to i64
+  %.not = icmp ugt i64 %1, %58
   br i1 %.not, label %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
-_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49: ; preds = %56
-  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load i8, ptr %62, align 8
-  %switch78 = icmp eq i8 %63, 96
-  switch i8 %55, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit [
-    i8 113, label %64
-    i8 115, label %65
+_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49: ; preds = %55
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load i8, ptr %61, align 8
+  %switch78 = icmp eq i8 %62, 96
+  switch i8 %54, label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit [
+    i8 113, label %63
+    i8 115, label %64
   ]
 
-64:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
+63:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
   %not. = xor i1 %switch78, true
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
-65:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
+64:                                               ; preds = %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
 _ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47:    ; preds = %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit40
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_j(ptr %0, i64 %1, i32 noundef %67, ptr %3, i64 %4, i32 noundef %69) #19
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_j(ptr %0, i64 %1, i32 noundef %66, ptr %3, i64 %4, i32 noundef %68) #19
   br label %_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit
 
-_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit: ; preds = %64, %11, %65, %53, %15, %51, %switch.lookup, %50, %50, %52, %52, %39, %37, %35, %34, %33, %33, %31, %29, %29, %27, %24, %14, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, %56, %40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47
-  %.0 = phi i1 [ %70, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 ], [ false, %40 ], [ false, %56 ], [ false, %14 ], [ %28, %27 ], [ %32, %31 ], [ false, %39 ], [ %36, %35 ], [ %38, %37 ], [ true, %24 ], [ false, %29 ], [ false, %29 ], [ false, %33 ], [ false, %33 ], [ true, %34 ], [ true, %switch.lookup ], [ false, %51 ], [ false, %50 ], [ false, %50 ], [ false, %52 ], [ false, %52 ], [ false, %15 ], [ %switch, %53 ], [ %switch78, %65 ], [ false, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49 ], [ %or.cond, %11 ], [ %not., %64 ]
+_ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit: ; preds = %63, %11, %64, %52, %15, %51, %switch.lookup, %49, %49, %52, %52, %39, %37, %35, %34, %33, %33, %31, %29, %29, %27, %24, %14, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49, %55, %40, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47
+  %.0 = phi i1 [ %69, %_ZNK8WasmEdge7ValType13isAbsHeapTypeEv.exit47 ], [ false, %40 ], [ false, %56 ], [ false, %14 ], [ %28, %27 ], [ %32, %31 ], [ false, %39 ], [ %36, %35 ], [ %38, %37 ], [ true, %24 ], [ false, %29 ], [ false, %29 ], [ false, %33 ], [ false, %33 ], [ true, %34 ], [ true, %switch.lookup ], [ false, %51 ], [ false, %50 ], [ false, %50 ], [ false, %52 ], [ false, %52 ], [ false, %15 ], [ %switch, %53 ], [ %switch78, %65 ], [ false, %_ZNK8WasmEdge3AST13CompositeType6expandEv.exit49 ], [ %or.cond, %11 ], [ %not., %64 ]
   ret i1 %.0
 }
 
