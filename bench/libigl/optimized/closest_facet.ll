@@ -51023,9 +51023,7 @@ _ZN4CGAL6HandleD2Ev.exit29:                       ; preds = %124, %128, %131, %1
   br label %_ZN4CGAL6HandleD2Ev.exit33
 
 _ZN4CGAL6HandleD2Ev.exit33:                       ; preds = %148, %152, %155, %158, %161, %_ZN4CGAL6HandleD2Ev.exit29
-  %switch.cast = trunc nuw i32 %switch.tableidx to i3
-  %switch.downshift = lshr exact i3 -4, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %165 = load ptr, ptr %13, align 8, !tbaa !1216
   call void @free(ptr noundef %165) #23
@@ -56455,9 +56453,7 @@ _ZN4CGAL6HandleD2Ev.exit29:                       ; preds = %121, %125, %128, %1
   br label %_ZN4CGAL6HandleD2Ev.exit33
 
 _ZN4CGAL6HandleD2Ev.exit33:                       ; preds = %145, %149, %152, %155, %158, %_ZN4CGAL6HandleD2Ev.exit29
-  %switch.cast = trunc nuw i32 %switch.tableidx to i3
-  %switch.downshift = lshr exact i3 -4, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %162 = load ptr, ptr %13, align 8, !tbaa !1216
   call void @free(ptr noundef %162) #23
@@ -57715,9 +57711,7 @@ _ZN4CGAL6HandleD2Ev.exit29:                       ; preds = %124, %128, %131, %1
   br label %_ZN4CGAL6HandleD2Ev.exit33
 
 _ZN4CGAL6HandleD2Ev.exit33:                       ; preds = %148, %152, %155, %158, %161, %_ZN4CGAL6HandleD2Ev.exit29
-  %switch.cast = trunc nuw i32 %switch.tableidx to i3
-  %switch.downshift = lshr exact i3 -4, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %165 = load ptr, ptr %13, align 8, !tbaa !1216
   call void @free(ptr noundef %165) #23
@@ -59031,9 +59025,7 @@ _ZN4CGAL6HandleD2Ev.exit29:                       ; preds = %121, %125, %128, %1
   br label %_ZN4CGAL6HandleD2Ev.exit33
 
 _ZN4CGAL6HandleD2Ev.exit33:                       ; preds = %145, %149, %152, %155, %158, %_ZN4CGAL6HandleD2Ev.exit29
-  %switch.cast = trunc nuw i32 %switch.tableidx to i3
-  %switch.downshift = lshr exact i3 -4, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %162 = load ptr, ptr %13, align 8, !tbaa !1216
   call void @free(ptr noundef %162) #23

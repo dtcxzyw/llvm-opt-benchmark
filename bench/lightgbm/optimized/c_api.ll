@@ -45465,15 +45465,9 @@ define linkonce_odr void @_ZNK8LightGBM7Booster15CreatePredictorEiiiiRKNS_6Confi
 
 26:                                               ; preds = %19, %11, %7
   %27 = icmp ult i32 %4, 4
-  %switch.cast = trunc nuw i32 %4 to i4
-  %switch.downshift = lshr i4 2, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
-  %switch.cast17 = trunc nuw i32 %4 to i4
-  %switch.downshift19 = lshr exact i4 -8, %switch.cast17
-  %switch.masked20 = trunc i4 %switch.downshift19 to i1
-  %switch.cast21 = trunc nuw i32 %4 to i4
-  %switch.downshift23 = lshr i4 4, %switch.cast21
-  %switch.masked24 = trunc i4 %switch.downshift23 to i1
+  %switch.masked = icmp eq i32 %4, 1
+  %switch.masked20 = icmp eq i32 %4, 3
+  %switch.masked24 = icmp eq i32 %4, 2
   %.015 = select i1 %27, i1 %switch.masked, i1 false
   %.014 = select i1 %27, i1 %switch.masked20, i1 false
   %.0 = select i1 %27, i1 %switch.masked24, i1 false

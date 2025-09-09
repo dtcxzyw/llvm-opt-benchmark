@@ -27914,9 +27914,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3nix13IsTrueMatcher10gmock_ImplIRKNS
   unreachable
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc nuw i32 %switch.tableidx to i16
-  %switch.downshift = lshr i16 2, %switch.cast
-  %switch.masked = trunc i16 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
@@ -28533,9 +28531,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3nix14IsFalseMatcher10gmock_ImplIRKN
   unreachable
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc nuw i32 %switch.tableidx to i16
-  %switch.downshift = lshr i16 2, %switch.cast
-  %switch.masked = trunc i16 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
@@ -28773,9 +28769,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3nix13IsNullMatcher10gmock_ImplIRKNS
   unreachable
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc nuw i32 %switch.tableidx to i16
-  %switch.downshift = lshr i16 16, %switch.cast
-  %switch.masked = trunc i16 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 4
   ret i1 %switch.masked
 }
 
@@ -29008,9 +29002,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3nix15IsIntEqMatcherPIiE10gmock_Impl
   unreachable
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc nuw i32 %switch.tableidx to i16
-  %switch.downshift = lshr i16 1, %switch.cast
-  %switch.masked = trunc nuw i16 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38835,9 +38827,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3nix17IsFloatEqMatcherPIdE10gmock_Im
   unreachable
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc nuw i32 %switch.tableidx to i16
-  %switch.downshift = lshr exact i16 -32768, %switch.cast
-  %switch.masked = trunc i16 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

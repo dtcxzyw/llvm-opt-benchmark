@@ -161,9 +161,7 @@ define dso_local noundef zeroext i1 @abi_arg_is_indirect(ptr noundef readonly ca
   unreachable
 
 switch.lookup:                                    ; preds = %1
-  %switch.cast = zext nneg i8 %4 to i9
-  %switch.downshift = lshr i9 128, %switch.cast
-  %switch.masked = trunc i9 %switch.downshift to i1
+  %switch.masked = icmp eq i8 %4, 7
   ret i1 %switch.masked
 }
 

@@ -3516,8 +3516,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags6notrap17h
   unreachable
 
 switch.lookup:                                    ; preds = %1
-  %switch.downshift = lshr exact i16 -32768, %3
-  %switch.masked = trunc i16 %switch.downshift to i1
+  %switch.masked = icmp eq i16 %3, 15
   ret i1 %switch.masked
 }
 
