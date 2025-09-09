@@ -5245,12 +5245,13 @@ common.resume:                                    ; preds = %80, %82, %84, %59
 
 68:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !143
-  %.lhs.trunc.i = trunc nsw i32 %65 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %64 to i16
   %69 = urem i16 %.lhs.trunc.i, 27
   %70 = trunc nuw nsw i16 %69 to i8
   %71 = or disjoint i8 %70, 64
   store i8 %71, ptr %10, align 1, !tbaa !36, !noalias !143
-  %72 = udiv i16 %.lhs.trunc.i, 27
+  %.lhs.trunc19.i = trunc nsw i32 %65 to i16
+  %72 = udiv i16 %.lhs.trunc19.i, 27
   %73 = trunc i16 %72 to i8
   %74 = or disjoint i8 %73, 64
   store i8 %74, ptr %37, align 1, !tbaa !36, !noalias !143
@@ -5445,11 +5446,11 @@ define linkonce_odr void @_ZN6icu_7717LikelySubtagsData10toLanguageEi(ptr dead_o
   %20 = and i32 %2, 16777215
   %21 = urem i32 %20, 19683
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.lhs.trunc = trunc nuw nsw i32 %21 to i16
-  %22 = urem i16 %.lhs.trunc, 27
-  %23 = trunc nuw nsw i16 %22 to i8
+  %22 = urem i32 %20, 27
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, 96
   store i8 %24, ptr %6, align 1, !tbaa !36
+  %.lhs.trunc = trunc nuw nsw i32 %21 to i16
   %25 = udiv i16 %.lhs.trunc, 27
   %26 = urem i16 %25, 27
   %27 = trunc nuw nsw i16 %26 to i8

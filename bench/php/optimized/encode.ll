@@ -3651,8 +3651,9 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %82, %.thread.i
   store i64 %124, ptr %4, align 8, !tbaa !11
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %123
   store i8 %121, ptr %125, align 1, !tbaa !18
-  %126 = urem i16 %.lhs.trunc, 1260
-  %127 = udiv i16 %126, 10
+  %126 = urem i32 %.0.i58, 1260
+  %.lhs.trunc62 = trunc nuw nsw i32 %126 to i16
+  %127 = udiv i16 %.lhs.trunc62, 10
   %128 = trunc nuw nsw i16 %127 to i8
   %129 = add nuw nsw i8 %128, -127
   %130 = load ptr, ptr %9, align 8, !tbaa !17
@@ -3661,8 +3662,8 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %82, %.thread.i
   store i64 %132, ptr %4, align 8, !tbaa !11
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 %131
   store i8 %129, ptr %133, align 1, !tbaa !18
-  %134 = urem i16 %126, 10
-  %135 = trunc nuw nsw i16 %134 to i8
+  %134 = urem i32 %.0.i58, 10
+  %135 = trunc nuw nsw i32 %134 to i8
   %136 = or disjoint i8 %135, 48
   %137 = load ptr, ptr %9, align 8, !tbaa !17
   %138 = load i64, ptr %4, align 8, !tbaa !11
@@ -7143,16 +7144,17 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %47, %.thread.i
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   store ptr %86, ptr %1, align 8, !tbaa !31
   store i8 %84, ptr %85, align 1, !tbaa !18
-  %87 = urem i16 %.lhs.trunc, 1260
-  %88 = udiv i16 %87, 10
+  %87 = urem i32 %.0.i31, 1260
+  %.lhs.trunc35 = trunc nuw nsw i32 %87 to i16
+  %88 = udiv i16 %.lhs.trunc35, 10
   %89 = trunc nuw nsw i16 %88 to i8
   %90 = add nuw nsw i8 %89, -127
   %91 = load ptr, ptr %1, align 8, !tbaa !31
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 1
   store ptr %92, ptr %1, align 8, !tbaa !31
   store i8 %90, ptr %91, align 1, !tbaa !18
-  %93 = urem i16 %87, 10
-  %94 = trunc nuw nsw i16 %93 to i8
+  %93 = urem i32 %.0.i31, 10
+  %94 = trunc nuw nsw i32 %93 to i8
   %95 = or disjoint i8 %94, 48
   %96 = load ptr, ptr %1, align 8, !tbaa !31
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1

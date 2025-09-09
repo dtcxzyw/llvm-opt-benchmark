@@ -7577,7 +7577,7 @@ define internal void @ac3_tables_init() #3 {
   %5 = udiv i8 %4, 5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %5, ptr %6, align 1, !tbaa !44
-  %7 = urem i8 %4, 5
+  %7 = urem i8 %.lhs.trunc, 5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %7, ptr %8, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

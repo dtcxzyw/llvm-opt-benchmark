@@ -494,49 +494,49 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
 
 8:                                                ; preds = %2
   %9 = icmp ult i32 %0, 100000000
-  br i1 %9, label %10, label %38
+  %10 = udiv i32 %0, 10000
+  %11 = urem i32 %0, 10000
+  br i1 %9, label %12, label %39
 
-10:                                               ; preds = %8
-  %11 = udiv i32 %0, 10000
-  %12 = urem i32 %0, 10000
-  %13 = zext nneg i32 %11 to i64
-  %14 = zext nneg i32 %12 to i64
-  %15 = shl nuw nsw i64 %14, 32
-  %16 = or disjoint i64 %15, %13
-  %17 = mul nuw nsw i64 %16, 10486
-  %18 = lshr i64 %17, 20
-  %19 = and i64 %18, 545460846719
-  %.neg.i = mul nsw i64 %19, -100
-  %20 = add nsw i64 %.neg.i, %16
-  %21 = shl nsw i64 %20, 16
-  %22 = add nsw i64 %21, %19
-  %23 = mul i64 %22, 103
-  %24 = lshr i64 %23, 10
-  %25 = and i64 %24, 4222189076152335
-  %.neg16.i = mul i64 %25, 72057594037927926
-  %26 = add i64 %.neg16.i, %22
-  %27 = shl i64 %26, 8
-  %28 = add i64 %27, %25
-  %29 = icmp ne i64 %28, 0
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %28, i1 true)
-  %31 = and i64 %30, 56
-  %32 = add i64 %28, 3472328296227680304
-  %33 = lshr i64 %32, %31
-  store i64 %33, ptr %1, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = lshr i64 %30, 3
-  %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds i8, ptr %34, i64 %36
+12:                                               ; preds = %8
+  %13 = urem i32 %0, 10000
+  %14 = zext nneg i32 %10 to i64
+  %15 = zext nneg i32 %13 to i64
+  %16 = shl nuw nsw i64 %15, 32
+  %17 = or disjoint i64 %16, %14
+  %18 = mul nuw nsw i64 %17, 10486
+  %19 = lshr i64 %18, 20
+  %20 = and i64 %19, 545460846719
+  %.neg.i = mul nsw i64 %20, -100
+  %21 = add nsw i64 %.neg.i, %17
+  %22 = shl nsw i64 %21, 16
+  %23 = add nsw i64 %22, %20
+  %24 = mul i64 %23, 103
+  %25 = lshr i64 %24, 10
+  %26 = and i64 %25, 4222189076152335
+  %.neg16.i = mul i64 %26, 72057594037927926
+  %27 = add i64 %.neg16.i, %23
+  %28 = shl i64 %27, 8
+  %29 = add i64 %28, %26
+  %30 = icmp ne i64 %29, 0
+  tail call void @llvm.assume(i1 %30)
+  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %29, i1 true)
+  %32 = and i64 %31, 56
+  %33 = add i64 %29, 3472328296227680304
+  %34 = lshr i64 %33, %32
+  store i64 %34, ptr %1, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = lshr i64 %31, 3
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds i8, ptr %35, i64 %37
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-38:                                               ; preds = %8
-  %39 = udiv i32 %0, 100000000
-  %40 = urem i32 %0, 100000000
-  %41 = udiv i32 %40, 10000
-  %42 = urem i32 %40, 10000
-  %43 = zext nneg i32 %41 to i64
-  %44 = zext nneg i32 %42 to i64
+39:                                               ; preds = %8
+  %40 = udiv i32 %0, 100000000
+  %41 = urem i32 %0, 100000000
+  %42 = udiv i32 %41, 10000
+  %43 = zext nneg i32 %42 to i64
+  %44 = zext nneg i32 %11 to i64
   %45 = shl nuw nsw i64 %44, 32
   %46 = or disjoint i64 %45, %43
   %47 = mul nuw nsw i64 %46, 10486
@@ -554,12 +554,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %57 = shl i64 %56, 8
   %58 = or disjoint i64 %55, 3472328296227680304
   %59 = add i64 %58, %57
-  %60 = add nsw i32 %39, -10
+  %60 = add nsw i32 %40, -10
   %61 = ashr i32 %60, 8
-  %narrow.i = mul nuw nsw i32 %39, 103
+  %narrow.i = mul nuw nsw i32 %40, 103
   %62 = lshr i32 %narrow.i, 10
   %.neg.i5 = mul nsw i32 %62, -10
-  %63 = add nsw i32 %.neg.i5, %39
+  %63 = add nsw i32 %.neg.i5, %40
   %64 = or disjoint i32 %62, 12336
   %65 = shl nsw i32 %63, 8
   %66 = add nsw i32 %64, %65
@@ -574,8 +574,8 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %4, %10, %38
-  %.0.i = phi ptr [ %7, %4 ], [ %37, %10 ], [ %73, %38 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %4, %12, %39
+  %.0.i = phi ptr [ %7, %4 ], [ %38, %12 ], [ %73, %39 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }
@@ -606,49 +606,49 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
 
 13:                                               ; preds = %7
   %14 = icmp ult i32 %.0, 100000000
-  br i1 %14, label %15, label %43
+  %15 = udiv i32 %.0, 10000
+  %16 = urem i32 %.0, 10000
+  br i1 %14, label %17, label %44
 
-15:                                               ; preds = %13
-  %16 = udiv i32 %.0, 10000
-  %17 = urem i32 %.0, 10000
-  %18 = zext nneg i32 %16 to i64
-  %19 = zext nneg i32 %17 to i64
-  %20 = shl nuw nsw i64 %19, 32
-  %21 = or disjoint i64 %20, %18
-  %22 = mul nuw nsw i64 %21, 10486
-  %23 = lshr i64 %22, 20
-  %24 = and i64 %23, 545460846719
-  %.neg.i = mul nsw i64 %24, -100
-  %25 = add nsw i64 %.neg.i, %21
-  %26 = shl nsw i64 %25, 16
-  %27 = add nsw i64 %26, %24
-  %28 = mul i64 %27, 103
-  %29 = lshr i64 %28, 10
-  %30 = and i64 %29, 4222189076152335
-  %.neg16.i = mul i64 %30, 72057594037927926
-  %31 = add i64 %.neg16.i, %27
-  %32 = shl i64 %31, 8
-  %33 = add i64 %32, %30
-  %34 = icmp ne i64 %33, 0
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %33, i1 true)
-  %36 = and i64 %35, 56
-  %37 = add i64 %33, 3472328296227680304
-  %38 = lshr i64 %37, %36
-  store i64 %38, ptr %.07, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.07, i64 8
-  %40 = lshr i64 %35, 3
-  %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+17:                                               ; preds = %13
+  %18 = urem i32 %.0, 10000
+  %19 = zext nneg i32 %15 to i64
+  %20 = zext nneg i32 %18 to i64
+  %21 = shl nuw nsw i64 %20, 32
+  %22 = or disjoint i64 %21, %19
+  %23 = mul nuw nsw i64 %22, 10486
+  %24 = lshr i64 %23, 20
+  %25 = and i64 %24, 545460846719
+  %.neg.i = mul nsw i64 %25, -100
+  %26 = add nsw i64 %.neg.i, %22
+  %27 = shl nsw i64 %26, 16
+  %28 = add nsw i64 %27, %25
+  %29 = mul i64 %28, 103
+  %30 = lshr i64 %29, 10
+  %31 = and i64 %30, 4222189076152335
+  %.neg16.i = mul i64 %31, 72057594037927926
+  %32 = add i64 %.neg16.i, %28
+  %33 = shl i64 %32, 8
+  %34 = add i64 %33, %31
+  %35 = icmp ne i64 %34, 0
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %34, i1 true)
+  %37 = and i64 %36, 56
+  %38 = add i64 %34, 3472328296227680304
+  %39 = lshr i64 %38, %37
+  store i64 %39, ptr %.07, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %.07, i64 8
+  %41 = lshr i64 %36, 3
+  %42 = sub nsw i64 0, %41
+  %43 = getelementptr inbounds i8, ptr %40, i64 %42
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-43:                                               ; preds = %13
-  %44 = udiv i32 %.0, 100000000
-  %45 = urem i32 %.0, 100000000
-  %46 = udiv i32 %45, 10000
-  %47 = urem i32 %45, 10000
-  %48 = zext nneg i32 %46 to i64
-  %49 = zext nneg i32 %47 to i64
+44:                                               ; preds = %13
+  %45 = udiv i32 %.0, 100000000
+  %46 = urem i32 %.0, 100000000
+  %47 = udiv i32 %46, 10000
+  %48 = zext nneg i32 %47 to i64
+  %49 = zext nneg i32 %16 to i64
   %50 = shl nuw nsw i64 %49, 32
   %51 = or disjoint i64 %50, %48
   %52 = mul nuw nsw i64 %51, 10486
@@ -666,12 +666,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %62 = shl i64 %61, 8
   %63 = or disjoint i64 %60, 3472328296227680304
   %64 = add i64 %63, %62
-  %65 = add nsw i32 %44, -10
+  %65 = add nsw i32 %45, -10
   %66 = ashr i32 %65, 8
-  %narrow.i = mul nuw nsw i32 %44, 103
+  %narrow.i = mul nuw nsw i32 %45, 103
   %67 = lshr i32 %narrow.i, 10
   %.neg.i11 = mul nsw i32 %67, -10
-  %68 = add nsw i32 %.neg.i11, %44
+  %68 = add nsw i32 %.neg.i11, %45
   %69 = or disjoint i32 %67, 12336
   %70 = shl nsw i32 %68, 8
   %71 = add nsw i32 %69, %70
@@ -686,8 +686,8 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %9, %15, %43
-  %.0.i = phi ptr [ %12, %9 ], [ %42, %15 ], [ %78, %43 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %9, %17, %44
+  %.0.i = phi ptr [ %12, %9 ], [ %43, %17 ], [ %78, %44 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }
@@ -711,49 +711,49 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
 
 10:                                               ; preds = %3
   %11 = icmp samesign ult i64 %0, 100000000
-  br i1 %11, label %12, label %40
+  %12 = udiv i32 %4, 10000
+  %13 = urem i32 %4, 10000
+  br i1 %11, label %14, label %41
 
-12:                                               ; preds = %10
-  %13 = udiv i32 %4, 10000
-  %14 = urem i32 %4, 10000
-  %15 = zext nneg i32 %13 to i64
-  %16 = zext nneg i32 %14 to i64
-  %17 = shl nuw nsw i64 %16, 32
-  %18 = or disjoint i64 %17, %15
-  %19 = mul nuw nsw i64 %18, 10486
-  %20 = lshr i64 %19, 20
-  %21 = and i64 %20, 545460846719
-  %.neg.i = mul nsw i64 %21, -100
-  %22 = add nsw i64 %.neg.i, %18
-  %23 = shl nsw i64 %22, 16
-  %24 = add nsw i64 %23, %21
-  %25 = mul i64 %24, 103
-  %26 = lshr i64 %25, 10
-  %27 = and i64 %26, 4222189076152335
-  %.neg16.i = mul i64 %27, 72057594037927926
-  %28 = add i64 %.neg16.i, %24
-  %29 = shl i64 %28, 8
-  %30 = add i64 %29, %27
-  %31 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %30, i1 true)
-  %33 = and i64 %32, 56
-  %34 = add i64 %30, 3472328296227680304
-  %35 = lshr i64 %34, %33
-  store i64 %35, ptr %1, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = lshr i64 %32, 3
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i8, ptr %36, i64 %38
+14:                                               ; preds = %10
+  %15 = urem i32 %4, 10000
+  %16 = zext nneg i32 %12 to i64
+  %17 = zext nneg i32 %15 to i64
+  %18 = shl nuw nsw i64 %17, 32
+  %19 = or disjoint i64 %18, %16
+  %20 = mul nuw nsw i64 %19, 10486
+  %21 = lshr i64 %20, 20
+  %22 = and i64 %21, 545460846719
+  %.neg.i = mul nsw i64 %22, -100
+  %23 = add nsw i64 %.neg.i, %19
+  %24 = shl nsw i64 %23, 16
+  %25 = add nsw i64 %24, %22
+  %26 = mul i64 %25, 103
+  %27 = lshr i64 %26, 10
+  %28 = and i64 %27, 4222189076152335
+  %.neg16.i = mul i64 %28, 72057594037927926
+  %29 = add i64 %.neg16.i, %25
+  %30 = shl i64 %29, 8
+  %31 = add i64 %30, %28
+  %32 = icmp ne i64 %31, 0
+  tail call void @llvm.assume(i1 %32)
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %31, i1 true)
+  %34 = and i64 %33, 56
+  %35 = add i64 %31, 3472328296227680304
+  %36 = lshr i64 %35, %34
+  store i64 %36, ptr %1, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = lshr i64 %33, 3
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds i8, ptr %37, i64 %39
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-40:                                               ; preds = %10
-  %41 = udiv i32 %4, 100000000
-  %42 = urem i32 %4, 100000000
-  %43 = udiv i32 %42, 10000
-  %44 = urem i32 %42, 10000
-  %45 = zext nneg i32 %43 to i64
-  %46 = zext nneg i32 %44 to i64
+41:                                               ; preds = %10
+  %42 = udiv i32 %4, 100000000
+  %43 = urem i32 %4, 100000000
+  %44 = udiv i32 %43, 10000
+  %45 = zext nneg i32 %44 to i64
+  %46 = zext nneg i32 %13 to i64
   %47 = shl nuw nsw i64 %46, 32
   %48 = or disjoint i64 %47, %45
   %49 = mul nuw nsw i64 %48, 10486
@@ -771,12 +771,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %59 = shl i64 %58, 8
   %60 = or disjoint i64 %57, 3472328296227680304
   %61 = add i64 %60, %59
-  %62 = add nsw i32 %41, -10
+  %62 = add nsw i32 %42, -10
   %63 = ashr i32 %62, 8
-  %narrow.i = mul nuw nsw i32 %41, 103
+  %narrow.i = mul nuw nsw i32 %42, 103
   %64 = lshr i32 %narrow.i, 10
   %.neg.i5 = mul nsw i32 %64, -10
-  %65 = add nsw i32 %.neg.i5, %41
+  %65 = add nsw i32 %.neg.i5, %42
   %66 = or disjoint i32 %64, 12336
   %67 = shl nsw i32 %65, 8
   %68 = add nsw i32 %66, %67
@@ -915,8 +915,8 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i: ; preds = %79, %108
   %173 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %6, %12, %40, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
-  %.0.i = phi ptr [ %173, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %9, %6 ], [ %39, %12 ], [ %75, %40 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %6, %14, %41, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
+  %.0.i = phi ptr [ %173, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %9, %6 ], [ %40, %14 ], [ %75, %41 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }
@@ -952,49 +952,49 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
 
 15:                                               ; preds = %8
   %16 = icmp samesign ult i64 %.0, 100000000
-  br i1 %16, label %17, label %45
+  %17 = udiv i32 %9, 10000
+  %18 = urem i32 %9, 10000
+  br i1 %16, label %19, label %46
 
-17:                                               ; preds = %15
-  %18 = udiv i32 %9, 10000
-  %19 = urem i32 %9, 10000
-  %20 = zext nneg i32 %18 to i64
-  %21 = zext nneg i32 %19 to i64
-  %22 = shl nuw nsw i64 %21, 32
-  %23 = or disjoint i64 %22, %20
-  %24 = mul nuw nsw i64 %23, 10486
-  %25 = lshr i64 %24, 20
-  %26 = and i64 %25, 545460846719
-  %.neg.i = mul nsw i64 %26, -100
-  %27 = add nsw i64 %.neg.i, %23
-  %28 = shl nsw i64 %27, 16
-  %29 = add nsw i64 %28, %26
-  %30 = mul i64 %29, 103
-  %31 = lshr i64 %30, 10
-  %32 = and i64 %31, 4222189076152335
-  %.neg16.i = mul i64 %32, 72057594037927926
-  %33 = add i64 %.neg16.i, %29
-  %34 = shl i64 %33, 8
-  %35 = add i64 %34, %32
-  %36 = icmp ne i64 %35, 0
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
-  %38 = and i64 %37, 56
-  %39 = add i64 %35, 3472328296227680304
-  %40 = lshr i64 %39, %38
-  store i64 %40, ptr %.07, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %.07, i64 8
-  %42 = lshr i64 %37, 3
-  %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+19:                                               ; preds = %15
+  %20 = urem i32 %9, 10000
+  %21 = zext nneg i32 %17 to i64
+  %22 = zext nneg i32 %20 to i64
+  %23 = shl nuw nsw i64 %22, 32
+  %24 = or disjoint i64 %23, %21
+  %25 = mul nuw nsw i64 %24, 10486
+  %26 = lshr i64 %25, 20
+  %27 = and i64 %26, 545460846719
+  %.neg.i = mul nsw i64 %27, -100
+  %28 = add nsw i64 %.neg.i, %24
+  %29 = shl nsw i64 %28, 16
+  %30 = add nsw i64 %29, %27
+  %31 = mul i64 %30, 103
+  %32 = lshr i64 %31, 10
+  %33 = and i64 %32, 4222189076152335
+  %.neg16.i = mul i64 %33, 72057594037927926
+  %34 = add i64 %.neg16.i, %30
+  %35 = shl i64 %34, 8
+  %36 = add i64 %35, %33
+  %37 = icmp ne i64 %36, 0
+  tail call void @llvm.assume(i1 %37)
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %36, i1 true)
+  %39 = and i64 %38, 56
+  %40 = add i64 %36, 3472328296227680304
+  %41 = lshr i64 %40, %39
+  store i64 %41, ptr %.07, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.07, i64 8
+  %43 = lshr i64 %38, 3
+  %44 = sub nsw i64 0, %43
+  %45 = getelementptr inbounds i8, ptr %42, i64 %44
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-45:                                               ; preds = %15
-  %46 = udiv i32 %9, 100000000
-  %47 = urem i32 %9, 100000000
-  %48 = udiv i32 %47, 10000
-  %49 = urem i32 %47, 10000
-  %50 = zext nneg i32 %48 to i64
-  %51 = zext nneg i32 %49 to i64
+46:                                               ; preds = %15
+  %47 = udiv i32 %9, 100000000
+  %48 = urem i32 %9, 100000000
+  %49 = udiv i32 %48, 10000
+  %50 = zext nneg i32 %49 to i64
+  %51 = zext nneg i32 %18 to i64
   %52 = shl nuw nsw i64 %51, 32
   %53 = or disjoint i64 %52, %50
   %54 = mul nuw nsw i64 %53, 10486
@@ -1012,12 +1012,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %64 = shl i64 %63, 8
   %65 = or disjoint i64 %62, 3472328296227680304
   %66 = add i64 %65, %64
-  %67 = add nsw i32 %46, -10
+  %67 = add nsw i32 %47, -10
   %68 = ashr i32 %67, 8
-  %narrow.i = mul nuw nsw i32 %46, 103
+  %narrow.i = mul nuw nsw i32 %47, 103
   %69 = lshr i32 %narrow.i, 10
   %.neg.i11 = mul nsw i32 %69, -10
-  %70 = add nsw i32 %.neg.i11, %46
+  %70 = add nsw i32 %.neg.i11, %47
   %71 = or disjoint i32 %69, 12336
   %72 = shl nsw i32 %70, 8
   %73 = add nsw i32 %71, %72
@@ -1156,8 +1156,8 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i: ; preds = %84, %113
   %178 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %11, %17, %45, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
-  %.0.i = phi ptr [ %178, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %14, %11 ], [ %44, %17 ], [ %80, %45 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %11, %19, %46, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
+  %.0.i = phi ptr [ %178, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %14, %11 ], [ %45, %19 ], [ %80, %46 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }

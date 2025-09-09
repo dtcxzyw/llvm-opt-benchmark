@@ -73042,10 +73042,10 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
 
 20:                                               ; preds = %14
   %21 = icmp samesign ugt i32 %0, 9
-  br i1 %21, label %22, label %._crit_edge123
+  br i1 %21, label %22, label %._crit_edge119
 
-._crit_edge123:                                   ; preds = %20
-  %.pre124 = zext nneg i16 %8 to i64
+._crit_edge119:                                   ; preds = %20
+  %.pre120 = zext nneg i16 %8 to i64
   br label %27
 
 22:                                               ; preds = %.thread100, %20
@@ -73057,10 +73057,10 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   store i8 %25, ptr %.1102, align 1
   br label %27
 
-27:                                               ; preds = %._crit_edge123, %22
-  %.pre-phi125 = phi i64 [ %.pre124, %._crit_edge123 ], [ %23, %22 ]
-  %.2 = phi ptr [ %1, %._crit_edge123 ], [ %26, %22 ]
-  %28 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi125
+27:                                               ; preds = %._crit_edge119, %22
+  %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge119 ], [ %23, %22 ]
+  %.2 = phi ptr [ %1, %._crit_edge119 ], [ %26, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi121
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 1
@@ -73082,8 +73082,8 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   %.lhs.trunc113 = trunc nuw nsw i32 %36 to i16
   %41 = udiv i16 %.lhs.trunc113, 100
   %42 = shl nuw nsw i16 %41, 1
-  %43 = urem i16 %.lhs.trunc113, 100
-  %44 = shl nuw nsw i16 %43, 1
+  %43 = urem i32 %0, 100
+  %44 = shl nuw nsw i32 %43, 1
   %45 = icmp samesign ugt i32 %0, 9999999
   br i1 %45, label %.thread103, label %50
 
@@ -73100,13 +73100,13 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   br i1 %51, label %..thread106_crit_edge, label %56
 
 ..thread106_crit_edge:                            ; preds = %50
-  %.pre126 = zext nneg i32 %38 to i64
+  %.pre122 = zext nneg i32 %38 to i64
   br label %.thread106
 
 .thread106:                                       ; preds = %..thread106_crit_edge, %.thread103
-  %.pre-phi127 = phi i64 [ %.pre126, %..thread106_crit_edge ], [ %46, %.thread103 ]
+  %.pre-phi123 = phi i64 [ %.pre122, %..thread106_crit_edge ], [ %46, %.thread103 ]
   %.4105 = phi ptr [ %1, %..thread106_crit_edge ], [ %49, %.thread103 ]
-  %52 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi127
+  %52 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi123
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = getelementptr inbounds nuw i8, ptr %.4105, i64 1
@@ -73118,7 +73118,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   br i1 %57, label %58, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56
-  %.pre128 = zext nneg i16 %40 to i64
+  %.pre124 = zext nneg i16 %40 to i64
   br label %63
 
 58:                                               ; preds = %.thread106, %56
@@ -73131,9 +73131,9 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   br label %63
 
 63:                                               ; preds = %._crit_edge, %58
-  %.pre-phi129 = phi i64 [ %.pre128, %._crit_edge ], [ %59, %58 ]
+  %.pre-phi125 = phi i64 [ %.pre124, %._crit_edge ], [ %59, %58 ]
   %.6 = phi ptr [ %1, %._crit_edge ], [ %62, %58 ]
-  %64 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi129
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi125
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = getelementptr inbounds nuw i8, ptr %.6, i64 1
@@ -73147,7 +73147,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   %73 = load i8, ptr %72, align 1
   %74 = getelementptr inbounds nuw i8, ptr %.6, i64 3
   store i8 %73, ptr %71, align 1
-  %75 = zext nneg i16 %44 to i64
+  %75 = zext nneg i32 %44 to i64
   %76 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %75
   %77 = load i8, ptr %76, align 2
   %78 = getelementptr inbounds nuw i8, ptr %.6, i64 4
@@ -73187,17 +73187,17 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
 99:                                               ; preds = %95, %86
   %.7 = phi ptr [ %94, %86 ], [ %98, %95 ]
   %100 = udiv i32 %84, 10000
-  %101 = urem i32 %84, 10000
+  %101 = urem i32 %0, 10000
   %102 = udiv i32 %84, 1000000
   %103 = shl nuw nsw i32 %102, 1
-  %.lhs.trunc117 = trunc nuw nsw i32 %100 to i16
-  %104 = urem i16 %.lhs.trunc117, 100
+  %.lhs.trunc115 = trunc nuw nsw i32 %100 to i16
+  %104 = urem i16 %.lhs.trunc115, 100
   %105 = shl nuw nsw i16 %104, 1
-  %.lhs.trunc119 = trunc nuw nsw i32 %101 to i16
-  %106 = udiv i16 %.lhs.trunc119, 100
+  %.lhs.trunc117 = trunc nuw nsw i32 %101 to i16
+  %106 = udiv i16 %.lhs.trunc117, 100
   %107 = shl nuw nsw i16 %106, 1
-  %108 = urem i16 %.lhs.trunc119, 100
-  %109 = shl nuw nsw i16 %108, 1
+  %108 = urem i32 %0, 100
+  %109 = shl nuw nsw i32 %108, 1
   %110 = zext nneg i32 %103 to i64
   %111 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %110
   %112 = load i8, ptr %111, align 2
@@ -73225,7 +73225,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   %129 = load i8, ptr %128, align 1
   %130 = getelementptr inbounds nuw i8, ptr %.7, i64 6
   store i8 %129, ptr %127, align 1
-  %131 = zext nneg i16 %109 to i64
+  %131 = zext nneg i32 %109 to i64
   %132 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %131
   %133 = load i8, ptr %132, align 2
   %134 = getelementptr inbounds nuw i8, ptr %.7, i64 7

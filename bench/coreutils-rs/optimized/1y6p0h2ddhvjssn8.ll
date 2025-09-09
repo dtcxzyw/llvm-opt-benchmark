@@ -837,9 +837,9 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %154 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %155 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %156 = icmp eq i32 %110, 0
-  %157 = urem i32 %110, 1000000
+  %157 = urem i32 %.sroa.21.0.copyload.i.i, 1000000
   %158 = icmp eq i32 %157, 0
-  %159 = urem i32 %110, 1000
+  %159 = urem i32 %.sroa.21.0.copyload.i.i, 1000
   %160 = icmp eq i32 %159, 0
   %161 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.588.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %75, i64 16

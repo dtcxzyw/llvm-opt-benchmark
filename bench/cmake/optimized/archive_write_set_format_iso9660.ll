@@ -9634,19 +9634,19 @@ idr_extend_identifier.exit.i:                     ; preds = %167, %.lr.ph.i
   store i8 %212, ptr %194, align 1, !tbaa !68
   %213 = trunc i16 %210 to i8
   store i8 %213, ptr %196, align 1, !tbaa !68
-  %214 = urem i16 %.lhs.trunc.i, 1296
-  %215 = udiv i16 %214, 36
-  %.zext11.i = zext nneg i16 %215 to i64
-  %216 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %.zext11.i
+  %214 = urem i64 %206, 1296
+  %.lhs.trunc8.i = trunc nuw nsw i64 %214 to i16
+  %215 = udiv i16 %.lhs.trunc8.i, 36
+  %.zext9.i = zext nneg i16 %215 to i64
+  %216 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %.zext9.i
   %217 = load i16, ptr %216, align 2, !tbaa !332
   %218 = lshr i16 %217, 8
   %219 = trunc nuw i16 %218 to i8
   store i8 %219, ptr %197, align 1, !tbaa !68
   %220 = trunc i16 %217 to i8
   store i8 %220, ptr %198, align 1, !tbaa !68
-  %221 = urem i16 %214, 36
-  %.zext13.i = zext nneg i16 %221 to i64
-  %222 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %.zext13.i
+  %221 = urem i64 %206, 36
+  %222 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %221
   %223 = load i16, ptr %222, align 2, !tbaa !332
   %224 = lshr i16 %223, 8
   %225 = trunc nuw i16 %224 to i8
@@ -10187,15 +10187,15 @@ idr_extend_identifier.exit.i:                     ; preds = %217, %.lr.ph.i
   %256 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext.i
   %257 = load i8, ptr %256, align 1, !tbaa !68
   store i8 %257, ptr %244, align 1, !tbaa !68
-  %258 = urem i16 %.lhs.trunc.i, 1296
-  %259 = udiv i16 %258, 36
-  %.zext11.i = zext nneg i16 %259 to i64
-  %260 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext11.i
+  %258 = urem i64 %253, 1296
+  %.lhs.trunc8.i = trunc nuw nsw i64 %258 to i16
+  %259 = udiv i16 %.lhs.trunc8.i, 36
+  %.zext9.i = zext nneg i16 %259 to i64
+  %260 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext9.i
   %261 = load i8, ptr %260, align 1, !tbaa !68
   store i8 %261, ptr %246, align 1, !tbaa !68
-  %262 = urem i16 %258, 36
-  %.zext13.i = zext nneg i16 %262 to i64
-  %263 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext13.i
+  %262 = urem i64 %253, 36
+  %263 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %262
   %264 = load i8, ptr %263, align 1, !tbaa !68
   store i8 %264, ptr %247, align 1, !tbaa !68
   %265 = tail call i32 @__archive_rb_tree_insert_node(ptr noundef nonnull %35, ptr noundef nonnull %.017.i) #23

@@ -1386,8 +1386,8 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionE(ptr d
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 448
   br label %.preheader
 
-.preheader:                                       ; preds = %16, %507
-  %indvars.iv193 = phi i64 [ 0, %16 ], [ %indvars.iv.next194, %507 ]
+.preheader:                                       ; preds = %16, %508
+  %indvars.iv193 = phi i64 [ 0, %16 ], [ %indvars.iv.next194, %508 ]
   %44 = shl nuw nsw i64 %indvars.iv193, 3
   %invariant.gep.i = getelementptr i8, ptr %12, i64 %44
   %45 = add nuw nsw i64 %44, 8
@@ -2175,8 +2175,9 @@ _ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib.exit: ; 
   %472 = add nuw nsw i8 %471, 48
   %473 = getelementptr i8, ptr %449, i64 136
   store i8 %472, ptr %473, align 2
-  %474 = urem i16 %.lhs.trunc.i.i, 1000
-  %475 = udiv i16 %474, 100
+  %474 = urem i32 %462, 1000
+  %.lhs.trunc32.i.i = trunc nuw nsw i32 %474 to i16
+  %475 = udiv i16 %.lhs.trunc32.i.i, 100
   %476 = trunc nuw nsw i16 %475 to i8
   %477 = or disjoint i8 %476, 48
   %478 = getelementptr i8, ptr %449, i64 137
@@ -2185,396 +2186,397 @@ _ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib.exit: ; 
 
 479:                                              ; preds = %456
   %480 = icmp samesign ugt i32 %462, 999
-  %.lhs.trunc36.i.i = trunc nuw nsw i32 %462 to i16
+  %.lhs.trunc34.i.i = trunc nuw nsw i32 %462 to i16
   %481 = getelementptr i8, ptr %449, i64 135
   br i1 %480, label %482, label %495
 
 482:                                              ; preds = %479
-  %483 = udiv i16 %.lhs.trunc36.i.i, 1000
+  %483 = udiv i16 %.lhs.trunc34.i.i, 1000
   %484 = trunc nuw nsw i16 %483 to i8
   %485 = add nuw nsw i8 %484, 48
   store i8 %485, ptr %481, align 1
-  %486 = urem i16 %.lhs.trunc36.i.i, 1000
+  %486 = urem i16 %.lhs.trunc34.i.i, 1000
   %487 = udiv i16 %486, 100
   %488 = trunc nuw nsw i16 %487 to i8
   %489 = or disjoint i8 %488, 48
   %490 = getelementptr i8, ptr %449, i64 136
   store i8 %489, ptr %490, align 2
-  %491 = urem i16 %486, 100
+  %491 = urem i16 %.lhs.trunc34.i.i, 100
   %492 = getelementptr i8, ptr %449, i64 137
   store i8 46, ptr %492, align 1
-  %.lhs.trunc44.i.i = trunc nuw nsw i16 %491 to i8
-  %493 = udiv i8 %.lhs.trunc44.i.i, 10
+  %.lhs.trunc42.i.i = trunc nuw nsw i16 %491 to i8
+  %493 = udiv i8 %.lhs.trunc42.i.i, 10
   %494 = or disjoint i8 %493, 48
   br label %_ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i
 
 495:                                              ; preds = %479
-  %496 = udiv i16 %.lhs.trunc36.i.i, 100
+  %496 = udiv i16 %.lhs.trunc34.i.i, 100
   %497 = trunc nuw nsw i16 %496 to i8
   %498 = or disjoint i8 %497, 48
   store i8 %498, ptr %481, align 1
-  %499 = urem i16 %.lhs.trunc36.i.i, 100
+  %499 = urem i16 %.lhs.trunc34.i.i, 100
   %500 = getelementptr i8, ptr %449, i64 136
   store i8 46, ptr %500, align 2
-  %.lhs.trunc50.i.i = trunc nuw nsw i16 %499 to i8
-  %501 = udiv i8 %.lhs.trunc50.i.i, 10
+  %.lhs.trunc48.i.i = trunc nuw nsw i16 %499 to i8
+  %501 = udiv i8 %.lhs.trunc48.i.i, 10
   %502 = or disjoint i8 %501, 48
   %503 = getelementptr i8, ptr %449, i64 137
   store i8 %502, ptr %503, align 1
-  %504 = urem i8 %.lhs.trunc50.i.i, 10
-  %505 = or disjoint i8 %504, 48
+  %504 = urem i16 %.lhs.trunc34.i.i, 10
+  %505 = trunc nuw nsw i16 %504 to i8
+  %506 = or disjoint i8 %505, 48
   br label %_ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i
 
 _ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i: ; preds = %495, %482, %464
-  %.sink.i.i = phi i8 [ %494, %482 ], [ %505, %495 ], [ 32, %464 ]
-  %506 = getelementptr i8, ptr %449, i64 138
-  store i8 %.sink.i.i, ptr %506, align 2
+  %.sink.i.i = phi i8 [ %494, %482 ], [ %506, %495 ], [ 32, %464 ]
+  %507 = getelementptr i8, ptr %449, i64 138
+  store i8 %.sink.i.i, ptr %507, align 2
   br label %"_ZZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionEENK3$_0clENS_4FileENS_4RankENS_5PieceEi.exit"
 
 "_ZZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionEENK3$_0clENS_4FileENS_4RankENS_5PieceEi.exit": ; preds = %455, %_ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next190, 8
-  br i1 %exitcond192.not, label %507, label %46, !llvm.loop !28
+  br i1 %exitcond192.not, label %508, label %46, !llvm.loop !28
 
-507:                                              ; preds = %"_ZZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionEENK3$_0clENS_4FileENS_4RankENS_5PieceEi.exit"
+508:                                              ; preds = %"_ZZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionEENK3$_0clENS_4FileENS_4RankENS_5PieceEi.exit"
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, 8
-  br i1 %exitcond196.not, label %508, label %.preheader, !llvm.loop !29
+  br i1 %exitcond196.not, label %509, label %.preheader, !llvm.loop !29
 
-508:                                              ; preds = %507
-  %509 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %510 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str) #15
-  br label %511
+509:                                              ; preds = %508
+  %510 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %511 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str) #15
+  br label %512
 
-511:                                              ; preds = %508, %511
-  %indvars.iv197 = phi i64 [ 0, %508 ], [ %indvars.iv.next198, %511 ]
-  %512 = getelementptr inbounds nuw [66 x i8], ptr %12, i64 %indvars.iv197
-  %513 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull %512) #15
-  %514 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %513, i8 noundef signext 10) #15
+512:                                              ; preds = %509, %512
+  %indvars.iv197 = phi i64 [ 0, %509 ], [ %indvars.iv.next198, %512 ]
+  %513 = getelementptr inbounds nuw [66 x i8], ptr %12, i64 %indvars.iv197
+  %514 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull %513) #15
+  %515 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %514, i8 noundef signext 10) #15
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next198, 25
-  br i1 %exitcond200.not, label %515, label %511, !llvm.loop !30
+  br i1 %exitcond200.not, label %516, label %512, !llvm.loop !30
 
-515:                                              ; preds = %511
-  %516 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %509, i8 noundef signext 10) #15
+516:                                              ; preds = %512
+  %517 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %510, i8 noundef signext 10) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 64, i1 false), !alias.scope !31
-  %517 = load i32, ptr %26, align 8, !noalias !31
-  %518 = load i32, ptr %27, align 8, !noalias !31
-  %519 = add i32 %517, -1
-  %520 = add i32 %519, %518
-  %521 = sdiv i32 %520, 4
-  %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store i64 %522, ptr %523, align 8, !alias.scope !31
-  %524 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  br label %525
+  %518 = load i32, ptr %26, align 8, !noalias !31
+  %519 = load i32, ptr %27, align 8, !noalias !31
+  %520 = add i32 %518, -1
+  %521 = add i32 %520, %519
+  %522 = sdiv i32 %521, 4
+  %523 = sext i32 %522 to i64
+  %524 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  store i64 %523, ptr %524, align 8, !alias.scope !31
+  %525 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  br label %526
 
-525:                                              ; preds = %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i, %515
-  %indvars.iv.i51 = phi i64 [ 0, %515 ], [ %indvars.iv.next.i71, %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i ]
-  %526 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE21featureTransformerBigE, align 8, !noalias !31
-  %527 = trunc nuw nsw i64 %indvars.iv.i51 to i32
-  %528 = call noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE9transformERKNS_8PositionEPhib(ptr noundef nonnull align 64 dereferenceable(116069376) %526, ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef nonnull %9, i32 noundef %527, i1 noundef zeroext false), !noalias !31
-  %529 = getelementptr inbounds nuw %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %indvars.iv.i51
-  %530 = load ptr, ptr %529, align 8, !noalias !31
-  %531 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8, !noalias !31
-  %532 = icmp eq i8 %531, 0
-  br i1 %532, label %533, label %534, !prof !5
+526:                                              ; preds = %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i, %516
+  %indvars.iv.i51 = phi i64 [ 0, %516 ], [ %indvars.iv.next.i71, %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i ]
+  %527 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE21featureTransformerBigE, align 8, !noalias !31
+  %528 = trunc nuw nsw i64 %indvars.iv.i51 to i32
+  %529 = call noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE9transformERKNS_8PositionEPhib(ptr noundef nonnull align 64 dereferenceable(116069376) %527, ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef nonnull %9, i32 noundef %528, i1 noundef zeroext false), !noalias !31
+  %530 = getelementptr inbounds nuw %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %indvars.iv.i51
+  %531 = load ptr, ptr %530, align 8, !noalias !31
+  %532 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8, !noalias !31
+  %533 = icmp eq i8 %532, 0
+  br i1 %533, label %534, label %535, !prof !5
 
-533:                                              ; preds = %525
+534:                                              ; preds = %526
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) @_ZZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, i8 0, i64 576, i1 false), !noalias !31
   store i8 1, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8, !noalias !31
-  br label %534
+  br label %535
 
-534:                                              ; preds = %533, %525
-  %535 = getelementptr inbounds nuw i8, ptr %530, i64 64
-  br label %536
+535:                                              ; preds = %534, %526
+  %536 = getelementptr inbounds nuw i8, ptr %531, i64 64
+  br label %537
 
-536:                                              ; preds = %562, %534
-  %indvars.iv82.i.i.i.i52 = phi i64 [ 0, %534 ], [ %indvars.iv.next83.i.i.i.i57, %562 ]
-  %537 = mul nuw nsw i64 %indvars.iv82.i.i.i.i52, 2560
-  %538 = getelementptr inbounds nuw i32, ptr %530, i64 %indvars.iv82.i.i.i.i52
-  %539 = load i32, ptr %538, align 4, !noalias !31
-  %540 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %539, i64 0
-  %541 = getelementptr inbounds nuw i8, ptr %535, i64 %537
-  br label %542
+537:                                              ; preds = %563, %535
+  %indvars.iv82.i.i.i.i52 = phi i64 [ 0, %535 ], [ %indvars.iv.next83.i.i.i.i57, %563 ]
+  %538 = mul nuw nsw i64 %indvars.iv82.i.i.i.i52, 2560
+  %539 = getelementptr inbounds nuw i32, ptr %531, i64 %indvars.iv82.i.i.i.i52
+  %540 = load i32, ptr %539, align 4, !noalias !31
+  %541 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %540, i64 0
+  %542 = getelementptr inbounds nuw i8, ptr %536, i64 %538
+  br label %543
 
-542:                                              ; preds = %542, %536
-  %indvars.iv.i.i.i.i53 = phi i64 [ 0, %536 ], [ %indvars.iv.next.i.i.i.i55, %542 ]
-  %.074.in78.i.i.i.i54 = phi <4 x i32> [ %540, %536 ], [ %560, %542 ]
-  %543 = phi <4 x i32> [ zeroinitializer, %536 ], [ %561, %542 ]
-  %544 = getelementptr inbounds nuw <2 x i64>, ptr %541, i64 %indvars.iv.i.i.i.i53
-  %545 = load <16 x i8>, ptr %544, align 16, !noalias !31
-  %546 = getelementptr inbounds nuw <2 x i64>, ptr %9, i64 %indvars.iv.i.i.i.i53
-  %547 = load <16 x i8>, ptr %546, align 16, !noalias !31
-  %548 = shufflevector <16 x i8> %545, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
-  %549 = bitcast <16 x i8> %548 to <8 x i16>
-  %550 = ashr <8 x i16> %549, splat (i16 8)
-  %551 = shufflevector <16 x i8> %545, <16 x i8> poison, <16 x i32> <i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15>
-  %552 = bitcast <16 x i8> %551 to <8 x i16>
-  %553 = ashr <8 x i16> %552, splat (i16 8)
-  %554 = shufflevector <16 x i8> %547, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %555 = shufflevector <16 x i8> %547, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %556 = bitcast <16 x i8> %554 to <8 x i16>
-  %557 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %550, <8 x i16> %556)
-  %558 = bitcast <16 x i8> %555 to <8 x i16>
-  %559 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %553, <8 x i16> %558)
-  %560 = add <4 x i32> %557, %.074.in78.i.i.i.i54
-  %561 = add <4 x i32> %559, %543
+543:                                              ; preds = %543, %537
+  %indvars.iv.i.i.i.i53 = phi i64 [ 0, %537 ], [ %indvars.iv.next.i.i.i.i55, %543 ]
+  %.074.in78.i.i.i.i54 = phi <4 x i32> [ %541, %537 ], [ %561, %543 ]
+  %544 = phi <4 x i32> [ zeroinitializer, %537 ], [ %562, %543 ]
+  %545 = getelementptr inbounds nuw <2 x i64>, ptr %542, i64 %indvars.iv.i.i.i.i53
+  %546 = load <16 x i8>, ptr %545, align 16, !noalias !31
+  %547 = getelementptr inbounds nuw <2 x i64>, ptr %9, i64 %indvars.iv.i.i.i.i53
+  %548 = load <16 x i8>, ptr %547, align 16, !noalias !31
+  %549 = shufflevector <16 x i8> %546, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
+  %550 = bitcast <16 x i8> %549 to <8 x i16>
+  %551 = ashr <8 x i16> %550, splat (i16 8)
+  %552 = shufflevector <16 x i8> %546, <16 x i8> poison, <16 x i32> <i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15>
+  %553 = bitcast <16 x i8> %552 to <8 x i16>
+  %554 = ashr <8 x i16> %553, splat (i16 8)
+  %555 = shufflevector <16 x i8> %548, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %556 = shufflevector <16 x i8> %548, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %557 = bitcast <16 x i8> %555 to <8 x i16>
+  %558 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %551, <8 x i16> %557)
+  %559 = bitcast <16 x i8> %556 to <8 x i16>
+  %560 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %554, <8 x i16> %559)
+  %561 = add <4 x i32> %558, %.074.in78.i.i.i.i54
+  %562 = add <4 x i32> %560, %544
   %indvars.iv.next.i.i.i.i55 = add nuw nsw i64 %indvars.iv.i.i.i.i53, 1
   %exitcond.not.i.i.i.i56 = icmp eq i64 %indvars.iv.next.i.i.i.i55, 160
-  br i1 %exitcond.not.i.i.i.i56, label %562, label %542, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i.i56, label %563, label %543, !llvm.loop !6
 
-562:                                              ; preds = %542
-  %563 = add <4 x i32> %561, %560
-  %564 = shufflevector <4 x i32> %563, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %565 = add <4 x i32> %564, %563
-  %566 = shufflevector <4 x i32> %565, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %567 = add <4 x i32> %565, %566
-  %568 = extractelement <4 x i32> %567, i64 0
-  %569 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv82.i.i.i.i52
-  store i32 %568, ptr %569, align 4, !noalias !31
+563:                                              ; preds = %543
+  %564 = add <4 x i32> %562, %561
+  %565 = shufflevector <4 x i32> %564, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %566 = add <4 x i32> %565, %564
+  %567 = shufflevector <4 x i32> %566, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %568 = add <4 x i32> %566, %567
+  %569 = extractelement <4 x i32> %568, i64 0
+  %570 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv82.i.i.i.i52
+  store i32 %569, ptr %570, align 4, !noalias !31
   %indvars.iv.next83.i.i.i.i57 = add nuw nsw i64 %indvars.iv82.i.i.i.i52, 1
   %exitcond85.not.i.i.i.i58 = icmp eq i64 %indvars.iv.next83.i.i.i.i57, 16
-  br i1 %exitcond85.not.i.i.i.i58, label %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59, label %536, !llvm.loop !8
+  br i1 %exitcond85.not.i.i.i.i58, label %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59, label %537, !llvm.loop !8
 
-_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59: ; preds = %562
-  %570 = load <4 x i32>, ptr %34, align 64, !noalias !31
-  %571 = load <4 x i32>, ptr %36, align 16, !noalias !31
-  %572 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %570, <4 x i32> %571)
-  %573 = load <4 x i32>, ptr %37, align 32, !noalias !31
-  %574 = load <4 x i32>, ptr %38, align 16, !noalias !31
-  %575 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %573, <4 x i32> %574)
-  %576 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %572, <8 x i16> %572)
-  %577 = lshr <8 x i16> %576, splat (i16 3)
-  %578 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %575, <8 x i16> %575)
-  %579 = lshr <8 x i16> %578, splat (i16 3)
-  %580 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %577, <8 x i16> %579)
-  store <16 x i8> %580, ptr %35, align 64, !noalias !31
-  %581 = ashr <8 x i16> %572, splat (i16 6)
-  %582 = ashr <8 x i16> %575, splat (i16 6)
-  %583 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %581, <8 x i16> %582)
-  %584 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %583, <16 x i8> splat (i8 -128))
-  %585 = bitcast <16 x i8> %584 to <2 x i64>
-  %586 = and <2 x i64> %585, splat (i64 9187201950435737471)
-  store <2 x i64> %586, ptr %39, align 64, !noalias !31
+_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59: ; preds = %563
+  %571 = load <4 x i32>, ptr %34, align 64, !noalias !31
+  %572 = load <4 x i32>, ptr %36, align 16, !noalias !31
+  %573 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %571, <4 x i32> %572)
+  %574 = load <4 x i32>, ptr %37, align 32, !noalias !31
+  %575 = load <4 x i32>, ptr %38, align 16, !noalias !31
+  %576 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %574, <4 x i32> %575)
+  %577 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %573, <8 x i16> %573)
+  %578 = lshr <8 x i16> %577, splat (i16 3)
+  %579 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %576, <8 x i16> %576)
+  %580 = lshr <8 x i16> %579, splat (i16 3)
+  %581 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %578, <8 x i16> %580)
+  store <16 x i8> %581, ptr %35, align 64, !noalias !31
+  %582 = ashr <8 x i16> %573, splat (i16 6)
+  %583 = ashr <8 x i16> %576, splat (i16 6)
+  %584 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %582, <8 x i16> %583)
+  %585 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %584, <16 x i8> splat (i8 -128))
+  %586 = bitcast <16 x i8> %585 to <2 x i64>
+  %587 = and <2 x i64> %586, splat (i64 9187201950435737471)
+  store <2 x i64> %587, ptr %39, align 64, !noalias !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %40, ptr noundef nonnull align 64 dereferenceable(15) %39, i64 15, i1 false), !noalias !31
-  %587 = getelementptr inbounds nuw i8, ptr %530, i64 41088
-  %588 = getelementptr inbounds nuw i8, ptr %530, i64 41216
-  br label %589
+  %588 = getelementptr inbounds nuw i8, ptr %531, i64 41088
+  %589 = getelementptr inbounds nuw i8, ptr %531, i64 41216
+  br label %590
 
-589:                                              ; preds = %616, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59
-  %indvars.iv82.i.i3.i.i60 = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59 ], [ %indvars.iv.next83.i.i6.i.i63, %616 ]
-  %590 = shl nuw nsw i64 %indvars.iv82.i.i3.i.i60, 5
-  %591 = getelementptr inbounds nuw i32, ptr %587, i64 %indvars.iv82.i.i3.i.i60
-  %592 = load i32, ptr %591, align 4, !noalias !31
-  %593 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %592, i64 0
-  %594 = getelementptr inbounds nuw i8, ptr %588, i64 %590
-  br label %595
+590:                                              ; preds = %617, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59
+  %indvars.iv82.i.i3.i.i60 = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59 ], [ %indvars.iv.next83.i.i6.i.i63, %617 ]
+  %591 = shl nuw nsw i64 %indvars.iv82.i.i3.i.i60, 5
+  %592 = getelementptr inbounds nuw i32, ptr %588, i64 %indvars.iv82.i.i3.i.i60
+  %593 = load i32, ptr %592, align 4, !noalias !31
+  %594 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %593, i64 0
+  %595 = getelementptr inbounds nuw i8, ptr %589, i64 %591
+  br label %596
 
-595:                                              ; preds = %595, %589
-  %596 = phi i1 [ true, %589 ], [ false, %595 ]
-  %indvars.iv.i.i4.i.i61 = phi i64 [ 0, %589 ], [ 1, %595 ]
-  %.074.in78.i.i5.i.i62 = phi <4 x i32> [ %593, %589 ], [ %614, %595 ]
-  %597 = phi <4 x i32> [ zeroinitializer, %589 ], [ %615, %595 ]
-  %598 = getelementptr inbounds nuw <2 x i64>, ptr %594, i64 %indvars.iv.i.i4.i.i61
-  %599 = load <16 x i8>, ptr %598, align 16, !noalias !31
-  %600 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %indvars.iv.i.i4.i.i61
-  %601 = load <16 x i8>, ptr %600, align 16, !noalias !31
-  %602 = shufflevector <16 x i8> %599, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
-  %603 = bitcast <16 x i8> %602 to <8 x i16>
-  %604 = ashr <8 x i16> %603, splat (i16 8)
-  %605 = shufflevector <16 x i8> %599, <16 x i8> poison, <16 x i32> <i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15>
-  %606 = bitcast <16 x i8> %605 to <8 x i16>
-  %607 = ashr <8 x i16> %606, splat (i16 8)
-  %608 = shufflevector <16 x i8> %601, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %609 = shufflevector <16 x i8> %601, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %610 = bitcast <16 x i8> %608 to <8 x i16>
-  %611 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %604, <8 x i16> %610)
-  %612 = bitcast <16 x i8> %609 to <8 x i16>
-  %613 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %607, <8 x i16> %612)
-  %614 = add <4 x i32> %611, %.074.in78.i.i5.i.i62
-  %615 = add <4 x i32> %613, %597
-  br i1 %596, label %595, label %616, !llvm.loop !9
+596:                                              ; preds = %596, %590
+  %597 = phi i1 [ true, %590 ], [ false, %596 ]
+  %indvars.iv.i.i4.i.i61 = phi i64 [ 0, %590 ], [ 1, %596 ]
+  %.074.in78.i.i5.i.i62 = phi <4 x i32> [ %594, %590 ], [ %615, %596 ]
+  %598 = phi <4 x i32> [ zeroinitializer, %590 ], [ %616, %596 ]
+  %599 = getelementptr inbounds nuw <2 x i64>, ptr %595, i64 %indvars.iv.i.i4.i.i61
+  %600 = load <16 x i8>, ptr %599, align 16, !noalias !31
+  %601 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %indvars.iv.i.i4.i.i61
+  %602 = load <16 x i8>, ptr %601, align 16, !noalias !31
+  %603 = shufflevector <16 x i8> %600, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
+  %604 = bitcast <16 x i8> %603 to <8 x i16>
+  %605 = ashr <8 x i16> %604, splat (i16 8)
+  %606 = shufflevector <16 x i8> %600, <16 x i8> poison, <16 x i32> <i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15>
+  %607 = bitcast <16 x i8> %606 to <8 x i16>
+  %608 = ashr <8 x i16> %607, splat (i16 8)
+  %609 = shufflevector <16 x i8> %602, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %610 = shufflevector <16 x i8> %602, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %611 = bitcast <16 x i8> %609 to <8 x i16>
+  %612 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %605, <8 x i16> %611)
+  %613 = bitcast <16 x i8> %610 to <8 x i16>
+  %614 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %608, <8 x i16> %613)
+  %615 = add <4 x i32> %612, %.074.in78.i.i5.i.i62
+  %616 = add <4 x i32> %614, %598
+  br i1 %597, label %596, label %617, !llvm.loop !9
 
-616:                                              ; preds = %595
-  %617 = add <4 x i32> %615, %614
-  %618 = shufflevector <4 x i32> %617, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %619 = add <4 x i32> %618, %617
-  %620 = shufflevector <4 x i32> %619, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %621 = add <4 x i32> %619, %620
-  %622 = extractelement <4 x i32> %621, i64 0
-  %623 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv82.i.i3.i.i60
-  store i32 %622, ptr %623, align 4, !noalias !31
+617:                                              ; preds = %596
+  %618 = add <4 x i32> %616, %615
+  %619 = shufflevector <4 x i32> %618, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %620 = add <4 x i32> %619, %618
+  %621 = shufflevector <4 x i32> %620, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %622 = add <4 x i32> %620, %621
+  %623 = extractelement <4 x i32> %622, i64 0
+  %624 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv82.i.i3.i.i60
+  store i32 %623, ptr %624, align 4, !noalias !31
   %indvars.iv.next83.i.i6.i.i63 = add nuw nsw i64 %indvars.iv82.i.i3.i.i60, 1
   %exitcond.not.i.i7.i.i64 = icmp eq i64 %indvars.iv.next83.i.i6.i.i63, 32
-  br i1 %exitcond.not.i.i7.i.i64, label %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65, label %589, !llvm.loop !10
+  br i1 %exitcond.not.i.i7.i.i64, label %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65, label %590, !llvm.loop !10
 
-_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65: ; preds = %616, %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65
-  %624 = phi i1 [ false, %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65 ], [ true, %616 ]
-  %indvars.iv.i.i.i66 = phi i64 [ 1, %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65 ], [ 0, %616 ]
+_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65: ; preds = %617, %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65
+  %625 = phi i1 [ false, %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65 ], [ true, %617 ]
+  %indvars.iv.i.i.i66 = phi i64 [ 1, %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65 ], [ 0, %617 ]
   %.idx.i.i.i67 = shl nuw nsw i64 %indvars.iv.i.i.i66, 6
-  %625 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i67
-  %626 = load <4 x i32>, ptr %625, align 64, !noalias !31
-  %627 = getelementptr inbounds nuw i8, ptr %625, i64 16
-  %628 = load <4 x i32>, ptr %627, align 16, !noalias !31
-  %629 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %626, <4 x i32> %628)
-  %630 = ashr <8 x i16> %629, splat (i16 6)
-  %631 = getelementptr inbounds nuw i8, ptr %625, i64 32
-  %632 = load <4 x i32>, ptr %631, align 32, !noalias !31
-  %633 = getelementptr inbounds nuw i8, ptr %625, i64 48
-  %634 = load <4 x i32>, ptr %633, align 16, !noalias !31
-  %635 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %632, <4 x i32> %634)
-  %636 = ashr <8 x i16> %635, splat (i16 6)
-  %637 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %630, <8 x i16> %636)
-  %638 = getelementptr inbounds nuw <2 x i64>, ptr %42, i64 %indvars.iv.i.i.i66
-  %639 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %637, <16 x i8> splat (i8 -128))
-  %640 = bitcast <16 x i8> %639 to <2 x i64>
-  %641 = and <2 x i64> %640, splat (i64 9187201950435737471)
-  store <2 x i64> %641, ptr %638, align 16, !noalias !31
-  br i1 %624, label %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65, label %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68, !llvm.loop !11
+  %626 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i67
+  %627 = load <4 x i32>, ptr %626, align 64, !noalias !31
+  %628 = getelementptr inbounds nuw i8, ptr %626, i64 16
+  %629 = load <4 x i32>, ptr %628, align 16, !noalias !31
+  %630 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %627, <4 x i32> %629)
+  %631 = ashr <8 x i16> %630, splat (i16 6)
+  %632 = getelementptr inbounds nuw i8, ptr %626, i64 32
+  %633 = load <4 x i32>, ptr %632, align 32, !noalias !31
+  %634 = getelementptr inbounds nuw i8, ptr %626, i64 48
+  %635 = load <4 x i32>, ptr %634, align 16, !noalias !31
+  %636 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %633, <4 x i32> %635)
+  %637 = ashr <8 x i16> %636, splat (i16 6)
+  %638 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %631, <8 x i16> %637)
+  %639 = getelementptr inbounds nuw <2 x i64>, ptr %42, i64 %indvars.iv.i.i.i66
+  %640 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %638, <16 x i8> splat (i8 -128))
+  %641 = bitcast <16 x i8> %640 to <2 x i64>
+  %642 = and <2 x i64> %641, splat (i64 9187201950435737471)
+  store <2 x i64> %642, ptr %639, align 16, !noalias !31
+  br i1 %625, label %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65, label %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68, !llvm.loop !11
 
 _ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68: ; preds = %_ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exit.i.i65
-  %642 = getelementptr inbounds nuw i8, ptr %530, i64 42304
-  %643 = getelementptr inbounds nuw i8, ptr %530, i64 42368
-  %644 = load i32, ptr %642, align 4, !noalias !31
-  %645 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %644, i64 0
-  br label %646
+  %643 = getelementptr inbounds nuw i8, ptr %531, i64 42304
+  %644 = getelementptr inbounds nuw i8, ptr %531, i64 42368
+  %645 = load i32, ptr %643, align 4, !noalias !31
+  %646 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %645, i64 0
+  br label %647
 
-646:                                              ; preds = %646, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68
-  %647 = phi i1 [ true, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ false, %646 ]
-  %indvars.iv.i.i8.i.i69 = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ 1, %646 ]
-  %.074.in78.i.i9.i.i70 = phi <4 x i32> [ %645, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ %665, %646 ]
-  %648 = phi <4 x i32> [ zeroinitializer, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ %666, %646 ]
-  %649 = getelementptr inbounds nuw <2 x i64>, ptr %643, i64 %indvars.iv.i.i8.i.i69
-  %650 = load <16 x i8>, ptr %649, align 16, !noalias !31
-  %651 = getelementptr inbounds nuw <2 x i64>, ptr %42, i64 %indvars.iv.i.i8.i.i69
-  %652 = load <16 x i8>, ptr %651, align 16, !noalias !31
-  %653 = shufflevector <16 x i8> %650, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
-  %654 = bitcast <16 x i8> %653 to <8 x i16>
-  %655 = ashr <8 x i16> %654, splat (i16 8)
-  %656 = shufflevector <16 x i8> %650, <16 x i8> poison, <16 x i32> <i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15>
-  %657 = bitcast <16 x i8> %656 to <8 x i16>
-  %658 = ashr <8 x i16> %657, splat (i16 8)
-  %659 = shufflevector <16 x i8> %652, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %660 = shufflevector <16 x i8> %652, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %661 = bitcast <16 x i8> %659 to <8 x i16>
-  %662 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %655, <8 x i16> %661)
-  %663 = bitcast <16 x i8> %660 to <8 x i16>
-  %664 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %658, <8 x i16> %663)
-  %665 = add <4 x i32> %662, %.074.in78.i.i9.i.i70
-  %666 = add <4 x i32> %664, %648
-  br i1 %647, label %646, label %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i, !llvm.loop !12
+647:                                              ; preds = %647, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68
+  %648 = phi i1 [ true, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ false, %647 ]
+  %indvars.iv.i.i8.i.i69 = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ 1, %647 ]
+  %.074.in78.i.i9.i.i70 = phi <4 x i32> [ %646, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ %666, %647 ]
+  %649 = phi <4 x i32> [ zeroinitializer, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ %667, %647 ]
+  %650 = getelementptr inbounds nuw <2 x i64>, ptr %644, i64 %indvars.iv.i.i8.i.i69
+  %651 = load <16 x i8>, ptr %650, align 16, !noalias !31
+  %652 = getelementptr inbounds nuw <2 x i64>, ptr %42, i64 %indvars.iv.i.i8.i.i69
+  %653 = load <16 x i8>, ptr %652, align 16, !noalias !31
+  %654 = shufflevector <16 x i8> %651, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
+  %655 = bitcast <16 x i8> %654 to <8 x i16>
+  %656 = ashr <8 x i16> %655, splat (i16 8)
+  %657 = shufflevector <16 x i8> %651, <16 x i8> poison, <16 x i32> <i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 14, i32 14, i32 15, i32 15>
+  %658 = bitcast <16 x i8> %657 to <8 x i16>
+  %659 = ashr <8 x i16> %658, splat (i16 8)
+  %660 = shufflevector <16 x i8> %653, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %661 = shufflevector <16 x i8> %653, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %662 = bitcast <16 x i8> %660 to <8 x i16>
+  %663 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %656, <8 x i16> %662)
+  %664 = bitcast <16 x i8> %661 to <8 x i16>
+  %665 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %659, <8 x i16> %664)
+  %666 = add <4 x i32> %663, %.074.in78.i.i9.i.i70
+  %667 = add <4 x i32> %665, %649
+  br i1 %648, label %647, label %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i, !llvm.loop !12
 
-_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i: ; preds = %646
-  %667 = extractelement <4 x i32> %574, i64 3
-  %668 = add <4 x i32> %666, %665
-  %669 = shufflevector <4 x i32> %668, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %670 = add <4 x i32> %669, %668
-  %671 = shufflevector <4 x i32> %670, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %672 = add <4 x i32> %670, %671
-  %673 = extractelement <4 x i32> %672, i64 0
-  store i32 %673, ptr %43, align 64, !noalias !31
-  %674 = mul nsw i32 %667, 9600
-  %675 = sdiv i32 %674, 8128
-  %676 = add nsw i32 %673, %675
-  %677 = sdiv i32 %528, 16
-  %678 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i51
-  store i32 %677, ptr %678, align 4, !alias.scope !31
-  %679 = sdiv i32 %676, 16
-  %680 = getelementptr inbounds nuw i32, ptr %524, i64 %indvars.iv.i51
-  store i32 %679, ptr %680, align 4, !alias.scope !31
+_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i: ; preds = %647
+  %668 = extractelement <4 x i32> %575, i64 3
+  %669 = add <4 x i32> %667, %666
+  %670 = shufflevector <4 x i32> %669, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %671 = add <4 x i32> %670, %669
+  %672 = shufflevector <4 x i32> %671, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %673 = add <4 x i32> %671, %672
+  %674 = extractelement <4 x i32> %673, i64 0
+  store i32 %674, ptr %43, align 64, !noalias !31
+  %675 = mul nsw i32 %668, 9600
+  %676 = sdiv i32 %675, 8128
+  %677 = add nsw i32 %674, %676
+  %678 = sdiv i32 %529, 16
+  %679 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i51
+  store i32 %678, ptr %679, align 4, !alias.scope !31
+  %680 = sdiv i32 %677, 16
+  %681 = getelementptr inbounds nuw i32, ptr %525, i64 %indvars.iv.i51
+  store i32 %680, ptr %681, align 4, !alias.scope !31
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 8
-  br i1 %exitcond.not.i72, label %_ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit, label %525, !llvm.loop !34
+  br i1 %exitcond.not.i72, label %_ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit, label %526, !llvm.loop !34
 
 _ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit: ; preds = %_ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %681 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.8) #15
-  %682 = load i32, ptr %18, align 4
-  %683 = icmp eq i32 %682, 0
-  %.str.9..str.10 = select i1 %683, ptr @.str.9, ptr @.str.10
-  %684 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %681, ptr noundef nonnull %.str.9..str.10) #15
-  %685 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %684, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #15
-  %686 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %685, ptr noundef nonnull @.str.11) #15
-  %687 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %686, ptr noundef nonnull @.str.12) #15
-  %688 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %687, ptr noundef nonnull @.str.13) #15
-  %689 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %688, ptr noundef nonnull @.str.11) #15
-  %690 = load i64, ptr %523, align 8
-  br label %691
+  %682 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.8) #15
+  %683 = load i32, ptr %18, align 4
+  %684 = icmp eq i32 %683, 0
+  %.str.9..str.10 = select i1 %684, ptr @.str.9, ptr @.str.10
+  %685 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %682, ptr noundef nonnull %.str.9..str.10) #15
+  %686 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %685, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #15
+  %687 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %686, ptr noundef nonnull @.str.11) #15
+  %688 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %687, ptr noundef nonnull @.str.12) #15
+  %689 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %688, ptr noundef nonnull @.str.13) #15
+  %690 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %689, ptr noundef nonnull @.str.11) #15
+  %691 = load i64, ptr %524, align 8
+  br label %692
 
-691:                                              ; preds = %_ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit, %746
-  %.0172 = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit ], [ %748, %746 ]
-  %692 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.14) #15
-  %693 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %692, i64 noundef %.0172) #15
-  %694 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %693, ptr noundef nonnull @.str.15) #15
-  %695 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.16) #15
-  %696 = getelementptr inbounds nuw i32, ptr %13, i64 %.0172
-  %697 = load i32, ptr %696, align 4
-  %698 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %697) #15
-  %699 = sitofp i32 %698 to double
-  %700 = fmul double %699, 1.000000e-02
-  %701 = call noundef double @llvm.fabs.f64(double %700)
-  %702 = icmp slt i32 %697, 0
-  %.not.i73 = icmp eq i32 %697, 0
-  %703 = select i1 %.not.i73, i8 32, i8 43
-  %704 = select i1 %702, i8 45, i8 %703
-  %705 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %509, i8 noundef signext %704) #15
-  %706 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St12_Setiosflags(ptr noundef nonnull align 8 dereferenceable(8) %705, i32 4) #15
-  %707 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %706, i32 6) #15
-  %708 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %707, i32 2) #15
-  %709 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %708, double noundef %701) #15
-  %710 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.17) #15
-  %711 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %710, ptr noundef nonnull @.str.16) #15
-  %712 = getelementptr inbounds nuw i32, ptr %524, i64 %.0172
-  %713 = load i32, ptr %712, align 4
-  %714 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %713) #15
-  %715 = sitofp i32 %714 to double
-  %716 = fmul double %715, 1.000000e-02
-  %717 = call noundef double @llvm.fabs.f64(double %716)
-  %718 = icmp slt i32 %713, 0
-  %.not.i74 = icmp eq i32 %713, 0
-  %719 = select i1 %.not.i74, i8 32, i8 43
-  %720 = select i1 %718, i8 45, i8 %719
-  %721 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %509, i8 noundef signext %720) #15
-  %722 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St12_Setiosflags(ptr noundef nonnull align 8 dereferenceable(8) %721, i32 4) #15
-  %723 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %722, i32 6) #15
-  %724 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %723, i32 2) #15
-  %725 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %724, double noundef %717) #15
-  %726 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.17) #15
-  %727 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %726, ptr noundef nonnull @.str.16) #15
-  %728 = add nsw i32 %713, %697
-  %729 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %728) #15
-  %730 = sitofp i32 %729 to double
-  %731 = fmul double %730, 1.000000e-02
-  %732 = call noundef double @llvm.fabs.f64(double %731)
-  %733 = icmp slt i32 %728, 0
-  %.not.i75 = icmp eq i32 %728, 0
-  %734 = select i1 %.not.i75, i8 32, i8 43
-  %735 = select i1 %733, i8 45, i8 %734
-  %736 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %509, i8 noundef signext %735) #15
-  %737 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St12_Setiosflags(ptr noundef nonnull align 8 dereferenceable(8) %736, i32 4) #15
-  %738 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %737, i32 6) #15
-  %739 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %738, i32 2) #15
-  %740 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %739, double noundef %732) #15
-  %741 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.17) #15
-  %742 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %741, ptr noundef nonnull @.str.18) #15
-  %743 = icmp eq i64 %.0172, %690
-  br i1 %743, label %744, label %746
+692:                                              ; preds = %_ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit, %747
+  %.0172 = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit ], [ %749, %747 ]
+  %693 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.14) #15
+  %694 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %693, i64 noundef %.0172) #15
+  %695 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %694, ptr noundef nonnull @.str.15) #15
+  %696 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.16) #15
+  %697 = getelementptr inbounds nuw i32, ptr %13, i64 %.0172
+  %698 = load i32, ptr %697, align 4
+  %699 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %698) #15
+  %700 = sitofp i32 %699 to double
+  %701 = fmul double %700, 1.000000e-02
+  %702 = call noundef double @llvm.fabs.f64(double %701)
+  %703 = icmp slt i32 %698, 0
+  %.not.i73 = icmp eq i32 %698, 0
+  %704 = select i1 %.not.i73, i8 32, i8 43
+  %705 = select i1 %703, i8 45, i8 %704
+  %706 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %510, i8 noundef signext %705) #15
+  %707 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St12_Setiosflags(ptr noundef nonnull align 8 dereferenceable(8) %706, i32 4) #15
+  %708 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %707, i32 6) #15
+  %709 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %708, i32 2) #15
+  %710 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %709, double noundef %702) #15
+  %711 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.17) #15
+  %712 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %711, ptr noundef nonnull @.str.16) #15
+  %713 = getelementptr inbounds nuw i32, ptr %525, i64 %.0172
+  %714 = load i32, ptr %713, align 4
+  %715 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %714) #15
+  %716 = sitofp i32 %715 to double
+  %717 = fmul double %716, 1.000000e-02
+  %718 = call noundef double @llvm.fabs.f64(double %717)
+  %719 = icmp slt i32 %714, 0
+  %.not.i74 = icmp eq i32 %714, 0
+  %720 = select i1 %.not.i74, i8 32, i8 43
+  %721 = select i1 %719, i8 45, i8 %720
+  %722 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %510, i8 noundef signext %721) #15
+  %723 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St12_Setiosflags(ptr noundef nonnull align 8 dereferenceable(8) %722, i32 4) #15
+  %724 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %723, i32 6) #15
+  %725 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %724, i32 2) #15
+  %726 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %725, double noundef %718) #15
+  %727 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.17) #15
+  %728 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %727, ptr noundef nonnull @.str.16) #15
+  %729 = add nsw i32 %714, %698
+  %730 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %729) #15
+  %731 = sitofp i32 %730 to double
+  %732 = fmul double %731, 1.000000e-02
+  %733 = call noundef double @llvm.fabs.f64(double %732)
+  %734 = icmp slt i32 %729, 0
+  %.not.i75 = icmp eq i32 %729, 0
+  %735 = select i1 %.not.i75, i8 32, i8 43
+  %736 = select i1 %734, i8 45, i8 %735
+  %737 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %510, i8 noundef signext %736) #15
+  %738 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St12_Setiosflags(ptr noundef nonnull align 8 dereferenceable(8) %737, i32 4) #15
+  %739 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %738, i32 6) #15
+  %740 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %739, i32 2) #15
+  %741 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %740, double noundef %733) #15
+  %742 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.17) #15
+  %743 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %742, ptr noundef nonnull @.str.18) #15
+  %744 = icmp eq i64 %.0172, %691
+  br i1 %744, label %745, label %747
 
-744:                                              ; preds = %691
-  %745 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.19) #15
-  br label %746
+745:                                              ; preds = %692
+  %746 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.19) #15
+  br label %747
 
-746:                                              ; preds = %744, %691
-  %747 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %509, i8 noundef signext 10) #15
-  %748 = add nuw nsw i64 %.0172, 1
-  %exitcond201.not = icmp eq i64 %748, 8
-  br i1 %exitcond201.not, label %749, label %691, !llvm.loop !35
+747:                                              ; preds = %745, %692
+  %748 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %510, i8 noundef signext 10) #15
+  %749 = add nuw nsw i64 %.0172, 1
+  %exitcond201.not = icmp eq i64 %749, 8
+  br i1 %exitcond201.not, label %750, label %692, !llvm.loop !35
 
-749:                                              ; preds = %746
-  %750 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull @.str.11) #15
+750:                                              ; preds = %747
+  %751 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.11) #15
   call void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %11) #15
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #15
   ret void

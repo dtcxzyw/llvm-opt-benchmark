@@ -1679,28 +1679,28 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr noundef w
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
-  %.06071 = phi i64 [ %0, %.lr.ph ], [ %22, %21 ]
-  %.06170 = phi i32 [ 0, %.lr.ph ], [ %54, %21 ]
-  %22 = udiv i64 %.06071, 100000000
+  %.06069 = phi i64 [ %0, %.lr.ph ], [ %22, %21 ]
+  %.06168 = phi i32 [ 0, %.lr.ph ], [ %54, %21 ]
+  %22 = udiv i64 %.06069, 100000000
   %.neg67 = mul i64 %22, 4194967296
-  %23 = add i64 %.neg67, %.06071
+  %23 = add i64 %.neg67, %.06069
   %24 = trunc i64 %23 to i32
   %25 = urem i32 %24, 10000
   %26 = udiv i32 %24, 10000
+  %27 = urem i32 %24, 100
+  %28 = shl nuw nsw i32 %27, 1
   %.lhs.trunc = trunc nuw nsw i32 %25 to i16
-  %27 = urem i16 %.lhs.trunc, 100
-  %28 = shl nuw nsw i16 %27, 1
   %29 = udiv i16 %.lhs.trunc, 100
   %30 = shl nuw nsw i16 %29, 1
   %31 = urem i32 %26, 100
   %32 = shl nuw nsw i32 %31, 1
   %33 = udiv i32 %24, 1000000
   %34 = shl nuw nsw i32 %33, 1
-  %35 = sext i32 %.06170 to i64
+  %35 = sext i32 %.06168 to i64
   %36 = sub nsw i64 0, %35
   %37 = getelementptr inbounds i8, ptr %20, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -2
-  %39 = zext nneg i16 %28 to i64
+  %39 = zext nneg i32 %28 to i64
   %40 = getelementptr inbounds nuw i8, ptr @DIGIT_TABLE, i64 %39
   %41 = load i16, ptr %40, align 2
   store i16 %41, ptr %38, align 1
@@ -1719,8 +1719,8 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr noundef w
   %52 = getelementptr inbounds nuw i8, ptr @DIGIT_TABLE, i64 %51
   %53 = load i16, ptr %52, align 2
   store i16 %53, ptr %50, align 1
-  %54 = add i32 %.06170, 8
-  %55 = icmp ugt i64 %.06071, 9999999999999999
+  %54 = add i32 %.06168, 8
+  %55 = icmp ugt i64 %.06069, 9999999999999999
   br i1 %55, label %21, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %21, %5

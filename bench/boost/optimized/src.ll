@@ -34892,22 +34892,22 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123: ; preds = %1
   %42 = urem i32 %41, 10000
   %43 = udiv i32 %41, 10000
   %44 = urem i32 %43, 10000
+  %45 = urem i32 %41, 100
+  %46 = shl nuw nsw i32 %45, 1
   %.lhs.trunc = trunc nuw nsw i32 %42 to i16
-  %45 = urem i16 %.lhs.trunc, 100
-  %46 = shl nuw nsw i16 %45, 1
   %47 = udiv i16 %.lhs.trunc, 100
   %48 = shl nuw nsw i16 %47, 1
-  %.lhs.trunc129 = trunc nuw nsw i32 %44 to i16
-  %49 = urem i16 %.lhs.trunc129, 100
-  %50 = shl nuw nsw i16 %49, 1
-  %51 = udiv i16 %.lhs.trunc129, 100
+  %49 = urem i32 %43, 100
+  %50 = shl nuw nsw i32 %49, 1
+  %.lhs.trunc127 = trunc nuw nsw i32 %44 to i16
+  %51 = udiv i16 %.lhs.trunc127, 100
   %52 = shl nuw nsw i16 %51, 1
   %53 = zext nneg i32 %.0 to i64
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 %53
   %55 = zext nneg i32 %.0.i126 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -1
-  %58 = zext nneg i16 %46 to i64
+  %58 = zext nneg i32 %46 to i64
   %59 = getelementptr inbounds nuw i8, ptr @_ZZN5boost4json6detail3ryu6detail11DIGIT_TABLEEvE3arr, i64 %58
   %60 = load i16, ptr %59, align 2
   store i16 %60, ptr %57, align 1
@@ -34917,7 +34917,7 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123: ; preds = %1
   %64 = load i16, ptr %63, align 2
   store i16 %64, ptr %61, align 1
   %65 = getelementptr inbounds i8, ptr %56, i64 -5
-  %66 = zext nneg i16 %50 to i64
+  %66 = zext nneg i32 %50 to i64
   %67 = getelementptr inbounds nuw i8, ptr @_ZZN5boost4json6detail3ryu6detail11DIGIT_TABLEEvE3arr, i64 %66
   %68 = load i16, ptr %67, align 2
   store i16 %68, ptr %65, align 1
@@ -34944,16 +34944,16 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   br label %79
 
 79:                                               ; preds = %.lr.ph, %79
-  %.1110138 = phi i32 [ %.0109, %.lr.ph ], [ %97, %79 ]
-  %.0112137 = phi i32 [ %73, %.lr.ph ], [ %80, %79 ]
-  %80 = udiv i32 %.0112137, 10000
+  %.1110134 = phi i32 [ %.0109, %.lr.ph ], [ %97, %79 ]
+  %.0112133 = phi i32 [ %73, %.lr.ph ], [ %80, %79 ]
+  %80 = udiv i32 %.0112133, 10000
   %.neg117 = mul i32 %80, -10000
-  %81 = add i32 %.neg117, %.0112137
+  %81 = add i32 %.neg117, %.0112133
   %82 = urem i32 %81, 100
   %83 = shl nuw nsw i32 %82, 1
   %84 = udiv i32 %81, 100
   %85 = shl nuw nsw i32 %84, 1
-  %86 = zext i32 %.1110138 to i64
+  %86 = zext i32 %.1110134 to i64
   %87 = sub nsw i64 0, %86
   %88 = getelementptr inbounds i8, ptr %78, i64 %87
   %89 = getelementptr inbounds i8, ptr %88, i64 -1
@@ -34966,8 +34966,8 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   %95 = getelementptr inbounds nuw i8, ptr @_ZZN5boost4json6detail3ryu6detail11DIGIT_TABLEEvE3arr, i64 %94
   %96 = load i16, ptr %95, align 2
   store i16 %96, ptr %93, align 1
-  %97 = add i32 %.1110138, 4
-  %98 = icmp ugt i32 %.0112137, 99999999
+  %97 = add i32 %.1110134, 4
+  %98 = icmp ugt i32 %.0112133, 99999999
   br i1 %98, label %79, label %._crit_edge, !llvm.loop !624
 
 ._crit_edge:                                      ; preds = %79, %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread
@@ -34977,11 +34977,11 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   br i1 %99, label %100, label %116
 
 100:                                              ; preds = %._crit_edge
-  %.lhs.trunc133 = trunc nuw i32 %.0112.lcssa to i16
-  %101 = urem i16 %.lhs.trunc133, 100
+  %.lhs.trunc129 = trunc nuw i32 %.0112.lcssa to i16
+  %101 = urem i16 %.lhs.trunc129, 100
   %102 = shl nuw nsw i16 %101, 1
-  %103 = udiv i16 %.lhs.trunc133, 100
-  %.zext136 = zext nneg i16 %103 to i32
+  %103 = udiv i16 %.lhs.trunc129, 100
+  %.zext132 = zext nneg i16 %103 to i32
   %104 = zext nneg i32 %.0 to i64
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 %104
   %106 = zext nneg i32 %.0.i120 to i64
@@ -34998,7 +34998,7 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   br label %116
 
 116:                                              ; preds = %100, %._crit_edge
-  %.1113 = phi i32 [ %.zext136, %100 ], [ %.0112.lcssa, %._crit_edge ]
+  %.1113 = phi i32 [ %.zext132, %100 ], [ %.0112.lcssa, %._crit_edge ]
   %.2111 = phi i32 [ %115, %100 ], [ %.1110.lcssa, %._crit_edge ]
   %117 = icmp samesign ugt i32 %.1113, 9
   br i1 %117, label %118, label %129

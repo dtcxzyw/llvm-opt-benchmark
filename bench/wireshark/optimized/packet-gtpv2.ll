@@ -4057,13 +4057,12 @@ define hidden void @dissect_gtpv2_mbms_session_duration(ptr noundef %0, ptr noun
   %.lhs.trunc = trunc nuw nsw i32 %19 to i16
   %20 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %20 to i32
-  %21 = urem i16 %.lhs.trunc, 60
-  %.zext48 = zext nneg i16 %21 to i32
+  %21 = urem i32 %9, 60
   %22 = load i32, ptr @hf_gtpv2_mbms_session_duration_days, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0)
   %24 = load i32, ptr @hf_gtpv2_mbms_session_duration_secs, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.17, i32 noundef %10, i32 noundef %18, i32 noundef %.zext, i32 noundef %.zext48)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.17, i32 noundef %10, i32 noundef %18, i32 noundef %.zext, i32 noundef %21)
   %26 = icmp ugt i32 %10, 18
   br i1 %26, label %27, label %29
 

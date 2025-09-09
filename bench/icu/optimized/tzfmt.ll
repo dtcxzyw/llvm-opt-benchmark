@@ -7197,7 +7197,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714TimeZoneFor
   %44 = udiv i32 %43, 60000
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !12
-  %46 = urem i32 %43, 60000
+  %46 = urem i32 %20, 60000
   %.lhs.trunc = trunc nuw i32 %46 to i16
   %47 = udiv i16 %.lhs.trunc, 1000
   %.zext = zext nneg i16 %47 to i32
@@ -7356,7 +7356,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714TimeZoneFor
   %19 = udiv i32 %spec.select, 3600000
   %20 = urem i32 %spec.select, 3600000
   %21 = udiv i32 %20, 60000
-  %22 = urem i32 %20, 60000
+  %22 = urem i32 %spec.select, 60000
   %.lhs.trunc = trunc nuw i32 %22 to i16
   %23 = udiv i16 %.lhs.trunc, 1000
   %.not55 = icmp samesign ult i32 %22, 1000
@@ -9299,7 +9299,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7714TimeZoneForm
   %35 = udiv i32 %34, 60000
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %35, ptr %36, align 4, !tbaa !12
-  %37 = urem i32 %34, 60000
+  %37 = urem i32 %.028, 60000
   %.lhs.trunc = trunc nuw i32 %37 to i16
   %38 = udiv i16 %.lhs.trunc, 1000
   %.zext = zext nneg i16 %38 to i32

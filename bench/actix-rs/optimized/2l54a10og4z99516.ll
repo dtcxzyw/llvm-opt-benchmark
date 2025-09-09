@@ -3724,80 +3724,79 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.028.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
+  %.028.lcssa = phi i64 [ 20, %2 ], [ %12, %.lr.ph ]
   %.1.lcssa = phi i64 [ %0, %2 ], [ %6, %.lr.ph ]
   %4 = icmp samesign ugt i64 %.1.lcssa, 99
-  br i1 %4, label %22, label %31
+  br i1 %4, label %21, label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
-  %.02836 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
-  %5 = urem i64 %.137, 10000
-  %6 = udiv i64 %.137, 10000
+  %.135 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
+  %.02834 = phi i64 [ %12, %.lr.ph ], [ 20, %2 ]
+  %5 = urem i64 %.135, 10000
+  %6 = udiv i64 %.135, 10000
   %.lhs.trunc = trunc nuw nsw i64 %5 to i16
   %7 = udiv i16 %.lhs.trunc, 100
   %8 = shl nuw nsw i16 %7, 1
   %9 = zext nneg i16 %8 to i64
-  %10 = urem i16 %.lhs.trunc, 100
-  %11 = shl nuw nsw i16 %10, 1
-  %12 = zext nneg i16 %11 to i64
-  %13 = add i64 %.02836, -4
-  %14 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 %13
-  %16 = load i16, ptr %14, align 1
-  store i16 %16, ptr %15, align 1
-  %17 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %12
-  %18 = getelementptr i8, ptr %1, i64 %.02836
-  %19 = getelementptr i8, ptr %18, i64 -2
-  %20 = load i16, ptr %17, align 1
-  store i16 %20, ptr %19, align 1
-  %21 = icmp ugt i64 %.137, 99999999
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  %10 = urem i64 %.135, 100
+  %11 = shl nuw nsw i64 %10, 1
+  %12 = add i64 %.02834, -4
+  %13 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %9
+  %14 = getelementptr inbounds i8, ptr %1, i64 %12
+  %15 = load i16, ptr %13, align 1
+  store i16 %15, ptr %14, align 1
+  %16 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %11
+  %17 = getelementptr i8, ptr %1, i64 %.02834
+  %18 = getelementptr i8, ptr %17, i64 -2
+  %19 = load i16, ptr %16, align 1
+  store i16 %19, ptr %18, align 1
+  %20 = icmp ugt i64 %.135, 99999999
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
-22:                                               ; preds = %._crit_edge
-  %.lhs.trunc32 = trunc nuw i64 %.1.lcssa to i16
-  %23 = urem i16 %.lhs.trunc32, 100
-  %24 = shl nuw nsw i16 %23, 1
-  %25 = zext nneg i16 %24 to i64
-  %26 = udiv i16 %.lhs.trunc32, 100
-  %.zext35 = zext nneg i16 %26 to i64
-  %27 = add i64 %.028.lcssa, -2
-  %28 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %25
-  %29 = getelementptr inbounds i8, ptr %1, i64 %27
-  %30 = load i16, ptr %28, align 1
-  store i16 %30, ptr %29, align 1
-  br label %31
+21:                                               ; preds = %._crit_edge
+  %.lhs.trunc30 = trunc nuw i64 %.1.lcssa to i16
+  %22 = urem i16 %.lhs.trunc30, 100
+  %23 = shl nuw nsw i16 %22, 1
+  %24 = zext nneg i16 %23 to i64
+  %25 = udiv i16 %.lhs.trunc30, 100
+  %.zext33 = zext nneg i16 %25 to i64
+  %26 = add i64 %.028.lcssa, -2
+  %27 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 %26
+  %29 = load i16, ptr %27, align 1
+  store i16 %29, ptr %28, align 1
+  br label %30
 
-31:                                               ; preds = %._crit_edge, %22
-  %.129 = phi i64 [ %27, %22 ], [ %.028.lcssa, %._crit_edge ]
-  %.027 = phi i64 [ %.zext35, %22 ], [ %.1.lcssa, %._crit_edge ]
-  %32 = icmp samesign ult i64 %.027, 10
-  br i1 %32, label %39, label %33
+30:                                               ; preds = %._crit_edge, %21
+  %.129 = phi i64 [ %26, %21 ], [ %.028.lcssa, %._crit_edge ]
+  %.027 = phi i64 [ %.zext33, %21 ], [ %.1.lcssa, %._crit_edge ]
+  %31 = icmp samesign ult i64 %.027, 10
+  br i1 %31, label %38, label %32
 
-33:                                               ; preds = %31
-  %34 = shl nuw nsw i64 %.027, 1
-  %35 = add i64 %.129, -2
-  %36 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %34
-  %37 = getelementptr inbounds i8, ptr %1, i64 %35
-  %38 = load i16, ptr %36, align 1
-  store i16 %38, ptr %37, align 1
-  br label %44
+32:                                               ; preds = %30
+  %33 = shl nuw nsw i64 %.027, 1
+  %34 = add i64 %.129, -2
+  %35 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %33
+  %36 = getelementptr inbounds i8, ptr %1, i64 %34
+  %37 = load i16, ptr %35, align 1
+  store i16 %37, ptr %36, align 1
+  br label %43
 
-39:                                               ; preds = %31
-  %40 = add i64 %.129, -1
-  %41 = trunc nuw nsw i64 %.027 to i8
-  %42 = getelementptr inbounds i8, ptr %1, i64 %40
-  %43 = or disjoint i8 %41, 48
-  store i8 %43, ptr %42, align 1
-  br label %44
+38:                                               ; preds = %30
+  %39 = add i64 %.129, -1
+  %40 = trunc nuw nsw i64 %.027 to i8
+  %41 = getelementptr inbounds i8, ptr %1, i64 %39
+  %42 = or disjoint i8 %40, 48
+  store i8 %42, ptr %41, align 1
+  br label %43
 
-44:                                               ; preds = %33, %39
-  %.2 = phi i64 [ %40, %39 ], [ %35, %33 ]
-  %45 = sub i64 20, %.2
-  %46 = getelementptr inbounds i8, ptr %1, i64 %.2
-  %47 = insertvalue { ptr, i64 } poison, ptr %46, 0
-  %48 = insertvalue { ptr, i64 } %47, i64 %45, 1
-  ret { ptr, i64 } %48
+43:                                               ; preds = %32, %38
+  %.2 = phi i64 [ %39, %38 ], [ %34, %32 ]
+  %44 = sub i64 20, %.2
+  %45 = getelementptr inbounds i8, ptr %1, i64 %.2
+  %46 = insertvalue { ptr, i64 } poison, ptr %45, 0
+  %47 = insertvalue { ptr, i64 } %46, i64 %44, 1
+  ret { ptr, i64 } %47
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -8799,78 +8798,77 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   ret void
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %7
-  %.028.lcssa.i = phi i64 [ 20, %7 ], [ %21, %.lr.ph.i ]
+  %.028.lcssa.i = phi i64 [ 20, %7 ], [ %20, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %0, %7 ], [ %14, %.lr.ph.i ]
   %12 = icmp samesign ugt i64 %.1.lcssa.i, 99
-  br i1 %12, label %30, label %39
+  br i1 %12, label %29, label %38
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.137.i = phi i64 [ %14, %.lr.ph.i ], [ %0, %7 ]
-  %.02836.i = phi i64 [ %21, %.lr.ph.i ], [ 20, %7 ]
-  %13 = urem i64 %.137.i, 10000
-  %14 = udiv i64 %.137.i, 10000
+  %.135.i = phi i64 [ %14, %.lr.ph.i ], [ %0, %7 ]
+  %.02834.i = phi i64 [ %20, %.lr.ph.i ], [ 20, %7 ]
+  %13 = urem i64 %.135.i, 10000
+  %14 = udiv i64 %.135.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %13 to i16
   %15 = udiv i16 %.lhs.trunc.i, 100
   %16 = shl nuw nsw i16 %15, 1
   %17 = zext nneg i16 %16 to i64
-  %18 = urem i16 %.lhs.trunc.i, 100
-  %19 = shl nuw nsw i16 %18, 1
-  %20 = zext nneg i16 %19 to i64
-  %21 = add i64 %.02836.i, -4
-  %22 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 %21
-  %24 = load i16, ptr %22, align 1, !noalias !960
-  store i16 %24, ptr %23, align 1, !alias.scope !960
-  %25 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %20
-  %26 = getelementptr i8, ptr %4, i64 %.02836.i
-  %27 = getelementptr i8, ptr %26, i64 -2
-  %28 = load i16, ptr %25, align 1, !noalias !960
-  store i16 %28, ptr %27, align 1, !alias.scope !960
-  %29 = icmp ugt i64 %.137.i, 99999999
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i
+  %18 = urem i64 %.135.i, 100
+  %19 = shl nuw nsw i64 %18, 1
+  %20 = add i64 %.02834.i, -4
+  %21 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %17
+  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %23 = load i16, ptr %21, align 1, !noalias !960
+  store i16 %23, ptr %22, align 1, !alias.scope !960
+  %24 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %19
+  %25 = getelementptr i8, ptr %4, i64 %.02834.i
+  %26 = getelementptr i8, ptr %25, i64 -2
+  %27 = load i16, ptr %24, align 1, !noalias !960
+  store i16 %27, ptr %26, align 1, !alias.scope !960
+  %28 = icmp ugt i64 %.135.i, 99999999
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
-30:                                               ; preds = %._crit_edge.i
-  %.lhs.trunc32.i = trunc nuw i64 %.1.lcssa.i to i16
-  %31 = urem i16 %.lhs.trunc32.i, 100
-  %32 = shl nuw nsw i16 %31, 1
-  %33 = zext nneg i16 %32 to i64
-  %34 = udiv i16 %.lhs.trunc32.i, 100
-  %.zext35.i = zext nneg i16 %34 to i64
-  %35 = add i64 %.028.lcssa.i, -2
-  %36 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %33
-  %37 = getelementptr inbounds i8, ptr %4, i64 %35
-  %38 = load i16, ptr %36, align 1, !noalias !960
-  store i16 %38, ptr %37, align 1, !alias.scope !960
-  br label %39
+29:                                               ; preds = %._crit_edge.i
+  %.lhs.trunc30.i = trunc nuw i64 %.1.lcssa.i to i16
+  %30 = urem i16 %.lhs.trunc30.i, 100
+  %31 = shl nuw nsw i16 %30, 1
+  %32 = zext nneg i16 %31 to i64
+  %33 = udiv i16 %.lhs.trunc30.i, 100
+  %.zext33.i = zext nneg i16 %33 to i64
+  %34 = add i64 %.028.lcssa.i, -2
+  %35 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %32
+  %36 = getelementptr inbounds i8, ptr %4, i64 %34
+  %37 = load i16, ptr %35, align 1, !noalias !960
+  store i16 %37, ptr %36, align 1, !alias.scope !960
+  br label %38
 
-39:                                               ; preds = %30, %._crit_edge.i
-  %.129.i = phi i64 [ %35, %30 ], [ %.028.lcssa.i, %._crit_edge.i ]
-  %.027.i = phi i64 [ %.zext35.i, %30 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %40 = icmp samesign ult i64 %.027.i, 10
-  br i1 %40, label %47, label %41
+38:                                               ; preds = %29, %._crit_edge.i
+  %.129.i = phi i64 [ %34, %29 ], [ %.028.lcssa.i, %._crit_edge.i ]
+  %.027.i = phi i64 [ %.zext33.i, %29 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %39 = icmp samesign ult i64 %.027.i, 10
+  br i1 %39, label %46, label %40
 
-41:                                               ; preds = %39
-  %42 = shl nuw nsw i64 %.027.i, 1
-  %43 = add i64 %.129.i, -2
-  %44 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %42
-  %45 = getelementptr inbounds i8, ptr %4, i64 %43
-  %46 = load i16, ptr %44, align 1, !noalias !960
-  store i16 %46, ptr %45, align 1, !alias.scope !960
+40:                                               ; preds = %38
+  %41 = shl nuw nsw i64 %.027.i, 1
+  %42 = add i64 %.129.i, -2
+  %43 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %41
+  %44 = getelementptr inbounds i8, ptr %4, i64 %42
+  %45 = load i16, ptr %43, align 1, !noalias !960
+  store i16 %45, ptr %44, align 1, !alias.scope !960
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit"
 
-47:                                               ; preds = %39
-  %48 = add i64 %.129.i, -1
-  %49 = trunc nuw nsw i64 %.027.i to i8
-  %50 = getelementptr inbounds i8, ptr %4, i64 %48
-  %51 = or disjoint i8 %49, 48
-  store i8 %51, ptr %50, align 1, !alias.scope !960
+46:                                               ; preds = %38
+  %47 = add i64 %.129.i, -1
+  %48 = trunc nuw nsw i64 %.027.i to i8
+  %49 = getelementptr inbounds i8, ptr %4, i64 %47
+  %50 = or disjoint i8 %48, 48
+  store i8 %50, ptr %49, align 1, !alias.scope !960
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit": ; preds = %41, %47
-  %.2.i = phi i64 [ %48, %47 ], [ %43, %41 ]
-  %52 = sub i64 20, %.2.i
-  %53 = getelementptr inbounds i8, ptr %4, i64 %.2.i
-  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %52)
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit": ; preds = %40, %46
+  %.2.i = phi i64 [ %47, %46 ], [ %42, %40 ]
+  %51 = sub i64 20, %.2.i
+  %52 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %51)
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.77.llvm.15740990321789950213, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11

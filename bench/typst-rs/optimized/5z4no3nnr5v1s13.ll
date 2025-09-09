@@ -33574,90 +33574,89 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.026.lcssa = phi i64 [ 20, %2 ], [ %14, %.lr.ph ]
+  %.026.lcssa = phi i64 [ 20, %2 ], [ %13, %.lr.ph ]
   %.1.lcssa = phi i64 [ %.0, %2 ], [ %7, %.lr.ph ]
   %5 = icmp samesign ugt i64 %.1.lcssa, 99
-  br i1 %5, label %23, label %32
+  br i1 %5, label %22, label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.137 = phi i64 [ %7, %.lr.ph ], [ %.0, %2 ]
-  %.02636 = phi i64 [ %14, %.lr.ph ], [ 20, %2 ]
-  %6 = urem i64 %.137, 10000
-  %7 = udiv i64 %.137, 10000
+  %.135 = phi i64 [ %7, %.lr.ph ], [ %.0, %2 ]
+  %.02634 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
+  %6 = urem i64 %.135, 10000
+  %7 = udiv i64 %.135, 10000
   %.lhs.trunc = trunc nuw nsw i64 %6 to i16
   %8 = udiv i16 %.lhs.trunc, 100
   %9 = shl nuw nsw i16 %8, 1
   %10 = zext nneg i16 %9 to i64
-  %11 = urem i16 %.lhs.trunc, 100
-  %12 = shl nuw nsw i16 %11, 1
-  %13 = zext nneg i16 %12 to i64
-  %14 = add i64 %.02636, -4
-  %15 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 %14
-  %17 = load i16, ptr %15, align 1
-  store i16 %17, ptr %16, align 1
-  %18 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %13
-  %19 = getelementptr i8, ptr %1, i64 %.02636
-  %20 = getelementptr i8, ptr %19, i64 -2
-  %21 = load i16, ptr %18, align 1
-  store i16 %21, ptr %20, align 1
-  %22 = icmp ugt i64 %.137, 99999999
-  br i1 %22, label %.lr.ph, label %._crit_edge
+  %11 = urem i64 %.135, 100
+  %12 = shl nuw nsw i64 %11, 1
+  %13 = add i64 %.02634, -4
+  %14 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 %13
+  %16 = load i16, ptr %14, align 1
+  store i16 %16, ptr %15, align 1
+  %17 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %12
+  %18 = getelementptr i8, ptr %1, i64 %.02634
+  %19 = getelementptr i8, ptr %18, i64 -2
+  %20 = load i16, ptr %17, align 1
+  store i16 %20, ptr %19, align 1
+  %21 = icmp ugt i64 %.135, 99999999
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
-23:                                               ; preds = %._crit_edge
-  %.lhs.trunc32 = trunc nuw i64 %.1.lcssa to i16
-  %24 = urem i16 %.lhs.trunc32, 100
-  %25 = shl nuw nsw i16 %24, 1
-  %26 = zext nneg i16 %25 to i64
-  %27 = udiv i16 %.lhs.trunc32, 100
-  %.zext35 = zext nneg i16 %27 to i64
-  %28 = add i64 %.026.lcssa, -2
-  %29 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 %28
-  %31 = load i16, ptr %29, align 1
-  store i16 %31, ptr %30, align 1
-  br label %32
+22:                                               ; preds = %._crit_edge
+  %.lhs.trunc30 = trunc nuw i64 %.1.lcssa to i16
+  %23 = urem i16 %.lhs.trunc30, 100
+  %24 = shl nuw nsw i16 %23, 1
+  %25 = zext nneg i16 %24 to i64
+  %26 = udiv i16 %.lhs.trunc30, 100
+  %.zext33 = zext nneg i16 %26 to i64
+  %27 = add i64 %.026.lcssa, -2
+  %28 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %25
+  %29 = getelementptr inbounds i8, ptr %1, i64 %27
+  %30 = load i16, ptr %28, align 1
+  store i16 %30, ptr %29, align 1
+  br label %31
 
-32:                                               ; preds = %._crit_edge, %23
-  %.127 = phi i64 [ %28, %23 ], [ %.026.lcssa, %._crit_edge ]
-  %.025 = phi i64 [ %.zext35, %23 ], [ %.1.lcssa, %._crit_edge ]
-  %33 = icmp samesign ult i64 %.025, 10
-  br i1 %33, label %40, label %34
+31:                                               ; preds = %._crit_edge, %22
+  %.127 = phi i64 [ %27, %22 ], [ %.026.lcssa, %._crit_edge ]
+  %.025 = phi i64 [ %.zext33, %22 ], [ %.1.lcssa, %._crit_edge ]
+  %32 = icmp samesign ult i64 %.025, 10
+  br i1 %32, label %39, label %33
 
-34:                                               ; preds = %32
-  %35 = shl nuw nsw i64 %.025, 1
-  %36 = add i64 %.127, -2
-  %37 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %35
-  %38 = getelementptr inbounds i8, ptr %1, i64 %36
-  %39 = load i16, ptr %37, align 1
-  store i16 %39, ptr %38, align 1
-  br label %45
+33:                                               ; preds = %31
+  %34 = shl nuw nsw i64 %.025, 1
+  %35 = add i64 %.127, -2
+  %36 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %34
+  %37 = getelementptr inbounds i8, ptr %1, i64 %35
+  %38 = load i16, ptr %36, align 1
+  store i16 %38, ptr %37, align 1
+  br label %44
 
-40:                                               ; preds = %32
-  %41 = add i64 %.127, -1
-  %42 = trunc nuw nsw i64 %.025 to i8
-  %43 = getelementptr inbounds i8, ptr %1, i64 %41
-  %44 = or disjoint i8 %42, 48
-  store i8 %44, ptr %43, align 1
-  br label %45
+39:                                               ; preds = %31
+  %40 = add i64 %.127, -1
+  %41 = trunc nuw nsw i64 %.025 to i8
+  %42 = getelementptr inbounds i8, ptr %1, i64 %40
+  %43 = or disjoint i8 %41, 48
+  store i8 %43, ptr %42, align 1
+  br label %44
 
-45:                                               ; preds = %40, %34
-  %.2 = phi i64 [ %41, %40 ], [ %36, %34 ]
-  br i1 %3, label %49, label %46
+44:                                               ; preds = %39, %33
+  %.2 = phi i64 [ %40, %39 ], [ %35, %33 ]
+  br i1 %3, label %48, label %45
 
-46:                                               ; preds = %45
-  %47 = add i64 %.2, -1
-  %48 = getelementptr inbounds i8, ptr %1, i64 %47
-  store i8 45, ptr %48, align 1
-  br label %49
+45:                                               ; preds = %44
+  %46 = add i64 %.2, -1
+  %47 = getelementptr inbounds i8, ptr %1, i64 %46
+  store i8 45, ptr %47, align 1
+  br label %48
 
-49:                                               ; preds = %46, %45
-  %.3 = phi i64 [ %.2, %45 ], [ %47, %46 ]
-  %50 = sub i64 20, %.3
-  %51 = getelementptr inbounds i8, ptr %1, i64 %.3
-  %52 = insertvalue { ptr, i64 } poison, ptr %51, 0
-  %53 = insertvalue { ptr, i64 } %52, i64 %50, 1
-  ret { ptr, i64 } %53
+48:                                               ; preds = %45, %44
+  %.3 = phi i64 [ %.2, %44 ], [ %46, %45 ]
+  %49 = sub i64 20, %.3
+  %50 = getelementptr inbounds i8, ptr %1, i64 %.3
+  %51 = insertvalue { ptr, i64 } poison, ptr %50, 0
+  %52 = insertvalue { ptr, i64 } %51, i64 %49, 1
+  ret { ptr, i64 } %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -84247,98 +84246,97 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_yaml..ser..Seria
   br i1 %6, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
-  %.026.lcssa.i = phi i64 [ 20, %2 ], [ %16, %.lr.ph.i ]
+  %.026.lcssa.i = phi i64 [ 20, %2 ], [ %15, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %.0.i, %2 ], [ %9, %.lr.ph.i ]
   %7 = icmp samesign ugt i64 %.1.lcssa.i, 99
-  br i1 %7, label %25, label %34
+  br i1 %7, label %24, label %33
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.137.i = phi i64 [ %9, %.lr.ph.i ], [ %.0.i, %2 ]
-  %.02636.i = phi i64 [ %16, %.lr.ph.i ], [ 20, %2 ]
-  %8 = urem i64 %.137.i, 10000
-  %9 = udiv i64 %.137.i, 10000
+  %.135.i = phi i64 [ %9, %.lr.ph.i ], [ %.0.i, %2 ]
+  %.02634.i = phi i64 [ %15, %.lr.ph.i ], [ 20, %2 ]
+  %8 = urem i64 %.135.i, 10000
+  %9 = udiv i64 %.135.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc.i, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
-  %13 = urem i16 %.lhs.trunc.i, 100
-  %14 = shl nuw nsw i16 %13, 1
-  %15 = zext nneg i16 %14 to i64
-  %16 = add i64 %.02636.i, -4
-  %17 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 %16
-  %19 = load i16, ptr %17, align 1, !noalias !17190
-  store i16 %19, ptr %18, align 1, !alias.scope !17190
-  %20 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %15
-  %21 = getelementptr i8, ptr %3, i64 %.02636.i
-  %22 = getelementptr i8, ptr %21, i64 -2
-  %23 = load i16, ptr %20, align 1, !noalias !17190
-  store i16 %23, ptr %22, align 1, !alias.scope !17190
-  %24 = icmp ugt i64 %.137.i, 99999999
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i
+  %13 = urem i64 %.135.i, 100
+  %14 = shl nuw nsw i64 %13, 1
+  %15 = add i64 %.02634.i, -4
+  %16 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %12
+  %17 = getelementptr inbounds i8, ptr %3, i64 %15
+  %18 = load i16, ptr %16, align 1, !noalias !17190
+  store i16 %18, ptr %17, align 1, !alias.scope !17190
+  %19 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %14
+  %20 = getelementptr i8, ptr %3, i64 %.02634.i
+  %21 = getelementptr i8, ptr %20, i64 -2
+  %22 = load i16, ptr %19, align 1, !noalias !17190
+  store i16 %22, ptr %21, align 1, !alias.scope !17190
+  %23 = icmp ugt i64 %.135.i, 99999999
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-25:                                               ; preds = %._crit_edge.i
-  %.lhs.trunc32.i = trunc nuw i64 %.1.lcssa.i to i16
-  %26 = urem i16 %.lhs.trunc32.i, 100
-  %27 = shl nuw nsw i16 %26, 1
-  %28 = zext nneg i16 %27 to i64
-  %29 = udiv i16 %.lhs.trunc32.i, 100
-  %.zext35.i = zext nneg i16 %29 to i64
-  %30 = add i64 %.026.lcssa.i, -2
-  %31 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 %30
-  %33 = load i16, ptr %31, align 1, !noalias !17190
-  store i16 %33, ptr %32, align 1, !alias.scope !17190
-  br label %34
+24:                                               ; preds = %._crit_edge.i
+  %.lhs.trunc30.i = trunc nuw i64 %.1.lcssa.i to i16
+  %25 = urem i16 %.lhs.trunc30.i, 100
+  %26 = shl nuw nsw i16 %25, 1
+  %27 = zext nneg i16 %26 to i64
+  %28 = udiv i16 %.lhs.trunc30.i, 100
+  %.zext33.i = zext nneg i16 %28 to i64
+  %29 = add i64 %.026.lcssa.i, -2
+  %30 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %27
+  %31 = getelementptr inbounds i8, ptr %3, i64 %29
+  %32 = load i16, ptr %30, align 1, !noalias !17190
+  store i16 %32, ptr %31, align 1, !alias.scope !17190
+  br label %33
 
-34:                                               ; preds = %25, %._crit_edge.i
-  %.127.i = phi i64 [ %30, %25 ], [ %.026.lcssa.i, %._crit_edge.i ]
-  %.025.i = phi i64 [ %.zext35.i, %25 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %35 = icmp samesign ult i64 %.025.i, 10
-  br i1 %35, label %42, label %36
+33:                                               ; preds = %24, %._crit_edge.i
+  %.127.i = phi i64 [ %29, %24 ], [ %.026.lcssa.i, %._crit_edge.i ]
+  %.025.i = phi i64 [ %.zext33.i, %24 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %34 = icmp samesign ult i64 %.025.i, 10
+  br i1 %34, label %41, label %35
 
-36:                                               ; preds = %34
-  %37 = shl nuw nsw i64 %.025.i, 1
-  %38 = add i64 %.127.i, -2
-  %39 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %37
-  %40 = getelementptr inbounds i8, ptr %3, i64 %38
-  %41 = load i16, ptr %39, align 1, !noalias !17190
-  store i16 %41, ptr %40, align 1, !alias.scope !17190
-  br label %47
+35:                                               ; preds = %33
+  %36 = shl nuw nsw i64 %.025.i, 1
+  %37 = add i64 %.127.i, -2
+  %38 = getelementptr inbounds nuw i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.286, i64 %36
+  %39 = getelementptr inbounds i8, ptr %3, i64 %37
+  %40 = load i16, ptr %38, align 1, !noalias !17190
+  store i16 %40, ptr %39, align 1, !alias.scope !17190
+  br label %46
 
-42:                                               ; preds = %34
-  %43 = add i64 %.127.i, -1
-  %44 = trunc nuw nsw i64 %.025.i to i8
-  %45 = getelementptr inbounds i8, ptr %3, i64 %43
-  %46 = or disjoint i8 %44, 48
-  store i8 %46, ptr %45, align 1, !alias.scope !17190
-  br label %47
+41:                                               ; preds = %33
+  %42 = add i64 %.127.i, -1
+  %43 = trunc nuw nsw i64 %.025.i to i8
+  %44 = getelementptr inbounds i8, ptr %3, i64 %42
+  %45 = or disjoint i8 %43, 48
+  store i8 %45, ptr %44, align 1, !alias.scope !17190
+  br label %46
 
-47:                                               ; preds = %42, %36
-  %.2.i = phi i64 [ %43, %42 ], [ %38, %36 ]
-  br i1 %5, label %51, label %48
+46:                                               ; preds = %41, %35
+  %.2.i = phi i64 [ %42, %41 ], [ %37, %35 ]
+  br i1 %5, label %50, label %47
 
-48:                                               ; preds = %47
-  %49 = add i64 %.2.i, -1
-  %50 = getelementptr inbounds i8, ptr %3, i64 %49
-  store i8 45, ptr %50, align 1, !alias.scope !17190
-  br label %51
+47:                                               ; preds = %46
+  %48 = add i64 %.2.i, -1
+  %49 = getelementptr inbounds i8, ptr %3, i64 %48
+  store i8 45, ptr %49, align 1, !alias.scope !17190
+  br label %50
 
-51:                                               ; preds = %48, %47
-  %.3.i = phi i64 [ %.2.i, %47 ], [ %49, %48 ]
-  %52 = sub i64 20, %.3.i
-  %53 = getelementptr inbounds i8, ptr %3, i64 %.3.i
+50:                                               ; preds = %47, %46
+  %.3.i = phi i64 [ %.2.i, %46 ], [ %48, %47 ]
+  %51 = sub i64 20, %.3.i
+  %52 = getelementptr inbounds i8, ptr %3, i64 %.3.i
   store i64 -9223372036854775808, ptr %4, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %52, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i8 1, ptr %56, align 8
-  %57 = call noundef align 8 ptr @"_ZN10serde_yaml3ser19Serializer$LT$W$GT$11emit_scalar17hdacdc4301e1ac2ffE.llvm.12850028421071809815"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 %51, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i8 1, ptr %55, align 8
+  %56 = call noundef align 8 ptr @"_ZN10serde_yaml3ser19Serializer$LT$W$GT$11emit_scalar17hdacdc4301e1ac2ffE.llvm.12850028421071809815"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %57
+  ret ptr %56
 }
 
 ; Function Attrs: nonlazybind uwtable

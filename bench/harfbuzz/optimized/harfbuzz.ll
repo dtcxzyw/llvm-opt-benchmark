@@ -80915,7 +80915,7 @@ define internal void @_ZL22preprocess_text_hangulPK18hb_ot_shape_plan_tP11hb_buf
   call void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(236) %1, i32 noundef 3, i32 noundef %.0512, i32 noundef %42, i1 noundef zeroext true, i1 noundef zeroext true)
   %58 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %59 = trunc nuw i8 %58 to i1
-  %.pre421 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre418 = load i32, ptr %23, align 4, !tbaa !351
   br i1 %59, label %60, label %93
 
 60:                                               ; preds = %57
@@ -80923,7 +80923,7 @@ define internal void @_ZL22preprocess_text_hangulPK18hb_ot_shape_plan_tP11hb_buf
   %62 = load ptr, ptr %25, align 8, !tbaa !197
   %.not.i = icmp eq ptr %61, %62
   %63 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i = icmp eq i32 %63, %.pre421
+  %.not2.i = icmp eq i32 %63, %.pre418
   %or.cond.i = select i1 %.not.i, i1 %.not2.i, i1 false
   br i1 %or.cond.i, label %90, label %._crit_edge.i
 
@@ -80943,11 +80943,11 @@ _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_ed
   %.pre3.i = load ptr, ptr %27, align 8, !tbaa !261
   %.pre4.i = load ptr, ptr %25, align 8, !tbaa !197
   %.pre8.pre.i = load i32, ptr %24, align 4, !tbaa !260
-  %.pre419.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre416.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i:        ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i, %._crit_edge.i
-  %.pre419 = phi i32 [ %.pre419.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i ], [ %.pre421, %._crit_edge.i ]
+  %.pre416 = phi i32 [ %.pre416.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i ], [ %.pre418, %._crit_edge.i ]
   %.pre8.i = phi i32 [ %.pre8.pre.i, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i ], [ %63, %._crit_edge.i ]
   %69 = phi ptr [ %.pre4.i, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i ], [ %62, %._crit_edge.i ]
   %70 = phi ptr [ %.pre3.i, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i ], [ %61, %._crit_edge.i ]
@@ -80956,7 +80956,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i:        ; preds = %_ZN11hb_buffer_t6en
 
 72:                                               ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i
   %73 = add i32 %.pre8.i, 1
-  %74 = add i32 %.pre419, 1
+  %74 = add i32 %.pre416, 1
   %75 = icmp ugt i32 %73, %74
   br i1 %75, label %76, label %81
 
@@ -80973,11 +80973,11 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i:        ; preds = %_ZN11hb_buffer_t6en
   %.pre5.i = load ptr, ptr %25, align 8, !tbaa !197
   %.pre6.i = load ptr, ptr %27, align 8, !tbaa !261
   %.pre7.i = load i32, ptr %24, align 4, !tbaa !260
-  %.pre418 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre415 = load i32, ptr %23, align 4, !tbaa !351
   br label %81
 
 81:                                               ; preds = %78, %76, %72, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i
-  %82 = phi i32 [ %.pre419, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i ], [ %.pre419, %72 ], [ %.pre419, %76 ], [ %.pre418, %78 ]
+  %82 = phi i32 [ %.pre416, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i ], [ %.pre416, %72 ], [ %.pre416, %76 ], [ %.pre415, %78 ]
   %83 = phi i32 [ %.pre8.i, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i ], [ %.pre8.i, %72 ], [ 0, %76 ], [ %.pre7.i, %78 ]
   %84 = phi ptr [ %70, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i ], [ %70, %72 ], [ %77, %76 ], [ %.pre6.i, %78 ]
   %85 = phi ptr [ %69, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i ], [ %69, %72 ], [ %69, %76 ], [ %.pre5.i, %78 ]
@@ -80987,18 +80987,18 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i:        ; preds = %_ZN11hb_buffer_t6en
   %89 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %84, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %89, ptr noundef nonnull align 4 dereferenceable(20) %87, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i = load i32, ptr %24, align 4, !tbaa !260
-  %.pre420.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre417.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %90
 
 90:                                               ; preds = %81, %60
-  %.pre420 = phi i32 [ %.pre420.pre, %81 ], [ %.pre421, %60 ]
-  %91 = phi i32 [ %.pre10.i, %81 ], [ %.pre421, %60 ]
+  %.pre417 = phi i32 [ %.pre417.pre, %81 ], [ %.pre418, %60 ]
+  %91 = phi i32 [ %.pre10.i, %81 ], [ %.pre418, %60 ]
   %92 = add i32 %91, 1
   store i32 %92, ptr %24, align 4, !tbaa !260
   br label %93
 
 93:                                               ; preds = %57, %90
-  %94 = phi i32 [ %.pre421, %57 ], [ %.pre420, %90 ]
+  %94 = phi i32 [ %.pre418, %57 ], [ %.pre417, %90 ]
   %95 = add i32 %94, 1
   store i32 %95, ptr %23, align 4, !tbaa !351
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -81097,12 +81097,12 @@ _ZL18is_zero_width_charP9hb_font_tj.exit:         ; preds = %107, %115
 _ZN9hb_font_t9has_glyphEj.exit:                   ; preds = %137, %144
   %147 = phi ptr [ %146, %144 ], [ null, %137 ]
   %148 = call noundef i32 %140(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %141, i32 noundef 9676, ptr noundef nonnull %11, ptr noundef %147) #61
-  %.not387 = icmp eq i32 %148, 0
+  %.not384 = icmp eq i32 %148, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not387, label %_ZN9hb_font_t9has_glyphEj.exit._crit_edge, label %149
+  br i1 %.not384, label %_ZN9hb_font_t9has_glyphEj.exit._crit_edge, label %149
 
 _ZN9hb_font_t9has_glyphEj.exit._crit_edge:        ; preds = %_ZN9hb_font_t9has_glyphEj.exit
-  %.pre417.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre414.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %218
 
 149:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit
@@ -81154,14 +81154,14 @@ _ZL18is_zero_width_charP9hb_font_tj.exit187:      ; preds = %161, %169
   %173 = call noundef i32 %165(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %166, i32 noundef %162, ptr noundef %172) #61
   %174 = icmp eq i32 %173, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %spec.select509 = select i1 %174, i32 9676, i32 %49
-  %spec.select510 = select i1 %174, i32 %49, i32 9676
+  %spec.select508 = select i1 %174, i32 9676, i32 %49
+  %spec.select509 = select i1 %174, i32 %49, i32 9676
   br label %175
 
 175:                                              ; preds = %_ZL18is_zero_width_charP9hb_font_tj.exit187, %_ZL18is_zero_width_charP9hb_font_tj.exit187.thread
-  %storemerge502 = phi i32 [ %49, %_ZL18is_zero_width_charP9hb_font_tj.exit187.thread ], [ %spec.select509, %_ZL18is_zero_width_charP9hb_font_tj.exit187 ]
-  %storemerge = phi i32 [ 9676, %_ZL18is_zero_width_charP9hb_font_tj.exit187.thread ], [ %spec.select510, %_ZL18is_zero_width_charP9hb_font_tj.exit187 ]
-  store i32 %storemerge502, ptr %14, align 4, !tbaa !127
+  %storemerge499 = phi i32 [ %49, %_ZL18is_zero_width_charP9hb_font_tj.exit187.thread ], [ %spec.select508, %_ZL18is_zero_width_charP9hb_font_tj.exit187 ]
+  %storemerge = phi i32 [ 9676, %_ZL18is_zero_width_charP9hb_font_tj.exit187.thread ], [ %spec.select509, %_ZL18is_zero_width_charP9hb_font_tj.exit187 ]
+  store i32 %storemerge499, ptr %14, align 4, !tbaa !127
   store i32 %storemerge, ptr %39, align 4, !tbaa !127
   %176 = load i32, ptr %24, align 4, !tbaa !260
   %177 = add i32 %176, 2
@@ -81179,13 +81179,13 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i190:     ; preds = %_ZN11hb_buffer_t6en
   %182 = load ptr, ptr %27, align 8, !tbaa !261
   %183 = load ptr, ptr %25, align 8, !tbaa !197
   %184 = icmp eq ptr %182, %183
-  %.pre21.i.pre412 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre21.i.pre409 = load i32, ptr %23, align 4, !tbaa !351
   br i1 %184, label %185, label %195
 
 185:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i190
   %186 = load i32, ptr %24, align 4, !tbaa !260
   %187 = add i32 %186, 2
-  %188 = add i32 %.pre21.i.pre412, 1
+  %188 = add i32 %.pre21.i.pre409, 1
   %189 = icmp ugt i32 %187, %188
   br i1 %189, label %190, label %195
 
@@ -81203,7 +81203,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i190:     ; preds = %_ZN11hb_buffer_t6en
   br label %195
 
 195:                                              ; preds = %192, %190, %185, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i190
-  %.pre21.i = phi i32 [ %.pre21.i.pre, %192 ], [ %.pre21.i.pre412, %190 ], [ %.pre21.i.pre412, %185 ], [ %.pre21.i.pre412, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i190 ]
+  %.pre21.i = phi i32 [ %.pre21.i.pre, %192 ], [ %.pre21.i.pre409, %190 ], [ %.pre21.i.pre409, %185 ], [ %.pre21.i.pre409, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i190 ]
   %196 = load i32, ptr %28, align 8, !tbaa !195
   %197 = icmp ult i32 %.pre21.i, %196
   br i1 %197, label %198, label %202
@@ -81258,7 +81258,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit: ; preds = %_ZN11hb_buffer_t6en
   br label %_ZN11hb_buffer_t10next_glyphEv.exit211
 
 218:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit._crit_edge, %134
-  %.pre417 = phi i32 [ %.pre417.pre, %_ZN9hb_font_t9has_glyphEj.exit._crit_edge ], [ %42, %134 ]
+  %.pre414 = phi i32 [ %.pre414.pre, %_ZN9hb_font_t9has_glyphEj.exit._crit_edge ], [ %42, %134 ]
   %219 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %220 = trunc nuw i8 %219 to i1
   br i1 %220, label %221, label %254
@@ -81268,7 +81268,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit: ; preds = %_ZN11hb_buffer_t6en
   %223 = load ptr, ptr %25, align 8, !tbaa !197
   %.not.i194 = icmp eq ptr %222, %223
   %224 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i195 = icmp eq i32 %224, %.pre417
+  %.not2.i195 = icmp eq i32 %224, %.pre414
   %or.cond.i196 = select i1 %.not.i194, i1 %.not2.i195, i1 false
   br i1 %or.cond.i196, label %251, label %._crit_edge.i197
 
@@ -81288,11 +81288,11 @@ _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_ed
   %.pre3.i201 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre4.i202 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre8.pre.i203 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre415.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre412.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i204:     ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i200, %._crit_edge.i197
-  %.pre415 = phi i32 [ %.pre415.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i200 ], [ %.pre417, %._crit_edge.i197 ]
+  %.pre412 = phi i32 [ %.pre412.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i200 ], [ %.pre414, %._crit_edge.i197 ]
   %.pre8.i205 = phi i32 [ %.pre8.pre.i203, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i200 ], [ %224, %._crit_edge.i197 ]
   %230 = phi ptr [ %.pre4.i202, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i200 ], [ %223, %._crit_edge.i197 ]
   %231 = phi ptr [ %.pre3.i201, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i200 ], [ %222, %._crit_edge.i197 ]
@@ -81301,7 +81301,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i204:     ; preds = %_ZN11hb_buffer_t6en
 
 233:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204
   %234 = add i32 %.pre8.i205, 1
-  %235 = add i32 %.pre415, 1
+  %235 = add i32 %.pre412, 1
   %236 = icmp ugt i32 %234, %235
   br i1 %236, label %237, label %242
 
@@ -81318,11 +81318,11 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i204:     ; preds = %_ZN11hb_buffer_t6en
   %.pre5.i208 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre6.i209 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre7.i210 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre414 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre411 = load i32, ptr %23, align 4, !tbaa !351
   br label %242
 
 242:                                              ; preds = %239, %237, %233, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204
-  %243 = phi i32 [ %.pre415, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204 ], [ %.pre415, %233 ], [ %.pre415, %237 ], [ %.pre414, %239 ]
+  %243 = phi i32 [ %.pre412, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204 ], [ %.pre412, %233 ], [ %.pre412, %237 ], [ %.pre411, %239 ]
   %244 = phi i32 [ %.pre8.i205, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204 ], [ %.pre8.i205, %233 ], [ 0, %237 ], [ %.pre7.i210, %239 ]
   %245 = phi ptr [ %231, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204 ], [ %231, %233 ], [ %238, %237 ], [ %.pre6.i209, %239 ]
   %246 = phi ptr [ %230, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i204 ], [ %230, %233 ], [ %230, %237 ], [ %.pre5.i208, %239 ]
@@ -81332,18 +81332,18 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i204:     ; preds = %_ZN11hb_buffer_t6en
   %250 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %245, i64 %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %250, ptr noundef nonnull align 4 dereferenceable(20) %248, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i206 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre416.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre413.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %251
 
 251:                                              ; preds = %242, %221
-  %.pre416 = phi i32 [ %.pre416.pre, %242 ], [ %.pre417, %221 ]
-  %252 = phi i32 [ %.pre10.i206, %242 ], [ %.pre417, %221 ]
+  %.pre413 = phi i32 [ %.pre413.pre, %242 ], [ %.pre414, %221 ]
+  %252 = phi i32 [ %.pre10.i206, %242 ], [ %.pre414, %221 ]
   %253 = add i32 %252, 1
   store i32 %253, ptr %24, align 4, !tbaa !260
   br label %254
 
 254:                                              ; preds = %251, %218
-  %255 = phi i32 [ %.pre416, %251 ], [ %.pre417, %218 ]
+  %255 = phi i32 [ %.pre413, %251 ], [ %.pre414, %218 ]
   %256 = add i32 %255, 1
   store i32 %256, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t10next_glyphEv.exit211
@@ -81364,7 +81364,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit211:           ; preds = %254, %_ZN11hb_buffe
 265:                                              ; preds = %258
   %266 = add nuw i32 %42, 1
   %267 = icmp ult i32 %266, %29
-  br i1 %267, label %268, label %.thread503
+  br i1 %267, label %268, label %.thread500
 
 268:                                              ; preds = %265
   %269 = zext i32 %266 to i64
@@ -81375,7 +81375,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit211:           ; preds = %254, %_ZN11hb_buffe
   %274 = add i32 %271, -55216
   %275 = icmp ult i32 %274, 23
   %276 = or i1 %273, %275
-  br i1 %276, label %277, label %.thread503
+  br i1 %276, label %277, label %.thread500
 
 277:                                              ; preds = %268
   %278 = add nuw i32 %42, 2
@@ -81412,8 +81412,8 @@ _ZN11hb_buffer_t10next_glyphEv.exit211:           ; preds = %254, %_ZN11hb_buffe
 296:                                              ; preds = %290
   %297 = add i32 %.0172, -4520
   %298 = icmp ult i32 %297, 27
-  %or.cond380 = or i1 %.not, %298
-  br i1 %or.cond380, label %299, label %319
+  %or.cond378 = or i1 %.not, %298
+  br i1 %or.cond378, label %299, label %319
 
 299:                                              ; preds = %296
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -81442,9 +81442,9 @@ _ZN11hb_buffer_t10next_glyphEv.exit211:           ; preds = %254, %_ZN11hb_buffe
 _ZN9hb_font_t9has_glyphEj.exit213:                ; preds = %299, %311
   %314 = phi ptr [ %313, %311 ], [ null, %299 ]
   %315 = call noundef i32 %307(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %308, i32 noundef %304, ptr noundef nonnull %9, ptr noundef %314) #61
-  %.not386 = icmp eq i32 %315, 0
+  %.not383 = icmp eq i32 %315, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not386, label %318, label %.thread
+  br i1 %.not383, label %318, label %.thread
 
 .thread:                                          ; preds = %_ZN9hb_font_t9has_glyphEj.exit213
   %316 = call noundef zeroext i1 @_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_(ptr noundef nonnull align 8 dereferenceable(236) %1, i32 noundef %291, i32 noundef 1, ptr noundef nonnull %15)
@@ -81465,15 +81465,15 @@ _ZN9hb_font_t9has_glyphEj.exit213:                ; preds = %299, %311
   store i8 1, ptr %324, align 1, !tbaa !219
   %325 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %326 = trunc nuw i8 %325 to i1
-  %.pre400 = load i32, ptr %23, align 4, !tbaa !351
-  %.pre401.pre429 = load ptr, ptr %25, align 8, !tbaa !197
+  %.pre397 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre398.pre426 = load ptr, ptr %25, align 8, !tbaa !197
   br i1 %326, label %327, label %359
 
 327:                                              ; preds = %319
   %328 = load ptr, ptr %27, align 8, !tbaa !261
-  %.not.i215 = icmp eq ptr %328, %.pre401.pre429
+  %.not.i215 = icmp eq ptr %328, %.pre398.pre426
   %329 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i216 = icmp eq i32 %329, %.pre400
+  %.not2.i216 = icmp eq i32 %329, %.pre397
   %or.cond.i217 = select i1 %.not.i215, i1 %.not2.i216, i1 false
   br i1 %or.cond.i217, label %356, label %._crit_edge.i218
 
@@ -81487,30 +81487,30 @@ _ZN9hb_font_t9has_glyphEj.exit213:                ; preds = %299, %311
 
 _ZN11hb_buffer_t6ensureEj.exit.i.i220:            ; preds = %._crit_edge.i218
   %334 = call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(236) %1, i32 noundef %330)
-  %.pre402 = load ptr, ptr %25, align 8, !tbaa !197
+  %.pre399 = load ptr, ptr %25, align 8, !tbaa !197
   br i1 %334, label %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221, label %_ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge, !prof !158
 
 _ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i.i220
-  %.pre403 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre400 = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t10next_glyphEv.exit232
 
 _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i.i220
   %.pre3.i222 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre8.pre.i224 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre398.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre395.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i225:     ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221, %._crit_edge.i218
-  %.pre398 = phi i32 [ %.pre398.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221 ], [ %.pre400, %._crit_edge.i218 ]
+  %.pre395 = phi i32 [ %.pre395.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221 ], [ %.pre397, %._crit_edge.i218 ]
   %.pre8.i226 = phi i32 [ %.pre8.pre.i224, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221 ], [ %329, %._crit_edge.i218 ]
-  %335 = phi ptr [ %.pre402, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221 ], [ %.pre401.pre429, %._crit_edge.i218 ]
+  %335 = phi ptr [ %.pre399, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221 ], [ %.pre398.pre426, %._crit_edge.i218 ]
   %336 = phi ptr [ %.pre3.i222, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i221 ], [ %328, %._crit_edge.i218 ]
   %337 = icmp eq ptr %336, %335
   br i1 %337, label %338, label %347
 
 338:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225
   %339 = add i32 %.pre8.i226, 1
-  %340 = add i32 %.pre398, 1
+  %340 = add i32 %.pre395, 1
   %341 = icmp ugt i32 %339, %340
   br i1 %341, label %342, label %347
 
@@ -81527,11 +81527,11 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i225:     ; preds = %_ZN11hb_buffer_t6en
   %.pre5.i229 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre6.i230 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre7.i231 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre397 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre394 = load i32, ptr %23, align 4, !tbaa !351
   br label %347
 
 347:                                              ; preds = %344, %342, %338, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225
-  %348 = phi i32 [ %.pre398, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225 ], [ %.pre398, %338 ], [ %.pre398, %342 ], [ %.pre397, %344 ]
+  %348 = phi i32 [ %.pre395, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225 ], [ %.pre395, %338 ], [ %.pre395, %342 ], [ %.pre394, %344 ]
   %349 = phi i32 [ %.pre8.i226, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225 ], [ %.pre8.i226, %338 ], [ 0, %342 ], [ %.pre7.i231, %344 ]
   %350 = phi ptr [ %336, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225 ], [ %336, %338 ], [ %343, %342 ], [ %.pre6.i230, %344 ]
   %351 = phi ptr [ %335, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i225 ], [ %335, %338 ], [ %335, %342 ], [ %.pre5.i229, %344 ]
@@ -81541,35 +81541,35 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i225:     ; preds = %_ZN11hb_buffer_t6en
   %355 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %350, i64 %354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %355, ptr noundef nonnull align 4 dereferenceable(20) %353, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i227 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre399.pre = load i32, ptr %23, align 4, !tbaa !351
-  %.pre401.pre.pre = load ptr, ptr %25, align 8, !tbaa !197
+  %.pre396.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre398.pre.pre = load ptr, ptr %25, align 8, !tbaa !197
   br label %356
 
 356:                                              ; preds = %347, %327
-  %.pre401.pre = phi ptr [ %.pre401.pre.pre, %347 ], [ %.pre401.pre429, %327 ]
-  %.pre399 = phi i32 [ %.pre399.pre, %347 ], [ %.pre400, %327 ]
-  %357 = phi i32 [ %.pre10.i227, %347 ], [ %.pre400, %327 ]
+  %.pre398.pre = phi ptr [ %.pre398.pre.pre, %347 ], [ %.pre398.pre426, %327 ]
+  %.pre396 = phi i32 [ %.pre396.pre, %347 ], [ %.pre397, %327 ]
+  %357 = phi i32 [ %.pre10.i227, %347 ], [ %.pre397, %327 ]
   %358 = add i32 %357, 1
   store i32 %358, ptr %24, align 4, !tbaa !260
   br label %359
 
 359:                                              ; preds = %356, %319
-  %.pre401 = phi ptr [ %.pre401.pre, %356 ], [ %.pre401.pre429, %319 ]
-  %360 = phi i32 [ %.pre399, %356 ], [ %.pre400, %319 ]
+  %.pre398 = phi ptr [ %.pre398.pre, %356 ], [ %.pre398.pre426, %319 ]
+  %360 = phi i32 [ %.pre396, %356 ], [ %.pre397, %319 ]
   %361 = add i32 %360, 1
   store i32 %361, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t10next_glyphEv.exit232
 
 _ZN11hb_buffer_t10next_glyphEv.exit232:           ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge, %359
-  %362 = phi i32 [ %.pre403, %_ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge ], [ %361, %359 ]
-  %363 = phi ptr [ %.pre402, %_ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge ], [ %.pre401, %359 ]
+  %362 = phi i32 [ %.pre400, %_ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge ], [ %361, %359 ]
+  %363 = phi ptr [ %.pre399, %_ZN11hb_buffer_t6ensureEj.exit.i.i220._ZN11hb_buffer_t10next_glyphEv.exit232_crit_edge ], [ %.pre398, %359 ]
   %364 = zext i32 %362 to i64
   %365 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %363, i64 %364
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 19
   store i8 2, ptr %366, align 1, !tbaa !219
   %367 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %368 = trunc nuw i8 %367 to i1
-  %.pre407 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre404 = load i32, ptr %23, align 4, !tbaa !351
   br i1 %368, label %369, label %402
 
 369:                                              ; preds = %_ZN11hb_buffer_t10next_glyphEv.exit232
@@ -81577,7 +81577,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit232:           ; preds = %_ZN11hb_buffer_t6en
   %371 = load ptr, ptr %25, align 8, !tbaa !197
   %.not.i234 = icmp eq ptr %370, %371
   %372 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i235 = icmp eq i32 %372, %.pre407
+  %.not2.i235 = icmp eq i32 %372, %.pre404
   %or.cond.i236 = select i1 %.not.i234, i1 %.not2.i235, i1 false
   br i1 %or.cond.i236, label %399, label %._crit_edge.i237
 
@@ -81597,11 +81597,11 @@ _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_ed
   %.pre3.i241 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre4.i242 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre8.pre.i243 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre405.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre402.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i244:     ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i240, %._crit_edge.i237
-  %.pre405 = phi i32 [ %.pre405.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i240 ], [ %.pre407, %._crit_edge.i237 ]
+  %.pre402 = phi i32 [ %.pre402.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i240 ], [ %.pre404, %._crit_edge.i237 ]
   %.pre8.i245 = phi i32 [ %.pre8.pre.i243, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i240 ], [ %372, %._crit_edge.i237 ]
   %378 = phi ptr [ %.pre4.i242, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i240 ], [ %371, %._crit_edge.i237 ]
   %379 = phi ptr [ %.pre3.i241, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i240 ], [ %370, %._crit_edge.i237 ]
@@ -81610,7 +81610,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i244:     ; preds = %_ZN11hb_buffer_t6en
 
 381:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244
   %382 = add i32 %.pre8.i245, 1
-  %383 = add i32 %.pre405, 1
+  %383 = add i32 %.pre402, 1
   %384 = icmp ugt i32 %382, %383
   br i1 %384, label %385, label %390
 
@@ -81627,11 +81627,11 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i244:     ; preds = %_ZN11hb_buffer_t6en
   %.pre5.i248 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre6.i249 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre7.i250 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre404 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre401 = load i32, ptr %23, align 4, !tbaa !351
   br label %390
 
 390:                                              ; preds = %387, %385, %381, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244
-  %391 = phi i32 [ %.pre405, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244 ], [ %.pre405, %381 ], [ %.pre405, %385 ], [ %.pre404, %387 ]
+  %391 = phi i32 [ %.pre402, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244 ], [ %.pre402, %381 ], [ %.pre402, %385 ], [ %.pre401, %387 ]
   %392 = phi i32 [ %.pre8.i245, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244 ], [ %.pre8.i245, %381 ], [ 0, %385 ], [ %.pre7.i250, %387 ]
   %393 = phi ptr [ %379, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244 ], [ %379, %381 ], [ %386, %385 ], [ %.pre6.i249, %387 ]
   %394 = phi ptr [ %378, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i244 ], [ %378, %381 ], [ %378, %385 ], [ %.pre5.i248, %387 ]
@@ -81641,18 +81641,18 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i244:     ; preds = %_ZN11hb_buffer_t6en
   %398 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %393, i64 %397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %398, ptr noundef nonnull align 4 dereferenceable(20) %396, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i246 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre406.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre403.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %399
 
 399:                                              ; preds = %390, %369
-  %.pre406 = phi i32 [ %.pre406.pre, %390 ], [ %.pre407, %369 ]
-  %400 = phi i32 [ %.pre10.i246, %390 ], [ %.pre407, %369 ]
+  %.pre403 = phi i32 [ %.pre403.pre, %390 ], [ %.pre404, %369 ]
+  %400 = phi i32 [ %.pre10.i246, %390 ], [ %.pre404, %369 ]
   %401 = add i32 %400, 1
   store i32 %401, ptr %24, align 4, !tbaa !260
   br label %402
 
 402:                                              ; preds = %399, %_ZN11hb_buffer_t10next_glyphEv.exit232
-  %403 = phi i32 [ %.pre406, %399 ], [ %.pre407, %_ZN11hb_buffer_t10next_glyphEv.exit232 ]
+  %403 = phi i32 [ %.pre403, %399 ], [ %.pre404, %_ZN11hb_buffer_t10next_glyphEv.exit232 ]
   %404 = add i32 %403, 1
   store i32 %404, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t10next_glyphEv.exit251
@@ -81669,7 +81669,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit251:           ; preds = %_ZN11hb_buffer_t6en
   store i8 3, ptr %410, align 1, !tbaa !219
   %411 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %412 = trunc nuw i8 %411 to i1
-  %.pre411 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre408 = load i32, ptr %23, align 4, !tbaa !351
   br i1 %412, label %413, label %446
 
 413:                                              ; preds = %405
@@ -81677,7 +81677,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit251:           ; preds = %_ZN11hb_buffer_t6en
   %415 = load ptr, ptr %25, align 8, !tbaa !197
   %.not.i253 = icmp eq ptr %414, %415
   %416 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i254 = icmp eq i32 %416, %.pre411
+  %.not2.i254 = icmp eq i32 %416, %.pre408
   %or.cond.i255 = select i1 %.not.i253, i1 %.not2.i254, i1 false
   br i1 %or.cond.i255, label %443, label %._crit_edge.i256
 
@@ -81697,11 +81697,11 @@ _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_ed
   %.pre3.i260 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre4.i261 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre8.pre.i262 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre409.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre406.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i263:     ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i259, %._crit_edge.i256
-  %.pre409 = phi i32 [ %.pre409.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i259 ], [ %.pre411, %._crit_edge.i256 ]
+  %.pre406 = phi i32 [ %.pre406.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i259 ], [ %.pre408, %._crit_edge.i256 ]
   %.pre8.i264 = phi i32 [ %.pre8.pre.i262, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i259 ], [ %416, %._crit_edge.i256 ]
   %422 = phi ptr [ %.pre4.i261, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i259 ], [ %415, %._crit_edge.i256 ]
   %423 = phi ptr [ %.pre3.i260, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i259 ], [ %414, %._crit_edge.i256 ]
@@ -81710,7 +81710,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i263:     ; preds = %_ZN11hb_buffer_t6en
 
 425:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263
   %426 = add i32 %.pre8.i264, 1
-  %427 = add i32 %.pre409, 1
+  %427 = add i32 %.pre406, 1
   %428 = icmp ugt i32 %426, %427
   br i1 %428, label %429, label %434
 
@@ -81727,11 +81727,11 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i263:     ; preds = %_ZN11hb_buffer_t6en
   %.pre5.i267 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre6.i268 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre7.i269 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre408 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre405 = load i32, ptr %23, align 4, !tbaa !351
   br label %434
 
 434:                                              ; preds = %431, %429, %425, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263
-  %435 = phi i32 [ %.pre409, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263 ], [ %.pre409, %425 ], [ %.pre409, %429 ], [ %.pre408, %431 ]
+  %435 = phi i32 [ %.pre406, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263 ], [ %.pre406, %425 ], [ %.pre406, %429 ], [ %.pre405, %431 ]
   %436 = phi i32 [ %.pre8.i264, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263 ], [ %.pre8.i264, %425 ], [ 0, %429 ], [ %.pre7.i269, %431 ]
   %437 = phi ptr [ %423, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263 ], [ %423, %425 ], [ %430, %429 ], [ %.pre6.i268, %431 ]
   %438 = phi ptr [ %422, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i263 ], [ %422, %425 ], [ %422, %429 ], [ %.pre5.i267, %431 ]
@@ -81741,18 +81741,18 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i263:     ; preds = %_ZN11hb_buffer_t6en
   %442 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %437, i64 %441
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %442, ptr noundef nonnull align 4 dereferenceable(20) %440, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i265 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre410.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre407.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %443
 
 443:                                              ; preds = %434, %413
-  %.pre410 = phi i32 [ %.pre410.pre, %434 ], [ %.pre411, %413 ]
-  %444 = phi i32 [ %.pre10.i265, %434 ], [ %.pre411, %413 ]
+  %.pre407 = phi i32 [ %.pre407.pre, %434 ], [ %.pre408, %413 ]
+  %444 = phi i32 [ %.pre10.i265, %434 ], [ %.pre408, %413 ]
   %445 = add i32 %444, 1
   store i32 %445, ptr %24, align 4, !tbaa !260
   br label %446
 
 446:                                              ; preds = %443, %405
-  %447 = phi i32 [ %.pre410, %443 ], [ %.pre411, %405 ]
+  %447 = phi i32 [ %.pre407, %443 ], [ %.pre408, %405 ]
   %448 = add i32 %447, 1
   store i32 %448, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t10next_glyphEv.exit270
@@ -81776,7 +81776,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit270:           ; preds = %_ZN11hb_buffer_t10n
 456:                                              ; preds = %258
   %457 = add i32 %49, -44032
   %458 = icmp ult i32 %457, 11172
-  br i1 %458, label %459, label %.thread503
+  br i1 %458, label %459, label %.thread500
 
 459:                                              ; preds = %456
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -81800,12 +81800,13 @@ _ZN9hb_font_t9has_glyphEj.exit272:                ; preds = %459, %466
   %470 = call noundef i32 %462(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %463, i32 noundef %49, ptr noundef nonnull %8, ptr noundef %469) #61
   %471 = icmp ne i32 %470, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.lhs.trunc506 = trunc nuw i32 %457 to i16
-  %472 = udiv i16 %.lhs.trunc506, 588
-  %.lhs.trunc507 = trunc nuw i32 %457 to i16
-  %473 = urem i16 %.lhs.trunc507, 588
+  %.lhs.trunc503 = trunc nuw i32 %457 to i16
+  %472 = udiv i16 %.lhs.trunc503, 588
+  %.lhs.trunc504 = trunc nuw i32 %457 to i16
+  %473 = urem i16 %.lhs.trunc504, 588
   %474 = udiv i16 %473, 28
-  %475 = urem i16 %473, 28
+  %.lhs.trunc506 = trunc nuw i32 %457 to i16
+  %475 = urem i16 %.lhs.trunc506, 28
   %476 = icmp eq i16 %475, 0
   br i1 %476, label %477, label %.thread348
 
@@ -81848,9 +81849,9 @@ _ZN9hb_font_t9has_glyphEj.exit272:                ; preds = %459, %466
 _ZN9hb_font_t9has_glyphEj.exit274:                ; preds = %488, %497
   %500 = phi ptr [ %499, %497 ], [ null, %488 ]
   %501 = call noundef i32 %493(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %494, i32 noundef %490, ptr noundef nonnull %7, ptr noundef %500) #61
-  %.not381 = icmp eq i32 %501, 0
+  %.not379 = icmp eq i32 %501, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not381, label %504, label %.thread345
+  br i1 %.not379, label %504, label %.thread345
 
 .thread345:                                       ; preds = %_ZN9hb_font_t9has_glyphEj.exit274
   %502 = call noundef zeroext i1 @_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_(ptr noundef nonnull align 8 dereferenceable(236) %1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %16)
@@ -81897,8 +81898,8 @@ _ZN9hb_font_t9has_glyphEj.exit274:                ; preds = %488, %497
   %narrow = add nuw nsw i16 %474, 4449
   %525 = zext nneg i16 %narrow to i32
   store i32 %525, ptr %33, align 4, !tbaa !127
-  %narrow382 = add nuw nsw i16 %475, 4519
-  %526 = zext nneg i16 %narrow382 to i32
+  %narrow510 = add nuw nsw i16 %475, 4519
+  %526 = zext nneg i16 %narrow510 to i32
   store i32 %526, ptr %34, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !127
@@ -81919,9 +81920,9 @@ _ZN9hb_font_t9has_glyphEj.exit274:                ; preds = %488, %497
 _ZN9hb_font_t9has_glyphEj.exit276:                ; preds = %522, %533
   %536 = phi ptr [ %535, %533 ], [ null, %522 ]
   %537 = call noundef i32 %529(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %530, i32 noundef %524, ptr noundef nonnull %6, ptr noundef %536) #61
-  %.not383 = icmp eq i32 %537, 0
+  %.not380 = icmp eq i32 %537, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not383, label %670, label %538
+  br i1 %.not380, label %670, label %538
 
 538:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit276
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -81943,9 +81944,9 @@ _ZN9hb_font_t9has_glyphEj.exit276:                ; preds = %522, %533
 _ZN9hb_font_t9has_glyphEj.exit278:                ; preds = %538, %545
   %548 = phi ptr [ %547, %545 ], [ null, %538 ]
   %549 = call noundef i32 %541(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %542, i32 noundef %525, ptr noundef nonnull %5, ptr noundef %548) #61
-  %.not384 = icmp eq i32 %549, 0
+  %.not381 = icmp eq i32 %549, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not384, label %670, label %550
+  br i1 %.not381, label %670, label %550
 
 550:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit278
   br i1 %476, label %563, label %551
@@ -81970,9 +81971,9 @@ _ZN9hb_font_t9has_glyphEj.exit278:                ; preds = %538, %545
 _ZN9hb_font_t9has_glyphEj.exit280:                ; preds = %551, %558
   %561 = phi ptr [ %560, %558 ], [ null, %551 ]
   %562 = call noundef i32 %554(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %555, i32 noundef %526, ptr noundef nonnull %4, ptr noundef %561) #61
-  %.not385 = icmp eq i32 %562, 0
+  %.not382 = icmp eq i32 %562, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not385, label %.thread355, label %563
+  br i1 %.not382, label %.thread355, label %563
 
 563:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit280, %550
   %564 = phi i32 [ 3, %_ZN9hb_font_t9has_glyphEj.exit280 ], [ 2, %550 ]
@@ -81992,13 +81993,13 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i283:     ; preds = %_ZN11hb_buffer_t6en
   %571 = load ptr, ptr %27, align 8, !tbaa !261
   %572 = load ptr, ptr %25, align 8, !tbaa !197
   %573 = icmp eq ptr %571, %572
-  %.pre21.i284.pre388 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre21.i284.pre385 = load i32, ptr %23, align 4, !tbaa !351
   br i1 %573, label %574, label %584
 
 574:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i283
   %575 = load i32, ptr %24, align 4, !tbaa !260
   %576 = add i32 %575, %564
-  %577 = add i32 %.pre21.i284.pre388, 1
+  %577 = add i32 %.pre21.i284.pre385, 1
   %578 = icmp ugt i32 %576, %577
   br i1 %578, label %579, label %584
 
@@ -82016,7 +82017,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i283:     ; preds = %_ZN11hb_buffer_t6en
   br label %584
 
 584:                                              ; preds = %581, %579, %574, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i283
-  %.pre21.i284 = phi i32 [ %.pre21.i284.pre, %581 ], [ %.pre21.i284.pre388, %579 ], [ %.pre21.i284.pre388, %574 ], [ %.pre21.i284.pre388, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i283 ]
+  %.pre21.i284 = phi i32 [ %.pre21.i284.pre, %581 ], [ %.pre21.i284.pre385, %579 ], [ %.pre21.i284.pre385, %574 ], [ %.pre21.i284.pre385, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i283 ]
   %585 = load i32, ptr %28, align 8, !tbaa !195
   %586 = icmp ult i32 %.pre21.i284, %585
   br i1 %586, label %587, label %591
@@ -82074,7 +82075,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit299: ; preds = %_ZN11hb_buffer_t
 607:                                              ; preds = %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit299
   %608 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %609 = trunc nuw i8 %608 to i1
-  %.pre392 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre389 = load i32, ptr %23, align 4, !tbaa !351
   br i1 %609, label %610, label %643
 
 610:                                              ; preds = %607
@@ -82082,7 +82083,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit299: ; preds = %_ZN11hb_buffer_t
   %612 = load ptr, ptr %25, align 8, !tbaa !197
   %.not.i301 = icmp eq ptr %611, %612
   %613 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i302 = icmp eq i32 %613, %.pre392
+  %.not2.i302 = icmp eq i32 %613, %.pre389
   %or.cond.i303 = select i1 %.not.i301, i1 %.not2.i302, i1 false
   br i1 %or.cond.i303, label %640, label %._crit_edge.i304
 
@@ -82102,11 +82103,11 @@ _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_ed
   %.pre3.i308 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre4.i309 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre8.pre.i310 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre390.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre387.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i311:     ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i307, %._crit_edge.i304
-  %.pre390 = phi i32 [ %.pre390.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i307 ], [ %.pre392, %._crit_edge.i304 ]
+  %.pre387 = phi i32 [ %.pre387.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i307 ], [ %.pre389, %._crit_edge.i304 ]
   %.pre8.i312 = phi i32 [ %.pre8.pre.i310, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i307 ], [ %613, %._crit_edge.i304 ]
   %619 = phi ptr [ %.pre4.i309, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i307 ], [ %612, %._crit_edge.i304 ]
   %620 = phi ptr [ %.pre3.i308, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i307 ], [ %611, %._crit_edge.i304 ]
@@ -82115,7 +82116,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i311:     ; preds = %_ZN11hb_buffer_t6en
 
 622:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311
   %623 = add i32 %.pre8.i312, 1
-  %624 = add i32 %.pre390, 1
+  %624 = add i32 %.pre387, 1
   %625 = icmp ugt i32 %623, %624
   br i1 %625, label %626, label %631
 
@@ -82136,7 +82137,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i311:     ; preds = %_ZN11hb_buffer_t6en
   br label %631
 
 631:                                              ; preds = %628, %626, %622, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311
-  %632 = phi i32 [ %.pre390, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311 ], [ %.pre390, %622 ], [ %.pre390, %626 ], [ %.pre, %628 ]
+  %632 = phi i32 [ %.pre387, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311 ], [ %.pre387, %622 ], [ %.pre387, %626 ], [ %.pre, %628 ]
   %633 = phi i32 [ %.pre8.i312, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311 ], [ %.pre8.i312, %622 ], [ 0, %626 ], [ %.pre7.i317, %628 ]
   %634 = phi ptr [ %620, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311 ], [ %620, %622 ], [ %627, %626 ], [ %.pre6.i316, %628 ]
   %635 = phi ptr [ %619, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i311 ], [ %619, %622 ], [ %619, %626 ], [ %.pre5.i315, %628 ]
@@ -82146,18 +82147,18 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i311:     ; preds = %_ZN11hb_buffer_t6en
   %639 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %634, i64 %638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %639, ptr noundef nonnull align 4 dereferenceable(20) %637, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i313 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre391.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre388.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %640
 
 640:                                              ; preds = %631, %610
-  %.pre391 = phi i32 [ %.pre391.pre, %631 ], [ %.pre392, %610 ]
-  %641 = phi i32 [ %.pre10.i313, %631 ], [ %.pre392, %610 ]
+  %.pre388 = phi i32 [ %.pre388.pre, %631 ], [ %.pre389, %610 ]
+  %641 = phi i32 [ %.pre10.i313, %631 ], [ %.pre389, %610 ]
   %642 = add i32 %641, 1
   store i32 %642, ptr %24, align 4, !tbaa !260
   br label %643
 
 643:                                              ; preds = %640, %607
-  %644 = phi i32 [ %.pre391, %640 ], [ %.pre392, %607 ]
+  %644 = phi i32 [ %.pre388, %640 ], [ %.pre389, %607 ]
   %645 = add i32 %644, 1
   store i32 %645, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t10next_glyphEv.exit318
@@ -82170,9 +82171,9 @@ _ZN11hb_buffer_t10next_glyphEv.exit318:           ; preds = %_ZN11hb_buffer_t6en
   %.0161 = phi i32 [ %564, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit299 ], [ %646, %_ZN11hb_buffer_t10next_glyphEv.exit318 ]
   %648 = load i8, ptr %30, align 8, !tbaa !193, !range !174, !noundef !175
   %649 = trunc nuw i8 %648 to i1
-  br i1 %649, label %650, label %.thread504, !prof !65
+  br i1 %649, label %650, label %.thread501, !prof !65
 
-.thread504:                                       ; preds = %647
+.thread501:                                       ; preds = %647
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
 
@@ -82245,22 +82246,22 @@ _ZN11hb_buffer_t10next_glyphEv.exit318:           ; preds = %_ZN11hb_buffer_t6en
 .thread352:                                       ; preds = %.thread348, %508, %512, %.thread355
   %688 = add i32 %259, 1
   %spec.select = select i1 %471, i32 %688, i32 %.0162511
-  %.pre396.pre = load i32, ptr %23, align 4, !tbaa !351
-  br label %.thread503
+  %.pre393.pre = load i32, ptr %23, align 4, !tbaa !351
+  br label %.thread500
 
-.thread503:                                       ; preds = %265, %.thread352, %268, %456
-  %.pre396 = phi i32 [ %.pre396.pre, %.thread352 ], [ %42, %456 ], [ %42, %268 ], [ %42, %265 ]
+.thread500:                                       ; preds = %265, %.thread352, %268, %456
+  %.pre393 = phi i32 [ %.pre393.pre, %.thread352 ], [ %42, %456 ], [ %42, %268 ], [ %42, %265 ]
   %.6 = phi i32 [ %spec.select, %.thread352 ], [ %.0162511, %456 ], [ %.0162511, %268 ], [ %.0162511, %265 ]
   %689 = load i8, ptr %21, align 2, !tbaa !259, !range !174, !noundef !175
   %690 = trunc nuw i8 %689 to i1
   br i1 %690, label %691, label %724
 
-691:                                              ; preds = %.thread503
+691:                                              ; preds = %.thread500
   %692 = load ptr, ptr %27, align 8, !tbaa !261
   %693 = load ptr, ptr %25, align 8, !tbaa !197
   %.not.i320 = icmp eq ptr %692, %693
   %694 = load i32, ptr %24, align 4, !tbaa !260
-  %.not2.i321 = icmp eq i32 %694, %.pre396
+  %.not2.i321 = icmp eq i32 %694, %.pre393
   %or.cond.i322 = select i1 %.not.i320, i1 %.not2.i321, i1 false
   br i1 %or.cond.i322, label %721, label %._crit_edge.i323
 
@@ -82280,11 +82281,11 @@ _ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_ed
   %.pre3.i327 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre4.i328 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre8.pre.i329 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre394.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre391.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i.i330:     ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i326, %._crit_edge.i323
-  %.pre394 = phi i32 [ %.pre394.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i326 ], [ %.pre396, %._crit_edge.i323 ]
+  %.pre391 = phi i32 [ %.pre391.pre, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i326 ], [ %.pre393, %._crit_edge.i323 ]
   %.pre8.i331 = phi i32 [ %.pre8.pre.i329, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i326 ], [ %694, %._crit_edge.i323 ]
   %700 = phi ptr [ %.pre4.i328, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i326 ], [ %693, %._crit_edge.i323 ]
   %701 = phi ptr [ %.pre3.i327, %_ZN11hb_buffer_t6ensureEj.exit.i._ZN11hb_buffer_t6ensureEj.exit.thread.i_crit_edge.i326 ], [ %692, %._crit_edge.i323 ]
@@ -82293,7 +82294,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i330:     ; preds = %_ZN11hb_buffer_t6en
 
 703:                                              ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330
   %704 = add i32 %.pre8.i331, 1
-  %705 = add i32 %.pre394, 1
+  %705 = add i32 %.pre391, 1
   %706 = icmp ugt i32 %704, %705
   br i1 %706, label %707, label %712
 
@@ -82310,11 +82311,11 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i330:     ; preds = %_ZN11hb_buffer_t6en
   %.pre5.i334 = load ptr, ptr %25, align 8, !tbaa !197
   %.pre6.i335 = load ptr, ptr %27, align 8, !tbaa !261
   %.pre7.i336 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre393 = load i32, ptr %23, align 4, !tbaa !351
+  %.pre390 = load i32, ptr %23, align 4, !tbaa !351
   br label %712
 
 712:                                              ; preds = %709, %707, %703, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330
-  %713 = phi i32 [ %.pre394, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330 ], [ %.pre394, %703 ], [ %.pre394, %707 ], [ %.pre393, %709 ]
+  %713 = phi i32 [ %.pre391, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330 ], [ %.pre391, %703 ], [ %.pre391, %707 ], [ %.pre390, %709 ]
   %714 = phi i32 [ %.pre8.i331, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330 ], [ %.pre8.i331, %703 ], [ 0, %707 ], [ %.pre7.i336, %709 ]
   %715 = phi ptr [ %701, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330 ], [ %701, %703 ], [ %708, %707 ], [ %.pre6.i335, %709 ]
   %716 = phi ptr [ %700, %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i330 ], [ %700, %703 ], [ %700, %707 ], [ %.pre5.i334, %709 ]
@@ -82324,18 +82325,18 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i330:     ; preds = %_ZN11hb_buffer_t6en
   %720 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %715, i64 %719
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %720, ptr noundef nonnull align 4 dereferenceable(20) %718, i64 20, i1 false), !tbaa.struct !218
   %.pre10.i332 = load i32, ptr %24, align 4, !tbaa !260
-  %.pre395.pre = load i32, ptr %23, align 4, !tbaa !351
+  %.pre392.pre = load i32, ptr %23, align 4, !tbaa !351
   br label %721
 
 721:                                              ; preds = %712, %691
-  %.pre395 = phi i32 [ %.pre395.pre, %712 ], [ %.pre396, %691 ]
-  %722 = phi i32 [ %.pre10.i332, %712 ], [ %.pre396, %691 ]
+  %.pre392 = phi i32 [ %.pre392.pre, %712 ], [ %.pre393, %691 ]
+  %722 = phi i32 [ %.pre10.i332, %712 ], [ %.pre393, %691 ]
   %723 = add i32 %722, 1
   store i32 %723, ptr %24, align 4, !tbaa !260
   br label %724
 
-724:                                              ; preds = %721, %.thread503
-  %725 = phi i32 [ %.pre395, %721 ], [ %.pre396, %.thread503 ]
+724:                                              ; preds = %721, %.thread500
+  %725 = phi i32 [ %.pre392, %721 ], [ %.pre393, %.thread500 ]
   %726 = add i32 %725, 1
   store i32 %726, ptr %23, align 4, !tbaa !351
   br label %.backedge
@@ -82347,7 +82348,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i.i330:     ; preds = %_ZN11hb_buffer_t6en
   %728 = icmp ult i32 %727, %29
   br i1 %728, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.backedge, %_ZN11hb_buffer_t6ensureEj.exit.i.i, %_ZN11hb_buffer_t10next_glyphEv.exit270, %3, %.thread504
+.critedge:                                        ; preds = %.lr.ph, %.backedge, %_ZN11hb_buffer_t6ensureEj.exit.i.i, %_ZN11hb_buffer_t10next_glyphEv.exit270, %3, %.thread501
   %729 = call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(236) %1)
   ret void
 }

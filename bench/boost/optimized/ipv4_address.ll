@@ -339,12 +339,12 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef non
 
 .sink.split.i:                                    ; preds = %12, %7
   %.0 = phi ptr [ %10, %7 ], [ %1, %12 ]
-  %.sink7.i = phi i8 [ %11, %7 ], [ %5, %12 ]
-  %14 = udiv i8 %.sink7.i, 10
+  %.sink.i = phi i8 [ %11, %7 ], [ %5, %12 ]
+  %14 = udiv i8 %.sink.i, 10
   %15 = or disjoint i8 %14, 48
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %15, ptr %.0, align 1, !tbaa !8
-  %17 = urem i8 %.sink7.i, 10
+  %17 = urem i8 %5, 10
   br label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit"
 
 "_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit": ; preds = %12, %.sink.split.i
@@ -374,12 +374,12 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef non
 
 .sink.split.i6:                                   ; preds = %29, %24
   %.2 = phi ptr [ %27, %24 ], [ %20, %29 ]
-  %.sink7.i7 = phi i8 [ %28, %24 ], [ %22, %29 ]
-  %31 = udiv i8 %.sink7.i7, 10
+  %.sink.i7 = phi i8 [ %28, %24 ], [ %22, %29 ]
+  %31 = udiv i8 %.sink.i7, 10
   %32 = or disjoint i8 %31, 48
   %33 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %32, ptr %.2, align 1, !tbaa !8
-  %34 = urem i8 %.sink7.i7, 10
+  %34 = urem i8 %22, 10
   br label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit8"
 
 "_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit8": ; preds = %29, %.sink.split.i6
@@ -409,12 +409,12 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef non
 
 .sink.split.i10:                                  ; preds = %46, %41
   %.4 = phi ptr [ %44, %41 ], [ %37, %46 ]
-  %.sink7.i11 = phi i8 [ %45, %41 ], [ %39, %46 ]
-  %48 = udiv i8 %.sink7.i11, 10
+  %.sink.i11 = phi i8 [ %45, %41 ], [ %39, %46 ]
+  %48 = udiv i8 %.sink.i11, 10
   %49 = or disjoint i8 %48, 48
   %50 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i8 %49, ptr %.4, align 1, !tbaa !8
-  %51 = urem i8 %.sink7.i11, 10
+  %51 = urem i8 %39, 10
   br label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit12"
 
 "_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit12": ; preds = %46, %.sink.split.i10
@@ -443,12 +443,12 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef non
 
 .sink.split.i14:                                  ; preds = %62, %57
   %.6 = phi ptr [ %60, %57 ], [ %54, %62 ]
-  %.sink7.i15 = phi i8 [ %61, %57 ], [ %55, %62 ]
-  %64 = udiv i8 %.sink7.i15, 10
+  %.sink.i15 = phi i8 [ %61, %57 ], [ %55, %62 ]
+  %64 = udiv i8 %.sink.i15, 10
   %65 = or disjoint i8 %64, 48
   %66 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   store i8 %65, ptr %.6, align 1, !tbaa !8
-  %67 = urem i8 %.sink7.i15, 10
+  %67 = urem i8 %55, 10
   br label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit16"
 
 "_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit16": ; preds = %62, %.sink.split.i14

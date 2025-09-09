@@ -4561,7 +4561,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_26d
   store i8 46, ptr %14, align 1, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %.012, i64 3
   store i8 48, ptr %15, align 1, !tbaa !17
-  br label %88
+  br label %89
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4691,19 +4691,20 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_26d
   %83 = or disjoint i8 %82, 48
   %84 = getelementptr i8, ptr %.pn.i, i64 5
   store i8 %83, ptr %70, align 1, !tbaa !17
-  %85 = urem i8 %.lhs.trunc28.i.i, 10
-  %86 = or disjoint i8 %85, 48
-  %87 = getelementptr i8, ptr %.pn.i, i64 6
-  store i8 %86, ptr %84, align 1, !tbaa !17
+  %85 = urem i32 %.0.i.i, 10
+  %86 = trunc nuw nsw i32 %85 to i8
+  %87 = or disjoint i8 %86, 48
+  %88 = getelementptr i8, ptr %.pn.i, i64 6
+  store i8 %87, ptr %84, align 1, !tbaa !17
   br label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit
 
 _ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit: ; preds = %21, %32, %42, %63, %71, %77
-  %.0.i = phi ptr [ %28, %21 ], [ %39, %32 ], [ %50, %42 ], [ %67, %63 ], [ %76, %71 ], [ %87, %77 ]
+  %.0.i = phi ptr [ %28, %21 ], [ %39, %32 ], [ %50, %42 ], [ %67, %63 ], [ %76, %71 ], [ %88, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %88
+  br label %89
 
-88:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit, %13
+89:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit, %13
   %.0 = phi ptr [ %16, %13 ], [ %.0.i, %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit ]
   ret ptr %.0
 }
