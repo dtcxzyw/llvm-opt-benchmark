@@ -6972,29 +6972,31 @@ define hidden void @proto_register_btgatt() local_unnamed_addr #1 {
 define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
   br label %2
 
-1:                                                ; preds = %13
+1:                                                ; preds = %15
   ret void
 
-2:                                                ; preds = %0, %13
-  %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %13 ]
+2:                                                ; preds = %0, %15
+  %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %15 ]
   %3 = getelementptr %struct.uuid_dissectors_t, ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @bluetooth_uuids, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %5, ptr noundef %4, ptr noundef %7, i32 noundef 0)
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %.not10 = icmp eq ptr %9, null
-  br i1 %.not10, label %13, label %10
+  %8 = shl nuw i64 1, %indvars.iv
+  %9 = and i64 %8, 39764173385
+  %.not10.not = icmp eq i64 %9, 0
+  br i1 %.not10.not, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr @proto_btgatt, align 4
-  %12 = tail call ptr @create_dissector_handle_with_name_and_description(ptr noundef nonnull %9, i32 noundef %11, ptr noundef null, ptr noundef %7)
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2359, ptr noundef %4, ptr noundef %12)
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr @proto_btgatt, align 4
+  %14 = tail call ptr @create_dissector_handle_with_name_and_description(ptr noundef %12, i32 noundef %13, ptr noundef null, ptr noundef %7)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2359, ptr noundef %4, ptr noundef %14)
+  br label %15
 
-13:                                               ; preds = %2, %10
+15:                                               ; preds = %2, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 35
   br i1 %.not, label %1, label %2, !llvm.loop !15

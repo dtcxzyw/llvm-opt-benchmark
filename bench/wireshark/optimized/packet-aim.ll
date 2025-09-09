@@ -3826,7 +3826,7 @@ define internal i32 @dissect_aim_icq_tlv(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 10, 13) i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i32, ptr @ett_aim_icq_tlv, align 4
   %6 = tail call ptr @proto_item_add_subtree(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_icq_tlv_data_chunk_size, align 4
@@ -3838,7 +3838,7 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   %13 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 6)
   %14 = load i32, ptr @hf_icq_tlv_request_seq_num, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %14, ptr noundef %2, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
-  switch i16 %13, label %39 [
+  switch i16 %13, label %37 [
     i16 2000, label %19
     i16 66, label %16
     i16 2010, label %19
@@ -3847,55 +3847,47 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
 16:                                               ; preds = %4
   %17 = load i32, ptr @hf_icq_dropped_msg_flag, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %17, ptr noundef %2, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648)
-  br label %39
+  br label %37
 
 19:                                               ; preds = %4, %4
   %20 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 10)
   %21 = load i32, ptr @hf_icq_meta_subtype, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %21, ptr noundef %2, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
-  %23 = icmp eq i16 %20, 1
-  br i1 %23, label %30, label %.lr.ph
+  br label %26
 
-.lr.ph:                                           ; preds = %19, %24
-  %indvars.iv60 = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 51
-  br i1 %exitcond, label %._crit_edge63, label %24, !llvm.loop !35
+23:                                               ; preds = %26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 51
+  br i1 %.not, label %.thread57, label %26, !llvm.loop !35
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr %struct.anon.0, ptr @icq_calls, i64 %indvars.iv.next
-  %26 = load i16, ptr %25, align 8
-  %27 = icmp eq i16 %26, %20
-  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+.thread57:                                        ; preds = %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = load ptr, ptr %24, align 8
+  tail call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.767)
+  br label %35
 
-._crit_edge:                                      ; preds = %24
-  %28 = getelementptr %struct.anon.0, ptr @icq_calls, i64 %indvars.iv.next, i32 1
-  %29 = load ptr, ptr %28, align 8
-  br label %30
+26:                                               ; preds = %19, %23
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %23 ]
+  %27 = getelementptr %struct.anon.0, ptr @icq_calls, i64 %indvars.iv
+  %28 = load i16, ptr %27, align 8
+  %29 = icmp eq i16 %28, %20
+  br i1 %29, label %30, label %23
 
-._crit_edge63:                                    ; preds = %.lr.ph
-  br label %30, !llvm.loop !35
-
-30:                                               ; preds = %._crit_edge63, %._crit_edge, %19
-  %.lcssa = phi ptr [ %25, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %._crit_edge63 ], [ @icq_calls, %19 ]
-  %31 = phi ptr [ %29, %._crit_edge ], [ @.str.110, %._crit_edge63 ], [ @.str.769, %19 ]
-  %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.767, %._crit_edge63 ], [ @.str.769, %19 ]
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8
-  tail call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef nonnull %spec.select)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.768, ptr noundef nonnull %31)
-  %34 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %.not56 = icmp eq ptr %35, null
-  br i1 %.not56, label %39, label %36
+  %34 = load ptr, ptr %31, align 8
+  tail call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef %34)
+  br label %35
 
-36:                                               ; preds = %30
-  %37 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef 12)
-  %38 = tail call i32 %35(ptr noundef %37, ptr noundef %3, ptr noundef %6)
-  br label %39
+35:                                               ; preds = %.thread57, %30
+  %36 = phi ptr [ %34, %30 ], [ @.str.110, %.thread57 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.768, ptr noundef %36)
+  br label %37
 
-39:                                               ; preds = %30, %4, %36, %16
-  %.0 = phi i32 [ 11, %16 ], [ %38, %36 ], [ 10, %4 ], [ 12, %30 ]
+37:                                               ; preds = %4, %35, %16
+  %.0 = phi i32 [ 11, %16 ], [ 10, %4 ], [ 12, %35 ]
   ret i32 %.0
 }
 

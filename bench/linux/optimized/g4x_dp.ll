@@ -1789,97 +1789,80 @@ define internal void @g4x_set_signal_levels(ptr noundef captures(none) %0, ptr r
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %9 [
-    i32 10, label %10
-    i32 7, label %10
-    i32 8, label %10
-    i32 6, label %10
+    i32 10, label %switch.lookup
+    i32 7, label %switch.lookup
+    i32 8, label %switch.lookup
+    i32 6, label %switch.lookup
     i32 11, label %6
   ]
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load ptr, ptr %7, align 8
-  br label %10
+  br label %switch.lookup
 
 9:                                                ; preds = %2
-  br label %10
+  br label %switch.lookup
 
-10:                                               ; preds = %9, %6, %2, %2, %2, %2
-  %11 = phi ptr [ %8, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %9 ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1916
-  %13 = load i8, ptr %12, align 4
-  %14 = zext i8 %13 to i32
-  %15 = and i32 %14, 3
-  switch i32 %15, label %default.unreachable2 [
-    i32 0, label %19
-    i32 1, label %16
-    i32 2, label %17
-    i32 3, label %18
+switch.lookup:                                    ; preds = %9, %6, %2, %2, %2, %2
+  %10 = phi ptr [ %8, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %9 ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1916
+  %12 = load i8, ptr %11, align 4
+  %13 = zext i8 %12 to i32
+  %14 = shl i32 %13, 25
+  %switch.idx.mult = and i32 %14, 100663296
+  %15 = lshr i32 %13, 3
+  %16 = and i32 %15, 3
+  switch i32 %16, label %default.unreachable2 [
+    i32 0, label %23
+    i32 1, label %17
+    i32 2, label %19
+    i32 3, label %21
   ]
 
-default.unreachable2:                             ; preds = %19, %10
+default.unreachable2:                             ; preds = %switch.lookup
   unreachable
 
-16:                                               ; preds = %10
-  br label %19
+17:                                               ; preds = %switch.lookup
+  %18 = or disjoint i32 %switch.idx.mult, 4194304
+  br label %23
 
-17:                                               ; preds = %10
-  br label %19
+19:                                               ; preds = %switch.lookup
+  %20 = or disjoint i32 %switch.idx.mult, 8388608
+  br label %23
 
-18:                                               ; preds = %10
-  br label %19
+21:                                               ; preds = %switch.lookup
+  %22 = or disjoint i32 %switch.idx.mult, 12582912
+  br label %23
 
-19:                                               ; preds = %18, %17, %16, %10
-  %20 = phi i32 [ 100663296, %18 ], [ 67108864, %17 ], [ 33554432, %16 ], [ %15, %10 ]
-  %21 = lshr i32 %14, 3
-  %22 = and i32 %21, 3
-  switch i32 %22, label %default.unreachable2 [
-    i32 0, label %29
-    i32 1, label %23
-    i32 2, label %25
-    i32 3, label %27
-  ]
+23:                                               ; preds = %21, %19, %17, %switch.lookup
+  %24 = phi i32 [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %switch.idx.mult, %switch.lookup ]
+  %25 = icmp eq ptr %3, null
+  br i1 %25, label %29, label %26
 
-23:                                               ; preds = %19
-  %24 = or disjoint i32 %20, 4194304
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %28 = load ptr, ptr %27, align 8
   br label %29
 
-25:                                               ; preds = %19
-  %26 = or disjoint i32 %20, 8388608
-  br label %29
-
-27:                                               ; preds = %19
-  %28 = or disjoint i32 %20, 12582912
-  br label %29
-
-29:                                               ; preds = %27, %25, %23, %19
-  %30 = phi i32 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %20, %19 ]
-  %31 = icmp eq ptr %3, null
-  br i1 %31, label %35, label %32
-
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %34 = load ptr, ptr %33, align 8
-  br label %35
-
-35:                                               ; preds = %32, %29
-  %36 = phi ptr [ %34, %32 ], [ null, %29 ]
-  %37 = getelementptr inbounds nuw i8, ptr %11, i64 392
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %36, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %30) #10
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 396
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, -264241153
-  %41 = or i32 %40, %30
-  store i32 %41, ptr %38, align 4
-  %42 = load i32, ptr %37, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 7368
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 7544
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull %43, i32 %42, i32 noundef %41, i1 noundef zeroext true) #10
-  %46 = load i32, ptr %37, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 7512
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 %48(ptr noundef nonnull %43, i32 %46, i1 noundef zeroext false) #10
+29:                                               ; preds = %26, %23
+  %30 = phi ptr [ %28, %26 ], [ null, %23 ]
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 392
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %24) #10
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 396
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, -264241153
+  %35 = or i32 %34, %24
+  store i32 %35, ptr %32, align 4
+  %36 = load i32, ptr %31, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 7544
+  %39 = load ptr, ptr %38, align 8
+  tail call void %39(ptr noundef nonnull %37, i32 %36, i32 noundef %35, i1 noundef zeroext true) #10
+  %40 = load i32, ptr %31, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 7512
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call i32 %42(ptr noundef nonnull %37, i32 %40, i1 noundef zeroext false) #10
   ret void
 }
 

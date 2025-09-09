@@ -3024,21 +3024,16 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr noundef readonly capture
   %8 = zext nneg i16 %7 to i32
   %9 = lshr i16 %3, 8
   %10 = and i16 %9, 15
-  switch i16 %10, label %11 [
-    i16 0, label %12
-    i16 6, label %12
-    i16 1, label %12
-  ]
-
-11:                                               ; preds = %1
-  br label %12
-
-12:                                               ; preds = %11, %1, %1, %1
-  %13 = phi i8 [ 1, %11 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %11 = icmp samesign ult i16 %10, 7
+  %12 = shl nuw nsw i16 %10, 3
+  %switch.shiftamt = zext nneg i16 %12 to i56
+  %switch.downshift = lshr i56 1103823437824, %switch.shiftamt
+  %switch.masked = trunc i56 %switch.downshift to i8
+  %13 = select i1 %11, i8 %switch.masked, i8 1
   %14 = icmp eq i16 %7, 0
   br i1 %14, label %.loopexit, label %15
 
-15:                                               ; preds = %12
+15:                                               ; preds = %1
   %16 = shl nuw nsw i8 %13, 4
   br label %17
 
@@ -3063,7 +3058,7 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr noundef readonly capture
   %34 = icmp eq i32 %33, %8
   br i1 %34, label %.loopexit, label %17, !llvm.loop !28
 
-.loopexit:                                        ; preds = %17, %12
+.loopexit:                                        ; preds = %17, %1
   switch i16 %3, label %43 [
     i16 4931, label %35
     i16 4899, label %35

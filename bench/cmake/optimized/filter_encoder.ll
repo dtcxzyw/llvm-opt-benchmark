@@ -173,13 +173,13 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
 
 .preheader40:                                     ; preds = %1
   %3 = load i64, ptr %0, align 8, !tbaa !21
-  %.not47 = icmp eq i64 %3, -1
-  br i1 %.not47, label %.thread, label %.preheader
+  %.not48 = icmp eq i64 %3, -1
+  br i1 %.not48, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %.preheader40, %17
   %4 = phi i64 [ %20, %17 ], [ %3, %.preheader40 ]
-  %.01949 = phi i64 [ %.221.ph, %17 ], [ 0, %.preheader40 ]
-  %.02648 = phi i64 [ %18, %17 ], [ 0, %.preheader40 ]
+  %.01950 = phi i64 [ %.221.ph, %17 ], [ 0, %.preheader40 ]
+  %.02649 = phi i64 [ %18, %17 ], [ 0, %.preheader40 ]
   br label %7
 
 5:                                                ; preds = %7
@@ -195,22 +195,22 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
   br i1 %10, label %encoder_find.exit, label %5
 
 encoder_find.exit:                                ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !31
-  %.not32 = icmp eq ptr %12, null
-  br i1 %.not32, label %17, label %13
+  %.not32.not = icmp eq i64 %.068.i, 2
+  br i1 %.not32.not, label %11, label %17
 
-13:                                               ; preds = %encoder_find.exit
-  %14 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.02648, i32 1
+11:                                               ; preds = %encoder_find.exit
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %14 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.02649, i32 1
   %15 = load ptr, ptr %14, align 8, !tbaa !32
-  %16 = tail call i64 %12(ptr noundef %15) #9
+  %16 = tail call i64 %13(ptr noundef %15) #9
   %.fr = freeze i64 %16
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.01949)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.01950)
   br label %17
 
-17:                                               ; preds = %13, %encoder_find.exit
-  %.221.ph = phi i64 [ %.01949, %encoder_find.exit ], [ %spec.select, %13 ]
-  %18 = add i64 %.02648, 1
+17:                                               ; preds = %11, %encoder_find.exit
+  %.221.ph = phi i64 [ %.01950, %encoder_find.exit ], [ %spec.select, %11 ]
+  %18 = add i64 %.02649, 1
   %19 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !21
   %.not = icmp eq i64 %20, -1
@@ -218,11 +218,11 @@ encoder_find.exit:                                ; preds = %7
 
 .loopexit:                                        ; preds = %17
   %21 = icmp eq i64 %.221.ph, 0
-  %spec.select76 = select i1 %21, i64 -1, i64 %.221.ph
+  %spec.select78 = select i1 %21, i64 -1, i64 %.221.ph
   br label %.thread
 
 .thread:                                          ; preds = %5, %.loopexit, %.preheader40, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select76, %.loopexit ], [ -1, %5 ]
+  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select78, %.loopexit ], [ -1, %5 ]
   ret i64 %.0
 }
 
@@ -246,28 +246,29 @@ define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr noundef readonly 
 10:                                               ; preds = %4
   %11 = icmp sgt i64 %3, -1
   %12 = select i1 %11, i32 8, i32 11
-  br label %23
+  br label %24
 
 encoder_find.exit:                                ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !34
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %19
+  %13 = add nsw i64 %.068.i, -9
+  %14 = icmp ult i64 %13, -6
+  br i1 %14, label %15, label %18
 
-16:                                               ; preds = %encoder_find.exit
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !35
-  store i32 %18, ptr %0, align 4, !tbaa !36
-  br label %23
+15:                                               ; preds = %encoder_find.exit
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %17 = load i32, ptr %16, align 8, !tbaa !34
+  store i32 %17, ptr %0, align 4, !tbaa !35
+  br label %24
 
-19:                                               ; preds = %encoder_find.exit
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = tail call i32 %14(ptr noundef %0, ptr noundef %21) #9
-  br label %23
+18:                                               ; preds = %encoder_find.exit
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %23 = tail call i32 %20(ptr noundef %0, ptr noundef %22) #9
+  br label %24
 
-23:                                               ; preds = %19, %16, %10
-  %.0 = phi i32 [ %12, %10 ], [ 0, %16 ], [ %22, %19 ]
+24:                                               ; preds = %18, %15, %10
+  %.0 = phi i32 [ %12, %10 ], [ 0, %15 ], [ %23, %18 ]
   ret i32 %.0
 }
 
@@ -291,17 +292,13 @@ define dso_local i32 @lzma_properties_encode(ptr noundef readonly captures(none)
 encoder_find.exit:                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !37
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %encoder_find.exit.thread, label %13
-
-13:                                               ; preds = %encoder_find.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
-  %16 = tail call i32 %11(ptr noundef %15, ptr noundef %1) #9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !32
+  %14 = tail call i32 %11(ptr noundef %13, ptr noundef %1) #9
   br label %encoder_find.exit.thread
 
-encoder_find.exit.thread:                         ; preds = %4, %encoder_find.exit, %13
-  %.0 = phi i32 [ %16, %13 ], [ 0, %encoder_find.exit ], [ 11, %4 ]
+encoder_find.exit.thread:                         ; preds = %4, %encoder_find.exit
+  %.0 = phi i32 [ %14, %encoder_find.exit ], [ 11, %4 ]
   ret i32 %.0
 }
 
@@ -397,7 +394,7 @@ attributes #9 = { nounwind }
 !31 = !{!5, !9, i64 24}
 !32 = !{!22, !9, i64 8}
 !33 = distinct !{!33, !12}
-!34 = !{!5, !9, i64 32}
-!35 = !{!5, !10, i64 40}
-!36 = !{!10, !10, i64 0}
+!34 = !{!5, !10, i64 40}
+!35 = !{!10, !10, i64 0}
+!36 = !{!5, !9, i64 32}
 !37 = !{!5, !9, i64 48}

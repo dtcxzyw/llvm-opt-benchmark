@@ -5720,20 +5720,20 @@ define internal noundef range(i32 -16, 1) i32 @snd_pcm_pre_suspend(ptr noundef %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %6 [
-    i32 7, label %8
-    i32 0, label %8
-    i32 1, label %8
-    i32 8, label %8
-  ]
+  %6 = icmp ult i32 %5, 9
+  %switch.maskindex = trunc i32 %5 to i16
+  %switch.shifted = lshr i16 387, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %7, align 8
-  br label %8
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %0, ptr %8, align 8
+  br label %switch.lookup
 
-8:                                                ; preds = %6, %2, %2, %2, %2
-  %9 = phi i32 [ 0, %6 ], [ -16, %2 ], [ -16, %2 ], [ -16, %2 ], [ -16, %2 ]
+switch.lookup:                                    ; preds = %2, %7
+  %9 = phi i32 [ 0, %7 ], [ -16, %2 ]
   ret i32 %9
 }
 

@@ -10564,7 +10564,7 @@ define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonl
   %7 = load i32, ptr %3, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %7)
   %9 = icmp ult i8 %4, 25
-  br i1 %9, label %10, label %27
+  br i1 %9, label %10, label %29
 
 10:                                               ; preds = %6
   %11 = zext nneg i8 %4 to i64
@@ -10573,54 +10573,56 @@ define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonl
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %3, align 4
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef %8)
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8
-  br i1 %.not, label %23, label %21
+  %.not.not = icmp eq i8 %4, 0
+  br i1 %.not.not, label %17, label %23
 
-21:                                               ; preds = %10
-  %22 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef nonnull %18, ptr noundef nonnull @.str.2003)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.2653, ptr noundef %22)
-  br label %44
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef %19, ptr noundef nonnull @.str.2003)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.2653, ptr noundef %22)
+  br label %46
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef %25, ptr noundef nonnull @.str.2003)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.2653, ptr noundef %26)
-  br label %44
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef %27, ptr noundef nonnull @.str.2003)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.2653, ptr noundef %28)
+  br label %46
 
-27:                                               ; preds = %6
-  %28 = icmp eq i8 %4, -1
-  br i1 %28, label %29, label %38
+29:                                               ; preds = %6
+  %30 = icmp eq i8 %4, -1
+  br i1 %30, label %31, label %40
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef %31, ptr noundef nonnull @.str.2003)
-  %33 = load i32, ptr @hf_mbim_cid, align 4
-  %34 = load i32, ptr %3, align 4
-  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef %8, ptr noundef nonnull @.str.2654, ptr noundef %32, i32 noundef %8)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = load ptr, ptr %36, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.2653, ptr noundef %32)
-  br label %44
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef %33, ptr noundef nonnull @.str.2003)
+  %35 = load i32, ptr @hf_mbim_cid, align 4
+  %36 = load i32, ptr %3, align 4
+  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef %8, ptr noundef nonnull @.str.2654, ptr noundef %34, i32 noundef %8)
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.2653, ptr noundef %34)
+  br label %46
 
-38:                                               ; preds = %27
-  %39 = load i32, ptr @hf_mbim_cid, align 4
-  %40 = load i32, ptr %3, align 4
-  %41 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef %8)
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void @col_append_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.2655)
-  br label %44
+40:                                               ; preds = %29
+  %41 = load i32, ptr @hf_mbim_cid, align 4
+  %42 = load i32, ptr %3, align 4
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %8)
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load ptr, ptr %44, align 8
+  tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.2655)
+  br label %46
 
-44:                                               ; preds = %29, %38, %21, %23
-  %45 = load i32, ptr %3, align 4
-  %46 = add i32 %45, 4
-  store i32 %46, ptr %3, align 4
+46:                                               ; preds = %31, %40, %17, %23
+  %47 = load i32, ptr %3, align 4
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %3, align 4
   ret i32 %8
 }
 
@@ -11396,40 +11398,40 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   %57 = zext nneg i8 %48 to i64
   %58 = getelementptr %struct.mbim_uuid_info_, ptr @mbim_uuid_info, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   br i1 %54, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.preheader.i
+  %.not.not.i = icmp eq i8 %48, 0
+  br i1 %.not.not.i, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.us.i
-  %.032.us.us.i = phi i32 [ %70, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %63 = phi i32 [ %69, %.lr.ph.split.us.split.us.i ], [ %52, %.lr.ph.split.us.i ]
-  %64 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %63)
-  %65 = load i32, ptr @hf_mbim_event_entry_cid, align 4
-  %66 = load ptr, ptr %59, align 8
-  %67 = call ptr @val_to_str_const(i32 noundef %64, ptr noundef %66, ptr noundef nonnull @.str.2003)
-  %68 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %44, i32 noundef %65, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef %64, ptr noundef nonnull @.str.2654, ptr noundef %67, i32 noundef %64)
-  %69 = add i32 %63, 4
-  %70 = add nuw i32 %.032.us.us.i, 1
-  %71 = load i32, ptr %6, align 4
-  %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph.split.us.split.us.i, label %mbim_dissect_event_entry.exit, !llvm.loop !16
+  %.032.us.us.i = phi i32 [ %68, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %61 = phi i32 [ %67, %.lr.ph.split.us.split.us.i ], [ %52, %.lr.ph.split.us.i ]
+  %62 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %61)
+  %63 = load ptr, ptr %60, align 8
+  %64 = load i32, ptr @hf_mbim_event_entry_cid, align 4
+  %65 = call ptr @val_to_str_ext_const(i32 noundef %62, ptr noundef %63, ptr noundef nonnull @.str.2003)
+  %66 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %44, i32 noundef %64, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %62, ptr noundef nonnull @.str.2654, ptr noundef %65, i32 noundef %62)
+  %67 = add i32 %61, 4
+  %68 = add nuw i32 %.032.us.us.i, 1
+  %69 = load i32, ptr %6, align 4
+  %70 = icmp ult i32 %68, %69
+  br i1 %70, label %.lr.ph.split.us.split.us.i, label %mbim_dissect_event_entry.exit, !llvm.loop !16
 
-.lr.ph.split.us.split.preheader.i:                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.preheader.i
-  %.032.us.i = phi i32 [ %79, %.lr.ph.split.us.split.preheader.i ], [ 0, %.lr.ph.split.us.i ]
-  %73 = phi i32 [ %78, %.lr.ph.split.us.split.preheader.i ], [ %52, %.lr.ph.split.us.i ]
-  %74 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %73)
-  %75 = load i32, ptr @hf_mbim_event_entry_cid, align 4
-  %76 = call ptr @val_to_str_ext_const(i32 noundef %74, ptr noundef nonnull %61, ptr noundef nonnull @.str.2003)
-  %77 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %44, i32 noundef %75, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef %74, ptr noundef nonnull @.str.2654, ptr noundef %76, i32 noundef %74)
-  %.pre.i = load i32, ptr %6, align 4
-  %78 = add i32 %73, 4
-  %79 = add nuw i32 %.032.us.i, 1
-  %80 = icmp ult i32 %79, %.pre.i
-  br i1 %80, label %.lr.ph.split.us.split.preheader.i, label %mbim_dissect_event_entry.exit, !llvm.loop !17
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.i
+  %.032.us.i = phi i32 [ %78, %.lr.ph.split.us.split.i ], [ 0, %.lr.ph.split.us.i ]
+  %71 = phi i32 [ %77, %.lr.ph.split.us.split.i ], [ %52, %.lr.ph.split.us.i ]
+  %72 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71)
+  %73 = load i32, ptr @hf_mbim_event_entry_cid, align 4
+  %74 = load ptr, ptr %59, align 8
+  %75 = call ptr @val_to_str_const(i32 noundef %72, ptr noundef %74, ptr noundef nonnull @.str.2003)
+  %76 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %44, i32 noundef %73, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %72, ptr noundef nonnull @.str.2654, ptr noundef %75, i32 noundef %72)
+  %77 = add i32 %71, 4
+  %78 = add nuw i32 %.032.us.i, 1
+  %79 = load i32, ptr %6, align 4
+  %80 = icmp ult i32 %78, %79
+  br i1 %80, label %.lr.ph.split.us.split.i, label %mbim_dissect_event_entry.exit, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %81 = icmp eq i8 %48, -1
@@ -11461,7 +11463,7 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   %99 = icmp ult i32 %97, %98
   br i1 %99, label %.lr.ph.split.split.i, label %mbim_dissect_event_entry.exit, !llvm.loop !16
 
-mbim_dissect_event_entry.exit:                    ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.preheader.i, %.lr.ph.split.us.split.us.i, %40
+mbim_dissect_event_entry.exit:                    ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.us.i, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11471,7 +11473,7 @@ mbim_dissect_event_entry.exit:                    ; preds = %.lr.ph.split.split.
   %101 = add nuw i32 %.146, 1
   %102 = load i32, ptr %8, align 4
   %103 = icmp ult i32 %101, %102
-  br i1 %103, label %.lr.ph47, label %.loopexit, !llvm.loop !19
+  br i1 %103, label %.lr.ph47, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %100, %13, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -11535,7 +11537,7 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr nou
   %37 = add nuw i32 %.04146, 1
   %38 = load i32, ptr %9, align 4
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %30, label %.preheader, !llvm.loop !20
+  br i1 %39, label %30, label %.preheader, !llvm.loop !18
 
 40:                                               ; preds = %.lr.ph49, %86
   %.148 = phi i32 [ 0, %.lr.ph49 ], [ %87, %86 ]
@@ -11623,7 +11625,7 @@ mbim_dissect_single_packet_filter.exit:           ; preds = %71, %79, %81
   %87 = add nuw i32 %.148, 1
   %88 = load i32, ptr %9, align 4
   %89 = icmp ult i32 %87, %88
-  br i1 %89, label %40, label %.loopexit, !llvm.loop !21
+  br i1 %89, label %40, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %86, %17, %.preheader, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -12389,7 +12391,7 @@ define internal fastcc void @mbim_dissect_thermal_config(ptr noundef %0, ptr nou
   %24 = add i32 %.02, 24
   %25 = add nuw nsw i32 %.0291, 1
   %exitcond.not = icmp eq i32 %25, 4
-  br i1 %exitcond.not, label %26, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %26, label %4, !llvm.loop !20
 
 26:                                               ; preds = %4
   ret void
@@ -12491,7 +12493,7 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   %33 = add nuw i32 %.03641, 1
   %34 = load i32, ptr %9, align 4
   %35 = icmp ult i32 %33, %34
-  br i1 %35, label %26, label %.preheader, !llvm.loop !23
+  br i1 %35, label %26, label %.preheader, !llvm.loop !21
 
 .lr.ph44:                                         ; preds = %.preheader, %97
   %.143 = phi i32 [ %98, %97 ], [ 0, %.preheader ]
@@ -12591,7 +12593,7 @@ mbim_dissect_atds_operator.exit:                  ; preds = %84, %89, %95
   %98 = add nuw i32 %.143, 1
   %99 = load i32, ptr %9, align 4
   %100 = icmp ult i32 %98, %99
-  br i1 %100, label %.lr.ph44, label %.loopexit, !llvm.loop !24
+  br i1 %100, label %.lr.ph44, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %97, %14, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -12645,7 +12647,7 @@ define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0,
   %29 = add nuw i32 %.03641, 1
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.preheader, !llvm.loop !25
+  br i1 %31, label %22, label %.preheader, !llvm.loop !23
 
 .lr.ph44:                                         ; preds = %.preheader, %100
   %.143 = phi i32 [ %101, %100 ], [ 0, %.preheader ]
@@ -12729,7 +12731,7 @@ define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0,
   %101 = add nuw i32 %.143, 1
   %102 = load i32, ptr %5, align 4
   %103 = icmp ult i32 %101, %102
-  br i1 %103, label %.lr.ph44, label %.loopexit, !llvm.loop !26
+  br i1 %103, label %.lr.ph44, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %100, %10, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -12797,7 +12799,7 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr noundef 
   %32 = add nuw i32 %.04752, 1
   %33 = load i32, ptr %5, align 4
   %34 = icmp ult i32 %32, %33
-  br i1 %34, label %25, label %.preheader, !llvm.loop !27
+  br i1 %34, label %25, label %.preheader, !llvm.loop !25
 
 .lr.ph55:                                         ; preds = %.preheader, %55
   %.154 = phi i32 [ %56, %55 ], [ 0, %.preheader ]
@@ -12833,7 +12835,7 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr noundef 
   %56 = add nuw i32 %.154, 1
   %57 = load i32, ptr %5, align 4
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.lr.ph55, label %.loopexit, !llvm.loop !28
+  br i1 %58, label %.lr.ph55, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %55, %13, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -12890,7 +12892,7 @@ define internal fastcc void @mbim_dissect_set_lte_attach_config(ptr noundef %0, 
   %32 = add nuw i32 %.04247, 1
   %33 = load i32, ptr %5, align 4
   %34 = icmp ult i32 %32, %33
-  br i1 %34, label %25, label %.preheader, !llvm.loop !29
+  br i1 %34, label %25, label %.preheader, !llvm.loop !27
 
 .lr.ph50:                                         ; preds = %.preheader, %47
   %.149 = phi i32 [ %48, %47 ], [ 0, %.preheader ]
@@ -12919,7 +12921,7 @@ define internal fastcc void @mbim_dissect_set_lte_attach_config(ptr noundef %0, 
   %48 = add nuw i32 %.149, 1
   %49 = load i32, ptr %5, align 4
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.lr.ph50, label %.loopexit, !llvm.loop !30
+  br i1 %50, label %.lr.ph50, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %47, %13, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -12973,7 +12975,7 @@ define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr nounde
   %29 = add nuw i32 %.03641, 1
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.preheader, !llvm.loop !31
+  br i1 %31, label %22, label %.preheader, !llvm.loop !29
 
 .lr.ph44:                                         ; preds = %.preheader, %47
   %.143 = phi i32 [ %48, %47 ], [ 0, %.preheader ]
@@ -13004,7 +13006,7 @@ define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr nounde
   %48 = add nuw i32 %.143, 1
   %49 = load i32, ptr %5, align 4
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.lr.ph44, label %.loopexit, !llvm.loop !32
+  br i1 %50, label %.lr.ph44, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %47, %10, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -13193,7 +13195,7 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noun
   %41 = add nuw i32 %.04854, 1
   %42 = load i32, ptr %6, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %34, label %.preheader, !llvm.loop !33
+  br i1 %43, label %34, label %.preheader, !llvm.loop !31
 
 .lr.ph57:                                         ; preds = %.preheader, %61
   %.14956 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
@@ -13226,7 +13228,7 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noun
   %62 = add nuw i32 %.14956, 1
   %63 = load i32, ptr %6, align 4
   %64 = icmp ult i32 %62, %63
-  br i1 %64, label %.lr.ph57, label %.loopexit, !llvm.loop !34
+  br i1 %64, label %.lr.ph57, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %61, %22, %.preheader, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -14052,7 +14054,7 @@ define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0
   %75 = add nuw i32 %.092104, 1
   %76 = load i32, ptr %10, align 4
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %68, label %.loopexit, !llvm.loop !35
+  br i1 %77, label %68, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %68, %58, %56
   %.091 = phi ptr [ null, %56 ], [ %61, %58 ], [ %61, %68 ]
@@ -14135,7 +14137,7 @@ define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0
   %122 = add nuw i32 %.193106, 1
   %123 = load i32, ptr %10, align 4
   %124 = icmp ult i32 %122, %123
-  br i1 %124, label %.lr.ph107, label %._crit_edge, !llvm.loop !36
+  br i1 %124, label %.lr.ph107, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %121, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -14199,7 +14201,7 @@ define internal fastcc void @mbim_dissect_pin_list_info(ptr noundef %0, ptr noun
   %32 = add i32 %.02, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %33, label %4, !llvm.loop !37
+  br i1 %exitcond.not, label %33, label %4, !llvm.loop !35
 
 33:                                               ; preds = %31
   ret void
@@ -14583,7 +14585,7 @@ define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr 
   %71 = call ptr @proto_tree_add_bitmask(ptr noundef %56, ptr noundef %0, i32 noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef nonnull @mbim_data_class_fields, i32 noundef -2147483648)
   %72 = load i32, ptr %7, align 4
   %73 = icmp ult i32 %55, %72
-  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %36, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -14736,7 +14738,7 @@ define internal fastcc void @mbim_dissect_provisioned_contexts_info(ptr noundef 
   %29 = add nuw i32 %.03641, 1
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.preheader, !llvm.loop !39
+  br i1 %31, label %22, label %.preheader, !llvm.loop !37
 
 .lr.ph44:                                         ; preds = %.preheader, %44
   %.143 = phi i32 [ %45, %44 ], [ 0, %.preheader ]
@@ -14765,7 +14767,7 @@ define internal fastcc void @mbim_dissect_provisioned_contexts_info(ptr noundef 
   %45 = add nuw i32 %.143, 1
   %46 = load i32, ptr %5, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph44, label %.loopexit, !llvm.loop !40
+  br i1 %47, label %.lr.ph44, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %44, %10, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -14877,7 +14879,7 @@ mbim_dissect_ipv4_element.exit:                   ; preds = %.lr.ph, %73
   %78 = add nuw i32 %.0107, 1
   %79 = load i32, ptr %7, align 4
   %80 = icmp ult i32 %78, %79
-  br i1 %80, label %.lr.ph, label %.loopexit105, !llvm.loop !41
+  br i1 %80, label %.lr.ph, label %.loopexit105, !llvm.loop !39
 
 .loopexit105:                                     ; preds = %mbim_dissect_ipv4_element.exit, %4
   %81 = load i32, ptr %9, align 4
@@ -14914,7 +14916,7 @@ mbim_dissect_ipv6_element.exit:                   ; preds = %.lr.ph110, %91
   %96 = add nuw i32 %.1109, 1
   %97 = load i32, ptr %9, align 4
   %98 = icmp ult i32 %96, %97
-  br i1 %98, label %.lr.ph110, label %.loopexit104, !llvm.loop !42
+  br i1 %98, label %.lr.ph110, label %.loopexit104, !llvm.loop !40
 
 .loopexit104:                                     ; preds = %mbim_dissect_ipv6_element.exit, %.loopexit105
   %99 = load i32, ptr %11, align 4
@@ -14959,7 +14961,7 @@ mbim_dissect_ipv6_element.exit:                   ; preds = %.lr.ph110, %91
   %119 = add nuw i32 %.2112, 1
   %120 = load i32, ptr %13, align 4
   %121 = icmp ult i32 %119, %120
-  br i1 %121, label %.lr.ph113, label %.loopexit103, !llvm.loop !43
+  br i1 %121, label %.lr.ph113, label %.loopexit103, !llvm.loop !41
 
 .loopexit103:                                     ; preds = %.lr.ph113, %110
   %122 = load i32, ptr %15, align 4
@@ -14982,7 +14984,7 @@ mbim_dissect_ipv6_element.exit:                   ; preds = %.lr.ph110, %91
   %130 = add nuw i32 %.3115, 1
   %131 = load i32, ptr %15, align 4
   %132 = icmp ult i32 %130, %131
-  br i1 %132, label %.lr.ph116, label %.loopexit, !llvm.loop !44
+  br i1 %132, label %.lr.ph116, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph116, %.loopexit103
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -15050,7 +15052,7 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %35 = add nuw i32 %.04048, 1
   %36 = load i32, ptr %8, align 4
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %28, label %.preheader, !llvm.loop !45
+  br i1 %37, label %28, label %.preheader, !llvm.loop !43
 
 .lr.ph51:                                         ; preds = %.preheader, %110
   %.150 = phi i32 [ %111, %110 ], [ 0, %.preheader ]
@@ -15101,40 +15103,40 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %67 = zext nneg i8 %51 to i64
   %68 = getelementptr %struct.mbim_uuid_info_, ptr @mbim_uuid_info, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   br i1 %64, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.preheader.i
+  %.not.not.i = icmp eq i8 %51, 0
+  br i1 %.not.not.i, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.us.i
-  %.036.us.us.i = phi i32 [ %80, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %73 = phi i32 [ %79, %.lr.ph.split.us.split.us.i ], [ %62, %.lr.ph.split.us.i ]
-  %74 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %73)
-  %75 = load i32, ptr @hf_mbim_device_service_element_cid, align 4
-  %76 = load ptr, ptr %69, align 8
-  %77 = call ptr @val_to_str_const(i32 noundef %74, ptr noundef %76, ptr noundef nonnull @.str.2003)
-  %78 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %75, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef %74, ptr noundef nonnull @.str.2654, ptr noundef %77, i32 noundef %74)
-  %79 = add i32 %73, 4
-  %80 = add nuw i32 %.036.us.us.i, 1
-  %81 = load i32, ptr %6, align 4
-  %82 = icmp ult i32 %80, %81
-  br i1 %82, label %.lr.ph.split.us.split.us.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !46
+  %.036.us.us.i = phi i32 [ %78, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %71 = phi i32 [ %77, %.lr.ph.split.us.split.us.i ], [ %62, %.lr.ph.split.us.i ]
+  %72 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71)
+  %73 = load ptr, ptr %70, align 8
+  %74 = load i32, ptr @hf_mbim_device_service_element_cid, align 4
+  %75 = call ptr @val_to_str_ext_const(i32 noundef %72, ptr noundef %73, ptr noundef nonnull @.str.2003)
+  %76 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %74, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %72, ptr noundef nonnull @.str.2654, ptr noundef %75, i32 noundef %72)
+  %77 = add i32 %71, 4
+  %78 = add nuw i32 %.036.us.us.i, 1
+  %79 = load i32, ptr %6, align 4
+  %80 = icmp ult i32 %78, %79
+  br i1 %80, label %.lr.ph.split.us.split.us.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !44
 
-.lr.ph.split.us.split.preheader.i:                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.preheader.i
-  %.036.us.i = phi i32 [ %89, %.lr.ph.split.us.split.preheader.i ], [ 0, %.lr.ph.split.us.i ]
-  %83 = phi i32 [ %88, %.lr.ph.split.us.split.preheader.i ], [ %62, %.lr.ph.split.us.i ]
-  %84 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %83)
-  %85 = load i32, ptr @hf_mbim_device_service_element_cid, align 4
-  %86 = call ptr @val_to_str_ext_const(i32 noundef %84, ptr noundef nonnull %71, ptr noundef nonnull @.str.2003)
-  %87 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef %84, ptr noundef nonnull @.str.2654, ptr noundef %86, i32 noundef %84)
-  %.pre.i = load i32, ptr %6, align 4
-  %88 = add i32 %83, 4
-  %89 = add nuw i32 %.036.us.i, 1
-  %90 = icmp ult i32 %89, %.pre.i
-  br i1 %90, label %.lr.ph.split.us.split.preheader.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !47
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.i
+  %.036.us.i = phi i32 [ %88, %.lr.ph.split.us.split.i ], [ 0, %.lr.ph.split.us.i ]
+  %81 = phi i32 [ %87, %.lr.ph.split.us.split.i ], [ %62, %.lr.ph.split.us.i ]
+  %82 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %81)
+  %83 = load i32, ptr @hf_mbim_device_service_element_cid, align 4
+  %84 = load ptr, ptr %69, align 8
+  %85 = call ptr @val_to_str_const(i32 noundef %82, ptr noundef %84, ptr noundef nonnull @.str.2003)
+  %86 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %83, ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef %82, ptr noundef nonnull @.str.2654, ptr noundef %85, i32 noundef %82)
+  %87 = add i32 %81, 4
+  %88 = add nuw i32 %.036.us.i, 1
+  %89 = load i32, ptr %6, align 4
+  %90 = icmp ult i32 %88, %89
+  br i1 %90, label %.lr.ph.split.us.split.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !44
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %91 = icmp eq i8 %51, -1
@@ -15152,7 +15154,7 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %99 = add nuw i32 %.036.us37.i, 1
   %100 = load i32, ptr %6, align 4
   %101 = icmp ult i32 %99, %100
-  br i1 %101, label %.lr.ph.split.split.us.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !46
+  br i1 %101, label %.lr.ph.split.split.us.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !44
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %.lr.ph.split.split.i
   %.036.i = phi i32 [ %107, %.lr.ph.split.split.i ], [ 0, %.lr.ph.split.i ]
@@ -15164,9 +15166,9 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %107 = add nuw i32 %.036.i, 1
   %108 = load i32, ptr %6, align 4
   %109 = icmp ult i32 %107, %108
-  br i1 %109, label %.lr.ph.split.split.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !46
+  br i1 %109, label %.lr.ph.split.split.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !44
 
-mbim_dissect_device_service_element.exit:         ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.preheader.i, %.lr.ph.split.us.split.us.i, %43
+mbim_dissect_device_service_element.exit:         ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.us.i, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -15176,7 +15178,7 @@ mbim_dissect_device_service_element.exit:         ; preds = %.lr.ph.split.split.
   %111 = add nuw i32 %.150, 1
   %112 = load i32, ptr %8, align 4
   %113 = icmp ult i32 %111, %112
-  br i1 %113, label %.lr.ph51, label %.loopexit, !llvm.loop !48
+  br i1 %113, label %.lr.ph51, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %110, %16, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -15327,7 +15329,7 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   %47 = add nuw i32 %.05259, 1
   %48 = load i32, ptr %18, align 4
   %49 = icmp ult i32 %47, %48
-  br i1 %49, label %40, label %.preheader, !llvm.loop !49
+  br i1 %49, label %40, label %.preheader, !llvm.loop !46
 
 50:                                               ; preds = %.lr.ph62, %238
   %.161 = phi i32 [ 0, %.lr.ph62 ], [ %239, %238 ]
@@ -15639,7 +15641,7 @@ mbim_dissect_sms_cdma_record.exit:                ; preds = %213, %226
   %239 = add nuw i32 %.161, 1
   %240 = load i32, ptr %18, align 4
   %241 = icmp ult i32 %239, %240
-  br i1 %241, label %50, label %.loopexit, !llvm.loop !50
+  br i1 %241, label %50, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %238, %26, %.preheader, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -15789,7 +15791,7 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   %33 = add nuw i32 %.03641, 1
   %34 = load i32, ptr %9, align 4
   %35 = icmp ult i32 %33, %34
-  br i1 %35, label %26, label %.preheader, !llvm.loop !51
+  br i1 %35, label %26, label %.preheader, !llvm.loop !48
 
 .lr.ph44:                                         ; preds = %.preheader, %79
   %.143 = phi i32 [ %80, %79 ], [ 0, %.preheader ]
@@ -15867,7 +15869,7 @@ mbim_dissect_phonebook_entry.exit:                ; preds = %70, %75
   %80 = add nuw i32 %.143, 1
   %81 = load i32, ptr %9, align 4
   %82 = icmp ult i32 %80, %81
-  br i1 %82, label %.lr.ph44, label %.loopexit, !llvm.loop !52
+  br i1 %82, label %.lr.ph44, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %79, %14, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -16134,7 +16136,7 @@ define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_info(ptr 
   %10 = add nuw i32 %.02, 1
   %11 = load i32, ptr %4, align 4
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -16212,7 +16214,7 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
   %29 = add nuw i32 %.03742, 1
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.preheader, !llvm.loop !54
+  br i1 %31, label %22, label %.preheader, !llvm.loop !51
 
 .lr.ph45:                                         ; preds = %.preheader, %mbim_dissect_adpclk_freq_value.exit
   %.144 = phi i32 [ %65, %mbim_dissect_adpclk_freq_value.exit ], [ 0, %.preheader ]
@@ -16267,7 +16269,7 @@ mbim_dissect_adpclk_freq_value.exit:              ; preds = %61, %56, %51, %37, 
   %65 = add nuw i32 %.144, 1
   %66 = load i32, ptr %5, align 4
   %67 = icmp ult i32 %65, %66
-  br i1 %67, label %.lr.ph45, label %.loopexit, !llvm.loop !55
+  br i1 %67, label %.lr.ph45, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %mbim_dissect_adpclk_freq_value.exit, %10, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -16377,7 +16379,7 @@ define internal fastcc void @mbim_dissect_multiflow_tft_info(ptr noundef %0, ptr
   %32 = add nuw i32 %.04146, 1
   %33 = load i32, ptr %5, align 4
   %34 = icmp ult i32 %32, %33
-  br i1 %34, label %25, label %.preheader, !llvm.loop !56
+  br i1 %34, label %25, label %.preheader, !llvm.loop !53
 
 .lr.ph49:                                         ; preds = %.preheader, %49
   %.148 = phi i32 [ %50, %49 ], [ 0, %.preheader ]
@@ -16407,7 +16409,7 @@ define internal fastcc void @mbim_dissect_multiflow_tft_info(ptr noundef %0, ptr
   %50 = add nuw i32 %.148, 1
   %51 = load i32, ptr %5, align 4
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph49, label %.loopexit, !llvm.loop !57
+  br i1 %52, label %.lr.ph49, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %49, %13, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -16463,7 +16465,7 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   %31 = add nuw i32 %.04045, 1
   %32 = load i32, ptr %7, align 4
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %24, label %.preheader, !llvm.loop !58
+  br i1 %33, label %24, label %.preheader, !llvm.loop !55
 
 .lr.ph48:                                         ; preds = %.preheader, %49
   %.147 = phi i32 [ %50, %49 ], [ 0, %.preheader ]
@@ -16496,7 +16498,7 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   %50 = add nuw i32 %.147, 1
   %51 = load i32, ptr %7, align 4
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph48, label %.loopexit, !llvm.loop !59
+  br i1 %52, label %.lr.ph48, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %49, %12, %.preheader, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16551,7 +16553,7 @@ define internal fastcc void @mbim_dissect_lte_attach_config_info(ptr noundef %0,
   %29 = add nuw i32 %.03843, 1
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.preheader, !llvm.loop !60
+  br i1 %31, label %22, label %.preheader, !llvm.loop !57
 
 .lr.ph46:                                         ; preds = %.preheader, %44
   %.145 = phi i32 [ %45, %44 ], [ 0, %.preheader ]
@@ -16580,7 +16582,7 @@ define internal fastcc void @mbim_dissect_lte_attach_config_info(ptr noundef %0,
   %45 = add nuw i32 %.145, 1
   %46 = load i32, ptr %5, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph46, label %.loopexit, !llvm.loop !61
+  br i1 %47, label %.lr.ph46, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %44, %10, %.preheader, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -17334,7 +17336,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %353 = add nuw i32 %.0185205, 1
   %354 = load i32, ptr %46, align 4
   %355 = icmp ult i32 %353, %354
-  br i1 %355, label %.lr.ph, label %.loopexit204, !llvm.loop !62
+  br i1 %355, label %.lr.ph, label %.loopexit204, !llvm.loop !59
 
 .loopexit204:                                     ; preds = %.lr.ph, %301, %296
   %356 = load i32, ptr %34, align 4
@@ -17428,7 +17430,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %420 = add nuw i32 %.0184206, 1
   %421 = load i32, ptr %46, align 4
   %422 = icmp ult i32 %420, %421
-  br i1 %422, label %.lr.ph207, label %.loopexit203, !llvm.loop !63
+  br i1 %422, label %.lr.ph207, label %.loopexit203, !llvm.loop !60
 
 .loopexit203:                                     ; preds = %.lr.ph207, %360, %.loopexit204
   %423 = load i32, ptr %36, align 4
@@ -17462,7 +17464,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %440 = add nuw i32 %.0183208, 1
   %441 = load i32, ptr %46, align 4
   %442 = icmp ult i32 %440, %441
-  br i1 %442, label %.lr.ph209, label %.loopexit202, !llvm.loop !64
+  br i1 %442, label %.lr.ph209, label %.loopexit202, !llvm.loop !61
 
 .loopexit202:                                     ; preds = %.lr.ph209, %427, %.loopexit203
   %443 = load i32, ptr %38, align 4
@@ -17551,7 +17553,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %503 = add nuw i32 %.0182210, 1
   %504 = load i32, ptr %46, align 4
   %505 = icmp ult i32 %503, %504
-  br i1 %505, label %.lr.ph211, label %.loopexit201, !llvm.loop !65
+  br i1 %505, label %.lr.ph211, label %.loopexit201, !llvm.loop !62
 
 .loopexit201:                                     ; preds = %.lr.ph211, %447, %.loopexit202
   %506 = load i32, ptr %40, align 4
@@ -17631,7 +17633,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %561 = add nuw i32 %.0181212, 1
   %562 = load i32, ptr %46, align 4
   %563 = icmp ult i32 %561, %562
-  br i1 %563, label %.lr.ph213, label %.loopexit200, !llvm.loop !66
+  br i1 %563, label %.lr.ph213, label %.loopexit200, !llvm.loop !63
 
 .loopexit200:                                     ; preds = %.lr.ph213, %510, %.loopexit201
   %564 = load i32, ptr %42, align 4
@@ -17731,7 +17733,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %633 = add nuw i32 %.0180214, 1
   %634 = load i32, ptr %46, align 4
   %635 = icmp ult i32 %633, %634
-  br i1 %635, label %.lr.ph215, label %.loopexit199, !llvm.loop !67
+  br i1 %635, label %.lr.ph215, label %.loopexit199, !llvm.loop !64
 
 .loopexit199:                                     ; preds = %.lr.ph215, %568, %.loopexit200
   %636 = load i32, ptr %44, align 4
@@ -17847,7 +17849,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %716 = add nuw i32 %.0216, 1
   %717 = load i32, ptr %46, align 4
   %718 = icmp ult i32 %716, %717
-  br i1 %718, label %.lr.ph217, label %.loopexit, !llvm.loop !68
+  br i1 %718, label %.lr.ph217, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph217, %640, %.loopexit199
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -17899,7 +17901,7 @@ define internal fastcc void @mbim_dissect_ms_modem_config_info(ptr noundef %0, p
   %18 = load i32, ptr %6, align 4
   %19 = sub i32 %18, %3
   %20 = icmp ult i32 %19, %4
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !69
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -18138,7 +18140,7 @@ define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr nounde
   %29 = add nuw i32 %.03542, 1
   %30 = load i32, ptr %6, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.loopexit, !llvm.loop !70
+  br i1 %31, label %22, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %22
   %32 = icmp eq i32 %30, 0
@@ -18176,7 +18178,7 @@ define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr nounde
 47:                                               ; preds = %.lr.ph44, %42, %44
   %48 = load i32, ptr %6, align 4
   %49 = icmp ult i32 %39, %48
-  br i1 %49, label %.lr.ph44, label %._crit_edge, !llvm.loop !71
+  br i1 %49, label %.lr.ph44, label %._crit_edge, !llvm.loop !68
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -18237,7 +18239,7 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nounde
   %44 = add nuw i32 %.04854, 1
   %45 = load i32, ptr %12, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %37, label %.loopexit, !llvm.loop !72
+  br i1 %46, label %37, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %37
   %47 = icmp eq i32 %45, 0
@@ -18351,7 +18353,7 @@ mbim_dissect_ms_app_info_elements.exit:           ; preds = %100, %102
 108:                                              ; preds = %.lr.ph56, %57, %mbim_dissect_ms_app_info_elements.exit
   %109 = load i32, ptr %12, align 4
   %110 = icmp ult i32 %54, %109
-  br i1 %110, label %.lr.ph56, label %._crit_edge, !llvm.loop !73
+  br i1 %110, label %.lr.ph56, label %._crit_edge, !llvm.loop !70
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -18428,7 +18430,7 @@ define internal fastcc void @mbim_dissect_ms_file_status(ptr noundef %0, ptr nou
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef -2147483648)
   %31 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %31, 4
-  br i1 %exitcond.not, label %32, label %27, !llvm.loop !74
+  br i1 %exitcond.not, label %32, label %27, !llvm.loop !71
 
 32:                                               ; preds = %27
   ret void
@@ -18520,7 +18522,7 @@ define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr 
 10:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.split.loop.exit14, label %7, !llvm.loop !75
+  br i1 %exitcond.not, label %.split.loop.exit14, label %7, !llvm.loop !72
 
 .split.loop.exit:                                 ; preds = %7
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -18635,7 +18637,7 @@ define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1,
   %52 = load i32, ptr %19, align 4
   %53 = sub i32 %52, %45
   %54 = icmp slt i32 %53, %46
-  br i1 %54, label %.lr.ph.i, label %mbim_dissect_nssai.exit, !llvm.loop !76
+  br i1 %54, label %.lr.ph.i, label %mbim_dissect_nssai.exit, !llvm.loop !73
 
 mbim_dissect_nssai.exit:                          ; preds = %.lr.ph.i, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -18703,7 +18705,7 @@ mbim_dissect_rej_snssai.exit.i:                   ; preds = %84, %.lr.ph.i77
   %88 = add i32 %.014.i, 1
   %89 = sub i32 %.1.i, %68
   %90 = icmp slt i32 %89, %69
-  br i1 %90, label %.lr.ph.i77, label %mbim_dissect_rej_nssai.exit, !llvm.loop !77
+  br i1 %90, label %.lr.ph.i77, label %mbim_dissect_rej_nssai.exit, !llvm.loop !74
 
 91:                                               ; preds = %41
   %92 = load i32, ptr %3, align 4
@@ -18718,7 +18720,7 @@ mbim_dissect_rej_snssai.exit.i:                   ; preds = %84, %.lr.ph.i77
   %97 = load i32, ptr %16, align 4
   %98 = sub i32 %97, %92
   %99 = icmp slt i32 %98, %93
-  br i1 %99, label %.lr.ph, label %mbim_dissect_ladn.exit, !llvm.loop !78
+  br i1 %99, label %.lr.ph, label %mbim_dissect_ladn.exit, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %91, %95
   %100 = phi i32 [ %97, %95 ], [ %92, %91 ]
@@ -18752,7 +18754,7 @@ mbim_dissect_ladn.exit:                           ; preds = %.lr.ph, %95, %91
   %115 = load i32, ptr %15, align 4
   %116 = sub i32 %115, %111
   %117 = icmp ult i32 %116, %112
-  br i1 %117, label %.lr.ph.i78, label %mbim_dissect_ms_tai.exit, !llvm.loop !79
+  br i1 %117, label %.lr.ph.i78, label %mbim_dissect_ms_tai.exit, !llvm.loop !76
 
 .lr.ph.i78:                                       ; preds = %110, %113
   %118 = phi i32 [ %115, %113 ], [ %111, %110 ]
@@ -18798,7 +18800,7 @@ mbim_dissect_ms_tai.exit:                         ; preds = %113, %.lr.ph.i78, %
   %140 = load i32, ptr %13, align 4
   %141 = sub i32 %140, %128
   %142 = icmp slt i32 %141, %129
-  br i1 %142, label %.lr.ph.i79, label %mbim_dissect_tps.exit, !llvm.loop !80
+  br i1 %142, label %.lr.ph.i79, label %mbim_dissect_tps.exit, !llvm.loop !77
 
 mbim_dissect_tps.exit:                            ; preds = %.lr.ph.i79, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -18928,7 +18930,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %166, %185
   %217 = load i32, ptr %6, align 4
   %218 = sub i32 %217, %199
   %219 = icmp slt i32 %218, %200
-  br i1 %219, label %.lr.ph.i81, label %mbim_dissect_ursp_rules.exit, !llvm.loop !81
+  br i1 %219, label %.lr.ph.i81, label %mbim_dissect_ursp_rules.exit, !llvm.loop !78
 
 mbim_dissect_ursp_rules.exit:                     ; preds = %.lr.ph.i81, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -19105,7 +19107,7 @@ mbim_dissect_ms_plmn.exit.i:                      ; preds = %24, %21
   %38 = add nuw i32 %.01.i, 1
   %39 = load i32, ptr %6, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, !llvm.loop !82
+  br i1 %40, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, !llvm.loop !79
 
 mbim_dissect_ms_tai_list_single_plmn.exit:        ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -19158,7 +19160,7 @@ mbim_dissect_ms_plmn.exit.i20:                    ; preds = %60, %57
   store i32 %67, ptr %3, align 4
   %68 = load i32, ptr %5, align 4
   %69 = icmp ult i32 %48, %68
-  br i1 %69, label %.lr.ph.i18, label %mbim_dissect_ms_tai_list_multi_plmn.exit, !llvm.loop !83
+  br i1 %69, label %.lr.ph.i18, label %mbim_dissect_ms_tai_list_multi_plmn.exit, !llvm.loop !80
 
 mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plmn.exit.i20, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -19358,7 +19360,7 @@ define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, pt
   %108 = add nuw nsw i32 %.0138, 1
   %109 = load i32, ptr %7, align 4
   %110 = icmp slt i32 %108, %109
-  br i1 %110, label %.lr.ph, label %.loopexit, !llvm.loop !84
+  br i1 %110, label %.lr.ph, label %.loopexit, !llvm.loop !81
 
 111:                                              ; preds = %.lr.ph140
   %112 = load i32, ptr @hf_mbim_ms_ursp_tc_length, align 4
@@ -19403,7 +19405,7 @@ define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, pt
   %135 = add i32 %.0133139, 1
   %136 = sub i32 %134, %8
   %137 = icmp slt i32 %136, %4
-  br i1 %137, label %.lr.ph140, label %.loopexit136, !llvm.loop !85
+  br i1 %137, label %.lr.ph140, label %.loopexit136, !llvm.loop !82
 
 .loopexit136:                                     ; preds = %.loopexit, %5, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -19935,8 +19937,8 @@ attributes #13 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9, !18}
-!18 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
@@ -19965,7 +19967,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !44 = distinct !{!44, !9}
 !45 = distinct !{!45, !9}
 !46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9, !18}
+!47 = distinct !{!47, !9}
 !48 = distinct !{!48, !9}
 !49 = distinct !{!49, !9}
 !50 = distinct !{!50, !9}
@@ -20001,6 +20003,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !80 = distinct !{!80, !9}
 !81 = distinct !{!81, !9}
 !82 = distinct !{!82, !9}
-!83 = distinct !{!83, !9}
-!84 = distinct !{!84, !9}
-!85 = distinct !{!85, !9}

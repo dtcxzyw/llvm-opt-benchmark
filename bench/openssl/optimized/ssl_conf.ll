@@ -297,7 +297,7 @@ ssl_conf_cmd_allowed.exit.thread.i:               ; preds = %55, %52, %50, %ssl_
   %61 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 26
   %62 = load i16, ptr %61, align 2, !tbaa !27
   %63 = icmp eq i16 %62, 4
-  br i1 %63, label %64, label %97
+  br i1 %63, label %64, label %100
 
 64:                                               ; preds = %60
   %65 = ptrtoint ptr %.01627.i to i64
@@ -323,92 +323,95 @@ ssl_conf_cmd_allowed.exit.thread.i:               ; preds = %55, %52, %50, %ssl_
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !31
-  %79 = and i32 %78, 1
-  %80 = and i32 %78, 3840
-  switch i32 %80, label %ctrl_switch_option.exit [
-    i32 256, label %90
-    i32 512, label %81
-    i32 0, label %82
+  %79 = and i32 %78, 3840
+  switch i32 %79, label %ctrl_switch_option.exit [
+    i32 256, label %91
+    i32 512, label %80
+    i32 0, label %81
   ]
 
+80:                                               ; preds = %76
+  br label %91
+
 81:                                               ; preds = %76
-  br label %90
+  %82 = shl nuw nsw i64 1, %67
+  %83 = and i64 %82, 972027263
+  %.not16.i.not.not.i = icmp eq i64 %83, 0
+  br i1 %.not16.i.not.not.i, label %87, label %84
 
-82:                                               ; preds = %76
-  %.not16.i.not.i = icmp eq i32 %79, 0
-  br i1 %.not16.i.not.i, label %83, label %86
-
-83:                                               ; preds = %82
-  %84 = load i64, ptr %74, align 8, !tbaa !32
-  %85 = or i64 %84, %72
-  store i64 %85, ptr %74, align 8, !tbaa !32
+84:                                               ; preds = %81
+  %85 = load i64, ptr %74, align 8, !tbaa !32
+  %86 = or i64 %85, %72
+  store i64 %86, ptr %74, align 8, !tbaa !32
   br label %ctrl_switch_option.exit
 
-86:                                               ; preds = %82
-  %87 = xor i64 %72, -1
-  %88 = load i64, ptr %74, align 8, !tbaa !32
-  %89 = and i64 %88, %87
-  store i64 %89, ptr %74, align 8, !tbaa !32
+87:                                               ; preds = %81
+  %88 = xor i64 %72, -1
+  %89 = load i64, ptr %74, align 8, !tbaa !32
+  %90 = and i64 %89, %88
+  store i64 %90, ptr %74, align 8, !tbaa !32
   br label %ctrl_switch_option.exit
 
-90:                                               ; preds = %81, %76
-  %.sink.i.i = phi i64 [ 72, %81 ], [ 64, %76 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
-  %.0.i.i = load ptr, ptr %91, align 8, !tbaa !33
-  %.not17.i.not.i = icmp eq i32 %79, 0
-  %92 = load i32, ptr %.0.i.i, align 4, !tbaa !34
-  %93 = trunc i64 %72 to i32
-  %94 = xor i32 %93, -1
-  %95 = and i32 %92, %94
-  %96 = or i32 %92, %93
-  %storemerge.i.i = select i1 %.not17.i.not.i, i32 %96, i32 %95
+91:                                               ; preds = %80, %76
+  %.sink.i.i = phi i64 [ 72, %80 ], [ 64, %76 ]
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
+  %.0.i.i = load ptr, ptr %92, align 8, !tbaa !33
+  %93 = shl nuw nsw i64 1, %67
+  %94 = and i64 %93, 972027263
+  %.not17.i.not.not.i = icmp eq i64 %94, 0
+  %95 = load i32, ptr %.0.i.i, align 4, !tbaa !34
+  %96 = trunc i64 %72 to i32
+  %97 = xor i32 %96, -1
+  %98 = and i32 %95, %97
+  %99 = or i32 %95, %96
+  %storemerge.i.i = select i1 %.not17.i.not.not.i, i32 %98, i32 %99
   store i32 %storemerge.i.i, ptr %.0.i.i, align 4, !tbaa !34
   br label %ctrl_switch_option.exit
 
-97:                                               ; preds = %60
-  %98 = icmp eq ptr %2, null
-  br i1 %98, label %104, label %99
+100:                                              ; preds = %60
+  %101 = icmp eq ptr %2, null
+  br i1 %101, label %107, label %102
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr %.01627.i, align 8, !tbaa !35
-  %101 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %2) #7
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %ctrl_switch_option.exit, label %103
+102:                                              ; preds = %100
+  %103 = load ptr, ptr %.01627.i, align 8, !tbaa !35
+  %104 = tail call i32 %103(ptr noundef nonnull %0, ptr noundef nonnull %2) #7
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %ctrl_switch_option.exit, label %106
 
-103:                                              ; preds = %99
-  %.not23 = icmp eq i32 %101, -2
+106:                                              ; preds = %102
+  %.not23 = icmp eq i32 %104, -2
   %spec.store.select = select i1 %.not23, i32 -2, i32 0
-  br label %104
+  br label %107
 
-104:                                              ; preds = %97, %103
-  %.0 = phi i32 [ -3, %97 ], [ %spec.store.select, %103 ]
-  %105 = load i32, ptr %0, align 8, !tbaa !18
-  %106 = and i32 %105, 16
-  %.not24 = icmp eq i32 %106, 0
-  br i1 %.not24, label %ctrl_switch_option.exit, label %107
+107:                                              ; preds = %100, %106
+  %.0 = phi i32 [ -3, %100 ], [ %spec.store.select, %106 ]
+  %108 = load i32, ptr %0, align 8, !tbaa !18
+  %109 = and i32 %108, 16
+  %.not24 = icmp eq i32 %109, 0
+  br i1 %.not24, label %ctrl_switch_option.exit, label %110
 
-107:                                              ; preds = %104
+110:                                              ; preds = %107
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 983, ptr noundef nonnull @__func__.SSL_CONF_cmd) #7
-  %108 = select i1 %98, ptr @.str.2, ptr %2
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 384, ptr noundef nonnull @.str.1, ptr noundef nonnull %.032, ptr noundef nonnull %108) #7
+  %111 = select i1 %101, ptr @.str.2, ptr %2
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 384, ptr noundef nonnull @.str.1, ptr noundef nonnull %.032, ptr noundef nonnull %111) #7
   br label %ctrl_switch_option.exit
 
 ssl_conf_cmd_lookup.exit:                         ; preds = %ssl_conf_cmd_allowed.exit.thread.i, %28, %30, %20, %16, %9
   %.03236 = phi ptr [ %1, %9 ], [ %1, %16 ], [ %1, %20 ], [ %1, %30 ], [ %1, %28 ], [ %.032, %ssl_conf_cmd_allowed.exit.thread.i ]
-  %109 = load i32, ptr %0, align 8, !tbaa !18
-  %110 = and i32 %109, 16
-  %.not22 = icmp eq i32 %110, 0
-  br i1 %.not22, label %ctrl_switch_option.exit, label %111
+  %112 = load i32, ptr %0, align 8, !tbaa !18
+  %113 = and i32 %112, 16
+  %.not22 = icmp eq i32 %113, 0
+  br i1 %.not22, label %ctrl_switch_option.exit, label %114
 
-111:                                              ; preds = %ssl_conf_cmd_lookup.exit
+114:                                              ; preds = %ssl_conf_cmd_lookup.exit
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 991, ptr noundef nonnull @__func__.SSL_CONF_cmd) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 386, ptr noundef nonnull @.str.3, ptr noundef %.03236) #7
   br label %ctrl_switch_option.exit
 
-ctrl_switch_option.exit:                          ; preds = %90, %86, %83, %76, %70, %69, %ssl_conf_cmd_lookup.exit, %111, %99, %107, %104, %5
-  %.017 = phi i32 [ 0, %5 ], [ 2, %99 ], [ %.0, %107 ], [ %.0, %104 ], [ -2, %111 ], [ -2, %ssl_conf_cmd_lookup.exit ], [ 0, %69 ], [ 1, %70 ], [ 1, %76 ], [ 1, %83 ], [ 1, %86 ], [ 1, %90 ]
+ctrl_switch_option.exit:                          ; preds = %91, %87, %84, %76, %70, %69, %ssl_conf_cmd_lookup.exit, %114, %102, %110, %107, %5
+  %.017 = phi i32 [ 0, %5 ], [ 2, %102 ], [ %.0, %110 ], [ %.0, %107 ], [ -2, %114 ], [ -2, %ssl_conf_cmd_lookup.exit ], [ 0, %69 ], [ 1, %70 ], [ 1, %76 ], [ 1, %84 ], [ 1, %87 ], [ 1, %91 ]
   ret i32 %.017
 }
 
@@ -1417,15 +1420,11 @@ define internal i32 @cmd_MinProtocol(ptr noundef readonly captures(none) %0, ptr
 protocol_from_string.exit.i:                      ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !136
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %min_max_proto.exit, label %25
-
-25:                                               ; preds = %protocol_from_string.exit.i
-  %26 = tail call i32 @ssl_set_version_bound(i32 noundef %.08.i, i32 noundef %23, ptr noundef %4) #7
+  %24 = tail call i32 @ssl_set_version_bound(i32 noundef %.08.i, i32 noundef %23, ptr noundef %4) #7
   br label %min_max_proto.exit
 
-min_max_proto.exit:                               ; preds = %15, %9, %protocol_from_string.exit.i, %25
-  %.0.i = phi i32 [ %26, %25 ], [ 0, %9 ], [ 0, %protocol_from_string.exit.i ], [ 0, %15 ]
+min_max_proto.exit:                               ; preds = %15, %9, %protocol_from_string.exit.i
+  %.0.i = phi i32 [ %24, %protocol_from_string.exit.i ], [ 0, %9 ], [ 0, %15 ]
   ret i32 %.0.i
 }
 
@@ -1474,15 +1473,11 @@ define internal i32 @cmd_MaxProtocol(ptr noundef readonly captures(none) %0, ptr
 protocol_from_string.exit.i:                      ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !136
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %min_max_proto.exit, label %25
-
-25:                                               ; preds = %protocol_from_string.exit.i
-  %26 = tail call i32 @ssl_set_version_bound(i32 noundef %.08.i, i32 noundef %23, ptr noundef %4) #7
+  %24 = tail call i32 @ssl_set_version_bound(i32 noundef %.08.i, i32 noundef %23, ptr noundef %4) #7
   br label %min_max_proto.exit
 
-min_max_proto.exit:                               ; preds = %15, %9, %protocol_from_string.exit.i, %25
-  %.0.i = phi i32 [ %26, %25 ], [ 0, %9 ], [ 0, %protocol_from_string.exit.i ], [ 0, %15 ]
+min_max_proto.exit:                               ; preds = %15, %9, %protocol_from_string.exit.i
+  %.0.i = phi i32 [ %24, %protocol_from_string.exit.i ], [ 0, %9 ], [ 0, %15 ]
   ret i32 %.0.i
 }
 

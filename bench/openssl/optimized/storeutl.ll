@@ -187,19 +187,19 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   br label %.loopexit159
 
 .preheader:                                       ; preds = %21, %28
-  %.082453 = phi i64 [ %29, %28 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082453
+  %.082437 = phi i64 [ %29, %28 ], [ 0, %21 ]
+  %25 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082437
   %26 = load i32, ptr %25, align 8, !tbaa !13
   %27 = icmp eq i32 %10, %26
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %.preheader
-  %29 = add nuw nsw i64 %.082453, 1
+  %29 = add nuw nsw i64 %.082437, 1
   %exitcond.not = icmp eq i64 %29, 3
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !16
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082453, i32 1
+  %31 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082437, i32 1
   %32 = load i32, ptr %31, align 4, !tbaa !18
   br label %.backedge
 
@@ -396,7 +396,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   br i1 %.not140, label %.loopexit, label %117
 
 117:                                              ; preds = %114
-  switch i32 %.0104, label %default.unreachable757 [
+  switch i32 %.0104, label %default.unreachable725 [
     i32 0, label %145
     i32 1, label %118
     i32 2, label %123
@@ -456,7 +456,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   call void @ERR_print_errors(ptr noundef %144) #5
   br label %.loopexit159
 
-default.unreachable757:                           ; preds = %117
+default.unreachable725:                           ; preds = %117
   unreachable
 
 145:                                              ; preds = %117, %118, %129, %134, %140

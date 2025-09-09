@@ -338,11 +338,11 @@ define internal range(i32 -2147483648, 1) i32 @mxf_read_header(ptr noundef %0) #
   %31 = zext i8 %30 to i32
   %.not12.i = icmp eq i32 %25, %31
   %32 = add nuw nsw i32 %.01.i, 1
-  %spec.select671 = select i1 %.not12.i, i32 %32, i32 0
+  %spec.select673 = select i1 %.not12.i, i32 %32, i32 0
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %27, %24
-  %.1.i = phi i32 [ 1, %24 ], [ %spec.select671, %27 ]
+  %.1.i = phi i32 [ 1, %24 ], [ %spec.select673, %27 ]
   %33 = icmp ult i32 %.1.i, 14
   br i1 %33, label %22, label %mxf_read_sync.exit, !llvm.loop !38
 
@@ -465,8 +465,8 @@ mxf_read_random_index_pack.exit:                  ; preds = %40, %97
   %102 = phi ptr [ %44, %40 ], [ %.pre, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %103 = call i32 @avio_feof(ptr noundef %102) #15
-  %.not94332 = icmp eq i32 %103, 0
-  br i1 %.not94332, label %.lr.ph, label %.thread215.thread
+  %.not94333 = icmp eq i32 %103, 0
+  br i1 %.not94333, label %.lr.ph, label %.thread215.thread
 
 .lr.ph:                                           ; preds = %mxf_read_random_index_pack.exit
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -493,7 +493,7 @@ mxf_read_random_index_pack.exit:                  ; preds = %40, %97
   br label %125
 
 125:                                              ; preds = %.lr.ph, %mxf_parse_handle_partition_or_eof.exit.thread
-  %.082333 = phi i64 [ 0, %.lr.ph ], [ %.284, %mxf_parse_handle_partition_or_eof.exit.thread ]
+  %.082334 = phi i64 [ 0, %.lr.ph ], [ %.284, %mxf_parse_handle_partition_or_eof.exit.thread ]
   %126 = load ptr, ptr %20, align 8, !tbaa !37
   %127 = call fastcc i32 @klv_read_packet(ptr noundef %18, ptr noundef %16, ptr noundef %126)
   %128 = icmp slt i32 %127, 0
@@ -597,9 +597,9 @@ mxf_match_uid.exit:                               ; preds = %148, %153, %152, %1
   br label %162
 
 162:                                              ; preds = %160, %157
-  %.not115 = icmp eq i64 %.082333, 0
+  %.not115 = icmp eq i64 %.082334, 0
   %163 = load i64, ptr %105, align 8
-  %spec.select = select i1 %.not115, i64 %163, i64 %.082333
+  %spec.select = select i1 %.not115, i64 %163, i64 %.082334
   %164 = load ptr, ptr %37, align 8, !tbaa !39
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %166 = load ptr, ptr %165, align 8, !tbaa !37
@@ -699,40 +699,40 @@ mxf_parse_handle_partition_or_eof.exit126:        ; preds = %201
 mxf_is_partition_pack_key.exit.thread.preheader:  ; preds = %201, %195, %196, %199, %205
   br label %mxf_is_partition_pack_key.exit.thread
 
-206:                                              ; preds = %mxf_is_partition_pack_key.exit.thread
-  %207 = add nuw nsw i64 %.079331, 1
-  %exitcond.not = icmp eq i64 %207, 43
-  br i1 %exitcond.not, label %223, label %mxf_is_partition_pack_key.exit.thread, !llvm.loop !55
-
-mxf_is_partition_pack_key.exit.thread:            ; preds = %mxf_is_partition_pack_key.exit.thread.preheader, %206
-  %.079331 = phi i64 [ %207, %206 ], [ 0, %mxf_is_partition_pack_key.exit.thread.preheader ]
-  %208 = getelementptr inbounds nuw %struct.MXFMetadataReadTableEntry, ptr @mxf_metadata_read_table, i64 %.079331
-  %bcmp110 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %208, i64 16)
+mxf_is_partition_pack_key.exit.thread:            ; preds = %mxf_is_partition_pack_key.exit.thread.preheader, %221
+  %.079332 = phi i64 [ %222, %221 ], [ 0, %mxf_is_partition_pack_key.exit.thread.preheader ]
+  %206 = getelementptr inbounds nuw %struct.MXFMetadataReadTableEntry, ptr @mxf_metadata_read_table, i64 %.079332
+  %bcmp110 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %206, i64 16)
   %.not111 = icmp eq i32 %bcmp110, 0
-  br i1 %.not111, label %209, label %206
+  br i1 %.not111, label %207, label %221
 
-209:                                              ; preds = %mxf_is_partition_pack_key.exit.thread
-  %210 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %211 = load ptr, ptr %210, align 8, !tbaa !56
-  %.not112 = icmp eq ptr %211, null
-  br i1 %.not112, label %219, label %212
+207:                                              ; preds = %mxf_is_partition_pack_key.exit.thread
+  %.not112 = icmp eq i64 %.079332, 42
+  br i1 %.not112, label %217, label %208
 
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  %214 = load i32, ptr %213, align 8, !tbaa !58
-  %215 = getelementptr inbounds nuw i8, ptr %208, i64 28
-  %216 = load i32, ptr %215, align 4, !tbaa !59
-  %217 = call fastcc i32 @mxf_parse_klv(ptr noundef %18, ptr noundef nonnull byval(%struct.KLVPacket) align 8 %16, ptr noundef nonnull %211, i32 noundef %214, i32 noundef %216)
-  %218 = icmp slt i32 %217, 0
-  br i1 %218, label %.thread220, label %mxf_parse_handle_partition_or_eof.exit.thread
+208:                                              ; preds = %207
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %210 = load ptr, ptr %209, align 8, !tbaa !55
+  %211 = getelementptr inbounds nuw i8, ptr %206, i64 24
+  %212 = load i32, ptr %211, align 8, !tbaa !57
+  %213 = getelementptr inbounds nuw i8, ptr %206, i64 28
+  %214 = load i32, ptr %213, align 4, !tbaa !58
+  %215 = call fastcc i32 @mxf_parse_klv(ptr noundef %18, ptr noundef nonnull byval(%struct.KLVPacket) align 8 %16, ptr noundef %210, i32 noundef %212, i32 noundef %214)
+  %216 = icmp slt i32 %215, 0
+  br i1 %216, label %.thread220, label %mxf_parse_handle_partition_or_eof.exit.thread
 
-219:                                              ; preds = %209
-  %220 = load ptr, ptr %20, align 8, !tbaa !37
-  %221 = load i64, ptr %104, align 8, !tbaa !46
-  %222 = call i64 @avio_skip(ptr noundef %220, i64 noundef %221) #15
+217:                                              ; preds = %207
+  %218 = load ptr, ptr %20, align 8, !tbaa !37
+  %219 = load i64, ptr %104, align 8, !tbaa !46
+  %220 = call i64 @avio_skip(ptr noundef %218, i64 noundef %219) #15
   br label %mxf_parse_handle_partition_or_eof.exit.thread
 
-223:                                              ; preds = %206
+221:                                              ; preds = %mxf_is_partition_pack_key.exit.thread
+  %222 = add nuw nsw i64 %.079332, 1
+  %exitcond.not = icmp eq i64 %222, 43
+  br i1 %exitcond.not, label %223, label %mxf_is_partition_pack_key.exit.thread, !llvm.loop !59
+
+223:                                              ; preds = %221
   %224 = load i8, ptr %16, align 8, !tbaa !12
   %225 = zext i8 %224 to i32
   %226 = load i8, ptr %109, align 1, !tbaa !12
@@ -771,15 +771,15 @@ mxf_is_partition_pack_key.exit.thread:            ; preds = %mxf_is_partition_pa
   %258 = call i64 @avio_skip(ptr noundef %256, i64 noundef %257) #15
   br label %mxf_parse_handle_partition_or_eof.exit.thread
 
-mxf_parse_handle_partition_or_eof.exit.thread:    ; preds = %219, %212, %136, %mxf_parse_handle_essence.exit, %mxf_parse_handle_essence.exit.thread199, %mxf_parse_handle_partition_or_eof.exit, %223, %205
-  %.284 = phi i64 [ %.082333, %205 ], [ %.082333, %223 ], [ %.082333, %mxf_parse_handle_partition_or_eof.exit ], [ %spec.select, %mxf_parse_handle_essence.exit.thread199 ], [ %spec.select, %mxf_parse_handle_essence.exit ], [ %.082333, %136 ], [ %.082333, %212 ], [ %.082333, %219 ]
+mxf_parse_handle_partition_or_eof.exit.thread:    ; preds = %217, %208, %136, %mxf_parse_handle_essence.exit, %mxf_parse_handle_essence.exit.thread199, %mxf_parse_handle_partition_or_eof.exit, %223, %205
+  %.284 = phi i64 [ %.082334, %205 ], [ %.082334, %223 ], [ %.082334, %mxf_parse_handle_partition_or_eof.exit ], [ %spec.select, %mxf_parse_handle_essence.exit.thread199 ], [ %spec.select, %mxf_parse_handle_essence.exit ], [ %.082334, %136 ], [ %.082334, %208 ], [ %.082334, %217 ]
   %259 = load ptr, ptr %20, align 8, !tbaa !37
   %260 = call i32 @avio_feof(ptr noundef %259) #15
   %.not94 = icmp eq i32 %260, 0
   br i1 %.not94, label %125, label %.thread215
 
 .thread215:                                       ; preds = %mxf_parse_handle_partition_or_eof.exit.thread, %mxf_parse_handle_partition_or_eof.exit126, %mxf_parse_handle_partition_or_eof.exit, %mxf_parse_handle_essence.exit, %178, %172
-  %.183 = phi i64 [ %spec.select, %172 ], [ %spec.select, %178 ], [ %.284, %mxf_parse_handle_partition_or_eof.exit.thread ], [ %.082333, %mxf_parse_handle_partition_or_eof.exit126 ], [ %.082333, %mxf_parse_handle_partition_or_eof.exit ], [ %spec.select, %mxf_parse_handle_essence.exit ]
+  %.183 = phi i64 [ %spec.select, %172 ], [ %spec.select, %178 ], [ %.284, %mxf_parse_handle_partition_or_eof.exit.thread ], [ %.082334, %mxf_parse_handle_partition_or_eof.exit126 ], [ %.082334, %mxf_parse_handle_partition_or_eof.exit ], [ %spec.select, %mxf_parse_handle_essence.exit ]
   %.not116 = icmp eq i64 %.183, 0
   br i1 %.not116, label %.thread215.thread, label %261
 
@@ -3520,7 +3520,7 @@ mxf_get_codec_ul.exit830.i:                       ; preds = %mxf_match_uid.exit.
 .parse_ffv1_sub_descriptor.exit.thread_crit_edge.i: ; preds = %1476
   %.pre1159.i = load ptr, ptr %747, align 8, !tbaa !109
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i897.i, i64 192
-  %.pre445 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !200
+  %.pre447 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !200
   br label %parse_ffv1_sub_descriptor.exit.thread.i
 
 1479:                                             ; preds = %1476
@@ -3585,7 +3585,7 @@ parse_ffv1_sub_descriptor.exit.i:                 ; preds = %1492
   br i1 %1502, label %1514, label %parse_ffv1_sub_descriptor.exit.thread.i
 
 parse_ffv1_sub_descriptor.exit.thread.i:          ; preds = %parse_ffv1_sub_descriptor.exit.i, %.parse_ffv1_sub_descriptor.exit.thread_crit_edge.i
-  %1503 = phi i32 [ %.pre445, %.parse_ffv1_sub_descriptor.exit.thread_crit_edge.i ], [ %1500, %parse_ffv1_sub_descriptor.exit.i ]
+  %1503 = phi i32 [ %.pre447, %.parse_ffv1_sub_descriptor.exit.thread_crit_edge.i ], [ %1500, %parse_ffv1_sub_descriptor.exit.i ]
   %1504 = phi ptr [ %.pre1159.i, %.parse_ffv1_sub_descriptor.exit.thread_crit_edge.i ], [ %.pre1160.i, %parse_ffv1_sub_descriptor.exit.i ]
   %1505 = call i32 @ff_alloc_extradata(ptr noundef %1504, i32 noundef %1503) #15
   %.not573.i = icmp eq i32 %1505, 0
@@ -3677,7 +3677,7 @@ parse_ffv1_sub_descriptor.exit.thread.i:          ; preds = %parse_ffv1_sub_desc
   br i1 %.not576.i, label %.lr.ph1041.i..loopexit.i_crit_edge, label %1549
 
 .lr.ph1041.i..loopexit.i_crit_edge:               ; preds = %.lr.ph1041.i
-  %.pre447 = add nuw nsw i64 %indvars.iv1143.i, 1
+  %.pre449 = add nuw nsw i64 %indvars.iv1143.i, 1
   br label %.loopexit.i
 
 1549:                                             ; preds = %.lr.ph1041.i
@@ -3755,7 +3755,7 @@ parse_ffv1_sub_descriptor.exit.thread.i:          ; preds = %parse_ffv1_sub_desc
   br i1 %1589, label %1557, label %.loopexit.i, !llvm.loop !213
 
 .loopexit.i:                                      ; preds = %1583, %.lr.ph1041.i..loopexit.i_crit_edge, %1549
-  %indvars.iv.next1144.i.pre-phi = phi i64 [ %.pre447, %.lr.ph1041.i..loopexit.i_crit_edge ], [ %1552, %1549 ], [ %1552, %1583 ]
+  %indvars.iv.next1144.i.pre-phi = phi i64 [ %.pre449, %.lr.ph1041.i..loopexit.i_crit_edge ], [ %1552, %1549 ], [ %1552, %1583 ]
   %1590 = phi ptr [ %1541, %.lr.ph1041.i..loopexit.i_crit_edge ], [ %1541, %1549 ], [ %1584, %1583 ]
   %1591 = getelementptr inbounds nuw i8, ptr %1590, i64 44
   %1592 = load i32, ptr %1591, align 4, !tbaa !209
@@ -3772,10 +3772,10 @@ parse_ffv1_sub_descriptor.exit.thread.i:          ; preds = %parse_ffv1_sub_desc
 mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preheader937.i
   %1595 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1596 = load i32, ptr %1595, align 4, !tbaa !209
-  %.not342 = icmp eq i32 %1596, 0
-  br i1 %.not342, label %._crit_edge, label %.lr.ph339
+  %.not343 = icmp eq i32 %1596, 0
+  br i1 %.not343, label %._crit_edge, label %.lr.ph340
 
-.lr.ph339:                                        ; preds = %mxf_parse_structural_metadata.exit
+.lr.ph340:                                        ; preds = %mxf_parse_structural_metadata.exit
   %1597 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1598 = getelementptr inbounds nuw i8, ptr %18, i64 296
   %1599 = getelementptr inbounds nuw i8, ptr %18, i64 304
@@ -4719,16 +4719,16 @@ mxf_compute_index_tables.exit.thread226:          ; preds = %2006, %2012, %1757,
   br label %.thread220
 
 mxf_compute_index_tables.exit.loopexit:           ; preds = %.thread178.i
-  %.pre446 = load ptr, ptr %4, align 8, !tbaa !215
+  %.pre448 = load ptr, ptr %4, align 8, !tbaa !215
   br label %mxf_compute_index_tables.exit
 
 mxf_compute_index_tables.exit:                    ; preds = %mxf_compute_index_tables.exit.loopexit, %.preheader.i
-  %2056 = phi ptr [ %.pre446, %mxf_compute_index_tables.exit.loopexit ], [ %1756, %.preheader.i ]
+  %2056 = phi ptr [ %.pre448, %mxf_compute_index_tables.exit.loopexit ], [ %1756, %.preheader.i ]
   call void @av_free(ptr noundef %2056) #15
   br label %2148
 
-2057:                                             ; preds = %.lr.ph339, %mxf_handle_missing_index_segment.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph339 ], [ %indvars.iv.next, %mxf_handle_missing_index_segment.exit ]
+2057:                                             ; preds = %.lr.ph340, %mxf_handle_missing_index_segment.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph340 ], [ %indvars.iv.next, %mxf_handle_missing_index_segment.exit ]
   %2058 = load ptr, ptr %1597, align 8, !tbaa !210
   %2059 = getelementptr inbounds nuw ptr, ptr %2058, i64 %indvars.iv
   %2060 = load ptr, ptr %2059, align 8, !tbaa !211
@@ -5084,19 +5084,19 @@ mxf_get_wrapping_by_body_sid.exit.thread._crit_edge.i: ; preds = %mxf_get_wrappi
 
 mxf_compute_essence_containers.exit:              ; preds = %2237, %2169
   %2241 = load i32, ptr %1595, align 4, !tbaa !209
-  %.not343 = icmp eq i32 %2241, 0
-  br i1 %.not343, label %.thread220, label %.lr.ph341
+  %.not344 = icmp eq i32 %2241, 0
+  br i1 %.not344, label %.thread220, label %.lr.ph342
 
-.lr.ph341:                                        ; preds = %mxf_compute_essence_containers.exit
+.lr.ph342:                                        ; preds = %mxf_compute_essence_containers.exit
   %2242 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2243 = load ptr, ptr %2242, align 8, !tbaa !210
   %2244 = getelementptr inbounds nuw i8, ptr %18, i64 592
   %wide.trip.count = zext i32 %2241 to i64
   br label %2245
 
-2245:                                             ; preds = %.lr.ph341, %mxf_compute_edit_units_per_packet.exit
-  %indvars.iv441 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next442, %mxf_compute_edit_units_per_packet.exit ]
-  %2246 = getelementptr inbounds nuw ptr, ptr %2243, i64 %indvars.iv441
+2245:                                             ; preds = %.lr.ph342, %mxf_compute_edit_units_per_packet.exit
+  %indvars.iv443 = phi i64 [ 0, %.lr.ph342 ], [ %indvars.iv.next444, %mxf_compute_edit_units_per_packet.exit ]
+  %2246 = getelementptr inbounds nuw ptr, ptr %2243, i64 %indvars.iv443
   %2247 = load ptr, ptr %2246, align 8, !tbaa !211
   %2248 = getelementptr inbounds nuw i8, ptr %2247, i64 24
   %2249 = load ptr, ptr %2248, align 8, !tbaa !125
@@ -5180,12 +5180,12 @@ mxf_find_index_table.exit.i:                      ; preds = %2261, %2260, %2254
   br label %mxf_compute_edit_units_per_packet.exit
 
 mxf_compute_edit_units_per_packet.exit:           ; preds = %2245, %2250, %mxf_find_index_table.exit.i, %2268, %2274, %2277, %2284
-  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
-  %exitcond444.not = icmp eq i64 %indvars.iv.next442, %wide.trip.count
-  br i1 %exitcond444.not, label %.thread220, label %2245, !llvm.loop !277
+  %indvars.iv.next444 = add nuw nsw i64 %indvars.iv443, 1
+  %exitcond446.not = icmp eq i64 %indvars.iv.next444, %wide.trip.count
+  br i1 %exitcond446.not, label %.thread220, label %2245, !llvm.loop !277
 
-.thread220:                                       ; preds = %212, %mxf_compute_edit_units_per_packet.exit, %mxf_compute_essence_containers.exit, %.loopexit1268.i, %._crit_edge.i, %.loopexit966.i, %155, %mxf_compute_index_tables.exit.thread226, %34, %2167, %.thread215.thread, %mxf_read_sync.exit.thread
-  %.078 = phi i32 [ -1094995529, %2167 ], [ -1094995529, %.thread215.thread ], [ -1094995529, %mxf_read_sync.exit.thread ], [ -1094995529, %34 ], [ %.1.i150.ph, %mxf_compute_index_tables.exit.thread226 ], [ -1094995529, %155 ], [ %.2449.ph.ph.i, %.loopexit1268.i ], [ -1094995529, %._crit_edge.i ], [ %.3.ph.i, %.loopexit966.i ], [ 0, %mxf_compute_essence_containers.exit ], [ 0, %mxf_compute_edit_units_per_packet.exit ], [ %217, %212 ]
+.thread220:                                       ; preds = %208, %mxf_compute_edit_units_per_packet.exit, %mxf_compute_essence_containers.exit, %.loopexit1268.i, %._crit_edge.i, %.loopexit966.i, %155, %mxf_compute_index_tables.exit.thread226, %34, %2167, %.thread215.thread, %mxf_read_sync.exit.thread
+  %.078 = phi i32 [ -1094995529, %2167 ], [ -1094995529, %.thread215.thread ], [ -1094995529, %mxf_read_sync.exit.thread ], [ -1094995529, %34 ], [ %.1.i150.ph, %mxf_compute_index_tables.exit.thread226 ], [ -1094995529, %155 ], [ %.2449.ph.ph.i, %.loopexit1268.i ], [ -1094995529, %._crit_edge.i ], [ %.3.ph.i, %.loopexit966.i ], [ 0, %mxf_compute_essence_containers.exit ], [ 0, %mxf_compute_edit_units_per_packet.exit ], [ %215, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.078
 }
@@ -11030,11 +11030,11 @@ attributes #18 = { noreturn nounwind }
 !52 = !{i64 0, i64 16, !12, i64 16, i64 8, !53, i64 24, i64 8, !53, i64 32, i64 8, !53}
 !53 = !{!25, !25, i64 0}
 !54 = distinct !{!54, !14}
-!55 = distinct !{!55, !14}
-!56 = !{!57, !7, i64 16}
-!57 = !{!"MXFMetadataReadTableEntry", !8, i64 0, !7, i64 16, !10, i64 24, !10, i64 28}
-!58 = !{!57, !10, i64 24}
-!59 = !{!57, !10, i64 28}
+!55 = !{!56, !7, i64 16}
+!56 = !{!"MXFMetadataReadTableEntry", !8, i64 0, !7, i64 16, !10, i64 24, !10, i64 28}
+!57 = !{!56, !10, i64 24}
+!58 = !{!56, !10, i64 28}
+!59 = distinct !{!59, !14}
 !60 = !{!31, !10, i64 32}
 !61 = !{!31, !6, i64 24}
 !62 = !{!63, !10, i64 8}

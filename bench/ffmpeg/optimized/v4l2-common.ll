@@ -9,135 +9,125 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = icmp eq i32 %0, -1
-  br i1 %3, label %.split.us, label %.split
+  %3 = icmp eq i32 %1, 0
+  %4 = icmp eq i32 %0, -1
+  br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2
-  switch i32 %1, label %.lr.ph.split [
-    i32 13, label %.split17.us
-    i32 0, label %.split17.us
-  ]
+  br i1 %3, label %.split17.us, label %.split.us.split
 
-4:                                                ; preds = %.lr.ph.split
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %5 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next41
+.split.us.split:                                  ; preds = %.split.us, %9
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %9 ], [ 0, %.split.us ]
+  %5 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv40
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %.split17.us, label %.lr.ph.split, !llvm.loop !9
+  br i1 %8, label %.split17.us, label %9
 
-.lr.ph.split:                                     ; preds = %.split.us, %4
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %4 ], [ 0, %.split.us ]
-  %exitcond43 = icmp eq i64 %indvars.iv40, 34
-  br i1 %exitcond43, label %.loopexit, label %4, !llvm.loop !9
+9:                                                ; preds = %.split.us.split
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %.not.us = icmp eq i64 %indvars.iv.next41, 35
+  br i1 %.not.us, label %.loopexit, label %.split.us.split, !llvm.loop !9
 
 .split:                                           ; preds = %2
-  %9 = icmp eq i32 %1, 0
-  br i1 %9, label %.split.split.us, label %.split.split
+  br i1 %3, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %13
-  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %13 ], [ 0, %.split ]
-  %10 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv36
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %13 ], [ 0, %.split ]
+  %10 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv37
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %.split17.us, label %13
 
 13:                                               ; preds = %.split.split.us
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond39 = icmp eq i64 %indvars.iv.next37, 35
-  br i1 %exitcond39, label %.loopexit, label %.split.split.us, !llvm.loop !9
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %.not.us21 = icmp eq i64 %indvars.iv.next38, 35
+  br i1 %.not.us21, label %.loopexit, label %.split.split.us, !llvm.loop !9
 
-.split.split:                                     ; preds = %.split, %22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.split ]
-  %14 = phi i32 [ %24, %22 ], [ 13, %.split ]
-  %15 = icmp eq i32 %14, %1
-  br i1 %15, label %16, label %22
+.split.split:                                     ; preds = %.split, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.split ]
+  %14 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !4
+  %17 = icmp eq i32 %16, %1
+  br i1 %17, label %18, label %23
 
-16:                                               ; preds = %.split.split
-  %17 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !11
-  %19 = icmp eq i32 %18, %0
-  br i1 %19, label %.split17.us, label %22
+18:                                               ; preds = %.split.split
+  %19 = load i32, ptr %14, align 4, !tbaa !11
+  %20 = icmp eq i32 %19, %0
+  br i1 %20, label %.split17.us, label %23
 
-.split17.us:                                      ; preds = %16, %.split.split.us, %4, %.split.us, %.split.us
-  %.us-phi = phi ptr [ @ff_fmt_conversion_table, %.split.us ], [ @ff_fmt_conversion_table, %.split.us ], [ %5, %4 ], [ %10, %.split.split.us ], [ %17, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  %21 = load i32, ptr %20, align 4, !tbaa !12
+.split17.us:                                      ; preds = %18, %.split.split.us, %.split.us.split, %.split.us
+  %.us-phi = phi ptr [ @ff_fmt_conversion_table, %.split.us ], [ %5, %.split.us.split ], [ %10, %.split.split.us ], [ %14, %18 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
+  %22 = load i32, ptr %21, align 4, !tbaa !12
   br label %.loopexit
 
-22:                                               ; preds = %.split.split, %16
+23:                                               ; preds = %.split.split, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next, i32 1
-  %24 = load i32, ptr %23, align 4, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %.loopexit, label %.split.split, !llvm.loop !9
+  %.not = icmp eq i64 %indvars.iv.next, 35
+  br i1 %.not, label %.loopexit, label %.split.split, !llvm.loop !9
 
-.loopexit:                                        ; preds = %22, %13, %.lr.ph.split, %.split17.us
-  %.010 = phi i32 [ %21, %.split17.us ], [ 0, %.lr.ph.split ], [ 0, %13 ], [ 0, %22 ]
+.loopexit:                                        ; preds = %23, %13, %9, %.split17.us
+  %.010 = phi i32 [ %22, %.split17.us ], [ 0, %9 ], [ 0, %13 ], [ 0, %23 ]
   ret i32 %.010
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @ff_fmt_v4l2ff(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  br label %6
+  br label %4
 
-3:                                                ; preds = %6
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next, i32 1
-  %5 = load i32, ptr %4, align 4, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %.loopexit, label %6, !llvm.loop !13
+  %.not = icmp eq i64 %indvars.iv.next, 35
+  br i1 %.not, label %.loopexit, label %4, !llvm.loop !13
 
-6:                                                ; preds = %2, %3
+4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %7 = phi i32 [ 13, %2 ], [ %5, %3 ]
-  %8 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !12
-  %11 = icmp eq i32 %10, %0
-  %12 = icmp eq i32 %7, %1
-  %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %3
+  %5 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = load i32, ptr %8, align 4, !tbaa !12
+  %10 = icmp eq i32 %9, %0
+  %11 = icmp eq i32 %7, %1
+  %or.cond = select i1 %10, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %3
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr %8, align 4, !tbaa !11
+12:                                               ; preds = %4
+  %13 = load i32, ptr %5, align 4, !tbaa !11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %3, %13
-  %.08 = phi i32 [ %14, %13 ], [ -1, %3 ]
+.loopexit:                                        ; preds = %3, %12
+  %.08 = phi i32 [ %13, %12 ], [ -1, %3 ]
   ret i32 %.08
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @ff_fmt_v4l2codec(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp eq i32 %0, 842093913
-  br i1 %2, label %._crit_edge11, label %.lr.ph
+  br label %3
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %._crit_edge, label %3, !llvm.loop !14
+2:                                                ; preds = %3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 35
+  br i1 %.not, label %.split.loop.exit, label %3, !llvm.loop !14
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next, i32 2
-  %5 = load i32, ptr %4, align 4, !tbaa !12
-  %6 = icmp eq i32 %5, %0
-  br i1 %6, label %._crit_edge11.loopexit, label %.lr.ph, !llvm.loop !14
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i32, ptr %5, align 4, !tbaa !12
+  %7 = icmp eq i32 %6, %0
+  br i1 %7, label %.split.loop.exit8, label %2
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !4
-  br label %._crit_edge11, !llvm.loop !14
+.split.loop.exit8:                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !4
+  br label %.split.loop.exit
 
-._crit_edge11.loopexit:                           ; preds = %3
-  %9 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !4
-  br label %._crit_edge11
-
-._crit_edge11:                                    ; preds = %._crit_edge11.loopexit, %._crit_edge, %1
-  %.lcssa = phi i32 [ %8, %._crit_edge ], [ 13, %1 ], [ %10, %._crit_edge11.loopexit ]
-  ret i32 %.lcssa
+.split.loop.exit:                                 ; preds = %2, %.split.loop.exit8
+  %.06 = phi i32 [ %9, %.split.loop.exit8 ], [ 0, %2 ]
+  ret i32 %.06
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -823,102 +823,101 @@ SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.
   br label %333
 
 333:                                              ; preds = %375, %330
-  %.02133.i.i = phi i64 [ 0, %330 ], [ %376, %375 ]
-  %334 = getelementptr inbounds nuw %struct.SDL_DriverXboxOne_InitPacket, ptr @xboxone_init_packets, i64 %.02133.i.i
-  %335 = add nsw i64 %.02133.i.i, -6
+  %.02134.i.i = phi i64 [ 0, %330 ], [ %376, %375 ]
+  %334 = getelementptr inbounds nuw %struct.SDL_DriverXboxOne_InitPacket, ptr @xboxone_init_packets, i64 %.02134.i.i
+  %335 = add nsw i64 %.02134.i.i, -6
   %.not.i.i37 = icmp ult i64 %335, -3
-  br i1 %.not.i.i37, label %338, label %336
+  br i1 %.not.i.i37, label %.thread.i.i, label %336
 
 336:                                              ; preds = %333
   %337 = load i16, ptr %334, align 8
   %.not24.i.i = icmp eq i16 %331, %337
   br i1 %.not24.i.i, label %338, label %375
 
-338:                                              ; preds = %336, %333
+338:                                              ; preds = %336
   %339 = getelementptr inbounds nuw i8, ptr %334, i64 2
   %340 = load i16, ptr %339, align 2
-  %.not25.i.i = icmp eq i16 %340, 0
   %.not26.i.i = icmp eq i16 %332, %340
-  %or.cond.i.i = select i1 %.not25.i.i, i1 true, i1 %.not26.i.i
-  br i1 %or.cond.i.i, label %341, label %375
+  br i1 %.not26.i.i, label %.thread.i.i, label %375
 
-341:                                              ; preds = %338
-  %342 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  %345 = load i32, ptr %344, align 8
-  %346 = sext i32 %345 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %343, i64 %346, i1 false)
-  %347 = load i8, ptr %311, align 8
-  %348 = add i8 %347, 1
-  %spec.select.i.i13.i = call i8 @llvm.umax.i8(i8 %348, i8 1)
+.thread.i.i:                                      ; preds = %338, %333
+  %341 = getelementptr inbounds nuw i8, ptr %334, i64 8
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds nuw i8, ptr %334, i64 16
+  %344 = load i32, ptr %343, align 8
+  %345 = sext i32 %344 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %342, i64 %345, i1 false)
+  %346 = load i8, ptr %311, align 8
+  %347 = add i8 %346, 1
+  %spec.select.i.i13.i = call i8 @llvm.umax.i8(i8 %347, i8 1)
   store i8 %spec.select.i.i13.i, ptr %311, align 8
   store i8 %spec.select.i.i13.i, ptr %312, align 2
-  %349 = load i8, ptr %2, align 16
-  %350 = icmp eq i8 %349, 10
-  br i1 %350, label %351, label %366
+  %348 = load i8, ptr %2, align 16
+  %349 = icmp eq i8 %348, 10
+  br i1 %349, label %350, label %365
 
-351:                                              ; preds = %341
-  %352 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.6) #9
-  %.not.i.i16.i = icmp eq ptr %352, null
-  br i1 %.not.i.i16.i, label %GetHomeLEDBrightness.exit.i.i, label %353
+350:                                              ; preds = %.thread.i.i
+  %351 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.6) #9
+  %.not.i.i16.i = icmp eq ptr %351, null
+  br i1 %.not.i.i16.i, label %GetHomeLEDBrightness.exit.i.i, label %352
 
-353:                                              ; preds = %351
-  %354 = load i8, ptr %352, align 1
-  %.not6.i.i.i = icmp eq i8 %354, 0
-  br i1 %.not6.i.i.i, label %GetHomeLEDBrightness.exit.i.i, label %355
+352:                                              ; preds = %350
+  %353 = load i8, ptr %351, align 1
+  %.not6.i.i.i = icmp eq i8 %353, 0
+  br i1 %.not6.i.i.i, label %GetHomeLEDBrightness.exit.i.i, label %354
 
-355:                                              ; preds = %353
-  %356 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %352, i32 noundef 46) #9
-  %.not7.i.i.i = icmp eq ptr %356, null
-  br i1 %.not7.i.i.i, label %361, label %357
+354:                                              ; preds = %352
+  %355 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %351, i32 noundef 46) #9
+  %.not7.i.i.i = icmp eq ptr %355, null
+  br i1 %.not7.i.i.i, label %360, label %356
 
-357:                                              ; preds = %355
-  %358 = call double @SDL_atof_REAL(ptr noundef nonnull %352) #9
-  %359 = fmul double %358, 5.000000e+01
-  %360 = fptosi double %359 to i32
+356:                                              ; preds = %354
+  %357 = call double @SDL_atof_REAL(ptr noundef nonnull %351) #9
+  %358 = fmul double %357, 5.000000e+01
+  %359 = fptosi double %358 to i32
   br label %GetHomeLEDBrightness.exit.i.i
 
-361:                                              ; preds = %355
-  %362 = call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %352, i1 noundef zeroext true) #9
-  %spec.select.i27.i.i = select i1 %362, i32 20, i32 0
+360:                                              ; preds = %354
+  %361 = call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %351, i1 noundef zeroext true) #9
+  %spec.select.i27.i.i = select i1 %361, i32 20, i32 0
   br label %GetHomeLEDBrightness.exit.i.i
 
-GetHomeLEDBrightness.exit.i.i:                    ; preds = %361, %357, %353, %351
-  %.0.i.i.i = phi i32 [ %360, %357 ], [ 20, %353 ], [ 20, %351 ], [ %spec.select.i27.i.i, %361 ]
-  %363 = icmp sgt i32 %.0.i.i.i, 0
-  %364 = zext i1 %363 to i8
-  store i8 %364, ptr %313, align 1
-  %365 = trunc i32 %.0.i.i.i to i8
-  store i8 %365, ptr %314, align 2
-  br label %366
+GetHomeLEDBrightness.exit.i.i:                    ; preds = %360, %356, %352, %350
+  %.0.i.i.i = phi i32 [ %359, %356 ], [ 20, %352 ], [ 20, %350 ], [ %spec.select.i27.i.i, %360 ]
+  %362 = icmp sgt i32 %.0.i.i.i, 0
+  %363 = zext i1 %362 to i8
+  store i8 %363, ptr %313, align 1
+  %364 = trunc i32 %.0.i.i.i to i8
+  store i8 %364, ptr %314, align 2
+  br label %365
 
-366:                                              ; preds = %GetHomeLEDBrightness.exit.i.i, %341
-  %367 = call i64 @SDL_GetTicks_REAL() #9
-  store i64 %367, ptr %308, align 8
-  %368 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %368, label %SendProtocolPacket.exit.i15.i, label %SendProtocolPacket.exit.thread.i14.i
+365:                                              ; preds = %GetHomeLEDBrightness.exit.i.i, %.thread.i.i
+  %366 = call i64 @SDL_GetTicks_REAL() #9
+  store i64 %366, ptr %308, align 8
+  %367 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %367, label %SendProtocolPacket.exit.i15.i, label %SendProtocolPacket.exit.thread.i14.i
 
-SendProtocolPacket.exit.i15.i:                    ; preds = %366
-  %369 = load ptr, ptr %8, align 8
-  %370 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %369, ptr noundef nonnull %2, i32 noundef %345) #9
-  %.not.i29.i.i = icmp eq i32 %370, %345
-  br i1 %.not.i29.i.i, label %371, label %SendProtocolPacket.exit.thread.i14.i
+SendProtocolPacket.exit.i15.i:                    ; preds = %365
+  %368 = load ptr, ptr %8, align 8
+  %369 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %368, ptr noundef nonnull %2, i32 noundef %344) #9
+  %.not.i29.i.i = icmp eq i32 %369, %344
+  br i1 %.not.i29.i.i, label %370, label %SendProtocolPacket.exit.thread.i14.i
 
-371:                                              ; preds = %SendProtocolPacket.exit.i15.i
-  %372 = icmp eq ptr %343, @xbox_init_powera_rumble
+370:                                              ; preds = %SendProtocolPacket.exit.i15.i
+  %371 = add nsw i64 %.02134.i.i, -3
+  %372 = icmp ult i64 %371, 3
   br i1 %372, label %373, label %375
 
-373:                                              ; preds = %371
+373:                                              ; preds = %370
   call void @SDL_Delay_REAL(i32 noundef 10) #9
   br label %375
 
-SendProtocolPacket.exit.thread.i14.i:             ; preds = %SendProtocolPacket.exit.i15.i, %366
+SendProtocolPacket.exit.thread.i14.i:             ; preds = %SendProtocolPacket.exit.i15.i, %365
   %374 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9
   br label %SendControllerStartup.exit.i
 
-375:                                              ; preds = %373, %371, %338, %336
-  %376 = add nuw nsw i64 %.02133.i.i, 1
+375:                                              ; preds = %373, %370, %338, %336
+  %376 = add nuw nsw i64 %.02134.i.i, 1
   %exitcond.i.i = icmp eq i64 %376, 7
   br i1 %exitcond.i.i, label %SendControllerStartup.exit.i, label %333, !llvm.loop !9
 

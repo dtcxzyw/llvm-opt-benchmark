@@ -286,17 +286,18 @@ get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
   store i8 %121, ptr %28, align 8, !tbaa !46
   store i8 0, ptr %31, align 1, !tbaa !47
   store i8 0, ptr %22, align 1, !tbaa !48
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  %123 = load i8, ptr %122, align 1, !tbaa !42
-  %124 = zext i8 %123 to i32
-  %.not.i.i = icmp eq i8 %123, 0
+  %.not.i.i = icmp samesign ult i8 %115, 18
   br i1 %.not.i.i, label %process_cc608.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %111
-  %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 528
-  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1584
-  %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1056
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2112
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 2
+  %123 = load i8, ptr %122, align 1, !tbaa !42
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 528
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1584
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1056
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2112
+  %128 = call i8 @llvm.umax.i8(i8 %123, i8 1)
+  %umax.i.i = zext i8 %128 to i32
   br label %129
 
 129:                                              ; preds = %write_char.exit.i.i, %.lr.ph.i.i
@@ -309,10 +310,10 @@ get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
   %133 = load i8, ptr %29, align 4, !tbaa !32
   %134 = zext i8 %133 to i64
   %135 = getelementptr inbounds nuw [33 x i8], ptr %.0.i.i.i, i64 %134
-  %136 = getelementptr inbounds nuw [33 x i8], ptr %125, i64 %134
-  %137 = getelementptr inbounds nuw [33 x i8], ptr %126, i64 %134
-  %138 = getelementptr inbounds nuw [33 x i8], ptr %127, i64 %134
-  %139 = getelementptr inbounds nuw [33 x i8], ptr %128, i64 %134
+  %136 = getelementptr inbounds nuw [33 x i8], ptr %124, i64 %134
+  %137 = getelementptr inbounds nuw [33 x i8], ptr %125, i64 %134
+  %138 = getelementptr inbounds nuw [33 x i8], ptr %126, i64 %134
+  %139 = getelementptr inbounds nuw [33 x i8], ptr %127, i64 %134
   %140 = zext nneg i8 %130 to i64
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 %140
   store i8 32, ptr %141, align 1, !tbaa !42
@@ -341,7 +342,7 @@ get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
 
 write_char.exit.i.i:                              ; preds = %152, %132
   %154 = add nuw nsw i32 %.020.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %154, %124
+  %exitcond.not.i.i = icmp eq i32 %154, %umax.i.i
   br i1 %exitcond.not.i.i, label %process_cc608.exit.thread, label %129, !llvm.loop !49
 
 155:                                              ; preds = %90
@@ -1774,6 +1775,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctpop.i8(i8) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

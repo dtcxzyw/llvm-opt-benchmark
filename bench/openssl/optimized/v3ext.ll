@@ -681,10 +681,10 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
 19:                                               ; preds = %15
   call void @X509V3_set_ctx(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #6
   call void @X509V3_set_nconf(ptr noundef nonnull %1, ptr noundef %11) #6
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !32
-  %.not26 = icmp eq i32 %21, 0
-  br i1 %.not26, label %28, label %22
+  %20 = shl nuw nsw i64 1, %.02033
+  %21 = and i64 %20, 66586608
+  %.not26.not = icmp eq i64 %21, 0
+  br i1 %.not26.not, label %22, label %28
 
 22:                                               ; preds = %19
   %23 = call i32 @X509V3_EXT_add_nconf(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @.str.98, ptr noundef null) #6
@@ -724,7 +724,7 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %40 = add nuw nsw i64 %.02033, 1
   %exitcond.not = icmp eq i64 %40, 26
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !32
 
 .critedge:                                        ; preds = %3, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -806,13 +806,13 @@ define internal range(i32 0, 2) i32 @test_addr_fam_len() #1 {
   br i1 %38, label %83, label %39
 
 39:                                               ; preds = %36, %32
-  %40 = load ptr, ptr %30, align 8, !tbaa !34
+  %40 = load ptr, ptr %30, align 8, !tbaa !33
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %39
   %43 = tail call ptr @ASN1_OCTET_STRING_new() #6
-  store ptr %43, ptr %30, align 8, !tbaa !34
+  store ptr %43, ptr %30, align 8, !tbaa !33
   %44 = icmp eq ptr %43, null
   br i1 %44, label %83, label %45
 
@@ -858,13 +858,13 @@ define internal range(i32 0, 2) i32 @test_addr_fam_len() #1 {
   br i1 %65, label %83, label %66
 
 66:                                               ; preds = %63, %59
-  %67 = load ptr, ptr %57, align 8, !tbaa !34
+  %67 = load ptr, ptr %57, align 8, !tbaa !33
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %66
   %70 = call ptr @ASN1_OCTET_STRING_new() #6
-  store ptr %70, ptr %57, align 8, !tbaa !34
+  store ptr %70, ptr %57, align 8, !tbaa !33
   %71 = icmp eq ptr %70, null
   br i1 %71, label %83, label %72
 
@@ -919,13 +919,13 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 4:                                                ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %32, label %5, !llvm.loop !35
+  br i1 %exitcond.not, label %32, label %5, !llvm.loop !34
 
 5:                                                ; preds = %0, %4
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
   %6 = tail call ptr @OPENSSL_sk_new_null() #6
   %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  store ptr %6, ptr %7, align 8, !tbaa !36
+  store ptr %6, ptr %7, align 8, !tbaa !35
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 434, ptr noundef nonnull @.str.128, ptr noundef %6) #6
   %.not33 = icmp eq i32 %8, 0
   br i1 %.not33, label %.loopexit, label %9
@@ -936,7 +936,7 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call ptr @a2i_IPADDRESS(ptr noundef %12) #6
   %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  store ptr %13, ptr %14, align 8, !tbaa !38
+  store ptr %13, ptr %14, align 8, !tbaa !37
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 435, ptr noundef nonnull @.str.129, ptr noundef %13) #6
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %.loopexit, label %16
@@ -946,7 +946,7 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
   %18 = load ptr, ptr %17, align 16, !tbaa !15
   %19 = tail call ptr @a2i_IPADDRESS(ptr noundef %18) #6
   %20 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  store ptr %19, ptr %20, align 8, !tbaa !38
+  store ptr %19, ptr %20, align 8, !tbaa !37
   %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 436, ptr noundef nonnull @.str.130, ptr noundef %19) #6
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %.loopexit, label %22
@@ -979,7 +979,7 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
   br i1 %.not23, label %.loopexit, label %40
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %1, align 16, !tbaa !36
+  %41 = load ptr, ptr %1, align 16, !tbaa !35
   %42 = tail call i32 @X509v3_addr_subset(ptr noundef null, ptr noundef %41) #6
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
@@ -1005,7 +1005,7 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !36
+  %58 = load ptr, ptr %57, align 8, !tbaa !35
   %59 = tail call i32 @X509v3_addr_subset(ptr noundef %41, ptr noundef %58) #6
   %60 = icmp ne i32 %59, 0
   %61 = zext i1 %60 to i32
@@ -1015,7 +1015,7 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %65 = load ptr, ptr %64, align 16, !tbaa !36
+  %65 = load ptr, ptr %64, align 16, !tbaa !35
   %66 = tail call i32 @X509v3_addr_subset(ptr noundef %41, ptr noundef %65) #6
   %67 = icmp ne i32 %66, 0
   %68 = zext i1 %67 to i32
@@ -1073,17 +1073,17 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 97:                                               ; preds = %.loopexit, %97
   %indvars.iv40 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next41, %97 ]
   %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40
-  %99 = load ptr, ptr %98, align 8, !tbaa !36
+  %99 = load ptr, ptr %98, align 8, !tbaa !35
   tail call void @OPENSSL_sk_pop_free(ptr noundef %99, ptr noundef nonnull @IPAddressFamily_free) #6
   %100 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40
-  %101 = load ptr, ptr %100, align 8, !tbaa !38
+  %101 = load ptr, ptr %100, align 8, !tbaa !37
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %101) #6
   %102 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40
-  %103 = load ptr, ptr %102, align 8, !tbaa !38
+  %103 = load ptr, ptr %102, align 8, !tbaa !37
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %103) #6
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %104, label %97, !llvm.loop !39
+  br i1 %exitcond43.not, label %104, label %97, !llvm.loop !38
 
 104:                                              ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1238,11 +1238,10 @@ attributes #7 = { nounwind willreturn memory(read) }
 !29 = !{!"llvm.loop.mustprogress"}
 !30 = !{!31, !5, i64 0}
 !31 = !{!"extvalues_st", !5, i64 0, !11, i64 8}
-!32 = !{!31, !11, i64 8}
-!33 = distinct !{!33, !29}
-!34 = !{!20, !21, i64 0}
-!35 = distinct !{!35, !29}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !6, i64 0}
-!38 = !{!21, !21, i64 0}
-!39 = distinct !{!39, !29}
+!32 = distinct !{!32, !29}
+!33 = !{!20, !21, i64 0}
+!34 = distinct !{!34, !29}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !6, i64 0}
+!37 = !{!21, !21, i64 0}
+!38 = distinct !{!38, !29}

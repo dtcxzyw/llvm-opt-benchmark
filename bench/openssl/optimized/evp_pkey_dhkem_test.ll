@@ -335,37 +335,38 @@ define internal range(i32 0, 2) i32 @test_dhkem_encapsulate(i32 noundef %0) #0 {
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
-  %.not = icmp eq ptr %13, null
-  %14 = select i1 %.not, ptr @.str.39, ptr @.str.38
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.37, ptr noundef %11, ptr noundef nonnull %14) #5
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %18 = load i64, ptr %17, align 8, !tbaa !25
-  %19 = tail call fastcc ptr @new_raw_public_key(ptr noundef %11, ptr noundef %16, i64 noundef %18)
-  %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @.str.40, ptr noundef %19) #5
-  %.not19 = icmp eq i32 %20, 0
-  br i1 %.not19, label %70, label %21
+  %12 = add i32 %0, -5
+  %.not = icmp ult i32 %12, -2
+  %13 = select i1 %.not, ptr @.str.39, ptr @.str.38
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.37, ptr noundef %11, ptr noundef nonnull %13) #5
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %17 = load i64, ptr %16, align 8, !tbaa !24
+  %18 = tail call fastcc ptr @new_raw_public_key(ptr noundef %11, ptr noundef %15, i64 noundef %17)
+  %19 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @.str.40, ptr noundef %18) #5
+  %.not19 = icmp eq i32 %19, 0
+  br i1 %.not19, label %71, label %20
 
-21:                                               ; preds = %1
-  br i1 %.not, label %31, label %22
+20:                                               ; preds = %1
+  br i1 %.not, label %32, label %21
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %24 = load i64, ptr %23, align 8, !tbaa !26
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %26 = load ptr, ptr %25, align 8, !tbaa !27
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %28 = load i64, ptr %27, align 8, !tbaa !28
-  %29 = tail call fastcc ptr @new_raw_private_key(ptr noundef %11, ptr noundef nonnull %13, i64 noundef %24, ptr noundef %26, i64 noundef %28)
-  %30 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 54, ptr noundef nonnull @.str.41, ptr noundef %29) #5
-  %.not21 = icmp eq i32 %30, 0
-  br i1 %.not21, label %70, label %31
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %25 = load i64, ptr %24, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %29 = load i64, ptr %28, align 8, !tbaa !28
+  %30 = tail call fastcc ptr @new_raw_private_key(ptr noundef %11, ptr noundef %23, i64 noundef %25, ptr noundef %27, i64 noundef %29)
+  %31 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 54, ptr noundef nonnull @.str.41, ptr noundef %30) #5
+  %.not21 = icmp eq i32 %31, 0
+  br i1 %.not21, label %71, label %32
 
-31:                                               ; preds = %22, %21
-  %.1 = phi ptr [ %29, %22 ], [ null, %21 ]
+32:                                               ; preds = %21, %20
+  %.1 = phi ptr [ %30, %21 ], [ null, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -375,90 +376,90 @@ define internal range(i32 0, 2) i32 @test_dhkem_encapsulate(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i64 noundef 0) #5
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !30
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.46, ptr noundef %35, i64 noundef %37) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !4
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !30
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.46, ptr noundef %36, i64 noundef %38) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %38 = load ptr, ptr @libctx, align 8, !tbaa !15
-  %39 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %38, ptr noundef %19, ptr noundef null) #5
-  %40 = call i32 @test_ptr(ptr noundef nonnull @.str.47, i32 noundef 667, ptr noundef nonnull @.str.48, ptr noundef %39) #5
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %do_encap.exit, label %41
+  %39 = load ptr, ptr @libctx, align 8, !tbaa !15
+  %40 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %39, ptr noundef %18, ptr noundef null) #5
+  %41 = call i32 @test_ptr(ptr noundef nonnull @.str.47, i32 noundef 667, ptr noundef nonnull @.str.48, ptr noundef %40) #5
+  %.not.i = icmp eq i32 %41, 0
+  br i1 %.not.i, label %do_encap.exit, label %42
 
-41:                                               ; preds = %31
-  br i1 %.not, label %42, label %45
+42:                                               ; preds = %32
+  br i1 %.not, label %43, label %46
 
-42:                                               ; preds = %41
-  %43 = call i32 @EVP_PKEY_encapsulate_init(ptr noundef %39, ptr noundef nonnull %6) #5
-  %44 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 670, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %43, i32 noundef 1) #5
-  %.not18.i = icmp eq i32 %44, 0
-  br i1 %.not18.i, label %do_encap.exit, label %48
+43:                                               ; preds = %42
+  %44 = call i32 @EVP_PKEY_encapsulate_init(ptr noundef %40, ptr noundef nonnull %6) #5
+  %45 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 670, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %44, i32 noundef 1) #5
+  %.not18.i = icmp eq i32 %45, 0
+  br i1 %.not18.i, label %do_encap.exit, label %49
 
-45:                                               ; preds = %41
-  %46 = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %39, ptr noundef %.1, ptr noundef nonnull %6) #5
-  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 673, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i32 noundef %46, i32 noundef 1) #5
-  %.not17.i = icmp eq i32 %47, 0
-  br i1 %.not17.i, label %do_encap.exit, label %48
+46:                                               ; preds = %42
+  %47 = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %40, ptr noundef %.1, ptr noundef nonnull %6) #5
+  %48 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 673, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i32 noundef %47, i32 noundef 1) #5
+  %.not17.i = icmp eq i32 %48, 0
+  br i1 %.not17.i, label %do_encap.exit, label %49
 
-48:                                               ; preds = %45, %42
-  %49 = call i32 @EVP_PKEY_encapsulate(ptr noundef %39, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #5
-  %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 677, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.50, i32 noundef %49, i32 noundef 1) #5
-  %.not19.i = icmp eq i32 %50, 0
-  br i1 %.not19.i, label %do_encap.exit, label %51
+49:                                               ; preds = %46, %43
+  %50 = call i32 @EVP_PKEY_encapsulate(ptr noundef %40, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #5
+  %51 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 677, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.50, i32 noundef %50, i32 noundef 1) #5
+  %.not19.i = icmp eq i32 %51, 0
+  br i1 %.not19.i, label %do_encap.exit, label %52
 
-51:                                               ; preds = %48
-  %52 = call i32 @EVP_PKEY_encapsulate(ptr noundef %39, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %4) #5
-  %53 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 679, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.50, i32 noundef %52, i32 noundef 1) #5
-  %.not20.i = icmp eq i32 %53, 0
-  br i1 %.not20.i, label %do_encap.exit, label %54
+52:                                               ; preds = %49
+  %53 = call i32 @EVP_PKEY_encapsulate(ptr noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %4) #5
+  %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 679, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.50, i32 noundef %53, i32 noundef 1) #5
+  %.not20.i = icmp eq i32 %54, 0
+  br i1 %.not20.i, label %do_encap.exit, label %55
 
-54:                                               ; preds = %51
-  %55 = load i64, ptr %5, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %59 = load i64, ptr %58, align 8, !tbaa !32
-  %60 = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 680, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %3, i64 noundef %55, ptr noundef %57, i64 noundef %59) #5
-  %.not21.i = icmp eq i32 %60, 0
-  br i1 %.not21.i, label %do_encap.exit, label %61
+55:                                               ; preds = %52
+  %56 = load i64, ptr %5, align 8, !tbaa !13
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !31
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %60 = load i64, ptr %59, align 8, !tbaa !32
+  %61 = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 680, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %3, i64 noundef %56, ptr noundef %58, i64 noundef %60) #5
+  %.not21.i = icmp eq i32 %61, 0
+  br i1 %.not21.i, label %do_encap.exit, label %62
 
-61:                                               ; preds = %54
-  %62 = load i64, ptr %4, align 8, !tbaa !13
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %64 = load ptr, ptr %63, align 8, !tbaa !33
-  %65 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %66 = load i64, ptr %65, align 8, !tbaa !34
-  %67 = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 682, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %2, i64 noundef %62, ptr noundef %64, i64 noundef %66) #5
-  %68 = icmp ne i32 %67, 0
-  %69 = zext i1 %68 to i32
+62:                                               ; preds = %55
+  %63 = load i64, ptr %4, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %65 = load ptr, ptr %64, align 8, !tbaa !33
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %67 = load i64, ptr %66, align 8, !tbaa !34
+  %68 = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 682, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %2, i64 noundef %63, ptr noundef %65, i64 noundef %67) #5
+  %69 = icmp ne i32 %68, 0
+  %70 = zext i1 %69 to i32
   br label %do_encap.exit
 
-do_encap.exit:                                    ; preds = %31, %42, %45, %48, %51, %54, %61
-  %.0.i = phi i32 [ 0, %42 ], [ 0, %45 ], [ 0, %31 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ %69, %61 ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %39) #5
+do_encap.exit:                                    ; preds = %32, %43, %46, %49, %52, %55, %62
+  %.0.i = phi i32 [ 0, %43 ], [ 0, %46 ], [ 0, %32 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ %70, %62 ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %40) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %22, %1, %do_encap.exit
-  %.017 = phi ptr [ %.1, %do_encap.exit ], [ %29, %22 ], [ null, %1 ]
-  %.0 = phi i32 [ %.0.i, %do_encap.exit ], [ 0, %22 ], [ 0, %1 ]
+71:                                               ; preds = %21, %1, %do_encap.exit
+  %.017 = phi ptr [ %.1, %do_encap.exit ], [ %30, %21 ], [ null, %1 ]
+  %.0 = phi i32 [ %.0.i, %do_encap.exit ], [ 0, %21 ], [ 0, %1 ]
   call void @EVP_PKEY_free(ptr noundef %.017) #5
-  call void @EVP_PKEY_free(ptr noundef %19) #5
+  call void @EVP_PKEY_free(ptr noundef %18) #5
   ret i32 %.0
 }
 
@@ -469,101 +470,102 @@ define internal range(i32 0, 2) i32 @test_dhkem_decapsulate(i32 noundef %0) #0 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds %struct.TEST_ENCAPDATA, ptr @ec_encapdata, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !21
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
-  %.not = icmp eq ptr %8, null
-  %9 = select i1 %.not, ptr @.str.39, ptr @.str.38
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.37, ptr noundef %6, ptr noundef nonnull %9) #5
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %13 = load i64, ptr %12, align 8, !tbaa !36
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !25
-  %18 = tail call fastcc ptr @new_raw_private_key(ptr noundef %6, ptr noundef %11, i64 noundef %13, ptr noundef %15, i64 noundef %17)
-  %19 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 74, ptr noundef nonnull @.str.58, ptr noundef %18) #5
-  %.not19 = icmp eq i32 %19, 0
-  br i1 %.not19, label %56, label %20
+  %7 = add i32 %0, -5
+  %.not = icmp ult i32 %7, -2
+  %8 = select i1 %.not, ptr @.str.39, ptr @.str.38
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.37, ptr noundef %6, ptr noundef nonnull %8) #5
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %12 = load i64, ptr %11, align 8, !tbaa !36
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !tbaa !24
+  %17 = tail call fastcc ptr @new_raw_private_key(ptr noundef %6, ptr noundef %10, i64 noundef %12, ptr noundef %14, i64 noundef %16)
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 74, ptr noundef nonnull @.str.58, ptr noundef %17) #5
+  %.not19 = icmp eq i32 %18, 0
+  br i1 %.not19, label %57, label %19
 
-20:                                               ; preds = %1
-  br i1 %.not, label %26, label %21
+19:                                               ; preds = %1
+  br i1 %.not, label %27, label %20
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %23 = load i64, ptr %22, align 8, !tbaa !28
-  %24 = tail call fastcc ptr @new_raw_public_key(ptr noundef %6, ptr noundef nonnull %8, i64 noundef %23)
-  %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @.str.59, ptr noundef %24) #5
-  %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %56, label %26
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %22 = load ptr, ptr %21, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %24 = load i64, ptr %23, align 8, !tbaa !28
+  %25 = tail call fastcc ptr @new_raw_public_key(ptr noundef %6, ptr noundef %22, i64 noundef %24)
+  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @.str.59, ptr noundef %25) #5
+  %.not21 = icmp eq i32 %26, 0
+  br i1 %.not21, label %57, label %27
 
-26:                                               ; preds = %21, %20
-  %.1 = phi ptr [ %24, %21 ], [ null, %20 ]
+27:                                               ; preds = %20, %19
+  %.1 = phi ptr [ %25, %20 ], [ null, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !13
-  %27 = load ptr, ptr @libctx, align 8, !tbaa !15
-  %28 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %27, ptr noundef %18, ptr noundef null) #5
-  %29 = tail call i32 @test_ptr(ptr noundef nonnull @.str.47, i32 noundef 696, ptr noundef nonnull @.str.60, ptr noundef %28) #5
-  %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %do_decap.exit, label %30
+  %28 = load ptr, ptr @libctx, align 8, !tbaa !15
+  %29 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %28, ptr noundef %17, ptr noundef null) #5
+  %30 = tail call i32 @test_ptr(ptr noundef nonnull @.str.47, i32 noundef 696, ptr noundef nonnull @.str.60, ptr noundef %29) #5
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %do_decap.exit, label %31
 
-30:                                               ; preds = %26
-  br i1 %.not, label %31, label %34
+31:                                               ; preds = %27
+  br i1 %.not, label %32, label %35
 
-31:                                               ; preds = %30
-  %32 = tail call i32 @EVP_PKEY_decapsulate_init(ptr noundef %28, ptr noundef nonnull @opparam) #5
-  %33 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 699, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.50, i32 noundef %32, i32 noundef 1) #5
-  %.not15.i = icmp eq i32 %33, 0
-  br i1 %.not15.i, label %do_decap.exit, label %37
+32:                                               ; preds = %31
+  %33 = tail call i32 @EVP_PKEY_decapsulate_init(ptr noundef %29, ptr noundef nonnull @opparam) #5
+  %34 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 699, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.50, i32 noundef %33, i32 noundef 1) #5
+  %.not15.i = icmp eq i32 %34, 0
+  br i1 %.not15.i, label %do_decap.exit, label %38
 
-34:                                               ; preds = %30
-  %35 = tail call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %28, ptr noundef %.1, ptr noundef nonnull @opparam) #5
-  %36 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 703, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.50, i32 noundef %35, i32 noundef 1) #5
-  %.not14.i = icmp eq i32 %36, 0
-  br i1 %.not14.i, label %do_decap.exit, label %37
+35:                                               ; preds = %31
+  %36 = tail call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %29, ptr noundef %.1, ptr noundef nonnull @opparam) #5
+  %37 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 703, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.50, i32 noundef %36, i32 noundef 1) #5
+  %.not14.i = icmp eq i32 %37, 0
+  br i1 %.not14.i, label %do_decap.exit, label %38
 
-37:                                               ; preds = %34, %31
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %39 = load ptr, ptr %38, align 8, !tbaa !31
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %41 = load i64, ptr %40, align 8, !tbaa !32
-  %42 = call i32 @EVP_PKEY_decapsulate(ptr noundef %28, ptr noundef null, ptr noundef nonnull %3, ptr noundef %39, i64 noundef %41) #5
-  %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 708, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.50, i32 noundef %42, i32 noundef 1) #5
-  %.not16.i = icmp eq i32 %43, 0
-  br i1 %.not16.i, label %do_decap.exit, label %44
+38:                                               ; preds = %35, %32
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %40 = load ptr, ptr %39, align 8, !tbaa !31
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %42 = load i64, ptr %41, align 8, !tbaa !32
+  %43 = call i32 @EVP_PKEY_decapsulate(ptr noundef %29, ptr noundef null, ptr noundef nonnull %3, ptr noundef %40, i64 noundef %42) #5
+  %44 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 708, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.50, i32 noundef %43, i32 noundef 1) #5
+  %.not16.i = icmp eq i32 %44, 0
+  br i1 %.not16.i, label %do_decap.exit, label %45
 
-44:                                               ; preds = %37
-  %45 = call i32 @EVP_PKEY_decapsulate(ptr noundef %28, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %39, i64 noundef %41) #5
-  %46 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 711, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.50, i32 noundef %45, i32 noundef 1) #5
-  %.not17.i = icmp eq i32 %46, 0
-  br i1 %.not17.i, label %do_decap.exit, label %47
+45:                                               ; preds = %38
+  %46 = call i32 @EVP_PKEY_decapsulate(ptr noundef %29, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %40, i64 noundef %42) #5
+  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 711, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.50, i32 noundef %46, i32 noundef 1) #5
+  %.not17.i = icmp eq i32 %47, 0
+  br i1 %.not17.i, label %do_decap.exit, label %48
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %3, align 8, !tbaa !13
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %50 = load ptr, ptr %49, align 8, !tbaa !33
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %52 = load i64, ptr %51, align 8, !tbaa !34
-  %53 = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 713, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %2, i64 noundef %48, ptr noundef %50, i64 noundef %52) #5
-  %54 = icmp ne i32 %53, 0
-  %55 = zext i1 %54 to i32
+48:                                               ; preds = %45
+  %49 = load i64, ptr %3, align 8, !tbaa !13
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %53 = load i64, ptr %52, align 8, !tbaa !34
+  %54 = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 713, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %2, i64 noundef %49, ptr noundef %51, i64 noundef %53) #5
+  %55 = icmp ne i32 %54, 0
+  %56 = zext i1 %55 to i32
   br label %do_decap.exit
 
-do_decap.exit:                                    ; preds = %26, %31, %34, %37, %44, %47
-  %.0.i = phi i32 [ 0, %31 ], [ 0, %34 ], [ 0, %26 ], [ 0, %44 ], [ 0, %37 ], [ %55, %47 ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %28) #5
+do_decap.exit:                                    ; preds = %27, %32, %35, %38, %45, %48
+  %.0.i = phi i32 [ 0, %32 ], [ 0, %35 ], [ 0, %27 ], [ 0, %45 ], [ 0, %38 ], [ %56, %48 ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %29) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %56
+  br label %57
 
-56:                                               ; preds = %21, %1, %do_decap.exit
-  %.017 = phi ptr [ %.1, %do_decap.exit ], [ %24, %21 ], [ null, %1 ]
-  %.0 = phi i32 [ %.0.i, %do_decap.exit ], [ 0, %21 ], [ 0, %1 ]
+57:                                               ; preds = %20, %1, %do_decap.exit
+  %.017 = phi ptr [ %.1, %do_decap.exit ], [ %25, %20 ], [ null, %1 ]
+  %.0 = phi i32 [ %.0.i, %do_decap.exit ], [ 0, %20 ], [ 0, %1 ]
   call void @EVP_PKEY_free(ptr noundef %.017) #5
-  call void @EVP_PKEY_free(ptr noundef %18) #5
+  call void @EVP_PKEY_free(ptr noundef %17) #5
   ret i32 %.0
 }
 
@@ -2407,9 +2409,9 @@ attributes #5 = { nounwind }
 !20 = !{!"p1 _ZTS15evp_pkey_ctx_st", !7, i64 0}
 !21 = !{!22, !6, i64 0}
 !22 = !{!"", !6, i64 0, !6, i64 8, !14, i64 16, !6, i64 24, !14, i64 32, !6, i64 40, !14, i64 48, !6, i64 56, !14, i64 64, !6, i64 72, !14, i64 80, !6, i64 88, !14, i64 96, !6, i64 104, !14, i64 112}
-!23 = !{!22, !6, i64 104}
-!24 = !{!22, !6, i64 24}
-!25 = !{!22, !14, i64 32}
+!23 = !{!22, !6, i64 24}
+!24 = !{!22, !14, i64 32}
+!25 = !{!22, !6, i64 104}
 !26 = !{!22, !14, i64 112}
 !27 = !{!22, !6, i64 88}
 !28 = !{!22, !14, i64 96}

@@ -2300,7 +2300,7 @@ tcg_target_init.exit.i:                           ; preds = %9, %7
   br label %10
 
 10:                                               ; preds = %.loopexit223.i.i, %tcg_target_init.exit.i
-  %.0207229.i.i = phi i64 [ 0, %tcg_target_init.exit.i ], [ %265, %.loopexit223.i.i ]
+  %.0207229.i.i = phi i64 [ 0, %tcg_target_init.exit.i ], [ %264, %.loopexit223.i.i ]
   %11 = getelementptr inbounds nuw %struct.TCGConstraintSet, ptr @constraint_sets, i64 %.0207229.i.i
   %12 = getelementptr inbounds nuw [16 x %struct.TCGArgConstraint], ptr @all_cts, i64 %.0207229.i.i
   %13 = load i8, ptr %11, align 8
@@ -2319,552 +2319,550 @@ tcg_target_init.exit.i:                           ; preds = %9, %7
   %22 = select i1 %21, i32 65343, i32 65535
   %23 = zext i8 %13 to i64
   %wide.trip.count.i.i = zext nneg i32 %18 to i64
-  br label %25
+  br label %24
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i
-  %24 = icmp ne i8 %16, 0
-  %or.cond.i.i = and i1 %24, %.2.i.i
-  br i1 %or.cond.i.i, label %.lr.ph228.i.i, label %.loopexit223.i.i
+  br i1 %.2.i.i, label %.lr.ph228.i.i, label %.loopexit223.i.i
 
-25:                                               ; preds = %.loopexit.i.i, %.lr.ph.i.i
+24:                                               ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
   %.0208226.i.i = phi i1 [ false, %.lr.ph.i.i ], [ %.2.i.i, %.loopexit.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp samesign uge i64 %indvars.iv.i.i, %23
-  %29 = load i8, ptr %27, align 1
-  switch i8 %29, label %104 [
-    i8 48, label %30
-    i8 49, label %30
-    i8 50, label %30
-    i8 51, label %30
-    i8 52, label %30
-    i8 53, label %30
-    i8 54, label %30
-    i8 55, label %30
-    i8 56, label %30
-    i8 57, label %30
-    i8 38, label %56
-    i8 112, label %62
-    i8 109, label %83
+  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp samesign uge i64 %indvars.iv.i.i, %23
+  %28 = load i8, ptr %26, align 1
+  switch i8 %28, label %103 [
+    i8 48, label %29
+    i8 49, label %29
+    i8 50, label %29
+    i8 51, label %29
+    i8 52, label %29
+    i8 53, label %29
+    i8 54, label %29
+    i8 55, label %29
+    i8 56, label %29
+    i8 57, label %29
+    i8 38, label %55
+    i8 112, label %61
+    i8 109, label %82
   ]
 
-30:                                               ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
-  %31 = zext nneg i8 %29 to i32
-  %32 = add nsw i32 %31, -48
-  tail call void @llvm.assume(i1 %28)
-  %33 = icmp slt i32 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ne i32 %37, 0
-  tail call void @llvm.assume(i1 %38)
-  %39 = load i64, ptr %35, align 4
-  %40 = and i64 %39, 1073741824
-  %.not220.i.i = icmp eq i64 %40, 0
+29:                                               ; preds = %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
+  %30 = zext nneg i8 %28 to i32
+  %31 = add nsw i32 %30, -48
+  tail call void @llvm.assume(i1 %27)
+  %32 = icmp slt i32 %31, %14
+  tail call void @llvm.assume(i1 %32)
+  %33 = zext nneg i32 %31 to i64
+  %34 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ne i32 %36, 0
+  tail call void @llvm.assume(i1 %37)
+  %38 = load i64, ptr %34, align 4
+  %39 = and i64 %38, 1073741824
+  %.not220.i.i = icmp eq i64 %39, 0
   tail call void @llvm.assume(i1 %.not220.i.i)
-  %41 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
-  %42 = load i64, ptr %35, align 4
-  %43 = shl i64 %indvars.iv.i.i, 16
-  %44 = and i64 %43, 983040
-  %45 = and i64 %42, -1074724865
-  %46 = or disjoint i64 %44, %45
-  %47 = or disjoint i64 %46, 1073741824
-  store i64 %47, ptr %35, align 4
-  %48 = load i64, ptr %41, align 4
-  %49 = shl nuw nsw i32 %31, 16
-  %50 = and i32 %49, 983040
-  %51 = and i64 %48, -2148466689
-  %52 = or disjoint i32 %50, -2147483648
-  %53 = zext i32 %52 to i64
-  %54 = or disjoint i64 %51, %53
-  store i64 %54, ptr %41, align 4
-  %55 = and i64 %48, 805306368
-  %.not221.i.i = icmp ne i64 %55, 0
+  %40 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false)
+  %41 = load i64, ptr %34, align 4
+  %42 = shl i64 %indvars.iv.i.i, 16
+  %43 = and i64 %42, 983040
+  %44 = and i64 %41, -1074724865
+  %45 = or disjoint i64 %43, %44
+  %46 = or disjoint i64 %45, 1073741824
+  store i64 %46, ptr %34, align 4
+  %47 = load i64, ptr %40, align 4
+  %48 = shl nuw nsw i32 %30, 16
+  %49 = and i32 %48, 983040
+  %50 = and i64 %47, -2148466689
+  %51 = or disjoint i32 %49, -2147483648
+  %52 = zext i32 %51 to i64
+  %53 = or disjoint i64 %50, %52
+  store i64 %53, ptr %40, align 4
+  %54 = and i64 %47, 805306368
+  %.not221.i.i = icmp ne i64 %54, 0
   %spec.select.i.i = select i1 %.not221.i.i, i1 true, i1 %.0208226.i.i
   br label %.loopexit.sink.split.i.i
 
-56:                                               ; preds = %25
-  %57 = xor i1 %28, true
-  tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
-  %59 = load i64, ptr %58, align 4
-  %60 = or i64 %59, 4294967296
-  store i64 %60, ptr %58, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %.pr.pre.i.i = load i8, ptr %61, align 1
-  br label %104
+55:                                               ; preds = %24
+  %56 = xor i1 %27, true
+  tail call void @llvm.assume(i1 %56)
+  %57 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
+  %58 = load i64, ptr %57, align 4
+  %59 = or i64 %58, 4294967296
+  store i64 %59, ptr %57, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %.pr.pre.i.i = load i8, ptr %60, align 1
+  br label %103
 
-62:                                               ; preds = %25
-  %63 = select i1 %28, i64 %23, i64 0
-  %64 = icmp samesign ugt i64 %indvars.iv.i.i, %63
-  tail call void @llvm.assume(i1 %64)
-  %65 = add nsw i64 %indvars.iv.i.i, -1
-  %66 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %65
-  %67 = load i64, ptr %66, align 4
-  %68 = and i64 %67, 805306368
-  %.not217.i.i = icmp eq i64 %68, 0
+61:                                               ; preds = %24
+  %62 = select i1 %27, i64 %23, i64 0
+  %63 = icmp samesign ugt i64 %indvars.iv.i.i, %62
+  tail call void @llvm.assume(i1 %63)
+  %64 = add nsw i64 %indvars.iv.i.i, -1
+  %65 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %64
+  %66 = load i64, ptr %65, align 4
+  %67 = and i64 %66, 805306368
+  %.not217.i.i = icmp eq i64 %67, 0
   tail call void @llvm.assume(i1 %.not217.i.i)
-  %69 = and i64 %67, 65535
-  %.not218.i.i = icmp eq i64 %69, 0
+  %68 = and i64 %66, 65535
+  %.not218.i.i = icmp eq i64 %68, 0
   tail call void @llvm.assume(i1 %.not218.i.i)
-  %70 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
-  %71 = shl i64 %65, 24
-  %72 = and i64 %71, 251658240
-  %.lobit219.i.i = and i64 %67, 4294967296
-  %73 = or disjoint i64 %72, %.lobit219.i.i
-  %74 = or disjoint i64 %73, 536870912
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %76 = load i32, ptr %75, align 4
-  %77 = shl i32 %76, 1
-  store i64 %74, ptr %70, align 4
-  %.sroa.1849.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 %77, ptr %.sroa.1849.0..sroa_idx.i.i, align 4
-  %78 = and i64 %67, -1057030144
-  %79 = shl i64 %indvars.iv.i.i, 24
-  %80 = and i64 %79, 251658240
-  %81 = or disjoint i64 %80, %78
-  %82 = or disjoint i64 %81, 268435456
-  store i64 %82, ptr %66, align 4
+  %69 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
+  %70 = shl i64 %64, 24
+  %71 = and i64 %70, 251658240
+  %.lobit219.i.i = and i64 %66, 4294967296
+  %72 = or disjoint i64 %71, %.lobit219.i.i
+  %73 = or disjoint i64 %72, 536870912
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %75 = load i32, ptr %74, align 4
+  %76 = shl i32 %75, 1
+  store i64 %73, ptr %69, align 4
+  %.sroa.1849.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i32 %76, ptr %.sroa.1849.0..sroa_idx.i.i, align 4
+  %77 = and i64 %66, -1057030144
+  %78 = shl i64 %indvars.iv.i.i, 24
+  %79 = and i64 %78, 251658240
+  %80 = or disjoint i64 %79, %77
+  %81 = or disjoint i64 %80, 268435456
+  store i64 %81, ptr %65, align 4
   br label %.loopexit.sink.split.i.i
 
-83:                                               ; preds = %25
-  %84 = select i1 %28, i64 %23, i64 0
-  %85 = icmp samesign ugt i64 %indvars.iv.i.i, %84
-  tail call void @llvm.assume(i1 %85)
-  %86 = add nsw i64 %indvars.iv.i.i, -1
-  %87 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %86
-  %88 = load i64, ptr %87, align 4
-  %89 = and i64 %88, 805306368
-  %.not215.i.i = icmp eq i64 %89, 0
+82:                                               ; preds = %24
+  %83 = select i1 %27, i64 %23, i64 0
+  %84 = icmp samesign ugt i64 %indvars.iv.i.i, %83
+  tail call void @llvm.assume(i1 %84)
+  %85 = add nsw i64 %indvars.iv.i.i, -1
+  %86 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %85
+  %87 = load i64, ptr %86, align 4
+  %88 = and i64 %87, 805306368
+  %.not215.i.i = icmp eq i64 %88, 0
   tail call void @llvm.assume(i1 %.not215.i.i)
-  %90 = and i64 %88, 65535
-  %.not216.i.i = icmp eq i64 %90, 0
+  %89 = and i64 %87, 65535
+  %.not216.i.i = icmp eq i64 %89, 0
   tail call void @llvm.assume(i1 %.not216.i.i)
-  %91 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
-  %92 = shl i64 %86, 24
-  %93 = and i64 %92, 251658240
-  %.lobit.i.i = and i64 %88, 4294967296
-  %94 = or disjoint i64 %93, %.lobit.i.i
-  %95 = or disjoint i64 %94, 268435456
-  %96 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %97 = load i32, ptr %96, align 4
-  %98 = lshr i32 %97, 1
-  store i64 %95, ptr %91, align 4
-  %.sroa.18.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i32 %98, ptr %.sroa.18.0..sroa_idx.i.i, align 4
-  %99 = and i64 %88, -1057030144
-  %100 = shl i64 %indvars.iv.i.i, 24
-  %101 = and i64 %100, 251658240
-  %102 = or disjoint i64 %101, %99
-  %103 = or disjoint i64 %102, 536870912
-  store i64 %103, ptr %87, align 4
+  %90 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
+  %91 = shl i64 %85, 24
+  %92 = and i64 %91, 251658240
+  %.lobit.i.i = and i64 %87, 4294967296
+  %93 = or disjoint i64 %92, %.lobit.i.i
+  %94 = or disjoint i64 %93, 268435456
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %96 = load i32, ptr %95, align 4
+  %97 = lshr i32 %96, 1
+  store i64 %94, ptr %90, align 4
+  %.sroa.18.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store i32 %97, ptr %.sroa.18.0..sroa_idx.i.i, align 4
+  %98 = and i64 %87, -1057030144
+  %99 = shl i64 %indvars.iv.i.i, 24
+  %100 = and i64 %99, 251658240
+  %101 = or disjoint i64 %100, %98
+  %102 = or disjoint i64 %101, 536870912
+  store i64 %102, ptr %86, align 4
   br label %.loopexit.sink.split.i.i
 
-104:                                              ; preds = %56, %25
-  %.pr.i.i = phi i8 [ %29, %25 ], [ %.pr.pre.i.i, %56 ]
-  %.0210.i.i = phi ptr [ %27, %25 ], [ %61, %56 ]
-  %105 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
-  %106 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i, i32 1
-  br label %107
+103:                                              ; preds = %55, %24
+  %.pr.i.i = phi i8 [ %28, %24 ], [ %.pr.pre.i.i, %55 ]
+  %.0210.i.i = phi ptr [ %26, %24 ], [ %60, %55 ]
+  %104 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i, i32 1
+  br label %106
 
-107:                                              ; preds = %164, %104
-  %108 = phi i8 [ %166, %164 ], [ %.pr.i.i, %104 ]
-  %.1211.i.i = phi ptr [ %165, %164 ], [ %.0210.i.i, %104 ]
-  switch i8 %108, label %163 [
-    i8 105, label %109
-    i8 97, label %112
-    i8 98, label %115
-    i8 99, label %118
-    i8 100, label %121
-    i8 83, label %124
-    i8 68, label %127
-    i8 114, label %130
-    i8 120, label %133
-    i8 113, label %136
-    i8 76, label %139
-    i8 115, label %142
-    i8 101, label %145
-    i8 73, label %148
-    i8 79, label %151
-    i8 84, label %154
-    i8 87, label %157
-    i8 90, label %160
+106:                                              ; preds = %163, %103
+  %107 = phi i8 [ %165, %163 ], [ %.pr.i.i, %103 ]
+  %.1211.i.i = phi ptr [ %164, %163 ], [ %.0210.i.i, %103 ]
+  switch i8 %107, label %162 [
+    i8 105, label %108
+    i8 97, label %111
+    i8 98, label %114
+    i8 99, label %117
+    i8 100, label %120
+    i8 83, label %123
+    i8 68, label %126
+    i8 114, label %129
+    i8 120, label %132
+    i8 113, label %135
+    i8 76, label %138
+    i8 115, label %141
+    i8 101, label %144
+    i8 73, label %147
+    i8 79, label %150
+    i8 84, label %153
+    i8 87, label %156
+    i8 90, label %159
   ]
 
-109:                                              ; preds = %107
-  %110 = load i64, ptr %105, align 4
-  %111 = or i64 %110, 1
-  store i64 %111, ptr %105, align 4
-  br label %164
+108:                                              ; preds = %106
+  %109 = load i64, ptr %104, align 4
+  %110 = or i64 %109, 1
+  store i64 %110, ptr %104, align 4
+  br label %163
 
-112:                                              ; preds = %107
-  %113 = load i32, ptr %106, align 4
-  %114 = or i32 %113, 1
-  store i32 %114, ptr %106, align 4
-  br label %164
+111:                                              ; preds = %106
+  %112 = load i32, ptr %105, align 4
+  %113 = or i32 %112, 1
+  store i32 %113, ptr %105, align 4
+  br label %163
 
-115:                                              ; preds = %107
-  %116 = load i32, ptr %106, align 4
-  %117 = or i32 %116, 8
-  store i32 %117, ptr %106, align 4
-  br label %164
+114:                                              ; preds = %106
+  %115 = load i32, ptr %105, align 4
+  %116 = or i32 %115, 8
+  store i32 %116, ptr %105, align 4
+  br label %163
 
-118:                                              ; preds = %107
-  %119 = load i32, ptr %106, align 4
-  %120 = or i32 %119, 2
-  store i32 %120, ptr %106, align 4
-  br label %164
+117:                                              ; preds = %106
+  %118 = load i32, ptr %105, align 4
+  %119 = or i32 %118, 2
+  store i32 %119, ptr %105, align 4
+  br label %163
 
-121:                                              ; preds = %107
-  %122 = load i32, ptr %106, align 4
-  %123 = or i32 %122, 4
-  store i32 %123, ptr %106, align 4
-  br label %164
+120:                                              ; preds = %106
+  %121 = load i32, ptr %105, align 4
+  %122 = or i32 %121, 4
+  store i32 %122, ptr %105, align 4
+  br label %163
 
-124:                                              ; preds = %107
-  %125 = load i32, ptr %106, align 4
-  %126 = or i32 %125, 64
-  store i32 %126, ptr %106, align 4
-  br label %164
+123:                                              ; preds = %106
+  %124 = load i32, ptr %105, align 4
+  %125 = or i32 %124, 64
+  store i32 %125, ptr %105, align 4
+  br label %163
 
-127:                                              ; preds = %107
-  %128 = load i32, ptr %106, align 4
-  %129 = or i32 %128, 128
-  store i32 %129, ptr %106, align 4
-  br label %164
+126:                                              ; preds = %106
+  %127 = load i32, ptr %105, align 4
+  %128 = or i32 %127, 128
+  store i32 %128, ptr %105, align 4
+  br label %163
 
-130:                                              ; preds = %107
-  %131 = load i32, ptr %106, align 4
-  %132 = or i32 %131, 65535
-  store i32 %132, ptr %106, align 4
-  br label %164
+129:                                              ; preds = %106
+  %130 = load i32, ptr %105, align 4
+  %131 = or i32 %130, 65535
+  store i32 %131, ptr %105, align 4
+  br label %163
 
-133:                                              ; preds = %107
-  %134 = load i32, ptr %106, align 4
-  %135 = or i32 %134, -65536
-  store i32 %135, ptr %106, align 4
-  br label %164
+132:                                              ; preds = %106
+  %133 = load i32, ptr %105, align 4
+  %134 = or i32 %133, -65536
+  store i32 %134, ptr %105, align 4
+  br label %163
 
-136:                                              ; preds = %107
-  %137 = load i32, ptr %106, align 4
-  %138 = or i32 %137, 65535
-  store i32 %138, ptr %106, align 4
-  br label %164
+135:                                              ; preds = %106
+  %136 = load i32, ptr %105, align 4
+  %137 = or i32 %136, 65535
+  store i32 %137, ptr %105, align 4
+  br label %163
 
-139:                                              ; preds = %107
-  %140 = load i32, ptr %106, align 4
-  %141 = or i32 %140, %22
-  store i32 %141, ptr %106, align 4
-  br label %164
+138:                                              ; preds = %106
+  %139 = load i32, ptr %105, align 4
+  %140 = or i32 %139, %22
+  store i32 %140, ptr %105, align 4
+  br label %163
 
-142:                                              ; preds = %107
-  %143 = load i32, ptr %106, align 4
-  %144 = or i32 %143, %22
-  store i32 %144, ptr %106, align 4
-  br label %164
+141:                                              ; preds = %106
+  %142 = load i32, ptr %105, align 4
+  %143 = or i32 %142, %22
+  store i32 %143, ptr %105, align 4
+  br label %163
 
-145:                                              ; preds = %107
-  %146 = load i64, ptr %105, align 4
-  %147 = or i64 %146, 256
-  store i64 %147, ptr %105, align 4
-  br label %164
+144:                                              ; preds = %106
+  %145 = load i64, ptr %104, align 4
+  %146 = or i64 %145, 256
+  store i64 %146, ptr %104, align 4
+  br label %163
 
-148:                                              ; preds = %107
-  %149 = load i64, ptr %105, align 4
-  %150 = or i64 %149, 1024
-  store i64 %150, ptr %105, align 4
-  br label %164
+147:                                              ; preds = %106
+  %148 = load i64, ptr %104, align 4
+  %149 = or i64 %148, 1024
+  store i64 %149, ptr %104, align 4
+  br label %163
 
-151:                                              ; preds = %107
-  %152 = load i64, ptr %105, align 4
-  %153 = or i64 %152, 8192
-  store i64 %153, ptr %105, align 4
-  br label %164
+150:                                              ; preds = %106
+  %151 = load i64, ptr %104, align 4
+  %152 = or i64 %151, 8192
+  store i64 %152, ptr %104, align 4
+  br label %163
 
-154:                                              ; preds = %107
-  %155 = load i64, ptr %105, align 4
-  %156 = or i64 %155, 4096
-  store i64 %156, ptr %105, align 4
-  br label %164
+153:                                              ; preds = %106
+  %154 = load i64, ptr %104, align 4
+  %155 = or i64 %154, 4096
+  store i64 %155, ptr %104, align 4
+  br label %163
 
-157:                                              ; preds = %107
-  %158 = load i64, ptr %105, align 4
-  %159 = or i64 %158, 2048
-  store i64 %159, ptr %105, align 4
-  br label %164
+156:                                              ; preds = %106
+  %157 = load i64, ptr %104, align 4
+  %158 = or i64 %157, 2048
+  store i64 %158, ptr %104, align 4
+  br label %163
 
-160:                                              ; preds = %107
-  %161 = load i64, ptr %105, align 4
-  %162 = or i64 %161, 512
-  store i64 %162, ptr %105, align 4
-  br label %164
+159:                                              ; preds = %106
+  %160 = load i64, ptr %104, align 4
+  %161 = or i64 %160, 512
+  store i64 %161, ptr %104, align 4
+  br label %163
 
-163:                                              ; preds = %107
+162:                                              ; preds = %106
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3266, ptr noundef nonnull @__func__.process_constraint_sets, ptr noundef null) #31
   unreachable
 
-164:                                              ; preds = %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109
-  %165 = getelementptr inbounds nuw i8, ptr %.1211.i.i, i64 1
-  %166 = load i8, ptr %165, align 1
-  %.not222.i.i = icmp eq i8 %166, 0
-  br i1 %.not222.i.i, label %.loopexit.i.i, label %107, !llvm.loop !10
+163:                                              ; preds = %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108
+  %164 = getelementptr inbounds nuw i8, ptr %.1211.i.i, i64 1
+  %165 = load i8, ptr %164, align 1
+  %.not222.i.i = icmp eq i8 %165, 0
+  br i1 %.not222.i.i, label %.loopexit.i.i, label %106, !llvm.loop !10
 
-.loopexit.sink.split.i.i:                         ; preds = %83, %62, %30
-  %.2.ph.i.i = phi i1 [ %.0208226.i.i, %83 ], [ %.0208226.i.i, %62 ], [ %spec.select.i.i, %30 ]
-  %167 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %168 = load i8, ptr %167, align 1
-  %169 = icmp eq i8 %168, 0
-  tail call void @llvm.assume(i1 %169)
+.loopexit.sink.split.i.i:                         ; preds = %82, %61, %29
+  %.2.ph.i.i = phi i1 [ %.0208226.i.i, %82 ], [ %.0208226.i.i, %61 ], [ %spec.select.i.i, %29 ]
+  %166 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %167 = load i8, ptr %166, align 1
+  %168 = icmp eq i8 %167, 0
+  tail call void @llvm.assume(i1 %168)
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %164, %.loopexit.sink.split.i.i
-  %.2.i.i = phi i1 [ %.2.ph.i.i, %.loopexit.sink.split.i.i ], [ %.0208226.i.i, %164 ]
+.loopexit.i.i:                                    ; preds = %163, %.loopexit.sink.split.i.i
+  %.2.i.i = phi i1 [ %.2.ph.i.i, %.loopexit.sink.split.i.i ], [ %.0208226.i.i, %163 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %25, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %24, !llvm.loop !11
 
-.lr.ph228.i.i:                                    ; preds = %._crit_edge.i.i, %263
-  %indvars.iv231.i.i = phi i64 [ %indvars.iv.next232.i.i, %263 ], [ %23, %._crit_edge.i.i ]
-  %170 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv231.i.i
-  %171 = load i64, ptr %170, align 4
-  %172 = and i64 %171, 2147483648
-  %.not.i26.i = icmp eq i64 %172, 0
-  br i1 %.not.i26.i, label %263, label %173
+.lr.ph228.i.i:                                    ; preds = %._crit_edge.i.i, %262
+  %indvars.iv231.i.i = phi i64 [ %indvars.iv.next232.i.i, %262 ], [ %23, %._crit_edge.i.i ]
+  %169 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv231.i.i
+  %170 = load i64, ptr %169, align 4
+  %171 = and i64 %170, 2147483648
+  %.not.i26.i = icmp eq i64 %171, 0
+  br i1 %.not.i26.i, label %262, label %172
 
-173:                                              ; preds = %.lr.ph228.i.i
-  %174 = trunc i64 %171 to i32
-  %175 = lshr i32 %174, 28
-  %176 = and i32 %175, 3
-  switch i32 %176, label %default.unreachable [
-    i32 0, label %263
-    i32 1, label %177
-    i32 2, label %214
-    i32 3, label %262
+172:                                              ; preds = %.lr.ph228.i.i
+  %173 = trunc i64 %170 to i32
+  %174 = lshr i32 %173, 28
+  %175 = and i32 %174, 3
+  switch i32 %175, label %default.unreachable [
+    i32 0, label %262
+    i32 1, label %176
+    i32 2, label %213
+    i32 3, label %261
   ]
 
-177:                                              ; preds = %173
-  %178 = lshr i64 %171, 16
-  %179 = and i64 %178, 15
-  %180 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %179
-  %181 = load i64, ptr %180, align 4
-  %182 = lshr i64 %181, 24
-  %183 = and i64 %182, 15
-  %184 = and i64 %181, 805306368
-  %185 = icmp eq i64 %184, 268435456
-  tail call void @llvm.assume(i1 %185)
-  %186 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %183
-  %187 = load i64, ptr %186, align 4
-  %188 = and i64 %187, 805306368
-  %189 = icmp eq i64 %188, 536870912
-  tail call void @llvm.assume(i1 %189)
-  %190 = and i64 %187, 1073741824
-  %.not214.i.i = icmp eq i64 %190, 0
-  br i1 %.not214.i.i, label %209, label %191
+176:                                              ; preds = %172
+  %177 = lshr i64 %170, 16
+  %178 = and i64 %177, 15
+  %179 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %178
+  %180 = load i64, ptr %179, align 4
+  %181 = lshr i64 %180, 24
+  %182 = and i64 %181, 15
+  %183 = and i64 %180, 805306368
+  %184 = icmp eq i64 %183, 268435456
+  tail call void @llvm.assume(i1 %184)
+  %185 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %182
+  %186 = load i64, ptr %185, align 4
+  %187 = and i64 %186, 805306368
+  %188 = icmp eq i64 %187, 536870912
+  tail call void @llvm.assume(i1 %188)
+  %189 = and i64 %186, 1073741824
+  %.not214.i.i = icmp eq i64 %189, 0
+  br i1 %.not214.i.i, label %208, label %190
 
-191:                                              ; preds = %177
-  %192 = trunc i64 %187 to i32
-  %193 = lshr i32 %192, 16
-  %194 = and i32 %193, 15
-  %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %195
-  %197 = load i64, ptr %196, align 4
-  %198 = and i64 %197, 805306368
-  %199 = icmp eq i64 %198, 536870912
-  tail call void @llvm.assume(i1 %199)
-  %200 = shl i64 %indvars.iv231.i.i, 24
-  %201 = and i64 %200, 251658240
-  %202 = and i64 %197, -520093697
-  %203 = or disjoint i64 %202, %201
-  store i64 %203, ptr %196, align 4
-  %204 = load i64, ptr %170, align 4
-  %205 = shl nuw nsw i32 %194, 24
-  %206 = zext nneg i32 %205 to i64
-  %207 = and i64 %204, -251658241
-  %208 = or disjoint i64 %207, %206
-  store i64 %208, ptr %170, align 4
-  br label %263
+190:                                              ; preds = %176
+  %191 = trunc i64 %186 to i32
+  %192 = lshr i32 %191, 16
+  %193 = and i32 %192, 15
+  %194 = zext nneg i32 %193 to i64
+  %195 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %194
+  %196 = load i64, ptr %195, align 4
+  %197 = and i64 %196, 805306368
+  %198 = icmp eq i64 %197, 536870912
+  tail call void @llvm.assume(i1 %198)
+  %199 = shl i64 %indvars.iv231.i.i, 24
+  %200 = and i64 %199, 251658240
+  %201 = and i64 %196, -520093697
+  %202 = or disjoint i64 %201, %200
+  store i64 %202, ptr %195, align 4
+  %203 = load i64, ptr %169, align 4
+  %204 = shl nuw nsw i32 %193, 24
+  %205 = zext nneg i32 %204 to i64
+  %206 = and i64 %203, -251658241
+  %207 = or disjoint i64 %206, %205
+  store i64 %207, ptr %169, align 4
+  br label %262
 
-209:                                              ; preds = %177
-  %210 = shl i64 %indvars.iv231.i.i, 24
-  %211 = and i64 %210, 251658240
-  %212 = and i64 %171, -251658241
-  %213 = or disjoint i64 %212, %211
-  store i64 %213, ptr %170, align 4
-  br label %263
+208:                                              ; preds = %176
+  %209 = shl i64 %indvars.iv231.i.i, 24
+  %210 = and i64 %209, 251658240
+  %211 = and i64 %170, -251658241
+  %212 = or disjoint i64 %211, %210
+  store i64 %212, ptr %169, align 4
+  br label %262
 
-214:                                              ; preds = %173
-  %215 = lshr i64 %171, 16
-  %216 = and i64 %215, 15
-  %217 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %216
-  %218 = load i64, ptr %217, align 4
-  %219 = trunc i64 %218 to i32
-  %220 = lshr i32 %219, 24
-  %221 = and i32 %220, 15
-  %222 = and i64 %218, 805306368
-  %223 = icmp eq i64 %222, 536870912
-  tail call void @llvm.assume(i1 %223)
-  %224 = zext nneg i32 %221 to i64
-  %225 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %224
-  %226 = load i64, ptr %225, align 4
-  %227 = and i64 %226, 805306368
-  %228 = icmp eq i64 %227, 268435456
-  tail call void @llvm.assume(i1 %228)
-  %229 = and i64 %226, 1073741824
-  %.not213.i.i = icmp eq i64 %229, 0
-  br i1 %.not213.i.i, label %248, label %230
+213:                                              ; preds = %172
+  %214 = lshr i64 %170, 16
+  %215 = and i64 %214, 15
+  %216 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %215
+  %217 = load i64, ptr %216, align 4
+  %218 = trunc i64 %217 to i32
+  %219 = lshr i32 %218, 24
+  %220 = and i32 %219, 15
+  %221 = and i64 %217, 805306368
+  %222 = icmp eq i64 %221, 536870912
+  tail call void @llvm.assume(i1 %222)
+  %223 = zext nneg i32 %220 to i64
+  %224 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %223
+  %225 = load i64, ptr %224, align 4
+  %226 = and i64 %225, 805306368
+  %227 = icmp eq i64 %226, 268435456
+  tail call void @llvm.assume(i1 %227)
+  %228 = and i64 %225, 1073741824
+  %.not213.i.i = icmp eq i64 %228, 0
+  br i1 %.not213.i.i, label %247, label %229
 
-230:                                              ; preds = %214
-  %231 = trunc i64 %226 to i32
-  %232 = lshr i32 %231, 16
-  %233 = and i32 %232, 15
-  %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %234
-  %236 = load i64, ptr %235, align 4
-  %237 = and i64 %236, 805306368
-  %238 = icmp eq i64 %237, 268435456
-  tail call void @llvm.assume(i1 %238)
-  %239 = shl i64 %indvars.iv231.i.i, 24
-  %240 = and i64 %239, 251658240
-  %241 = and i64 %236, -788529153
-  %242 = or disjoint i64 %241, %240
-  store i64 %242, ptr %235, align 4
-  %243 = load i64, ptr %170, align 4
-  %244 = shl nuw nsw i32 %233, 24
-  %245 = zext nneg i32 %244 to i64
-  %246 = and i64 %243, -251658241
-  %247 = or disjoint i64 %246, %245
-  store i64 %247, ptr %170, align 4
-  br label %263
+229:                                              ; preds = %213
+  %230 = trunc i64 %225 to i32
+  %231 = lshr i32 %230, 16
+  %232 = and i32 %231, 15
+  %233 = zext nneg i32 %232 to i64
+  %234 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %233
+  %235 = load i64, ptr %234, align 4
+  %236 = and i64 %235, 805306368
+  %237 = icmp eq i64 %236, 268435456
+  tail call void @llvm.assume(i1 %237)
+  %238 = shl i64 %indvars.iv231.i.i, 24
+  %239 = and i64 %238, 251658240
+  %240 = and i64 %235, -788529153
+  %241 = or disjoint i64 %240, %239
+  store i64 %241, ptr %234, align 4
+  %242 = load i64, ptr %169, align 4
+  %243 = shl nuw nsw i32 %232, 24
+  %244 = zext nneg i32 %243 to i64
+  %245 = and i64 %242, -251658241
+  %246 = or disjoint i64 %245, %244
+  store i64 %246, ptr %169, align 4
+  br label %262
 
-248:                                              ; preds = %214
-  %249 = or i64 %171, 805306368
-  store i64 %249, ptr %170, align 4
-  %250 = load i64, ptr %225, align 4
-  %251 = or i64 %250, 805306368
-  store i64 %251, ptr %225, align 4
-  %252 = load i64, ptr %170, align 4
-  %253 = shl nuw nsw i32 %221, 24
-  %254 = zext nneg i32 %253 to i64
-  %255 = and i64 %252, -251658241
-  %256 = or disjoint i64 %255, %254
-  store i64 %256, ptr %170, align 4
-  %257 = load i64, ptr %225, align 4
-  %258 = shl i64 %indvars.iv231.i.i, 24
-  %259 = and i64 %258, 251658240
-  %260 = and i64 %257, -251658241
-  %261 = or disjoint i64 %260, %259
-  store i64 %261, ptr %225, align 4
-  br label %263
+247:                                              ; preds = %213
+  %248 = or i64 %170, 805306368
+  store i64 %248, ptr %169, align 4
+  %249 = load i64, ptr %224, align 4
+  %250 = or i64 %249, 805306368
+  store i64 %250, ptr %224, align 4
+  %251 = load i64, ptr %169, align 4
+  %252 = shl nuw nsw i32 %220, 24
+  %253 = zext nneg i32 %252 to i64
+  %254 = and i64 %251, -251658241
+  %255 = or disjoint i64 %254, %253
+  store i64 %255, ptr %169, align 4
+  %256 = load i64, ptr %224, align 4
+  %257 = shl i64 %indvars.iv231.i.i, 24
+  %258 = and i64 %257, 251658240
+  %259 = and i64 %256, -251658241
+  %260 = or disjoint i64 %259, %258
+  store i64 %260, ptr %224, align 4
+  br label %262
 
-default.unreachable:                              ; preds = %173
+default.unreachable:                              ; preds = %172
   unreachable
 
-262:                                              ; preds = %173
+261:                                              ; preds = %172
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 3341, ptr noundef nonnull @__func__.process_constraint_sets, ptr noundef null) #31
   unreachable
 
-263:                                              ; preds = %248, %230, %209, %191, %173, %.lr.ph228.i.i
+262:                                              ; preds = %247, %229, %208, %190, %172, %.lr.ph228.i.i
   %indvars.iv.next232.i.i = add nuw nsw i64 %indvars.iv231.i.i, 1
-  %264 = icmp samesign ult i64 %indvars.iv.next232.i.i, %wide.trip.count.i.i
-  br i1 %264, label %.lr.ph228.i.i, label %.loopexit223.i.i, !llvm.loop !12
+  %263 = icmp samesign ult i64 %indvars.iv.next232.i.i, %wide.trip.count.i.i
+  br i1 %263, label %.lr.ph228.i.i, label %.loopexit223.i.i, !llvm.loop !12
 
-.loopexit223.i.i:                                 ; preds = %263, %._crit_edge.i.i, %10
+.loopexit223.i.i:                                 ; preds = %262, %._crit_edge.i.i, %10
   tail call fastcc void @sort_constraints(ptr noundef nonnull %12, i32 noundef 0, i32 noundef %14)
   tail call fastcc void @sort_constraints(ptr noundef nonnull %12, i32 noundef %14, i32 noundef %17)
-  %265 = add nuw nsw i64 %.0207229.i.i, 1
-  %exitcond234.not.i.i = icmp eq i64 %265, 43
+  %264 = add nuw nsw i64 %.0207229.i.i, 1
+  %exitcond234.not.i.i = icmp eq i64 %264, 43
   br i1 %exitcond234.not.i.i, label %process_constraint_sets.exit.preheader.i, label %10, !llvm.loop !13
 
 process_constraint_sets.exit.preheader.i:         ; preds = %.loopexit223.i.i, %process_constraint_sets.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %process_constraint_sets.exit.i ], [ 0, %.loopexit223.i.i ]
-  %266 = getelementptr inbounds nuw i32, ptr @tcg_target_reg_alloc_order, i64 %indvars.iv.i
-  %267 = load i32, ptr %266, align 4
-  %268 = shl nuw i32 1, %267
-  %269 = and i32 %268, -61497
-  %.not.i = icmp eq i32 %269, 0
-  br i1 %.not.i, label %process_constraint_sets.exit.i, label %270
+  %265 = getelementptr inbounds nuw i32, ptr @tcg_target_reg_alloc_order, i64 %indvars.iv.i
+  %266 = load i32, ptr %265, align 4
+  %267 = shl nuw i32 1, %266
+  %268 = and i32 %267, -61497
+  %.not.i = icmp eq i32 %268, 0
+  br i1 %.not.i, label %process_constraint_sets.exit.i, label %269
 
 process_constraint_sets.exit.i:                   ; preds = %process_constraint_sets.exit.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i, label %process_constraint_sets.exit.preheader.i, !llvm.loop !14
 
-270:                                              ; preds = %process_constraint_sets.exit.preheader.i
-  %271 = trunc nuw nsw i64 %indvars.iv.i to i32
+269:                                              ; preds = %process_constraint_sets.exit.preheader.i
+  %270 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.not31.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not31.i, label %.lr.ph30.preheader.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %process_constraint_sets.exit.i, %270
-  %.021.lcssa45.i = phi i32 [ %271, %270 ], [ 31, %process_constraint_sets.exit.i ]
-  %272 = sext i32 %.021.lcssa45.i to i64
+.lr.ph.preheader.i:                               ; preds = %process_constraint_sets.exit.i, %269
+  %.021.lcssa45.i = phi i32 [ %270, %269 ], [ 31, %process_constraint_sets.exit.i ]
+  %271 = sext i32 %.021.lcssa45.i to i64
   %wide.trip.count.i = zext i32 %.021.lcssa45.i to i64
-  %273 = getelementptr i32, ptr @tcg_target_reg_alloc_order, i64 %272
+  %272 = getelementptr i32, ptr @tcg_target_reg_alloc_order, i64 %271
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %274 = icmp samesign ult i32 %.021.lcssa45.i, 31
-  br i1 %274, label %.lr.ph30.preheader.i, label %tcg_context_init.exit
+  %273 = icmp samesign ult i32 %.021.lcssa45.i, 31
+  br i1 %273, label %.lr.ph30.preheader.i, label %tcg_context_init.exit
 
-.lr.ph30.preheader.i:                             ; preds = %.preheader.i, %270
-  %.022.lcssa47.i = phi i32 [ %.021.lcssa45.i, %.preheader.i ], [ 0, %270 ]
-  %275 = shl nuw nsw i32 %.022.lcssa47.i, 2
-  %276 = zext nneg i32 %275 to i64
-  %scevgep.i = getelementptr i8, ptr @indirect_reg_alloc_order, i64 %276
-  %scevgep37.i = getelementptr i8, ptr @tcg_target_reg_alloc_order, i64 %276
-  %narrow.i = sub nuw nsw i32 124, %275
-  %277 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep37.i, i64 %277, i1 false)
+.lr.ph30.preheader.i:                             ; preds = %.preheader.i, %269
+  %.022.lcssa47.i = phi i32 [ %.021.lcssa45.i, %.preheader.i ], [ 0, %269 ]
+  %274 = shl nuw nsw i32 %.022.lcssa47.i, 2
+  %275 = zext nneg i32 %274 to i64
+  %scevgep.i = getelementptr i8, ptr @indirect_reg_alloc_order, i64 %275
+  %scevgep37.i = getelementptr i8, ptr @tcg_target_reg_alloc_order, i64 %275
+  %narrow.i = sub nuw nsw i32 124, %274
+  %276 = zext nneg i32 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep37.i, i64 %276, i1 false)
   br label %tcg_context_init.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next34.i, %.lr.ph.i ]
-  %278 = xor i64 %indvars.iv33.i, -1
-  %279 = getelementptr i32, ptr %273, i64 %278
-  %280 = load i32, ptr %279, align 4
-  %281 = getelementptr inbounds nuw i32, ptr @indirect_reg_alloc_order, i64 %indvars.iv33.i
-  store i32 %280, ptr %281, align 4
+  %277 = xor i64 %indvars.iv33.i, -1
+  %278 = getelementptr i32, ptr %272, i64 %277
+  %279 = load i32, ptr %278, align 4
+  %280 = getelementptr inbounds nuw i32, ptr @indirect_reg_alloc_order, i64 %indvars.iv33.i
+  store i32 %279, ptr %280, align 4
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
   br i1 %exitcond36.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !15
 
 tcg_context_init.exit:                            ; preds = %.preheader.i, %.lr.ph30.preheader.i
-  %282 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  store ptr @tcg_init_ctx, ptr %282, align 8
-  store ptr %282, ptr @tcg_ctxs, align 8
+  %281 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  store ptr @tcg_init_ctx, ptr %281, align 8
+  store ptr %281, ptr @tcg_ctxs, align 8
   store i32 1, ptr @tcg_cur_ctxs, align 4
   store i32 1, ptr @tcg_max_ctxs, align 4
-  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 76), align 4
-  %284 = and i32 %283, 32
-  %.not25.i = icmp eq i32 %284, 0
+  %282 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 76), align 4
+  %283 = and i32 %282, 32
+  %.not25.i = icmp eq i32 %283, 0
   tail call void @llvm.assume(i1 %.not25.i)
-  %285 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 44), align 4
-  %286 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 48), align 8
-  %287 = icmp eq i32 %285, %286
+  %284 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 44), align 4
+  %285 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 48), align 8
+  %286 = icmp eq i32 %284, %285
+  tail call void @llvm.assume(i1 %286)
+  %287 = icmp slt i32 %284, 512
   tail call void @llvm.assume(i1 %287)
-  %288 = icmp slt i32 %285, 512
-  tail call void @llvm.assume(i1 %288)
-  %289 = add nsw i32 %285, 1
-  store i32 %289, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 44), align 4
-  store i32 %289, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 48), align 8
-  %290 = sext i32 %285 to i64
-  %291 = getelementptr inbounds %struct.TCGTemp, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 672), i64 %290
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %291, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
-  store i64 12901744645, ptr %291, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 32
-  store ptr @.str.53, ptr %292, align 8
-  %293 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 76), align 4
-  %294 = or i32 %293, 32
-  store i32 %294, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 76), align 4
-  %295 = load ptr, ptr %282, align 8
-  %296 = ptrtoint ptr %291 to i64
-  %297 = ptrtoint ptr %295 to i64
-  %298 = sub i64 %296, %297
-  %299 = inttoptr i64 %298 to ptr
-  store ptr %299, ptr @tcg_env, align 8
+  %288 = add nsw i32 %284, 1
+  store i32 %288, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 44), align 4
+  store i32 %288, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 48), align 8
+  %289 = sext i32 %284 to i64
+  %290 = getelementptr inbounds %struct.TCGTemp, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 672), i64 %289
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %290, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  store i64 12901744645, ptr %290, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 32
+  store ptr @.str.53, ptr %291, align 8
+  %292 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 76), align 4
+  %293 = or i32 %292, 32
+  store i32 %293, ptr getelementptr inbounds nuw (i8, ptr @tcg_init_ctx, i64 76), align 4
+  %294 = load ptr, ptr %281, align 8
+  %295 = ptrtoint ptr %290 to i64
+  %296 = ptrtoint ptr %294 to i64
+  %297 = sub i64 %295, %296
+  %298 = inttoptr i64 %297 to ptr
+  store ptr %298, ptr @tcg_env, align 8
   tail call void @tcg_region_init(i64 noundef %0, i32 noundef %1, i32 noundef %2) #30
   ret void
 }

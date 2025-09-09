@@ -431,7 +431,7 @@ define internal i32 @test_bio_dgram(i32 noundef %0) #0 {
   %131 = call i64 @BIO_ctrl(ptr noundef %73, i32 noundef 82, i64 noundef 0, ptr noundef null) #5
   %132 = trunc i64 %131 to i32
   %133 = icmp slt i32 %132, 1
-  %134 = icmp eq i32 %16, 0
+  %134 = icmp ult i32 %0, 2
   %or.cond.not202.i = or i1 %134, %133
   br i1 %or.cond.not202.i, label %139, label %135
 

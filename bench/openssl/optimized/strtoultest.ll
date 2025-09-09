@@ -48,7 +48,7 @@ define internal range(i32 0, 2) i32 @test_strtoul(i32 noundef %0) #0 {
   %11 = load i32, ptr %10, align 8, !tbaa !14
   %12 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 83, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %11) #3
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %27, label %13
+  br i1 %.not, label %28, label %13
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %3, align 8, !tbaa !4
@@ -57,25 +57,27 @@ define internal range(i32 0, 2) i32 @test_strtoul(i32 noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 %16
   %18 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %14, ptr noundef %17) #3
   %.not9 = icmp eq i32 %18, 0
-  br i1 %.not9, label %27, label %19
+  br i1 %.not9, label %28, label %19
 
 19:                                               ; preds = %13
-  %20 = icmp eq i32 %11, 1
-  br i1 %20, label %21, label %26
+  %20 = shl nuw i64 1, %4
+  %21 = and i64 %20, 159
+  %.not10 = icmp eq i64 %21, 0
+  br i1 %.not10, label %27, label %22
 
-21:                                               ; preds = %19
-  %22 = load i64, ptr %2, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !17
-  %25 = call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %22, i64 noundef %24) #3
-  %.not10 = icmp eq i32 %25, 0
-  br i1 %.not10, label %27, label %26
+22:                                               ; preds = %19
+  %23 = load i64, ptr %2, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %26 = call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef %23, i64 noundef %25) #3
+  %.not11 = icmp eq i32 %26, 0
+  br i1 %.not11, label %28, label %27
 
-26:                                               ; preds = %21, %19
-  br label %27
+27:                                               ; preds = %22, %19
+  br label %28
 
-27:                                               ; preds = %21, %13, %1, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %1 ], [ 0, %13 ], [ 0, %21 ]
+28:                                               ; preds = %22, %13, %1, %27
+  %.0 = phi i32 [ 1, %27 ], [ 0, %1 ], [ 0, %13 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

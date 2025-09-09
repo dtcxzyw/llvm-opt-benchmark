@@ -3892,7 +3892,7 @@ define internal fastcc void @runInitSteps(ptr noundef readonly captures(none) %0
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.critedge
-  %.056 = phi ptr [ %0, %.lr.ph ], [ %163, %.critedge ]
+  %.056 = phi ptr [ %0, %.lr.ph ], [ %161, %.critedge ]
   %.02255 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %.critedge ]
   %.02454 = phi i1 [ true, %.lr.ph ], [ %.125, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3904,14 +3904,14 @@ define internal fastcc void @runInitSteps(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.neg = sdiv i64 %21, -1000
   %22 = load i8, ptr %.056, align 1
-  switch i8 %22, label %149 [
+  switch i8 %22, label %147 [
     i8 100, label %23
     i8 116, label %26
-    i8 103, label %105
-    i8 71, label %108
-    i8 118, label %120
-    i8 112, label %123
-    i8 102, label %139
+    i8 103, label %103
+    i8 71, label %106
+    i8 118, label %118
+    i8 112, label %121
+    i8 102, label %137
     i8 32, label %.critedge
   ]
 
@@ -3957,152 +3957,150 @@ define internal fastcc void @runInitSteps(ptr noundef readonly captures(none) %0
   %45 = getelementptr inbounds nuw ptr, ptr @PARTITION_METHOD, i64 %44
   %46 = load ptr, ptr %45, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.231, ptr noundef %46) #25
-  br label %52
+  br label %50
 
 47:                                               ; preds = %40, %29
-  %48 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %49 = load i32, ptr %48, align 8
-  %.not17.i = icmp eq i32 %49, 0
-  br i1 %.not17.i, label %52, label %50
+  %.not17.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not17.i, label %50, label %48
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr @fillfactor, align 4
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.232, i32 noundef %51) #25
-  br label %52
+48:                                               ; preds = %47
+  %49 = load i32, ptr @fillfactor, align 4
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.232, i32 noundef %49) #25
+  br label %50
 
-52:                                               ; preds = %50, %47, %43
-  %53 = load ptr, ptr @tablespace, align 8
-  %.not18.i = icmp eq ptr %53, null
-  br i1 %.not18.i, label %57, label %54
+50:                                               ; preds = %48, %47, %43
+  %51 = load ptr, ptr @tablespace, align 8
+  %.not18.i = icmp eq ptr %51, null
+  br i1 %.not18.i, label %55, label %52
 
-54:                                               ; preds = %52
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #27
-  %56 = call ptr @PQescapeIdentifier(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %55) #25
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.233, ptr noundef %56) #25
-  call void @PQfreemem(ptr noundef %56) #25
-  br label %57
+52:                                               ; preds = %50
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #27
+  %54 = call ptr @PQescapeIdentifier(ptr noundef nonnull %9, ptr noundef nonnull %51, i64 noundef %53) #25
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.233, ptr noundef %54) #25
+  call void @PQfreemem(ptr noundef %54) #25
+  br label %55
 
-57:                                               ; preds = %54, %52
-  %58 = load ptr, ptr %6, align 8
-  %59 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %58) #25
-  %60 = call i32 @PQresultStatus(ptr noundef %59) #25
-  %.not.i35 = icmp eq i32 %60, 1
-  br i1 %.not.i35, label %executeStatement.exit, label %61
+55:                                               ; preds = %52, %50
+  %56 = load ptr, ptr %6, align 8
+  %57 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %56) #25
+  %58 = call i32 @PQresultStatus(ptr noundef %57) #25
+  %.not.i35 = icmp eq i32 %58, 1
+  br i1 %.not.i35, label %executeStatement.exit, label %59
 
-61:                                               ; preds = %57
-  %62 = call ptr @PQerrorMessage(ptr noundef nonnull %9) #25
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %62) #25
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.217, ptr noundef %58) #25
+59:                                               ; preds = %55
+  %60 = call ptr @PQerrorMessage(ptr noundef nonnull %9) #25
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %60) #25
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.217, ptr noundef %56) #25
   call void @exit(i32 noundef 1) #26
   unreachable
 
-executeStatement.exit:                            ; preds = %57
-  call void @PQclear(ptr noundef %59) #25
+executeStatement.exit:                            ; preds = %55
+  call void @PQclear(ptr noundef %57) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %63, label %29, !llvm.loop !36
+  br i1 %exitcond.not.i, label %61, label %29, !llvm.loop !36
 
-63:                                               ; preds = %executeStatement.exit
+61:                                               ; preds = %executeStatement.exit
   call void @termPQExpBuffer(ptr noundef nonnull %6) #25
-  %64 = load i32, ptr @partition_method, align 4
-  %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %initCreateTables.exit, label %65
+  %62 = load i32, ptr @partition_method, align 4
+  %.not.i = icmp eq i32 %62, 0
+  br i1 %.not.i, label %initCreateTables.exit, label %63
 
-65:                                               ; preds = %63
+63:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %66 = load ptr, ptr @stderr, align 8
-  %67 = load i32, ptr @partitions, align 4
-  %68 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %66, ptr noundef nonnull @.str.235, i32 noundef %67) #25
+  %64 = load ptr, ptr @stderr, align 8
+  %65 = load i32, ptr @partitions, align 4
+  %66 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %64, ptr noundef nonnull @.str.235, i32 noundef %65) #25
   call void @initPQExpBuffer(ptr noundef nonnull %5) #25
-  %69 = load i32, ptr @partitions, align 4
-  %.not16.i.i = icmp slt i32 %69, 1
+  %67 = load i32, ptr @partitions, align 4
+  %.not16.i.i = icmp slt i32 %67, 1
   br i1 %.not16.i.i, label %createPartitions.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %65, %100
-  %70 = phi i32 [ %104, %100 ], [ %69, %65 ]
-  %.017.i.i = phi i32 [ %103, %100 ], [ 1, %65 ]
-  %71 = load i32, ptr @partition_method, align 4
-  switch i32 %71, label %100 [
-    i32 1, label %72
-    i32 2, label %97
+.lr.ph.i.i:                                       ; preds = %63, %98
+  %68 = phi i32 [ %102, %98 ], [ %67, %63 ]
+  %.017.i.i = phi i32 [ %101, %98 ], [ 1, %63 ]
+  %69 = load i32, ptr @partition_method, align 4
+  switch i32 %69, label %98 [
+    i32 1, label %70
+    i32 2, label %95
   ]
 
-72:                                               ; preds = %.lr.ph.i.i
-  %73 = load i32, ptr @scale, align 4
-  %74 = sext i32 %73 to i64
-  %75 = mul nsw i64 %74, 100000
-  %76 = sext i32 %70 to i64
-  %77 = add nsw i64 %76, -1
-  %78 = add nsw i64 %77, %75
-  %79 = sdiv i64 %78, %76
+70:                                               ; preds = %.lr.ph.i.i
+  %71 = load i32, ptr @scale, align 4
+  %72 = sext i32 %71 to i64
+  %73 = mul nsw i64 %72, 100000
+  %74 = sext i32 %68 to i64
+  %75 = add nsw i64 %74, -1
+  %76 = add nsw i64 %75, %73
+  %77 = sdiv i64 %76, %74
   %.b1315.i.i = load i1, ptr @unlogged_tables, align 1
-  %80 = select i1 %.b1315.i.i, ptr @.str.230, ptr @.str.149
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.236, ptr noundef nonnull %80, i32 noundef %.017.i.i) #25
-  %81 = icmp eq i32 %.017.i.i, 1
-  br i1 %81, label %82, label %83
+  %78 = select i1 %.b1315.i.i, ptr @.str.230, ptr @.str.149
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.236, ptr noundef nonnull %78, i32 noundef %.017.i.i) #25
+  %79 = icmp eq i32 %.017.i.i, 1
+  br i1 %79, label %80, label %81
 
-82:                                               ; preds = %72
+80:                                               ; preds = %70
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.237) #25
-  br label %88
+  br label %86
 
-83:                                               ; preds = %72
-  %84 = add i32 %.017.i.i, -1
-  %85 = sext i32 %84 to i64
-  %86 = mul i64 %79, %85
-  %87 = add i64 %86, 1
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.238, i64 noundef %87) #25
-  br label %88
+81:                                               ; preds = %70
+  %82 = add i32 %.017.i.i, -1
+  %83 = sext i32 %82 to i64
+  %84 = mul i64 %77, %83
+  %85 = add i64 %84, 1
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.238, i64 noundef %85) #25
+  br label %86
 
-88:                                               ; preds = %83, %82
+86:                                               ; preds = %81, %80
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.239) #25
-  %89 = load i32, ptr @partitions, align 4
-  %90 = icmp slt i32 %.017.i.i, %89
-  br i1 %90, label %91, label %95
+  %87 = load i32, ptr @partitions, align 4
+  %88 = icmp slt i32 %.017.i.i, %87
+  br i1 %88, label %89, label %93
 
-91:                                               ; preds = %88
-  %92 = sext i32 %.017.i.i to i64
-  %93 = mul i64 %79, %92
-  %94 = add i64 %93, 1
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.238, i64 noundef %94) #25
-  br label %96
+89:                                               ; preds = %86
+  %90 = sext i32 %.017.i.i to i64
+  %91 = mul i64 %77, %90
+  %92 = add i64 %91, 1
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.238, i64 noundef %92) #25
+  br label %94
 
-95:                                               ; preds = %88
+93:                                               ; preds = %86
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.240) #25
-  br label %96
+  br label %94
 
-96:                                               ; preds = %95, %91
+94:                                               ; preds = %93, %89
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 41) #25
-  br label %100
+  br label %98
 
-97:                                               ; preds = %.lr.ph.i.i
+95:                                               ; preds = %.lr.ph.i.i
   %.b14.i.i = load i1, ptr @unlogged_tables, align 1
-  %98 = select i1 %.b14.i.i, ptr @.str.230, ptr @.str.149
-  %99 = add i32 %.017.i.i, -1
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.241, ptr noundef nonnull %98, i32 noundef %.017.i.i, i32 noundef %70, i32 noundef %99) #25
-  br label %100
+  %96 = select i1 %.b14.i.i, ptr @.str.230, ptr @.str.149
+  %97 = add i32 %.017.i.i, -1
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.241, ptr noundef nonnull %96, i32 noundef %.017.i.i, i32 noundef %68, i32 noundef %97) #25
+  br label %98
 
-100:                                              ; preds = %97, %96, %.lr.ph.i.i
-  %101 = load i32, ptr @fillfactor, align 4
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.232, i32 noundef %101) #25
-  %102 = load ptr, ptr %5, align 8
-  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %102)
-  %103 = add i32 %.017.i.i, 1
-  %104 = load i32, ptr @partitions, align 4
-  %.not.i.i = icmp sgt i32 %103, %104
+98:                                               ; preds = %95, %94, %.lr.ph.i.i
+  %99 = load i32, ptr @fillfactor, align 4
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.232, i32 noundef %99) #25
+  %100 = load ptr, ptr %5, align 8
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %100)
+  %101 = add i32 %.017.i.i, 1
+  %102 = load i32, ptr @partitions, align 4
+  %.not.i.i = icmp sgt i32 %101, %102
   br i1 %.not.i.i, label %createPartitions.exit.i, label %.lr.ph.i.i, !llvm.loop !37
 
-createPartitions.exit.i:                          ; preds = %100, %65
+createPartitions.exit.i:                          ; preds = %98, %63
   call void @termPQExpBuffer(ptr noundef nonnull %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %initCreateTables.exit
 
-initCreateTables.exit:                            ; preds = %63, %createPartitions.exit.i
+initCreateTables.exit:                            ; preds = %61, %createPartitions.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %initCreateFKeys.exit
 
-105:                                              ; preds = %16
-  %106 = load ptr, ptr @stderr, align 8
-  %107 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %106, ptr noundef nonnull @.str.242) #25
+103:                                              ; preds = %16
+  %104 = load ptr, ptr @stderr, align 8
+  %105 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %104, ptr noundef nonnull @.str.242) #25
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.243)
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.245)
   call fastcc void @initPopulateTable(ptr noundef nonnull %9, ptr noundef nonnull @.str.226, i64 noundef 1, ptr noundef nonnull @initBranch)
@@ -4111,162 +4109,162 @@ initCreateTables.exit:                            ; preds = %63, %createPartitio
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.244)
   br label %initCreateFKeys.exit
 
-108:                                              ; preds = %16
+106:                                              ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %109 = load ptr, ptr @stderr, align 8
-  %110 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %109, ptr noundef nonnull @.str.262) #25
+  %107 = load ptr, ptr @stderr, align 8
+  %108 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %107, ptr noundef nonnull @.str.262) #25
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.243)
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.245)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #25
+  %109 = load i32, ptr @scale, align 4
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.263, i32 noundef %109) #25
+  %110 = load ptr, ptr %4, align 8
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %110)
   %111 = load i32, ptr @scale, align 4
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.263, i32 noundef %111) #25
-  %112 = load ptr, ptr %4, align 8
-  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %112)
-  %113 = load i32, ptr @scale, align 4
-  %114 = mul i32 %113, 10
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.264, i32 noundef 10, i32 noundef %114) #25
-  %115 = load ptr, ptr %4, align 8
-  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %115)
-  %116 = load i32, ptr @scale, align 4
-  %117 = sext i32 %116 to i64
-  %118 = mul nsw i64 %117, 100000
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.265, i32 noundef 100000, i64 noundef %118) #25
-  %119 = load ptr, ptr %4, align 8
-  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %119)
+  %112 = mul i32 %111, 10
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.264, i32 noundef 10, i32 noundef %112) #25
+  %113 = load ptr, ptr %4, align 8
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %113)
+  %114 = load i32, ptr @scale, align 4
+  %115 = sext i32 %114 to i64
+  %116 = mul nsw i64 %115, 100000
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.265, i32 noundef 100000, i64 noundef %116) #25
+  %117 = load ptr, ptr %4, align 8
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %117)
   call void @termPQExpBuffer(ptr noundef nonnull %4) #25
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.244)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %initCreateFKeys.exit
 
-120:                                              ; preds = %16
-  %121 = load ptr, ptr @stderr, align 8
-  %122 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %121, ptr noundef nonnull @.str.266) #25
+118:                                              ; preds = %16
+  %119 = load ptr, ptr @stderr, align 8
+  %120 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %119, ptr noundef nonnull @.str.266) #25
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.267)
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.268)
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.123)
   call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.269)
   br label %initCreateFKeys.exit
 
-123:                                              ; preds = %16
+121:                                              ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %124 = load ptr, ptr @stderr, align 8
-  %125 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %124, ptr noundef nonnull @.str.273) #25
+  %122 = load ptr, ptr @stderr, align 8
+  %123 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %122, ptr noundef nonnull @.str.273) #25
   call void @initPQExpBuffer(ptr noundef nonnull %3) #25
-  br label %126
+  br label %124
 
-126:                                              ; preds = %executeStatement.exit37, %123
-  %indvars.iv.i28 = phi i64 [ 0, %123 ], [ %indvars.iv.next.i30, %executeStatement.exit37 ]
+124:                                              ; preds = %executeStatement.exit37, %121
+  %indvars.iv.i28 = phi i64 [ 0, %121 ], [ %indvars.iv.next.i30, %executeStatement.exit37 ]
   call void @resetPQExpBuffer(ptr noundef nonnull %3) #25
-  %127 = getelementptr inbounds nuw ptr, ptr @initCreatePKeys.DDLINDEXes, i64 %indvars.iv.i28
-  %128 = load ptr, ptr %127, align 8
-  call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef %128) #25
-  %129 = load ptr, ptr @index_tablespace, align 8
-  %.not.i29 = icmp eq ptr %129, null
-  br i1 %.not.i29, label %133, label %130
+  %125 = getelementptr inbounds nuw ptr, ptr @initCreatePKeys.DDLINDEXes, i64 %indvars.iv.i28
+  %126 = load ptr, ptr %125, align 8
+  call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef %126) #25
+  %127 = load ptr, ptr @index_tablespace, align 8
+  %.not.i29 = icmp eq ptr %127, null
+  br i1 %.not.i29, label %131, label %128
 
-130:                                              ; preds = %126
-  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #27
-  %132 = call ptr @PQescapeIdentifier(ptr noundef nonnull %9, ptr noundef nonnull %129, i64 noundef %131) #25
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.274, ptr noundef %132) #25
-  call void @PQfreemem(ptr noundef %132) #25
-  br label %133
+128:                                              ; preds = %124
+  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #27
+  %130 = call ptr @PQescapeIdentifier(ptr noundef nonnull %9, ptr noundef nonnull %127, i64 noundef %129) #25
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.274, ptr noundef %130) #25
+  call void @PQfreemem(ptr noundef %130) #25
+  br label %131
 
-133:                                              ; preds = %130, %126
-  %134 = load ptr, ptr %3, align 8
-  %135 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %134) #25
-  %136 = call i32 @PQresultStatus(ptr noundef %135) #25
-  %.not.i36 = icmp eq i32 %136, 1
-  br i1 %.not.i36, label %executeStatement.exit37, label %137
+131:                                              ; preds = %128, %124
+  %132 = load ptr, ptr %3, align 8
+  %133 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %132) #25
+  %134 = call i32 @PQresultStatus(ptr noundef %133) #25
+  %.not.i36 = icmp eq i32 %134, 1
+  br i1 %.not.i36, label %executeStatement.exit37, label %135
 
-137:                                              ; preds = %133
-  %138 = call ptr @PQerrorMessage(ptr noundef nonnull %9) #25
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %138) #25
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.217, ptr noundef %134) #25
+135:                                              ; preds = %131
+  %136 = call ptr @PQerrorMessage(ptr noundef nonnull %9) #25
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %136) #25
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.217, ptr noundef %132) #25
   call void @exit(i32 noundef 1) #26
   unreachable
 
-executeStatement.exit37:                          ; preds = %133
-  call void @PQclear(ptr noundef %135) #25
+executeStatement.exit37:                          ; preds = %131
+  call void @PQclear(ptr noundef %133) #25
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 3
-  br i1 %exitcond.not.i31, label %initCreatePKeys.exit, label %126, !llvm.loop !38
+  br i1 %exitcond.not.i31, label %initCreatePKeys.exit, label %124, !llvm.loop !38
 
 initCreatePKeys.exit:                             ; preds = %executeStatement.exit37
   call void @termPQExpBuffer(ptr noundef nonnull %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %initCreateFKeys.exit
 
-139:                                              ; preds = %16
-  %140 = load ptr, ptr @stderr, align 8
-  %141 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %140, ptr noundef nonnull @.str.280) #25
-  br label %142
+137:                                              ; preds = %16
+  %138 = load ptr, ptr @stderr, align 8
+  %139 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %138, ptr noundef nonnull @.str.280) #25
+  br label %140
 
-142:                                              ; preds = %executeStatement.exit39, %139
-  %indvars.iv.i32 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i33, %executeStatement.exit39 ]
-  %143 = getelementptr inbounds nuw ptr, ptr @initCreateFKeys.DDLKEYs, i64 %indvars.iv.i32
-  %144 = load ptr, ptr %143, align 8
-  %145 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %144) #25
-  %146 = call i32 @PQresultStatus(ptr noundef %145) #25
-  %.not.i38 = icmp eq i32 %146, 1
-  br i1 %.not.i38, label %executeStatement.exit39, label %147
+140:                                              ; preds = %executeStatement.exit39, %137
+  %indvars.iv.i32 = phi i64 [ 0, %137 ], [ %indvars.iv.next.i33, %executeStatement.exit39 ]
+  %141 = getelementptr inbounds nuw ptr, ptr @initCreateFKeys.DDLKEYs, i64 %indvars.iv.i32
+  %142 = load ptr, ptr %141, align 8
+  %143 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %142) #25
+  %144 = call i32 @PQresultStatus(ptr noundef %143) #25
+  %.not.i38 = icmp eq i32 %144, 1
+  br i1 %.not.i38, label %executeStatement.exit39, label %145
 
-147:                                              ; preds = %142
-  %148 = call ptr @PQerrorMessage(ptr noundef nonnull %9) #25
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %148) #25
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.217, ptr noundef %144) #25
+145:                                              ; preds = %140
+  %146 = call ptr @PQerrorMessage(ptr noundef nonnull %9) #25
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %146) #25
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.217, ptr noundef %142) #25
   call void @exit(i32 noundef 1) #26
   unreachable
 
-executeStatement.exit39:                          ; preds = %142
-  call void @PQclear(ptr noundef %145) #25
+executeStatement.exit39:                          ; preds = %140
+  call void @PQclear(ptr noundef %143) #25
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 5
-  br i1 %exitcond.not.i34, label %initCreateFKeys.exit, label %142, !llvm.loop !39
+  br i1 %exitcond.not.i34, label %initCreateFKeys.exit, label %140, !llvm.loop !39
 
-149:                                              ; preds = %16
-  %150 = sext i8 %22 to i32
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.194, i32 noundef %150) #25
+147:                                              ; preds = %16
+  %148 = sext i8 %22 to i32
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.194, i32 noundef %148) #25
   call void @PQfinish(ptr noundef nonnull %9) #25
   call void @exit(i32 noundef 1) #26
   unreachable
 
-initCreateFKeys.exit:                             ; preds = %executeStatement.exit39, %23, %initCreateTables.exit, %105, %108, %120, %initCreatePKeys.exit
-  %.023 = phi ptr [ @.str.204, %23 ], [ @.str.205, %initCreateTables.exit ], [ @.str.206, %105 ], [ @.str.207, %108 ], [ @.str.208, %120 ], [ @.str.209, %initCreatePKeys.exit ], [ @.str.210, %executeStatement.exit39 ]
+initCreateFKeys.exit:                             ; preds = %executeStatement.exit39, %23, %initCreateTables.exit, %103, %106, %118, %initCreatePKeys.exit
+  %.023 = phi ptr [ @.str.204, %23 ], [ @.str.205, %initCreateTables.exit ], [ @.str.206, %103 ], [ @.str.207, %106 ], [ @.str.208, %118 ], [ @.str.209, %initCreatePKeys.exit ], [ @.str.210, %executeStatement.exit39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %151 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
-  %152 = load i64, ptr %2, align 8
-  %153 = mul i64 %152, 1000000000
-  %154 = load i64, ptr %15, align 8
-  %155 = add i64 %153, %154
+  %149 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
+  %150 = load i64, ptr %2, align 8
+  %151 = mul i64 %150, 1000000000
+  %152 = load i64, ptr %15, align 8
+  %153 = add i64 %151, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %156 = sdiv i64 %155, 1000
-  %157 = add nsw i64 %156, %.neg
-  %158 = sitofp i64 %157 to double
-  %159 = fmul double %158, 0x3EB0C6F7A0B5ED8D
-  br i1 %.02454, label %161, label %160
+  %154 = sdiv i64 %153, 1000
+  %155 = add nsw i64 %154, %.neg
+  %156 = sitofp i64 %155 to double
+  %157 = fmul double %156, 0x3EB0C6F7A0B5ED8D
+  br i1 %.02454, label %159, label %158
 
-160:                                              ; preds = %initCreateFKeys.exit
+158:                                              ; preds = %initCreateFKeys.exit
   call void @appendPQExpBufferStr(ptr noundef nonnull %8, ptr noundef nonnull @.str.211) #25
-  br label %161
+  br label %159
 
-161:                                              ; preds = %initCreateFKeys.exit, %160
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %8, ptr noundef nonnull @.str.212, ptr noundef nonnull %.023, double noundef %159) #25
-  %162 = fadd double %.02255, %159
+159:                                              ; preds = %initCreateFKeys.exit, %158
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %8, ptr noundef nonnull @.str.212, ptr noundef nonnull %.023, double noundef %157) #25
+  %160 = fadd double %.02255, %157
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %161
-  %.125 = phi i1 [ false, %161 ], [ %.02454, %16 ]
-  %.1 = phi double [ %162, %161 ], [ %.02255, %16 ]
-  %163 = getelementptr inbounds nuw i8, ptr %.056, i64 1
-  %164 = load i8, ptr %163, align 1
-  %.not = icmp eq i8 %164, 0
+.critedge:                                        ; preds = %16, %159
+  %.125 = phi i1 [ false, %159 ], [ %.02454, %16 ]
+  %.1 = phi double [ %160, %159 ], [ %.02255, %16 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.056, i64 1
+  %162 = load i8, ptr %161, align 1
+  %.not = icmp eq i8 %162, 0
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.critedge, %12
   %.022.lcssa = phi double [ 0.000000e+00, %12 ], [ %.1, %.critedge ]
-  %165 = load ptr, ptr @stderr, align 8
-  %166 = load ptr, ptr %8, align 8
-  %167 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %165, ptr noundef nonnull @.str.213, double noundef %.022.lcssa, ptr noundef %166) #25
+  %163 = load ptr, ptr @stderr, align 8
+  %164 = load ptr, ptr %8, align 8
+  %165 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %163, ptr noundef nonnull @.str.213, double noundef %.022.lcssa, ptr noundef %164) #25
   call void @ResetCancelConn() #25
   call void @PQfinish(ptr noundef nonnull %9) #25
   call void @termPQExpBuffer(ptr noundef nonnull %8) #25

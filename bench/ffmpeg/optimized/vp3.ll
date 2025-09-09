@@ -7193,13 +7193,13 @@ get_vlc2.exit.i:                                  ; preds = %226, %205, %184
   %252 = getelementptr inbounds nuw %struct.anon.3, ptr @eob_run_table, i64 %251
   %253 = load i8, ptr %252, align 1, !tbaa !244
   %254 = zext i8 %253 to i32
-  %255 = getelementptr inbounds nuw i8, ptr %252, i64 1
-  %256 = load i8, ptr %255, align 1, !tbaa !246
-  %.not.i.i = icmp eq i8 %256, 0
-  br i1 %.not.i.i, label %get_eob_run.exit.i, label %257
+  %.not.i.i = icmp samesign ult i32 %.062.i.i, 3
+  br i1 %.not.i.i, label %get_eob_run.exit.i, label %255
 
-257:                                              ; preds = %249
-  %258 = zext i8 %256 to i32
+255:                                              ; preds = %249
+  %256 = getelementptr inbounds nuw i8, ptr %252, i64 1
+  %257 = load i8, ptr %256, align 1, !tbaa !246
+  %258 = zext i8 %257 to i32
   %259 = lshr i32 %247, 3
   %260 = zext nneg i32 %259 to i64
   %261 = getelementptr inbounds nuw i8, ptr %188, i64 %260
@@ -7215,8 +7215,8 @@ get_vlc2.exit.i:                                  ; preds = %226, %205, %184
   %270 = add i32 %267, %254
   br label %get_eob_run.exit.i
 
-get_eob_run.exit.i:                               ; preds = %257, %249
-  %.0.i55.i = phi i32 [ %270, %257 ], [ %254, %249 ]
+get_eob_run.exit.i:                               ; preds = %255, %249
+  %.0.i55.i = phi i32 [ %270, %255 ], [ %254, %249 ]
   %271 = getelementptr inbounds ptr, ptr %136, i64 %180
   %272 = load ptr, ptr %271, align 8, !tbaa !158
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 2
@@ -8212,13 +8212,13 @@ get_vlc2.exit:                                    ; preds = %37, %56, %77
   %102 = getelementptr inbounds nuw %struct.anon.3, ptr @eob_run_table, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !244
   %104 = zext i8 %103 to i32
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  %106 = load i8, ptr %105, align 1, !tbaa !246
-  %.not.i = icmp eq i8 %106, 0
-  br i1 %.not.i, label %get_eob_run.exit, label %107
+  %.not.i = icmp samesign ult i32 %.062.i, 3
+  br i1 %.not.i, label %get_eob_run.exit, label %105
 
-107:                                              ; preds = %100
-  %108 = zext i8 %106 to i32
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 1
+  %107 = load i8, ptr %106, align 1, !tbaa !246
+  %108 = zext i8 %107 to i32
   %109 = lshr i32 %98, 3
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds nuw i8, ptr %39, i64 %110
@@ -8234,8 +8234,8 @@ get_vlc2.exit:                                    ; preds = %37, %56, %77
   %120 = add i32 %117, %104
   br label %get_eob_run.exit
 
-get_eob_run.exit:                                 ; preds = %100, %107
-  %.0.i135 = phi i32 [ %120, %107 ], [ %104, %100 ]
+get_eob_run.exit:                                 ; preds = %100, %105
+  %.0.i135 = phi i32 [ %120, %105 ], [ %104, %100 ]
   %.not133 = icmp eq i32 %.0.i135, 0
   %spec.store.select = select i1 %.not133, i32 2147483647, i32 %.0.i135
   %121 = sub nsw i32 %12, %.1115146
@@ -8249,7 +8249,7 @@ get_eob_run.exit:                                 ; preds = %100, %107
   store i16 %124, ptr %123, align 2, !tbaa !76
   %125 = add nsw i32 %121, %.1118145
   %126 = sub nsw i32 %spec.store.select, %121
-  %indvars.iv.next162175 = add nuw nsw i64 %indvars.iv161, 1
+  %indvars.iv.next162174 = add nuw nsw i64 %indvars.iv161, 1
   br label %.critedge.loopexit
 
 127:                                              ; preds = %get_eob_run.exit
@@ -8405,7 +8405,7 @@ get_coeff.exit:                                   ; preds = %151, %162
 
 .critedge.loopexit:                               ; preds = %209, %35, %.thread
   %.1118.lcssa.ph = phi i32 [ %125, %.thread ], [ %.2119, %209 ], [ %.1118145, %35 ]
-  %.1111.lcssa.ph.in = phi i64 [ %indvars.iv.next162175, %.thread ], [ %indvars.iv.next162, %209 ], [ %indvars.iv161, %35 ]
+  %.1111.lcssa.ph.in = phi i64 [ %indvars.iv.next162174, %.thread ], [ %indvars.iv.next162, %209 ], [ %indvars.iv161, %35 ]
   %.1.lcssa.ph = phi i32 [ %126, %.thread ], [ %.2, %209 ], [ %.1149, %35 ]
   %.1111.lcssa.ph = trunc i64 %.1111.lcssa.ph.in to i32
   %.pre = load i32, ptr %11, align 4, !tbaa !42

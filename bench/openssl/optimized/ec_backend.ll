@@ -219,233 +219,225 @@ define range(i32 0, 2) i32 @ossl_ec_group_todata(ptr noundef %0, ptr noundef %1,
 ossl_ec_pt_format_id2name.exit:                   ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !5
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %ossl_ec_pt_format_id2name.exit.thread, label %21
+  %20 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %19) #4
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %ossl_ec_pt_format_id2name.exit.thread, label %21
 
-21:                                               ; preds = %ossl_ec_pt_format_id2name.exit
-  %22 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %19) #4
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %ossl_ec_pt_format_id2name.exit.thread, label %23
-
-ossl_ec_pt_format_id2name.exit.thread:            ; preds = %12, %21, %ossl_ec_pt_format_id2name.exit
+ossl_ec_pt_format_id2name.exit.thread:            ; preds = %12, %ossl_ec_pt_format_id2name.exit
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 308, ptr noundef nonnull @__func__.ossl_ec_group_todata) #4
   br label %.thread53.sink.split
 
-23:                                               ; preds = %21
-  %24 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %0) #4
-  %25 = and i32 %24, 1
-  br label %27
+21:                                               ; preds = %ossl_ec_pt_format_id2name.exit
+  %22 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %0) #4
+  %23 = and i32 %22, 1
+  br label %25
 
-26:                                               ; preds = %27
-  br i1 %28, label %27, label %ec_param_encoding_id2name.exit.thread, !llvm.loop !16
+24:                                               ; preds = %25
+  br i1 %26, label %25, label %ec_param_encoding_id2name.exit.thread, !llvm.loop !16
 
-27:                                               ; preds = %26, %23
-  %28 = phi i1 [ true, %23 ], [ false, %26 ]
-  %.067.i46 = phi i64 [ 0, %23 ], [ 1, %26 ]
-  %29 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @encoding_nameid_map, i64 %.067.i46
-  %30 = load i32, ptr %29, align 16, !tbaa !11
-  %31 = icmp eq i32 %25, %30
-  br i1 %31, label %ec_param_encoding_id2name.exit, label %26
+25:                                               ; preds = %24, %21
+  %26 = phi i1 [ true, %21 ], [ false, %24 ]
+  %.067.i46 = phi i64 [ 0, %21 ], [ 1, %24 ]
+  %27 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @encoding_nameid_map, i64 %.067.i46
+  %28 = load i32, ptr %27, align 16, !tbaa !11
+  %29 = icmp eq i32 %23, %28
+  br i1 %29, label %ec_param_encoding_id2name.exit, label %24
 
-ec_param_encoding_id2name.exit:                   ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !5
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %ec_param_encoding_id2name.exit.thread, label %35
+ec_param_encoding_id2name.exit:                   ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !5
+  %32 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull %31) #4
+  %.not40 = icmp eq i32 %32, 0
+  br i1 %.not40, label %ec_param_encoding_id2name.exit.thread, label %33
 
-35:                                               ; preds = %ec_param_encoding_id2name.exit
-  %36 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull %33) #4
-  %.not40 = icmp eq i32 %36, 0
-  br i1 %.not40, label %ec_param_encoding_id2name.exit.thread, label %37
-
-ec_param_encoding_id2name.exit.thread:            ; preds = %26, %35, %ec_param_encoding_id2name.exit
+ec_param_encoding_id2name.exit.thread:            ; preds = %24, %ec_param_encoding_id2name.exit
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @__func__.ossl_ec_group_todata) #4
   br label %.thread53.sink.split
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !17
-  %40 = tail call i32 @ossl_param_build_set_int(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.3, i32 noundef %39) #4
-  %.not41 = icmp eq i32 %40, 0
-  br i1 %.not41, label %.thread53, label %41
+33:                                               ; preds = %ec_param_encoding_id2name.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %35 = load i32, ptr %34, align 8, !tbaa !17
+  %36 = tail call i32 @ossl_param_build_set_int(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.3, i32 noundef %35) #4
+  %.not41 = icmp eq i32 %36, 0
+  br i1 %.not41, label %.thread53, label %37
+
+37:                                               ; preds = %33
+  %38 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %0) #4
+  %39 = icmp eq ptr %1, null
+  %40 = icmp eq i32 %38, 0
+  %or.cond = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond, label %41, label %.thread
 
 41:                                               ; preds = %37
-  %42 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %0) #4
-  %43 = icmp eq ptr %1, null
-  %44 = icmp eq i32 %42, 0
-  %or.cond = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond, label %45, label %.thread
-
-45:                                               ; preds = %41
-  %46 = tail call i32 @EC_GROUP_get_field_type(ptr noundef nonnull %0) #4
-  switch i32 %46, label %ec_group_explicit_todata.exit [
-    i32 406, label %48
-    i32 407, label %47
+  %42 = tail call i32 @EC_GROUP_get_field_type(ptr noundef nonnull %0) #4
+  switch i32 %42, label %ec_group_explicit_todata.exit [
+    i32 406, label %44
+    i32 407, label %43
   ]
 
-47:                                               ; preds = %45
-  br label %48
+43:                                               ; preds = %41
+  br label %44
 
-48:                                               ; preds = %47, %45
-  %.0101.i = phi ptr [ @.str.21, %47 ], [ @.str.20, %45 ]
-  %49 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.22) #4
-  %50 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.23) #4
-  %51 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.24) #4
-  %52 = icmp ne ptr %1, null
-  %53 = icmp ne ptr %49, null
-  %or.cond.i = select i1 %52, i1 true, i1 %53
-  %54 = icmp ne ptr %50, null
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %54
-  %55 = icmp ne ptr %51, null
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %55
-  br i1 %or.cond5.i, label %56, label %69
+44:                                               ; preds = %43, %41
+  %.0101.i = phi ptr [ @.str.21, %43 ], [ @.str.20, %41 ]
+  %45 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.22) #4
+  %46 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.23) #4
+  %47 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.24) #4
+  %48 = icmp ne ptr %1, null
+  %49 = icmp ne ptr %45, null
+  %or.cond.i = select i1 %48, i1 true, i1 %49
+  %50 = icmp ne ptr %46, null
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %50
+  %51 = icmp ne ptr %47, null
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %51
+  br i1 %or.cond5.i, label %52, label %65
 
-56:                                               ; preds = %48
-  %57 = tail call ptr @BN_CTX_get(ptr noundef %5) #4
-  %58 = tail call ptr @BN_CTX_get(ptr noundef %5) #4
-  %59 = tail call ptr @BN_CTX_get(ptr noundef %5) #4
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %ec_group_explicit_todata.exit, label %61
+52:                                               ; preds = %44
+  %53 = tail call ptr @BN_CTX_get(ptr noundef %5) #4
+  %54 = tail call ptr @BN_CTX_get(ptr noundef %5) #4
+  %55 = tail call ptr @BN_CTX_get(ptr noundef %5) #4
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %ec_group_explicit_todata.exit, label %57
 
-61:                                               ; preds = %56
-  %62 = tail call i32 @EC_GROUP_get_curve(ptr noundef nonnull %0, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %59, ptr noundef %5) #4
-  %.not.i = icmp eq i32 %62, 0
-  br i1 %.not.i, label %ec_group_explicit_todata.exit, label %63
+57:                                               ; preds = %52
+  %58 = tail call i32 @EC_GROUP_get_curve(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %55, ptr noundef %5) #4
+  %.not.i = icmp eq i32 %58, 0
+  br i1 %.not.i, label %ec_group_explicit_todata.exit, label %59
+
+59:                                               ; preds = %57
+  %60 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.22, ptr noundef %53) #4
+  %.not111.i = icmp eq i32 %60, 0
+  br i1 %.not111.i, label %ec_group_explicit_todata.exit, label %61
+
+61:                                               ; preds = %59
+  %62 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %54) #4
+  %.not112.i = icmp eq i32 %62, 0
+  br i1 %.not112.i, label %ec_group_explicit_todata.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.22, ptr noundef %57) #4
-  %.not111.i = icmp eq i32 %64, 0
-  br i1 %.not111.i, label %ec_group_explicit_todata.exit, label %65
+  %64 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef nonnull %55) #4
+  %.not113.i = icmp eq i32 %64, 0
+  br i1 %.not113.i, label %ec_group_explicit_todata.exit, label %65
 
-65:                                               ; preds = %63
-  %66 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %58) #4
-  %.not112.i = icmp eq i32 %66, 0
-  br i1 %.not112.i, label %ec_group_explicit_todata.exit, label %67
+65:                                               ; preds = %63, %44
+  %66 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.25) #4
+  %67 = icmp ne ptr %66, null
+  %or.cond7.i = select i1 %48, i1 true, i1 %67
+  br i1 %or.cond7.i, label %68, label %73
 
-67:                                               ; preds = %65
-  %68 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef nonnull %59) #4
-  %.not113.i = icmp eq i32 %68, 0
-  br i1 %.not113.i, label %ec_group_explicit_todata.exit, label %69
+68:                                               ; preds = %65
+  %69 = tail call ptr @EC_GROUP_get0_order(ptr noundef nonnull %0) #4
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %ec_group_explicit_todata.exit, label %71
 
-69:                                               ; preds = %67, %48
-  %70 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.25) #4
-  %71 = icmp ne ptr %70, null
-  %or.cond7.i = select i1 %52, i1 true, i1 %71
-  br i1 %or.cond7.i, label %72, label %77
+71:                                               ; preds = %68
+  %72 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %69) #4
+  %.not114.i = icmp eq i32 %72, 0
+  br i1 %.not114.i, label %ec_group_explicit_todata.exit, label %73
 
-72:                                               ; preds = %69
-  %73 = tail call ptr @EC_GROUP_get0_order(ptr noundef nonnull %0) #4
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %ec_group_explicit_todata.exit, label %75
+73:                                               ; preds = %71, %65
+  %74 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.26) #4
+  %75 = icmp ne ptr %74, null
+  %or.cond9.i = select i1 %48, i1 true, i1 %75
+  br i1 %or.cond9.i, label %76, label %78
 
-75:                                               ; preds = %72
-  %76 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %73) #4
-  %.not114.i = icmp eq i32 %76, 0
-  br i1 %.not114.i, label %ec_group_explicit_todata.exit, label %77
+76:                                               ; preds = %73
+  %77 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0101.i) #4
+  %.not115.i = icmp eq i32 %77, 0
+  br i1 %.not115.i, label %ec_group_explicit_todata.exit, label %78
 
-77:                                               ; preds = %75, %69
-  %78 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.26) #4
-  %79 = icmp ne ptr %78, null
-  %or.cond9.i = select i1 %52, i1 true, i1 %79
-  br i1 %or.cond9.i, label %80, label %82
+78:                                               ; preds = %76, %73
+  %79 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.27) #4
+  %80 = icmp ne ptr %79, null
+  %or.cond11.i = select i1 %48, i1 true, i1 %80
+  br i1 %or.cond11.i, label %81, label %91
 
-80:                                               ; preds = %77
-  %81 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0101.i) #4
-  %.not115.i = icmp eq i32 %81, 0
-  br i1 %.not115.i, label %ec_group_explicit_todata.exit, label %82
+81:                                               ; preds = %78
+  %82 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #4
+  %83 = tail call i32 @EC_GROUP_get_point_conversion_form(ptr noundef nonnull %0) #4
+  %84 = icmp eq ptr %82, null
+  br i1 %84, label %ec_group_explicit_todata.exit, label %85
 
-82:                                               ; preds = %80, %77
-  %83 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.27) #4
-  %84 = icmp ne ptr %83, null
-  %or.cond11.i = select i1 %52, i1 true, i1 %84
-  br i1 %or.cond11.i, label %85, label %95
+85:                                               ; preds = %81
+  %86 = tail call i64 @EC_POINT_point2buf(ptr noundef nonnull %0, ptr noundef nonnull %82, i32 noundef %83, ptr noundef %6, ptr noundef %5) #4
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %ec_group_explicit_todata.exit, label %88
 
-85:                                               ; preds = %82
-  %86 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #4
-  %87 = tail call i32 @EC_GROUP_get_point_conversion_form(ptr noundef nonnull %0) #4
-  %88 = icmp eq ptr %86, null
-  br i1 %88, label %ec_group_explicit_todata.exit, label %89
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %6, align 8, !tbaa !26
+  %90 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.27, ptr noundef %89, i64 noundef %86) #4
+  %.not116.i = icmp eq i32 %90, 0
+  br i1 %.not116.i, label %ec_group_explicit_todata.exit, label %91
 
-89:                                               ; preds = %85
-  %90 = tail call i64 @EC_POINT_point2buf(ptr noundef nonnull %0, ptr noundef nonnull %86, i32 noundef %87, ptr noundef %6, ptr noundef %5) #4
-  %91 = icmp eq i64 %90, 0
-  br i1 %91, label %ec_group_explicit_todata.exit, label %92
+91:                                               ; preds = %88, %78
+  %92 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.28) #4
+  %93 = icmp ne ptr %92, null
+  %or.cond13.i = select i1 %48, i1 true, i1 %93
+  br i1 %or.cond13.i, label %94, label %.thread144.i
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %6, align 8, !tbaa !26
-  %94 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.27, ptr noundef %93, i64 noundef %90) #4
-  %.not116.i = icmp eq i32 %94, 0
-  br i1 %.not116.i, label %ec_group_explicit_todata.exit, label %95
+94:                                               ; preds = %91
+  %95 = tail call ptr @EC_GROUP_get0_cofactor(ptr noundef nonnull %0) #4
+  %.not117.i = icmp eq ptr %95, null
+  br i1 %.not117.i, label %.thread144.i, label %96
 
-95:                                               ; preds = %92, %82
-  %96 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.28) #4
-  %97 = icmp ne ptr %96, null
-  %or.cond13.i = select i1 %52, i1 true, i1 %97
-  br i1 %or.cond13.i, label %98, label %.thread144.i
-
-98:                                               ; preds = %95
-  %99 = tail call ptr @EC_GROUP_get0_cofactor(ptr noundef nonnull %0) #4
-  %.not117.i = icmp eq ptr %99, null
-  br i1 %.not117.i, label %.thread144.i, label %100
-
-100:                                              ; preds = %98
-  %101 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull %99) #4
-  %.not118.i = icmp eq i32 %101, 0
+96:                                               ; preds = %94
+  %97 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull %95) #4
+  %.not118.i = icmp eq i32 %97, 0
   br i1 %.not118.i, label %ec_group_explicit_todata.exit, label %.thread144.i
 
-.thread144.i:                                     ; preds = %100, %98, %95
-  %102 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.29) #4
-  %103 = icmp ne ptr %102, null
-  %or.cond15.i = select i1 %52, i1 true, i1 %103
-  br i1 %or.cond15.i, label %104, label %111
+.thread144.i:                                     ; preds = %96, %94, %91
+  %98 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.29) #4
+  %99 = icmp ne ptr %98, null
+  %or.cond15.i = select i1 %48, i1 true, i1 %99
+  br i1 %or.cond15.i, label %100, label %107
 
-104:                                              ; preds = %.thread144.i
-  %105 = tail call ptr @EC_GROUP_get0_seed(ptr noundef nonnull %0) #4
-  %106 = tail call i64 @EC_GROUP_get_seed_len(ptr noundef nonnull %0) #4
-  %107 = icmp ne ptr %105, null
-  %108 = icmp ne i64 %106, 0
-  %or.cond17.i = select i1 %107, i1 %108, i1 false
-  br i1 %or.cond17.i, label %109, label %111
+100:                                              ; preds = %.thread144.i
+  %101 = tail call ptr @EC_GROUP_get0_seed(ptr noundef nonnull %0) #4
+  %102 = tail call i64 @EC_GROUP_get_seed_len(ptr noundef nonnull %0) #4
+  %103 = icmp ne ptr %101, null
+  %104 = icmp ne i64 %102, 0
+  %or.cond17.i = select i1 %103, i1 %104, i1 false
+  br i1 %or.cond17.i, label %105, label %107
 
-109:                                              ; preds = %104
-  %110 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %105, i64 noundef %106) #4
-  %.not119.i = icmp eq i32 %110, 0
-  br i1 %.not119.i, label %ec_group_explicit_todata.exit, label %111
+105:                                              ; preds = %100
+  %106 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %101, i64 noundef %102) #4
+  %.not119.i = icmp eq i32 %106, 0
+  br i1 %.not119.i, label %ec_group_explicit_todata.exit, label %107
 
-ec_group_explicit_todata.exit:                    ; preds = %45, %56, %61, %63, %65, %67, %72, %75, %80, %85, %89, %92, %100, %109
-  %.sink158.i = phi i32 [ 180, %45 ], [ 193, %56 ], [ 198, %61 ], [ 204, %67 ], [ 204, %65 ], [ 204, %63 ], [ 214, %72 ], [ 219, %75 ], [ 229, %80 ], [ 241, %85 ], [ 246, %89 ], [ 252, %92 ], [ 264, %100 ], [ 279, %109 ]
-  %.sink.i = phi i32 [ 103, %45 ], [ 524291, %56 ], [ 141, %61 ], [ 524303, %67 ], [ 524303, %65 ], [ 524303, %63 ], [ 122, %72 ], [ 524303, %75 ], [ 524303, %80 ], [ 173, %85 ], [ 173, %89 ], [ 524303, %92 ], [ 524303, %100 ], [ 524303, %109 ]
+ec_group_explicit_todata.exit:                    ; preds = %41, %52, %57, %59, %61, %63, %68, %71, %76, %81, %85, %88, %96, %105
+  %.sink158.i = phi i32 [ 180, %41 ], [ 193, %52 ], [ 198, %57 ], [ 204, %63 ], [ 204, %61 ], [ 204, %59 ], [ 214, %68 ], [ 219, %71 ], [ 229, %76 ], [ 241, %81 ], [ 246, %85 ], [ 252, %88 ], [ 264, %96 ], [ 279, %105 ]
+  %.sink.i = phi i32 [ 103, %41 ], [ 524291, %52 ], [ 141, %57 ], [ 524303, %63 ], [ 524303, %61 ], [ 524303, %59 ], [ 122, %68 ], [ 524303, %71 ], [ 524303, %76 ], [ 173, %81 ], [ 173, %85 ], [ 524303, %88 ], [ 524303, %96 ], [ 524303, %105 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
   br label %.thread53.sink.split
 
-111:                                              ; preds = %.thread144.i, %109, %104
-  br i1 %44, label %.thread53, label %.thread
+107:                                              ; preds = %.thread144.i, %105, %100
+  br i1 %40, label %.thread53, label %.thread
 
-.thread:                                          ; preds = %41, %111
-  %112 = tail call ptr @OSSL_EC_curve_nid2name(i32 noundef %42) #4
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %116, label %114
+.thread:                                          ; preds = %37, %107
+  %108 = tail call ptr @OSSL_EC_curve_nid2name(i32 noundef %38) #4
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %112, label %110
 
-114:                                              ; preds = %.thread
-  %115 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull %112) #4
-  %.not44 = icmp eq i32 %115, 0
-  br i1 %.not44, label %116, label %.thread53
+110:                                              ; preds = %.thread
+  %111 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull %108) #4
+  %.not44 = icmp eq i32 %111, 0
+  br i1 %.not44, label %112, label %.thread53
 
-116:                                              ; preds = %.thread, %114
+112:                                              ; preds = %.thread, %110
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @__func__.ossl_ec_group_todata) #4
   br label %.thread53.sink.split
 
-.thread53.sink.split:                             ; preds = %9, %ossl_ec_pt_format_id2name.exit.thread, %ec_param_encoding_id2name.exit.thread, %ec_group_explicit_todata.exit, %116
-  %.sink = phi i32 [ 141, %116 ], [ %.sink.i, %ec_group_explicit_todata.exit ], [ 102, %ec_param_encoding_id2name.exit.thread ], [ 104, %ossl_ec_pt_format_id2name.exit.thread ], [ 134, %9 ]
+.thread53.sink.split:                             ; preds = %9, %ossl_ec_pt_format_id2name.exit.thread, %ec_param_encoding_id2name.exit.thread, %ec_group_explicit_todata.exit, %112
+  %.sink = phi i32 [ 141, %112 ], [ %.sink.i, %ec_group_explicit_todata.exit ], [ 102, %ec_param_encoding_id2name.exit.thread ], [ 104, %ossl_ec_pt_format_id2name.exit.thread ], [ 134, %9 ]
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
   br label %.thread53
 
-.thread53:                                        ; preds = %.thread53.sink.split, %114, %111, %37
-  %.0 = phi i32 [ 0, %37 ], [ 1, %111 ], [ 1, %114 ], [ 0, %.thread53.sink.split ]
+.thread53:                                        ; preds = %.thread53.sink.split, %110, %107, %33
+  %.0 = phi i32 [ 0, %33 ], [ 1, %107 ], [ 1, %110 ], [ 0, %.thread53.sink.split ]
   ret i32 %.0
 }
 

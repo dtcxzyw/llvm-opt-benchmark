@@ -2280,10 +2280,9 @@ search_header.exit:                               ; preds = %match_header.exit.i
 Curl_mime_contenttype.exit:                       ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !77
-  %.not144 = icmp eq ptr %51, null
-  br i1 %.not144, label %Curl_mime_contenttype.exit.thread, label %Curl_mime_contenttype.exit202
+  br label %Curl_mime_contenttype.exit202
 
-Curl_mime_contenttype.exit.thread:                ; preds = %49, %35, %Curl_mime_contenttype.exit
+Curl_mime_contenttype.exit.thread:                ; preds = %49, %35
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !20
   %.not.i187 = icmp eq ptr %53, null
@@ -2317,10 +2316,9 @@ Curl_mime_contenttype.exit.thread:                ; preds = %49, %35, %Curl_mime
 Curl_mime_contenttype.exit194:                    ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !77
-  %.not145 = icmp eq ptr %67, null
-  br i1 %.not145, label %Curl_mime_contenttype.exit194.thread, label %Curl_mime_contenttype.exit202
+  br label %Curl_mime_contenttype.exit202
 
-Curl_mime_contenttype.exit194.thread:             ; preds = %65, %Curl_mime_contenttype.exit.thread, %Curl_mime_contenttype.exit194
+Curl_mime_contenttype.exit194.thread:             ; preds = %65, %Curl_mime_contenttype.exit.thread
   %68 = load ptr, ptr %36, align 8, !tbaa !32
   %.not146 = icmp eq ptr %68, null
   %spec.select177 = select i1 %.not146, ptr null, ptr @.str.20
@@ -2362,7 +2360,7 @@ Curl_mime_contenttype.exit194.thread:             ; preds = %65, %Curl_mime_cont
   %86 = load ptr, ptr %85, align 8, !tbaa !77
   br label %Curl_mime_contenttype.exit202
 
-Curl_mime_contenttype.exit202:                    ; preds = %83, %Curl_mime_contenttype.exit, %84, %69, %Curl_mime_contenttype.exit194.thread, %32, %Curl_mime_contenttype.exit194, %search_header.exit
+Curl_mime_contenttype.exit202:                    ; preds = %83, %Curl_mime_contenttype.exit194, %Curl_mime_contenttype.exit, %84, %69, %Curl_mime_contenttype.exit194.thread, %32, %search_header.exit
   %.1121 = phi ptr [ %spec.select, %search_header.exit ], [ %67, %Curl_mime_contenttype.exit194 ], [ @.str.19, %32 ], [ %spec.select177, %Curl_mime_contenttype.exit194.thread ], [ %86, %84 ], [ null, %69 ], [ %51, %Curl_mime_contenttype.exit ], [ null, %83 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load i32, ptr %87, align 8, !tbaa !23
@@ -2476,7 +2474,7 @@ match_header.exit.i208:                           ; preds = %111, %.lr.ph.i205
   br i1 %.not156, label %133, label %129
 
 129:                                              ; preds = %127
-  br i1 %.not160, label %130, label %.thread339
+  br i1 %.not160, label %130, label %.thread337
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2485,15 +2483,15 @@ match_header.exit.i208:                           ; preds = %111, %.lr.ph.i205
   br i1 %.not158, label %search_header.exit215, label %.thread
 
 133:                                              ; preds = %127
-  br i1 %.not160, label %.thread, label %.thread339
+  br i1 %.not160, label %.thread, label %.thread337
 
-.thread339:                                       ; preds = %129, %133
+.thread337:                                       ; preds = %129, %133
   %134 = tail call fastcc ptr @escape_string(ptr noundef %0, ptr noundef %.pre, i32 noundef %4)
   %.not161 = icmp eq ptr %134, null
   br i1 %.not161, label %select.unfold257, label %.thread
 
-.thread:                                          ; preds = %130, %.thread339, %133
-  %.0106.ph = phi ptr [ null, %133 ], [ %134, %.thread339 ], [ null, %130 ]
+.thread:                                          ; preds = %130, %.thread337, %133
+  %.0106.ph = phi ptr [ null, %133 ], [ %134, %.thread337 ], [ null, %130 ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %136 = load ptr, ptr %135, align 8, !tbaa !32
   %.not163 = icmp eq ptr %136, null
@@ -2517,10 +2515,10 @@ match_header.exit.i208:                           ; preds = %111, %.lr.ph.i205
   %146 = tail call i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0117, ptr noundef nonnull %140, ptr noundef nonnull %141, ptr noundef nonnull %142, ptr noundef nonnull %143, ptr noundef nonnull %144, ptr noundef nonnull %145)
   br label %select.unfold257
 
-select.unfold257:                                 ; preds = %137, %.thread339, %139
-  %.0105266 = phi ptr [ %.0105.ph, %139 ], [ null, %.thread339 ], [ null, %137 ]
-  %.0106255264 = phi ptr [ %.0106.ph, %139 ], [ null, %.thread339 ], [ %.0106.ph, %137 ]
-  %.3 = phi i32 [ %146, %139 ], [ 27, %.thread339 ], [ 27, %137 ]
+select.unfold257:                                 ; preds = %137, %.thread337, %139
+  %.0105266 = phi ptr [ %.0105.ph, %139 ], [ null, %.thread337 ], [ null, %137 ]
+  %.0106255264 = phi ptr [ %.0106.ph, %139 ], [ null, %.thread337 ], [ %.0106.ph, %137 ]
+  %.3 = phi i32 [ %146, %139 ], [ 27, %.thread337 ], [ 27, %137 ]
   %147 = load ptr, ptr @Curl_cfree, align 8, !tbaa !29
   tail call void %147(ptr noundef %.0106255264) #18
   %148 = load ptr, ptr @Curl_cfree, align 8, !tbaa !29

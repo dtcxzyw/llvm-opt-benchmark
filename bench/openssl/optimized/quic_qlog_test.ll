@@ -232,7 +232,7 @@ define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
   %4 = call ptr @ossl_qlog_new(ptr noundef nonnull %2) #6
   %5 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 225, ptr noundef nonnull @.str.7, ptr noundef %4) #6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %23, label %6
+  br i1 %.not, label %24, label %6
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
@@ -243,27 +243,28 @@ define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
   %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 229, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef %10, i32 noundef %12) #6
   %.not9 = icmp eq i32 %13, 0
-  br i1 %.not9, label %23, label %14
+  br i1 %.not9, label %24, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !25
-  %.not10 = icmp eq i32 %16, 0
-  br i1 %.not10, label %22, label %17
+  %15 = add nsw i64 %7, -20
+  %.not10 = icmp ult i64 %15, 12
+  br i1 %.not10, label %23, label %16
 
-17:                                               ; preds = %14
-  %18 = call i32 @ossl_qlog_enabled(ptr noundef %4, i32 noundef %16) #6
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !26
-  %21 = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef %18, i32 noundef %20) #6
-  %.not11 = icmp eq i32 %21, 0
-  br i1 %.not11, label %23, label %22
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !25
+  %19 = call i32 @ossl_qlog_enabled(ptr noundef %4, i32 noundef %18) #6
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %21 = load i32, ptr %20, align 8, !tbaa !26
+  %22 = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef %19, i32 noundef %21) #6
+  %.not11 = icmp eq i32 %22, 0
+  br i1 %.not11, label %24, label %23
 
-22:                                               ; preds = %17, %14
-  br label %23
+23:                                               ; preds = %16, %14
+  br label %24
 
-23:                                               ; preds = %17, %6, %1, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %17 ], [ 0, %6 ], [ 0, %1 ]
+24:                                               ; preds = %16, %6, %1, %23
+  %.0 = phi i32 [ 1, %23 ], [ 0, %16 ], [ 0, %6 ], [ 0, %1 ]
   call void @ossl_qlog_free(ptr noundef %4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

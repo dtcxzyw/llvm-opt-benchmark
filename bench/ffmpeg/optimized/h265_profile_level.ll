@@ -52,158 +52,141 @@ define ptr @ff_h265_get_profile(ptr noundef readonly captures(none) %0) local_un
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %5 = load i8, ptr %4, align 1, !tbaa !8
-  %.not55 = icmp eq i8 %5, 0
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %4 = load i8, ptr %3, align 1, !tbaa !8
+  %.not55 = icmp eq i8 %4, 0
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 43
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 45
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 47
   br label %16
 
-16:                                               ; preds = %.preheader, %83
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %83 ]
+16:                                               ; preds = %.preheader, %71
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %71 ]
   %17 = getelementptr inbounds nuw %struct.H265ProfileDescriptor, ptr @h265_profiles, i64 %indvars.iv
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !9
   br i1 %.not55, label %._crit_edge, label %18
 
 18:                                               ; preds = %16
-  %.not56 = icmp eq i8 %5, %.pre
-  br i1 %.not56, label %._crit_edge, label %83
+  %.not56 = icmp eq i8 %4, %.pre
+  br i1 %.not56, label %._crit_edge, label %71
 
 ._crit_edge:                                      ; preds = %16, %18
-  %19 = phi i8 [ %5, %18 ], [ %.pre, %16 ]
+  %19 = phi i8 [ %4, %18 ], [ %.pre, %16 ]
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %.not57 = icmp eq i8 %22, 0
-  br i1 %.not57, label %83, label %23
+  br i1 %.not57, label %71, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 10
-  %25 = load i8, ptr %24, align 2, !tbaa !16
-  %26 = icmp ult i8 %25, 2
-  br i1 %26, label %27, label %29
+  %24 = shl nuw nsw i64 1, %indvars.iv
+  %25 = and i64 %24, 34374271136
+  %.not58 = icmp eq i64 %25, 0
+  br i1 %.not58, label %30, label %26
 
-27:                                               ; preds = %23
-  %28 = load i8, ptr %7, align 1, !tbaa !17
-  %.not58 = icmp eq i8 %25, %28
-  br i1 %.not58, label %29, label %83
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 10
+  %28 = load i8, ptr %27, align 2, !tbaa !16
+  %29 = load i8, ptr %6, align 1, !tbaa !17
+  %.not59 = icmp eq i8 %28, %29
+  br i1 %.not59, label %30, label %71
 
-29:                                               ; preds = %27, %23
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 11
-  %31 = load i8, ptr %30, align 1, !tbaa !18
-  %32 = icmp ult i8 %31, 2
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %26, %23
+  %31 = and i64 %24, 68719475119
+  %.not60 = icmp eq i64 %31, 0
+  br i1 %.not60, label %.thread81, label %32
 
-33:                                               ; preds = %29
-  %34 = load i8, ptr %8, align 1, !tbaa !19
-  %.not59 = icmp eq i8 %31, %34
-  br i1 %.not59, label %35, label %83
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 11
+  %34 = load i8, ptr %33, align 1, !tbaa !18
+  %35 = load i8, ptr %7, align 1, !tbaa !19
+  %.not61 = icmp eq i8 %34, %35
+  br i1 %.not61, label %36, label %71
 
-35:                                               ; preds = %33, %29
-  %36 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %37 = load i8, ptr %36, align 4, !tbaa !20
-  %38 = icmp ult i8 %37, 2
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %38 = load i8, ptr %37, align 4, !tbaa !20
+  %39 = load i8, ptr %8, align 1, !tbaa !21
+  %.not63 = icmp eq i8 %38, %39
+  br i1 %.not63, label %40, label %71
 
-39:                                               ; preds = %35
-  %40 = load i8, ptr %9, align 1, !tbaa !21
-  %.not60 = icmp eq i8 %37, %40
-  br i1 %.not60, label %41, label %83
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 13
+  %42 = load i8, ptr %41, align 1, !tbaa !22
+  %43 = load i8, ptr %9, align 1, !tbaa !23
+  %.not65 = icmp eq i8 %42, %43
+  br i1 %.not65, label %44, label %71
 
-41:                                               ; preds = %39, %35
-  %42 = getelementptr inbounds nuw i8, ptr %17, i64 13
-  %43 = load i8, ptr %42, align 1, !tbaa !22
-  %44 = icmp ult i8 %43, 2
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 14
+  %46 = load i8, ptr %45, align 2, !tbaa !24
+  %47 = load i8, ptr %10, align 1, !tbaa !25
+  %.not67 = icmp eq i8 %46, %47
+  br i1 %.not67, label %48, label %71
 
-45:                                               ; preds = %41
-  %46 = load i8, ptr %10, align 1, !tbaa !23
-  %.not61 = icmp eq i8 %43, %46
-  br i1 %.not61, label %47, label %83
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 15
+  %50 = load i8, ptr %49, align 1, !tbaa !26
+  %51 = load i8, ptr %11, align 1, !tbaa !27
+  %.not69 = icmp eq i8 %50, %51
+  br i1 %.not69, label %52, label %71
 
-47:                                               ; preds = %45, %41
-  %48 = getelementptr inbounds nuw i8, ptr %17, i64 14
-  %49 = load i8, ptr %48, align 2, !tbaa !24
-  %50 = icmp ult i8 %49, 2
-  br i1 %50, label %51, label %53
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %54 = load i8, ptr %53, align 8, !tbaa !28
+  %55 = load i8, ptr %12, align 1, !tbaa !29
+  %.not71 = icmp eq i8 %54, %55
+  br i1 %.not71, label %56, label %71
 
-51:                                               ; preds = %47
-  %52 = load i8, ptr %11, align 1, !tbaa !25
-  %.not62 = icmp eq i8 %49, %52
-  br i1 %.not62, label %53, label %83
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %17, i64 17
+  %58 = load i8, ptr %57, align 1, !tbaa !30
+  %59 = load i8, ptr %13, align 1, !tbaa !31
+  %.not73 = icmp eq i8 %58, %59
+  br i1 %.not73, label %.thread81, label %71
 
-53:                                               ; preds = %51, %47
-  %54 = getelementptr inbounds nuw i8, ptr %17, i64 15
-  %55 = load i8, ptr %54, align 1, !tbaa !26
-  %56 = icmp ult i8 %55, 2
-  br i1 %56, label %57, label %59
+.thread81:                                        ; preds = %30, %56
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %60, label %61 [
+    i32 9, label %65
+    i32 4, label %65
+  ]
 
-57:                                               ; preds = %53
-  %58 = load i8, ptr %12, align 1, !tbaa !27
-  %.not63 = icmp eq i8 %55, %58
-  br i1 %.not63, label %59, label %83
+61:                                               ; preds = %.thread81
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 18
+  %63 = load i8, ptr %62, align 2, !tbaa !32
+  %64 = load i8, ptr %14, align 1, !tbaa !33
+  %.not74 = icmp eq i8 %63, %64
+  br i1 %.not74, label %65, label %71
 
-59:                                               ; preds = %57, %53
-  %60 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %61 = load i8, ptr %60, align 8, !tbaa !28
-  %62 = icmp ult i8 %61, 2
-  br i1 %62, label %63, label %65
+65:                                               ; preds = %.thread81, %.thread81, %61
+  %66 = and i64 %24, 16775599
+  %.not75 = icmp eq i64 %66, 0
+  br i1 %.not75, label %.loopexit, label %67
 
-63:                                               ; preds = %59
-  %64 = load i8, ptr %13, align 1, !tbaa !29
-  %.not64 = icmp eq i8 %61, %64
-  br i1 %.not64, label %65, label %83
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 19
+  %69 = load i8, ptr %68, align 1, !tbaa !34
+  %70 = load i8, ptr %15, align 1, !tbaa !35
+  %.not76 = icmp eq i8 %69, %70
+  br i1 %.not76, label %.loopexit, label %71
 
-65:                                               ; preds = %63, %59
-  %66 = getelementptr inbounds nuw i8, ptr %17, i64 17
-  %67 = load i8, ptr %66, align 1, !tbaa !30
-  %68 = icmp ult i8 %67, 2
-  br i1 %68, label %69, label %71
-
-69:                                               ; preds = %65
-  %70 = load i8, ptr %14, align 1, !tbaa !31
-  %.not65 = icmp eq i8 %67, %70
-  br i1 %.not65, label %71, label %83
-
-71:                                               ; preds = %69, %65
-  %72 = getelementptr inbounds nuw i8, ptr %17, i64 18
-  %73 = load i8, ptr %72, align 2, !tbaa !32
-  %74 = icmp ult i8 %73, 2
-  br i1 %74, label %75, label %77
-
-75:                                               ; preds = %71
-  %76 = load i8, ptr %15, align 1, !tbaa !33
-  %.not66 = icmp eq i8 %73, %76
-  br i1 %.not66, label %77, label %83
-
-77:                                               ; preds = %75, %71
-  %78 = getelementptr inbounds nuw i8, ptr %17, i64 19
-  %79 = load i8, ptr %78, align 1, !tbaa !34
-  %80 = icmp ult i8 %79, 2
-  br i1 %80, label %81, label %.loopexit
-
-81:                                               ; preds = %77
-  %82 = load i8, ptr %3, align 1, !tbaa !35
-  %.not67 = icmp eq i8 %79, %82
-  br i1 %.not67, label %.loopexit, label %83
-
-83:                                               ; preds = %18, %._crit_edge, %27, %33, %39, %45, %51, %57, %63, %69, %75, %81
+71:                                               ; preds = %18, %._crit_edge, %26, %32, %36, %40, %44, %48, %52, %56, %61, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !36
 
-.loopexit:                                        ; preds = %81, %77, %83, %1
-  %.0 = phi ptr [ null, %1 ], [ %17, %81 ], [ %17, %77 ], [ null, %83 ]
+.loopexit:                                        ; preds = %67, %65, %71, %1
+  %.0 = phi ptr [ null, %1 ], [ %17, %67 ], [ %17, %65 ], [ null, %71 ]
   ret ptr %.0
 }
 
@@ -225,24 +208,24 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   br label %17
 
 17:                                               ; preds = %8, %9
-  %spec.store.select91 = phi ptr [ %spec.store.select, %9 ], [ getelementptr inbounds nuw (i8, ptr @h265_profiles, i64 160), %8 ]
+  %spec.store.select92 = phi ptr [ %spec.store.select, %9 ], [ getelementptr inbounds nuw (i8, ptr @h265_profiles, i64 160), %8 ]
   %.065 = phi i1 [ %16, %9 ], [ true, %8 ]
   %.064 = phi i32 [ %15, %9 ], [ 1, %8 ]
   %18 = mul nsw i32 %3, %2
-  %19 = getelementptr inbounds nuw i8, ptr %spec.store.select91, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %spec.store.select92, i64 8
   %20 = load i8, ptr %19, align 8, !tbaa !9
   %.off = add i8 %20, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %31, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %spec.store.select91, i64 9
+  %22 = getelementptr inbounds nuw i8, ptr %spec.store.select92, i64 9
   %23 = load i8, ptr %22, align 1, !tbaa !39
   %.not78 = icmp eq i8 %23, 0
   br i1 %.not78, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %spec.store.select91, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %spec.store.select92, i64 17
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %.not79 = icmp eq i8 %26, 0
   br i1 %.not79, label %31, label %27
@@ -262,126 +245,122 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   %33 = mul i32 %3, %3
   %invariant.umax = tail call i32 @llvm.umax.i32(i32 %32, i32 %33)
   %.060.in.v = select i1 %.065, i64 28, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %spec.store.select91, i64 22
+  %34 = getelementptr inbounds nuw i8, ptr %spec.store.select92, i64 22
   %35 = sext i32 %.063 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %spec.store.select91, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %spec.store.select92, i64 32
   br label %37
 
-37:                                               ; preds = %31, %.thread92
-  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %.thread92 ]
+37:                                               ; preds = %31, %.thread93
+  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %.thread93 ]
   %38 = getelementptr inbounds nuw %struct.H265LevelDescriptor, ptr @h265_levels, i64 %indvars.iv
-  br i1 %.065, label %42, label %39
+  %.not81 = icmp samesign ugt i64 %indvars.iv, 4
+  %or.cond.not = select i1 %.065, i1 true, i1 %.not81
+  br i1 %or.cond.not, label %39, label %.thread93
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !40
-  %.not81 = icmp eq i32 %41, 0
-  br i1 %.not81, label %.thread92, label %42
+  %42 = icmp ugt i32 %18, %41
+  %43 = shl i32 %41, 3
+  %or.cond87 = icmp ult i32 %43, %invariant.umax
+  %or.cond = select i1 %42, i1 true, i1 %or.cond87
+  br i1 %or.cond, label %.thread93, label %44
 
-42:                                               ; preds = %39, %37
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !43
-  %45 = icmp ugt i32 %18, %44
-  %46 = shl i32 %44, 3
-  %or.cond = icmp ult i32 %46, %invariant.umax
-  %or.cond97 = select i1 %45, i1 true, i1 %or.cond
-  br i1 %or.cond97, label %.thread92, label %47
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %46 = load i16, ptr %45, align 4, !tbaa !43
+  %47 = zext i16 %46 to i32
+  %48 = icmp sgt i32 %4, %47
+  br i1 %48, label %.thread93, label %49
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  %49 = load i16, ptr %48, align 4, !tbaa !44
-  %50 = zext i16 %49 to i32
-  %51 = icmp sgt i32 %4, %50
-  br i1 %51, label %.thread92, label %52
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 22
+  %51 = load i8, ptr %50, align 2, !tbaa !44
+  %52 = zext i8 %51 to i32
+  %53 = icmp sgt i32 %5, %52
+  br i1 %53, label %.thread93, label %54
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %38, i64 22
-  %54 = load i8, ptr %53, align 2, !tbaa !45
-  %55 = zext i8 %54 to i32
-  %56 = icmp sgt i32 %5, %55
-  br i1 %56, label %.thread92, label %57
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %38, i64 23
+  %56 = load i8, ptr %55, align 1, !tbaa !45
+  %57 = zext i8 %56 to i32
+  %58 = icmp sgt i32 %6, %57
+  br i1 %58, label %.thread93, label %59
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %38, i64 23
-  %59 = load i8, ptr %58, align 1, !tbaa !46
-  %60 = zext i8 %59 to i32
-  %61 = icmp sgt i32 %6, %60
-  br i1 %61, label %.thread92, label %62
-
-62:                                               ; preds = %57
+59:                                               ; preds = %54
   %.060.in = getelementptr inbounds nuw i8, ptr %38, i64 %.060.in.v
-  %.060 = load i32, ptr %.060.in, align 4, !tbaa !47
+  %.060 = load i32, ptr %.060.in, align 4, !tbaa !46
   %.not82 = icmp eq i32 %.060, 0
-  br i1 %.not82, label %.thread92, label %63
+  br i1 %.not82, label %.thread93, label %60
 
-63:                                               ; preds = %62
-  %64 = load i16, ptr %34, align 2, !tbaa !48
-  %65 = zext i16 %64 to i64
-  %66 = sext i32 %.060 to i64
-  %67 = mul nsw i64 %66, %35
-  %68 = mul nsw i64 %67, %65
-  %69 = icmp sgt i64 %1, %68
-  br i1 %69, label %.thread92, label %70
+60:                                               ; preds = %59
+  %61 = load i16, ptr %34, align 2, !tbaa !47
+  %62 = zext i16 %61 to i64
+  %63 = sext i32 %.060 to i64
+  %64 = mul nsw i64 %63, %35
+  %65 = mul nsw i64 %64, %62
+  %66 = icmp sgt i64 %1, %65
+  br i1 %66, label %.thread93, label %67
 
-70:                                               ; preds = %63
-  %71 = lshr i32 %44, 2
-  %.not83 = icmp ugt i32 %18, %71
-  br i1 %.not83, label %78, label %72
+67:                                               ; preds = %60
+  %68 = lshr i32 %41, 2
+  %.not83 = icmp ugt i32 %18, %68
+  br i1 %.not83, label %75, label %69
 
-72:                                               ; preds = %70
-  %73 = load i8, ptr %36, align 8, !tbaa !49
-  %74 = icmp ugt i8 %73, 4
-  %75 = zext i8 %73 to i32
-  %76 = shl nuw nsw i32 %75, 2
-  %77 = select i1 %74, i32 16, i32 %76
-  br label %97
+69:                                               ; preds = %67
+  %70 = load i8, ptr %36, align 8, !tbaa !48
+  %71 = icmp ugt i8 %70, 4
+  %72 = zext i8 %70 to i32
+  %73 = shl nuw nsw i32 %72, 2
+  %74 = select i1 %71, i32 16, i32 %73
+  br label %94
 
-78:                                               ; preds = %70
-  %79 = lshr i32 %44, 1
-  %.not84 = icmp ugt i32 %18, %79
-  br i1 %.not84, label %86, label %80
+75:                                               ; preds = %67
+  %76 = lshr i32 %41, 1
+  %.not84 = icmp ugt i32 %18, %76
+  br i1 %.not84, label %83, label %77
 
-80:                                               ; preds = %78
-  %81 = load i8, ptr %36, align 8, !tbaa !49
-  %82 = icmp ugt i8 %81, 8
-  %83 = zext i8 %81 to i32
-  %84 = shl nuw nsw i32 %83, 1
-  %85 = select i1 %82, i32 16, i32 %84
-  br label %97
+77:                                               ; preds = %75
+  %78 = load i8, ptr %36, align 8, !tbaa !48
+  %79 = icmp ugt i8 %78, 8
+  %80 = zext i8 %78 to i32
+  %81 = shl nuw nsw i32 %80, 1
+  %82 = select i1 %79, i32 16, i32 %81
+  br label %94
 
-86:                                               ; preds = %78
-  %87 = mul i32 %44, 3
-  %88 = lshr i32 %87, 2
-  %.not85 = icmp ugt i32 %18, %88
-  %89 = load i8, ptr %36, align 8, !tbaa !49
-  br i1 %.not85, label %95, label %90
+83:                                               ; preds = %75
+  %84 = mul i32 %41, 3
+  %85 = lshr i32 %84, 2
+  %.not85 = icmp ugt i32 %18, %85
+  %86 = load i8, ptr %36, align 8, !tbaa !48
+  br i1 %.not85, label %92, label %87
 
-90:                                               ; preds = %86
-  %91 = icmp ugt i8 %89, 12
-  br i1 %91, label %97, label %92
+87:                                               ; preds = %83
+  %88 = icmp ugt i8 %86, 12
+  br i1 %88, label %94, label %89
 
-92:                                               ; preds = %90
-  %93 = shl nuw nsw i8 %89, 2
-  %94 = udiv i8 %93, 3
-  %.zext = zext nneg i8 %94 to i32
-  br label %97
+89:                                               ; preds = %87
+  %90 = shl nuw nsw i8 %86, 2
+  %91 = udiv i8 %90, 3
+  %.zext = zext nneg i8 %91 to i32
+  br label %94
 
-95:                                               ; preds = %86
-  %96 = zext i8 %89 to i32
-  br label %97
+92:                                               ; preds = %83
+  %93 = zext i8 %86 to i32
+  br label %94
 
-97:                                               ; preds = %72, %95, %80, %90, %92
-  %.059 = phi i32 [ %77, %72 ], [ %85, %80 ], [ %96, %95 ], [ %.zext, %92 ], [ 16, %90 ]
-  %98 = icmp sgt i32 %7, %.059
-  br i1 %98, label %.thread92, label %99
+94:                                               ; preds = %69, %92, %77, %87, %89
+  %.059 = phi i32 [ %74, %69 ], [ %82, %77 ], [ %93, %92 ], [ %.zext, %89 ], [ 16, %87 ]
+  %95 = icmp sgt i32 %7, %.059
+  br i1 %95, label %.thread93, label %96
 
-.thread92:                                        ; preds = %63, %62, %57, %52, %47, %42, %39, %97
+.thread93:                                        ; preds = %60, %59, %54, %49, %44, %39, %37, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %99, label %37, !llvm.loop !50
+  br i1 %exitcond.not, label %96, label %37, !llvm.loop !49
 
-99:                                               ; preds = %.thread92, %97
-  %.2 = phi ptr [ %38, %97 ], [ null, %.thread92 ]
+96:                                               ; preds = %.thread93, %94
+  %.2 = phi ptr [ %38, %94 ], [ null, %.thread93 ]
   ret ptr %.2
 }
 
@@ -434,14 +413,13 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !37 = !{!"llvm.loop.mustprogress"}
 !38 = !{!5, !6, i64 1}
 !39 = !{!10, !6, i64 9}
-!40 = !{!41, !42, i64 32}
+!40 = !{!41, !42, i64 8}
 !41 = !{!"H265LevelDescriptor", !6, i64 0, !6, i64 4, !42, i64 8, !42, i64 12, !42, i64 16, !13, i64 20, !6, i64 22, !6, i64 23, !42, i64 24, !42, i64 28, !42, i64 32, !6, i64 36, !6, i64 37}
 !42 = !{!"int", !6, i64 0}
-!43 = !{!41, !42, i64 8}
-!44 = !{!41, !13, i64 20}
-!45 = !{!41, !6, i64 22}
-!46 = !{!41, !6, i64 23}
-!47 = !{!42, !42, i64 0}
-!48 = !{!10, !13, i64 22}
-!49 = !{!10, !6, i64 32}
-!50 = distinct !{!50, !37}
+!43 = !{!41, !13, i64 20}
+!44 = !{!41, !6, i64 22}
+!45 = !{!41, !6, i64 23}
+!46 = !{!42, !42, i64 0}
+!47 = !{!10, !13, i64 22}
+!48 = !{!10, !6, i64 32}
+!49 = distinct !{!49, !37}

@@ -211,240 +211,219 @@ ec_curve_nid2curve.exit:                          ; preds = %.preheader.i
   %.06.i8.sroa.611.0.copyload = load ptr, ptr %.06.i8.sroa.611.0..06.i.sroa_idx, align 8
   %.06.i8.sroa.7.0..06.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.06.i8.sroa.7.0.copyload = load ptr, ptr %.06.i8.sroa.7.0..06.i.sroa_idx, align 8
-  %10 = icmp eq ptr %.06.i8.sroa.611.0.copyload, null
-  br i1 %10, label %11, label %17
+  %10 = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #7
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %103, label %12
 
-11:                                               ; preds = %ec_curve_nid2curve.exit
-  %.not131.i = icmp eq ptr %.06.i8.sroa.7.0.copyload, null
-  br i1 %.not131.i, label %14, label %12
+12:                                               ; preds = %ec_curve_nid2curve.exit
+  %13 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !12
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 8
+  %16 = load i32, ptr %15, align 4, !tbaa !14
+  %17 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 16
+  %.not.i.not = icmp eq i64 %.08.i, 19
+  br i1 %.not.i.not, label %18, label %28
 
-12:                                               ; preds = %11
-  %13 = tail call ptr %.06.i8.sroa.7.0.copyload() #7
-  br label %14
+18:                                               ; preds = %12
+  %19 = tail call ptr %.06.i8.sroa.7.0.copyload() #7
+  %20 = tail call ptr @ossl_ec_group_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %19) #7
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %103, label %22
 
-14:                                               ; preds = %12, %11
-  %15 = phi ptr [ %13, %12 ], [ null, %11 ]
-  %16 = tail call ptr @ossl_ec_group_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %15) #7
-  br label %ec_group_new_from_data.exit
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %20, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 440
+  %25 = load ptr, ptr %24, align 8, !tbaa !23
+  %.not122.i = icmp eq ptr %25, null
+  br i1 %.not122.i, label %28, label %26
 
-17:                                               ; preds = %ec_curve_nid2curve.exit
-  %18 = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #7
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %111, label %20
+26:                                               ; preds = %22
+  %27 = tail call i32 %25(ptr noundef nonnull %20, ptr noundef nonnull %17) #7
+  %.not129.i = icmp eq i32 %27, 0
+  br i1 %.not129.i, label %103, label %ec_group_new_from_data.exit.thread
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 8
-  %24 = load i32, ptr %23, align 4, !tbaa !14
-  %25 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 16
-  %.not.i = icmp eq ptr %.06.i8.sroa.7.0.copyload, null
-  br i1 %.not.i, label %36, label %26
+ec_group_new_from_data.exit.thread:               ; preds = %26
+  tail call void @EC_GROUP_set_curve_name(ptr noundef nonnull %20, i32 noundef %2) #7
+  tail call void @BN_CTX_free(ptr noundef nonnull %10) #7
+  br label %106
 
-26:                                               ; preds = %20
-  %27 = tail call ptr %.06.i8.sroa.7.0.copyload() #7
-  %28 = tail call ptr @ossl_ec_group_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %27) #7
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %111, label %30
+28:                                               ; preds = %22, %12
+  %.1.i = phi ptr [ %20, %22 ], [ null, %12 ]
+  %29 = sext i32 %14 to i64
+  %30 = getelementptr inbounds i8, ptr %17, i64 %29
+  %31 = tail call ptr @BN_bin2bn(ptr noundef nonnull %30, i32 noundef %16, ptr noundef null) #7
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %103, label %33
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %28, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 440
-  %33 = load ptr, ptr %32, align 8, !tbaa !23
-  %.not122.i = icmp eq ptr %33, null
-  br i1 %.not122.i, label %36, label %34
+33:                                               ; preds = %28
+  %34 = sext i32 %16 to i64
+  %35 = getelementptr inbounds i8, ptr %30, i64 %34
+  %36 = tail call ptr @BN_bin2bn(ptr noundef nonnull %35, i32 noundef %16, ptr noundef null) #7
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %103, label %38
 
-34:                                               ; preds = %30
-  %35 = tail call i32 %33(ptr noundef nonnull %28, ptr noundef nonnull %25) #7
-  %.not129.i = icmp eq i32 %35, 0
-  br i1 %.not129.i, label %111, label %ec_group_new_from_data.exit.thread
+38:                                               ; preds = %33
+  %39 = shl nsw i32 %16, 1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %30, i64 %40
+  %42 = tail call ptr @BN_bin2bn(ptr noundef nonnull %41, i32 noundef %16, ptr noundef null) #7
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %103, label %44
 
-ec_group_new_from_data.exit.thread:               ; preds = %34
-  tail call void @EC_GROUP_set_curve_name(ptr noundef nonnull %28, i32 noundef %2) #7
-  tail call void @BN_CTX_free(ptr noundef nonnull %18) #7
-  br label %115
-
-36:                                               ; preds = %30, %20
-  %.1.i = phi ptr [ %28, %30 ], [ null, %20 ]
-  %37 = sext i32 %22 to i64
-  %38 = getelementptr inbounds i8, ptr %25, i64 %37
-  %39 = tail call ptr @BN_bin2bn(ptr noundef nonnull %38, i32 noundef %24, ptr noundef null) #7
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %111, label %41
-
-41:                                               ; preds = %36
-  %42 = sext i32 %24 to i64
-  %43 = getelementptr inbounds i8, ptr %38, i64 %42
-  %44 = tail call ptr @BN_bin2bn(ptr noundef nonnull %43, i32 noundef %24, ptr noundef null) #7
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %111, label %46
-
-46:                                               ; preds = %41
-  %47 = shl nsw i32 %24, 1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %38, i64 %48
-  %50 = tail call ptr @BN_bin2bn(ptr noundef nonnull %49, i32 noundef %24, ptr noundef null) #7
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %111, label %52
-
-52:                                               ; preds = %46
+44:                                               ; preds = %38
   %.not123.i = icmp eq ptr %.1.i, null
-  br i1 %.not123.i, label %59, label %53
+  br i1 %.not123.i, label %51, label %45
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %.1.i, align 8, !tbaa !15
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !25
-  %57 = tail call i32 %56(ptr noundef nonnull %.1.i, ptr noundef nonnull %39, ptr noundef nonnull %44, ptr noundef nonnull %50, ptr noundef nonnull %18) #7
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %111, label %68
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %.1.i, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %48 = load ptr, ptr %47, align 8, !tbaa !25
+  %49 = tail call i32 %48(ptr noundef nonnull %.1.i, ptr noundef nonnull %31, ptr noundef nonnull %36, ptr noundef nonnull %42, ptr noundef nonnull %10) #7
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %103, label %60
 
-59:                                               ; preds = %52
-  %60 = load i32, ptr %.06.i8.sroa.611.0.copyload, align 4, !tbaa !26
-  %61 = icmp eq i32 %60, 406
-  br i1 %61, label %62, label %65
+51:                                               ; preds = %44
+  %52 = load i32, ptr %.06.i8.sroa.611.0.copyload, align 4, !tbaa !26
+  %53 = icmp eq i32 %52, 406
+  br i1 %53, label %54, label %57
 
-62:                                               ; preds = %59
-  %63 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %39, ptr noundef nonnull %44, ptr noundef nonnull %50, ptr noundef nonnull %18) #7
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %111, label %68
+54:                                               ; preds = %51
+  %55 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %31, ptr noundef nonnull %36, ptr noundef nonnull %42, ptr noundef nonnull %10) #7
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %103, label %60
 
-65:                                               ; preds = %59
-  %66 = tail call ptr @EC_GROUP_new_curve_GF2m(ptr noundef nonnull %39, ptr noundef nonnull %44, ptr noundef nonnull %50, ptr noundef nonnull %18) #7
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %111, label %68
+57:                                               ; preds = %51
+  %58 = tail call ptr @EC_GROUP_new_curve_GF2m(ptr noundef nonnull %31, ptr noundef nonnull %36, ptr noundef nonnull %42, ptr noundef nonnull %10) #7
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %103, label %60
 
-68:                                               ; preds = %65, %62, %53
-  %.2.i = phi ptr [ %.1.i, %53 ], [ %63, %62 ], [ %66, %65 ]
+60:                                               ; preds = %57, %54, %45
+  %.2.i = phi ptr [ %.1.i, %45 ], [ %55, %54 ], [ %58, %57 ]
   tail call void @EC_GROUP_set_curve_name(ptr noundef nonnull %.2.i, i32 noundef %2) #7
-  %69 = tail call ptr @EC_POINT_new(ptr noundef nonnull %.2.i) #7
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %111, label %71
+  %61 = tail call ptr @EC_POINT_new(ptr noundef nonnull %.2.i) #7
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %103, label %63
 
-71:                                               ; preds = %68
-  %72 = mul nsw i32 %24, 3
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %38, i64 %73
-  %75 = tail call ptr @BN_bin2bn(ptr noundef nonnull %74, i32 noundef %24, ptr noundef null) #7
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %111, label %77
+63:                                               ; preds = %60
+  %64 = mul nsw i32 %16, 3
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %30, i64 %65
+  %67 = tail call ptr @BN_bin2bn(ptr noundef nonnull %66, i32 noundef %16, ptr noundef null) #7
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %103, label %69
 
-77:                                               ; preds = %71
-  %78 = shl nsw i32 %24, 2
+69:                                               ; preds = %63
+  %70 = shl nsw i32 %16, 2
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %30, i64 %71
+  %73 = tail call ptr @BN_bin2bn(ptr noundef nonnull %72, i32 noundef %16, ptr noundef null) #7
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %103, label %75
+
+75:                                               ; preds = %69
+  %76 = tail call i32 @EC_POINT_set_affine_coordinates(ptr noundef nonnull %.2.i, ptr noundef nonnull %61, ptr noundef nonnull %67, ptr noundef nonnull %73, ptr noundef nonnull %10) #7
+  %.not124.i = icmp eq i32 %76, 0
+  br i1 %.not124.i, label %103, label %77
+
+77:                                               ; preds = %75
+  %78 = mul nsw i32 %16, 5
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %38, i64 %79
-  %81 = tail call ptr @BN_bin2bn(ptr noundef nonnull %80, i32 noundef %24, ptr noundef null) #7
+  %80 = getelementptr inbounds i8, ptr %30, i64 %79
+  %81 = tail call ptr @BN_bin2bn(ptr noundef nonnull %80, i32 noundef %16, ptr noundef null) #7
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %111, label %83
+  br i1 %82, label %103, label %83
 
 83:                                               ; preds = %77
-  %84 = tail call i32 @EC_POINT_set_affine_coordinates(ptr noundef nonnull %.2.i, ptr noundef nonnull %69, ptr noundef nonnull %75, ptr noundef nonnull %81, ptr noundef nonnull %18) #7
-  %.not124.i = icmp eq i32 %84, 0
-  br i1 %.not124.i, label %111, label %85
+  %84 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 12
+  %85 = load i32, ptr %84, align 4, !tbaa !27
+  %86 = zext i32 %85 to i64
+  %87 = tail call i32 @BN_set_word(ptr noundef nonnull %67, i64 noundef %86) #7
+  %.not125.i = icmp eq i32 %87, 0
+  br i1 %.not125.i, label %103, label %88
 
-85:                                               ; preds = %83
-  %86 = mul nsw i32 %24, 5
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %38, i64 %87
-  %89 = tail call ptr @BN_bin2bn(ptr noundef nonnull %88, i32 noundef %24, ptr noundef null) #7
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %111, label %91
+88:                                               ; preds = %83
+  %89 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %.2.i, ptr noundef nonnull %61, ptr noundef nonnull %81, ptr noundef nonnull %67) #7
+  %.not126.i = icmp eq i32 %89, 0
+  br i1 %.not126.i, label %103, label %90
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds nuw i8, ptr %.06.i8.sroa.611.0.copyload, i64 12
-  %93 = load i32, ptr %92, align 4, !tbaa !27
-  %94 = zext i32 %93 to i64
-  %95 = tail call i32 @BN_set_word(ptr noundef nonnull %75, i64 noundef %94) #7
-  %.not125.i = icmp eq i32 %95, 0
-  br i1 %.not125.i, label %111, label %96
+90:                                               ; preds = %88
+  %.not127.i = icmp eq i32 %14, 0
+  br i1 %.not127.i, label %93, label %91
 
-96:                                               ; preds = %91
-  %97 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %.2.i, ptr noundef nonnull %69, ptr noundef nonnull %89, ptr noundef nonnull %75) #7
-  %.not126.i = icmp eq i32 %97, 0
-  br i1 %.not126.i, label %111, label %98
+91:                                               ; preds = %90
+  %92 = tail call i64 @EC_GROUP_set_seed(ptr noundef nonnull %.2.i, ptr noundef nonnull %17, i64 noundef %29) #7
+  %.not128.i = icmp eq i64 %92, 0
+  br i1 %.not128.i, label %103, label %93
 
-98:                                               ; preds = %96
-  %.not127.i = icmp eq i32 %22, 0
-  br i1 %.not127.i, label %101, label %99
+93:                                               ; preds = %91, %90
+  %94 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %.2.i) #7
+  %95 = icmp eq i32 %94, 1
+  br i1 %95, label %96, label %ec_group_new_from_data.exit
 
-99:                                               ; preds = %98
-  %100 = tail call i64 @EC_GROUP_set_seed(ptr noundef nonnull %.2.i, ptr noundef nonnull %25, i64 noundef %37) #7
-  %.not128.i = icmp eq i64 %100, 0
-  br i1 %.not128.i, label %111, label %101
+96:                                               ; preds = %93
+  %97 = tail call ptr @OBJ_nid2obj(i32 noundef %2) #7
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %103, label %99
 
-101:                                              ; preds = %99, %98
-  %102 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %.2.i) #7
-  %103 = icmp eq i32 %102, 1
-  br i1 %103, label %104, label %112
+99:                                               ; preds = %96
+  %100 = tail call i64 @OBJ_length(ptr noundef nonnull %97) #7
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %.thread.i
 
-104:                                              ; preds = %101
-  %105 = tail call ptr @OBJ_nid2obj(i32 noundef %2) #7
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %111, label %107
-
-107:                                              ; preds = %104
-  %108 = tail call i64 @OBJ_length(ptr noundef nonnull %105) #7
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %110, label %.thread.i
-
-110:                                              ; preds = %107
+102:                                              ; preds = %99
   tail call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %.2.i, i32 noundef 0) #7
   br label %.thread.i
 
-.thread.i:                                        ; preds = %110, %107
-  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %105) #7
-  br label %112
+.thread.i:                                        ; preds = %102, %99
+  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %97) #7
+  br label %ec_group_new_from_data.exit
 
-111:                                              ; preds = %104, %99, %96, %91, %85, %83, %77, %71, %68, %65, %62, %53, %46, %41, %36, %34, %26, %17
-  %.sink176.i = phi i32 [ 3171, %17 ], [ 3183, %26 ], [ 3188, %34 ], [ 3202, %46 ], [ 3202, %41 ], [ 3202, %36 ], [ 3208, %53 ], [ 3213, %62 ], [ 3222, %65 ], [ 3231, %68 ], [ 3237, %77 ], [ 3237, %71 ], [ 3241, %83 ], [ 3246, %91 ], [ 3246, %85 ], [ 3250, %96 ], [ 3255, %99 ], [ 3277, %104 ]
-  %.sink.i = phi i32 [ 524291, %17 ], [ 524304, %26 ], [ 524304, %34 ], [ 524291, %46 ], [ 524291, %41 ], [ 524291, %36 ], [ 524304, %53 ], [ 524304, %62 ], [ 524304, %65 ], [ 524304, %68 ], [ 524291, %77 ], [ 524291, %71 ], [ 524304, %83 ], [ 524291, %91 ], [ 524291, %85 ], [ 524304, %96 ], [ 524304, %99 ], [ 524296, %104 ]
-  %.098.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ %44, %46 ], [ null, %41 ], [ null, %36 ], [ %44, %53 ], [ %44, %62 ], [ %44, %65 ], [ %44, %68 ], [ %44, %77 ], [ %44, %71 ], [ %44, %83 ], [ %44, %91 ], [ %44, %85 ], [ %44, %96 ], [ %44, %99 ], [ %44, %104 ]
-  %.096.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ null, %46 ], [ null, %41 ], [ null, %36 ], [ %50, %53 ], [ %50, %62 ], [ %50, %65 ], [ %50, %68 ], [ %50, %77 ], [ %50, %71 ], [ %50, %83 ], [ %50, %91 ], [ %50, %85 ], [ %50, %96 ], [ %50, %99 ], [ %50, %104 ]
-  %.095.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ null, %46 ], [ null, %41 ], [ null, %36 ], [ null, %53 ], [ null, %62 ], [ null, %65 ], [ null, %68 ], [ %75, %77 ], [ null, %71 ], [ %75, %83 ], [ %75, %91 ], [ %75, %85 ], [ %75, %96 ], [ %75, %99 ], [ %75, %104 ]
-  %.093.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ null, %46 ], [ null, %41 ], [ null, %36 ], [ null, %53 ], [ null, %62 ], [ null, %65 ], [ null, %68 ], [ null, %77 ], [ null, %71 ], [ %81, %83 ], [ %81, %91 ], [ %81, %85 ], [ %81, %96 ], [ %81, %99 ], [ %81, %104 ]
-  %.092.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ null, %46 ], [ null, %41 ], [ null, %36 ], [ null, %53 ], [ null, %62 ], [ null, %65 ], [ null, %68 ], [ null, %77 ], [ null, %71 ], [ null, %83 ], [ %89, %91 ], [ null, %85 ], [ %89, %96 ], [ %89, %99 ], [ %89, %104 ]
-  %.090.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ %39, %46 ], [ %39, %41 ], [ null, %36 ], [ %39, %53 ], [ %39, %62 ], [ %39, %65 ], [ %39, %68 ], [ %39, %77 ], [ %39, %71 ], [ %39, %83 ], [ %39, %91 ], [ %39, %85 ], [ %39, %96 ], [ %39, %99 ], [ %39, %104 ]
-  %.089.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %34 ], [ null, %46 ], [ null, %41 ], [ null, %36 ], [ null, %53 ], [ null, %62 ], [ null, %65 ], [ null, %68 ], [ %69, %77 ], [ %69, %71 ], [ %69, %83 ], [ %69, %91 ], [ %69, %85 ], [ %69, %96 ], [ %69, %99 ], [ %69, %104 ]
-  %.088.ph.i = phi ptr [ null, %17 ], [ null, %26 ], [ %28, %34 ], [ %.1.i, %46 ], [ %.1.i, %41 ], [ %.1.i, %36 ], [ %.1.i, %53 ], [ null, %62 ], [ null, %65 ], [ %.2.i, %68 ], [ %.2.i, %77 ], [ %.2.i, %71 ], [ %.2.i, %83 ], [ %.2.i, %91 ], [ %.2.i, %85 ], [ %.2.i, %96 ], [ %.2.i, %99 ], [ %.2.i, %104 ]
+103:                                              ; preds = %96, %91, %88, %83, %77, %75, %69, %63, %60, %57, %54, %45, %38, %33, %28, %26, %18, %ec_curve_nid2curve.exit
+  %.sink176.i = phi i32 [ 3171, %ec_curve_nid2curve.exit ], [ 3183, %18 ], [ 3188, %26 ], [ 3202, %38 ], [ 3202, %33 ], [ 3202, %28 ], [ 3208, %45 ], [ 3213, %54 ], [ 3222, %57 ], [ 3231, %60 ], [ 3237, %69 ], [ 3237, %63 ], [ 3241, %75 ], [ 3246, %83 ], [ 3246, %77 ], [ 3250, %88 ], [ 3255, %91 ], [ 3277, %96 ]
+  %.sink.i = phi i32 [ 524291, %ec_curve_nid2curve.exit ], [ 524304, %18 ], [ 524304, %26 ], [ 524291, %38 ], [ 524291, %33 ], [ 524291, %28 ], [ 524304, %45 ], [ 524304, %54 ], [ 524304, %57 ], [ 524304, %60 ], [ 524291, %69 ], [ 524291, %63 ], [ 524304, %75 ], [ 524291, %83 ], [ 524291, %77 ], [ 524304, %88 ], [ 524304, %91 ], [ 524296, %96 ]
+  %.098.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ %36, %38 ], [ null, %33 ], [ null, %28 ], [ %36, %45 ], [ %36, %54 ], [ %36, %57 ], [ %36, %60 ], [ %36, %69 ], [ %36, %63 ], [ %36, %75 ], [ %36, %83 ], [ %36, %77 ], [ %36, %88 ], [ %36, %91 ], [ %36, %96 ]
+  %.096.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ %42, %45 ], [ %42, %54 ], [ %42, %57 ], [ %42, %60 ], [ %42, %69 ], [ %42, %63 ], [ %42, %75 ], [ %42, %83 ], [ %42, %77 ], [ %42, %88 ], [ %42, %91 ], [ %42, %96 ]
+  %.095.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ null, %45 ], [ null, %54 ], [ null, %57 ], [ null, %60 ], [ %67, %69 ], [ null, %63 ], [ %67, %75 ], [ %67, %83 ], [ %67, %77 ], [ %67, %88 ], [ %67, %91 ], [ %67, %96 ]
+  %.093.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ null, %45 ], [ null, %54 ], [ null, %57 ], [ null, %60 ], [ null, %69 ], [ null, %63 ], [ %73, %75 ], [ %73, %83 ], [ %73, %77 ], [ %73, %88 ], [ %73, %91 ], [ %73, %96 ]
+  %.092.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ null, %45 ], [ null, %54 ], [ null, %57 ], [ null, %60 ], [ null, %69 ], [ null, %63 ], [ null, %75 ], [ %81, %83 ], [ null, %77 ], [ %81, %88 ], [ %81, %91 ], [ %81, %96 ]
+  %.090.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ %31, %38 ], [ %31, %33 ], [ null, %28 ], [ %31, %45 ], [ %31, %54 ], [ %31, %57 ], [ %31, %60 ], [ %31, %69 ], [ %31, %63 ], [ %31, %75 ], [ %31, %83 ], [ %31, %77 ], [ %31, %88 ], [ %31, %91 ], [ %31, %96 ]
+  %.089.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ null, %45 ], [ null, %54 ], [ null, %57 ], [ null, %60 ], [ %61, %69 ], [ %61, %63 ], [ %61, %75 ], [ %61, %83 ], [ %61, %77 ], [ %61, %88 ], [ %61, %91 ], [ %61, %96 ]
+  %.088.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ %20, %26 ], [ %.1.i, %38 ], [ %.1.i, %33 ], [ %.1.i, %28 ], [ %.1.i, %45 ], [ null, %54 ], [ null, %57 ], [ %.2.i, %60 ], [ %.2.i, %69 ], [ %.2.i, %63 ], [ %.2.i, %75 ], [ %.2.i, %83 ], [ %.2.i, %77 ], [ %.2.i, %88 ], [ %.2.i, %91 ], [ %.2.i, %96 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink176.i, ptr noundef nonnull @__func__.ec_group_new_from_data) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink.i, ptr noundef null) #7
   tail call void @EC_GROUP_free(ptr noundef %.088.ph.i) #7
-  br label %112
+  br label %ec_group_new_from_data.exit
 
-112:                                              ; preds = %111, %.thread.i, %101
-  %.089157.i = phi ptr [ %.089.ph.i, %111 ], [ %69, %.thread.i ], [ %69, %101 ]
-  %.090155.i = phi ptr [ %.090.ph.i, %111 ], [ %39, %.thread.i ], [ %39, %101 ]
-  %.092153.i = phi ptr [ %.092.ph.i, %111 ], [ %89, %.thread.i ], [ %89, %101 ]
-  %.093151.i = phi ptr [ %.093.ph.i, %111 ], [ %81, %.thread.i ], [ %81, %101 ]
-  %.095149.i = phi ptr [ %.095.ph.i, %111 ], [ %75, %.thread.i ], [ %75, %101 ]
-  %.096147.i = phi ptr [ %.096.ph.i, %111 ], [ %50, %.thread.i ], [ %50, %101 ]
-  %.098145.i = phi ptr [ %.098.ph.i, %111 ], [ %44, %.thread.i ], [ %44, %101 ]
-  %.3.i = phi ptr [ null, %111 ], [ %.2.i, %.thread.i ], [ %.2.i, %101 ]
+ec_group_new_from_data.exit:                      ; preds = %103, %.thread.i, %93
+  %.089157.i = phi ptr [ %.089.ph.i, %103 ], [ %61, %.thread.i ], [ %61, %93 ]
+  %.090155.i = phi ptr [ %.090.ph.i, %103 ], [ %31, %.thread.i ], [ %31, %93 ]
+  %.092153.i = phi ptr [ %.092.ph.i, %103 ], [ %81, %.thread.i ], [ %81, %93 ]
+  %.093151.i = phi ptr [ %.093.ph.i, %103 ], [ %73, %.thread.i ], [ %73, %93 ]
+  %.095149.i = phi ptr [ %.095.ph.i, %103 ], [ %67, %.thread.i ], [ %67, %93 ]
+  %.096147.i = phi ptr [ %.096.ph.i, %103 ], [ %42, %.thread.i ], [ %42, %93 ]
+  %.098145.i = phi ptr [ %.098.ph.i, %103 ], [ %36, %.thread.i ], [ %36, %93 ]
+  %.3.i = phi ptr [ null, %103 ], [ %.2.i, %.thread.i ], [ %.2.i, %93 ]
   tail call void @EC_POINT_free(ptr noundef %.089157.i) #7
-  tail call void @BN_CTX_free(ptr noundef %18) #7
+  tail call void @BN_CTX_free(ptr noundef %10) #7
   tail call void @BN_free(ptr noundef %.090155.i) #7
   tail call void @BN_free(ptr noundef %.098145.i) #7
   tail call void @BN_free(ptr noundef %.096147.i) #7
   tail call void @BN_free(ptr noundef %.092153.i) #7
   tail call void @BN_free(ptr noundef %.095149.i) #7
   tail call void @BN_free(ptr noundef %.093151.i) #7
-  br label %ec_group_new_from_data.exit
-
-ec_group_new_from_data.exit:                      ; preds = %14, %112
-  %.0.i = phi ptr [ %16, %14 ], [ %.3.i, %112 ]
-  %113 = icmp eq ptr %.0.i, null
-  br i1 %113, label %ec_curve_nid2curve.exit.thread, label %115
+  %104 = icmp eq ptr %.3.i, null
+  br i1 %104, label %ec_curve_nid2curve.exit.thread, label %106
 
 ec_curve_nid2curve.exit.thread:                   ; preds = %5, %3, %ec_group_new_from_data.exit
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3322, ptr noundef nonnull @__func__.EC_GROUP_new_by_curve_name_ex) #7
-  %114 = tail call ptr @OBJ_nid2sn(i32 noundef %2) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 129, ptr noundef nonnull @.str.1, ptr noundef %114) #7
-  br label %115
+  %105 = tail call ptr @OBJ_nid2sn(i32 noundef %2) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 129, ptr noundef nonnull @.str.1, ptr noundef %105) #7
+  br label %106
 
-115:                                              ; preds = %ec_group_new_from_data.exit.thread, %ec_group_new_from_data.exit, %ec_curve_nid2curve.exit.thread
-  %.0 = phi ptr [ null, %ec_curve_nid2curve.exit.thread ], [ %.0.i, %ec_group_new_from_data.exit ], [ %28, %ec_group_new_from_data.exit.thread ]
+106:                                              ; preds = %ec_group_new_from_data.exit.thread, %ec_group_new_from_data.exit, %ec_curve_nid2curve.exit.thread
+  %.0 = phi ptr [ null, %ec_curve_nid2curve.exit.thread ], [ %.3.i, %ec_group_new_from_data.exit ], [ %20, %ec_group_new_from_data.exit.thread ]
   ret ptr %.0
 }
 

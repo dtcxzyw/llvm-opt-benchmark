@@ -154,7 +154,7 @@ ossl_param_is_empty.exit:                         ; preds = %4
 7:                                                ; preds = %ossl_param_is_empty.exit
   %8 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #7
   %.not59 = icmp eq ptr %8, null
-  br i1 %.not59, label %27, label %9
+  br i1 %.not59, label %25, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -180,147 +180,143 @@ ossl_param_is_empty.exit:                         ; preds = %4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %dsa_gen_type_name2id.exit, label %15
 
-dsa_gen_type_name2id.exit:                        ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !33
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %dsa_gen_type_name2id.exit.thread, label %25
-
-dsa_gen_type_name2id.exit.thread:                 ; preds = %15, %dsa_gen_type_name2id.exit, %9
+dsa_gen_type_name2id.exit.thread:                 ; preds = %15, %9
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 484, ptr noundef nonnull @__func__.dsa_gen_set_params) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524550, ptr noundef null) #7
   br label %ossl_param_is_empty.exit.thread
 
-25:                                               ; preds = %dsa_gen_type_name2id.exit
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %23, ptr %26, align 4, !tbaa !16
-  br label %27
+dsa_gen_type_name2id.exit:                        ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !33
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %23, ptr %24, align 4, !tbaa !16
+  br label %25
 
-27:                                               ; preds = %25, %7
-  %28 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #7
-  %.not61 = icmp eq ptr %28, null
-  br i1 %.not61, label %32, label %29
+25:                                               ; preds = %dsa_gen_type_name2id.exit, %7
+  %26 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #7
+  %.not61 = icmp eq ptr %26, null
+  br i1 %.not61, label %30, label %27
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %28, ptr noundef nonnull %30) #7
-  %.not62 = icmp eq i32 %31, 0
-  br i1 %.not62, label %ossl_param_is_empty.exit.thread, label %32
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %29 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %26, ptr noundef nonnull %28) #7
+  %.not62 = icmp eq i32 %29, 0
+  br i1 %.not62, label %ossl_param_is_empty.exit.thread, label %30
 
-32:                                               ; preds = %29, %27
-  %33 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #7
-  %.not63 = icmp eq ptr %33, null
-  br i1 %.not63, label %37, label %34
+30:                                               ; preds = %27, %25
+  %31 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #7
+  %.not63 = icmp eq ptr %31, null
+  br i1 %.not63, label %35, label %32
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %33, ptr noundef nonnull %35) #7
-  %.not64 = icmp eq i32 %36, 0
-  br i1 %.not64, label %ossl_param_is_empty.exit.thread, label %37
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %34 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %31, ptr noundef nonnull %33) #7
+  %.not64 = icmp eq i32 %34, 0
+  br i1 %.not64, label %ossl_param_is_empty.exit.thread, label %35
 
-37:                                               ; preds = %34, %32
-  %38 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #7
-  %.not65 = icmp eq ptr %38, null
-  br i1 %.not65, label %42, label %39
+35:                                               ; preds = %32, %30
+  %36 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #7
+  %.not65 = icmp eq ptr %36, null
+  br i1 %.not65, label %40, label %37
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %41 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %38, ptr noundef nonnull %40) #7
-  %.not66 = icmp eq i32 %41, 0
-  br i1 %.not66, label %ossl_param_is_empty.exit.thread, label %42
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %39 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %36, ptr noundef nonnull %38) #7
+  %.not66 = icmp eq i32 %39, 0
+  br i1 %.not66, label %ossl_param_is_empty.exit.thread, label %40
 
-42:                                               ; preds = %39, %37
-  %43 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.5) #7
-  %.not67 = icmp eq ptr %43, null
-  br i1 %.not67, label %53, label %44
+40:                                               ; preds = %37, %35
+  %41 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.5) #7
+  %.not67 = icmp eq ptr %41, null
+  br i1 %.not67, label %51, label %42
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !27
-  %.not68 = icmp eq i32 %46, 5
-  br i1 %.not68, label %47, label %ossl_param_is_empty.exit.thread
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i32, ptr %43, align 8, !tbaa !27
+  %.not68 = icmp eq i32 %44, 5
+  br i1 %.not68, label %45, label %ossl_param_is_empty.exit.thread
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !28
-  %50 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !34
-  %52 = tail call fastcc i32 @dsa_set_gen_seed(ptr noundef %0, ptr noundef %49, i64 noundef %51)
-  %.not69 = icmp eq i32 %52, 0
-  br i1 %.not69, label %ossl_param_is_empty.exit.thread, label %53
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %49 = load i64, ptr %48, align 8, !tbaa !34
+  %50 = tail call fastcc i32 @dsa_set_gen_seed(ptr noundef %0, ptr noundef %47, i64 noundef %49)
+  %.not69 = icmp eq i32 %50, 0
+  br i1 %.not69, label %ossl_param_is_empty.exit.thread, label %51
 
-53:                                               ; preds = %47, %42
-  %54 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #7
-  %.not70 = icmp eq ptr %54, null
-  br i1 %.not70, label %58, label %55
+51:                                               ; preds = %45, %40
+  %52 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #7
+  %.not70 = icmp eq ptr %52, null
+  br i1 %.not70, label %56, label %53
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %57 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %54, ptr noundef nonnull %56) #7
-  %.not71 = icmp eq i32 %57, 0
-  br i1 %.not71, label %ossl_param_is_empty.exit.thread, label %58
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %55 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %52, ptr noundef nonnull %54) #7
+  %.not71 = icmp eq i32 %55, 0
+  br i1 %.not71, label %ossl_param_is_empty.exit.thread, label %56
 
-58:                                               ; preds = %55, %53
-  %59 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #7
-  %.not72 = icmp eq ptr %59, null
-  br i1 %.not72, label %63, label %60
+56:                                               ; preds = %53, %51
+  %57 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #7
+  %.not72 = icmp eq ptr %57, null
+  br i1 %.not72, label %61, label %58
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %59, ptr noundef nonnull %61) #7
-  %.not73 = icmp eq i32 %62, 0
-  br i1 %.not73, label %ossl_param_is_empty.exit.thread, label %63
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %57, ptr noundef nonnull %59) #7
+  %.not73 = icmp eq i32 %60, 0
+  br i1 %.not73, label %ossl_param_is_empty.exit.thread, label %61
 
-63:                                               ; preds = %60, %58
-  %64 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #7
-  %.not74 = icmp eq ptr %64, null
-  br i1 %.not74, label %75, label %65
+61:                                               ; preds = %58, %56
+  %62 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #7
+  %.not74 = icmp eq ptr %62, null
+  br i1 %.not74, label %73, label %63
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !27
-  %.not75 = icmp eq i32 %67, 4
-  br i1 %.not75, label %68, label %ossl_param_is_empty.exit.thread
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %65 = load i32, ptr %64, align 8, !tbaa !27
+  %.not75 = icmp eq i32 %65, 4
+  br i1 %.not75, label %66, label %ossl_param_is_empty.exit.thread
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %70 = load ptr, ptr %69, align 8, !tbaa !20
-  tail call void @CRYPTO_free(ptr noundef %70, ptr noundef nonnull @.str, i32 noundef 523) #7
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !28
-  %73 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %72, ptr noundef nonnull @.str, i32 noundef 524) #7
-  store ptr %73, ptr %69, align 8, !tbaa !20
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %ossl_param_is_empty.exit.thread, label %75
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
+  tail call void @CRYPTO_free(ptr noundef %68, ptr noundef nonnull @.str, i32 noundef 523) #7
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %70 = load ptr, ptr %69, align 8, !tbaa !28
+  %71 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %70, ptr noundef nonnull @.str, i32 noundef 524) #7
+  store ptr %71, ptr %67, align 8, !tbaa !20
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %ossl_param_is_empty.exit.thread, label %73
 
-75:                                               ; preds = %68, %63
-  %76 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #7
-  %.not76 = icmp eq ptr %76, null
-  br i1 %.not76, label %87, label %77
+73:                                               ; preds = %66, %61
+  %74 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #7
+  %.not76 = icmp eq ptr %74, null
+  br i1 %.not76, label %85, label %75
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !27
-  %.not77 = icmp eq i32 %79, 4
-  br i1 %.not77, label %80, label %ossl_param_is_empty.exit.thread
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %77 = load i32, ptr %76, align 8, !tbaa !27
+  %.not77 = icmp eq i32 %77, 4
+  br i1 %.not77, label %78, label %ossl_param_is_empty.exit.thread
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %82 = load ptr, ptr %81, align 8, !tbaa !21
-  tail call void @CRYPTO_free(ptr noundef %82, ptr noundef nonnull @.str, i32 noundef 532) #7
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !28
-  %85 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef 533) #7
-  store ptr %85, ptr %81, align 8, !tbaa !21
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %ossl_param_is_empty.exit.thread, label %87
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %80 = load ptr, ptr %79, align 8, !tbaa !21
+  tail call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str, i32 noundef 532) #7
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !28
+  %83 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %82, ptr noundef nonnull @.str, i32 noundef 533) #7
+  store ptr %83, ptr %79, align 8, !tbaa !21
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %ossl_param_is_empty.exit.thread, label %85
 
-87:                                               ; preds = %80, %75
+85:                                               ; preds = %78, %73
   br label %ossl_param_is_empty.exit.thread
 
-ossl_param_is_empty.exit.thread:                  ; preds = %4, %80, %77, %68, %65, %60, %55, %44, %47, %39, %34, %29, %ossl_param_is_empty.exit, %2, %87, %dsa_gen_type_name2id.exit.thread
-  %.0 = phi i32 [ 0, %dsa_gen_type_name2id.exit.thread ], [ 1, %87 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %29 ], [ 0, %34 ], [ 0, %39 ], [ 0, %47 ], [ 0, %44 ], [ 0, %55 ], [ 0, %60 ], [ 0, %65 ], [ 0, %68 ], [ 0, %77 ], [ 0, %80 ], [ 1, %4 ]
+ossl_param_is_empty.exit.thread:                  ; preds = %4, %78, %75, %66, %63, %58, %53, %42, %45, %37, %32, %27, %ossl_param_is_empty.exit, %2, %85, %dsa_gen_type_name2id.exit.thread
+  %.0 = phi i32 [ 0, %dsa_gen_type_name2id.exit.thread ], [ 1, %85 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %27 ], [ 0, %32 ], [ 0, %37 ], [ 0, %45 ], [ 0, %42 ], [ 0, %53 ], [ 0, %58 ], [ 0, %63 ], [ 0, %66 ], [ 0, %75 ], [ 0, %78 ], [ 1, %4 ]
   ret i32 %.0
 }
 

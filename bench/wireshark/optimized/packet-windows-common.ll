@@ -8763,7 +8763,7 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %17 = shl nuw nsw i32 %16, 2
   %18 = add i32 %1, 8
   %19 = add i32 %18, %17
-  br label %281
+  br label %275
 
 20:                                               ; preds = %14
   %21 = load i32, ptr @hf_nt_sid, align 4
@@ -8774,15 +8774,15 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   br label %23
 
 23:                                               ; preds = %22, %23
-  %.0216286 = phi i64 [ 0, %22 ], [ %27, %23 ]
-  %.0220285 = phi i32 [ %10, %22 ], [ %28, %23 ]
-  %.0223284 = phi i32 [ 0, %22 ], [ %29, %23 ]
-  %24 = shl i64 %.0216286, 8
-  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0220285)
+  %.0216310 = phi i64 [ 0, %22 ], [ %27, %23 ]
+  %.0220309 = phi i32 [ %10, %22 ], [ %28, %23 ]
+  %.0223308 = phi i32 [ 0, %22 ], [ %29, %23 ]
+  %24 = shl i64 %.0216310, 8
+  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0220309)
   %26 = zext i8 %25 to i64
   %27 = or disjoint i64 %24, %26
-  %28 = add i32 %.0220285, 1
-  %29 = add nuw nsw i32 %.0223284, 1
+  %28 = add i32 %.0220309, 1
+  %29 = add nuw nsw i32 %.0223308, 1
   %exitcond.not = icmp eq i32 %29, 6
   br i1 %exitcond.not, label %30, label %23, !llvm.loop !6
 
@@ -8815,536 +8815,509 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %49 = icmp eq i8 %9, 0
   %or.cond = or i1 %49, %46
   %or.cond3 = or i1 %47, %or.cond
-  br i1 %or.cond3, label %50, label %66
+  br i1 %or.cond3, label %50, label %match_wkwn_sids.exit.thread
 
 50:                                               ; preds = %39
-  br i1 %47, label %match_wkwn_sids.exit.thread, label %51
+  br i1 %47, label %match_wkwn_sids.exit.thread359, label %51
 
 51:                                               ; preds = %50
   %52 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.8027, ptr noundef readonly %52) #7
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %match_wkwn_sids.exit.thread, label %.lr.ph
+  br label %54
 
-.lr.ph:                                           ; preds = %51, %55
-  %indvars.iv.i287 = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %51 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i287, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 92
-  br i1 %exitcond.i, label %.match_wkwn_sids.exit.loopexit_crit_edge, label %55, !llvm.loop !10
+53:                                               ; preds = %54
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 92
+  br i1 %.not.i, label %match_wkwn_sids.exit.thread, label %54, !llvm.loop !10
 
-55:                                               ; preds = %.lr.ph
-  %56 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i
-  %57 = load ptr, ptr %56, align 16
-  %58 = tail call i32 @strcmp(ptr noundef %57, ptr noundef readonly %52) #7
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %match_wkwn_sids.exit, label %.lr.ph, !llvm.loop !10
+54:                                               ; preds = %53, %51
+  %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %53 ]
+  %55 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i
+  %56 = load ptr, ptr %55, align 16
+  %57 = tail call i32 @strcmp(ptr noundef %56, ptr noundef readonly %52) #7
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %match_wkwn_sids.exit, label %53
 
-.match_wkwn_sids.exit.loopexit_crit_edge:         ; preds = %.lr.ph
-  br label %match_wkwn_sids.exit, !llvm.loop !10
+match_wkwn_sids.exit:                             ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = and i64 %indvars.iv.i, 1152921504606846975
+  %.not242 = icmp eq i64 %61, 92
+  br i1 %.not242, label %match_wkwn_sids.exit.thread, label %match_wkwn_sids.exit.thread359
 
-match_wkwn_sids.exit:                             ; preds = %55, %.match_wkwn_sids.exit.loopexit_crit_edge
-  %60 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i, i32 1
-  %61 = load ptr, ptr %60, align 8
-  %62 = and i64 %indvars.iv.next.i, 1152921504606846975
-  %.not242 = icmp eq i64 %62, 92
-  br i1 %.not242, label %66, label %match_wkwn_sids.exit.thread
+match_wkwn_sids.exit.thread359:                   ; preds = %50, %match_wkwn_sids.exit
+  %.2362 = phi ptr [ %60, %match_wkwn_sids.exit ], [ @.str.10, %50 ]
+  tail call void @wmem_strbuf_append(ptr noundef %43, ptr noundef nonnull %.2362)
+  %62 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %63 = trunc nuw i8 %62 to i1
+  %.0215. = select i1 %63, ptr %.0215, ptr %32
+  %64 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.)
+  tail call void @wmem_strbuf_append(ptr noundef %41, ptr noundef %64)
+  br label %match_wkwn_sids.exit.thread
 
-match_wkwn_sids.exit.thread:                      ; preds = %51, %50, %match_wkwn_sids.exit
-  %.2353 = phi ptr [ %61, %match_wkwn_sids.exit ], [ @.str.8028, %51 ], [ @.str.10, %50 ]
-  tail call void @wmem_strbuf_append(ptr noundef %43, ptr noundef nonnull %.2353)
-  %63 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %64 = trunc nuw i8 %63 to i1
-  %.0215. = select i1 %64, ptr %.0215, ptr %32
-  %65 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.)
-  tail call void @wmem_strbuf_append(ptr noundef %41, ptr noundef %65)
-  br label %66
-
-66:                                               ; preds = %match_wkwn_sids.exit, %match_wkwn_sids.exit.thread, %39
-  %.0227 = phi i32 [ 8, %match_wkwn_sids.exit.thread ], [ 0, %match_wkwn_sids.exit ], [ 0, %39 ]
-  %.1214 = phi ptr [ %.2353, %match_wkwn_sids.exit.thread ], [ null, %match_wkwn_sids.exit ], [ null, %39 ]
+match_wkwn_sids.exit.thread:                      ; preds = %53, %match_wkwn_sids.exit, %match_wkwn_sids.exit.thread359, %39
+  %.0227 = phi i32 [ 8, %match_wkwn_sids.exit.thread359 ], [ 0, %match_wkwn_sids.exit ], [ 0, %39 ], [ 0, %53 ]
+  %.1214 = phi ptr [ %.2362, %match_wkwn_sids.exit.thread359 ], [ null, %match_wkwn_sids.exit ], [ null, %39 ], [ null, %53 ]
+  %65 = tail call ptr @wmem_packet_scope()
+  %66 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %65, ptr noundef nonnull @.str.6)
   %67 = tail call ptr @wmem_packet_scope()
   %68 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %67, ptr noundef nonnull @.str.6)
   %69 = tail call ptr @wmem_packet_scope()
   %70 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %69, ptr noundef nonnull @.str.6)
-  %71 = tail call ptr @wmem_packet_scope()
-  %72 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %71, ptr noundef nonnull @.str.6)
-  br i1 %49, label %._crit_edge, label %.lr.ph318
+  br i1 %49, label %._crit_edge, label %.lr.ph
 
-.lr.ph318:                                        ; preds = %66
-  %73 = icmp ugt i8 %9, 3
-  br label %74
+.lr.ph:                                           ; preds = %match_wkwn_sids.exit.thread
+  %71 = icmp ugt i8 %9, 3
+  br label %72
 
-74:                                               ; preds = %.lr.ph318, %164
-  %.0204317 = phi i1 [ false, %.lr.ph318 ], [ %.1, %164 ]
-  %.0205316 = phi i8 [ 0, %.lr.ph318 ], [ %.1206, %164 ]
-  %.0207315 = phi i8 [ 0, %.lr.ph318 ], [ %.1208, %164 ]
-  %.0209314 = phi i8 [ 0, %.lr.ph318 ], [ %.1210, %164 ]
-  %.0211313 = phi ptr [ null, %.lr.ph318 ], [ %.1212, %164 ]
-  %.3312 = phi ptr [ %.1214, %.lr.ph318 ], [ %.4, %164 ]
-  %.0217311 = phi i32 [ 0, %.lr.ph318 ], [ %.1218, %164 ]
-  %.1221310 = phi i32 [ %28, %.lr.ph318 ], [ %165, %164 ]
-  %.1224309 = phi i32 [ 1, %.lr.ph318 ], [ %166, %164 ]
-  %.0225308 = phi i32 [ 0, %.lr.ph318 ], [ %.1226, %164 ]
-  %.1228307 = phi i32 [ %.0227, %.lr.ph318 ], [ %.3230, %164 ]
-  %.0231306 = phi i32 [ 0, %.lr.ph318 ], [ %.1232, %164 ]
-  %75 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.1221310)
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %32, ptr noundef nonnull @.str.11, i32 noundef %75)
-  %76 = icmp eq i32 %.1224309, 1
-  %77 = load i8, ptr @sid_display_hex, align 1, !range !8
-  %78 = trunc nuw i8 %77 to i1
-  %79 = select i1 %78, ptr @.str.12, ptr @.str.13
-  %80 = select i1 %78, ptr @.str.14, ptr @.str.11
-  %81 = select i1 %76, ptr %79, ptr %80
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %68, ptr noundef nonnull %81, i32 noundef %75)
-  %82 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %85
+72:                                               ; preds = %.lr.ph, %match_wkwn_sids.exit268.thread
+  %.0204323 = phi i1 [ false, %.lr.ph ], [ %.1, %match_wkwn_sids.exit268.thread ]
+  %.0205322 = phi i8 [ 0, %.lr.ph ], [ %.1206, %match_wkwn_sids.exit268.thread ]
+  %.0207321 = phi i8 [ 0, %.lr.ph ], [ %.1208, %match_wkwn_sids.exit268.thread ]
+  %.0209320 = phi i8 [ 0, %.lr.ph ], [ %.1210, %match_wkwn_sids.exit268.thread ]
+  %.0211319 = phi ptr [ null, %.lr.ph ], [ %.1212, %match_wkwn_sids.exit268.thread ]
+  %.3318 = phi ptr [ %.1214, %.lr.ph ], [ %.4, %match_wkwn_sids.exit268.thread ]
+  %.0217317 = phi i32 [ 0, %.lr.ph ], [ %.1218, %match_wkwn_sids.exit268.thread ]
+  %.1221316 = phi i32 [ %28, %.lr.ph ], [ %159, %match_wkwn_sids.exit268.thread ]
+  %.1224315 = phi i32 [ 1, %.lr.ph ], [ %160, %match_wkwn_sids.exit268.thread ]
+  %.0225314 = phi i32 [ 0, %.lr.ph ], [ %.1226, %match_wkwn_sids.exit268.thread ]
+  %.1228313 = phi i32 [ %.0227, %.lr.ph ], [ %.3230, %match_wkwn_sids.exit268.thread ]
+  %.0231312 = phi i32 [ 0, %.lr.ph ], [ %.1232, %match_wkwn_sids.exit268.thread ]
+  %73 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.1221316)
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %32, ptr noundef nonnull @.str.11, i32 noundef %73)
+  %74 = icmp eq i32 %.1224315, 1
+  %75 = load i8, ptr @sid_display_hex, align 1, !range !8
+  %76 = trunc nuw i8 %75 to i1
+  %77 = select i1 %76, ptr @.str.12, ptr @.str.13
+  %78 = select i1 %76, ptr @.str.14, ptr @.str.11
+  %79 = select i1 %74, ptr %77, ptr %78
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %66, ptr noundef nonnull %79, i32 noundef %73)
+  %80 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %83
 
-84:                                               ; preds = %74
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %.0215, ptr noundef nonnull @.str.14, i32 noundef %75)
-  br label %85
+82:                                               ; preds = %72
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %.0215, ptr noundef nonnull @.str.14, i32 noundef %73)
+  br label %83
 
-85:                                               ; preds = %84, %74
-  br i1 %76, label %86, label %126
+83:                                               ; preds = %82, %72
+  br i1 %74, label %84, label %121
 
-86:                                               ; preds = %85
-  %87 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.8027, ptr noundef readonly %87) #7
-  %89 = icmp eq i32 %88, 0
-  br i1 %46, label %90, label %102
+84:                                               ; preds = %83
+  %85 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
+  br i1 %46, label %.preheader, label %.preheader390
 
-90:                                               ; preds = %86
-  br i1 %89, label %match_wkwn_sids.exit267.thread, label %.lr.ph301
+86:                                               ; preds = %.preheader
+  %indvars.iv.next.i264 = add nuw nsw i64 %indvars.iv.i263, 1
+  %.not.i265 = icmp eq i64 %indvars.iv.next.i264, 92
+  br i1 %.not.i265, label %match_wkwn_sids.exit268.thread, label %.preheader, !llvm.loop !10
 
-.lr.ph301:                                        ; preds = %90, %91
-  %indvars.iv.i263300 = phi i64 [ %indvars.iv.next.i264, %91 ], [ 0, %90 ]
-  %indvars.iv.next.i264 = add nuw nsw i64 %indvars.iv.i263300, 1
-  %exitcond.i265 = icmp eq i64 %indvars.iv.next.i264, 92
-  br i1 %exitcond.i265, label %.match_wkwn_sids.exit267_crit_edge, label %91, !llvm.loop !10
+.preheader:                                       ; preds = %84, %86
+  %indvars.iv.i263 = phi i64 [ %indvars.iv.next.i264, %86 ], [ 0, %84 ]
+  %87 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i263
+  %88 = load ptr, ptr %87, align 16
+  %89 = tail call i32 @strcmp(ptr noundef %88, ptr noundef readonly %85) #7
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %match_wkwn_sids.exit268, label %86
 
-91:                                               ; preds = %.lr.ph301
-  %92 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i264
-  %93 = load ptr, ptr %92, align 16
-  %94 = tail call i32 @strcmp(ptr noundef %93, ptr noundef readonly %87) #7
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %match_wkwn_sids.exit267, label %.lr.ph301, !llvm.loop !10
+match_wkwn_sids.exit268:                          ; preds = %.preheader
+  %91 = and i64 %indvars.iv.i263, 1152921504606846975
+  %.not258 = icmp eq i64 %91, 92
+  br i1 %.not258, label %match_wkwn_sids.exit268.thread, label %92
 
-.match_wkwn_sids.exit267_crit_edge:               ; preds = %.lr.ph301
-  br label %match_wkwn_sids.exit267, !llvm.loop !10
+92:                                               ; preds = %match_wkwn_sids.exit268
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %94 = load ptr, ptr %93, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.15, ptr noundef %.3318, ptr noundef nonnull %94)
+  %95 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %96 = trunc nuw i8 %95 to i1
+  %.0215.384 = select i1 %96, ptr %.0215, ptr %32
+  %97 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.384)
+  tail call void @wmem_strbuf_append(ptr noundef %68, ptr noundef %97)
+  br label %match_wkwn_sids.exit268.thread
 
-match_wkwn_sids.exit267:                          ; preds = %91, %.match_wkwn_sids.exit267_crit_edge
-  %96 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i264, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = and i64 %indvars.iv.next.i264, 1152921504606846975
-  %.not258 = icmp eq i64 %98, 92
-  br i1 %.not258, label %164, label %match_wkwn_sids.exit267.thread
+98:                                               ; preds = %.preheader390
+  %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i269, 1
+  %.not.i271 = icmp eq i64 %indvars.iv.next.i270, 92
+  br i1 %.not.i271, label %match_wkwn_sids.exit274.thread, label %.preheader390, !llvm.loop !10
 
-match_wkwn_sids.exit267.thread:                   ; preds = %90, %match_wkwn_sids.exit267
-  %.lcssa.i266356 = phi ptr [ %97, %match_wkwn_sids.exit267 ], [ @.str.8028, %90 ]
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.15, ptr noundef %.3312, ptr noundef nonnull %.lcssa.i266356)
-  %99 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %100 = trunc nuw i8 %99 to i1
-  %.0215.394 = select i1 %100, ptr %.0215, ptr %32
-  %101 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.394)
-  tail call void @wmem_strbuf_append(ptr noundef %70, ptr noundef %101)
-  br label %164
+.preheader390:                                    ; preds = %84, %98
+  %indvars.iv.i269 = phi i64 [ %indvars.iv.next.i270, %98 ], [ 0, %84 ]
+  %99 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i269
+  %100 = load ptr, ptr %99, align 16
+  %101 = tail call i32 @strcmp(ptr noundef %100, ptr noundef readonly %85) #7
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %match_wkwn_sids.exit274, label %98
 
-102:                                              ; preds = %86
-  br i1 %89, label %match_wkwn_sids.exit272.thread, label %.lr.ph296
+match_wkwn_sids.exit274:                          ; preds = %.preheader390
+  %103 = and i64 %indvars.iv.i269, 1152921504606846975
+  %.not257 = icmp eq i64 %103, 92
+  br i1 %.not257, label %match_wkwn_sids.exit274.thread, label %104
 
-.lr.ph296:                                        ; preds = %102, %103
-  %indvars.iv.i268295 = phi i64 [ %indvars.iv.next.i269, %103 ], [ 0, %102 ]
-  %indvars.iv.next.i269 = add nuw nsw i64 %indvars.iv.i268295, 1
-  %exitcond.i270 = icmp eq i64 %indvars.iv.next.i269, 92
-  br i1 %exitcond.i270, label %.match_wkwn_sids.exit272_crit_edge, label %103, !llvm.loop !10
+104:                                              ; preds = %match_wkwn_sids.exit274
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %106 = load ptr, ptr %105, align 8
+  tail call void @wmem_strbuf_append(ptr noundef %43, ptr noundef nonnull %106)
+  %107 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %108 = trunc nuw i8 %107 to i1
+  %.0215.385 = select i1 %108, ptr %.0215, ptr %32
+  %109 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.385)
+  tail call void @wmem_strbuf_append(ptr noundef %41, ptr noundef %109)
+  br label %match_wkwn_sids.exit274.thread
 
-103:                                              ; preds = %.lr.ph296
-  %104 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i269
-  %105 = load ptr, ptr %104, align 16
-  %106 = tail call i32 @strcmp(ptr noundef %105, ptr noundef readonly %87) #7
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %match_wkwn_sids.exit272, label %.lr.ph296, !llvm.loop !10
+match_wkwn_sids.exit274.thread:                   ; preds = %98, %104, %match_wkwn_sids.exit274
+  %.05.i272294 = phi ptr [ %106, %104 ], [ null, %match_wkwn_sids.exit274 ], [ null, %98 ]
+  %.2229 = phi i32 [ 12, %104 ], [ %.1228313, %match_wkwn_sids.exit274 ], [ %.1228313, %98 ]
+  %110 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
+  %111 = tail call i32 @strcmp(ptr noundef %110, ptr noundef nonnull dereferenceable(9) @.str.16) #7
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %match_wkwn_sids.exit268.thread, label %113
 
-.match_wkwn_sids.exit272_crit_edge:               ; preds = %.lr.ph296
-  br label %match_wkwn_sids.exit272, !llvm.loop !10
+113:                                              ; preds = %match_wkwn_sids.exit274.thread
+  %114 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
+  %115 = tail call i32 @strcmp(ptr noundef %114, ptr noundef nonnull dereferenceable(9) @.str.17) #7
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %match_wkwn_sids.exit268.thread, label %117
 
-match_wkwn_sids.exit272:                          ; preds = %103, %.match_wkwn_sids.exit272_crit_edge
-  %108 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i269, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = and i64 %indvars.iv.next.i269, 1152921504606846975
-  %.not257 = icmp eq i64 %110, 92
-  br i1 %.not257, label %114, label %match_wkwn_sids.exit272.thread
+117:                                              ; preds = %113
+  %118 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
+  %119 = tail call i32 @strcmp(ptr noundef %118, ptr noundef nonnull dereferenceable(9) @.str.18) #7
+  %120 = icmp eq i32 %119, 0
+  %spec.select = select i1 %120, i8 1, i8 %.0205322
+  br label %match_wkwn_sids.exit268.thread
 
-match_wkwn_sids.exit272.thread:                   ; preds = %102, %match_wkwn_sids.exit272
-  %.lcssa.i271359 = phi ptr [ %109, %match_wkwn_sids.exit272 ], [ @.str.8028, %102 ]
-  tail call void @wmem_strbuf_append(ptr noundef %43, ptr noundef nonnull %.lcssa.i271359)
-  %111 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %112 = trunc nuw i8 %111 to i1
-  %.0215.395 = select i1 %112, ptr %.0215, ptr %32
-  %113 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.395)
-  tail call void @wmem_strbuf_append(ptr noundef %41, ptr noundef %113)
-  br label %114
+121:                                              ; preds = %83
+  %122 = icmp ne i32 %.1224315, 2
+  %123 = trunc nuw i8 %.0209320 to i1
+  %or.cond5 = select i1 %122, i1 true, i1 %123
+  br i1 %or.cond5, label %143, label %124
 
-114:                                              ; preds = %match_wkwn_sids.exit272.thread, %match_wkwn_sids.exit272
-  %.lcssa.i271360 = phi ptr [ %.lcssa.i271359, %match_wkwn_sids.exit272.thread ], [ null, %match_wkwn_sids.exit272 ]
-  %.2229 = phi i32 [ 12, %match_wkwn_sids.exit272.thread ], [ %.1228307, %match_wkwn_sids.exit272 ]
-  %115 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %116 = tail call i32 @strcmp(ptr noundef %115, ptr noundef nonnull dereferenceable(9) @.str.16) #7
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %164, label %118
+124:                                              ; preds = %121
+  %125 = trunc nuw i8 %.0207321 to i1
+  %126 = trunc nuw i8 %.0205322 to i1
+  %or.cond7 = select i1 %125, i1 true, i1 %126
+  br i1 %or.cond7, label %127, label %142
 
-118:                                              ; preds = %114
-  %119 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %120 = tail call i32 @strcmp(ptr noundef %119, ptr noundef nonnull dereferenceable(9) @.str.17) #7
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %164, label %122
+127:                                              ; preds = %124
+  %128 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
+  br label %130
 
-122:                                              ; preds = %118
-  %123 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %124 = tail call i32 @strcmp(ptr noundef %123, ptr noundef nonnull dereferenceable(9) @.str.18) #7
-  %125 = icmp eq i32 %124, 0
-  %spec.select = select i1 %125, i8 1, i8 %.0205316
-  br label %164
+129:                                              ; preds = %130
+  %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i275, 1
+  %.not.i277 = icmp eq i64 %indvars.iv.next.i276, 92
+  br i1 %.not.i277, label %match_wkwn_sids.exit268.thread, label %130, !llvm.loop !10
 
-126:                                              ; preds = %85
-  %127 = icmp ne i32 %.1224309, 2
-  %128 = trunc nuw i8 %.0209314 to i1
-  %or.cond5 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond5, label %148, label %129
+130:                                              ; preds = %129, %127
+  %indvars.iv.i275 = phi i64 [ 0, %127 ], [ %indvars.iv.next.i276, %129 ]
+  %131 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.i275
+  %132 = load ptr, ptr %131, align 16
+  %133 = tail call i32 @strcmp(ptr noundef %132, ptr noundef readonly %128) #7
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %match_wkwn_sids.exit280, label %129
 
-129:                                              ; preds = %126
-  %130 = trunc nuw i8 %.0207315 to i1
-  %131 = trunc nuw i8 %.0205316 to i1
-  %or.cond7 = select i1 %130, i1 true, i1 %131
-  br i1 %or.cond7, label %132, label %147
+match_wkwn_sids.exit280:                          ; preds = %130
+  %135 = and i64 %indvars.iv.i275, 1152921504606846975
+  %.not255 = icmp eq i64 %135, 92
+  br i1 %.not255, label %match_wkwn_sids.exit268.thread, label %136
 
-132:                                              ; preds = %129
-  %133 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %134 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.8027, ptr noundef readonly %133) #7
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %match_wkwn_sids.exit277.thread, label %.lr.ph291
+136:                                              ; preds = %match_wkwn_sids.exit280
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %138 = load ptr, ptr %137, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.19, ptr noundef nonnull %138)
+  %139 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %140 = trunc nuw i8 %139 to i1
+  %.0215.386 = select i1 %140, ptr %.0215, ptr %32
+  %141 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.386)
+  tail call void @wmem_strbuf_append(ptr noundef %68, ptr noundef %141)
+  br label %match_wkwn_sids.exit268.thread
 
-.lr.ph291:                                        ; preds = %132, %136
-  %indvars.iv.i273290 = phi i64 [ %indvars.iv.next.i274, %136 ], [ 0, %132 ]
-  %indvars.iv.next.i274 = add nuw nsw i64 %indvars.iv.i273290, 1
-  %exitcond.i275 = icmp eq i64 %indvars.iv.next.i274, 92
-  br i1 %exitcond.i275, label %.match_wkwn_sids.exit277_crit_edge, label %136, !llvm.loop !10
+142:                                              ; preds = %124
+  %.not254 = icmp ne ptr %.3318, null
+  %spec.select260 = select i1 %.not254, i1 true, i1 %.0204323
+  br label %match_wkwn_sids.exit268.thread
 
-136:                                              ; preds = %.lr.ph291
-  %137 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i274
-  %138 = load ptr, ptr %137, align 16
-  %139 = tail call i32 @strcmp(ptr noundef %138, ptr noundef readonly %133) #7
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %match_wkwn_sids.exit277, label %.lr.ph291, !llvm.loop !10
+143:                                              ; preds = %121
+  br i1 %123, label %144, label %158
 
-.match_wkwn_sids.exit277_crit_edge:               ; preds = %.lr.ph291
-  br label %match_wkwn_sids.exit277, !llvm.loop !10
+144:                                              ; preds = %143
+  br i1 %71, label %145, label %match_wkwn_sids.exit268.thread
 
-match_wkwn_sids.exit277:                          ; preds = %136, %.match_wkwn_sids.exit277_crit_edge
-  %141 = getelementptr %struct._sid_strings, ptr @well_known_sids, i64 %indvars.iv.next.i274, i32 1
-  %142 = load ptr, ptr %141, align 8
-  %143 = and i64 %indvars.iv.next.i274, 1152921504606846975
-  %.not255 = icmp eq i64 %143, 92
-  br i1 %.not255, label %164, label %match_wkwn_sids.exit277.thread
+145:                                              ; preds = %144
+  %146 = icmp samesign ult i32 %.1224315, 5
+  br i1 %146, label %147, label %154
 
-match_wkwn_sids.exit277.thread:                   ; preds = %132, %match_wkwn_sids.exit277
-  %.lcssa.i276363 = phi ptr [ %142, %match_wkwn_sids.exit277 ], [ @.str.8028, %132 ]
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa.i276363)
-  %144 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %145 = trunc nuw i8 %144 to i1
-  %.0215.396 = select i1 %145, ptr %.0215, ptr %32
-  %146 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.396)
-  tail call void @wmem_strbuf_append(ptr noundef %70, ptr noundef %146)
-  br label %164
+147:                                              ; preds = %145
+  %148 = icmp eq i32 %.1224315, 2
+  %149 = load i8, ptr @sid_display_hex, align 1, !range !8
+  %150 = trunc nuw i8 %149 to i1
+  %151 = select i1 %150, ptr @.str.12, ptr @.str.13
+  %152 = select i1 %150, ptr @.str.14, ptr @.str.11
+  %153 = select i1 %148, ptr %151, ptr %152
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %70, ptr noundef nonnull %153, i32 noundef %73)
+  br label %match_wkwn_sids.exit268.thread
 
-147:                                              ; preds = %129
-  %.not254 = icmp ne ptr %.3312, null
-  %spec.select260 = select i1 %.not254, i1 true, i1 %.0204317
-  br label %164
+154:                                              ; preds = %145
+  %155 = icmp eq i32 %.1224315, 5
+  br i1 %155, label %156, label %match_wkwn_sids.exit268.thread
 
-148:                                              ; preds = %126
-  br i1 %128, label %149, label %163
+156:                                              ; preds = %154
+  %157 = tail call ptr @val_to_str_ext_const(i32 noundef %73, ptr noundef nonnull @wkwn_S_1_5_21_rids_ext, ptr noundef nonnull @.str.20)
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.19, ptr noundef %157)
+  br label %match_wkwn_sids.exit268.thread
 
-149:                                              ; preds = %148
-  br i1 %73, label %150, label %164
+158:                                              ; preds = %143
+  %.not256 = icmp ne ptr %.3318, null
+  %spec.select262 = select i1 %.not256, i1 true, i1 %.0204323
+  br label %match_wkwn_sids.exit268.thread
 
-150:                                              ; preds = %149
-  %151 = icmp samesign ult i32 %.1224309, 5
-  br i1 %151, label %152, label %159
+match_wkwn_sids.exit268.thread:                   ; preds = %129, %86, %158, %142, %117, %144, %154, %match_wkwn_sids.exit280, %113, %match_wkwn_sids.exit274.thread, %136, %156, %147, %92, %match_wkwn_sids.exit268
+  %.1232 = phi i32 [ %.1221316, %92 ], [ %.0231312, %match_wkwn_sids.exit268 ], [ %.0231312, %147 ], [ %.1221316, %156 ], [ %.1221316, %136 ], [ %.0231312, %match_wkwn_sids.exit274.thread ], [ %.0231312, %113 ], [ %.0231312, %117 ], [ %.0231312, %match_wkwn_sids.exit280 ], [ %.0231312, %142 ], [ %.0231312, %154 ], [ %.0231312, %144 ], [ %.0231312, %158 ], [ %.0231312, %86 ], [ %.0231312, %129 ]
+  %.3230 = phi i32 [ 12, %92 ], [ %.1228313, %match_wkwn_sids.exit268 ], [ %.1228313, %147 ], [ %.1228313, %156 ], [ %.1228313, %136 ], [ %.2229, %match_wkwn_sids.exit274.thread ], [ %.2229, %113 ], [ %.2229, %117 ], [ %.1228313, %match_wkwn_sids.exit280 ], [ %.1228313, %142 ], [ %.1228313, %154 ], [ %.1228313, %144 ], [ %.1228313, %158 ], [ %.1228313, %86 ], [ %.1228313, %129 ]
+  %.1226 = phi i32 [ %.0225314, %92 ], [ %.0225314, %match_wkwn_sids.exit268 ], [ %.0225314, %147 ], [ %.0225314, %156 ], [ 16, %136 ], [ %.0225314, %match_wkwn_sids.exit274.thread ], [ %.0225314, %113 ], [ %.0225314, %117 ], [ %.0225314, %match_wkwn_sids.exit280 ], [ %.0225314, %142 ], [ %.0225314, %154 ], [ %.0225314, %144 ], [ %.0225314, %158 ], [ %.0225314, %86 ], [ %.0225314, %129 ]
+  %.1218 = phi i32 [ %73, %92 ], [ %.0217317, %match_wkwn_sids.exit268 ], [ %.0217317, %147 ], [ %73, %156 ], [ %73, %136 ], [ %.0217317, %match_wkwn_sids.exit274.thread ], [ %.0217317, %113 ], [ %.0217317, %117 ], [ %.0217317, %match_wkwn_sids.exit280 ], [ %.0217317, %142 ], [ %.0217317, %154 ], [ %.0217317, %144 ], [ %.0217317, %158 ], [ %.0217317, %86 ], [ %.0217317, %129 ]
+  %.4 = phi ptr [ %.3318, %92 ], [ %.3318, %match_wkwn_sids.exit268 ], [ %.3318, %147 ], [ %.3318, %156 ], [ %.3318, %136 ], [ %.05.i272294, %match_wkwn_sids.exit274.thread ], [ %.05.i272294, %113 ], [ %.05.i272294, %117 ], [ %.3318, %match_wkwn_sids.exit280 ], [ %.3318, %142 ], [ %.3318, %154 ], [ @.str.21, %144 ], [ %.3318, %158 ], [ %.3318, %86 ], [ %.3318, %129 ]
+  %.1212 = phi ptr [ %94, %92 ], [ null, %match_wkwn_sids.exit268 ], [ %.0211319, %147 ], [ %157, %156 ], [ %138, %136 ], [ %.0211319, %match_wkwn_sids.exit274.thread ], [ %.0211319, %113 ], [ %.0211319, %117 ], [ null, %match_wkwn_sids.exit280 ], [ %.0211319, %142 ], [ %.0211319, %154 ], [ %.0211319, %144 ], [ %.0211319, %158 ], [ null, %86 ], [ null, %129 ]
+  %.1210 = phi i8 [ %.0209320, %92 ], [ %.0209320, %match_wkwn_sids.exit268 ], [ 1, %147 ], [ 1, %156 ], [ 0, %136 ], [ 1, %match_wkwn_sids.exit274.thread ], [ %.0209320, %113 ], [ %.0209320, %117 ], [ 0, %match_wkwn_sids.exit280 ], [ 0, %142 ], [ 1, %154 ], [ 1, %144 ], [ 0, %158 ], [ %.0209320, %86 ], [ 0, %129 ]
+  %.1208 = phi i8 [ %.0207321, %92 ], [ %.0207321, %match_wkwn_sids.exit268 ], [ %.0207321, %147 ], [ %.0207321, %156 ], [ %.0207321, %136 ], [ %.0207321, %match_wkwn_sids.exit274.thread ], [ 1, %113 ], [ %.0207321, %117 ], [ %.0207321, %match_wkwn_sids.exit280 ], [ 0, %142 ], [ %.0207321, %154 ], [ %.0207321, %144 ], [ %.0207321, %158 ], [ %.0207321, %86 ], [ %.0207321, %129 ]
+  %.1206 = phi i8 [ %.0205322, %92 ], [ %.0205322, %match_wkwn_sids.exit268 ], [ %.0205322, %147 ], [ %.0205322, %156 ], [ %.0205322, %136 ], [ %.0205322, %match_wkwn_sids.exit274.thread ], [ %.0205322, %113 ], [ %spec.select, %117 ], [ %.0205322, %match_wkwn_sids.exit280 ], [ 0, %142 ], [ %.0205322, %154 ], [ %.0205322, %144 ], [ %.0205322, %158 ], [ %.0205322, %86 ], [ %.0205322, %129 ]
+  %.1 = phi i1 [ %.0204323, %92 ], [ %.0204323, %match_wkwn_sids.exit268 ], [ %.0204323, %147 ], [ %.0204323, %156 ], [ %.0204323, %136 ], [ %.0204323, %match_wkwn_sids.exit274.thread ], [ %.0204323, %113 ], [ %.0204323, %117 ], [ true, %match_wkwn_sids.exit280 ], [ %spec.select260, %142 ], [ true, %154 ], [ %.0204323, %144 ], [ %spec.select262, %158 ], [ %.0204323, %86 ], [ true, %129 ]
+  %159 = add i32 %.1221316, 4
+  %160 = add nuw nsw i32 %.1224315, 1
+  %exitcond348.not = icmp eq i32 %.1224315, %48
+  br i1 %exitcond348.not, label %._crit_edge.loopexit, label %72, !llvm.loop !11
 
-152:                                              ; preds = %150
-  %153 = icmp eq i32 %.1224309, 2
-  %154 = load i8, ptr @sid_display_hex, align 1, !range !8
-  %155 = trunc nuw i8 %154 to i1
-  %156 = select i1 %155, ptr @.str.12, ptr @.str.13
-  %157 = select i1 %155, ptr @.str.14, ptr @.str.11
-  %158 = select i1 %153, ptr %156, ptr %157
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %72, ptr noundef nonnull %158, i32 noundef %75)
-  br label %164
-
-159:                                              ; preds = %150
-  %160 = icmp eq i32 %.1224309, 5
-  br i1 %160, label %161, label %164
-
-161:                                              ; preds = %159
-  %162 = tail call ptr @val_to_str_ext_const(i32 noundef %75, ptr noundef nonnull @wkwn_S_1_5_21_rids_ext, ptr noundef nonnull @.str.20)
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.19, ptr noundef %162)
-  br label %164
-
-163:                                              ; preds = %148
-  %.not256 = icmp ne ptr %.3312, null
-  %spec.select262 = select i1 %.not256, i1 true, i1 %.0204317
-  br label %164
-
-164:                                              ; preds = %163, %147, %122, %149, %159, %match_wkwn_sids.exit277, %118, %114, %match_wkwn_sids.exit277.thread, %161, %152, %match_wkwn_sids.exit267.thread, %match_wkwn_sids.exit267
-  %.1232 = phi i32 [ %.1221310, %match_wkwn_sids.exit267.thread ], [ %.0231306, %match_wkwn_sids.exit267 ], [ %.0231306, %152 ], [ %.1221310, %161 ], [ %.1221310, %match_wkwn_sids.exit277.thread ], [ %.0231306, %114 ], [ %.0231306, %118 ], [ %.0231306, %122 ], [ %.0231306, %match_wkwn_sids.exit277 ], [ %.0231306, %147 ], [ %.0231306, %159 ], [ %.0231306, %149 ], [ %.0231306, %163 ]
-  %.3230 = phi i32 [ 12, %match_wkwn_sids.exit267.thread ], [ %.1228307, %match_wkwn_sids.exit267 ], [ %.1228307, %152 ], [ %.1228307, %161 ], [ %.1228307, %match_wkwn_sids.exit277.thread ], [ %.2229, %114 ], [ %.2229, %118 ], [ %.2229, %122 ], [ %.1228307, %match_wkwn_sids.exit277 ], [ %.1228307, %147 ], [ %.1228307, %159 ], [ %.1228307, %149 ], [ %.1228307, %163 ]
-  %.1226 = phi i32 [ %.0225308, %match_wkwn_sids.exit267.thread ], [ %.0225308, %match_wkwn_sids.exit267 ], [ %.0225308, %152 ], [ %.0225308, %161 ], [ 16, %match_wkwn_sids.exit277.thread ], [ %.0225308, %114 ], [ %.0225308, %118 ], [ %.0225308, %122 ], [ %.0225308, %match_wkwn_sids.exit277 ], [ %.0225308, %147 ], [ %.0225308, %159 ], [ %.0225308, %149 ], [ %.0225308, %163 ]
-  %.1218 = phi i32 [ %75, %match_wkwn_sids.exit267.thread ], [ %.0217311, %match_wkwn_sids.exit267 ], [ %.0217311, %152 ], [ %75, %161 ], [ %75, %match_wkwn_sids.exit277.thread ], [ %.0217311, %114 ], [ %.0217311, %118 ], [ %.0217311, %122 ], [ %.0217311, %match_wkwn_sids.exit277 ], [ %.0217311, %147 ], [ %.0217311, %159 ], [ %.0217311, %149 ], [ %.0217311, %163 ]
-  %.4 = phi ptr [ %.3312, %match_wkwn_sids.exit267.thread ], [ %.3312, %match_wkwn_sids.exit267 ], [ %.3312, %152 ], [ %.3312, %161 ], [ %.3312, %match_wkwn_sids.exit277.thread ], [ %.lcssa.i271360, %114 ], [ %.lcssa.i271360, %118 ], [ %.lcssa.i271360, %122 ], [ %.3312, %match_wkwn_sids.exit277 ], [ %.3312, %147 ], [ %.3312, %159 ], [ @.str.21, %149 ], [ %.3312, %163 ]
-  %.1212 = phi ptr [ %.lcssa.i266356, %match_wkwn_sids.exit267.thread ], [ null, %match_wkwn_sids.exit267 ], [ %.0211313, %152 ], [ %162, %161 ], [ %.lcssa.i276363, %match_wkwn_sids.exit277.thread ], [ %.0211313, %114 ], [ %.0211313, %118 ], [ %.0211313, %122 ], [ null, %match_wkwn_sids.exit277 ], [ %.0211313, %147 ], [ %.0211313, %159 ], [ %.0211313, %149 ], [ %.0211313, %163 ]
-  %.1210 = phi i8 [ %.0209314, %match_wkwn_sids.exit267.thread ], [ %.0209314, %match_wkwn_sids.exit267 ], [ 1, %152 ], [ 1, %161 ], [ 0, %match_wkwn_sids.exit277.thread ], [ 1, %114 ], [ %.0209314, %118 ], [ %.0209314, %122 ], [ 0, %match_wkwn_sids.exit277 ], [ 0, %147 ], [ 1, %159 ], [ 1, %149 ], [ 0, %163 ]
-  %.1208 = phi i8 [ %.0207315, %match_wkwn_sids.exit267.thread ], [ %.0207315, %match_wkwn_sids.exit267 ], [ %.0207315, %152 ], [ %.0207315, %161 ], [ %.0207315, %match_wkwn_sids.exit277.thread ], [ %.0207315, %114 ], [ 1, %118 ], [ %.0207315, %122 ], [ %.0207315, %match_wkwn_sids.exit277 ], [ 0, %147 ], [ %.0207315, %159 ], [ %.0207315, %149 ], [ %.0207315, %163 ]
-  %.1206 = phi i8 [ %.0205316, %match_wkwn_sids.exit267.thread ], [ %.0205316, %match_wkwn_sids.exit267 ], [ %.0205316, %152 ], [ %.0205316, %161 ], [ %.0205316, %match_wkwn_sids.exit277.thread ], [ %.0205316, %114 ], [ %.0205316, %118 ], [ %spec.select, %122 ], [ %.0205316, %match_wkwn_sids.exit277 ], [ 0, %147 ], [ %.0205316, %159 ], [ %.0205316, %149 ], [ %.0205316, %163 ]
-  %.1 = phi i1 [ %.0204317, %match_wkwn_sids.exit267.thread ], [ %.0204317, %match_wkwn_sids.exit267 ], [ %.0204317, %152 ], [ %.0204317, %161 ], [ %.0204317, %match_wkwn_sids.exit277.thread ], [ %.0204317, %114 ], [ %.0204317, %118 ], [ %.0204317, %122 ], [ true, %match_wkwn_sids.exit277 ], [ %spec.select260, %147 ], [ true, %159 ], [ %.0204317, %149 ], [ %spec.select262, %163 ]
-  %165 = add i32 %.1221310, 4
-  %166 = add nuw nsw i32 %.1224309, 1
-  %exitcond340.not = icmp eq i32 %.1224309, %48
-  br i1 %exitcond340.not, label %._crit_edge.loopexit, label %74, !llvm.loop !11
-
-._crit_edge.loopexit:                             ; preds = %164
-  %167 = trunc nuw i8 %.1210 to i1
-  %168 = trunc nuw i8 %.1208 to i1
-  %169 = trunc nuw i8 %.1206 to i1
-  %170 = icmp eq i32 %.1218, 0
+._crit_edge.loopexit:                             ; preds = %match_wkwn_sids.exit268.thread
+  %161 = trunc nuw i8 %.1210 to i1
+  %162 = trunc nuw i8 %.1208 to i1
+  %163 = trunc nuw i8 %.1206 to i1
+  %164 = icmp eq i32 %.1218, 0
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %66
-  %.0231.lcssa = phi i32 [ 0, %66 ], [ %.1232, %._crit_edge.loopexit ]
-  %.1228.lcssa = phi i32 [ %.0227, %66 ], [ %.3230, %._crit_edge.loopexit ]
-  %.0225.lcssa = phi i32 [ 0, %66 ], [ %.1226, %._crit_edge.loopexit ]
-  %.1221.lcssa = phi i32 [ %28, %66 ], [ %165, %._crit_edge.loopexit ]
-  %.0217.lcssa = phi i1 [ true, %66 ], [ %170, %._crit_edge.loopexit ]
-  %.3.lcssa = phi ptr [ %.1214, %66 ], [ %.4, %._crit_edge.loopexit ]
-  %.0211.lcssa = phi ptr [ null, %66 ], [ %.1212, %._crit_edge.loopexit ]
-  %.0209.lcssa = phi i1 [ false, %66 ], [ %167, %._crit_edge.loopexit ]
-  %.0207.lcssa = phi i1 [ false, %66 ], [ %168, %._crit_edge.loopexit ]
-  %.0205.lcssa = phi i1 [ false, %66 ], [ %169, %._crit_edge.loopexit ]
-  %.0204.lcssa = phi i1 [ false, %66 ], [ %.1, %._crit_edge.loopexit ]
-  %171 = icmp ne ptr %.3.lcssa, null
-  %or.cond11 = select i1 %171, i1 true, i1 %.0209.lcssa
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %match_wkwn_sids.exit.thread
+  %.0231.lcssa = phi i32 [ 0, %match_wkwn_sids.exit.thread ], [ %.1232, %._crit_edge.loopexit ]
+  %.1228.lcssa = phi i32 [ %.0227, %match_wkwn_sids.exit.thread ], [ %.3230, %._crit_edge.loopexit ]
+  %.0225.lcssa = phi i32 [ 0, %match_wkwn_sids.exit.thread ], [ %.1226, %._crit_edge.loopexit ]
+  %.1221.lcssa = phi i32 [ %28, %match_wkwn_sids.exit.thread ], [ %159, %._crit_edge.loopexit ]
+  %.0217.lcssa = phi i1 [ true, %match_wkwn_sids.exit.thread ], [ %164, %._crit_edge.loopexit ]
+  %.3.lcssa = phi ptr [ %.1214, %match_wkwn_sids.exit.thread ], [ %.4, %._crit_edge.loopexit ]
+  %.0211.lcssa = phi ptr [ null, %match_wkwn_sids.exit.thread ], [ %.1212, %._crit_edge.loopexit ]
+  %.0209.lcssa = phi i1 [ false, %match_wkwn_sids.exit.thread ], [ %161, %._crit_edge.loopexit ]
+  %.0207.lcssa = phi i1 [ false, %match_wkwn_sids.exit.thread ], [ %162, %._crit_edge.loopexit ]
+  %.0205.lcssa = phi i1 [ false, %match_wkwn_sids.exit.thread ], [ %163, %._crit_edge.loopexit ]
+  %.0204.lcssa = phi i1 [ false, %match_wkwn_sids.exit.thread ], [ %.1, %._crit_edge.loopexit ]
+  %165 = icmp ne ptr %.3.lcssa, null
+  %or.cond11 = select i1 %165, i1 true, i1 %.0209.lcssa
   %or.cond13 = select i1 %or.cond11, i1 true, i1 %.0207.lcssa
   %or.cond15 = select i1 %or.cond13, i1 true, i1 %.0205.lcssa
-  br i1 %or.cond15, label %178, label %172
+  br i1 %or.cond15, label %172, label %166
 
-172:                                              ; preds = %._crit_edge
-  %173 = load i8, ptr @sid_name_snooping, align 1, !range !8, !noundef !9
-  %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %175, label %178
+166:                                              ; preds = %._crit_edge
+  %167 = load i8, ptr @sid_name_snooping, align 1, !range !8, !noundef !9
+  %168 = trunc nuw i8 %167 to i1
+  br i1 %168, label %169, label %172
 
-175:                                              ; preds = %172
-  %176 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
-  %177 = tail call ptr @find_sid_name(ptr noundef %176)
-  br label %178
+169:                                              ; preds = %166
+  %170 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32)
+  %171 = tail call ptr @find_sid_name(ptr noundef %170)
+  br label %172
 
-178:                                              ; preds = %172, %175, %._crit_edge
-  %.5 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %177, %175 ], [ @.str.22, %172 ]
-  br i1 %.0204.lcssa, label %179, label %180
+172:                                              ; preds = %166, %169, %._crit_edge
+  %.5 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %171, %169 ], [ @.str.22, %166 ]
+  br i1 %.0204.lcssa, label %173, label %174
 
-179:                                              ; preds = %178
+173:                                              ; preds = %172
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.23)
-  br label %180
+  br label %174
 
-180:                                              ; preds = %179, %178
-  %181 = sub i32 %.1221.lcssa, %1
-  %182 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %183 = trunc nuw i8 %182 to i1
-  %.0215.397 = select i1 %183, ptr %.0215, ptr %32
-  %184 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.397)
-  %185 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %186 = trunc nuw i8 %185 to i1
-  %.sink391 = select i1 %186, ptr %.0215, ptr %32
-  %187 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.sink391)
-  %188 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %.0222, ptr noundef %0, i32 noundef %1, i32 noundef %181, ptr noundef %184, ptr noundef nonnull @.str.24, ptr noundef %3, ptr noundef %187)
-  %189 = tail call i64 @wmem_strbuf_get_len(ptr noundef %43)
-  %.not244 = icmp eq i64 %189, 0
-  br i1 %.not244, label %192, label %190
+174:                                              ; preds = %173, %172
+  %175 = sub i32 %.1221.lcssa, %1
+  %176 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %177 = trunc nuw i8 %176 to i1
+  %.0215.387 = select i1 %177, ptr %.0215, ptr %32
+  %178 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.387)
+  %179 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %180 = trunc nuw i8 %179 to i1
+  %.sink381 = select i1 %180, ptr %.0215, ptr %32
+  %181 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.sink381)
+  %182 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %.0222, ptr noundef %0, i32 noundef %1, i32 noundef %175, ptr noundef %178, ptr noundef nonnull @.str.24, ptr noundef %3, ptr noundef %181)
+  %183 = tail call i64 @wmem_strbuf_get_len(ptr noundef %43)
+  %.not244 = icmp eq i64 %183, 0
+  br i1 %.not244, label %186, label %184
 
-190:                                              ; preds = %180
-  %191 = tail call ptr @wmem_strbuf_get_str(ptr noundef %43)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %188, ptr noundef nonnull @.str.25, ptr noundef %191)
-  br label %192
+184:                                              ; preds = %174
+  %185 = tail call ptr @wmem_strbuf_get_str(ptr noundef %43)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %182, ptr noundef nonnull @.str.25, ptr noundef %185)
+  br label %186
 
-192:                                              ; preds = %190, %180
-  %193 = load i32, ptr @ett_nt_sid, align 4
-  %194 = tail call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %193)
-  %195 = load i32, ptr @hf_nt_sid_revision, align 4
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648)
-  %197 = load i32, ptr @hf_nt_sid_num_auth, align 4
-  %198 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %197, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648)
-  %199 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %200 = trunc nuw i8 %199 to i1
-  %201 = load i32, ptr @hf_nt_sid_auth_hex, align 4
-  %202 = load i32, ptr @hf_nt_sid_auth_dec, align 4
-  %203 = select i1 %200, i32 %201, i32 %202
-  %204 = tail call ptr @proto_tree_add_uint64(ptr noundef %194, i32 noundef %203, ptr noundef %0, i32 noundef %10, i32 noundef 6, i64 noundef %27)
-  %205 = load i32, ptr @hf_nt_sid_subauth, align 4
-  %206 = shl nuw nsw i32 %48, 2
-  %207 = tail call ptr @wmem_strbuf_get_str(ptr noundef %68)
-  %208 = tail call ptr @wmem_strbuf_get_str(ptr noundef %68)
-  %209 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %194, i32 noundef %205, ptr noundef %0, i32 noundef %28, i32 noundef %206, ptr noundef %207, ptr noundef nonnull @.str.26, ptr noundef %208)
-  br i1 %.0217.lcssa, label %218, label %210
+186:                                              ; preds = %184, %174
+  %187 = load i32, ptr @ett_nt_sid, align 4
+  %188 = tail call ptr @proto_item_add_subtree(ptr noundef %182, i32 noundef %187)
+  %189 = load i32, ptr @hf_nt_sid_revision, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648)
+  %191 = load i32, ptr @hf_nt_sid_num_auth, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %191, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648)
+  %193 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %194 = trunc nuw i8 %193 to i1
+  %195 = load i32, ptr @hf_nt_sid_auth_hex, align 4
+  %196 = load i32, ptr @hf_nt_sid_auth_dec, align 4
+  %197 = select i1 %194, i32 %195, i32 %196
+  %198 = tail call ptr @proto_tree_add_uint64(ptr noundef %188, i32 noundef %197, ptr noundef %0, i32 noundef %10, i32 noundef 6, i64 noundef %27)
+  %199 = load i32, ptr @hf_nt_sid_subauth, align 4
+  %200 = shl nuw nsw i32 %48, 2
+  %201 = tail call ptr @wmem_strbuf_get_str(ptr noundef %66)
+  %202 = tail call ptr @wmem_strbuf_get_str(ptr noundef %66)
+  %203 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %188, i32 noundef %199, ptr noundef %0, i32 noundef %28, i32 noundef %200, ptr noundef %201, ptr noundef nonnull @.str.26, ptr noundef %202)
+  br i1 %.0217.lcssa, label %212, label %204
 
-210:                                              ; preds = %192
-  %211 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %212 = trunc nuw i8 %211 to i1
-  %213 = load i32, ptr @hf_nt_sid_rid_hex, align 4
-  %214 = load i32, ptr @hf_nt_sid_rid_dec, align 4
-  %215 = select i1 %212, i32 %213, i32 %214
-  %216 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %215, ptr noundef %0, i32 noundef %.0231.lcssa, i32 noundef 4, i32 noundef -2147483648)
+204:                                              ; preds = %186
+  %205 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %206 = trunc nuw i8 %205 to i1
+  %207 = load i32, ptr @hf_nt_sid_rid_hex, align 4
+  %208 = load i32, ptr @hf_nt_sid_rid_dec, align 4
+  %209 = select i1 %206, i32 %207, i32 %208
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %209, ptr noundef %0, i32 noundef %.0231.lcssa, i32 noundef 4, i32 noundef -2147483648)
   %.not246 = icmp eq ptr %.0211.lcssa, null
-  br i1 %.not246, label %218, label %217
+  br i1 %.not246, label %212, label %211
 
-217:                                              ; preds = %210
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %216, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0211.lcssa)
-  br label %218
+211:                                              ; preds = %204
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %210, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0211.lcssa)
+  br label %212
 
-218:                                              ; preds = %210, %217, %192
-  %219 = tail call i64 @wmem_strbuf_get_len(ptr noundef %41)
-  %.not247 = icmp eq i64 %219, 0
-  br i1 %.not247, label %proto_item_set_hidden.exit, label %220
+212:                                              ; preds = %204, %211, %186
+  %213 = tail call i64 @wmem_strbuf_get_len(ptr noundef %41)
+  %.not247 = icmp eq i64 %213, 0
+  br i1 %.not247, label %proto_item_set_hidden.exit, label %214
 
-220:                                              ; preds = %218
-  %221 = load i32, ptr @hf_nt_sid_wkwn, align 4
-  %222 = tail call ptr @wmem_strbuf_get_str(ptr noundef %41)
-  %223 = tail call ptr @wmem_strbuf_get_str(ptr noundef %41)
-  %224 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %194, i32 noundef %221, ptr noundef %0, i32 noundef %1, i32 noundef %.1228.lcssa, ptr noundef %222, ptr noundef nonnull @.str.26, ptr noundef %223)
+214:                                              ; preds = %212
+  %215 = load i32, ptr @hf_nt_sid_wkwn, align 4
+  %216 = tail call ptr @wmem_strbuf_get_str(ptr noundef %41)
+  %217 = tail call ptr @wmem_strbuf_get_str(ptr noundef %41)
+  %218 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %188, i32 noundef %215, ptr noundef %0, i32 noundef %1, i32 noundef %.1228.lcssa, ptr noundef %216, ptr noundef nonnull @.str.26, ptr noundef %217)
   %.not248 = icmp eq ptr %.5, null
-  br i1 %.not248, label %226, label %225
+  br i1 %.not248, label %220, label %219
 
-225:                                              ; preds = %220
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %224, ptr noundef nonnull @.str.25, ptr noundef nonnull %.5)
-  br label %226
+219:                                              ; preds = %214
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %218, ptr noundef nonnull @.str.25, ptr noundef nonnull %.5)
+  br label %220
 
-226:                                              ; preds = %225, %220
-  %.not.i = icmp eq ptr %224, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %227
+220:                                              ; preds = %219, %214
+  %.not.i281 = icmp eq ptr %218, null
+  br i1 %.not.i281, label %proto_item_set_hidden.exit, label %221
 
-227:                                              ; preds = %226
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 40
-  %229 = load ptr, ptr %228, align 8
-  %.not5.i = icmp eq ptr %229, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %230
+221:                                              ; preds = %220
+  %222 = getelementptr inbounds nuw i8, ptr %218, i64 40
+  %223 = load ptr, ptr %222, align 8
+  %.not5.i = icmp eq ptr %223, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %224
 
-230:                                              ; preds = %227
-  %231 = getelementptr inbounds nuw i8, ptr %229, i64 28
-  %232 = load i32, ptr %231, align 4
-  %233 = or i32 %232, 1
-  store i32 %233, ptr %231, align 4
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 28
+  %226 = load i32, ptr %225, align 4
+  %227 = or i32 %226, 1
+  store i32 %227, ptr %225, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %230, %227, %226, %218
-  %234 = tail call i64 @wmem_strbuf_get_len(ptr noundef %70)
-  %.not249 = icmp eq i64 %234, 0
-  br i1 %.not249, label %proto_item_set_hidden.exit280, label %235
+proto_item_set_hidden.exit:                       ; preds = %224, %221, %220, %212
+  %228 = tail call i64 @wmem_strbuf_get_len(ptr noundef %68)
+  %.not249 = icmp eq i64 %228, 0
+  br i1 %.not249, label %proto_item_set_hidden.exit284, label %229
 
-235:                                              ; preds = %proto_item_set_hidden.exit
-  %236 = load i32, ptr @hf_nt_sid_wkwn, align 4
-  %237 = tail call ptr @wmem_strbuf_get_str(ptr noundef %70)
-  %238 = tail call ptr @wmem_strbuf_get_str(ptr noundef %70)
-  %239 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %194, i32 noundef %236, ptr noundef %0, i32 noundef %1, i32 noundef %.0225.lcssa, ptr noundef %237, ptr noundef nonnull @.str.26, ptr noundef %238)
-  %240 = tail call i64 @wmem_strbuf_get_len(ptr noundef %43)
-  %.not250 = icmp eq i64 %240, 0
-  br i1 %.not250, label %243, label %241
+229:                                              ; preds = %proto_item_set_hidden.exit
+  %230 = load i32, ptr @hf_nt_sid_wkwn, align 4
+  %231 = tail call ptr @wmem_strbuf_get_str(ptr noundef %68)
+  %232 = tail call ptr @wmem_strbuf_get_str(ptr noundef %68)
+  %233 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %188, i32 noundef %230, ptr noundef %0, i32 noundef %1, i32 noundef %.0225.lcssa, ptr noundef %231, ptr noundef nonnull @.str.26, ptr noundef %232)
+  %234 = tail call i64 @wmem_strbuf_get_len(ptr noundef %43)
+  %.not250 = icmp eq i64 %234, 0
+  br i1 %.not250, label %237, label %235
 
-241:                                              ; preds = %235
-  %242 = tail call ptr @wmem_strbuf_get_str(ptr noundef %43)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %239, ptr noundef nonnull @.str.25, ptr noundef %242)
-  br label %243
+235:                                              ; preds = %229
+  %236 = tail call ptr @wmem_strbuf_get_str(ptr noundef %43)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %233, ptr noundef nonnull @.str.25, ptr noundef %236)
+  br label %237
 
-243:                                              ; preds = %241, %235
-  %.not.i278 = icmp eq ptr %239, null
-  br i1 %.not.i278, label %proto_item_set_hidden.exit280, label %244
+237:                                              ; preds = %235, %229
+  %.not.i282 = icmp eq ptr %233, null
+  br i1 %.not.i282, label %proto_item_set_hidden.exit284, label %238
 
-244:                                              ; preds = %243
-  %245 = getelementptr inbounds nuw i8, ptr %239, i64 40
-  %246 = load ptr, ptr %245, align 8
-  %.not5.i279 = icmp eq ptr %246, null
-  br i1 %.not5.i279, label %proto_item_set_hidden.exit280, label %247
+238:                                              ; preds = %237
+  %239 = getelementptr inbounds nuw i8, ptr %233, i64 40
+  %240 = load ptr, ptr %239, align 8
+  %.not5.i283 = icmp eq ptr %240, null
+  br i1 %.not5.i283, label %proto_item_set_hidden.exit284, label %241
 
-247:                                              ; preds = %244
-  %248 = getelementptr inbounds nuw i8, ptr %246, i64 28
-  %249 = load i32, ptr %248, align 4
-  %250 = or i32 %249, 1
-  store i32 %250, ptr %248, align 4
-  br label %proto_item_set_hidden.exit280
+241:                                              ; preds = %238
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 28
+  %243 = load i32, ptr %242, align 4
+  %244 = or i32 %243, 1
+  store i32 %244, ptr %242, align 4
+  br label %proto_item_set_hidden.exit284
 
-proto_item_set_hidden.exit280:                    ; preds = %247, %244, %243, %proto_item_set_hidden.exit
-  br i1 %.0209.lcssa, label %251, label %proto_item_set_hidden.exit283
+proto_item_set_hidden.exit284:                    ; preds = %241, %238, %237, %proto_item_set_hidden.exit
+  br i1 %.0209.lcssa, label %245, label %proto_item_set_hidden.exit287
 
-251:                                              ; preds = %proto_item_set_hidden.exit280
-  %252 = tail call i64 @wmem_strbuf_get_len(ptr noundef %72)
-  %.not251 = icmp eq i64 %252, 0
-  br i1 %.not251, label %proto_item_set_hidden.exit283, label %253
+245:                                              ; preds = %proto_item_set_hidden.exit284
+  %246 = tail call i64 @wmem_strbuf_get_len(ptr noundef %70)
+  %.not251 = icmp eq i64 %246, 0
+  br i1 %.not251, label %proto_item_set_hidden.exit287, label %247
 
-253:                                              ; preds = %251
-  %254 = load i32, ptr @hf_nt_sid_domain, align 4
-  %255 = add i32 %1, 12
-  %256 = tail call ptr @wmem_strbuf_get_str(ptr noundef %72)
-  %257 = tail call ptr @wmem_strbuf_get_str(ptr noundef %72)
-  %258 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %194, i32 noundef %254, ptr noundef %0, i32 noundef %255, i32 noundef 12, ptr noundef %256, ptr noundef nonnull @.str.26, ptr noundef %257)
-  %.not.i281 = icmp eq ptr %258, null
-  br i1 %.not.i281, label %proto_item_set_hidden.exit283, label %259
+247:                                              ; preds = %245
+  %248 = load i32, ptr @hf_nt_sid_domain, align 4
+  %249 = add i32 %1, 12
+  %250 = tail call ptr @wmem_strbuf_get_str(ptr noundef %70)
+  %251 = tail call ptr @wmem_strbuf_get_str(ptr noundef %70)
+  %252 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %188, i32 noundef %248, ptr noundef %0, i32 noundef %249, i32 noundef 12, ptr noundef %250, ptr noundef nonnull @.str.26, ptr noundef %251)
+  %.not.i285 = icmp eq ptr %252, null
+  br i1 %.not.i285, label %proto_item_set_hidden.exit287, label %253
 
-259:                                              ; preds = %253
-  %260 = getelementptr inbounds nuw i8, ptr %258, i64 40
-  %261 = load ptr, ptr %260, align 8
-  %.not5.i282 = icmp eq ptr %261, null
-  br i1 %.not5.i282, label %proto_item_set_hidden.exit283, label %262
+253:                                              ; preds = %247
+  %254 = getelementptr inbounds nuw i8, ptr %252, i64 40
+  %255 = load ptr, ptr %254, align 8
+  %.not5.i286 = icmp eq ptr %255, null
+  br i1 %.not5.i286, label %proto_item_set_hidden.exit287, label %256
 
-262:                                              ; preds = %259
-  %263 = getelementptr inbounds nuw i8, ptr %261, i64 28
-  %264 = load i32, ptr %263, align 4
-  %265 = or i32 %264, 1
-  store i32 %265, ptr %263, align 4
-  br label %proto_item_set_hidden.exit283
+256:                                              ; preds = %253
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 28
+  %258 = load i32, ptr %257, align 4
+  %259 = or i32 %258, 1
+  store i32 %259, ptr %257, align 4
+  br label %proto_item_set_hidden.exit287
 
-proto_item_set_hidden.exit283:                    ; preds = %262, %259, %253, %251, %proto_item_set_hidden.exit280
-  br i1 %.not, label %281, label %266
+proto_item_set_hidden.exit287:                    ; preds = %256, %253, %247, %245, %proto_item_set_hidden.exit284
+  br i1 %.not, label %275, label %260
 
-266:                                              ; preds = %proto_item_set_hidden.exit283
-  %267 = tail call i64 @wmem_strbuf_get_len(ptr noundef %43)
-  %.not252 = icmp eq i64 %267, 0
-  %268 = tail call ptr @wmem_packet_scope()
-  %269 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
-  %270 = trunc nuw i8 %269 to i1
-  %.0215.399 = select i1 %270, ptr %.0215, ptr %32
-  %271 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.399)
-  br i1 %.not252, label %275, label %272
+260:                                              ; preds = %proto_item_set_hidden.exit287
+  %261 = tail call i64 @wmem_strbuf_get_len(ptr noundef %43)
+  %.not252 = icmp eq i64 %261, 0
+  %262 = tail call ptr @wmem_packet_scope()
+  %263 = load i8, ptr @sid_display_hex, align 1, !range !8, !noundef !9
+  %264 = trunc nuw i8 %263 to i1
+  %.0215.389 = select i1 %264, ptr %.0215, ptr %32
+  %265 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0215.389)
+  br i1 %.not252, label %269, label %266
 
-272:                                              ; preds = %266
-  %273 = tail call ptr @wmem_strbuf_get_str(ptr noundef %43)
-  %274 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %268, ptr noundef nonnull @.str.27, ptr noundef %271, ptr noundef %273)
-  br label %277
+266:                                              ; preds = %260
+  %267 = tail call ptr @wmem_strbuf_get_str(ptr noundef %43)
+  %268 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %262, ptr noundef nonnull @.str.27, ptr noundef %265, ptr noundef %267)
+  br label %271
 
-275:                                              ; preds = %266
-  %276 = tail call noalias ptr @wmem_strdup(ptr noundef %268, ptr noundef %271)
-  br label %277
+269:                                              ; preds = %260
+  %270 = tail call noalias ptr @wmem_strdup(ptr noundef %262, ptr noundef %265)
+  br label %271
 
-277:                                              ; preds = %275, %272
-  %storemerge = phi ptr [ %276, %275 ], [ %274, %272 ]
+271:                                              ; preds = %269, %266
+  %storemerge = phi ptr [ %270, %269 ], [ %268, %266 ]
   store ptr %storemerge, ptr %4, align 8
   %.not253 = icmp eq ptr %storemerge, null
-  br i1 %.not253, label %278, label %281
+  br i1 %.not253, label %272, label %275
 
-278:                                              ; preds = %277
-  %279 = tail call ptr @wmem_packet_scope()
-  %280 = tail call noalias ptr @wmem_strdup(ptr noundef %279, ptr noundef nonnull @.str.28)
-  store ptr %280, ptr %4, align 8
-  br label %281
+272:                                              ; preds = %271
+  %273 = tail call ptr @wmem_packet_scope()
+  %274 = tail call noalias ptr @wmem_strdup(ptr noundef %273, ptr noundef nonnull @.str.28)
+  store ptr %274, ptr %4, align 8
+  br label %275
 
-281:                                              ; preds = %proto_item_set_hidden.exit283, %278, %277, %15
-  %.0219 = phi i32 [ %19, %15 ], [ %.1221.lcssa, %277 ], [ %.1221.lcssa, %278 ], [ %.1221.lcssa, %proto_item_set_hidden.exit283 ]
+275:                                              ; preds = %proto_item_set_hidden.exit287, %272, %271, %15
+  %.0219 = phi i32 [ %19, %15 ], [ %.1221.lcssa, %271 ], [ %.1221.lcssa, %272 ], [ %.1221.lcssa, %proto_item_set_hidden.exit287 ]
   ret i32 %.0219
 }
 

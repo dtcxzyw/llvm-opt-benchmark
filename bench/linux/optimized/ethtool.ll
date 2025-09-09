@@ -3302,12 +3302,12 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr readnone captu
   %11 = call i32 @__pm_runtime_idle(ptr noundef %10, i32 noundef 4) #15
   br label %12
 
-12:                                               ; preds = %32, %3
-  %13 = phi i64 [ 0, %3 ], [ %35, %32 ]
+12:                                               ; preds = %31, %3
+  %13 = phi i64 [ 0, %3 ], [ %34, %31 ]
   %14 = getelementptr %struct.e1000_stats, ptr @e1000_gstrings_stats, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 4
-  switch i32 %16, label %32 [
+  switch i32 %16, label %31 [
     i32 0, label %18
     i32 1, label %17
   ]
@@ -3321,29 +3321,29 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr readnone captu
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 8
-  br i1 %26, label %27, label %29
+  %24 = shl nuw i64 1, %13
+  %25 = and i64 %24, 65969892360191
+  %.not = icmp eq i64 %25, 0
+  br i1 %.not, label %28, label %26
 
-27:                                               ; preds = %18
-  %28 = load i64, ptr %23, align 8
-  br label %32
+26:                                               ; preds = %18
+  %27 = load i64, ptr %23, align 8
+  br label %31
 
-29:                                               ; preds = %18
-  %30 = load i32, ptr %23, align 4
-  %31 = zext i32 %30 to i64
-  br label %32
+28:                                               ; preds = %18
+  %29 = load i32, ptr %23, align 4
+  %30 = zext i32 %29 to i64
+  br label %31
 
-32:                                               ; preds = %29, %27, %12
-  %33 = phi i64 [ 0, %12 ], [ %28, %27 ], [ %31, %29 ]
-  %34 = getelementptr i64, ptr %2, i64 %13
-  store i64 %33, ptr %34, align 8
-  %35 = add nuw nsw i64 %13, 1
-  %36 = icmp eq i64 %35, 53
-  br i1 %36, label %37, label %12, !llvm.loop !36
+31:                                               ; preds = %28, %26, %12
+  %32 = phi i64 [ 0, %12 ], [ %27, %26 ], [ %30, %28 ]
+  %33 = getelementptr i64, ptr %2, i64 %13
+  store i64 %32, ptr %33, align 8
+  %34 = add nuw nsw i64 %13, 1
+  %35 = icmp eq i64 %34, 53
+  br i1 %35, label %36, label %12, !llvm.loop !36
 
-37:                                               ; preds = %32
+36:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

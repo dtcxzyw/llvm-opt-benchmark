@@ -5779,7 +5779,7 @@ define dso_local ptr @PyType_GetSlot(ptr noundef readonly captures(none) %0, i32
   %7 = getelementptr %struct.PySlot_Offset, ptr @pyslot_offsets, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %9 = load i16, ptr %8, align 2, !tbaa !286
-  %10 = icmp sgt i16 %9, 415
+  %10 = icmp eq i32 %1, 83
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5

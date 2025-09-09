@@ -1666,32 +1666,28 @@ proto_item_set_hidden.exit:                       ; preds = %25, %28, %31
   br label %46
 
 46:                                               ; preds = %36, %42, %proto_item_set_hidden.exit
-  %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %.not49 = icmp eq ptr %48, null
-  br i1 %.not49, label %54, label %49
+  %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %54
-
-52:                                               ; preds = %49
-  %53 = tail call i32 %48(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i32 %51(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %get_op.exit.thread
 
-54:                                               ; preds = %49, %46
-  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %get_op.exit.thread
+53:                                               ; preds = %46
+  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %56, label %get_op.exit.thread
 
-57:                                               ; preds = %54
-  %58 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h450_unsupported_arg_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  %59 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+56:                                               ; preds = %53
+  %57 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h450_unsupported_arg_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %get_op.exit.thread
 
-get_op.exit.thread:                               ; preds = %18, %52, %57, %54, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %53, %52 ], [ %59, %57 ], [ 0, %54 ], [ 0, %18 ]
+get_op.exit.thread:                               ; preds = %18, %49, %56, %53, %get_op.exit, %12, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %52, %49 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1785,31 +1781,33 @@ proto_item_set_hidden.exit:                       ; preds = %25, %28, %31
 
 46:                                               ; preds = %36, %42, %proto_item_set_hidden.exit
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %.not49 = icmp eq ptr %48, null
-  br i1 %.not49, label %54, label %49
+  %48 = shl nuw i64 1, %21
+  %49 = and i64 %48, 180705255180198130
+  %.not49.not = icmp eq i64 %49, 0
+  br i1 %.not49.not, label %50, label %56
 
-49:                                               ; preds = %46
-  %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %54
+50:                                               ; preds = %46
+  %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = tail call i32 %48(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %47, align 8
+  %55 = tail call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %get_op.exit.thread
 
-54:                                               ; preds = %49, %46
-  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %get_op.exit.thread
+56:                                               ; preds = %50, %46
+  %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %59, label %get_op.exit.thread
 
-57:                                               ; preds = %54
-  %58 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h450_unsupported_result_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  %59 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+59:                                               ; preds = %56
+  %60 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h450_unsupported_result_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %get_op.exit.thread
 
-get_op.exit.thread:                               ; preds = %18, %52, %57, %54, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %53, %52 ], [ %59, %57 ], [ 0, %54 ], [ 0, %18 ]
+get_op.exit.thread:                               ; preds = %18, %53, %59, %56, %get_op.exit, %12, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %55, %53 ], [ %61, %59 ], [ 0, %56 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1903,31 +1901,33 @@ proto_item_set_hidden.exit:                       ; preds = %25, %28, %31
 
 46:                                               ; preds = %36, %42, %proto_item_set_hidden.exit
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %.not49 = icmp eq ptr %48, null
-  br i1 %.not49, label %54, label %49
+  %48 = shl nuw i64 1, %21
+  %49 = and i64 %48, 274450079743
+  %.not49.not = icmp eq i64 %49, 0
+  br i1 %.not49.not, label %50, label %56
 
-49:                                               ; preds = %46
-  %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %54
+50:                                               ; preds = %46
+  %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = tail call i32 %48(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %47, align 8
+  %55 = tail call i32 %54(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %get_err.exit.thread
 
-54:                                               ; preds = %49, %46
-  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %get_err.exit.thread
+56:                                               ; preds = %50, %46
+  %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %59, label %get_err.exit.thread
 
-57:                                               ; preds = %54
-  %58 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h450_unsupported_error_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  %59 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+59:                                               ; preds = %56
+  %60 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h450_unsupported_error_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %get_err.exit.thread
 
-get_err.exit.thread:                              ; preds = %18, %52, %57, %54, %get_err.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_err.exit ], [ %53, %52 ], [ %59, %57 ], [ 0, %54 ], [ 0, %18 ]
+get_err.exit.thread:                              ; preds = %18, %53, %59, %56, %get_err.exit, %12, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_err.exit ], [ %55, %53 ], [ %61, %59 ], [ 0, %56 ], [ 0, %18 ]
   ret i32 %.0
 }
 

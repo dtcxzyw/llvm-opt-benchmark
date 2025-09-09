@@ -31029,7 +31029,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000ERKc.exit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail12is_printableEj(i32 noundef %0) local_unnamed_addr #3 comdat {
   %2 = icmp ult i32 %0, 65536
-  br i1 %2, label %3, label %42
+  br i1 %2, label %3, label %41
 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 8
@@ -31038,7 +31038,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail12is_printabl
 
 6:                                                ; preds = %.loopexit43.i, %3
   %.03447.i = phi i32 [ 0, %3 ], [ %9, %.loopexit43.i ]
-  %.03946.i = phi i64 [ 0, %3 ], [ %22, %.loopexit43.i ]
+  %.03946.i = phi i64 [ 0, %3 ], [ %21, %.loopexit43.i ]
   %7 = getelementptr inbounds nuw %"struct.fmt::v9::detail::singleton", ptr @_ZZN3fmt2v96detail12is_printableEjE11singletons0, i64 %.03946.i
   %.sroa.0.0.copyload.i = load i8, ptr %7, align 2
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -31051,186 +31051,182 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail12is_printabl
 
 12:                                               ; preds = %6
   %13 = icmp eq i32 %4, %10
-  %14 = icmp ne i8 %.sroa.3.0.copyload.i, 0
-  %or.cond.i = select i1 %13, i1 %14, i1 false
-  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %.loopexit43.i
+  br i1 %13, label %.lr.ph.preheader.i, label %.loopexit43.i
 
 .lr.ph.preheader.i:                               ; preds = %12
-  %15 = zext nneg i32 %.03447.i to i64
-  %16 = zext nneg i32 %9 to i64
+  %14 = zext nneg i32 %.03447.i to i64
+  %15 = zext nneg i32 %9 to i64
   br label %.lr.ph.i
 
-17:                                               ; preds = %.lr.ph.i
+16:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = icmp samesign ult i64 %indvars.iv.next.i, %16
-  br i1 %18, label %.lr.ph.i, label %.loopexit43.i, !llvm.loop !783
+  %17 = icmp samesign ult i64 %indvars.iv.next.i, %15
+  br i1 %17, label %.lr.ph.i, label %.loopexit43.i, !llvm.loop !783
 
-.lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %15, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE17singletons0_lower, i64 %indvars.iv.i
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, %5
-  br i1 %21, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %17
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %14, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE17singletons0_lower, i64 %indvars.iv.i
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, %5
+  br i1 %20, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %16
 
-.loopexit43.i:                                    ; preds = %17, %12
-  %22 = add nuw nsw i64 %.03946.i, 1
-  %exitcond.not.i = icmp eq i64 %22, 41
+.loopexit43.i:                                    ; preds = %16, %12
+  %21 = add nuw nsw i64 %.03946.i, 1
+  %exitcond.not.i = icmp eq i64 %21, 41
   br i1 %exitcond.not.i, label %.lr.ph54.i.preheader, label %6, !llvm.loop !784
 
 .lr.ph54.i.preheader:                             ; preds = %.loopexit43.i, %6
   br label %.lr.ph54.i
 
-.lr.ph54.i:                                       ; preds = %.lr.ph54.i.preheader, %38
-  %.03552.i = phi i64 [ %40, %38 ], [ 0, %.lr.ph54.i.preheader ]
-  %.03651.i = phi i1 [ %39, %38 ], [ true, %.lr.ph54.i.preheader ]
-  %.03750.i = phi i32 [ %36, %38 ], [ %0, %.lr.ph54.i.preheader ]
-  %23 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal0, i64 %.03552.i
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %.not.i = icmp sgt i8 %24, -1
-  br i1 %.not.i, label %34, label %26
+.lr.ph54.i:                                       ; preds = %.lr.ph54.i.preheader, %37
+  %.03552.i = phi i64 [ %39, %37 ], [ 0, %.lr.ph54.i.preheader ]
+  %.03651.i = phi i1 [ %38, %37 ], [ true, %.lr.ph54.i.preheader ]
+  %.03750.i = phi i32 [ %35, %37 ], [ %0, %.lr.ph54.i.preheader ]
+  %22 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal0, i64 %.03552.i
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %.not.i = icmp sgt i8 %23, -1
+  br i1 %.not.i, label %33, label %25
 
-26:                                               ; preds = %.lr.ph54.i
-  %27 = shl nuw nsw i32 %25, 8
-  %28 = and i32 %27, 32512
-  %29 = add nuw nsw i64 %.03552.i, 1
-  %30 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = or disjoint i32 %28, %32
-  br label %34
+25:                                               ; preds = %.lr.ph54.i
+  %26 = shl nuw nsw i32 %24, 8
+  %27 = and i32 %26, 32512
+  %28 = add nuw nsw i64 %.03552.i, 1
+  %29 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal0, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = or disjoint i32 %27, %31
+  br label %33
 
-34:                                               ; preds = %26, %.lr.ph54.i
-  %.1.i = phi i64 [ %29, %26 ], [ %.03552.i, %.lr.ph54.i ]
-  %35 = phi i32 [ %33, %26 ], [ %25, %.lr.ph54.i ]
-  %36 = sub nsw i32 %.03750.i, %35
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %38
+33:                                               ; preds = %25, %.lr.ph54.i
+  %.1.i = phi i64 [ %28, %25 ], [ %.03552.i, %.lr.ph54.i ]
+  %34 = phi i32 [ %32, %25 ], [ %24, %.lr.ph54.i ]
+  %35 = sub nsw i32 %.03750.i, %34
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %37
 
-38:                                               ; preds = %34
-  %39 = xor i1 %.03651.i, true
-  %40 = add i64 %.1.i, 1
-  %41 = icmp ult i64 %40, 309
-  br i1 %41, label %.lr.ph54.i, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, !llvm.loop !785
+37:                                               ; preds = %33
+  %38 = xor i1 %.03651.i, true
+  %39 = add i64 %.1.i, 1
+  %40 = icmp ult i64 %39, 309
+  br i1 %40, label %.lr.ph54.i, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, !llvm.loop !785
 
-42:                                               ; preds = %1
-  %43 = icmp ult i32 %0, 131072
-  br i1 %43, label %44, label %84
+41:                                               ; preds = %1
+  %42 = icmp ult i32 %0, 131072
+  br i1 %42, label %43, label %82
 
-44:                                               ; preds = %42
-  %45 = and i32 %0, 65535
-  %46 = lshr i32 %45, 8
-  %47 = trunc i32 %0 to i8
-  br label %48
+43:                                               ; preds = %41
+  %44 = and i32 %0, 65535
+  %45 = lshr i32 %44, 8
+  %46 = trunc i32 %0 to i8
+  br label %47
 
-48:                                               ; preds = %.loopexit43.i51, %44
-  %.03447.i45 = phi i32 [ 0, %44 ], [ %51, %.loopexit43.i51 ]
-  %.03946.i46 = phi i64 [ 0, %44 ], [ %64, %.loopexit43.i51 ]
-  %49 = getelementptr inbounds nuw %"struct.fmt::v9::detail::singleton", ptr @_ZZN3fmt2v96detail12is_printableEjE11singletons1, i64 %.03946.i46
-  %.sroa.0.0.copyload.i47 = load i8, ptr %49, align 2
-  %.sroa.3.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %49, i64 1
+47:                                               ; preds = %.loopexit43.i51, %43
+  %.03447.i45 = phi i32 [ 0, %43 ], [ %50, %.loopexit43.i51 ]
+  %.03946.i46 = phi i64 [ 0, %43 ], [ %62, %.loopexit43.i51 ]
+  %48 = getelementptr inbounds nuw %"struct.fmt::v9::detail::singleton", ptr @_ZZN3fmt2v96detail12is_printableEjE11singletons1, i64 %.03946.i46
+  %.sroa.0.0.copyload.i47 = load i8, ptr %48, align 2
+  %.sroa.3.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %.sroa.3.0.copyload.i49 = load i8, ptr %.sroa.3.0..sroa_idx.i48, align 1
-  %50 = zext i8 %.sroa.3.0.copyload.i49 to i32
-  %51 = add nuw nsw i32 %.03447.i45, %50
-  %52 = zext i8 %.sroa.0.0.copyload.i47 to i32
-  %53 = icmp samesign ult i32 %46, %52
-  br i1 %53, label %.lr.ph54.i54.preheader, label %54
+  %49 = zext i8 %.sroa.3.0.copyload.i49 to i32
+  %50 = add nuw nsw i32 %.03447.i45, %49
+  %51 = zext i8 %.sroa.0.0.copyload.i47 to i32
+  %52 = icmp samesign ult i32 %45, %51
+  br i1 %52, label %.lr.ph54.i54.preheader, label %53
 
-54:                                               ; preds = %48
-  %55 = icmp eq i32 %46, %52
-  %56 = icmp ne i8 %.sroa.3.0.copyload.i49, 0
-  %or.cond.i50 = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond.i50, label %.lr.ph.preheader.i61, label %.loopexit43.i51
+53:                                               ; preds = %47
+  %54 = icmp eq i32 %45, %51
+  br i1 %54, label %.lr.ph.preheader.i61, label %.loopexit43.i51
 
-.lr.ph.preheader.i61:                             ; preds = %54
-  %57 = zext nneg i32 %.03447.i45 to i64
-  %58 = zext nneg i32 %51 to i64
+.lr.ph.preheader.i61:                             ; preds = %53
+  %55 = zext nneg i32 %.03447.i45 to i64
+  %56 = zext nneg i32 %50 to i64
   br label %.lr.ph.i62
 
-59:                                               ; preds = %.lr.ph.i62
+57:                                               ; preds = %.lr.ph.i62
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
-  %60 = icmp samesign ult i64 %indvars.iv.next.i64, %58
-  br i1 %60, label %.lr.ph.i62, label %.loopexit43.i51, !llvm.loop !783
+  %58 = icmp samesign ult i64 %indvars.iv.next.i64, %56
+  br i1 %58, label %.lr.ph.i62, label %.loopexit43.i51, !llvm.loop !783
 
-.lr.ph.i62:                                       ; preds = %59, %.lr.ph.preheader.i61
-  %indvars.iv.i63 = phi i64 [ %57, %.lr.ph.preheader.i61 ], [ %indvars.iv.next.i64, %59 ]
-  %61 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE17singletons1_lower, i64 %indvars.iv.i63
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp eq i8 %62, %47
-  br i1 %63, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %59
+.lr.ph.i62:                                       ; preds = %57, %.lr.ph.preheader.i61
+  %indvars.iv.i63 = phi i64 [ %55, %.lr.ph.preheader.i61 ], [ %indvars.iv.next.i64, %57 ]
+  %59 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE17singletons1_lower, i64 %indvars.iv.i63
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, %46
+  br i1 %61, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %57
 
-.loopexit43.i51:                                  ; preds = %59, %54
-  %64 = add nuw nsw i64 %.03946.i46, 1
-  %exitcond.not.i52 = icmp eq i64 %64, 38
-  br i1 %exitcond.not.i52, label %.lr.ph54.i54.preheader, label %48, !llvm.loop !784
+.loopexit43.i51:                                  ; preds = %57, %53
+  %62 = add nuw nsw i64 %.03946.i46, 1
+  %exitcond.not.i52 = icmp eq i64 %62, 38
+  br i1 %exitcond.not.i52, label %.lr.ph54.i54.preheader, label %47, !llvm.loop !784
 
-.lr.ph54.i54.preheader:                           ; preds = %.loopexit43.i51, %48
+.lr.ph54.i54.preheader:                           ; preds = %.loopexit43.i51, %47
   br label %.lr.ph54.i54
 
-.lr.ph54.i54:                                     ; preds = %.lr.ph54.i54.preheader, %80
-  %.03552.i55 = phi i64 [ %82, %80 ], [ 0, %.lr.ph54.i54.preheader ]
-  %.03651.i56 = phi i1 [ %81, %80 ], [ true, %.lr.ph54.i54.preheader ]
-  %.03750.i57 = phi i32 [ %78, %80 ], [ %45, %.lr.ph54.i54.preheader ]
-  %65 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal1, i64 %.03552.i55
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %.not.i58 = icmp sgt i8 %66, -1
-  br i1 %.not.i58, label %76, label %68
+.lr.ph54.i54:                                     ; preds = %.lr.ph54.i54.preheader, %78
+  %.03552.i55 = phi i64 [ %80, %78 ], [ 0, %.lr.ph54.i54.preheader ]
+  %.03651.i56 = phi i1 [ %79, %78 ], [ true, %.lr.ph54.i54.preheader ]
+  %.03750.i57 = phi i32 [ %76, %78 ], [ %44, %.lr.ph54.i54.preheader ]
+  %63 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal1, i64 %.03552.i55
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %.not.i58 = icmp sgt i8 %64, -1
+  br i1 %.not.i58, label %74, label %66
 
-68:                                               ; preds = %.lr.ph54.i54
-  %69 = shl nuw nsw i32 %67, 8
-  %70 = and i32 %69, 32512
-  %71 = add nuw nsw i64 %.03552.i55, 1
-  %72 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal1, i64 %71
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = or disjoint i32 %70, %74
-  br label %76
+66:                                               ; preds = %.lr.ph54.i54
+  %67 = shl nuw nsw i32 %65, 8
+  %68 = and i32 %67, 32512
+  %69 = add nuw nsw i64 %.03552.i55, 1
+  %70 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v96detail12is_printableEjE7normal1, i64 %69
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = or disjoint i32 %68, %72
+  br label %74
 
-76:                                               ; preds = %68, %.lr.ph54.i54
-  %.1.i59 = phi i64 [ %71, %68 ], [ %.03552.i55, %.lr.ph54.i54 ]
-  %77 = phi i32 [ %75, %68 ], [ %67, %.lr.ph54.i54 ]
-  %78 = sub nsw i32 %.03750.i57, %77
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %80
+74:                                               ; preds = %66, %.lr.ph54.i54
+  %.1.i59 = phi i64 [ %69, %66 ], [ %.03552.i55, %.lr.ph54.i54 ]
+  %75 = phi i32 [ %73, %66 ], [ %65, %.lr.ph54.i54 ]
+  %76 = sub nsw i32 %.03750.i57, %75
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, label %78
 
-80:                                               ; preds = %76
-  %81 = xor i1 %.03651.i56, true
-  %82 = add i64 %.1.i59, 1
-  %83 = icmp ult i64 %82, 419
-  br i1 %83, label %.lr.ph54.i54, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, !llvm.loop !785
+78:                                               ; preds = %74
+  %79 = xor i1 %.03651.i56, true
+  %80 = add i64 %.1.i59, 1
+  %81 = icmp ult i64 %80, 419
+  br i1 %81, label %.lr.ph54.i54, label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit, !llvm.loop !785
 
-84:                                               ; preds = %42
-  %85 = add i32 %0, -173790
-  %or.cond = icmp ult i32 %85, 34
-  %86 = add i32 %0, -177973
-  %or.cond3 = icmp ult i32 %86, 11
+82:                                               ; preds = %41
+  %83 = add i32 %0, -173790
+  %or.cond = icmp ult i32 %83, 34
+  %84 = add i32 %0, -177973
+  %or.cond3 = icmp ult i32 %84, 11
   %or.cond38 = or i1 %or.cond, %or.cond3
-  %87 = and i32 %0, -2
-  %or.cond5 = icmp eq i32 %87, 178206
+  %85 = and i32 %0, -2
+  %or.cond5 = icmp eq i32 %85, 178206
   %or.cond39 = or i1 %or.cond5, %or.cond38
-  %88 = add i32 %0, -183970
-  %or.cond7 = icmp ult i32 %88, 14
+  %86 = add i32 %0, -183970
+  %or.cond7 = icmp ult i32 %86, 14
   %or.cond40 = or i1 %or.cond7, %or.cond39
-  %89 = add i32 %0, -191457
-  %or.cond9 = icmp ult i32 %89, 3103
+  %87 = add i32 %0, -191457
+  %or.cond9 = icmp ult i32 %87, 3103
   %or.cond41 = or i1 %or.cond9, %or.cond40
-  %90 = add i32 %0, -195102
-  %or.cond11 = icmp ult i32 %90, 1506
+  %88 = add i32 %0, -195102
+  %or.cond11 = icmp ult i32 %88, 1506
   %or.cond42 = or i1 %or.cond11, %or.cond41
-  %91 = add i32 %0, -201547
-  %or.cond13 = icmp ult i32 %91, 716213
+  %89 = add i32 %0, -201547
+  %or.cond13 = icmp ult i32 %89, 716213
   %or.cond43 = or i1 %or.cond13, %or.cond42
-  %92 = add i32 %0, -918000
-  %or.cond15 = icmp ult i32 %92, 196112
+  %90 = add i32 %0, -918000
+  %or.cond15 = icmp ult i32 %90, 196112
   %or.cond44 = or i1 %or.cond15, %or.cond43
-  %93 = icmp ult i32 %0, 1114112
+  %91 = icmp ult i32 %0, 1114112
   %not.or.cond44 = xor i1 %or.cond44, true
-  %spec.select = and i1 %93, %not.or.cond44
+  %spec.select = and i1 %91, %not.or.cond44
   br label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit
 
-_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit: ; preds = %.lr.ph.i62, %80, %76, %.lr.ph.i, %38, %34, %84
-  %.0 = phi i1 [ %spec.select, %84 ], [ %39, %38 ], [ %.03651.i, %34 ], [ false, %.lr.ph.i ], [ %81, %80 ], [ %.03651.i56, %76 ], [ false, %.lr.ph.i62 ]
+_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit: ; preds = %.lr.ph.i62, %78, %74, %.lr.ph.i, %37, %33, %82
+  %.0 = phi i1 [ %spec.select, %82 ], [ %38, %37 ], [ %.03651.i, %33 ], [ false, %.lr.ph.i ], [ %79, %78 ], [ %.03651.i56, %74 ], [ false, %.lr.ph.i62 ]
   ret i1 %.0
 }
 

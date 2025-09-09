@@ -2419,33 +2419,34 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   %668 = icmp eq i32 %.0502.i, 16
   br i1 %668, label %.preheader542.i, label %.loopexit543.i
 
-.preheader542.i:                                  ; preds = %665, %697
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %697 ], [ 0, %665 ]
-  %669 = phi ptr [ %699, %697 ], [ @.str.755, %665 ]
+.preheader542.i:                                  ; preds = %665, %698
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %698 ], [ 0, %665 ]
+  %669 = phi ptr [ %699, %698 ], [ getelementptr inbounds nuw (i8, ptr @target_vals, i64 24), %665 ]
   %670 = getelementptr %struct._ext_value_string, ptr @target_vals, i64 %indvars.iv.i
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 16
   %672 = load i32, ptr %671, align 16
   %673 = sext i32 %672 to i64
   %674 = call i32 @tvb_memeql(ptr noundef %.0301356, i32 noundef %488, ptr noundef %670, i64 noundef %673)
   %675 = icmp eq i32 %674, 0
-  br i1 %675, label %676, label %697
+  br i1 %675, label %676, label %698
 
 676:                                              ; preds = %.preheader542.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %667, ptr noundef nonnull @.str.752, ptr noundef nonnull %669)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %452, ptr noundef nonnull @.str.752, ptr noundef nonnull %669)
-  %677 = load ptr, ptr %53, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %677, i32 noundef 25, ptr noundef nonnull @.str.753, ptr noundef nonnull %669)
-  %678 = load ptr, ptr %417, align 8
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 57
-  %680 = load i16, ptr %679, align 1
-  %681 = and i16 %680, 8
-  %.not524.i = icmp eq i16 %681, 0
-  br i1 %.not524.i, label %682, label %697
+  %677 = load ptr, ptr %669, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %667, ptr noundef nonnull @.str.752, ptr noundef %677)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %452, ptr noundef nonnull @.str.752, ptr noundef %677)
+  %678 = load ptr, ptr %53, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %678, i32 noundef 25, ptr noundef nonnull @.str.753, ptr noundef %677)
+  %679 = load ptr, ptr %417, align 8
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 57
+  %681 = load i16, ptr %680, align 1
+  %682 = and i16 %681, 8
+  %.not524.i = icmp eq i16 %682, 0
+  br i1 %.not524.i, label %683, label %698
 
-682:                                              ; preds = %676
+683:                                              ; preds = %676
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %683 = load i32, ptr %62, align 4
-  store i32 %683, ptr %5, align 4
+  %684 = load i32, ptr %62, align 4
+  store i32 %684, ptr %5, align 4
   store i32 1, ptr %7, align 16
   store ptr %11, ptr %418, align 8
   store i32 1, ptr %419, align 16
@@ -2458,36 +2459,35 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   store ptr %5, ptr %426, align 8
   store i32 0, ptr %427, align 16
   store ptr null, ptr %428, align 8
-  %684 = call ptr @wmem_file_scope()
-  %685 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc(ptr noundef %684, i64 noundef 20) #6
-  %686 = load i32, ptr %11, align 4
-  store i32 %686, ptr %685, align 4
-  %687 = load i32, ptr %66, align 4
-  %688 = getelementptr inbounds nuw i8, ptr %685, i64 4
-  store i32 %687, ptr %688, align 4
-  %689 = load i32, ptr %69, align 4
-  %690 = getelementptr inbounds nuw i8, ptr %685, i64 8
-  store i32 %689, ptr %690, align 4
-  %691 = load i32, ptr %72, align 4
-  %692 = getelementptr inbounds nuw i8, ptr %685, i64 12
-  store i32 %691, ptr %692, align 4
-  %693 = getelementptr i32, ptr @target_to_profile, i64 %indvars.iv.i
-  %694 = load i32, ptr %693, align 4
-  %695 = getelementptr inbounds nuw i8, ptr %685, i64 16
-  store i32 %694, ptr %695, align 4
-  %696 = load ptr, ptr @obex_profile, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %696, ptr noundef nonnull %7, ptr noundef %685)
+  %685 = call ptr @wmem_file_scope()
+  %686 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc(ptr noundef %685, i64 noundef 20) #6
+  %687 = load i32, ptr %11, align 4
+  store i32 %687, ptr %686, align 4
+  %688 = load i32, ptr %66, align 4
+  %689 = getelementptr inbounds nuw i8, ptr %686, i64 4
+  store i32 %688, ptr %689, align 4
+  %690 = load i32, ptr %69, align 4
+  %691 = getelementptr inbounds nuw i8, ptr %686, i64 8
+  store i32 %690, ptr %691, align 4
+  %692 = load i32, ptr %72, align 4
+  %693 = getelementptr inbounds nuw i8, ptr %686, i64 12
+  store i32 %692, ptr %693, align 4
+  %694 = getelementptr i32, ptr @target_to_profile, i64 %indvars.iv.i
+  %695 = load i32, ptr %694, align 4
+  %696 = getelementptr inbounds nuw i8, ptr %686, i64 16
+  store i32 %695, ptr %696, align 4
+  %697 = load ptr, ptr @obex_profile, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %697, ptr noundef nonnull %7, ptr noundef %686)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %697
+  br label %698
 
-697:                                              ; preds = %682, %676, %.preheader542.i
+698:                                              ; preds = %683, %676, %.preheader542.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %698 = getelementptr %struct._ext_value_string, ptr @target_vals, i64 %indvars.iv.next.i, i32 2
-  %699 = load ptr, ptr %698, align 8
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.i, label %.loopexit543.i, label %.preheader542.i, !llvm.loop !13
+  %699 = getelementptr %struct._ext_value_string, ptr @target_vals, i64 %indvars.iv.next.i, i32 2
+  %.not523.i = icmp eq i64 %indvars.iv.next.i, 20
+  br i1 %.not523.i, label %.loopexit543.i, label %.preheader542.i, !llvm.loop !13
 
-.loopexit543.i:                                   ; preds = %697, %665
+.loopexit543.i:                                   ; preds = %698, %665
   %700 = add i32 %.0502.i, %488
   br label %.loopexit.i
 

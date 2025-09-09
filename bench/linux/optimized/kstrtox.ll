@@ -738,16 +738,16 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8(ptr noundef readonly ca
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
-  switch i8 %5, label %16 [
-    i8 121, label %14
-    i8 89, label %14
-    i8 116, label %14
-    i8 84, label %14
-    i8 49, label %14
+  switch i8 %5, label %17 [
+    i8 121, label %15
+    i8 89, label %15
+    i8 116, label %15
+    i8 84, label %15
+    i8 49, label %15
     i8 110, label %6
     i8 78, label %6
     i8 102, label %6
@@ -758,7 +758,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly 
   ]
 
 6:                                                ; preds = %4, %4, %4, %4, %4
-  br label %14
+  br label %15
 
 7:                                                ; preds = %4, %4
   %8 = getelementptr i8, ptr %0, i64 1
@@ -766,24 +766,28 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly 
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %10, -70
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 29)
-  switch i32 %12, label %16 [
-    i32 5, label %14
-    i32 1, label %14
-    i32 4, label %13
-    i32 0, label %13
-  ]
+  %13 = icmp ult i32 %12, 6
+  %switch.maskindex = trunc i32 %12 to i8
+  %switch.shifted = lshr i8 51, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %17
 
-13:                                               ; preds = %7, %7
-  br label %14
+switch.lookup:                                    ; preds = %7
+  %14 = shl nuw nsw i32 %12, 3
+  %switch.shiftamt = zext nneg i32 %14 to i48
+  %switch.downshift = lshr i48 1099511628032, %switch.shiftamt
+  %switch.masked = trunc i48 %switch.downshift to i8
+  br label %15
 
-14:                                               ; preds = %13, %7, %7, %6, %4, %4, %4, %4, %4
-  %15 = phi i8 [ 0, %13 ], [ 0, %6 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %7 ], [ 1, %7 ]
-  store i8 %15, ptr %1, align 1
-  br label %16
+15:                                               ; preds = %switch.lookup, %6, %4, %4, %4, %4, %4
+  %16 = phi i8 [ 0, %6 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ %switch.masked, %switch.lookup ]
+  store i8 %16, ptr %1, align 1
+  br label %17
 
-16:                                               ; preds = %14, %7, %4, %2
-  %17 = phi i32 [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ 0, %14 ]
-  ret i32 %17
+17:                                               ; preds = %7, %15, %4, %2
+  %18 = phi i32 [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ 0, %15 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -801,11 +805,11 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   store i8 0, ptr %9, align 1
   %10 = load i8, ptr %4, align 4
   switch i8 %10, label %kstrtobool.exit [
-    i8 121, label %19
-    i8 89, label %19
-    i8 116, label %19
-    i8 84, label %19
-    i8 49, label %19
+    i8 121, label %20
+    i8 89, label %20
+    i8 116, label %20
+    i8 84, label %20
+    i8 49, label %20
     i8 110, label %11
     i8 78, label %11
     i8 102, label %11
@@ -816,7 +820,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   ]
 
 11:                                               ; preds = %8, %8, %8, %8, %8
-  br label %19
+  br label %20
 
 12:                                               ; preds = %8, %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -824,25 +828,29 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   %15 = zext i8 %14 to i32
   %16 = add nsw i32 %15, -70
   %17 = call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 29)
-  switch i32 %17, label %kstrtobool.exit [
-    i32 5, label %19
-    i32 1, label %19
-    i32 4, label %18
-    i32 0, label %18
-  ]
+  %18 = icmp ult i32 %17, 6
+  %switch.maskindex = trunc i32 %17 to i8
+  %switch.shifted = lshr i8 51, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %kstrtobool.exit
 
-18:                                               ; preds = %12, %12
-  br label %19
+switch.lookup:                                    ; preds = %12
+  %19 = shl nuw nsw i32 %17, 3
+  %switch.shiftamt = zext nneg i32 %19 to i48
+  %switch.downshift = lshr i48 1099511628032, %switch.shiftamt
+  %switch.masked = trunc i48 %switch.downshift to i8
+  br label %20
 
-19:                                               ; preds = %18, %12, %12, %11, %8, %8, %8, %8, %8
-  %20 = phi i8 [ 0, %18 ], [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %12 ], [ 1, %12 ]
-  store i8 %20, ptr %2, align 1
+20:                                               ; preds = %switch.lookup, %11, %8, %8, %8, %8, %8
+  %21 = phi i8 [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %switch.masked, %switch.lookup ]
+  store i8 %21, ptr %2, align 1
   br label %kstrtobool.exit
 
-kstrtobool.exit:                                  ; preds = %19, %12, %8, %3
-  %21 = phi i32 [ -14, %3 ], [ -22, %8 ], [ -22, %12 ], [ 0, %19 ]
+kstrtobool.exit:                                  ; preds = %12, %20, %8, %3
+  %22 = phi i32 [ -14, %3 ], [ -22, %8 ], [ -22, %12 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %21
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

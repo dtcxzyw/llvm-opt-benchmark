@@ -2994,7 +2994,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 13:                                               ; preds = %5
   %14 = tail call ptr @expert_add_info(ptr noundef %4, ptr noundef %0, ptr noundef nonnull @ei_nan_elem_len_invalid)
-  br label %.loopexit188
+  br label %.loopexit187
 
 15:                                               ; preds = %5
   %16 = load i32, ptr @hf_nan_attr_availability_sequence_id, align 4
@@ -3009,10 +3009,10 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br label %25
 
 25:                                               ; preds = %15, %._crit_edge
-  %.0151199 = phi i32 [ %23, %15 ], [ %.2.lcssa, %._crit_edge ]
-  %.0152198 = phi i32 [ 3, %15 ], [ %77, %._crit_edge ]
-  %26 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.0151199)
-  %27 = shl i32 %.0151199, 3
+  %.0151198 = phi i32 [ %23, %15 ], [ %.2.lcssa, %._crit_edge ]
+  %.0152197 = phi i32 [ 3, %15 ], [ %77, %._crit_edge ]
+  %26 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.0151198)
+  %27 = shl i32 %.0151198, 3
   %28 = add i32 %27, 21
   %29 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %28, i32 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3025,20 +3025,20 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   %34 = zext i16 %26 to i32
   %35 = add nuw nsw i32 %34, 2
   %36 = load i32, ptr @ett_availability_entry, align 4
-  %37 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.0151199, i32 noundef %35, i32 noundef %36, ptr noundef null, ptr noundef %33)
+  %37 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.0151198, i32 noundef %35, i32 noundef %36, ptr noundef null, ptr noundef %33)
   %38 = load i32, ptr @hf_nan_attr_availability_entry_len, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef %.0151199, i32 noundef 2, i32 noundef -2147483648)
-  %40 = add i32 %.0151199, 2
+  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef %.0151198, i32 noundef 2, i32 noundef -2147483648)
+  %40 = add i32 %.0151198, 2
   %41 = load i32, ptr @hf_nan_attr_availability_entry_ctr, align 4
   %42 = load i32, ptr @ett_availability_entry_ctr, align 4
   %43 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %37, ptr noundef %1, i32 noundef %40, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @dissect_attr_availability.availability_entry_ctr_fields, i32 noundef -2147483648, ptr noundef nonnull %7)
-  %44 = add i32 %.0151199, 4
+  %44 = add i32 %.0151198, 4
   %45 = load i64, ptr %7, align 8
   %46 = and i64 %45, 4096
   %.not = icmp eq i64 %46, 0
-  br i1 %.not, label %._crit_edge210, label %47
+  br i1 %.not, label %._crit_edge209, label %47
 
-._crit_edge210:                                   ; preds = %25
+._crit_edge209:                                   ; preds = %25
   %.pre = load i32, ptr %6, align 4
   br label %60
 
@@ -3047,20 +3047,20 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   %49 = load i32, ptr @ett_time_bitmap_ctrl, align 4
   %50 = call ptr @proto_tree_add_bitmask(ptr noundef %37, ptr noundef %1, i32 noundef %44, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @time_bitmap_ctr_fields, i32 noundef -2147483648)
   %51 = load i32, ptr @hf_nan_time_bitmap_len, align 4
-  %52 = add i32 %.0151199, 6
+  %52 = add i32 %.0151198, 6
   %53 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6)
   %54 = load i32, ptr @hf_nan_time_bitmap, align 4
-  %55 = add i32 %.0151199, 7
+  %55 = add i32 %.0151198, 7
   %56 = load i32, ptr %6, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %54, ptr noundef %1, i32 noundef %55, i32 noundef %56, i32 noundef 0)
   %58 = load i32, ptr %6, align 4
   %59 = add i32 %55, %58
   br label %60
 
-60:                                               ; preds = %._crit_edge210, %47
-  %61 = phi i32 [ %58, %47 ], [ %.pre, %._crit_edge210 ]
-  %.0153.neg = phi i32 [ -5, %47 ], [ -2, %._crit_edge210 ]
-  %.1 = phi i32 [ %59, %47 ], [ %44, %._crit_edge210 ]
+60:                                               ; preds = %._crit_edge209, %47
+  %61 = phi i32 [ %58, %47 ], [ %.pre, %._crit_edge209 ]
+  %.0153.neg = phi i32 [ -5, %47 ], [ -2, %._crit_edge209 ]
+  %.1 = phi i32 [ %59, %47 ], [ %44, %._crit_edge209 ]
   %62 = add nsw i32 %.0153.neg, %34
   %63 = sub i32 %62, %61
   %64 = load i32, ptr @ett_availability_entry_entries, align 4
@@ -3079,63 +3079,63 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   %74 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %65, i32 noundef %72, ptr noundef %1, i32 noundef %73, i32 noundef 4, ptr noundef nonnull %10, i32 noundef -2147483648)
   %75 = add i32 %.1, 1
   %76 = load i64, ptr %10, align 8
-  %.not200 = icmp eq i64 %76, 0
-  br i1 %.not200, label %._crit_edge, label %.lr.ph197
+  %.not199 = icmp eq i64 %76, 0
+  br i1 %.not199, label %._crit_edge, label %.lr.ph196
 
 ._crit_edge:                                      ; preds = %179, %60
   %.2.lcssa = phi i32 [ %75, %60 ], [ %.3, %179 ]
-  %77 = add nuw nsw i32 %35, %.0152198
+  %77 = add nuw nsw i32 %35, %.0152197
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = icmp samesign ult i32 %77, %11
-  br i1 %78, label %25, label %.loopexit188, !llvm.loop !17
+  br i1 %78, label %25, label %.loopexit187, !llvm.loop !17
 
-.lr.ph197:                                        ; preds = %60, %179
-  %.2196 = phi i32 [ %.3, %179 ], [ %75, %60 ]
-  %.0154195 = phi i8 [ %180, %179 ], [ 0, %60 ]
+.lr.ph196:                                        ; preds = %60, %179
+  %.2195 = phi i32 [ %.3, %179 ], [ %75, %60 ]
+  %.0154194 = phi i8 [ %180, %179 ], [ 0, %60 ]
   %79 = load i64, ptr %8, align 8
   switch i64 %79, label %179 [
     i64 0, label %80
     i64 1, label %84
   ]
 
-80:                                               ; preds = %.lr.ph197
+80:                                               ; preds = %.lr.ph196
   %81 = load i32, ptr @hf_nan_attr_availability_entry_entries_band, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %81, ptr noundef %1, i32 noundef %.2196, i32 noundef 1, i32 noundef -2147483648)
-  %83 = add i32 %.2196, 1
+  %82 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %81, ptr noundef %1, i32 noundef %.2195, i32 noundef 1, i32 noundef -2147483648)
+  %83 = add i32 %.2195, 1
   br label %179
 
-84:                                               ; preds = %.lr.ph197
+84:                                               ; preds = %.lr.ph196
   %85 = load i64, ptr %9, align 8
   %86 = icmp eq i64 %85, 0
   %87 = select i1 %86, i32 4, i32 6
   %88 = load i32, ptr @ett_availability_entry_entries_channel, align 4
-  %89 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %1, i32 noundef %.2196, i32 noundef %87, i32 noundef %88, ptr noundef null, ptr noundef nonnull @.str.726)
-  %90 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.2196)
-  %91 = add i32 %.2196, 1
+  %89 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %1, i32 noundef %.2195, i32 noundef %87, i32 noundef %88, ptr noundef null, ptr noundef nonnull @.str.726)
+  %90 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.2195)
+  %91 = add i32 %.2195, 1
   %92 = call zeroext i16 @tvb_get_uint16(ptr noundef %1, i32 noundef %91, i32 noundef -2147483648)
   %93 = load i32, ptr @ett_availability_op_class, align 4
-  %94 = call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %.2196, i32 noundef 1, i32 noundef %93, ptr noundef null, ptr noundef nonnull @.str.168)
+  %94 = call ptr @proto_tree_add_subtree(ptr noundef %89, ptr noundef %1, i32 noundef %.2195, i32 noundef 1, i32 noundef %93, ptr noundef null, ptr noundef nonnull @.str.168)
   %95 = load i32, ptr @hf_nan_attr_availability_entry_entries_start_freq, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %1, i32 noundef %.2196, i32 noundef 1, i32 noundef -2147483648)
+  %96 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %1, i32 noundef %.2195, i32 noundef 1, i32 noundef -2147483648)
   %97 = load i32, ptr @hf_nan_attr_availability_entry_entries_bandwidth, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %97, ptr noundef %1, i32 noundef %.2196, i32 noundef 1, i32 noundef -2147483648)
+  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %97, ptr noundef %1, i32 noundef %.2195, i32 noundef 1, i32 noundef -2147483648)
   %99 = load ptr, ptr %24, align 8
   %100 = call noalias ptr @wmem_strbuf_new(ptr noundef %99, ptr noundef nonnull @.str.733)
   %101 = zext i8 %90 to i32
   %102 = icmp ult i8 %90, -125
-  br i1 %102, label %.preheader186, label %124
+  br i1 %102, label %.preheader185, label %124
 
-.preheader186:                                    ; preds = %84
+.preheader185:                                    ; preds = %84
   %103 = zext i16 %92 to i32
   br label %104
 
-104:                                              ; preds = %.preheader186, %.thread
-  %indvars.iv206 = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next207, %.thread ]
-  %105 = trunc nuw nsw i64 %indvars.iv206 to i32
+104:                                              ; preds = %.preheader185, %.thread
+  %indvars.iv205 = phi i64 [ 0, %.preheader185 ], [ %indvars.iv.next206, %.thread ]
+  %105 = trunc nuw nsw i64 %indvars.iv205 to i32
   %106 = shl nuw nsw i32 1, %105
   %107 = and i32 %106, %103
   %.not163 = icmp eq i32 %107, 0
@@ -3156,12 +3156,12 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 113:                                              ; preds = %110, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 55
-  br i1 %exitcond.i, label %122, label %.preheader, !llvm.loop !18
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 55
+  br i1 %.not.i, label %122, label %.preheader, !llvm.loop !18
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %116 = getelementptr i32, ptr %115, i64 %indvars.iv206
+  %116 = getelementptr i32, ptr %115, i64 %indvars.iv205
   %117 = load i32, ptr %116, align 4
   switch i32 %117, label %121 [
     i32 -3, label %118
@@ -3190,9 +3190,9 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .thread:                                          ; preds = %121, %120, %119, %118, %104
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next207, 16
-  br i1 %exitcond209.not, label %.loopexit, label %104, !llvm.loop !19
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond208.not = icmp eq i64 %indvars.iv.next206, 16
+  br i1 %exitcond208.not, label %.loopexit, label %104, !llvm.loop !19
 
 124:                                              ; preds = %84
   %125 = lshr i16 %92, 8
@@ -3214,8 +3214,8 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 133:                                              ; preds = %130, %127
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i165, 1
-  %exitcond.i171 = icmp eq i64 %indvars.iv.next.i170, 55
-  br i1 %exitcond.i171, label %158, label %127, !llvm.loop !18
+  %.not.i171 = icmp eq i64 %indvars.iv.next.i170, 55
+  br i1 %.not.i171, label %158, label %127, !llvm.loop !18
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -3232,8 +3232,8 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 142:                                              ; preds = %138
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i173, 1
-  %exitcond.i175 = icmp eq i64 %indvars.iv.next.i174, 64
-  br i1 %exitcond.i175, label %channel_number_valid.exit.thread, label %138, !llvm.loop !20
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i174, 64
+  br i1 %exitcond.i, label %channel_number_valid.exit.thread, label %138, !llvm.loop !20
 
 channel_number_valid.exit:                        ; preds = %138
   %143 = trunc nuw nsw i64 %indvars.iv.i173 to i32
@@ -3245,7 +3245,7 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
   br label %146
 
 146:                                              ; preds = %channel_number_valid.exit.thread, %channel_number_valid.exit
-  %spec.select.i184 = phi i32 [ 64, %channel_number_valid.exit.thread ], [ %143, %channel_number_valid.exit ]
+  %spec.select.i183 = phi i32 [ 64, %channel_number_valid.exit.thread ], [ %143, %channel_number_valid.exit ]
   %147 = add i16 %92, -16640
   %or.cond = icmp ult i16 %147, -16384
   br i1 %or.cond, label %148, label %150
@@ -3255,14 +3255,14 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
   br label %150
 
 150:                                              ; preds = %146, %148
-  %151 = add i32 %spec.select.i184, %126
+  %151 = add i32 %spec.select.i183, %126
   %152 = call i32 @llvm.umin.i32(i32 %151, i32 64)
-  %153 = and i32 %spec.select.i184, 255
+  %153 = and i32 %spec.select.i183, 255
   %154 = icmp samesign ugt i32 %152, %153
-  br i1 %154, label %.lr.ph.preheader, label %.loopexit187
+  br i1 %154, label %.lr.ph.preheader, label %.loopexit186
 
 .lr.ph.preheader:                                 ; preds = %150
-  %155 = zext nneg i32 %spec.select.i184 to i64
+  %155 = zext nneg i32 %spec.select.i183 to i64
   %wide.trip.count = zext nneg i32 %152 to i64
   br label %.lr.ph
 
@@ -3273,26 +3273,26 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %100, ptr noundef nonnull @.str.737, i32 noundef %157)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit187, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit186, label %.lr.ph, !llvm.loop !21
 
 158:                                              ; preds = %133
   %159 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %89, ptr noundef nonnull @ei_nan_unknown_op_class)
-  br label %.loopexit187
+  br label %.loopexit186
 
-.loopexit187:                                     ; preds = %.lr.ph, %150, %158
+.loopexit186:                                     ; preds = %.lr.ph, %150, %158
   %160 = load i32, ptr @hf_nan_attr_availability_entry_entries_start_channel_number, align 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %160, ptr noundef %1, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648)
   %162 = load i32, ptr @hf_nan_attr_availability_entry_entries_number_of_ch_included, align 4
-  %163 = add i32 %.2196, 2
+  %163 = add i32 %.2195, 2
   %164 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %162, ptr noundef %1, i32 noundef %163, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %122, %.loopexit187
+.loopexit:                                        ; preds = %.thread, %122, %.loopexit186
   %165 = load i32, ptr @hf_nan_attr_availability_entry_entries_channel_set, align 4
   %166 = call ptr @wmem_strbuf_finalize(ptr noundef %100)
   %167 = call ptr @proto_tree_add_string(ptr noundef %89, i32 noundef %165, ptr noundef %1, i32 noundef %91, i32 noundef 2, ptr noundef %166)
   %168 = load i32, ptr @hf_nan_attr_availability_entry_entries_primary_channel_bitmap, align 4
-  %169 = add i32 %.2196, 3
+  %169 = add i32 %.2195, 3
   %170 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %168, ptr noundef %1, i32 noundef %169, i32 noundef 1, i32 noundef -2147483648)
   %171 = load i64, ptr %9, align 8
   %172 = icmp eq i64 %171, 1
@@ -3300,23 +3300,23 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
 
 173:                                              ; preds = %.loopexit
   %174 = load i32, ptr @hf_nan_attr_availability_entry_entries_aux_channel_bitmap, align 4
-  %175 = add i32 %.2196, 4
+  %175 = add i32 %.2195, 4
   %176 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %174, ptr noundef %1, i32 noundef %175, i32 noundef 2, i32 noundef -2147483648)
   br label %177
 
 177:                                              ; preds = %173, %.loopexit
-  %178 = add i32 %87, %.2196
+  %178 = add i32 %87, %.2195
   br label %179
 
-179:                                              ; preds = %.lr.ph197, %80, %177
-  %.3 = phi i32 [ %.2196, %.lr.ph197 ], [ %83, %80 ], [ %178, %177 ]
-  %180 = add i8 %.0154195, 1
+179:                                              ; preds = %.lr.ph196, %80, %177
+  %.3 = phi i32 [ %.2195, %.lr.ph196 ], [ %83, %80 ], [ %178, %177 ]
+  %180 = add i8 %.0154194, 1
   %181 = zext i8 %180 to i64
   %182 = load i64, ptr %10, align 8
   %183 = icmp ugt i64 %182, %181
-  br i1 %183, label %.lr.ph197, label %._crit_edge, !llvm.loop !22
+  br i1 %183, label %.lr.ph196, label %._crit_edge, !llvm.loop !22
 
-.loopexit188:                                     ; preds = %._crit_edge, %13
+.loopexit187:                                     ; preds = %._crit_edge, %13
   ret void
 }
 

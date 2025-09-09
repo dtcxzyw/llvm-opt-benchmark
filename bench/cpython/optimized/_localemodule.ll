@@ -2073,48 +2073,43 @@ declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_addr #0 {
-  br label %3
+  br label %2
 
-2:                                                ; preds = %3
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 56
-  br i1 %.not, label %49, label %3, !llvm.loop !49
+2:                                                ; preds = %1, %49
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %49 ]
+  %3 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !49
+  %6 = icmp eq i32 %5, %0
+  br i1 %6, label %7, label %49
 
-3:                                                ; preds = %1, %2
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !50
-  %7 = icmp eq i32 %6, %0
-  br i1 %7, label %8, label %2
+7:                                                ; preds = %2
+  %8 = tail call ptr @nl_langinfo(i32 noundef %0) #8
+  %.not21 = icmp eq ptr %8, null
+  %9 = select i1 %.not21, ptr @.str.41, ptr %8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %11 = icmp eq i64 %indvars.iv, 46
+  br i1 %11, label %change_locale.exit, label %12
 
-8:                                                ; preds = %3
-  %9 = tail call ptr @nl_langinfo(i32 noundef %0) #8
-  %.not21 = icmp eq ptr %9, null
-  %10 = select i1 %.not21, ptr @.str.41, ptr %9
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !52
-  %.not22 = icmp eq i32 %12, 0
-  br i1 %.not22, label %change_locale.exit, label %13
-
-13:                                               ; preds = %8
-  %14 = load i8, ptr %10, align 1, !tbaa !11
-  %.not5.i = icmp eq i8 %14, 0
+12:                                               ; preds = %7
+  %13 = load i8, ptr %9, align 1, !tbaa !11
+  %.not5.i = icmp eq i8 %13, 0
   br i1 %.not5.i, label %change_locale.exit, label %.lr.ph.i
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr i8, ptr %.06.i, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !11
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %change_locale.exit, label %.lr.ph.i, !llvm.loop !53
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr i8, ptr %.06.i, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !11
+  %.not.i = icmp eq i8 %16, 0
+  br i1 %.not.i, label %change_locale.exit, label %.lr.ph.i, !llvm.loop !51
 
-.lr.ph.i:                                         ; preds = %13, %15
-  %18 = phi i8 [ %17, %15 ], [ %14, %13 ]
-  %.06.i = phi ptr [ %16, %15 ], [ %10, %13 ]
-  %19 = icmp slt i8 %18, 0
-  br i1 %19, label %is_all_ascii.exit, label %15
+.lr.ph.i:                                         ; preds = %12, %14
+  %17 = phi i8 [ %16, %14 ], [ %13, %12 ]
+  %.06.i = phi ptr [ %15, %14 ], [ %9, %12 ]
+  %18 = icmp slt i8 %17, 0
+  br i1 %18, label %is_all_ascii.exit, label %14
 
 is_all_ascii.exit:                                ; preds = %.lr.ph.i
+  %19 = load i32, ptr %10, align 4, !tbaa !52
   %20 = tail call ptr @setlocale(i32 noundef 0, ptr noundef null) #8
   %.not.i26 = icmp eq ptr %20, null
   br i1 %.not.i26, label %21, label %23
@@ -2134,7 +2129,7 @@ is_all_ascii.exit:                                ; preds = %.lr.ph.i
   br label %restore_locale.exit
 
 27:                                               ; preds = %23
-  %28 = tail call ptr @setlocale(i32 noundef %12, ptr noundef null) #8
+  %28 = tail call ptr @setlocale(i32 noundef %19, ptr noundef null) #8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %33, label %30
 
@@ -2151,33 +2146,33 @@ is_all_ascii.exit:                                ; preds = %.lr.ph.i
   %35 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %28) #8
   br label %change_locale.exit
 
-change_locale.exit:                               ; preds = %15, %13, %34, %33, %8
-  %.12 = phi ptr [ null, %8 ], [ null, %33 ], [ %24, %34 ], [ null, %13 ], [ null, %15 ]
+change_locale.exit:                               ; preds = %14, %12, %34, %33, %7
+  %.12 = phi ptr [ null, %7 ], [ null, %33 ], [ %24, %34 ], [ null, %12 ], [ null, %14 ]
   switch i32 %0, label %44 [
     i32 131119, label %36
     i32 131116, label %40
   ]
 
 36:                                               ; preds = %change_locale.exit
-  %37 = load i8, ptr %10, align 1, !tbaa !11
+  %37 = load i8, ptr %9, align 1, !tbaa !11
   %.not24 = icmp eq i8 %37, 0
   br i1 %.not24, label %44, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call fastcc ptr @decode_strings(ptr noundef nonnull %10, i64 noundef 100)
+  %39 = tail call fastcc ptr @decode_strings(ptr noundef nonnull %9, i64 noundef 100)
   br label %46
 
 40:                                               ; preds = %change_locale.exit
-  %41 = load i8, ptr %10, align 1, !tbaa !11
+  %41 = load i8, ptr %9, align 1, !tbaa !11
   %.not25 = icmp eq i8 %41, 0
   br i1 %.not25, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call fastcc ptr @decode_strings(ptr noundef nonnull %10, i64 noundef -1)
+  %43 = tail call fastcc ptr @decode_strings(ptr noundef nonnull %9, i64 noundef -1)
   br label %46
 
 44:                                               ; preds = %36, %change_locale.exit, %40
-  %45 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef nonnull %10, ptr noundef null) #8
+  %45 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef nonnull %9, ptr noundef null) #8
   br label %46
 
 46:                                               ; preds = %42, %44, %38
@@ -2191,12 +2186,17 @@ change_locale.exit:                               ; preds = %15, %13, %34, %33, 
   br label %restore_locale.exit
 
 49:                                               ; preds = %2
-  %50 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !10
-  tail call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.42) #8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 56
+  br i1 %.not, label %50, label %2, !llvm.loop !53
+
+50:                                               ; preds = %49
+  %51 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !10
+  tail call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.42) #8
   br label %restore_locale.exit
 
-restore_locale.exit:                              ; preds = %21, %25, %46, %47, %49
-  %.1 = phi ptr [ null, %49 ], [ %.0, %46 ], [ %.0, %47 ], [ null, %25 ], [ null, %21 ]
+restore_locale.exit:                              ; preds = %21, %25, %46, %47, %50
+  %.1 = phi ptr [ null, %50 ], [ %.0, %46 ], [ %.0, %47 ], [ null, %25 ], [ null, %21 ]
   ret ptr %.1
 }
 
@@ -2349,7 +2349,7 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
   %31 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 16, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !50
+  %34 = load i32, ptr %33, align 8, !tbaa !49
   %35 = sext i32 %34 to i64
   %36 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef %32, i64 noundef %35) #8
   %37 = icmp slt i32 %36, 0
@@ -2441,12 +2441,12 @@ attributes #10 = { nounwind willreturn memory(none) }
 !46 = !{!47, !48, i64 24}
 !47 = !{!"", !17, i64 0, !48, i64 24, !18, i64 32}
 !48 = !{!"p2 _ZTS7_object", !7, i64 0}
-!49 = distinct !{!49, !45}
-!50 = !{!51, !23, i64 8}
-!51 = !{!"langinfo_constant", !19, i64 0, !23, i64 8, !23, i64 12}
-!52 = !{!51, !23, i64 12}
+!49 = !{!50, !23, i64 8}
+!50 = !{!"langinfo_constant", !19, i64 0, !23, i64 8, !23, i64 12}
+!51 = distinct !{!51, !45}
+!52 = !{!50, !23, i64 12}
 !53 = distinct !{!53, !45}
 !54 = distinct !{!54, !45}
 !55 = distinct !{!55, !45}
 !56 = distinct !{!56, !45}
-!57 = !{!51, !19, i64 0}
+!57 = !{!50, !19, i64 0}

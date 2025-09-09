@@ -360,23 +360,23 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.48, ptr noundef nonnull %8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %23, label %19
+  %.not = icmp eq i32 %0, 0
+  br i1 %.not, label %23, label %17
 
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %20 = load ptr, ptr %18, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load i64, ptr %21, align 8, !tbaa !25
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.49, ptr noundef nonnull %18, i64 noundef %22) #5
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.49, ptr noundef %20, i64 noundef %22) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %23
 
-23:                                               ; preds = %19, %1
-  %.027 = phi ptr [ %20, %19 ], [ %16, %1 ]
+23:                                               ; preds = %17, %1
+  %.027 = phi ptr [ %19, %17 ], [ %16, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.027, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !20

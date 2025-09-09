@@ -26694,126 +26694,109 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   %3 = tail call noalias dereferenceable_or_null(12472) ptr @wmem_alloc(ptr noundef %2, i64 noundef 12472) #13
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(12472) %3, i8 0, i64 12472, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %7
+  br label %5
 
-.preheader56:                                     ; preds = %7
-  %5 = icmp slt i32 %14, 257
-  br i1 %5, label %.lr.ph, label %.preheader55
+5:                                                ; preds = %1, %5
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr %struct._value_string, ptr @opcode_vals, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i32, ptr %6, align 16
+  %9 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv
+  store i32 %8, ptr %9, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %10, ptr %11, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 121
+  br i1 %.not, label %.preheader56, label %5, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.preheader56
-  %6 = sext i32 %indvars.iv to i64
-  br label %20
+.preheader55:                                     ; preds = %.preheader56
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4128
+  br label %15
 
-7:                                                ; preds = %1, %7
-  %indvars.iv = phi i32 [ 1, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = phi ptr [ @.str.12003, %1 ], [ %18, %7 ]
-  %9 = phi ptr [ @opcode_vals, %1 ], [ %16, %7 ]
-  %10 = phi i64 [ 0, %1 ], [ %15, %7 ]
-  %.057 = phi i32 [ 0, %1 ], [ %14, %7 ]
-  %11 = load i32, ptr %9, align 16
-  %12 = getelementptr %struct._value_string, ptr %4, i64 %10
-  store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %8, ptr %13, align 8
-  %14 = add i32 %.057, 1
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct._value_string, ptr @opcode_vals, i64 %15
+.preheader56:                                     ; preds = %5, %.preheader56
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader56 ], [ 121, %5 ]
+  %13 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv64
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr null, ptr %14, align 8
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next65, 257
+  br i1 %exitcond.not, label %.preheader55, label %.preheader56, !llvm.loop !16
+
+15:                                               ; preds = %.preheader55, %15
+  %indvars.iv67 = phi i64 [ 0, %.preheader55 ], [ %indvars.iv.next68, %15 ]
+  %16 = getelementptr %struct._value_string, ptr @errorcode_vals, i64 %indvars.iv67
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %.not, label %.preheader56, label %7, !llvm.loop !15
+  %18 = load i32, ptr %16, align 16
+  %19 = getelementptr %struct._value_string, ptr %12, i64 %indvars.iv67
+  store i32 %18, ptr %19, align 8
+  %20 = load ptr, ptr %17, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %20, ptr %21, align 8
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %.not51 = icmp eq i64 %indvars.iv.next68, 18
+  br i1 %.not51, label %.preheader54, label %15, !llvm.loop !17
 
-.preheader55:                                     ; preds = %20, %.preheader56
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4128
-  br label %24
+.preheader53:                                     ; preds = %.preheader54
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8240
+  br label %25
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv67 = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next68, %20 ]
-  %21 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv67
-  store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr null, ptr %22, align 8
-  %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
-  %23 = and i64 %indvars.iv.next68, 4294967295
-  %exitcond.not = icmp eq i64 %23, 257
-  br i1 %exitcond.not, label %.preheader55, label %20, !llvm.loop !16
-
-24:                                               ; preds = %.preheader55, %24
-  %indvars.iv70 = phi i64 [ 0, %.preheader55 ], [ %indvars.iv.next71, %24 ]
-  %25 = phi ptr [ @.str.11875, %.preheader55 ], [ %31, %24 ]
-  %26 = getelementptr %struct._value_string, ptr @errorcode_vals, i64 %indvars.iv70
-  %27 = load i32, ptr %26, align 16
-  %28 = getelementptr %struct._value_string, ptr %19, i64 %indvars.iv70
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %25, ptr %29, align 8
+.preheader54:                                     ; preds = %15, %.preheader54
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader54 ], [ 18, %15 ]
+  %23 = getelementptr %struct._value_string, ptr %12, i64 %indvars.iv70
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr null, ptr %24, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %30 = getelementptr %struct._value_string, ptr @errorcode_vals, i64 %indvars.iv.next71, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %exitcond73 = icmp eq i64 %indvars.iv.next71, 18
-  br i1 %exitcond73, label %.lr.ph61, label %24, !llvm.loop !17
+  %exitcond73.not = icmp eq i64 %indvars.iv.next71, 257
+  br i1 %exitcond73.not, label %.preheader53, label %.preheader54, !llvm.loop !18
 
-.preheader53:                                     ; preds = %.lr.ph61
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8240
-  br label %35
-
-.lr.ph61:                                         ; preds = %24, %.lr.ph61
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph61 ], [ 18, %24 ]
-  %33 = getelementptr %struct._value_string, ptr %19, i64 %indvars.iv74
-  store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr null, ptr %34, align 8
+25:                                               ; preds = %.preheader53, %25
+  %indvars.iv74 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next75, %25 ]
+  %26 = getelementptr %struct._value_string, ptr @eventcode_vals, i64 %indvars.iv74
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i32, ptr %26, align 16
+  %29 = getelementptr %struct._value_string, ptr %22, i64 %indvars.iv74
+  store i32 %28, ptr %29, align 8
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %30, ptr %31, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next75, 257
-  br i1 %exitcond77.not, label %.preheader53, label %.lr.ph61, !llvm.loop !18
+  %.not52 = icmp eq i64 %indvars.iv.next75, 34
+  br i1 %.not52, label %.preheader, label %25, !llvm.loop !19
 
-35:                                               ; preds = %.preheader53, %35
-  %indvars.iv78 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next79, %35 ]
-  %36 = phi ptr [ @.str.195, %.preheader53 ], [ %42, %35 ]
-  %37 = getelementptr %struct._value_string, ptr @eventcode_vals, i64 %indvars.iv78
-  %38 = load i32, ptr %37, align 16
-  %39 = getelementptr %struct._value_string, ptr %32, i64 %indvars.iv78
-  store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %36, ptr %40, align 8
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %41 = getelementptr %struct._value_string, ptr @eventcode_vals, i64 %indvars.iv.next79, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %exitcond81 = icmp eq i64 %indvars.iv.next79, 34
-  br i1 %exitcond81, label %.lr.ph64, label %35, !llvm.loop !19
+.preheader:                                       ; preds = %25, %.preheader
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.preheader ], [ 34, %25 ]
+  %32 = getelementptr %struct._value_string, ptr %22, i64 %indvars.iv77
+  store i32 0, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr null, ptr %33, align 8
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next78, 129
+  br i1 %exitcond80.not, label %34, label %.preheader, !llvm.loop !20
 
-.lr.ph64:                                         ; preds = %35, %.lr.ph64
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph64 ], [ 34, %35 ]
-  %43 = getelementptr %struct._value_string, ptr %32, i64 %indvars.iv82
-  store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr null, ptr %44, align 8
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next83, 129
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !20
-
-._crit_edge:                                      ; preds = %.lr.ph64
-  %45 = tail call ptr @wmem_file_scope()
-  %46 = tail call noalias ptr @wmem_map_new(ptr noundef %45, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 10304
-  store ptr %46, ptr %47, align 8
-  %48 = tail call ptr @wmem_file_scope()
-  %49 = tail call noalias ptr @wmem_map_new(ptr noundef %48, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 10312
-  store ptr %49, ptr %50, align 8
-  %51 = tail call ptr @wmem_file_scope()
-  %52 = tail call noalias ptr @wmem_map_new(ptr noundef %51, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  store ptr %52, ptr %3, align 8
-  %53 = tail call ptr @wmem_file_scope()
-  %54 = tail call noalias ptr @wmem_map_new(ptr noundef %53, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = tail call ptr @wmem_map_insert(ptr noundef %52, ptr noundef null, ptr noundef nonnull inttoptr (i64 -3 to ptr))
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 10332
-  store i32 -1, ptr %57, align 4
-  %58 = load i32, ptr @proto_x11, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %58, ptr noundef %3)
+34:                                               ; preds = %.preheader
+  %35 = tail call ptr @wmem_file_scope()
+  %36 = tail call noalias ptr @wmem_map_new(ptr noundef %35, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 10304
+  store ptr %36, ptr %37, align 8
+  %38 = tail call ptr @wmem_file_scope()
+  %39 = tail call noalias ptr @wmem_map_new(ptr noundef %38, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 10312
+  store ptr %39, ptr %40, align 8
+  %41 = tail call ptr @wmem_file_scope()
+  %42 = tail call noalias ptr @wmem_map_new(ptr noundef %41, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  store ptr %42, ptr %3, align 8
+  %43 = tail call ptr @wmem_file_scope()
+  %44 = tail call noalias ptr @wmem_map_new(ptr noundef %43, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %44, ptr %45, align 8
+  %46 = tail call ptr @wmem_map_insert(ptr noundef %42, ptr noundef null, ptr noundef nonnull inttoptr (i64 -3 to ptr))
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 10332
+  store i32 -1, ptr %47, align 4
+  %48 = load i32, ptr @proto_x11, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %48, ptr noundef %3)
   ret ptr %3
 }
 

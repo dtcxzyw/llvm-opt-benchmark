@@ -430,7 +430,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread.preheader: ; preds = %6, %_ZNK5Klass1
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %35, %37
   %.0.i.i.i.i = phi ptr [ %31, %35 ], [ %38, %37 ]
   store ptr %23, ptr %.0.i.i.i.i, align 8
-  br label %48
+  br label %47
 
 39:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit.thread
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -448,89 +448,88 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread:       ; preds = %_ZN6HandleC2EP6Thre
 _ZL21lookup_special_nativePKc.exit:               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_ZL21lookup_special_nativePKc.exit.thread, label %.thread
-
-_ZL21lookup_special_nativePKc.exit.thread:        ; preds = %39, %_ZL21lookup_special_nativePKc.exit
-  %46 = tail call noundef ptr @_ZN2os19native_java_libraryEv() #11
-  %47 = tail call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %46, ptr noundef nonnull %9) #11
-  %.not = icmp eq ptr %47, null
-  br i1 %.not, label %48, label %.thread
-
-48:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZL21lookup_special_nativePKc.exit.thread
-  %storemerge.i36 = phi ptr [ null, %_ZL21lookup_special_nativePKc.exit.thread ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
-  %50 = tail call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef %9, ptr noundef %5) #11
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not41 = icmp eq ptr %52, null
-  br i1 %.not41, label %53, label %.thread
-
-53:                                               ; preds = %48
-  store i8 11, ptr %7, align 8
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3488), align 8
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7288), align 8
-  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleS6_P10JavaThread(ptr noundef nonnull %7, ptr noundef %49, ptr noundef %54, ptr noundef %55, ptr %storemerge.i36, ptr %50, ptr noundef nonnull %5) #11
-  %56 = load ptr, ptr %51, align 8
-  %.not42 = icmp eq ptr %56, null
-  br i1 %.not42, label %57, label %.thread
-
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = icmp eq i64 %59, 0
-  br i1 %61, label %62, label %.thread
-
-62:                                               ; preds = %57
-  call void @_ZN14JvmtiAgentList6agentsEv(ptr dead_on_unwind nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %8) #11
-  br label %63
-
-63:                                               ; preds = %65, %62
-  %64 = call noundef zeroext i1 @_ZNK14JvmtiAgentList8Iterator8has_nextEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #11
-  br i1 %64, label %65, label %69
-
-65:                                               ; preds = %63
-  %66 = call noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #11
-  %67 = call noundef ptr @_ZNK10JvmtiAgent6os_libEv(ptr noundef nonnull align 8 dereferenceable(86) %66) #11
-  %68 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %67, ptr noundef %9) #11
-  %.not33 = icmp eq ptr %68, null
-  br i1 %.not33, label %63, label %69, !llvm.loop !10
-
-69:                                               ; preds = %63, %65
-  %spec.select = phi ptr [ %68, %65 ], [ null, %63 ]
-  %70 = load ptr, ptr %8, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread, label %72
-
-72:                                               ; preds = %69
-  store i32 0, ptr %70, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i, label %.loopexit.i.i.i.i
-
-.loopexit.i.i.i.i:                                ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %77 = load ptr, ptr %76, align 8
-  store i32 0, ptr %73, align 4
-  %.not.i.i.i.i34 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i34, label %78, label %.loopexit.thread.i.i.i.i
-
-.loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %77) #11
-  br label %78
-
-78:                                               ; preds = %.loopexit.thread.i.i.i.i, %.loopexit.i.i.i.i
-  store ptr null, ptr %76, align 8
-  br label %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i
-
-_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i: ; preds = %78, %72
-  call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %70) #11
   br label %.thread
 
-.thread:                                          ; preds = %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i, %69, %_ZL21lookup_special_nativePKc.exit, %57, %53, %48, %_ZL21lookup_special_nativePKc.exit.thread
-  %.025 = phi ptr [ %47, %_ZL21lookup_special_nativePKc.exit.thread ], [ null, %48 ], [ null, %53 ], [ %60, %57 ], [ %44, %_ZL21lookup_special_nativePKc.exit ], [ %spec.select, %69 ], [ %spec.select, %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i ]
+_ZL21lookup_special_nativePKc.exit.thread:        ; preds = %39
+  %45 = tail call noundef ptr @_ZN2os19native_java_libraryEv() #11
+  %46 = tail call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %45, ptr noundef nonnull %9) #11
+  %.not = icmp eq ptr %46, null
+  br i1 %.not, label %47, label %.thread
+
+47:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZL21lookup_special_nativePKc.exit.thread
+  %storemerge.i36 = phi ptr [ null, %_ZL21lookup_special_nativePKc.exit.thread ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
+  %49 = tail call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef %9, ptr noundef %5) #11
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %.not41 = icmp eq ptr %51, null
+  br i1 %.not41, label %52, label %.thread
+
+52:                                               ; preds = %47
+  store i8 11, ptr %7, align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3488), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7288), align 8
+  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleS6_P10JavaThread(ptr noundef nonnull %7, ptr noundef %48, ptr noundef %53, ptr noundef %54, ptr %storemerge.i36, ptr %49, ptr noundef nonnull %5) #11
+  %55 = load ptr, ptr %50, align 8
+  %.not42 = icmp eq ptr %55, null
+  br i1 %.not42, label %56, label %.thread
+
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = inttoptr i64 %58 to ptr
+  %60 = icmp eq i64 %58, 0
+  br i1 %60, label %61, label %.thread
+
+61:                                               ; preds = %56
+  call void @_ZN14JvmtiAgentList6agentsEv(ptr dead_on_unwind nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %8) #11
+  br label %62
+
+62:                                               ; preds = %64, %61
+  %63 = call noundef zeroext i1 @_ZNK14JvmtiAgentList8Iterator8has_nextEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #11
+  br i1 %63, label %64, label %68
+
+64:                                               ; preds = %62
+  %65 = call noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #11
+  %66 = call noundef ptr @_ZNK10JvmtiAgent6os_libEv(ptr noundef nonnull align 8 dereferenceable(86) %65) #11
+  %67 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %66, ptr noundef %9) #11
+  %.not33 = icmp eq ptr %67, null
+  br i1 %.not33, label %62, label %68, !llvm.loop !10
+
+68:                                               ; preds = %62, %64
+  %spec.select = phi ptr [ %67, %64 ], [ null, %62 ]
+  %69 = load ptr, ptr %8, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.thread, label %71
+
+71:                                               ; preds = %68
+  store i32 0, ptr %69, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i, label %.loopexit.i.i.i.i
+
+.loopexit.i.i.i.i:                                ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %76 = load ptr, ptr %75, align 8
+  store i32 0, ptr %72, align 4
+  %.not.i.i.i.i34 = icmp eq ptr %76, null
+  br i1 %.not.i.i.i.i34, label %77, label %.loopexit.thread.i.i.i.i
+
+.loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %76) #11
+  br label %77
+
+77:                                               ; preds = %.loopexit.thread.i.i.i.i, %.loopexit.i.i.i.i
+  store ptr null, ptr %75, align 8
+  br label %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i
+
+_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i: ; preds = %77, %71
+  call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %69) #11
+  br label %.thread
+
+.thread:                                          ; preds = %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i, %68, %_ZL21lookup_special_nativePKc.exit, %56, %52, %47, %_ZL21lookup_special_nativePKc.exit.thread
+  %.025 = phi ptr [ %46, %_ZL21lookup_special_nativePKc.exit.thread ], [ null, %47 ], [ null, %52 ], [ %59, %56 ], [ %44, %_ZL21lookup_special_nativePKc.exit ], [ %spec.select, %68 ], [ %spec.select, %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i ]
   ret ptr %.025
 }
 

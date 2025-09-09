@@ -2590,7 +2590,7 @@ define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128E
   %21 = xor i64 %.sroa.4.0.copyload, %19
   %isneg.i.i.i = icmp sgt i64 %21, -1
   %22 = icmp slt i64 %19, 0
-  br i1 %22, label %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
+  br i1 %22, label %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i
 
 _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i: ; preds = %17
   %23 = xor i64 %19, -1
@@ -2598,78 +2598,73 @@ _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i: ; preds = %17
   %25 = sub i64 0, %19
   %26 = sub i64 0, %20
   %.sroa.6.0.i.i.i.i.i.i = select i1 %24, i64 %25, i64 %23
-  br label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
+  br label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i
 
-_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i:  ; preds = %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i, %17
+_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i: ; preds = %17, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i
   %.sroa.6.0.i.i.i.i = phi i64 [ %.sroa.6.0.i.i.i.i.i.i, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i ], [ %19, %17 ]
   %.sroa.0.0.i.i.i.i = phi i64 [ %26, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i.i ], [ %20, %17 ]
-  %27 = icmp slt i64 %.sroa.4.0.copyload, 0
-  %28 = xor i64 %.sroa.4.0.copyload, -1
-  %29 = sub i64 0, %.sroa.0.0.copyload
-  %.sroa.6.0.i12.i.i.i = select i1 %27, i64 %28, i64 %.sroa.4.0.copyload
-  %.sroa.0.0.i13.i.i.i = select i1 %27, i64 %29, i64 %.sroa.0.0.copyload
-  %30 = sext i64 %.sroa.6.0.i.i.i.i to i128
-  %31 = shl nsw i128 %30, 64
-  %32 = zext i64 %.sroa.0.0.i.i.i.i to i128
-  %33 = or disjoint i128 %31, %32
-  %34 = sext i64 %.sroa.6.0.i12.i.i.i to i128
-  %35 = shl nsw i128 %34, 64
-  %36 = zext i64 %.sroa.0.0.i13.i.i.i to i128
-  %37 = or disjoint i128 %35, %36
-  %38 = mul i128 %37, %33
-  %39 = lshr i128 %38, 64
-  %40 = trunc nuw i128 %39 to i64
-  %41 = trunc i128 %38 to i64
-  br i1 %isneg.i.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i, label %42
+  %27 = sext i64 %.sroa.6.0.i.i.i.i to i128
+  %28 = shl nsw i128 %27, 64
+  %29 = zext i64 %.sroa.0.0.i.i.i.i to i128
+  %30 = or disjoint i128 %28, %29
+  %31 = sext i64 %.sroa.4.0.copyload to i128
+  %32 = shl nsw i128 %31, 64
+  %33 = zext i64 %.sroa.0.0.copyload to i128
+  %34 = or disjoint i128 %32, %33
+  %35 = mul i128 %34, %30
+  %36 = lshr i128 %35, 64
+  %37 = trunc nuw i128 %36 to i64
+  %38 = trunc i128 %35 to i64
+  br i1 %isneg.i.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i, label %39
 
-42:                                               ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
-  %43 = xor i64 %40, -1
-  %44 = icmp eq i64 %41, 0
-  %45 = sub i64 0, %40
-  %46 = sub i64 0, %41
-  %.sroa.6.0.i19.i.i.i = select i1 %44, i64 %45, i64 %43
+39:                                               ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i
+  %40 = xor i64 %37, -1
+  %41 = icmp eq i64 %38, 0
+  %42 = sub i64 0, %37
+  %43 = sub i64 0, %38
+  %.sroa.6.0.i19.i.i.i = select i1 %41, i64 %42, i64 %40
   br label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i
 
-_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i:    ; preds = %42, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
-  %.sroa.5.0.i.i = phi i64 [ %40, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i ], [ %.sroa.6.0.i19.i.i.i, %42 ]
-  %.sroa.0.0.i.i = phi i64 [ %41, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i ], [ %46, %42 ]
+_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i:    ; preds = %39, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i
+  %.sroa.5.0.i.i = phi i64 [ %37, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i ], [ %.sroa.6.0.i19.i.i.i, %39 ]
+  %.sroa.0.0.i.i = phi i64 [ %38, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit18.i.i.i ], [ %43, %39 ]
   %.sroa.0.0.i.i.fr = freeze i64 %.sroa.0.0.i.i
   store i64 %.sroa.0.0.i.i.fr, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.5.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %47 = load i64, ptr %18, align 8, !tbaa !7
-  %48 = icmp slt i64 %47, 0
-  br i1 %48, label %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i, label %49
+  %44 = load i64, ptr %18, align 8, !tbaa !7
+  %45 = icmp slt i64 %44, 0
+  br i1 %45, label %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i, label %46
 
-49:                                               ; preds = %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i
-  %50 = icmp slt i64 %.sroa.5.0.i.i, %47
-  br i1 %50, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %56
+46:                                               ; preds = %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i
+  %47 = icmp slt i64 %.sroa.5.0.i.i, %44
+  br i1 %47, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %53
 
 _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i:    ; preds = %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i
-  %51 = icmp slt i64 %47, %.sroa.5.0.i.i
-  br i1 %51, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %52
+  %48 = icmp slt i64 %44, %.sroa.5.0.i.i
+  br i1 %48, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %49
 
-52:                                               ; preds = %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i
-  %53 = icmp eq i64 %47, %.sroa.5.0.i.i
-  %54 = load i64, ptr %0, align 8
-  %.fr22 = freeze i64 %54
-  %55 = icmp ult i64 %.fr22, %.sroa.0.0.i.i.fr
-  %or.cond = and i1 %53, %55
+49:                                               ; preds = %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i
+  %50 = icmp eq i64 %44, %.sroa.5.0.i.i
+  %51 = load i64, ptr %0, align 8
+  %.fr22 = freeze i64 %51
+  %52 = icmp ult i64 %.fr22, %.sroa.0.0.i.i.fr
+  %or.cond = and i1 %50, %52
   br i1 %or.cond, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17, !prof !28
 
-56:                                               ; preds = %49
-  %57 = icmp eq i64 %.sroa.5.0.i.i, %47
-  %58 = load i64, ptr %0, align 8
-  %.fr = freeze i64 %58
-  %59 = icmp ult i64 %.sroa.0.0.i.i.fr, %.fr
-  %or.cond25 = and i1 %57, %59
+53:                                               ; preds = %46
+  %54 = icmp eq i64 %.sroa.5.0.i.i, %44
+  %55 = load i64, ptr %0, align 8
+  %.fr = freeze i64 %55
+  %56 = icmp ult i64 %.sroa.0.0.i.i.fr, %.fr
+  %or.cond25 = and i1 %54, %56
   br i1 %or.cond25, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17, !prof !28
 
-_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread: ; preds = %56, %52, %49, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i, %15
+_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread: ; preds = %53, %49, %46, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i, %15
   br label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17
 
-_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17: ; preds = %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, %15, %52, %56, %8
-  %.0 = phi i32 [ 0, %8 ], [ 3, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread ], [ 0, %15 ], [ 0, %52 ], [ 0, %56 ]
+_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17: ; preds = %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, %15, %49, %53, %8
+  %.0 = phi i32 [ 0, %8 ], [ 3, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread ], [ 0, %15 ], [ 0, %49 ], [ 0, %53 ]
   ret i32 %.0
 }
 
@@ -2739,36 +2734,31 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i:    ; preds = %_ZN5arrowltERKNS_15
   %.sroa.6.0.i.i.i = phi i64 [ %.sroa.6.0.i.i.i.i.i, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i ], [ %6, %2 ]
   %.sroa.0.0.i.i.i = phi i64 [ %15, %_ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i.i.i.i ], [ %7, %2 ]
   %.sroa.0.0.copyload1.i9.i.i = load i64, ptr %4, align 16
-  %16 = icmp slt i64 %9, 0
-  %17 = sub i64 0, %.sroa.0.0.copyload1.i9.i.i
-  %.lobit = ashr i64 %9, 63
-  %.sroa.6.0.i12.i.i = xor i64 %9, %.lobit
-  %.sroa.0.0.i13.i.i = select i1 %16, i64 %17, i64 %.sroa.0.0.copyload1.i9.i.i
-  %18 = sext i64 %.sroa.6.0.i.i.i to i128
-  %19 = shl nsw i128 %18, 64
-  %20 = zext i64 %.sroa.0.0.i.i.i to i128
-  %21 = or disjoint i128 %19, %20
-  %22 = sext i64 %.sroa.6.0.i12.i.i to i128
-  %23 = shl nsw i128 %22, 64
-  %24 = zext i64 %.sroa.0.0.i13.i.i to i128
-  %25 = or disjoint i128 %23, %24
-  %26 = mul i128 %25, %21
-  %27 = lshr i128 %26, 64
-  %28 = trunc nuw i128 %27 to i64
-  %29 = trunc i128 %26 to i64
-  br i1 %isneg.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit, label %30
+  %16 = sext i64 %.sroa.6.0.i.i.i to i128
+  %17 = shl nsw i128 %16, 64
+  %18 = zext i64 %.sroa.0.0.i.i.i to i128
+  %19 = or disjoint i128 %17, %18
+  %20 = sext i64 %9 to i128
+  %21 = shl nsw i128 %20, 64
+  %22 = zext i64 %.sroa.0.0.copyload1.i9.i.i to i128
+  %23 = or disjoint i128 %21, %22
+  %24 = mul i128 %23, %19
+  %25 = lshr i128 %24, 64
+  %26 = trunc nuw i128 %25 to i64
+  %27 = trunc i128 %24 to i64
+  br i1 %isneg.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit, label %28
 
-30:                                               ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
-  %31 = xor i64 %28, -1
-  %32 = icmp eq i64 %29, 0
-  %33 = sub i64 0, %28
-  %34 = sub i64 0, %29
-  %.sroa.6.0.i19.i.i = select i1 %32, i64 %33, i64 %31
+28:                                               ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
+  %29 = xor i64 %26, -1
+  %30 = icmp eq i64 %27, 0
+  %31 = sub i64 0, %26
+  %32 = sub i64 0, %27
+  %.sroa.6.0.i19.i.i = select i1 %30, i64 %31, i64 %29
   br label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit
 
-_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i, %30
-  %.sroa.5.0.i = phi i64 [ %28, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ], [ %.sroa.6.0.i19.i.i, %30 ]
-  %.sroa.0.0.i = phi i64 [ %29, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ], [ %34, %30 ]
+_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i, %28
+  %.sroa.5.0.i = phi i64 [ %26, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ], [ %.sroa.6.0.i19.i.i, %28 ]
+  %.sroa.0.0.i = phi i64 [ %27, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ], [ %32, %28 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.5.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i

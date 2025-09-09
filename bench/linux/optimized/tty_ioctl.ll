@@ -377,70 +377,34 @@ define dso_local zeroext i1 @tty_termios_hw_change(ptr noundef readonly captures
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef zeroext range(i8 5, 9) i8 @tty_get_char_size(i32 noundef %0) #5 align 16 {
-  %2 = lshr i32 %0, 4
-  %3 = and i32 %2, 3
-  switch i32 %3, label %default.unreachable1 [
-    i32 0, label %7
-    i32 1, label %4
-    i32 2, label %5
-    i32 3, label %6
-  ]
-
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-default.unreachable1:                             ; preds = %1
-  unreachable
-
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %6, %5, %4, %1
-  %8 = phi i8 [ 8, %6 ], [ 7, %5 ], [ 6, %4 ], [ 5, %1 ]
-  ret i8 %8
+switch.lookup:
+  %1 = trunc i32 %0 to i8
+  %2 = lshr i8 %1, 4
+  %switch.idx.cast = and i8 %2, 3
+  %switch.offset = add nuw nsw i8 %switch.idx.cast, 5
+  ret i8 %switch.offset
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local zeroext range(i8 7, 14) i8 @tty_get_frame_size(i32 noundef %0) #5 align 16 {
-  %2 = lshr i32 %0, 4
-  %3 = and i32 %2, 3
-  switch i32 %3, label %default.unreachable1 [
-    i32 0, label %7
-    i32 1, label %4
-    i32 2, label %5
-    i32 3, label %6
-  ]
-
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-default.unreachable1:                             ; preds = %1
-  unreachable
-
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %6, %5, %4, %1
-  %8 = phi i8 [ 8, %6 ], [ 7, %5 ], [ 6, %4 ], [ 5, %1 ]
-  %9 = and i32 %0, 64
-  %10 = icmp eq i32 %9, 0
-  %11 = select i1 %10, i8 2, i8 3
-  %12 = lshr i32 %0, 8
-  %13 = trunc i32 %12 to i8
-  %14 = and i8 %13, 1
-  %15 = lshr i32 %0, 29
-  %16 = trunc nuw nsw i32 %15 to i8
-  %17 = and i8 %16, 1
-  %18 = add nuw nsw i8 %14, %11
-  %19 = add nuw nsw i8 %18, %17
-  %20 = add nuw nsw i8 %19, %8
-  ret i8 %20
+switch.lookup:
+  %1 = trunc i32 %0 to i8
+  %2 = lshr i8 %1, 4
+  %switch.idx.cast = and i8 %2, 3
+  %switch.offset = add nuw nsw i8 %switch.idx.cast, 5
+  %3 = and i32 %0, 64
+  %4 = icmp eq i32 %3, 0
+  %5 = select i1 %4, i8 2, i8 3
+  %6 = lshr i32 %0, 8
+  %7 = trunc i32 %6 to i8
+  %8 = and i8 %7, 1
+  %9 = lshr i32 %0, 29
+  %10 = trunc nuw nsw i32 %9 to i8
+  %11 = and i8 %10, 1
+  %12 = add nuw nsw i8 %8, %5
+  %13 = add nuw nsw i8 %12, %11
+  %14 = add nuw nsw i8 %13, %switch.offset
+  ret i8 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -10214,18 +10214,18 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i: ; preds = %1
   %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !7
-  %switch = icmp ult i32 %9, 2
-  br i1 %switch, label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.thread, label %10
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.thread, label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit
 
-10:                                               ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i
+_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i
   %11 = sext i32 %9 to i64
   %.idx = shl nsw i64 %11, 2
   %.add = add nsw i64 %.idx, 8
   %.ptr15 = getelementptr i8, ptr %7, i64 %.add
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %10, %15
-  %.076.i.i.idx = phi i64 [ %.076.i.i.add, %15 ], [ 8, %10 ]
+.lr.ph.i.i:                                       ; preds = %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit, %15
+  %.076.i.i.idx = phi i64 [ %.076.i.i.add, %15 ], [ 8, %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit ]
   %.076.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.076.i.i.idx
   %12 = load i32, ptr %.076.i.i.ptr, align 4, !tbaa !7
   %13 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %12)
@@ -10284,8 +10284,8 @@ _ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.lo
   %31 = select i1 %29, i1 %30, i1 false
   br label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.thread
 
-_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.thread: ; preds = %15, %22, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i", %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i", %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i ], [ false, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i" ], [ false, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i" ], [ %31, %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit ], [ false, %22 ], [ false, %15 ]
+_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.thread: ; preds = %15, %22, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i", %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i", %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit, %1, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i
+  %.0 = phi i1 [ false, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i ], [ false, %1 ], [ false, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i" ], [ false, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i" ], [ %31, %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit ], [ false, %22 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -10302,79 +10302,79 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
   %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6, i64 1
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %10
+  br i1 %9, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i
 
-10:                                               ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
-  %11 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
-  %12 = sext i32 %8 to i64
-  %.idx.i = shl nsw i64 %12, 2
+_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
+  %10 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
+  %11 = sext i32 %8 to i64
+  %.idx.i = shl nsw i64 %11, 2
   %.add.i = add nsw i64 %.idx.i, 8
-  %.ptr15.i = getelementptr i8, ptr %11, i64 %.add.i
+  %.ptr15.i = getelementptr i8, ptr %10, i64 %.add.i
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %16, %10
-  %.076.i.i.idx.i = phi i64 [ %.076.i.i.add.i, %16 ], [ 8, %10 ]
-  %.076.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.076.i.i.idx.i
-  %13 = load i32, ptr %.076.i.i.ptr.i, align 4, !tbaa !7
-  %14 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %13)
-  %15 = icmp eq i32 %14, 3
-  br i1 %15, label %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i", label %16
+.lr.ph.i.i.i:                                     ; preds = %15, %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i
+  %.076.i.i.idx.i = phi i64 [ %.076.i.i.add.i, %15 ], [ 8, %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i ]
+  %.076.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.076.i.i.idx.i
+  %12 = load i32, ptr %.076.i.i.ptr.i, align 4, !tbaa !7
+  %13 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %12)
+  %14 = icmp eq i32 %13, 3
+  br i1 %14, label %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i", label %15
 
-16:                                               ; preds = %.lr.ph.i.i.i
+15:                                               ; preds = %.lr.ph.i.i.i
   %.076.i.i.add.i = add nuw nsw i64 %.076.i.i.idx.i, 4
   %.not.i.i.i = icmp samesign eq i64 %.076.i.i.add.i, %.add.i
   br i1 %.not.i.i.i, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !9
 
 "_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i": ; preds = %.lr.ph.i.i.i
-  %17 = icmp samesign eq i64 %.076.i.i.idx.i, %.add.i
-  %18 = add nuw nsw i64 %.idx.i, 4
-  %.not5.i18.i.i = icmp eq i64 %.076.i.i.idx.i, %18
-  %or.cond.i.i = select i1 %17, i1 true, i1 %.not5.i18.i.i
+  %16 = icmp samesign eq i64 %.076.i.i.idx.i, %.add.i
+  %17 = add nuw nsw i64 %.idx.i, 4
+  %.not5.i18.i.i = icmp eq i64 %.076.i.i.idx.i, %17
+  %or.cond.i.i = select i1 %16, i1 true, i1 %.not5.i18.i.i
   br i1 %or.cond.i.i, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.lr.ph.i19.i.preheader.i
 
 .lr.ph.i19.i.preheader.i:                         ; preds = %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i"
-  %.076.i.i.ptr.i.le = getelementptr inbounds nuw i8, ptr %11, i64 %.076.i.i.idx.i
-  %19 = getelementptr inbounds nuw i8, ptr %.076.i.i.ptr.i.le, i64 4
+  %.076.i.i.ptr.i.le = getelementptr inbounds nuw i8, ptr %10, i64 %.076.i.i.idx.i
+  %18 = getelementptr inbounds nuw i8, ptr %.076.i.i.ptr.i.le, i64 4
   br label %.lr.ph.i19.i.i
 
-.lr.ph.i19.i.i:                                   ; preds = %23, %.lr.ph.i19.i.preheader.i
-  %.076.i20.i.i = phi ptr [ %24, %23 ], [ %19, %.lr.ph.i19.i.preheader.i ]
-  %20 = load i32, ptr %.076.i20.i.i, align 4, !tbaa !7
-  %21 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %20)
-  %22 = icmp eq i32 %21, 3
-  br i1 %22, label %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i", label %23
+.lr.ph.i19.i.i:                                   ; preds = %22, %.lr.ph.i19.i.preheader.i
+  %.076.i20.i.i = phi ptr [ %23, %22 ], [ %18, %.lr.ph.i19.i.preheader.i ]
+  %19 = load i32, ptr %.076.i20.i.i, align 4, !tbaa !7
+  %20 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %19)
+  %21 = icmp eq i32 %20, 3
+  br i1 %21, label %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i", label %22
 
-23:                                               ; preds = %.lr.ph.i19.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.076.i20.i.i, i64 4
-  %.not.i21.i.i = icmp eq ptr %24, %.ptr15.i
+22:                                               ; preds = %.lr.ph.i19.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.076.i20.i.i, i64 4
+  %.not.i21.i.i = icmp eq ptr %23, %.ptr15.i
   br i1 %.not.i21.i.i, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.lr.ph.i19.i.i, !llvm.loop !9
 
 "_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i": ; preds = %.lr.ph.i19.i.i
-  %25 = icmp eq ptr %.076.i20.i.i, %.ptr15.i
-  br i1 %25, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.preheader.i.i
+  %24 = icmp eq ptr %.076.i20.i.i, %.ptr15.i
+  br i1 %24, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i", %28
-  %.043.i.i = phi ptr [ %29, %28 ], [ %.076.i20.i.i, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i" ]
-  %26 = load i32, ptr %.043.i.i, align 4, !tbaa !7
-  %27 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %26)
-  %.not15.i.i = icmp eq i32 %27, 3
-  br i1 %.not15.i.i, label %28, label %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i
+.preheader.i.i:                                   ; preds = %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i", %27
+  %.043.i.i = phi ptr [ %28, %27 ], [ %.076.i20.i.i, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i" ]
+  %25 = load i32, ptr %.043.i.i, align 4, !tbaa !7
+  %26 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %25)
+  %.not15.i.i = icmp eq i32 %26, 3
+  br i1 %.not15.i.i, label %27, label %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i
 
-28:                                               ; preds = %.preheader.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.043.i.i, i64 4
-  %.not.i.i = icmp eq ptr %29, %.ptr15.i
+27:                                               ; preds = %.preheader.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.043.i.i, i64 4
+  %.not.i.i = icmp eq ptr %28, %.ptr15.i
   br i1 %.not.i.i, label %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i, label %.preheader.i.i, !llvm.loop !11
 
-_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i: ; preds = %28, %.preheader.i.i
-  %.pn.i.ph.i = phi ptr [ %.043.i.i, %.preheader.i.i ], [ %.ptr15.i, %28 ]
-  %30 = icmp ne i64 %.076.i.i.idx.i, 8
-  %31 = icmp ne ptr %.pn.i.ph.i, %.ptr15.i
-  %.not7 = select i1 %30, i1 true, i1 %31
+_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i: ; preds = %27, %.preheader.i.i
+  %.pn.i.ph.i = phi ptr [ %.043.i.i, %.preheader.i.i ], [ %.ptr15.i, %27 ]
+  %29 = icmp ne i64 %.076.i.i.idx.i, 8
+  %30 = icmp ne ptr %.pn.i.ph.i, %.ptr15.i
+  %.not7 = select i1 %29, i1 true, i1 %30
   br label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread
 
-_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread: ; preds = %16, %23, %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i", %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i", %1, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
-  %32 = phi i1 [ false, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit ], [ false, %1 ], [ true, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i" ], [ true, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i" ], [ %.not7, %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i ], [ true, %23 ], [ true, %16 ]
-  ret i1 %32
+_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread: ; preds = %15, %22, %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i", %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i", %1, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
+  %31 = phi i1 [ false, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit ], [ false, %1 ], [ true, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i" ], [ true, %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit23.i.i" ], [ %.not7, %_ZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEE.exit.loopexit.i ], [ true, %22 ], [ true, %15 ]
+  ret i1 %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

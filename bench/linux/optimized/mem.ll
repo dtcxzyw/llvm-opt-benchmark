@@ -117,37 +117,39 @@ define internal i32 @memory_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1048575
   %6 = icmp samesign ugt i32 %5, 11
-  br i1 %6, label %25, label %7
+  br i1 %6, label %26, label %7
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr %struct.memdev, ptr @devlist, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %25, label %13
+  %9 = shl nuw nsw i64 1, %8
+  %10 = and i64 %9, 1093
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %11, label %26
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %18 = load i32, ptr %17, align 4
-  %19 = or i32 %18, %16
-  store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %25, label %23
+11:                                               ; preds = %7
+  %12 = getelementptr %struct.memdev, ptr @devlist, i64 %8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %17 = load i32, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %19 = load i32, ptr %18, align 4
+  %20 = or i32 %19, %17
+  store i32 %20, ptr %18, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %26, label %24
 
-23:                                               ; preds = %13
-  %24 = tail call i32 %21(ptr noundef %0, ptr noundef %1) #12
-  br label %25
+24:                                               ; preds = %11
+  %25 = tail call i32 %22(ptr noundef %0, ptr noundef %1) #12
+  br label %26
 
-25:                                               ; preds = %23, %13, %7, %2
-  %26 = phi i32 [ %24, %23 ], [ -6, %2 ], [ -6, %7 ], [ 0, %13 ]
-  ret i32 %26
+26:                                               ; preds = %24, %11, %7, %2
+  %27 = phi i32 [ %25, %24 ], [ -6, %2 ], [ -6, %7 ], [ 0, %11 ]
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

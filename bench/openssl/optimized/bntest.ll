@@ -6916,19 +6916,19 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   %24 = zext i1 %23 to i32
   %25 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2361, ptr noundef nonnull @.str.618, i32 noundef %24) #8
   %.not48.i = icmp eq i32 %25, 0
-  br i1 %.not48.i, label %test_rand_range_single.exit, label %.preheader51.i
+  br i1 %.not48.i, label %test_rand_range_single.exit, label %.lr.ph.preheader.i
 
-.preheader51.i:                                   ; preds = %21
-  %.not56.i = icmp eq i32 %5, 0
-  br i1 %.not56.i, label %.lr.ph55.preheader.i, label %.lr.ph.i
+.lr.ph.preheader.i:                               ; preds = %21
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
+  br label %.lr.ph.i
 
-.lr.ph55.preheader.i:                             ; preds = %34, %.preheader51.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %wide.trip.count.i = zext i32 %umax.i to i64
+.lr.ph55.preheader.i:                             ; preds = %34
+  %umax59.i = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
+  %wide.trip.count.i = zext i32 %umax59.i to i64
   br label %.lr.ph55.i
 
-.lr.ph.i:                                         ; preds = %.preheader51.i, %34
-  %.04052.i = phi i32 [ %39, %34 ], [ 0, %.preheader51.i ]
+.lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
+  %.04052.i = phi i32 [ %39, %34 ], [ 0, %.lr.ph.preheader.i ]
   %26 = tail call i32 @BN_rand_range(ptr noundef %19, ptr noundef %16) #8
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
@@ -6950,7 +6950,7 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   %38 = add i64 %37, 1
   store i64 %38, ptr %36, align 8, !tbaa !66
   %39 = add nuw i32 %.04052.i, 1
-  %exitcond.not.i = icmp eq i32 %39, %5
+  %exitcond.not.i = icmp eq i32 %39, %umax.i
   br i1 %exitcond.not.i, label %.lr.ph55.preheader.i, label %.lr.ph.i, !llvm.loop !67
 
 .lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.lr.ph55.preheader.i
@@ -6962,8 +6962,8 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   %43 = fsub double %42, %10
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %.054.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph55.i, !llvm.loop !68
+  %exitcond60.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond60.not.i, label %._crit_edge.i, label %.lr.ph55.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %.lr.ph55.i
   %45 = fdiv double %44, %10

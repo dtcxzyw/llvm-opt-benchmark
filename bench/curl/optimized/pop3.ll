@@ -186,89 +186,100 @@ pop3_parse_custom_request.exit.thread:            ; preds = %9, %pop3_parse_cust
   store i32 9, ptr %48, align 8, !tbaa !86
   br label %49
 
-49:                                               ; preds = %59, %47
-  %.015.i.i.i.i = phi i64 [ 0, %47 ], [ %60, %59 ]
-  %50 = getelementptr inbounds nuw %struct.pop3_cmd, ptr @pop3cmds, i64 %.015.i.i.i.i
+49:                                               ; preds = %63, %47
+  %.016.i.i.i.i = phi i64 [ 0, %47 ], [ %64, %63 ]
+  %50 = getelementptr inbounds nuw %struct.pop3_cmd, ptr @pop3cmds, i64 %.016.i.i.i.i
   %51 = load ptr, ptr %50, align 16, !tbaa !91
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i16, ptr %52, align 8, !tbaa !93
   %54 = zext i16 %53 to i64
   %55 = tail call i32 @curl_strnequal(ptr noundef %51, ptr noundef nonnull %.1.i.i.i, i64 noundef %54) #6
   %.not.i.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.i.i.i, label %59, label %56
+  br i1 %.not.i.i.i.i, label %63, label %56
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 %54
   %58 = load i8, ptr %57, align 1, !tbaa !7
-  switch i8 %58, label %59 [
+  switch i8 %58, label %63 [
     i8 0, label %pop3_is_multiline.exit.i.i.i
-    i8 32, label %pop3_is_multiline.exit.i.i.i.loopexit
+    i8 32, label %59
   ]
 
-59:                                               ; preds = %56, %49
-  %60 = add nuw nsw i64 %.015.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %60, 18
-  br i1 %exitcond.not.i.i.i.i, label %pop3_perform_command.exit.i.i, label %49, !llvm.loop !94
+59:                                               ; preds = %56
+  %60 = shl nuw nsw i64 1, %.016.i.i.i.i
+  %.fr.i.i.i = freeze i64 %60
+  %61 = and i64 %.fr.i.i.i, 139812
+  %.not31.i.i.i = icmp eq i64 %61, 0
+  %62 = load i32, ptr %17, align 1
+  br i1 %.not31.i.i.i, label %pop3_perform_command.exit.i.i, label %69
 
-pop3_is_multiline.exit.i.i.i.loopexit:            ; preds = %56
-  br label %pop3_is_multiline.exit.i.i.i
+63:                                               ; preds = %56, %49
+  %64 = add nuw nsw i64 %.016.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %64, 18
+  br i1 %exitcond.not.i.i.i.i, label %pop3_is_multiline.exit.thread.i.i.i, label %49, !llvm.loop !94
 
-pop3_is_multiline.exit.i.i.i:                     ; preds = %56, %pop3_is_multiline.exit.i.i.i.loopexit
-  %.sink21.i.i.i.i = phi i8 [ 2, %pop3_is_multiline.exit.i.i.i.loopexit ], [ 1, %56 ]
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 10
-  %62 = load i8, ptr %61, align 2
-  %.fr.i.i.i = freeze i8 %62
-  %63 = and i8 %.fr.i.i.i, %.sink21.i.i.i.i
-  %.not31.i.i.i = icmp eq i8 %63, 0
-  %spec.select30.i.i.i = select i1 %.not31.i.i.i, i32 131072, i32 0
+pop3_is_multiline.exit.thread.i.i.i:              ; preds = %63
+  %65 = load i32, ptr %17, align 1
+  br label %69
+
+pop3_is_multiline.exit.i.i.i:                     ; preds = %56
+  %66 = shl nuw nsw i64 1, %.016.i.i.i.i
+  %.fr32.i.i.i = freeze i64 %66
+  %67 = and i64 %.fr32.i.i.i, 156212
+  %.not33.i.i.i = icmp eq i64 %67, 0
+  %68 = load i32, ptr %17, align 1
+  br i1 %.not33.i.i.i, label %pop3_perform_command.exit.i.i, label %69
+
+69:                                               ; preds = %pop3_is_multiline.exit.i.i.i, %pop3_is_multiline.exit.thread.i.i.i, %59
+  %70 = phi i32 [ %65, %pop3_is_multiline.exit.thread.i.i.i ], [ %68, %pop3_is_multiline.exit.i.i.i ], [ %62, %59 ]
   br label %pop3_perform_command.exit.i.i
 
-pop3_perform_command.exit.i.i:                    ; preds = %59, %pop3_is_multiline.exit.i.i.i
-  %64 = phi i32 [ %spec.select30.i.i.i, %pop3_is_multiline.exit.i.i.i ], [ 0, %59 ]
-  %65 = load i32, ptr %17, align 1
-  %66 = and i32 %65, -131073
-  %67 = or disjoint i32 %66, %64
-  store i32 %67, ptr %17, align 1
-  %68 = load ptr, ptr %23, align 8, !tbaa !83
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1088
-  %70 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %68, i32 noundef 0) #6
-  br i1 %70, label %71, label %.critedge.i.i.i
+pop3_perform_command.exit.i.i:                    ; preds = %69, %pop3_is_multiline.exit.i.i.i, %59
+  %71 = phi i32 [ %70, %69 ], [ %68, %pop3_is_multiline.exit.i.i.i ], [ %62, %59 ]
+  %72 = phi i32 [ 0, %69 ], [ 131072, %pop3_is_multiline.exit.i.i.i ], [ 131072, %59 ]
+  %73 = and i32 %71, -131073
+  %74 = or disjoint i32 %72, %73
+  store i32 %74, ptr %17, align 1
+  %75 = load ptr, ptr %23, align 8, !tbaa !83
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1088
+  %77 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %75, i32 noundef 0) #6
+  br i1 %77, label %78, label %.critedge.i.i.i
 
-71:                                               ; preds = %pop3_perform_command.exit.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 1314
-  %73 = load i8, ptr %72, align 2
-  %74 = and i8 %73, 1
-  %.not.i16.i.i = icmp eq i8 %74, 0
-  br i1 %.not.i16.i.i, label %75, label %.critedge.i.i.i
+78:                                               ; preds = %pop3_perform_command.exit.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 1314
+  %80 = load i8, ptr %79, align 2
+  %81 = and i8 %80, 1
+  %.not.i16.i.i = icmp eq i8 %81, 0
+  br i1 %.not.i16.i.i, label %82, label %.critedge.i.i.i
 
-75:                                               ; preds = %71
+82:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
-  %76 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
-  %77 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
-  %78 = load i8, ptr %72, align 2
-  %79 = and i8 %78, -2
-  %80 = or disjoint i8 %79, %77
-  store i8 %80, ptr %72, align 2
-  %.not16.i.i.i = icmp ne i32 %76, 0
-  %.not17.i.i.i = icmp eq i8 %77, 0
+  %83 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
+  %84 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
+  %85 = load i8, ptr %79, align 2
+  %86 = and i8 %85, -2
+  %87 = or disjoint i8 %86, %84
+  store i8 %87, ptr %79, align 2
+  %.not16.i.i.i = icmp ne i32 %83, 0
+  %.not17.i.i.i = icmp eq i8 %84, 0
   %or.cond.i.i.i = or i1 %.not16.i.i.i, %.not17.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i.i.i, label %pop3_perform.exit.i, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %75, %71, %pop3_perform_command.exit.i.i
-  %81 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %69, i1 noundef zeroext false, i1 noundef zeroext false) #6
-  %82 = getelementptr inbounds nuw i8, ptr %68, i64 1248
-  %83 = load i32, ptr %82, align 8, !tbaa !86
-  %84 = icmp eq i32 %83, 0
-  %85 = zext i1 %84 to i8
-  store i8 %85, ptr %1, align 1, !tbaa !8
+.critedge.i.i.i:                                  ; preds = %82, %78, %pop3_perform_command.exit.i.i
+  %88 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %76, i1 noundef zeroext false, i1 noundef zeroext false) #6
+  %89 = getelementptr inbounds nuw i8, ptr %75, i64 1248
+  %90 = load i32, ptr %89, align 8, !tbaa !86
+  %91 = icmp eq i32 %90, 0
+  %92 = zext i1 %91 to i8
+  store i8 %92, ptr %1, align 1, !tbaa !8
   br label %pop3_perform.exit.i
 
-pop3_perform.exit.i:                              ; preds = %.critedge.i.i.i, %75
-  %.1.i15.i.i = phi i32 [ %81, %.critedge.i.i.i ], [ %76, %75 ]
-  %86 = load ptr, ptr %23, align 8, !tbaa !83
-  %87 = call zeroext i1 @Curl_conn_is_connected(ptr noundef %86, i32 noundef 0) #6
+pop3_perform.exit.i:                              ; preds = %.critedge.i.i.i, %82
+  %.1.i15.i.i = phi i32 [ %88, %.critedge.i.i.i ], [ %83, %82 ]
+  %93 = load ptr, ptr %23, align 8, !tbaa !83
+  %94 = call zeroext i1 @Curl_conn_is_connected(ptr noundef %93, i32 noundef 0) #6
   br label %pop3_regular_transfer.exit
 
 pop3_regular_transfer.exit:                       ; preds = %pop3_perform.exit.i, %46, %pop3_parse_custom_request.exit, %2

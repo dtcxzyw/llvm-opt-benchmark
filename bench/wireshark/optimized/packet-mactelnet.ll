@@ -117,7 +117,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 18
-  br i1 %6, label %124, label %7
+  br i1 %6, label %121, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
@@ -127,205 +127,198 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   %or.cond.not = icmp eq i8 %11, 4
   br i1 %or.cond.not, label %.thread, label %.preheader170
 
-.preheader170:                                    ; preds = %7, %21
-  %indvars.iv = phi i64 [ 1, %21 ], [ 0, %7 ]
-  %12 = phi ptr [ %22, %21 ], [ @clienttypenames, %7 ]
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14)
-  %14 = zext i16 %13 to i32
-  %15 = load i32, ptr %12, align 16
-  %16 = icmp eq i32 %15, %14
-  br i1 %16, label %.split.loop.exit179, label %17
+.preheader170:                                    ; preds = %7, %18
+  %.not = phi i1 [ true, %18 ], [ false, %7 ]
+  %.0153172 = phi i32 [ 1, %18 ], [ 0, %7 ]
+  %12 = zext nneg i32 %.0153172 to i64
+  %13 = getelementptr %struct._value_string, ptr @clienttypenames, i64 %12
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14)
+  %15 = zext i16 %14 to i32
+  %16 = load i32, ptr %13, align 16
+  %17 = icmp eq i32 %16, %15
+  br i1 %17, label %.split.loop.exit182, label %18
 
-17:                                               ; preds = %.preheader170
-  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16)
-  %19 = zext i16 %18 to i32
-  %20 = icmp eq i32 %15, %19
-  br i1 %20, label %.split.loop.exit182, label %21
+18:                                               ; preds = %.preheader170
+  %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16)
+  %20 = zext i16 %19 to i32
+  %21 = icmp eq i32 %16, %20
+  %brmerge = or i1 %21, %.not
+  br i1 %brmerge, label %.split.loop.exit, label %.preheader170
 
-21:                                               ; preds = %17
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr %struct._value_string, ptr @clienttypenames, i64 %indvars.iv.next
-  %exitcond = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond, label %.split.loop.exit, label %.preheader170, !llvm.loop !6
+.split.loop.exit:                                 ; preds = %18
+  %.0153172.mux.le = select i1 %21, i32 %.0153172, i32 -1
+  br label %.split.loop.exit182
 
-.split.loop.exit179:                              ; preds = %.preheader170
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit
+.split.loop.exit182:                              ; preds = %.preheader170, %.split.loop.exit
+  %.0149 = phi i32 [ -1, %.split.loop.exit ], [ %.0153172, %.preheader170 ]
+  %.0147 = phi i32 [ %.0153172.mux.le, %.split.loop.exit ], [ -1, %.preheader170 ]
+  %22 = and i32 %.0147, %.0149
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %121, label %.thread
 
-.split.loop.exit182:                              ; preds = %17
-  %24 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit
-
-.split.loop.exit:                                 ; preds = %21, %.split.loop.exit182, %.split.loop.exit179
-  %.0149 = phi i32 [ %23, %.split.loop.exit179 ], [ -1, %.split.loop.exit182 ], [ -1, %21 ]
-  %.0147 = phi i32 [ -1, %.split.loop.exit179 ], [ %24, %.split.loop.exit182 ], [ -1, %21 ]
-  %25 = and i32 %.0147, %.0149
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %124, label %.thread
-
-.thread:                                          ; preds = %7, %.split.loop.exit
-  %.0147161 = phi i32 [ %.0147, %.split.loop.exit ], [ -1, %7 ]
-  %.0149160 = phi i32 [ %.0149, %.split.loop.exit ], [ -1, %7 ]
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+.thread:                                          ; preds = %7, %.split.loop.exit182
+  %.0147161 = phi i32 [ %.0147, %.split.loop.exit182 ], [ -1, %7 ]
+  %.0149160 = phi i32 [ %.0149, %.split.loop.exit182 ], [ -1, %7 ]
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8
+  tail call void @col_set_str(ptr noundef %25, i32 noundef 35, ptr noundef nonnull @.str.41)
+  %26 = load ptr, ptr %24, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
-  tail call void @col_set_str(ptr noundef %28, i32 noundef 35, ptr noundef nonnull @.str.41)
-  %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @tvb_address_to_str(ptr noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 2)
-  %33 = load ptr, ptr %30, align 8
-  %34 = tail call ptr @tvb_address_to_str(ptr noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 8)
-  %35 = icmp sgt i32 %.0147161, -1
-  %36 = or i1 %10, %35
-  %37 = select i1 %36, ptr @.str.63, ptr @.str.64
-  %38 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.65)
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.62, ptr noundef %32, ptr noundef %34, ptr noundef nonnull %37, ptr noundef %38)
+  %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 2)
+  %30 = load ptr, ptr %27, align 8
+  %31 = tail call ptr @tvb_address_to_str(ptr noundef %30, ptr noundef %0, i32 noundef 1, i32 noundef 8)
+  %32 = icmp sgt i32 %.0147161, -1
+  %33 = or i1 %10, %32
+  %34 = select i1 %33, ptr @.str.63, ptr @.str.64
+  %35 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.65)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.62, ptr noundef %29, ptr noundef %31, ptr noundef nonnull %34, ptr noundef %35)
   %.not156 = icmp eq ptr %2, null
-  br i1 %.not156, label %.thread167, label %39
+  br i1 %.not156, label %.thread167, label %36
 
-39:                                               ; preds = %.thread
-  %40 = load i32, ptr @proto_mactelnet, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %42 = load i32, ptr @ett_mactelnet, align 4
-  %43 = tail call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42)
-  %44 = load i32, ptr @hf_mactelnet_protocolver, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %46 = load i32, ptr @hf_mactelnet_type, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %46, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %48 = load i32, ptr @hf_mactelnet_source_mac, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %48, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
-  %50 = load i32, ptr @hf_mactelnet_destination_mac, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %50, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
-  %52 = icmp sgt i32 %.0149160, -1
-  br i1 %52, label %53, label %58
+36:                                               ; preds = %.thread
+  %37 = load i32, ptr @proto_mactelnet, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %39 = load i32, ptr @ett_mactelnet, align 4
+  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39)
+  %41 = load i32, ptr @hf_mactelnet_protocolver, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %43 = load i32, ptr @hf_mactelnet_type, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %45 = load i32, ptr @hf_mactelnet_source_mac, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %45, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
+  %47 = load i32, ptr @hf_mactelnet_destination_mac, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
+  %49 = icmp sgt i32 %.0149160, -1
+  br i1 %49, label %50, label %55
 
-53:                                               ; preds = %39
-  %54 = load i32, ptr @hf_mactelnet_session_id, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %54, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
-  %56 = load i32, ptr @hf_mactelnet_client_type, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %56, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  br label %65
+50:                                               ; preds = %36
+  %51 = load i32, ptr @hf_mactelnet_session_id, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %51, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  %53 = load i32, ptr @hf_mactelnet_client_type, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %53, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  br label %62
 
-58:                                               ; preds = %39
-  br i1 %35, label %59, label %64
+55:                                               ; preds = %36
+  br i1 %32, label %56, label %61
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr @hf_mactelnet_session_id, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %60, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %62 = load i32, ptr @hf_mactelnet_client_type, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %62, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
-  br label %65
+56:                                               ; preds = %55
+  %57 = load i32, ptr @hf_mactelnet_session_id, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %57, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %59 = load i32, ptr @hf_mactelnet_client_type, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %59, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  br label %62
 
-64:                                               ; preds = %58
+61:                                               ; preds = %55
   %spec.select = select i1 %or.cond.not, i32 18, i32 14
-  br label %65
+  br label %62
 
-65:                                               ; preds = %64, %59, %53
-  %.0151 = phi i32 [ 18, %53 ], [ 18, %59 ], [ %spec.select, %64 ]
-  br i1 %or.cond.not, label %120, label %66
+62:                                               ; preds = %61, %56, %50
+  %.0151 = phi i32 [ 18, %50 ], [ 18, %56 ], [ %spec.select, %61 ]
+  br i1 %or.cond.not, label %117, label %63
 
-66:                                               ; preds = %65
-  %67 = load i32, ptr @hf_mactelnet_databytes, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %67, ptr noundef %0, i32 noundef %.0151, i32 noundef 4, i32 noundef 0)
-  %69 = icmp eq i8 %8, 1
-  br i1 %69, label %.preheader, label %.thread167
+63:                                               ; preds = %62
+  %64 = load i32, ptr @hf_mactelnet_databytes, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %64, ptr noundef %0, i32 noundef %.0151, i32 noundef 4, i32 noundef 0)
+  %66 = icmp eq i8 %8, 1
+  br i1 %66, label %.preheader, label %.thread167
 
-.preheader:                                       ; preds = %66
-  %70 = add nuw nsw i32 %.0151, 4
-  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %70)
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph, label %.thread167
+.preheader:                                       ; preds = %63
+  %67 = add nuw nsw i32 %.0151, 4
+  %68 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %67)
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %.lr.ph, label %.thread167
 
-.lr.ph:                                           ; preds = %.preheader, %112
-  %.2173 = phi i32 [ %114, %112 ], [ %70, %.preheader ]
-  %73 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2173)
-  %74 = icmp sgt i32 %73, 4
-  br i1 %74, label %75, label %117
+.lr.ph:                                           ; preds = %.preheader, %109
+  %.2173 = phi i32 [ %111, %109 ], [ %67, %.preheader ]
+  %70 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2173)
+  %71 = icmp sgt i32 %70, 4
+  br i1 %71, label %72, label %114
 
-75:                                               ; preds = %.lr.ph
-  %76 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2173)
-  %77 = icmp eq i32 %76, 1446253311
-  br i1 %77, label %78, label %117
+72:                                               ; preds = %.lr.ph
+  %73 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2173)
+  %74 = icmp eq i32 %73, 1446253311
+  br i1 %74, label %75, label %114
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr @hf_mactelnet_control, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %79, ptr noundef %0, i32 noundef %.2173, i32 noundef -1, i32 noundef 0)
-  %81 = load i32, ptr @ett_mactelnet, align 4
-  %82 = tail call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81)
-  %83 = load i32, ptr @hf_mactelnet_control_packet, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %.2173, i32 noundef 4, i32 noundef 0)
-  %85 = add i32 %.2173, 4
-  %86 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %85)
-  %87 = load i32, ptr @hf_mactelnet_datatype, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %87, ptr noundef %0, i32 noundef %85, i32 noundef 1, i32 noundef 0)
-  %89 = add i32 %.2173, 5
-  %90 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %89)
-  %91 = load i32, ptr @hf_mactelnet_control_length, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %91, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef 0)
-  %93 = add i32 %.2173, 9
-  switch i8 %86, label %112 [
-    i8 1, label %94
-    i8 2, label %97
-    i8 3, label %100
-    i8 4, label %103
-    i8 5, label %106
-    i8 6, label %109
+75:                                               ; preds = %72
+  %76 = load i32, ptr @hf_mactelnet_control, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %76, ptr noundef %0, i32 noundef %.2173, i32 noundef -1, i32 noundef 0)
+  %78 = load i32, ptr @ett_mactelnet, align 4
+  %79 = tail call ptr @proto_item_add_subtree(ptr noundef %77, i32 noundef %78)
+  %80 = load i32, ptr @hf_mactelnet_control_packet, align 4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %0, i32 noundef %.2173, i32 noundef 4, i32 noundef 0)
+  %82 = add i32 %.2173, 4
+  %83 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %82)
+  %84 = load i32, ptr @hf_mactelnet_datatype, align 4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %84, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0)
+  %86 = add i32 %.2173, 5
+  %87 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %86)
+  %88 = load i32, ptr @hf_mactelnet_control_length, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %88, ptr noundef %0, i32 noundef %86, i32 noundef 4, i32 noundef 0)
+  %90 = add i32 %.2173, 9
+  switch i8 %83, label %109 [
+    i8 1, label %91
+    i8 2, label %94
+    i8 3, label %97
+    i8 4, label %100
+    i8 5, label %103
+    i8 6, label %106
   ]
 
-94:                                               ; preds = %78
-  %95 = load i32, ptr @hf_mactelnet_control_encryption_key, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef %90, i32 noundef 0)
-  br label %112
+91:                                               ; preds = %75
+  %92 = load i32, ptr @hf_mactelnet_control_encryption_key, align 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %92, ptr noundef %0, i32 noundef %90, i32 noundef %87, i32 noundef 0)
+  br label %109
 
-97:                                               ; preds = %78
-  %98 = load i32, ptr @hf_mactelnet_control_password, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %98, ptr noundef %0, i32 noundef %93, i32 noundef %90, i32 noundef 0)
-  br label %112
+94:                                               ; preds = %75
+  %95 = load i32, ptr @hf_mactelnet_control_password, align 4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %95, ptr noundef %0, i32 noundef %90, i32 noundef %87, i32 noundef 0)
+  br label %109
 
-100:                                              ; preds = %78
-  %101 = load i32, ptr @hf_mactelnet_control_username, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %101, ptr noundef %0, i32 noundef %93, i32 noundef %90, i32 noundef 0)
-  br label %112
+97:                                               ; preds = %75
+  %98 = load i32, ptr @hf_mactelnet_control_username, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %98, ptr noundef %0, i32 noundef %90, i32 noundef %87, i32 noundef 0)
+  br label %109
 
-103:                                              ; preds = %78
-  %104 = load i32, ptr @hf_mactelnet_control_terminal, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %104, ptr noundef %0, i32 noundef %93, i32 noundef %90, i32 noundef 0)
-  br label %112
+100:                                              ; preds = %75
+  %101 = load i32, ptr @hf_mactelnet_control_terminal, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %101, ptr noundef %0, i32 noundef %90, i32 noundef %87, i32 noundef 0)
+  br label %109
 
-106:                                              ; preds = %78
-  %107 = load i32, ptr @hf_mactelnet_control_width, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %107, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef -2147483648)
-  br label %112
+103:                                              ; preds = %75
+  %104 = load i32, ptr @hf_mactelnet_control_width, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %104, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef -2147483648)
+  br label %109
 
-109:                                              ; preds = %78
-  %110 = load i32, ptr @hf_mactelnet_control_height, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %110, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef -2147483648)
-  br label %112
+106:                                              ; preds = %75
+  %107 = load i32, ptr @hf_mactelnet_control_height, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %107, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef -2147483648)
+  br label %109
 
-112:                                              ; preds = %109, %106, %103, %100, %97, %94, %78
-  %113 = add i32 %90, 9
-  tail call void @proto_item_set_len(ptr noundef %80, i32 noundef %113)
-  %114 = add i32 %90, %93
-  %115 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %114)
-  %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.lr.ph, label %.thread167, !llvm.loop !8
+109:                                              ; preds = %106, %103, %100, %97, %94, %91, %75
+  %110 = add i32 %87, 9
+  tail call void @proto_item_set_len(ptr noundef %77, i32 noundef %110)
+  %111 = add i32 %87, %90
+  %112 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %111)
+  %113 = icmp sgt i32 %112, 0
+  br i1 %113, label %.lr.ph, label %.thread167, !llvm.loop !6
 
-117:                                              ; preds = %75, %.lr.ph
-  %118 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2173)
-  %119 = tail call i32 @call_data_dissector(ptr noundef %118, ptr noundef %1, ptr noundef %43)
-  br label %124
+114:                                              ; preds = %72, %.lr.ph
+  %115 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2173)
+  %116 = tail call i32 @call_data_dissector(ptr noundef %115, ptr noundef %1, ptr noundef %40)
+  br label %121
 
-120:                                              ; preds = %65
-  %121 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0151)
-  %122 = tail call i32 @call_data_dissector(ptr noundef %121, ptr noundef %1, ptr noundef %43)
-  br label %124
+117:                                              ; preds = %62
+  %118 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0151)
+  %119 = tail call i32 @call_data_dissector(ptr noundef %118, ptr noundef %1, ptr noundef %40)
+  br label %121
 
-.thread167:                                       ; preds = %112, %.preheader, %66, %.thread
-  %123 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %124
+.thread167:                                       ; preds = %109, %.preheader, %63, %.thread
+  %120 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %121
 
-124:                                              ; preds = %117, %120, %.split.loop.exit, %4, %.thread167
-  %.0 = phi i32 [ %123, %.thread167 ], [ 0, %4 ], [ 0, %.split.loop.exit ], [ %119, %117 ], [ %122, %120 ]
+121:                                              ; preds = %114, %117, %.split.loop.exit182, %4, %.thread167
+  %.0 = phi i32 [ %120, %.thread167 ], [ 0, %4 ], [ 0, %.split.loop.exit182 ], [ %116, %114 ], [ %119, %117 ]
   ret i32 %.0
 }
 
@@ -406,4 +399,3 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}

@@ -5348,7 +5348,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit357:              ; preds = %477, %479
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit360
 
 507:                                              ; preds = %.lr.ph563
-  %.not.i358 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not.i358 = icmp eq i32 %496, 0
   br i1 %.not.i358, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit360, label %508
 
 508:                                              ; preds = %507

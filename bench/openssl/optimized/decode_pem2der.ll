@@ -134,81 +134,74 @@ read_pem.exit:                                    ; preds = %7
 
 37:                                               ; preds = %36, %26
   %38 = load ptr, ptr %8, align 8, !tbaa !9
-  br label %41
+  br label %39
 
-39:                                               ; preds = %41
-  %40 = add nuw nsw i64 %.02641, 1
-  %exitcond.not = icmp eq i64 %40, 17
-  br i1 %exitcond.not, label %.critedge, label %41, !llvm.loop !18
+39:                                               ; preds = %37, %44
+  %.02642 = phi i64 [ 0, %37 ], [ %45, %44 ]
+  %40 = getelementptr inbounds nuw %struct.pem_name_map_st, ptr @pem2der_decode.pem_name_map, i64 %.02642
+  %41 = load ptr, ptr %40, align 16, !tbaa !18
+  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %41) #6
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %46, label %44
 
-41:                                               ; preds = %37, %39
-  %.02641 = phi i64 [ 0, %37 ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw %struct.pem_name_map_st, ptr @pem2der_decode.pem_name_map, i64 %.02641
-  %43 = load ptr, ptr %42, align 16, !tbaa !20
-  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %43) #6
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %39
+44:                                               ; preds = %39
+  %45 = add nuw nsw i64 %.02642, 1
+  %exitcond.not = icmp eq i64 %45, 17
+  br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !20
 
-46:                                               ; preds = %41
+46:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %48 = load ptr, ptr %47, align 16, !tbaa !22
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !23
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !24
   store i32 %52, ptr %12, align 4, !tbaa !13
-  %.not34 = icmp eq ptr %48, null
-  br i1 %.not34, label %55, label %53
+  %53 = add nsw i64 %.02642, -13
+  %.not34 = icmp ult i64 %53, -10
+  br i1 %.not34, label %56, label %54
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.30, ptr noundef nonnull %48, i64 noundef 0) #5
-  br label %55
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.30, ptr noundef %48, i64 noundef 0) #5
+  br label %56
 
-55:                                               ; preds = %53, %46
-  %.027 = phi ptr [ %54, %53 ], [ %15, %46 ]
-  %.not35 = icmp eq ptr %50, null
-  br i1 %.not35, label %58, label %56
-
-56:                                               ; preds = %55
+56:                                               ; preds = %46, %54
+  %.027 = phi ptr [ %55, %54 ], [ %15, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %.027, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16, ptr noundef nonnull @.str.31, ptr noundef nonnull %50, i64 noundef 0) #5
+  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16, ptr noundef nonnull @.str.31, ptr noundef %50, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.027, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %58
-
-58:                                               ; preds = %56, %55
-  %.1 = phi ptr [ %57, %56 ], [ %.027, %55 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.027, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %60 = load ptr, ptr %10, align 8, !tbaa !9
-  %61 = load i64, ptr %11, align 8, !tbaa !11
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %17, ptr noundef nonnull @.str.32, ptr noundef %60, i64 noundef %61) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !25
+  %59 = load ptr, ptr %10, align 8, !tbaa !9
+  %60 = load i64, ptr %11, align 8, !tbaa !11
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %17, ptr noundef nonnull @.str.32, ptr noundef %59, i64 noundef %60) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %62 = getelementptr inbounds nuw i8, ptr %.1, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %.027, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %18, ptr noundef nonnull @.str.33, ptr noundef nonnull %12) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %19) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %63 = call i32 %3(ptr noundef nonnull %15, ptr noundef %4) #5
+  %62 = call i32 %3(ptr noundef nonnull %15, ptr noundef %4) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %.thread, %58
-  %.029 = phi i32 [ %63, %58 ], [ 0, %.thread ], [ 1, %39 ]
-  %64 = load ptr, ptr %8, align 8, !tbaa !9
-  call void @CRYPTO_free(ptr noundef %64, ptr noundef nonnull @.str, i32 noundef 209) #5
-  %65 = load ptr, ptr %9, align 8, !tbaa !9
-  call void @CRYPTO_free(ptr noundef %65, ptr noundef nonnull @.str, i32 noundef 210) #5
-  %66 = load ptr, ptr %10, align 8, !tbaa !9
-  call void @CRYPTO_free(ptr noundef %66, ptr noundef nonnull @.str, i32 noundef 211) #5
+.critedge:                                        ; preds = %44, %.thread, %56
+  %.029 = phi i32 [ %62, %56 ], [ 0, %.thread ], [ 1, %44 ]
+  %63 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @CRYPTO_free(ptr noundef %63, ptr noundef nonnull @.str, i32 noundef 209) #5
+  %64 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @CRYPTO_free(ptr noundef %64, ptr noundef nonnull @.str, i32 noundef 210) #5
+  %65 = load ptr, ptr %10, align 8, !tbaa !9
+  call void @CRYPTO_free(ptr noundef %65, ptr noundef nonnull @.str, i32 noundef 211) #5
   br label %read_pem.exit.thread
 
 read_pem.exit.thread:                             ; preds = %7, %read_pem.exit, %.critedge
@@ -317,12 +310,12 @@ attributes #6 = { nounwind willreturn memory(read) }
 !15 = !{!16, !6, i64 0}
 !16 = !{!"pem2der_pass_data_st", !6, i64 0, !6, i64 8}
 !17 = !{!16, !6, i64 8}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !10, i64 0}
-!21 = !{!"pem_name_map_st", !10, i64 0, !14, i64 8, !10, i64 16, !10, i64 24}
-!22 = !{!21, !10, i64 16}
-!23 = !{!21, !10, i64 24}
-!24 = !{!21, !14, i64 8}
+!18 = !{!19, !10, i64 0}
+!19 = !{!"pem_name_map_st", !10, i64 0, !14, i64 8, !10, i64 16, !10, i64 24}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!19, !10, i64 16}
+!23 = !{!19, !10, i64 24}
+!24 = !{!19, !14, i64 8}
 !25 = !{i64 0, i64 8, !9, i64 8, i64 4, !13, i64 16, i64 8, !26, i64 24, i64 8, !11, i64 32, i64 8, !11}
 !26 = !{!6, !6, i64 0}

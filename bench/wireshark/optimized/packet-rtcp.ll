@@ -1897,8 +1897,8 @@ add_entries_for_rtcp_rtpfb_dissector_table.exit:  ; preds = %11
   %19 = load ptr, ptr @ms_pse_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.671, i32 noundef %18, ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond, label %4, label %16, !llvm.loop !8
+  %.not = icmp eq i64 %indvars.iv.next, 12
+  br i1 %.not, label %4, label %16, !llvm.loop !8
 }
 
 ; Function Attrs: null_pointer_is_valid

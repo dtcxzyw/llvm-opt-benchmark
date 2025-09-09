@@ -233,9 +233,9 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
   switch i32 %11, label %10 [
     i32 0, label %12
     i32 1, label %13
-    i32 2, label %73
-    i32 3, label %74
-    i32 4, label %76
+    i32 2, label %74
+    i32 3, label %75
+    i32 4, label %77
   ], !llvm.loop !23
 
 12:                                               ; preds = %10
@@ -376,10 +376,10 @@ skip_prefix.exit.i.i20:                           ; preds = %51, %56
 
 get_capability.exit.i23:                          ; preds = %56, %58
   %.013.i = phi ptr [ %59, %58 ], [ null, %56 ]
-  %61 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !27
-  %.not10.i = icmp eq ptr %62, null
-  br i1 %.not10.i, label %63, label %.loopexit
+  %61 = shl nuw i64 1, %.01429.i.i16
+  %62 = and i64 %61, 57
+  %.not10.i.not = icmp eq i64 %62, 0
+  br i1 %.not10.i.not, label %.loopexit, label %63
 
 63:                                               ; preds = %get_capability.exit.i23
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -393,86 +393,87 @@ get_capability.exit.i23:                          ; preds = %56, %58
   br label %.loopexit
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !28
-  %.not12.i24 = icmp eq ptr %69, null
-  br i1 %.not12.i24, label %parse_command.exit, label %70
+  %68 = add nsw i64 %.01429.i.i16, -6
+  %.not12.i24 = icmp ult i64 %68, -2
+  br i1 %.not12.i24, label %parse_command.exit, label %69
 
-70:                                               ; preds = %67
-  call void %69(ptr noundef %0, ptr noundef %.013.i) #7
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !28
+  call void %71(ptr noundef %0, ptr noundef %.013.i) #7
   br label %parse_command.exit
 
-parse_command.exit:                               ; preds = %70, %67, %41
-  %.233 = phi ptr [ %.0.i.i, %41 ], [ %.02861.ph, %67 ], [ %.02861.ph, %70 ]
-  %71 = call i32 @packet_reader_read(ptr noundef nonnull %2) #7
+parse_command.exit:                               ; preds = %69, %67, %41
+  %.233 = phi ptr [ %.0.i.i, %41 ], [ %.02861.ph, %67 ], [ %.02861.ph, %69 ]
+  %72 = call i32 @packet_reader_read(ptr noundef nonnull %2) #7
   br label %.outer, !llvm.loop !23
 
 .loopexit:                                        ; preds = %get_capability.exit.i23, %46, %skip_prefix.exit.i.i20, %..loopexit.loopexit64_crit_edge
-  %72 = phi ptr [ %.pre.pre, %..loopexit.loopexit64_crit_edge ], [ %14, %skip_prefix.exit.i.i20 ], [ null, %46 ], [ %14, %get_capability.exit.i23 ]
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef %72) #9
+  %73 = phi ptr [ %.pre.pre, %..loopexit.loopexit64_crit_edge ], [ %14, %skip_prefix.exit.i.i20 ], [ null, %46 ], [ %14, %get_capability.exit.i23 ]
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef %73) #9
   unreachable
 
-73:                                               ; preds = %10
-  br i1 %.not12, label %.loopexit37, label %77
-
 74:                                               ; preds = %10
-  %75 = call i32 @packet_reader_read(ptr noundef nonnull %2) #7
-  br label %77
+  br i1 %.not12, label %.loopexit37, label %78
 
-76:                                               ; preds = %10
+75:                                               ; preds = %10
+  %76 = call i32 @packet_reader_read(ptr noundef nonnull %2) #7
+  br label %78
+
+77:                                               ; preds = %10
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.13, i32 noundef 313, ptr noundef nonnull @.str.21) #9
   unreachable
 
-77:                                               ; preds = %73, %74
+78:                                               ; preds = %74, %75
   %.not10 = icmp eq ptr %.02861.ph, null
-  br i1 %.not10, label %78, label %79
+  br i1 %.not10, label %79, label %80
 
-78:                                               ; preds = %77
+79:                                               ; preds = %78
   call void (ptr, ...) @die(ptr noundef nonnull @.str.22) #9
   unreachable
 
-79:                                               ; preds = %77
-  %80 = load i32, ptr @client_hash_algo, align 4, !tbaa !29
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %82 = load ptr, ptr %81, align 8, !tbaa !30
-  br label %83
+80:                                               ; preds = %78
+  %81 = load i32, ptr @client_hash_algo, align 4, !tbaa !29
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %83 = load ptr, ptr %82, align 8, !tbaa !30
+  br label %84
 
-83:                                               ; preds = %85, %79
-  %.0811.i = phi i64 [ 0, %79 ], [ %86, %85 ]
-  %84 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
-  %.not.i25 = icmp eq ptr %82, %84
-  br i1 %.not.i25, label %.split.loop.exit9.i, label %85
+84:                                               ; preds = %86, %80
+  %.0811.i = phi i64 [ 0, %80 ], [ %87, %86 ]
+  %85 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
+  %.not.i25 = icmp eq ptr %83, %85
+  br i1 %.not.i25, label %.split.loop.exit9.i, label %86
 
-85:                                               ; preds = %83
-  %86 = add nuw nsw i64 %.0811.i, 1
-  %exitcond.not.i = icmp eq i64 %86, 3
-  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %83, !llvm.loop !47
+86:                                               ; preds = %84
+  %87 = add nuw nsw i64 %.0811.i, 1
+  %exitcond.not.i = icmp eq i64 %87, 3
+  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %84, !llvm.loop !47
 
-.split.loop.exit9.i:                              ; preds = %83
-  %87 = trunc nuw nsw i64 %.0811.i to i32
+.split.loop.exit9.i:                              ; preds = %84
+  %88 = trunc nuw nsw i64 %.0811.i to i32
   br label %hash_algo_by_ptr.exit
 
-hash_algo_by_ptr.exit:                            ; preds = %85, %.split.loop.exit9.i
-  %.2.i = phi i32 [ %87, %.split.loop.exit9.i ], [ 0, %85 ]
-  %.not11 = icmp eq i32 %80, %.2.i
-  br i1 %.not11, label %93, label %88
+hash_algo_by_ptr.exit:                            ; preds = %86, %.split.loop.exit9.i
+  %.2.i = phi i32 [ %88, %.split.loop.exit9.i ], [ 0, %86 ]
+  %.not11 = icmp eq i32 %81, %.2.i
+  br i1 %.not11, label %94, label %89
 
-88:                                               ; preds = %hash_algo_by_ptr.exit
-  %89 = load ptr, ptr %82, align 8, !tbaa !48
-  %90 = sext i32 %80 to i64
-  %91 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %90
-  %92 = load ptr, ptr %91, align 16, !tbaa !48
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.23, ptr noundef %89, ptr noundef %92) #9
+89:                                               ; preds = %hash_algo_by_ptr.exit
+  %90 = load ptr, ptr %83, align 8, !tbaa !48
+  %91 = sext i32 %81 to i64
+  %92 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %91
+  %93 = load ptr, ptr %92, align 16, !tbaa !48
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.23, ptr noundef %90, ptr noundef %93) #9
   unreachable
 
-93:                                               ; preds = %hash_algo_by_ptr.exit
-  %94 = getelementptr inbounds nuw i8, ptr %.02861.ph, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !27
-  %96 = call i32 %95(ptr noundef %0, ptr noundef nonnull %2) #7
+94:                                               ; preds = %hash_algo_by_ptr.exit
+  %95 = getelementptr inbounds nuw i8, ptr %.02861.ph, i64 16
+  %96 = load ptr, ptr %95, align 8, !tbaa !27
+  %97 = call i32 %96(ptr noundef %0, ptr noundef nonnull %2) #7
   br label %.loopexit37
 
-.loopexit37:                                      ; preds = %73, %1, %93
-  %.09 = phi i32 [ 0, %93 ], [ 1, %1 ], [ 1, %73 ]
+.loopexit37:                                      ; preds = %74, %1, %94
+  %.09 = phi i32 [ 0, %94 ], [ 1, %1 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }

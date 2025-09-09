@@ -416,27 +416,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not.i.i, label %dissect_dpaux_register.exit.i, label %155
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  %157 = load i8, ptr %156, align 4
-  %cond.i.i = icmp eq i8 %157, 0
-  br i1 %cond.i.i, label %158, label %dissect_dpaux_register.exit.i
-
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = load i32, ptr %157, align 4
+  %159 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %160 = load ptr, ptr %159, align 8
-  %161 = load i32, ptr %160, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %163 = load ptr, ptr %162, align 8
-  %164 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %146, ptr noundef %0, i32 noundef range(i32 1, 256) %139, i32 noundef %161, i32 noundef 0, ptr noundef %163, i32 noundef 0, i32 noundef 0)
+  %161 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %146, ptr noundef %0, i32 noundef range(i32 1, 256) %139, i32 noundef %158, i32 noundef 0, ptr noundef %160, i32 noundef 0, i32 noundef 0)
   br label %dissect_dpaux_register.exit.i
 
-dissect_dpaux_register.exit.i:                    ; preds = %149, %158, %155, %154
+dissect_dpaux_register.exit.i:                    ; preds = %149, %155, %154
   %exitcond.not.i = icmp eq i32 %139, %119
   br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %137, !llvm.loop !10
 
 dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.exit.i, %133, %128, %114, %72, %67
-  %165 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %165
+  %162 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %162
 }
 
 ; Function Attrs: null_pointer_is_valid

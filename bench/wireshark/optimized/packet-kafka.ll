@@ -900,7 +900,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.629 = private unnamed_addr constant [19 x i8] c" [Unknown API key]\00", align 1
 @.str.630 = private unnamed_addr constant [11 x i8] c"%s API key\00", align 1
 @.str.631 = private unnamed_addr constant [27 x i8] c" [Unsupported API version]\00", align 1
-@.str.632 = private unnamed_addr constant [24 x i8] c"Unsupported %s version.\00", align 1
 @.str.633 = private unnamed_addr constant [38 x i8] c"Unsupported %s version. Supports v%d.\00", align 1
 @.str.634 = private unnamed_addr constant [25 x i8] c"Dissecting assuming v%d.\00", align 1
 @.str.635 = private unnamed_addr constant [41 x i8] c"Unsupported %s version. Supports v%d-%d.\00", align 1
@@ -1159,7 +1158,7 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, %18
-  br i1 %19, label %20, label %235
+  br i1 %19, label %20, label %237
 
 20:                                               ; preds = %4
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
@@ -1201,896 +1200,899 @@ kafka_get_api_info.exit.i:                        ; preds = %.preheader.i.i
 38:                                               ; preds = %kafka_get_api_info.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %40 = load i16, ptr %39, align 4
-  %41 = icmp ne i16 %40, -1
-  %42 = icmp sge i16 %25, %40
-  %spec.select.i = and i1 %41, %42
-  %43 = zext i1 %spec.select.i to i8
+  %41 = and i64 %indvars.iv.i.i, 2305843009213693951
+  %42 = shl nuw i64 1, %41
+  %43 = and i64 %42, 140797880172544
+  %.not7.i = icmp eq i64 %43, 0
+  %44 = icmp sge i16 %25, %40
+  %spec.select.i = select i1 %.not7.i, i1 %44, i1 false
+  %45 = zext i1 %spec.select.i to i8
   br label %kafka_is_api_version_flexible.exit
 
 kafka_is_api_version_flexible.exit:               ; preds = %34, %20, %kafka_get_api_info.exit.i, %38
-  %44 = phi i8 [ 0, %kafka_get_api_info.exit.i ], [ %43, %38 ], [ 0, %20 ], [ 0, %34 ]
-  %45 = getelementptr inbounds nuw i8, ptr %23, i64 17
-  store i8 %44, ptr %45, align 1
-  %46 = load ptr, ptr %5, align 8
-  %47 = sext i16 %32 to i32
-  %48 = tail call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %49 = load i16, ptr %26, align 2
-  %50 = sext i16 %49 to i32
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.623, ptr noundef %48, i32 noundef %50)
-  %51 = load i16, ptr %23, align 4
+  %46 = phi i8 [ 0, %kafka_get_api_info.exit.i ], [ %45, %38 ], [ 0, %20 ], [ 0, %34 ]
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 17
+  store i8 %46, ptr %47, align 1
+  %48 = load ptr, ptr %5, align 8
+  %49 = sext i16 %32 to i32
+  %50 = tail call ptr @val_to_str(i32 noundef %49, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %51 = load i16, ptr %26, align 2
   %52 = sext i16 %51 to i32
-  %53 = tail call ptr @val_to_str(i32 noundef %52, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %54 = load i16, ptr %26, align 2
-  %55 = sext i16 %54 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.624, ptr noundef %53, i32 noundef %55)
-  %56 = load i32, ptr @hf_kafka_request_api_key, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
-  %.not.i638 = icmp eq ptr %57, null
-  br i1 %.not.i638, label %proto_item_set_hidden.exit, label %58
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.623, ptr noundef %50, i32 noundef %52)
+  %53 = load i16, ptr %23, align 4
+  %54 = sext i16 %53 to i32
+  %55 = tail call ptr @val_to_str(i32 noundef %54, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %56 = load i16, ptr %26, align 2
+  %57 = sext i16 %56 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.624, ptr noundef %55, i32 noundef %57)
+  %58 = load i32, ptr @hf_kafka_request_api_key, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %58, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+  %.not.i638 = icmp eq ptr %59, null
+  br i1 %.not.i638, label %proto_item_set_hidden.exit, label %60
 
-58:                                               ; preds = %kafka_is_api_version_flexible.exit
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %.not5.i = icmp eq ptr %60, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %61
+60:                                               ; preds = %kafka_is_api_version_flexible.exit
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %.not5.i = icmp eq ptr %62, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %63
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 28
-  %63 = load i32, ptr %62, align 4
-  %64 = or i32 %63, 1
-  store i32 %64, ptr %62, align 4
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  %65 = load i32, ptr %64, align 4
+  %66 = or i32 %65, 1
+  store i32 %66, ptr %64, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %kafka_is_api_version_flexible.exit, %58, %61
-  %65 = load i32, ptr @hf_kafka_api_key, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
-  %67 = load i16, ptr %23, align 4
-  %68 = icmp slt i16 %67, 0
-  br i1 %68, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639
+proto_item_set_hidden.exit:                       ; preds = %kafka_is_api_version_flexible.exit, %60, %63
+  %67 = load i32, ptr @hf_kafka_api_key, align 4
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+  %69 = load i16, ptr %23, align 4
+  %70 = icmp slt i16 %69, 0
+  br i1 %70, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639
 
-69:                                               ; preds = %.preheader.i.i639
+71:                                               ; preds = %.preheader.i.i639
   %indvars.iv.next.i.i641 = add nuw nsw i64 %indvars.iv.i.i640, 1
   %exitcond.i.i642 = icmp eq i64 %indvars.iv.next.i.i641, 50
   br i1 %exitcond.i.i642, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639, !llvm.loop !8
 
-.preheader.i.i639:                                ; preds = %proto_item_set_hidden.exit, %69
-  %indvars.iv.i.i640 = phi i64 [ %indvars.iv.next.i.i641, %69 ], [ 0, %proto_item_set_hidden.exit ]
-  %70 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i640
-  %71 = load i16, ptr %70, align 8
-  %72 = icmp eq i16 %71, %67
-  br i1 %72, label %kafka_get_api_info.exit.i643, label %69
+.preheader.i.i639:                                ; preds = %proto_item_set_hidden.exit, %71
+  %indvars.iv.i.i640 = phi i64 [ %indvars.iv.next.i.i641, %71 ], [ 0, %proto_item_set_hidden.exit ]
+  %72 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i640
+  %73 = load i16, ptr %72, align 8
+  %74 = icmp eq i16 %73, %69
+  br i1 %74, label %kafka_get_api_info.exit.i643, label %71
 
 kafka_get_api_info.exit.i643:                     ; preds = %.preheader.i.i639
-  %73 = icmp eq ptr %70, null
-  br i1 %73, label %kafka_get_api_info.exit.thread.i, label %kafka_check_supported_api_key.exit
+  %75 = icmp eq ptr %72, null
+  br i1 %75, label %kafka_get_api_info.exit.thread.i, label %kafka_check_supported_api_key.exit
 
-kafka_get_api_info.exit.thread.i:                 ; preds = %69, %kafka_get_api_info.exit.i643, %proto_item_set_hidden.exit
-  %74 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.629)
-  %75 = load i16, ptr %23, align 4
-  %76 = sext i16 %75 to i32
-  %77 = tail call ptr @val_to_str(i32 noundef %76, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %78 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %66, ptr noundef nonnull @ei_kafka_unknown_api_key, ptr noundef nonnull @.str.630, ptr noundef %77)
+kafka_get_api_info.exit.thread.i:                 ; preds = %71, %kafka_get_api_info.exit.i643, %proto_item_set_hidden.exit
+  %76 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.629)
+  %77 = load i16, ptr %23, align 4
+  %78 = sext i16 %77 to i32
+  %79 = tail call ptr @val_to_str(i32 noundef %78, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %80 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %68, ptr noundef nonnull @ei_kafka_unknown_api_key, ptr noundef nonnull @.str.630, ptr noundef %79)
   br label %kafka_check_supported_api_key.exit
 
 kafka_check_supported_api_key.exit:               ; preds = %kafka_get_api_info.exit.i643, %kafka_get_api_info.exit.thread.i
-  %79 = load i32, ptr @hf_kafka_request_api_version, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %79, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
-  %.not.i644 = icmp eq ptr %80, null
-  br i1 %.not.i644, label %proto_item_set_hidden.exit646, label %81
+  %81 = load i32, ptr @hf_kafka_request_api_version, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %81, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
+  %.not.i644 = icmp eq ptr %82, null
+  br i1 %.not.i644, label %proto_item_set_hidden.exit646, label %83
 
-81:                                               ; preds = %kafka_check_supported_api_key.exit
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %83 = load ptr, ptr %82, align 8
-  %.not5.i645 = icmp eq ptr %83, null
-  br i1 %.not5.i645, label %proto_item_set_hidden.exit646, label %84
+83:                                               ; preds = %kafka_check_supported_api_key.exit
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  %85 = load ptr, ptr %84, align 8
+  %.not5.i645 = icmp eq ptr %85, null
+  br i1 %.not5.i645, label %proto_item_set_hidden.exit646, label %86
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 28
-  %86 = load i32, ptr %85, align 4
-  %87 = or i32 %86, 1
-  store i32 %87, ptr %85, align 4
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
+  %88 = load i32, ptr %87, align 4
+  %89 = or i32 %88, 1
+  store i32 %89, ptr %87, align 4
   br label %proto_item_set_hidden.exit646
 
-proto_item_set_hidden.exit646:                    ; preds = %kafka_check_supported_api_key.exit, %81, %84
-  %88 = load i32, ptr @hf_kafka_api_version, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %88, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
-  %90 = tail call fastcc signext i16 @kafka_check_supported_api_version(ptr noundef %1, ptr noundef %89, ptr noundef %23)
-  %91 = load i32, ptr @hf_kafka_correlation_id, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %91, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  %93 = load i16, ptr %23, align 4
-  %94 = icmp eq i16 %93, 7
-  br i1 %94, label %95, label %98
+proto_item_set_hidden.exit646:                    ; preds = %kafka_check_supported_api_key.exit, %83, %86
+  %90 = load i32, ptr @hf_kafka_api_version, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %90, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
+  %92 = tail call fastcc signext i16 @kafka_check_supported_api_version(ptr noundef %1, ptr noundef %91, ptr noundef %23)
+  %93 = load i32, ptr @hf_kafka_correlation_id, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %93, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  %95 = load i16, ptr %23, align 4
+  %96 = icmp eq i16 %95, 7
+  br i1 %96, label %97, label %100
 
-95:                                               ; preds = %proto_item_set_hidden.exit646
-  %96 = load i16, ptr %26, align 2
-  %97 = icmp eq i16 %96, 0
-  br i1 %97, label %101, label %98
+97:                                               ; preds = %proto_item_set_hidden.exit646
+  %98 = load i16, ptr %26, align 2
+  %99 = icmp eq i16 %98, 0
+  br i1 %99, label %103, label %100
 
-98:                                               ; preds = %95, %proto_item_set_hidden.exit646
-  %99 = load i32, ptr @hf_kafka_client_id, align 4
-  %100 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %11, i32 noundef %99, ptr noundef %0, ptr noundef %1, i32 noundef 12, i32 noundef 0, ptr noundef null, ptr noundef null)
-  br label %101
+100:                                              ; preds = %97, %proto_item_set_hidden.exit646
+  %101 = load i32, ptr @hf_kafka_client_id, align 4
+  %102 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %11, i32 noundef %101, ptr noundef %0, ptr noundef %1, i32 noundef 12, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br label %103
 
-101:                                              ; preds = %95, %98
-  %.0635 = phi i32 [ 12, %95 ], [ %100, %98 ]
-  %102 = load i8, ptr %45, align 1, !range !9, !noundef !10
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %106
+103:                                              ; preds = %97, %100
+  %.0635 = phi i32 [ 12, %97 ], [ %102, %100 ]
+  %104 = load i8, ptr %47, align 1, !range !9, !noundef !10
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %106, label %108
 
-104:                                              ; preds = %101
-  %105 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.0635)
-  br label %106
+106:                                              ; preds = %103
+  %107 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.0635)
+  br label %108
 
-106:                                              ; preds = %104, %101
-  %.1636 = phi i32 [ %105, %104 ], [ %.0635, %101 ]
-  %107 = load i16, ptr %23, align 4
-  switch i16 %107, label %dissect_kafka_list_groups_request.exit.thread [
+108:                                              ; preds = %106, %103
+  %.1636 = phi i32 [ %107, %106 ], [ %.0635, %103 ]
+  %109 = load i16, ptr %23, align 4
+  switch i16 %109, label %dissect_kafka_list_groups_request.exit.thread [
     i16 0, label %dissect_kafka_list_groups_request.exit
-    i16 1, label %108
-    i16 2, label %110
-    i16 3, label %112
-    i16 4, label %114
-    i16 5, label %116
-    i16 6, label %118
-    i16 7, label %120
-    i16 8, label %122
-    i16 9, label %124
-    i16 10, label %126
-    i16 11, label %128
-    i16 12, label %130
-    i16 13, label %132
-    i16 14, label %134
-    i16 15, label %136
-    i16 16, label %138
-    i16 17, label %142
-    i16 18, label %145
-    i16 19, label %147
-    i16 20, label %149
-    i16 21, label %151
-    i16 22, label %153
-    i16 23, label %155
-    i16 24, label %157
-    i16 25, label %159
-    i16 26, label %161
-    i16 27, label %163
-    i16 28, label %165
-    i16 29, label %167
-    i16 30, label %169
-    i16 31, label %171
-    i16 32, label %173
-    i16 33, label %175
-    i16 34, label %177
-    i16 35, label %179
-    i16 37, label %181
-    i16 36, label %183
-    i16 38, label %185
-    i16 39, label %187
-    i16 40, label %189
-    i16 41, label %191
-    i16 42, label %193
-    i16 43, label %195
-    i16 44, label %197
-    i16 45, label %199
-    i16 46, label %201
-    i16 47, label %203
-    i16 60, label %205
-    i16 67, label %207
+    i16 1, label %110
+    i16 2, label %112
+    i16 3, label %114
+    i16 4, label %116
+    i16 5, label %118
+    i16 6, label %120
+    i16 7, label %122
+    i16 8, label %124
+    i16 9, label %126
+    i16 10, label %128
+    i16 11, label %130
+    i16 12, label %132
+    i16 13, label %134
+    i16 14, label %136
+    i16 15, label %138
+    i16 16, label %140
+    i16 17, label %144
+    i16 18, label %147
+    i16 19, label %149
+    i16 20, label %151
+    i16 21, label %153
+    i16 22, label %155
+    i16 23, label %157
+    i16 24, label %159
+    i16 25, label %161
+    i16 26, label %163
+    i16 27, label %165
+    i16 28, label %167
+    i16 29, label %169
+    i16 30, label %171
+    i16 31, label %173
+    i16 32, label %175
+    i16 33, label %177
+    i16 34, label %179
+    i16 35, label %181
+    i16 37, label %183
+    i16 36, label %185
+    i16 38, label %187
+    i16 39, label %189
+    i16 40, label %191
+    i16 41, label %193
+    i16 42, label %195
+    i16 43, label %197
+    i16 44, label %199
+    i16 45, label %201
+    i16 46, label %203
+    i16 47, label %205
+    i16 60, label %207
+    i16 67, label %209
   ]
 
-108:                                              ; preds = %106
-  %109 = tail call fastcc i32 @dissect_kafka_fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+110:                                              ; preds = %108
+  %111 = tail call fastcc i32 @dissect_kafka_fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-110:                                              ; preds = %106
-  %111 = tail call fastcc i32 @dissect_kafka_offsets_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+112:                                              ; preds = %108
+  %113 = tail call fastcc i32 @dissect_kafka_offsets_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-112:                                              ; preds = %106
-  %113 = tail call fastcc i32 @dissect_kafka_metadata_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+114:                                              ; preds = %108
+  %115 = tail call fastcc i32 @dissect_kafka_metadata_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-114:                                              ; preds = %106
-  %115 = tail call fastcc i32 @dissect_kafka_leader_and_isr_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+116:                                              ; preds = %108
+  %117 = tail call fastcc i32 @dissect_kafka_leader_and_isr_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-116:                                              ; preds = %106
-  %117 = tail call fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+118:                                              ; preds = %108
+  %119 = tail call fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-118:                                              ; preds = %106
-  %119 = tail call fastcc i32 @dissect_kafka_update_metadata_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+120:                                              ; preds = %108
+  %121 = tail call fastcc i32 @dissect_kafka_update_metadata_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-120:                                              ; preds = %106
-  %121 = tail call fastcc i32 @dissect_kafka_controlled_shutdown_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+122:                                              ; preds = %108
+  %123 = tail call fastcc i32 @dissect_kafka_controlled_shutdown_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-122:                                              ; preds = %106
-  %123 = tail call fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+124:                                              ; preds = %108
+  %125 = tail call fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-124:                                              ; preds = %106
-  %125 = tail call fastcc i32 @dissect_kafka_offset_fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+126:                                              ; preds = %108
+  %127 = tail call fastcc i32 @dissect_kafka_offset_fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-126:                                              ; preds = %106
-  %127 = tail call fastcc i32 @dissect_kafka_find_coordinator_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+128:                                              ; preds = %108
+  %129 = tail call fastcc i32 @dissect_kafka_find_coordinator_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-128:                                              ; preds = %106
-  %129 = tail call fastcc i32 @dissect_kafka_join_group_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+130:                                              ; preds = %108
+  %131 = tail call fastcc i32 @dissect_kafka_join_group_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-130:                                              ; preds = %106
-  %131 = tail call fastcc i32 @dissect_kafka_heartbeat_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+132:                                              ; preds = %108
+  %133 = tail call fastcc i32 @dissect_kafka_heartbeat_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-132:                                              ; preds = %106
-  %133 = tail call fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+134:                                              ; preds = %108
+  %135 = tail call fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-134:                                              ; preds = %106
-  %135 = tail call fastcc i32 @dissect_kafka_sync_group_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+136:                                              ; preds = %108
+  %137 = tail call fastcc i32 @dissect_kafka_sync_group_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-136:                                              ; preds = %106
-  %137 = tail call fastcc i32 @dissect_kafka_describe_groups_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+138:                                              ; preds = %108
+  %139 = tail call fastcc i32 @dissect_kafka_describe_groups_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-138:                                              ; preds = %106
-  %139 = icmp sgt i16 %90, 2
-  br i1 %139, label %140, label %dissect_kafka_list_groups_request.exit.thread
+140:                                              ; preds = %108
+  %141 = icmp sgt i16 %92, 2
+  br i1 %141, label %142, label %dissect_kafka_list_groups_request.exit.thread
 
-140:                                              ; preds = %138
-  %141 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
+142:                                              ; preds = %140
+  %143 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-142:                                              ; preds = %106
-  %143 = load i32, ptr @hf_kafka_sasl_mechanism, align 4
-  %144 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %11, i32 noundef %143, ptr noundef %0, ptr noundef %1, i32 noundef %.1636, i32 noundef 0, ptr noundef null, ptr noundef null)
+144:                                              ; preds = %108
+  %145 = load i32, ptr @hf_kafka_sasl_mechanism, align 4
+  %146 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %11, i32 noundef %145, ptr noundef %0, ptr noundef %1, i32 noundef %.1636, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-145:                                              ; preds = %106
-  %146 = tail call fastcc i32 @dissect_kafka_api_versions_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+147:                                              ; preds = %108
+  %148 = tail call fastcc i32 @dissect_kafka_api_versions_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-147:                                              ; preds = %106
-  %148 = tail call fastcc i32 @dissect_kafka_create_topics_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+149:                                              ; preds = %108
+  %150 = tail call fastcc i32 @dissect_kafka_create_topics_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-149:                                              ; preds = %106
-  %150 = tail call fastcc i32 @dissect_kafka_delete_topics_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+151:                                              ; preds = %108
+  %152 = tail call fastcc i32 @dissect_kafka_delete_topics_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-151:                                              ; preds = %106
-  %152 = tail call fastcc i32 @dissect_kafka_delete_records_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+153:                                              ; preds = %108
+  %154 = tail call fastcc i32 @dissect_kafka_delete_records_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-153:                                              ; preds = %106
-  %154 = tail call fastcc i32 @dissect_kafka_init_producer_id_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+155:                                              ; preds = %108
+  %156 = tail call fastcc i32 @dissect_kafka_init_producer_id_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-155:                                              ; preds = %106
-  %156 = tail call fastcc i32 @dissect_kafka_offset_for_leader_epoch_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+157:                                              ; preds = %108
+  %158 = tail call fastcc i32 @dissect_kafka_offset_for_leader_epoch_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-157:                                              ; preds = %106
-  %158 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+159:                                              ; preds = %108
+  %160 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-159:                                              ; preds = %106
-  %160 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
+161:                                              ; preds = %108
+  %162 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-161:                                              ; preds = %106
-  %162 = tail call fastcc i32 @dissect_kafka_end_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
+163:                                              ; preds = %108
+  %164 = tail call fastcc i32 @dissect_kafka_end_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-163:                                              ; preds = %106
-  %164 = tail call fastcc i32 @dissect_kafka_write_txn_markers_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+165:                                              ; preds = %108
+  %166 = tail call fastcc i32 @dissect_kafka_write_txn_markers_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-165:                                              ; preds = %106
-  %166 = tail call fastcc i32 @dissect_kafka_txn_offset_commit_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+167:                                              ; preds = %108
+  %168 = tail call fastcc i32 @dissect_kafka_txn_offset_commit_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-167:                                              ; preds = %106
-  %168 = tail call fastcc i32 @dissect_kafka_describe_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+169:                                              ; preds = %108
+  %170 = tail call fastcc i32 @dissect_kafka_describe_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-169:                                              ; preds = %106
-  %170 = tail call fastcc i32 @dissect_kafka_create_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+171:                                              ; preds = %108
+  %172 = tail call fastcc i32 @dissect_kafka_create_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-171:                                              ; preds = %106
-  %172 = tail call fastcc i32 @dissect_kafka_delete_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+173:                                              ; preds = %108
+  %174 = tail call fastcc i32 @dissect_kafka_delete_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-173:                                              ; preds = %106
-  %174 = tail call fastcc i32 @dissect_kafka_describe_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+175:                                              ; preds = %108
+  %176 = tail call fastcc i32 @dissect_kafka_describe_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-175:                                              ; preds = %106
-  %176 = tail call fastcc i32 @dissect_kafka_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+177:                                              ; preds = %108
+  %178 = tail call fastcc i32 @dissect_kafka_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-177:                                              ; preds = %106
-  %178 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+179:                                              ; preds = %108
+  %180 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-179:                                              ; preds = %106
-  %180 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+181:                                              ; preds = %108
+  %182 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-181:                                              ; preds = %106
-  %182 = tail call fastcc i32 @dissect_kafka_create_partitions_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+183:                                              ; preds = %108
+  %184 = tail call fastcc i32 @dissect_kafka_create_partitions_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-183:                                              ; preds = %106
-  %184 = tail call fastcc i32 @dissect_kafka_sasl_authenticate_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+185:                                              ; preds = %108
+  %186 = tail call fastcc i32 @dissect_kafka_sasl_authenticate_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-185:                                              ; preds = %106
-  %186 = tail call fastcc i32 @dissect_kafka_create_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+187:                                              ; preds = %108
+  %188 = tail call fastcc i32 @dissect_kafka_create_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-187:                                              ; preds = %106
-  %188 = tail call fastcc i32 @dissect_kafka_renew_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+189:                                              ; preds = %108
+  %190 = tail call fastcc i32 @dissect_kafka_renew_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-189:                                              ; preds = %106
-  %190 = tail call fastcc i32 @dissect_kafka_expire_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+191:                                              ; preds = %108
+  %192 = tail call fastcc i32 @dissect_kafka_expire_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-191:                                              ; preds = %106
-  %192 = tail call fastcc i32 @dissect_kafka_describe_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+193:                                              ; preds = %108
+  %194 = tail call fastcc i32 @dissect_kafka_describe_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-193:                                              ; preds = %106
-  %194 = tail call fastcc i32 @dissect_kafka_delete_groups_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+195:                                              ; preds = %108
+  %196 = tail call fastcc i32 @dissect_kafka_delete_groups_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-195:                                              ; preds = %106
-  %196 = tail call fastcc i32 @dissect_kafka_elect_leaders_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+197:                                              ; preds = %108
+  %198 = tail call fastcc i32 @dissect_kafka_elect_leaders_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-197:                                              ; preds = %106
-  %198 = tail call fastcc i32 @dissect_kafka_inc_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+199:                                              ; preds = %108
+  %200 = tail call fastcc i32 @dissect_kafka_inc_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-199:                                              ; preds = %106
-  %200 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+201:                                              ; preds = %108
+  %202 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-201:                                              ; preds = %106
-  %202 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+203:                                              ; preds = %108
+  %204 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-203:                                              ; preds = %106
-  %204 = tail call fastcc i32 @dissect_kafka_offset_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+205:                                              ; preds = %108
+  %206 = tail call fastcc i32 @dissect_kafka_offset_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-205:                                              ; preds = %106
-  %206 = tail call fastcc i32 @dissect_kafka_describe_cluster_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+207:                                              ; preds = %108
+  %208 = tail call fastcc i32 @dissect_kafka_describe_cluster_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-207:                                              ; preds = %106
-  %208 = tail call fastcc i32 @dissect_kafka_allocate_producer_ids_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
+209:                                              ; preds = %108
+  %210 = tail call fastcc i32 @dissect_kafka_allocate_producer_ids_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636)
   br label %dissect_kafka_list_groups_request.exit.thread
 
-dissect_kafka_list_groups_request.exit:           ; preds = %106
-  %209 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1636)
-  %.not677 = icmp eq i16 %209, 0
-  %210 = tail call fastcc i32 @dissect_kafka_produce_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %90)
+dissect_kafka_list_groups_request.exit:           ; preds = %108
+  %211 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1636)
+  %.not677 = icmp eq i16 %211, 0
+  %212 = tail call fastcc i32 @dissect_kafka_produce_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br i1 %.not677, label %dissect_kafka_insert_match.exit, label %dissect_kafka_list_groups_request.exit.thread
 
-dissect_kafka_list_groups_request.exit.thread:    ; preds = %140, %138, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %145, %142, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %dissect_kafka_list_groups_request.exit
-  %.2673 = phi i32 [ %210, %dissect_kafka_list_groups_request.exit ], [ %.1636, %138 ], [ %141, %140 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %142 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %.1636, %106 ]
-  %211 = tail call ptr @find_or_create_conversation(ptr noundef %1)
-  %212 = load i32, ptr @proto_kafka, align 4
-  %213 = tail call ptr @conversation_get_proto_data(ptr noundef %211, i32 noundef %212)
-  %214 = icmp eq ptr %213, null
-  br i1 %214, label %215, label %dissect_kafka_get_match_map.exit.i
+dissect_kafka_list_groups_request.exit.thread:    ; preds = %142, %140, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %144, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %dissect_kafka_list_groups_request.exit
+  %.2673 = phi i32 [ %212, %dissect_kafka_list_groups_request.exit ], [ %.1636, %140 ], [ %143, %142 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %144 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %.1636, %108 ]
+  %213 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %214 = load i32, ptr @proto_kafka, align 4
+  %215 = tail call ptr @conversation_get_proto_data(ptr noundef %213, i32 noundef %214)
+  %216 = icmp eq ptr %215, null
+  br i1 %216, label %217, label %dissect_kafka_get_match_map.exit.i
 
-215:                                              ; preds = %dissect_kafka_list_groups_request.exit.thread
-  %216 = tail call ptr @wmem_file_scope()
-  %217 = tail call noalias ptr @wmem_multimap_new(ptr noundef %216, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %218 = load i32, ptr @proto_kafka, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %211, i32 noundef %218, ptr noundef %217)
+217:                                              ; preds = %dissect_kafka_list_groups_request.exit.thread
+  %218 = tail call ptr @wmem_file_scope()
+  %219 = tail call noalias ptr @wmem_multimap_new(ptr noundef %218, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %220 = load i32, ptr @proto_kafka, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %213, i32 noundef %220, ptr noundef %219)
   br label %dissect_kafka_get_match_map.exit.i
 
-dissect_kafka_get_match_map.exit.i:               ; preds = %215, %dissect_kafka_list_groups_request.exit.thread
-  %.0.i.i = phi ptr [ %217, %215 ], [ %213, %dissect_kafka_list_groups_request.exit.thread ]
-  %219 = zext i32 %21 to i64
-  %220 = inttoptr i64 %219 to ptr
-  %221 = load i32, ptr %28, align 4
-  %222 = tail call ptr @wmem_multimap_lookup32(ptr noundef %.0.i.i, ptr noundef %220, i32 noundef %221)
-  %.not.i647 = icmp eq ptr %222, null
-  br i1 %.not.i647, label %223, label %dissect_kafka_insert_match.exit
+dissect_kafka_get_match_map.exit.i:               ; preds = %217, %dissect_kafka_list_groups_request.exit.thread
+  %.0.i.i = phi ptr [ %219, %217 ], [ %215, %dissect_kafka_list_groups_request.exit.thread ]
+  %221 = zext i32 %21 to i64
+  %222 = inttoptr i64 %221 to ptr
+  %223 = load i32, ptr %28, align 4
+  %224 = tail call ptr @wmem_multimap_lookup32(ptr noundef %.0.i.i, ptr noundef %222, i32 noundef %223)
+  %.not.i647 = icmp eq ptr %224, null
+  br i1 %.not.i647, label %225, label %dissect_kafka_insert_match.exit
 
-223:                                              ; preds = %dissect_kafka_get_match_map.exit.i
-  %224 = tail call ptr @find_or_create_conversation(ptr noundef %1)
-  %225 = load i32, ptr @proto_kafka, align 4
-  %226 = tail call ptr @conversation_get_proto_data(ptr noundef %224, i32 noundef %225)
-  %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %dissect_kafka_insert_match.exit.thread
+225:                                              ; preds = %dissect_kafka_get_match_map.exit.i
+  %226 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %227 = load i32, ptr @proto_kafka, align 4
+  %228 = tail call ptr @conversation_get_proto_data(ptr noundef %226, i32 noundef %227)
+  %229 = icmp eq ptr %228, null
+  br i1 %229, label %230, label %dissect_kafka_insert_match.exit.thread
 
-228:                                              ; preds = %223
-  %229 = tail call ptr @wmem_file_scope()
-  %230 = tail call noalias ptr @wmem_multimap_new(ptr noundef %229, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %231 = load i32, ptr @proto_kafka, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %224, i32 noundef %231, ptr noundef %230)
+230:                                              ; preds = %225
+  %231 = tail call ptr @wmem_file_scope()
+  %232 = tail call noalias ptr @wmem_multimap_new(ptr noundef %231, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %233 = load i32, ptr @proto_kafka, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %226, i32 noundef %233, ptr noundef %232)
   br label %dissect_kafka_insert_match.exit.thread
 
-dissect_kafka_insert_match.exit.thread:           ; preds = %223, %228
-  %.0.i7.i = phi ptr [ %230, %228 ], [ %226, %223 ]
-  %232 = load i32, ptr %28, align 4
-  %233 = tail call zeroext i1 @wmem_multimap_insert32(ptr noundef %.0.i7.i, ptr noundef %220, i32 noundef %232, ptr noundef %23)
-  br label %438
+dissect_kafka_insert_match.exit.thread:           ; preds = %225, %230
+  %.0.i7.i = phi ptr [ %232, %230 ], [ %228, %225 ]
+  %234 = load i32, ptr %28, align 4
+  %235 = tail call zeroext i1 @wmem_multimap_insert32(ptr noundef %.0.i7.i, ptr noundef %222, i32 noundef %234, ptr noundef %23)
+  br label %440
 
 dissect_kafka_insert_match.exit:                  ; preds = %dissect_kafka_get_match_map.exit.i, %dissect_kafka_list_groups_request.exit
-  %.2674 = phi i32 [ %210, %dissect_kafka_list_groups_request.exit ], [ %.2673, %dissect_kafka_get_match_map.exit.i ]
-  %234 = tail call ptr @wmem_file_scope()
-  tail call void @wmem_free(ptr noundef %234, ptr noundef %23)
-  br label %438
+  %.2674 = phi i32 [ %212, %dissect_kafka_list_groups_request.exit ], [ %.2673, %dissect_kafka_get_match_map.exit.i ]
+  %236 = tail call ptr @wmem_file_scope()
+  tail call void @wmem_free(ptr noundef %236, ptr noundef %23)
+  br label %440
 
-235:                                              ; preds = %4
-  %236 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
-  %237 = load i32, ptr @hf_kafka_correlation_id, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %237, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
-  %239 = tail call ptr @find_or_create_conversation(ptr noundef %1)
-  %240 = load i32, ptr @proto_kafka, align 4
-  %241 = tail call ptr @conversation_get_proto_data(ptr noundef %239, i32 noundef %240)
-  %242 = icmp eq ptr %241, null
-  br i1 %242, label %243, label %dissect_kafka_lookup_match.exit
+237:                                              ; preds = %4
+  %238 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %239 = load i32, ptr @hf_kafka_correlation_id, align 4
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %239, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
+  %241 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %242 = load i32, ptr @proto_kafka, align 4
+  %243 = tail call ptr @conversation_get_proto_data(ptr noundef %241, i32 noundef %242)
+  %244 = icmp eq ptr %243, null
+  br i1 %244, label %245, label %dissect_kafka_lookup_match.exit
 
-243:                                              ; preds = %235
-  %244 = tail call ptr @wmem_file_scope()
-  %245 = tail call noalias ptr @wmem_multimap_new(ptr noundef %244, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %246 = load i32, ptr @proto_kafka, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %239, i32 noundef %246, ptr noundef %245)
+245:                                              ; preds = %237
+  %246 = tail call ptr @wmem_file_scope()
+  %247 = tail call noalias ptr @wmem_multimap_new(ptr noundef %246, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %248 = load i32, ptr @proto_kafka, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %241, i32 noundef %248, ptr noundef %247)
   br label %dissect_kafka_lookup_match.exit
 
-dissect_kafka_lookup_match.exit:                  ; preds = %235, %243
-  %.0.i.i649 = phi ptr [ %245, %243 ], [ %241, %235 ]
-  %247 = zext i32 %236 to i64
-  %248 = inttoptr i64 %247 to ptr
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %250 = load i32, ptr %249, align 4
-  %251 = tail call ptr @wmem_multimap_lookup32_le(ptr noundef %.0.i.i649, ptr noundef %248, i32 noundef %250)
-  %252 = icmp eq ptr %251, null
-  %253 = load ptr, ptr %5, align 8
-  br i1 %252, label %254, label %257
+dissect_kafka_lookup_match.exit:                  ; preds = %237, %245
+  %.0.i.i649 = phi ptr [ %247, %245 ], [ %243, %237 ]
+  %249 = zext i32 %238 to i64
+  %250 = inttoptr i64 %249 to ptr
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %252 = load i32, ptr %251, align 4
+  %253 = tail call ptr @wmem_multimap_lookup32_le(ptr noundef %.0.i.i649, ptr noundef %250, i32 noundef %252)
+  %254 = icmp eq ptr %253, null
+  %255 = load ptr, ptr %5, align 8
+  br i1 %254, label %256, label %259
 
-254:                                              ; preds = %dissect_kafka_lookup_match.exit
-  tail call void @col_set_str(ptr noundef %253, i32 noundef 25, ptr noundef nonnull @.str.625)
-  %255 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_kafka_request_missing)
-  %256 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %442
+256:                                              ; preds = %dissect_kafka_lookup_match.exit
+  tail call void @col_set_str(ptr noundef %255, i32 noundef 25, ptr noundef nonnull @.str.625)
+  %257 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_kafka_request_missing)
+  %258 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %444
 
-257:                                              ; preds = %dissect_kafka_lookup_match.exit
-  %258 = load i16, ptr %251, align 4
-  %259 = sext i16 %258 to i32
-  %260 = tail call ptr @val_to_str(i32 noundef %259, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %261 = getelementptr inbounds nuw i8, ptr %251, i64 2
-  %262 = load i16, ptr %261, align 2
-  %263 = sext i16 %262 to i32
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %253, i32 noundef 25, ptr noundef nonnull @.str.626, ptr noundef %260, i32 noundef %263)
-  %264 = load i16, ptr %251, align 4
+259:                                              ; preds = %dissect_kafka_lookup_match.exit
+  %260 = load i16, ptr %253, align 4
+  %261 = sext i16 %260 to i32
+  %262 = tail call ptr @val_to_str(i32 noundef %261, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %263 = getelementptr inbounds nuw i8, ptr %253, i64 2
+  %264 = load i16, ptr %263, align 2
   %265 = sext i16 %264 to i32
-  %266 = tail call ptr @val_to_str(i32 noundef %265, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %267 = load i16, ptr %261, align 2
-  %268 = sext i16 %267 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.627, ptr noundef %266, i32 noundef %268)
-  %269 = load i32, ptr @hf_kafka_request_frame, align 4
-  %270 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  %271 = load i32, ptr %270, align 4
-  %272 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %269, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %271)
-  %.not.i650 = icmp eq ptr %272, null
-  br i1 %.not.i650, label %proto_item_set_generated.exit, label %273
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %255, i32 noundef 25, ptr noundef nonnull @.str.626, ptr noundef %262, i32 noundef %265)
+  %266 = load i16, ptr %253, align 4
+  %267 = sext i16 %266 to i32
+  %268 = tail call ptr @val_to_str(i32 noundef %267, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %269 = load i16, ptr %263, align 2
+  %270 = sext i16 %269 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.627, ptr noundef %268, i32 noundef %270)
+  %271 = load i32, ptr @hf_kafka_request_frame, align 4
+  %272 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %273 = load i32, ptr %272, align 4
+  %274 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %271, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %273)
+  %.not.i650 = icmp eq ptr %274, null
+  br i1 %.not.i650, label %proto_item_set_generated.exit, label %275
 
-273:                                              ; preds = %257
-  %274 = getelementptr inbounds nuw i8, ptr %272, i64 40
-  %275 = load ptr, ptr %274, align 8
-  %.not5.i651 = icmp eq ptr %275, null
-  br i1 %.not5.i651, label %proto_item_set_generated.exit, label %276
+275:                                              ; preds = %259
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 40
+  %277 = load ptr, ptr %276, align 8
+  %.not5.i651 = icmp eq ptr %277, null
+  br i1 %.not5.i651, label %proto_item_set_generated.exit, label %278
 
-276:                                              ; preds = %273
-  %277 = getelementptr inbounds nuw i8, ptr %275, i64 28
-  %278 = load i32, ptr %277, align 4
-  %279 = or i32 %278, 2
-  store i32 %279, ptr %277, align 4
+278:                                              ; preds = %275
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 28
+  %280 = load i32, ptr %279, align 4
+  %281 = or i32 %280, 2
+  store i32 %281, ptr %279, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %257, %273, %276
-  %280 = load i32, ptr @hf_kafka_response_api_key, align 4
-  %281 = load i16, ptr %251, align 4
-  %282 = sext i16 %281 to i32
-  %283 = tail call ptr @proto_tree_add_int(ptr noundef %11, i32 noundef %280, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %282)
-  %.not.i652 = icmp eq ptr %283, null
-  br i1 %.not.i652, label %proto_item_set_hidden.exit657, label %284
+proto_item_set_generated.exit:                    ; preds = %259, %275, %278
+  %282 = load i32, ptr @hf_kafka_response_api_key, align 4
+  %283 = load i16, ptr %253, align 4
+  %284 = sext i16 %283 to i32
+  %285 = tail call ptr @proto_tree_add_int(ptr noundef %11, i32 noundef %282, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %284)
+  %.not.i652 = icmp eq ptr %285, null
+  br i1 %.not.i652, label %proto_item_set_hidden.exit657, label %286
 
-284:                                              ; preds = %proto_item_set_generated.exit
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 40
-  %286 = load ptr, ptr %285, align 8
-  %.not5.i653 = icmp eq ptr %286, null
-  br i1 %.not5.i653, label %proto_item_set_hidden.exit657, label %287
+286:                                              ; preds = %proto_item_set_generated.exit
+  %287 = getelementptr inbounds nuw i8, ptr %285, i64 40
+  %288 = load ptr, ptr %287, align 8
+  %.not5.i653 = icmp eq ptr %288, null
+  br i1 %.not5.i653, label %proto_item_set_hidden.exit657, label %289
 
-287:                                              ; preds = %284
-  %288 = getelementptr inbounds nuw i8, ptr %286, i64 28
-  %289 = load i32, ptr %288, align 4
-  %290 = or i32 %289, 2
-  store i32 %290, ptr %288, align 4
-  %.pre = load ptr, ptr %285, align 8
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 28
+  %291 = load i32, ptr %290, align 4
+  %292 = or i32 %291, 2
+  store i32 %292, ptr %290, align 4
+  %.pre = load ptr, ptr %287, align 8
   %.not5.i656 = icmp eq ptr %.pre, null
-  br i1 %.not5.i656, label %proto_item_set_hidden.exit657, label %291
+  br i1 %.not5.i656, label %proto_item_set_hidden.exit657, label %293
 
-291:                                              ; preds = %287
-  %292 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
-  %293 = load i32, ptr %292, align 4
-  %294 = or i32 %293, 1
-  store i32 %294, ptr %292, align 4
+293:                                              ; preds = %289
+  %294 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
+  %295 = load i32, ptr %294, align 4
+  %296 = or i32 %295, 1
+  store i32 %296, ptr %294, align 4
   br label %proto_item_set_hidden.exit657
 
-proto_item_set_hidden.exit657:                    ; preds = %284, %proto_item_set_generated.exit, %287, %291
-  %295 = load i32, ptr @hf_kafka_api_key, align 4
-  %296 = load i16, ptr %251, align 4
-  %297 = sext i16 %296 to i32
-  %298 = tail call ptr @proto_tree_add_int(ptr noundef %11, i32 noundef %295, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %297)
-  %.not.i658 = icmp eq ptr %298, null
-  br i1 %.not.i658, label %proto_item_set_generated.exit660, label %299
+proto_item_set_hidden.exit657:                    ; preds = %286, %proto_item_set_generated.exit, %289, %293
+  %297 = load i32, ptr @hf_kafka_api_key, align 4
+  %298 = load i16, ptr %253, align 4
+  %299 = sext i16 %298 to i32
+  %300 = tail call ptr @proto_tree_add_int(ptr noundef %11, i32 noundef %297, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %299)
+  %.not.i658 = icmp eq ptr %300, null
+  br i1 %.not.i658, label %proto_item_set_generated.exit660, label %301
 
-299:                                              ; preds = %proto_item_set_hidden.exit657
-  %300 = getelementptr inbounds nuw i8, ptr %298, i64 40
-  %301 = load ptr, ptr %300, align 8
-  %.not5.i659 = icmp eq ptr %301, null
-  br i1 %.not5.i659, label %proto_item_set_generated.exit660, label %302
+301:                                              ; preds = %proto_item_set_hidden.exit657
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 40
+  %303 = load ptr, ptr %302, align 8
+  %.not5.i659 = icmp eq ptr %303, null
+  br i1 %.not5.i659, label %proto_item_set_generated.exit660, label %304
 
-302:                                              ; preds = %299
-  %303 = getelementptr inbounds nuw i8, ptr %301, i64 28
-  %304 = load i32, ptr %303, align 4
-  %305 = or i32 %304, 2
-  store i32 %305, ptr %303, align 4
+304:                                              ; preds = %301
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 28
+  %306 = load i32, ptr %305, align 4
+  %307 = or i32 %306, 2
+  store i32 %307, ptr %305, align 4
   br label %proto_item_set_generated.exit660
 
-proto_item_set_generated.exit660:                 ; preds = %proto_item_set_hidden.exit657, %299, %302
-  %306 = load i16, ptr %251, align 4
-  %307 = icmp slt i16 %306, 0
-  br i1 %307, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661
+proto_item_set_generated.exit660:                 ; preds = %proto_item_set_hidden.exit657, %301, %304
+  %308 = load i16, ptr %253, align 4
+  %309 = icmp slt i16 %308, 0
+  br i1 %309, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661
 
-308:                                              ; preds = %.preheader.i.i661
+310:                                              ; preds = %.preheader.i.i661
   %indvars.iv.next.i.i663 = add nuw nsw i64 %indvars.iv.i.i662, 1
   %exitcond.i.i664 = icmp eq i64 %indvars.iv.next.i.i663, 50
   br i1 %exitcond.i.i664, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661, !llvm.loop !8
 
-.preheader.i.i661:                                ; preds = %proto_item_set_generated.exit660, %308
-  %indvars.iv.i.i662 = phi i64 [ %indvars.iv.next.i.i663, %308 ], [ 0, %proto_item_set_generated.exit660 ]
-  %309 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i662
-  %310 = load i16, ptr %309, align 8
-  %311 = icmp eq i16 %310, %306
-  br i1 %311, label %kafka_get_api_info.exit.i666, label %308
+.preheader.i.i661:                                ; preds = %proto_item_set_generated.exit660, %310
+  %indvars.iv.i.i662 = phi i64 [ %indvars.iv.next.i.i663, %310 ], [ 0, %proto_item_set_generated.exit660 ]
+  %311 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i662
+  %312 = load i16, ptr %311, align 8
+  %313 = icmp eq i16 %312, %308
+  br i1 %313, label %kafka_get_api_info.exit.i666, label %310
 
 kafka_get_api_info.exit.i666:                     ; preds = %.preheader.i.i661
-  %312 = icmp eq ptr %309, null
-  br i1 %312, label %kafka_get_api_info.exit.thread.i665, label %kafka_check_supported_api_key.exit667
+  %314 = icmp eq ptr %311, null
+  br i1 %314, label %kafka_get_api_info.exit.thread.i665, label %kafka_check_supported_api_key.exit667
 
-kafka_get_api_info.exit.thread.i665:              ; preds = %308, %kafka_get_api_info.exit.i666, %proto_item_set_generated.exit660
-  %313 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %313, i32 noundef 25, ptr noundef nonnull @.str.629)
-  %314 = load i16, ptr %251, align 4
-  %315 = sext i16 %314 to i32
-  %316 = tail call ptr @val_to_str(i32 noundef %315, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %317 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %298, ptr noundef nonnull @ei_kafka_unknown_api_key, ptr noundef nonnull @.str.630, ptr noundef %316)
+kafka_get_api_info.exit.thread.i665:              ; preds = %310, %kafka_get_api_info.exit.i666, %proto_item_set_generated.exit660
+  %315 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %315, i32 noundef 25, ptr noundef nonnull @.str.629)
+  %316 = load i16, ptr %253, align 4
+  %317 = sext i16 %316 to i32
+  %318 = tail call ptr @val_to_str(i32 noundef %317, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %319 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %300, ptr noundef nonnull @ei_kafka_unknown_api_key, ptr noundef nonnull @.str.630, ptr noundef %318)
   br label %kafka_check_supported_api_key.exit667
 
 kafka_check_supported_api_key.exit667:            ; preds = %kafka_get_api_info.exit.i666, %kafka_get_api_info.exit.thread.i665
-  %318 = load i32, ptr @hf_kafka_response_api_version, align 4
-  %319 = load i16, ptr %261, align 2
-  %320 = sext i16 %319 to i32
-  %321 = tail call ptr @proto_tree_add_int(ptr noundef %11, i32 noundef %318, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %320)
-  %.not.i668 = icmp eq ptr %321, null
-  br i1 %.not.i668, label %proto_item_set_generated.exit670, label %322
+  %320 = load i32, ptr @hf_kafka_response_api_version, align 4
+  %321 = load i16, ptr %263, align 2
+  %322 = sext i16 %321 to i32
+  %323 = tail call ptr @proto_tree_add_int(ptr noundef %11, i32 noundef %320, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %322)
+  %.not.i668 = icmp eq ptr %323, null
+  br i1 %.not.i668, label %proto_item_set_generated.exit670, label %324
 
-322:                                              ; preds = %kafka_check_supported_api_key.exit667
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 40
-  %324 = load ptr, ptr %323, align 8
-  %.not5.i669 = icmp eq ptr %324, null
-  br i1 %.not5.i669, label %proto_item_set_generated.exit670, label %325
+324:                                              ; preds = %kafka_check_supported_api_key.exit667
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 40
+  %326 = load ptr, ptr %325, align 8
+  %.not5.i669 = icmp eq ptr %326, null
+  br i1 %.not5.i669, label %proto_item_set_generated.exit670, label %327
 
-325:                                              ; preds = %322
-  %326 = getelementptr inbounds nuw i8, ptr %324, i64 28
-  %327 = load i32, ptr %326, align 4
-  %328 = or i32 %327, 2
-  store i32 %328, ptr %326, align 4
+327:                                              ; preds = %324
+  %328 = getelementptr inbounds nuw i8, ptr %326, i64 28
+  %329 = load i32, ptr %328, align 4
+  %330 = or i32 %329, 2
+  store i32 %330, ptr %328, align 4
   br label %proto_item_set_generated.exit670
 
-proto_item_set_generated.exit670:                 ; preds = %kafka_check_supported_api_key.exit667, %322, %325
-  %329 = tail call fastcc signext i16 @kafka_check_supported_api_version(ptr noundef %1, ptr noundef %321, ptr noundef nonnull %251)
-  %330 = load i16, ptr %251, align 4
-  %331 = icmp eq i16 %330, 18
-  br i1 %331, label %.thread, label %332
+proto_item_set_generated.exit670:                 ; preds = %kafka_check_supported_api_key.exit667, %324, %327
+  %331 = tail call fastcc signext i16 @kafka_check_supported_api_version(ptr noundef %1, ptr noundef %323, ptr noundef nonnull %253)
+  %332 = load i16, ptr %253, align 4
+  %333 = icmp eq i16 %332, 18
+  br i1 %333, label %.thread, label %334
 
-332:                                              ; preds = %proto_item_set_generated.exit670
-  %333 = getelementptr inbounds nuw i8, ptr %251, i64 17
-  %334 = load i8, ptr %333, align 1, !range !9, !noundef !10
-  %335 = trunc nuw i8 %334 to i1
-  br i1 %335, label %336, label %338
+334:                                              ; preds = %proto_item_set_generated.exit670
+  %335 = getelementptr inbounds nuw i8, ptr %253, i64 17
+  %336 = load i8, ptr %335, align 1, !range !9, !noundef !10
+  %337 = trunc nuw i8 %336 to i1
+  br i1 %337, label %338, label %340
 
-336:                                              ; preds = %332
-  %337 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef 8)
-  %.pr.pre = load i16, ptr %251, align 4
-  br label %338
+338:                                              ; preds = %334
+  %339 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef 8)
+  %.pr.pre = load i16, ptr %253, align 4
+  br label %340
 
-338:                                              ; preds = %332, %336
-  %.pr = phi i16 [ %330, %332 ], [ %.pr.pre, %336 ]
-  %.4.ph = phi i32 [ 8, %332 ], [ %337, %336 ]
-  switch i16 %.pr, label %438 [
-    i16 0, label %339
-    i16 1, label %341
-    i16 2, label %343
-    i16 3, label %345
-    i16 4, label %347
-    i16 5, label %349
-    i16 6, label %351
-    i16 7, label %353
-    i16 8, label %355
-    i16 9, label %357
-    i16 10, label %359
-    i16 11, label %361
-    i16 12, label %363
-    i16 13, label %365
-    i16 14, label %367
-    i16 15, label %369
-    i16 16, label %371
-    i16 17, label %373
+340:                                              ; preds = %334, %338
+  %.pr = phi i16 [ %332, %334 ], [ %.pr.pre, %338 ]
+  %.4.ph = phi i32 [ 8, %334 ], [ %339, %338 ]
+  switch i16 %.pr, label %440 [
+    i16 0, label %341
+    i16 1, label %343
+    i16 2, label %345
+    i16 3, label %347
+    i16 4, label %349
+    i16 5, label %351
+    i16 6, label %353
+    i16 7, label %355
+    i16 8, label %357
+    i16 9, label %359
+    i16 10, label %361
+    i16 11, label %363
+    i16 12, label %365
+    i16 13, label %367
+    i16 14, label %369
+    i16 15, label %371
+    i16 16, label %373
+    i16 17, label %375
     i16 18, label %.thread
-    i16 19, label %376
-    i16 20, label %378
-    i16 21, label %380
-    i16 22, label %382
-    i16 23, label %384
-    i16 24, label %386
-    i16 25, label %388
-    i16 26, label %390
-    i16 27, label %392
-    i16 28, label %394
-    i16 29, label %396
-    i16 30, label %398
-    i16 31, label %400
-    i16 32, label %402
-    i16 33, label %404
-    i16 34, label %406
-    i16 35, label %408
-    i16 37, label %410
-    i16 36, label %412
-    i16 38, label %414
-    i16 39, label %416
-    i16 40, label %418
-    i16 41, label %420
-    i16 42, label %422
-    i16 43, label %424
-    i16 44, label %426
-    i16 45, label %428
-    i16 46, label %430
-    i16 47, label %432
-    i16 60, label %434
-    i16 67, label %436
+    i16 19, label %378
+    i16 20, label %380
+    i16 21, label %382
+    i16 22, label %384
+    i16 23, label %386
+    i16 24, label %388
+    i16 25, label %390
+    i16 26, label %392
+    i16 27, label %394
+    i16 28, label %396
+    i16 29, label %398
+    i16 30, label %400
+    i16 31, label %402
+    i16 32, label %404
+    i16 33, label %406
+    i16 34, label %408
+    i16 35, label %410
+    i16 37, label %412
+    i16 36, label %414
+    i16 38, label %416
+    i16 39, label %418
+    i16 40, label %420
+    i16 41, label %422
+    i16 42, label %424
+    i16 43, label %426
+    i16 44, label %428
+    i16 45, label %430
+    i16 46, label %432
+    i16 47, label %434
+    i16 60, label %436
+    i16 67, label %438
   ]
 
-339:                                              ; preds = %338
-  %340 = tail call fastcc i32 @dissect_kafka_produce_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+341:                                              ; preds = %340
+  %342 = tail call fastcc i32 @dissect_kafka_produce_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-341:                                              ; preds = %338
-  %342 = tail call fastcc i32 @dissect_kafka_fetch_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+343:                                              ; preds = %340
+  %344 = tail call fastcc i32 @dissect_kafka_fetch_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-343:                                              ; preds = %338
-  %344 = tail call fastcc i32 @dissect_kafka_offsets_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+345:                                              ; preds = %340
+  %346 = tail call fastcc i32 @dissect_kafka_offsets_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-345:                                              ; preds = %338
-  %346 = tail call fastcc i32 @dissect_kafka_metadata_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+347:                                              ; preds = %340
+  %348 = tail call fastcc i32 @dissect_kafka_metadata_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-347:                                              ; preds = %338
-  %348 = tail call fastcc i32 @dissect_kafka_leader_and_isr_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+349:                                              ; preds = %340
+  %350 = tail call fastcc i32 @dissect_kafka_leader_and_isr_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-349:                                              ; preds = %338
-  %350 = tail call fastcc i32 @dissect_kafka_stop_replica_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+351:                                              ; preds = %340
+  %352 = tail call fastcc i32 @dissect_kafka_stop_replica_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-351:                                              ; preds = %338
-  %352 = tail call fastcc i32 @dissect_kafka_update_metadata_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+353:                                              ; preds = %340
+  %354 = tail call fastcc i32 @dissect_kafka_update_metadata_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-353:                                              ; preds = %338
-  %354 = tail call fastcc i32 @dissect_kafka_controlled_shutdown_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+355:                                              ; preds = %340
+  %356 = tail call fastcc i32 @dissect_kafka_controlled_shutdown_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-355:                                              ; preds = %338
-  %356 = tail call fastcc i32 @dissect_kafka_offset_commit_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+357:                                              ; preds = %340
+  %358 = tail call fastcc i32 @dissect_kafka_offset_commit_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-357:                                              ; preds = %338
-  %358 = tail call fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+359:                                              ; preds = %340
+  %360 = tail call fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-359:                                              ; preds = %338
-  %360 = tail call fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+361:                                              ; preds = %340
+  %362 = tail call fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-361:                                              ; preds = %338
-  %362 = tail call fastcc i32 @dissect_kafka_join_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+363:                                              ; preds = %340
+  %364 = tail call fastcc i32 @dissect_kafka_join_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-363:                                              ; preds = %338
-  %364 = tail call fastcc i32 @dissect_kafka_heartbeat_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+365:                                              ; preds = %340
+  %366 = tail call fastcc i32 @dissect_kafka_heartbeat_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-365:                                              ; preds = %338
-  %366 = tail call fastcc i32 @dissect_kafka_leave_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+367:                                              ; preds = %340
+  %368 = tail call fastcc i32 @dissect_kafka_leave_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-367:                                              ; preds = %338
-  %368 = tail call fastcc i32 @dissect_kafka_sync_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+369:                                              ; preds = %340
+  %370 = tail call fastcc i32 @dissect_kafka_sync_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-369:                                              ; preds = %338
-  %370 = tail call fastcc i32 @dissect_kafka_describe_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+371:                                              ; preds = %340
+  %372 = tail call fastcc i32 @dissect_kafka_describe_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-371:                                              ; preds = %338
-  %372 = tail call fastcc i32 @dissect_kafka_list_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+373:                                              ; preds = %340
+  %374 = tail call fastcc i32 @dissect_kafka_list_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-373:                                              ; preds = %338
-  %374 = tail call fastcc i32 @dissect_kafka_sasl_handshake_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
-  br label %438
+375:                                              ; preds = %340
+  %376 = tail call fastcc i32 @dissect_kafka_sasl_handshake_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
+  br label %440
 
-.thread:                                          ; preds = %proto_item_set_generated.exit670, %338
-  %.4676 = phi i32 [ %.4.ph, %338 ], [ 8, %proto_item_set_generated.exit670 ]
-  %375 = tail call fastcc i32 @dissect_kafka_api_versions_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4676, i16 noundef signext %329)
-  br label %438
+.thread:                                          ; preds = %proto_item_set_generated.exit670, %340
+  %.4676 = phi i32 [ %.4.ph, %340 ], [ 8, %proto_item_set_generated.exit670 ]
+  %377 = tail call fastcc i32 @dissect_kafka_api_versions_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4676, i16 noundef signext %331)
+  br label %440
 
-376:                                              ; preds = %338
-  %377 = tail call fastcc i32 @dissect_kafka_create_topics_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+378:                                              ; preds = %340
+  %379 = tail call fastcc i32 @dissect_kafka_create_topics_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-378:                                              ; preds = %338
-  %379 = tail call fastcc i32 @dissect_kafka_delete_topics_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+380:                                              ; preds = %340
+  %381 = tail call fastcc i32 @dissect_kafka_delete_topics_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-380:                                              ; preds = %338
-  %381 = tail call fastcc i32 @dissect_kafka_delete_records_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+382:                                              ; preds = %340
+  %383 = tail call fastcc i32 @dissect_kafka_delete_records_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-382:                                              ; preds = %338
-  %383 = tail call fastcc i32 @dissect_kafka_init_producer_id_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+384:                                              ; preds = %340
+  %385 = tail call fastcc i32 @dissect_kafka_init_producer_id_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-384:                                              ; preds = %338
-  %385 = tail call fastcc i32 @dissect_kafka_offset_for_leader_epoch_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+386:                                              ; preds = %340
+  %387 = tail call fastcc i32 @dissect_kafka_offset_for_leader_epoch_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-386:                                              ; preds = %338
-  %387 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+388:                                              ; preds = %340
+  %389 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-388:                                              ; preds = %338
-  %389 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
-  br label %438
+390:                                              ; preds = %340
+  %391 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
+  br label %440
 
-390:                                              ; preds = %338
-  %391 = tail call fastcc i32 @dissect_kafka_end_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
-  br label %438
+392:                                              ; preds = %340
+  %393 = tail call fastcc i32 @dissect_kafka_end_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
+  br label %440
 
-392:                                              ; preds = %338
-  %393 = tail call fastcc i32 @dissect_kafka_write_txn_markers_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+394:                                              ; preds = %340
+  %395 = tail call fastcc i32 @dissect_kafka_write_txn_markers_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-394:                                              ; preds = %338
-  %395 = tail call fastcc i32 @dissect_kafka_txn_offset_commit_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+396:                                              ; preds = %340
+  %397 = tail call fastcc i32 @dissect_kafka_txn_offset_commit_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-396:                                              ; preds = %338
-  %397 = tail call fastcc i32 @dissect_kafka_describe_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+398:                                              ; preds = %340
+  %399 = tail call fastcc i32 @dissect_kafka_describe_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-398:                                              ; preds = %338
-  %399 = tail call fastcc i32 @dissect_kafka_create_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+400:                                              ; preds = %340
+  %401 = tail call fastcc i32 @dissect_kafka_create_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-400:                                              ; preds = %338
-  %401 = tail call fastcc i32 @dissect_kafka_delete_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+402:                                              ; preds = %340
+  %403 = tail call fastcc i32 @dissect_kafka_delete_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-402:                                              ; preds = %338
-  %403 = tail call fastcc i32 @dissect_kafka_describe_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+404:                                              ; preds = %340
+  %405 = tail call fastcc i32 @dissect_kafka_describe_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-404:                                              ; preds = %338
-  %405 = tail call fastcc i32 @dissect_kafka_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+406:                                              ; preds = %340
+  %407 = tail call fastcc i32 @dissect_kafka_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-406:                                              ; preds = %338
-  %407 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+408:                                              ; preds = %340
+  %409 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-408:                                              ; preds = %338
-  %409 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+410:                                              ; preds = %340
+  %411 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-410:                                              ; preds = %338
-  %411 = tail call fastcc i32 @dissect_kafka_create_partitions_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+412:                                              ; preds = %340
+  %413 = tail call fastcc i32 @dissect_kafka_create_partitions_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-412:                                              ; preds = %338
-  %413 = tail call fastcc i32 @dissect_kafka_sasl_authenticate_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+414:                                              ; preds = %340
+  %415 = tail call fastcc i32 @dissect_kafka_sasl_authenticate_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-414:                                              ; preds = %338
-  %415 = tail call fastcc i32 @dissect_kafka_create_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+416:                                              ; preds = %340
+  %417 = tail call fastcc i32 @dissect_kafka_create_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-416:                                              ; preds = %338
-  %417 = tail call fastcc i32 @dissect_kafka_renew_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+418:                                              ; preds = %340
+  %419 = tail call fastcc i32 @dissect_kafka_renew_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-418:                                              ; preds = %338
-  %419 = tail call fastcc i32 @dissect_kafka_expire_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+420:                                              ; preds = %340
+  %421 = tail call fastcc i32 @dissect_kafka_expire_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-420:                                              ; preds = %338
-  %421 = tail call fastcc i32 @dissect_kafka_describe_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+422:                                              ; preds = %340
+  %423 = tail call fastcc i32 @dissect_kafka_describe_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-422:                                              ; preds = %338
-  %423 = tail call fastcc i32 @dissect_kafka_delete_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+424:                                              ; preds = %340
+  %425 = tail call fastcc i32 @dissect_kafka_delete_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-424:                                              ; preds = %338
-  %425 = tail call fastcc i32 @dissect_kafka_elect_leaders_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+426:                                              ; preds = %340
+  %427 = tail call fastcc i32 @dissect_kafka_elect_leaders_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-426:                                              ; preds = %338
-  %427 = tail call fastcc i32 @dissect_kafka_inc_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+428:                                              ; preds = %340
+  %429 = tail call fastcc i32 @dissect_kafka_inc_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-428:                                              ; preds = %338
-  %429 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+430:                                              ; preds = %340
+  %431 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-430:                                              ; preds = %338
-  %431 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+432:                                              ; preds = %340
+  %433 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-432:                                              ; preds = %338
-  %433 = tail call fastcc i32 @dissect_kafka_offset_delete_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+434:                                              ; preds = %340
+  %435 = tail call fastcc i32 @dissect_kafka_offset_delete_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-434:                                              ; preds = %338
-  %435 = tail call fastcc i32 @dissect_kafka_describe_cluster_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %329)
-  br label %438
+436:                                              ; preds = %340
+  %437 = tail call fastcc i32 @dissect_kafka_describe_cluster_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph, i16 noundef signext %331)
+  br label %440
 
-436:                                              ; preds = %338
-  %437 = tail call fastcc i32 @dissect_kafka_allocate_producer_ids_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
-  br label %438
+438:                                              ; preds = %340
+  %439 = tail call fastcc i32 @dissect_kafka_allocate_producer_ids_response(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.4.ph)
+  br label %440
 
-438:                                              ; preds = %dissect_kafka_insert_match.exit.thread, %338, %339, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %.thread, %376, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %dissect_kafka_insert_match.exit
-  %.3 = phi i32 [ %.2674, %dissect_kafka_insert_match.exit ], [ %.4.ph, %338 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %375, %.thread ], [ %377, %376 ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %421, %420 ], [ %423, %422 ], [ %425, %424 ], [ %427, %426 ], [ %429, %428 ], [ %431, %430 ], [ %433, %432 ], [ %435, %434 ], [ %437, %436 ], [ %.2673, %dissect_kafka_insert_match.exit.thread ]
-  %439 = add i32 %12, 4
-  %.not = icmp eq i32 %.3, %439
-  br i1 %.not, label %442, label %440
+440:                                              ; preds = %dissect_kafka_insert_match.exit.thread, %340, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %.thread, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %dissect_kafka_insert_match.exit
+  %.3 = phi i32 [ %.2674, %dissect_kafka_insert_match.exit ], [ %.4.ph, %340 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %377, %.thread ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %421, %420 ], [ %423, %422 ], [ %425, %424 ], [ %427, %426 ], [ %429, %428 ], [ %431, %430 ], [ %433, %432 ], [ %435, %434 ], [ %437, %436 ], [ %439, %438 ], [ %.2673, %dissect_kafka_insert_match.exit.thread ]
+  %441 = add i32 %12, 4
+  %.not = icmp eq i32 %.3, %441
+  br i1 %.not, label %444, label %442
 
-440:                                              ; preds = %438
-  %441 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_kafka_pdu_length_mismatch)
-  br label %442
+442:                                              ; preds = %440
+  %443 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_kafka_pdu_length_mismatch)
+  br label %444
 
-442:                                              ; preds = %438, %440, %254
-  %.0634 = phi i32 [ %256, %254 ], [ %.3, %440 ], [ %.3, %438 ]
+444:                                              ; preds = %440, %442, %256
+  %.0634 = phi i32 [ %258, %256 ], [ %.3, %442 ], [ %.3, %440 ]
   ret i32 %.0634
 }
 
@@ -2154,73 +2156,54 @@ kafka_get_api_info.exit:                          ; preds = %.preheader.i
 12:                                               ; preds = %kafka_get_api_info.exit
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load i16, ptr %13, align 8
-  %15 = icmp eq i16 %14, -1
-  %16 = icmp slt i16 %5, %14
-  %or.cond.i = or i1 %15, %16
-  br i1 %or.cond.i, label %kafka_is_api_version_supported.exit.thread, label %kafka_is_api_version_supported.exit
+  %15 = icmp slt i16 %5, %14
+  br i1 %15, label %kafka_is_api_version_supported.exit.thread, label %kafka_is_api_version_supported.exit
 
 kafka_is_api_version_supported.exit:              ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  %18 = load i16, ptr %17, align 2
-  %.not39 = icmp sgt i16 %5, %18
-  br i1 %.not39, label %kafka_is_api_version_supported.exit.thread.thread, label %kafka_get_api_info.exit.thread
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 18
+  %17 = load i16, ptr %16, align 2
+  %.not39 = icmp sgt i16 %5, %17
+  br i1 %.not39, label %kafka_is_api_version_supported.exit.thread, label %kafka_get_api_info.exit.thread
 
-kafka_is_api_version_supported.exit.thread.thread: ; preds = %kafka_is_api_version_supported.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void @col_append_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.631)
-  br label %28
+kafka_is_api_version_supported.exit.thread:       ; preds = %12, %kafka_is_api_version_supported.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.631)
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 18
+  %21 = load i16, ptr %20, align 2
+  %22 = icmp eq i16 %14, %21
+  %23 = load i16, ptr %2, align 4
+  %24 = sext i16 %23 to i32
+  %25 = tail call ptr @val_to_str(i32 noundef %24, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %26 = sext i16 %14 to i32
+  br i1 %22, label %27, label %29
 
-kafka_is_api_version_supported.exit.thread:       ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  tail call void @col_append_str(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.631)
-  br i1 %15, label %23, label %28
+27:                                               ; preds = %kafka_is_api_version_supported.exit.thread
+  %28 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.633, ptr noundef %25, i32 noundef %26)
+  br label %kafka_get_api_info.exit.thread.sink.split
 
-23:                                               ; preds = %kafka_is_api_version_supported.exit.thread
-  %24 = load i16, ptr %2, align 4
-  %25 = sext i16 %24 to i32
-  %26 = tail call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.632, ptr noundef %26)
-  br label %kafka_get_api_info.exit.thread
+29:                                               ; preds = %kafka_is_api_version_supported.exit.thread
+  %30 = sext i16 %21 to i32
+  %31 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.635, ptr noundef %25, i32 noundef %26, i32 noundef %30)
+  %32 = load i16, ptr %4, align 2
+  %33 = icmp slt i16 %32, 0
+  br i1 %33, label %kafka_get_api_info.exit.thread.sink.split, label %34
 
-28:                                               ; preds = %kafka_is_api_version_supported.exit.thread.thread, %kafka_is_api_version_supported.exit.thread
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  %30 = load i16, ptr %29, align 2
-  %31 = icmp eq i16 %14, %30
-  %32 = load i16, ptr %2, align 4
-  %33 = sext i16 %32 to i32
-  %34 = tail call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %35 = sext i16 %14 to i32
-  br i1 %31, label %36, label %39
-
-36:                                               ; preds = %28
-  %37 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.633, ptr noundef %34, i32 noundef %35)
-  %38 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_assumed_api_version, ptr noundef nonnull @.str.634, i32 noundef %35)
-  br label %kafka_get_api_info.exit.thread
-
-39:                                               ; preds = %28
-  %40 = sext i16 %30 to i32
-  %41 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.635, ptr noundef %34, i32 noundef %35, i32 noundef %40)
-  %42 = load i16, ptr %4, align 2
-  %43 = icmp slt i16 %42, 0
-  br i1 %43, label %46, label %44
-
-44:                                               ; preds = %39
-  %45 = icmp sgt i16 %42, %30
-  %spec.select = select i1 %45, ptr %29, ptr %13
+34:                                               ; preds = %29
+  %35 = icmp sgt i16 %32, %21
+  %spec.select = select i1 %35, ptr %20, ptr %13
   %.1.pre = load i16, ptr %spec.select, align 2
   %.pre = sext i16 %.1.pre to i32
-  br label %46
+  br label %kafka_get_api_info.exit.thread.sink.split
 
-46:                                               ; preds = %44, %39
-  %.pre-phi = phi i32 [ %.pre, %44 ], [ %40, %39 ]
-  %.1 = phi i16 [ %.1.pre, %44 ], [ %30, %39 ]
-  %47 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_assumed_api_version, ptr noundef nonnull @.str.634, i32 noundef %.pre-phi)
+kafka_get_api_info.exit.thread.sink.split:        ; preds = %29, %34, %27
+  %.pre-phi.sink = phi i32 [ %26, %27 ], [ %.pre, %34 ], [ %30, %29 ]
+  %.0.ph = phi i16 [ %14, %27 ], [ %.1.pre, %34 ], [ %21, %29 ]
+  %36 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kafka_assumed_api_version, ptr noundef nonnull @.str.634, i32 noundef %.pre-phi.sink)
   br label %kafka_get_api_info.exit.thread
 
-kafka_get_api_info.exit.thread:                   ; preds = %8, %3, %23, %46, %36, %kafka_is_api_version_supported.exit, %kafka_get_api_info.exit
-  %.0 = phi i16 [ %5, %kafka_is_api_version_supported.exit ], [ -1, %23 ], [ %14, %36 ], [ %.1, %46 ], [ %5, %kafka_get_api_info.exit ], [ %5, %3 ], [ %5, %8 ]
+kafka_get_api_info.exit.thread:                   ; preds = %8, %kafka_get_api_info.exit.thread.sink.split, %3, %kafka_is_api_version_supported.exit, %kafka_get_api_info.exit
+  %.0 = phi i16 [ %5, %kafka_is_api_version_supported.exit ], [ %5, %kafka_get_api_info.exit ], [ %5, %3 ], [ %.0.ph, %kafka_get_api_info.exit.thread.sink.split ], [ %5, %8 ]
   ret i16 %.0
 }
 
@@ -12084,75 +12067,56 @@ kafka_get_api_info.exit.thread:                   ; preds = %32, %30, %kafka_get
   %38 = sext i16 %9 to i32
   %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
   %40 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_kafka_unknown_api_key, ptr noundef nonnull @.str.630, ptr noundef %39)
-  br label %71
+  br label %60
 
 41:                                               ; preds = %kafka_get_api_info.exit
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %43 = load i16, ptr %42, align 8
-  %44 = icmp eq i16 %43, -1
-  %45 = icmp slt i16 %13, %43
-  %or.cond.i = or i1 %44, %45
-  br i1 %or.cond.i, label %51, label %kafka_is_api_version_supported.exit
-
-kafka_is_api_version_supported.exit:              ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  %47 = load i16, ptr %46, align 2
-  %48 = icmp sgt i16 %13, %47
-  %49 = icmp slt i16 %17, %43
-  %.not72 = icmp sgt i16 %17, %47
-  %50 = or i1 %49, %.not72
-  %or.cond83 = select i1 %48, i1 true, i1 %50
-  br i1 %or.cond83, label %.thread, label %71
-
-51:                                               ; preds = %41
-  br i1 %44, label %52, label %..thread_crit_edge
-
-..thread_crit_edge:                               ; preds = %51
+  %44 = icmp slt i16 %13, %43
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 18
   %.pre = load i16, ptr %.phi.trans.insert, align 2
-  br label %.thread
+  br i1 %44, label %.thread, label %kafka_is_api_version_supported.exit
 
-52:                                               ; preds = %51
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.631)
-  %53 = load ptr, ptr %6, align 8
-  %54 = zext nneg i16 %9 to i32
-  %55 = call ptr @val_to_str(i32 noundef %54, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %56 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.632, ptr noundef %55)
-  br label %71
+kafka_is_api_version_supported.exit:              ; preds = %41
+  %45 = icmp sgt i16 %13, %.pre
+  %46 = icmp slt i16 %17, %43
+  %or.cond = select i1 %45, i1 true, i1 %46
+  %.not72 = icmp sgt i16 %17, %.pre
+  %or.cond83 = select i1 %or.cond, i1 true, i1 %.not72
+  br i1 %or.cond83, label %.thread, label %60
 
-.thread:                                          ; preds = %..thread_crit_edge, %kafka_is_api_version_supported.exit
-  %57 = phi i16 [ %.pre, %..thread_crit_edge ], [ %47, %kafka_is_api_version_supported.exit ]
-  %58 = sext i16 %43 to i32
-  %59 = icmp eq i16 %43, %57
-  br i1 %59, label %60, label %65
+.thread:                                          ; preds = %41, %kafka_is_api_version_supported.exit
+  %47 = sext i16 %43 to i32
+  %48 = icmp eq i16 %43, %.pre
+  br i1 %48, label %49, label %54
 
-60:                                               ; preds = %.thread
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.763, i32 noundef %58)
-  %61 = load ptr, ptr %6, align 8
-  %62 = zext nneg i16 %9 to i32
-  %63 = call ptr @val_to_str(i32 noundef %62, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %64 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %61, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.633, ptr noundef %63, i32 noundef %58)
-  br label %71
+49:                                               ; preds = %.thread
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.763, i32 noundef %47)
+  %50 = load ptr, ptr %6, align 8
+  %51 = zext nneg i16 %9 to i32
+  %52 = call ptr @val_to_str(i32 noundef %51, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %53 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.633, ptr noundef %52, i32 noundef %47)
+  br label %60
 
-65:                                               ; preds = %.thread
-  %66 = sext i16 %57 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.764, i32 noundef %58, i32 noundef %66)
-  %67 = load ptr, ptr %6, align 8
-  %68 = zext nneg i16 %9 to i32
-  %69 = call ptr @val_to_str(i32 noundef %68, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
-  %70 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %67, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.635, ptr noundef %69, i32 noundef %58, i32 noundef %66)
-  br label %71
+54:                                               ; preds = %.thread
+  %55 = sext i16 %.pre to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.764, i32 noundef %47, i32 noundef %55)
+  %56 = load ptr, ptr %6, align 8
+  %57 = zext nneg i16 %9 to i32
+  %58 = call ptr @val_to_str(i32 noundef %57, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.628)
+  %59 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %56, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.635, ptr noundef %58, i32 noundef %47, i32 noundef %55)
+  br label %60
 
-71:                                               ; preds = %kafka_is_api_version_supported.exit, %60, %65, %52, %kafka_get_api_info.exit.thread
-  %72 = icmp sgt i16 %4, 2
-  br i1 %72, label %73, label %75
+60:                                               ; preds = %kafka_is_api_version_supported.exit, %49, %54, %kafka_get_api_info.exit.thread
+  %61 = icmp sgt i16 %4, 2
+  br i1 %61, label %62, label %64
 
-73:                                               ; preds = %71
-  %74 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
-  br label %75
+62:                                               ; preds = %60
+  %63 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
+  br label %64
 
-75:                                               ; preds = %73, %71
-  %.0 = phi i32 [ %74, %73 ], [ %20, %71 ]
+64:                                               ; preds = %62, %60
+  %.0 = phi i32 [ %63, %62 ], [ %20, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -72,46 +72,44 @@ define i32 @av_get_alt_sample_fmt(i32 noundef %0, i32 noundef %1) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @av_get_packed_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %10, label %2
+  br i1 %or.cond, label %9, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !6
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %10, label %7
+  %4 = shl nuw nsw i64 1, %3
+  %5 = and i64 %4, 1055
+  %.not.not = icmp eq i64 %5, 0
+  br i1 %.not.not, label %6, label %9
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !11
-  br label %10
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 3
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  br label %9
 
-10:                                               ; preds = %2, %1, %7
-  %.0 = phi i32 [ %9, %7 ], [ -1, %1 ], [ %0, %2 ]
+9:                                                ; preds = %2, %1, %6
+  %.0 = phi i32 [ %8, %6 ], [ -1, %1 ], [ %0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @av_get_planar_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %10, label %2
+  br i1 %or.cond, label %9, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !6
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %10
+  %4 = shl nuw nsw i64 1, %3
+  %5 = and i64 %4, 1055
+  %.not.not = icmp eq i64 %5, 0
+  br i1 %.not.not, label %9, label %6
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !11
-  br label %10
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 3
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  br label %9
 
-10:                                               ; preds = %2, %1, %7
-  %.0 = phi i32 [ %9, %7 ], [ -1, %1 ], [ %0, %2 ]
+9:                                                ; preds = %2, %1, %6
+  %.0 = phi i32 [ %8, %6 ], [ -1, %1 ], [ %0, %2 ]
   ret i32 %.0
 }
 

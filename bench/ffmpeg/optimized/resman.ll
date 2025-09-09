@@ -84,7 +84,7 @@ define ptr @ff_resman_get_string(i32 noundef %0) local_unnamed_addr #0 {
 get_resman_context.exit.thread:                   ; preds = %6
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.4) #5
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #5
-  br label %62
+  br label %61
 
 9:                                                ; preds = %6
   store ptr @resman_class, ptr %7, align 8, !tbaa !13
@@ -114,131 +114,127 @@ get_resman_context.exit:                          ; preds = %1, %9
   %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !20
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !20
-  %.not41 = icmp eq ptr %.sroa.5.sroa.4.0.copyload, null
-  br i1 %.not41, label %.loopexit.thread, label %15
+  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mutex) #5
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
+  %18 = tail call ptr @av_dict_get(ptr noundef %17, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef null, i32 noundef 0) #5
+  %.not42 = icmp eq ptr %18, null
+  br i1 %.not42, label %19, label %56
 
-.loopexit.thread:                                 ; preds = %11, %.loopexit
+.loopexit.thread:                                 ; preds = %11
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %0) #5
-  br label %62
+  br label %61
 
-15:                                               ; preds = %.loopexit
-  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mutex) #5
-  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !9
-  %19 = tail call ptr @av_dict_get(ptr noundef %18, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef null, i32 noundef 0) #5
-  %.not42 = icmp eq ptr %19, null
-  br i1 %.not42, label %20, label %57
-
-20:                                               ; preds = %15
+19:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = load i32, ptr %.sroa.5.sroa.6.0.copyload, align 4, !tbaa !16
+  %20 = load i32, ptr %.sroa.5.sroa.6.0.copyload, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
-  %22 = tail call noalias ptr @av_mallocz(i64 noundef 65535) #5
-  %.not.i45 = icmp eq ptr %22, null
-  br i1 %.not.i45, label %23, label %24
+  %21 = tail call noalias ptr @av_mallocz(i64 noundef 65535) #5
+  %.not.i45 = icmp eq ptr %21, null
+  br i1 %.not.i45, label %22, label %23
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.10) #5
-  br label %42
+  br label %41
 
-24:                                               ; preds = %20
-  %25 = call i32 @inflateInit2_(ptr noundef nonnull %2, i32 noundef 31, ptr noundef nonnull @.str.11, i32 noundef 112) #5
-  %.not29.i = icmp eq i32 %25, 0
-  br i1 %.not29.i, label %29, label %26
+23:                                               ; preds = %19
+  %24 = call i32 @inflateInit2_(ptr noundef nonnull %2, i32 noundef 31, ptr noundef nonnull @.str.11, i32 noundef 112) #5
+  %.not29.i = icmp eq i32 %24, 0
+  br i1 %.not29.i, label %28, label %25
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !22
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.12, ptr noundef %28) #5
-  call void @av_free(ptr noundef nonnull %22) #5
-  br label %42
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.12, ptr noundef %27) #5
+  call void @av_free(ptr noundef nonnull %21) #5
+  br label %41
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %21, ptr %30, align 8, !tbaa !26
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %20, ptr %29, align 8, !tbaa !26
   store ptr %.sroa.5.sroa.5.0.copyload, ptr %2, align 8, !tbaa !27
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 65534, ptr %31, align 8, !tbaa !28
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %22, ptr %32, align 8, !tbaa !29
-  %33 = call i32 @inflate(ptr noundef nonnull %2, i32 noundef 4) #5
-  %or.cond.i = icmp ugt i32 %33, 1
-  br i1 %or.cond.i, label %34, label %38
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 65534, ptr %30, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %21, ptr %31, align 8, !tbaa !29
+  %32 = call i32 @inflate(ptr noundef nonnull %2, i32 noundef 4) #5
+  %or.cond.i = icmp ugt i32 %32, 1
+  br i1 %or.cond.i, label %33, label %37
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !22
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %33, ptr noundef %36) #5
-  %37 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
-  call void @av_free(ptr noundef nonnull %22) #5
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %35 = load ptr, ptr %34, align 8, !tbaa !22
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %32, ptr noundef %35) #5
+  %36 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
+  call void @av_free(ptr noundef nonnull %21) #5
+  br label %41
+
+37:                                               ; preds = %28
+  %38 = load i32, ptr %30, align 8, !tbaa !28
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %37
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 24, ptr noundef nonnull @.str.14) #5
+  %.pre.i = load i32, ptr %30, align 8, !tbaa !28
   br label %42
 
-38:                                               ; preds = %29
-  %39 = load i32, ptr %31, align 8, !tbaa !28
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %43
-
-41:                                               ; preds = %38
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 24, ptr noundef nonnull @.str.14) #5
-  %.pre.i = load i32, ptr %31, align 8, !tbaa !28
-  br label %43
-
-42:                                               ; preds = %26, %34, %23
+41:                                               ; preds = %25, %33, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %0) #5
   br label %.thread54
 
-43:                                               ; preds = %41, %38
-  %44 = phi i32 [ %.pre.i, %41 ], [ %39, %38 ]
-  %45 = sub i32 65534, %44
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %22, i64 %46
-  store i8 0, ptr %47, align 1, !tbaa !30
-  %48 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
-  store ptr %22, ptr %3, align 8, !tbaa !20
+42:                                               ; preds = %40, %37
+  %43 = phi i32 [ %.pre.i, %40 ], [ %38, %37 ]
+  %44 = sub i32 65534, %43
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 %45
+  store i8 0, ptr %46, align 1, !tbaa !30
+  %47 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
+  store ptr %21, ptr %3, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %49 = call i32 @av_dict_set(ptr noundef nonnull %17, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef nonnull %22, i32 noundef 0) #5
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %52
+  %48 = call i32 @av_dict_set(ptr noundef nonnull %16, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef nonnull %21, i32 noundef 0) #5
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %43
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %49) #5
+50:                                               ; preds = %42
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %48) #5
   call void @av_freep(ptr noundef nonnull %3) #5
   br label %.thread54
 
-52:                                               ; preds = %43
+51:                                               ; preds = %42
   call void @av_freep(ptr noundef nonnull %3) #5
-  %53 = load ptr, ptr %17, align 8, !tbaa !9
-  %54 = call ptr @av_dict_get(ptr noundef %53, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef null, i32 noundef 0) #5
-  %.not44 = icmp eq ptr %54, null
-  br i1 %.not44, label %55, label %56
+  %52 = load ptr, ptr %16, align 8, !tbaa !9
+  %53 = call ptr @av_dict_get(ptr noundef %52, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef null, i32 noundef 0) #5
+  %.not44 = icmp eq ptr %53, null
+  br i1 %.not44, label %54, label %55
 
-55:                                               ; preds = %52
+54:                                               ; preds = %51
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.3) #5
   br label %.thread54
 
-.thread54:                                        ; preds = %42, %51, %55
+.thread54:                                        ; preds = %41, %50, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %60
+  br label %59
 
-56:                                               ; preds = %52
+55:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %56, %15
-  %.031 = phi ptr [ %19, %15 ], [ %54, %56 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !31
-  br label %60
+56:                                               ; preds = %55, %.loopexit
+  %.031 = phi ptr [ %18, %.loopexit ], [ %53, %55 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.031, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !31
+  br label %59
 
-60:                                               ; preds = %.thread54, %57
-  %.030 = phi ptr [ %59, %57 ], [ null, %.thread54 ]
-  %61 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #5
-  br label %62
+59:                                               ; preds = %.thread54, %56
+  %.030 = phi ptr [ %58, %56 ], [ null, %.thread54 ]
+  %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #5
+  br label %61
 
-62:                                               ; preds = %get_resman_context.exit.thread, %60, %.loopexit.thread
-  %.0 = phi ptr [ %.030, %60 ], [ null, %.loopexit.thread ], [ null, %get_resman_context.exit.thread ]
+61:                                               ; preds = %get_resman_context.exit.thread, %59, %.loopexit.thread
+  %.0 = phi ptr [ %.030, %59 ], [ null, %.loopexit.thread ], [ null, %get_resman_context.exit.thread ]
   ret ptr %.0
 }
 

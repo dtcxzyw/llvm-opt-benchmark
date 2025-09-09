@@ -83742,9 +83742,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt3v106detail12is_printableE
 
 12:                                               ; preds = %6
   %13 = icmp eq i32 %4, %10
-  %.not68.i = icmp ne i8 %.sroa.5.0.copyload.i, 0
-  %or.cond.i = select i1 %13, i1 %.not68.i, i1 false
-  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %.loopexit.i
+  br i1 %13, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %12
   %14 = zext nneg i32 %.04171.i to i64
@@ -83829,9 +83827,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt3v106detail12is_printableE
 
 52:                                               ; preds = %46
   %53 = icmp eq i32 %44, %50
-  %.not68.i50 = icmp ne i8 %.sroa.5.0.copyload.i49, 0
-  %or.cond.i51 = select i1 %53, i1 %.not68.i50, i1 false
-  br i1 %or.cond.i51, label %.lr.ph.preheader.i62, label %.loopexit.i52
+  br i1 %53, label %.lr.ph.preheader.i62, label %.loopexit.i52
 
 .lr.ph.preheader.i62:                             ; preds = %52
   %54 = zext nneg i32 %.04171.i45 to i64

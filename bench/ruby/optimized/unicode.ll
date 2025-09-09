@@ -682,7 +682,7 @@ define dso_local i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef 
   %16 = zext nneg i32 %1 to i64
   %17 = getelementptr ptr, ptr @CodeRanges, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !11
-  %19 = tail call i32 @onig_is_in_code_range(ptr noundef %18, i32 noundef %0) #7
+  %19 = tail call i32 @onig_is_in_code_range(ptr noundef %18, i32 noundef %0) #8
   br label %20
 
 20:                                               ; preds = %13, %15, %6
@@ -744,7 +744,7 @@ define dso_local range(i32 -223, 65536) i32 @onigenc_unicode_property_name_to_ct
   %.02940 = phi ptr [ %1, %.lr.ph ], [ %31, %28 ]
   %.03039 = phi i32 [ 0, %.lr.ph ], [ %.1, %28 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !16
-  %11 = tail call i32 %10(ptr noundef %.02940, ptr noundef nonnull %2, ptr noundef %0) #7
+  %11 = tail call i32 %10(ptr noundef %.02940, ptr noundef nonnull %2, ptr noundef %0) #8
   switch i32 %11, label %12 [
     i32 95, label %22
     i32 45, label %22
@@ -774,7 +774,7 @@ define dso_local range(i32 -223, 65536) i32 @onigenc_unicode_property_name_to_ct
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call i32 @onigenc_mbclen(ptr noundef %.02940, ptr noundef nonnull %2, ptr noundef nonnull %0) #7
+  %27 = tail call i32 @onigenc_mbclen(ptr noundef %.02940, ptr noundef nonnull %2, ptr noundef nonnull %0) #8
   br label %28
 
 28:                                               ; preds = %22, %26
@@ -914,7 +914,7 @@ uniname2ctype_hash.exit.i.i:                      ; preds = %78, %37
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %114 = getelementptr i8, ptr %109, i64 1
-  %115 = call i32 @strncmp(ptr noundef nonnull readonly %113, ptr noundef %114, i64 noundef %36) #8
+  %115 = call i32 @strncmp(ptr noundef nonnull readonly %113, ptr noundef %114, i64 noundef %36) #9
   %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %116, label %uniname2ctype.exit.thread
 
@@ -943,7 +943,7 @@ define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef %0, i32 noundef 
   %6 = load ptr, ptr %2, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !16
-  %9 = tail call i32 %8(ptr noundef %6, ptr noundef %3, ptr noundef %0) #7
+  %9 = tail call i32 %8(ptr noundef %6, ptr noundef %3, ptr noundef %0) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -957,7 +957,7 @@ define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef %0, i32 noundef 
   br label %19
 
 17:                                               ; preds = %5
-  %18 = tail call i32 @onigenc_mbclen(ptr noundef %6, ptr noundef %3, ptr noundef nonnull %0) #7
+  %18 = tail call i32 @onigenc_mbclen(ptr noundef %6, ptr noundef %3, ptr noundef nonnull %0) #8
   br label %19
 
 19:                                               ; preds = %15, %17
@@ -1033,7 +1033,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %25, %47, %52, %19
   %65 = load ptr, ptr %64, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !14
-  %68 = tail call i32 %65(i32 noundef %67, ptr noundef %4, ptr noundef nonnull %0) #7
+  %68 = tail call i32 %65(i32 noundef %67, ptr noundef %4, ptr noundef nonnull %0) #8
   br label %.loopexit
 
 69:                                               ; preds = %.lr.ph58, %69
@@ -1043,7 +1043,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %25, %47, %52, %19
   %70 = load ptr, ptr %61, align 8, !tbaa !32
   %71 = getelementptr i32, ptr %62, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !14
-  %73 = tail call i32 %70(i32 noundef %72, ptr noundef %.04355, ptr noundef nonnull %0) #7
+  %73 = tail call i32 %70(i32 noundef %72, ptr noundef %.04355, ptr noundef nonnull %0) #8
   %74 = sext i32 %73 to i64
   %75 = getelementptr i8, ptr %.04355, i64 %74
   %76 = add i32 %73, %.04057
@@ -1094,13 +1094,13 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
   store i32 %11, ptr %5, align 4, !tbaa !14
   %14 = getelementptr i32, ptr %12, i64 %indvars.iv256
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = call i32 %1(i32 noundef %15, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #7
+  %16 = call i32 %1(i32 noundef %15, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #8
   %.not186 = icmp eq i32 %16, 0
   br i1 %.not186, label %17, label %.loopexit
 
 17:                                               ; preds = %13
   store i32 %15, ptr %5, align 4, !tbaa !14
-  %18 = call i32 %1(i32 noundef %11, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #7
+  %18 = call i32 %1(i32 noundef %11, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #8
   %.not187 = icmp eq i32 %18, 0
   br i1 %.not187, label %.preheader208, label %.loopexit
 
@@ -1116,13 +1116,13 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
 .lr.ph:                                           ; preds = %.preheader208, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader208 ]
   %20 = getelementptr i32, ptr %12, i64 %indvars.iv
-  %21 = call i32 %1(i32 noundef %15, ptr noundef %20, i32 noundef 1, ptr noundef %2) #7
+  %21 = call i32 %1(i32 noundef %15, ptr noundef %20, i32 noundef 1, ptr noundef %2) #8
   %.not188 = icmp eq i32 %21, 0
   br i1 %.not188, label %22, label %.loopexit
 
 22:                                               ; preds = %.lr.ph
   %23 = load i32, ptr %20, align 4, !tbaa !14
-  %24 = call i32 %1(i32 noundef %23, ptr noundef nonnull %14, i32 noundef 1, ptr noundef %2) #7
+  %24 = call i32 %1(i32 noundef %23, ptr noundef nonnull %14, i32 noundef 1, ptr noundef %2) #8
   %.not189 = icmp eq i32 %24, 0
   br i1 %.not189, label %19, label %.loopexit
 
@@ -1138,40 +1138,37 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
 
 .preheader204:                                    ; preds = %._crit_edge223
   store i32 105, ptr %5, align 4, !tbaa !14
-  %25 = call i32 %1(i32 noundef 73, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #7
+  %25 = call i32 %1(i32 noundef 73, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #8
   %.not184 = icmp eq i32 %25, 0
   br i1 %.not184, label %26, label %.loopexit
 
 26:                                               ; preds = %.preheader204
   store i32 73, ptr %5, align 4, !tbaa !14
-  %27 = call i32 %1(i32 noundef 105, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #7
+  %27 = call i32 %1(i32 noundef 105, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %2) #8
   %.not185 = icmp eq i32 %27, 0
   br i1 %.not185, label %.loopexit205, label %.loopexit, !llvm.loop !39
 
 .loopexit205:                                     ; preds = %26
   %28 = and i32 %0, 1073741824
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.loopexit, label %.preheader201
+  br i1 %.not, label %.loopexit, label %.lr.ph227
 
-.preheader201:                                    ; preds = %.loopexit205, %._crit_edge228
+.lr.ph227:                                        ; preds = %.loopexit205, %._crit_edge228
   %indvars.iv274 = phi i64 [ %indvars.iv.next275, %._crit_edge228 ], [ 0, %.loopexit205 ]
   %29 = getelementptr %struct.CaseUnfold_12_Type, ptr @CaseUnfold_12_Table, i64 %indvars.iv274
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !40
   %32 = and i32 %31, 7
-  %.not237 = icmp eq i32 %32, 0
-  br i1 %.not237, label %._crit_edge228, label %.lr.ph227
-
-.lr.ph227:                                        ; preds = %.preheader201
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %wide.trip.count272 = zext nneg i32 %32 to i64
+  %umax = call i32 @llvm.umax.i32(i32 %32, i32 1)
+  %wide.trip.count272 = zext nneg i32 %umax to i64
   br label %34
 
 34:                                               ; preds = %.lr.ph227, %43
   %indvars.iv269 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next270, %43 ]
   %35 = getelementptr i32, ptr %33, i64 %indvars.iv269
   %36 = load i32, ptr %35, align 4, !tbaa !14
-  %37 = call i32 %1(i32 noundef %36, ptr noundef %29, i32 noundef 2, ptr noundef %2) #7
+  %37 = call i32 %1(i32 noundef %36, ptr noundef %29, i32 noundef 2, ptr noundef %2) #8
   %.not182 = icmp eq i32 %37, 0
   br i1 %.not182, label %.preheader199, label %.loopexit
 
@@ -1182,7 +1179,7 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
 
 39:                                               ; preds = %.preheader199
   %40 = getelementptr i32, ptr %33, i64 %indvars.iv265
-  %41 = call i32 %1(i32 noundef %36, ptr noundef %40, i32 noundef 1, ptr noundef %2) #7
+  %41 = call i32 %1(i32 noundef %36, ptr noundef %40, i32 noundef 1, ptr noundef %2) #8
   %.not183 = icmp eq i32 %41, 0
   br i1 %.not183, label %42, label %.loopexit
 
@@ -1196,63 +1193,60 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
   br i1 %exitcond273.not, label %._crit_edge228, label %34, !llvm.loop !43
 
-._crit_edge228:                                   ; preds = %43, %.preheader201
+._crit_edge228:                                   ; preds = %43
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, 58
-  br i1 %exitcond277.not, label %.preheader195, label %.preheader201, !llvm.loop !44
+  br i1 %exitcond277.not, label %.preheader195, label %.lr.ph227, !llvm.loop !44
 
 .preheader195:                                    ; preds = %._crit_edge228
-  %44 = call i32 %1(i32 noundef 304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @CaseUnfold_12_Table, i64 1160), i32 noundef 2, ptr noundef %2) #7
+  %44 = call i32 %1(i32 noundef 304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @CaseUnfold_12_Table, i64 1160), i32 noundef 2, ptr noundef %2) #8
   %.not181 = icmp eq i32 %44, 0
-  br i1 %.not181, label %.preheader190, label %.loopexit
+  br i1 %.not181, label %.lr.ph232, label %.loopexit
 
-.preheader190:                                    ; preds = %.preheader195, %._crit_edge233
-  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %._crit_edge233 ], [ 0, %.preheader195 ]
-  %45 = getelementptr %struct.CaseUnfold_13_Type, ptr @CaseUnfold_13_Table, i64 %indvars.iv288
+.lr.ph232:                                        ; preds = %.preheader195, %._crit_edge233
+  %indvars.iv289 = phi i64 [ %indvars.iv.next290, %._crit_edge233 ], [ 0, %.preheader195 ]
+  %45 = getelementptr %struct.CaseUnfold_13_Type, ptr @CaseUnfold_13_Table, i64 %indvars.iv289
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !45
   %48 = and i32 %47, 7
-  %.not238 = icmp eq i32 %48, 0
-  br i1 %.not238, label %._crit_edge233, label %.lr.ph232
-
-.lr.ph232:                                        ; preds = %.preheader190
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %wide.trip.count286 = zext nneg i32 %48 to i64
+  %umax281 = call i32 @llvm.umax.i32(i32 %48, i32 1)
+  %wide.trip.count287 = zext nneg i32 %umax281 to i64
   br label %50
 
 50:                                               ; preds = %.lr.ph232, %59
-  %indvars.iv283 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next284, %59 ]
-  %51 = getelementptr i32, ptr %49, i64 %indvars.iv283
+  %indvars.iv284 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next285, %59 ]
+  %51 = getelementptr i32, ptr %49, i64 %indvars.iv284
   %52 = load i32, ptr %51, align 4, !tbaa !14
-  %53 = call i32 %1(i32 noundef %52, ptr noundef %45, i32 noundef 3, ptr noundef %2) #7
+  %53 = call i32 %1(i32 noundef %52, ptr noundef %45, i32 noundef 3, ptr noundef %2) #8
   %.not179 = icmp eq i32 %53, 0
   br i1 %.not179, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %50, %58
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %58 ], [ 0, %50 ]
-  %54 = icmp eq i64 %indvars.iv278, %indvars.iv283
+  %54 = icmp eq i64 %indvars.iv278, %indvars.iv284
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %.preheader
   %56 = getelementptr i32, ptr %49, i64 %indvars.iv278
-  %57 = call i32 %1(i32 noundef %52, ptr noundef %56, i32 noundef 1, ptr noundef %2) #7
+  %57 = call i32 %1(i32 noundef %52, ptr noundef %56, i32 noundef 1, ptr noundef %2) #8
   %.not180 = icmp eq i32 %57, 0
   br i1 %.not180, label %58, label %.loopexit
 
 58:                                               ; preds = %55, %.preheader
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count286
-  br i1 %exitcond282.not, label %59, label %.preheader, !llvm.loop !47
+  %exitcond283.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count287
+  br i1 %exitcond283.not, label %59, label %.preheader, !llvm.loop !47
 
 59:                                               ; preds = %58
-  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
-  %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286
-  br i1 %exitcond287.not, label %._crit_edge233, label %50, !llvm.loop !48
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
+  %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
+  br i1 %exitcond288.not, label %._crit_edge233, label %50, !llvm.loop !48
 
-._crit_edge233:                                   ; preds = %59, %.preheader190
-  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %exitcond291.not = icmp eq i64 %indvars.iv.next289, 14
-  br i1 %exitcond291.not, label %.loopexit, label %.preheader190, !llvm.loop !49
+._crit_edge233:                                   ; preds = %59
+  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
+  %exitcond292.not = icmp eq i64 %indvars.iv.next290, 14
+  br i1 %exitcond292.not, label %.loopexit, label %.lr.ph232, !llvm.loop !49
 
 .loopexit:                                        ; preds = %17, %13, %22, %.lr.ph, %34, %39, %._crit_edge233, %50, %55, %26, %.preheader204, %.preheader195, %.loopexit205
   %.0164 = phi i32 [ 0, %.loopexit205 ], [ %44, %.preheader195 ], [ %25, %.preheader204 ], [ %27, %26 ], [ %57, %55 ], [ %53, %50 ], [ 0, %._crit_edge233 ], [ %41, %39 ], [ %37, %34 ], [ %24, %22 ], [ %21, %.lr.ph ], [ %18, %17 ], [ %16, %13 ]
@@ -1266,7 +1260,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef %0,
   %7 = alloca [3 x i32], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !16
-  %10 = tail call i32 %9(ptr noundef %2, ptr noundef %3, ptr noundef %0) #7
+  %10 = tail call i32 %9(ptr noundef %2, ptr noundef %3, ptr noundef %0) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1280,7 +1274,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef %0,
   br label %20
 
 18:                                               ; preds = %5
-  %19 = tail call i32 @onigenc_mbclen(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %0) #7
+  %19 = tail call i32 @onigenc_mbclen(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %0) #8
   br label %20
 
 20:                                               ; preds = %16, %18
@@ -1393,42 +1387,42 @@ onigenc_unicode_CaseUnfold_11_lookup.exit:        ; preds = %92
   %97 = load i32, ptr %96, align 4, !tbaa !31
   %98 = and i32 %97, 4
   %.not261.not = icmp eq i32 %98, 0
-  br i1 %.not261.not, label %.preheader353, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+  br i1 %.not261.not, label %.preheader, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
-.preheader353:                                    ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit
+.preheader:                                       ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit
   %99 = and i32 %97, 3
-  %.not419 = icmp eq i32 %99, 0
-  br i1 %.not419, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %.lr.ph406
+  %.not415 = icmp eq i32 %99, 0
+  br i1 %.not415, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %.lr.ph402
 
-.lr.ph406:                                        ; preds = %.preheader353
+.lr.ph402:                                        ; preds = %.preheader
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %wide.trip.count479 = zext nneg i32 %99 to i64
+  %wide.trip.count476 = zext nneg i32 %99 to i64
   br label %101
 
-101:                                              ; preds = %.lr.ph406, %110
-  %indvars.iv476 = phi i64 [ 0, %.lr.ph406 ], [ %indvars.iv.next477, %110 ]
-  %.1229404 = phi i32 [ 1, %.lr.ph406 ], [ %.2230, %110 ]
-  %102 = getelementptr i32, ptr %100, i64 %indvars.iv476
+101:                                              ; preds = %.lr.ph402, %110
+  %indvars.iv473 = phi i64 [ 0, %.lr.ph402 ], [ %indvars.iv.next474, %110 ]
+  %.1229400 = phi i32 [ 1, %.lr.ph402 ], [ %.2230, %110 ]
+  %102 = getelementptr i32, ptr %100, i64 %indvars.iv473
   %103 = load i32, ptr %102, align 4, !tbaa !14
   %.not267 = icmp eq i32 %103, %10
   br i1 %.not267, label %110, label %104
 
 104:                                              ; preds = %101
-  %105 = sext i32 %.1229404 to i64
+  %105 = sext i32 %.1229400 to i64
   %106 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %105
   store i32 %21, ptr %106, align 4, !tbaa !50
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 1, ptr %107, align 4, !tbaa !52
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 %103, ptr %108, align 4, !tbaa !14
-  %109 = add i32 %.1229404, 1
+  %109 = add i32 %.1229400, 1
   br label %110
 
 110:                                              ; preds = %101, %104
-  %.2230 = phi i32 [ %109, %104 ], [ %.1229404, %101 ]
-  %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
-  %exitcond480.not = icmp eq i64 %indvars.iv.next477, %wide.trip.count479
-  br i1 %exitcond480.not, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %101, !llvm.loop !53
+  %.2230 = phi i32 [ %109, %104 ], [ %.1229400, %101 ]
+  %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
+  %exitcond477.not = icmp eq i64 %indvars.iv.next474, %wide.trip.count476
+  br i1 %exitcond477.not, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %101, !llvm.loop !53
 
 111:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit
   %112 = and i32 %1, 1073741824
@@ -1439,7 +1433,7 @@ onigenc_unicode_CaseUnfold_11_lookup.exit:        ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %114 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %wide.trip.count439 = zext nneg i32 %56 to i64
+  %wide.trip.count435 = zext nneg i32 %56 to i64
   br label %115
 
 115:                                              ; preds = %113, %.thread23.i275
@@ -1498,10 +1492,10 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278.preheader: ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %154 = load i32, ptr %153, align 4, !tbaa !31
   %155 = and i32 %154, 7
-  %.not416 = icmp eq i32 %155, 0
-  br i1 %.not416, label %onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge, label %.lr.ph367
+  %.not412 = icmp eq i32 %155, 0
+  br i1 %.not412, label %onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge, label %.lr.ph363
 
-.lr.ph367:                                        ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit278.preheader
+.lr.ph363:                                        ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit278.preheader
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %157 = shl i32 %154, 2
   %158 = and i32 %157, 28
@@ -1509,7 +1503,7 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278.preheader: ; preds = %149
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr nonnull align 4 %156, i64 %159, i1 false), !tbaa !14
   br label %onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge
 
-onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph367, %onigenc_unicode_CaseUnfold_11_lookup.exit278.preheader
+onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph363, %onigenc_unicode_CaseUnfold_11_lookup.exit278.preheader
   %160 = add nuw nsw i32 %155, 1
   br label %.thread23.i275
 
@@ -1518,19 +1512,19 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph367, %
   %161 = getelementptr i32, ptr %7, i64 %indvar
   store i32 %.sink, ptr %161, align 4, !tbaa !14
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond440.not = icmp eq i64 %indvar.next, %wide.trip.count439
-  br i1 %exitcond440.not, label %162, label %115, !llvm.loop !54
+  %exitcond436.not = icmp eq i64 %indvar.next, %wide.trip.count435
+  br i1 %exitcond436.not, label %162, label %115, !llvm.loop !54
 
 162:                                              ; preds = %.thread23.i275
   %163 = icmp eq i32 %56, 2
   %164 = load i32, ptr %7, align 4, !tbaa !14
   %165 = icmp sgt i32 %164, 0
-  br i1 %163, label %.preheader356, label %.preheader361
+  br i1 %163, label %.preheader353, label %.preheader357
 
-.preheader361:                                    ; preds = %162
-  br i1 %165, label %.preheader360.lr.ph, label %._crit_edge
+.preheader357:                                    ; preds = %162
+  br i1 %165, label %.preheader356.lr.ph, label %._crit_edge
 
-.preheader360.lr.ph:                              ; preds = %.preheader361
+.preheader356.lr.ph:                              ; preds = %.preheader357
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %167 = load i32, ptr %166, align 4, !tbaa !14
   %168 = icmp sgt i32 %167, 0
@@ -1539,33 +1533,33 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph367, %
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %173 = icmp sgt i32 %170, 0
-  %or.cond542 = select i1 %168, i1 %173, i1 false
-  br i1 %or.cond542, label %.preheader360.us.us.preheader, label %._crit_edge
+  %or.cond537 = select i1 %168, i1 %173, i1 false
+  br i1 %or.cond537, label %.preheader356.us.us.preheader, label %._crit_edge
 
-.preheader360.us.us.preheader:                    ; preds = %.preheader360.lr.ph
-  %wide.trip.count454 = zext nneg i32 %164 to i64
-  %wide.trip.count449 = zext nneg i32 %167 to i64
-  %wide.trip.count444 = zext nneg i32 %170 to i64
-  br label %.preheader360.us.us
+.preheader356.us.us.preheader:                    ; preds = %.preheader356.lr.ph
+  %wide.trip.count450 = zext nneg i32 %164 to i64
+  %wide.trip.count445 = zext nneg i32 %167 to i64
+  %wide.trip.count440 = zext nneg i32 %170 to i64
+  br label %.preheader356.us.us
 
-.preheader360.us.us:                              ; preds = %.preheader360.us.us.preheader, %._crit_edge376.split.us.us.us
-  %indvars.iv451 = phi i64 [ 0, %.preheader360.us.us.preheader ], [ %indvars.iv.next452, %._crit_edge376.split.us.us.us ]
-  %.8236378.us.us = phi i32 [ 0, %.preheader360.us.us.preheader ], [ %187, %._crit_edge376.split.us.us.us ]
-  %174 = getelementptr i32, ptr %6, i64 %indvars.iv451
+.preheader356.us.us:                              ; preds = %.preheader356.us.us.preheader, %._crit_edge372.split.us.us.us
+  %indvars.iv447 = phi i64 [ 0, %.preheader356.us.us.preheader ], [ %indvars.iv.next448, %._crit_edge372.split.us.us.us ]
+  %.8236374.us.us = phi i32 [ 0, %.preheader356.us.us.preheader ], [ %187, %._crit_edge372.split.us.us.us ]
+  %174 = getelementptr i32, ptr %6, i64 %indvars.iv447
   %175 = load i32, ptr %174, align 4, !tbaa !14
-  br label %.preheader359.us.us.us
+  br label %.preheader355.us.us.us
 
-.preheader359.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader360.us.us
-  %indvars.iv446 = phi i64 [ %indvars.iv.next447, %._crit_edge.us.us.us ], [ 0, %.preheader360.us.us ]
-  %.9374.us.us.us = phi i32 [ %187, %._crit_edge.us.us.us ], [ %.8236378.us.us, %.preheader360.us.us ]
-  %176 = getelementptr i32, ptr %171, i64 %indvars.iv446
+.preheader355.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader356.us.us
+  %indvars.iv442 = phi i64 [ %indvars.iv.next443, %._crit_edge.us.us.us ], [ 0, %.preheader356.us.us ]
+  %.9370.us.us.us = phi i32 [ %187, %._crit_edge.us.us.us ], [ %.8236374.us.us, %.preheader356.us.us ]
+  %176 = getelementptr i32, ptr %171, i64 %indvars.iv442
   %177 = load i32, ptr %176, align 4, !tbaa !14
   br label %178
 
-178:                                              ; preds = %178, %.preheader359.us.us.us
-  %indvars.iv441 = phi i64 [ %indvars.iv.next442, %178 ], [ 0, %.preheader359.us.us.us ]
-  %.10370.us.us.us = phi i32 [ %187, %178 ], [ %.9374.us.us.us, %.preheader359.us.us.us ]
-  %179 = sext i32 %.10370.us.us.us to i64
+178:                                              ; preds = %178, %.preheader355.us.us.us
+  %indvars.iv437 = phi i64 [ %indvars.iv.next438, %178 ], [ 0, %.preheader355.us.us.us ]
+  %.10366.us.us.us = phi i32 [ %187, %178 ], [ %.9370.us.us.us, %.preheader355.us.us.us ]
+  %179 = sext i32 %.10366.us.us.us to i64
   %180 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %179
   store i32 %21, ptr %180, align 4, !tbaa !50
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
@@ -1574,79 +1568,79 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph367, %
   store i32 %175, ptr %182, align 4, !tbaa !14
   %183 = getelementptr i8, ptr %180, i64 12
   store i32 %177, ptr %183, align 4, !tbaa !14
-  %184 = getelementptr i32, ptr %172, i64 %indvars.iv441
+  %184 = getelementptr i32, ptr %172, i64 %indvars.iv437
   %185 = load i32, ptr %184, align 4, !tbaa !14
   %186 = getelementptr i8, ptr %180, i64 16
   store i32 %185, ptr %186, align 4, !tbaa !14
-  %187 = add i32 %.10370.us.us.us, 1
-  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
-  %exitcond445.not = icmp eq i64 %indvars.iv.next442, %wide.trip.count444
-  br i1 %exitcond445.not, label %._crit_edge.us.us.us, label %178, !llvm.loop !55
+  %187 = add i32 %.10366.us.us.us, 1
+  %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
+  %exitcond441.not = icmp eq i64 %indvars.iv.next438, %wide.trip.count440
+  br i1 %exitcond441.not, label %._crit_edge.us.us.us, label %178, !llvm.loop !55
 
 ._crit_edge.us.us.us:                             ; preds = %178
-  %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
-  %exitcond450.not = icmp eq i64 %indvars.iv.next447, %wide.trip.count449
-  br i1 %exitcond450.not, label %._crit_edge376.split.us.us.us, label %.preheader359.us.us.us, !llvm.loop !56
+  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
+  %exitcond446.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count445
+  br i1 %exitcond446.not, label %._crit_edge372.split.us.us.us, label %.preheader355.us.us.us, !llvm.loop !56
 
-._crit_edge376.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
-  %exitcond455.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count454
-  br i1 %exitcond455.not, label %._crit_edge, label %.preheader360.us.us, !llvm.loop !57
+._crit_edge372.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
+  %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
+  %exitcond451.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count450
+  br i1 %exitcond451.not, label %._crit_edge, label %.preheader356.us.us, !llvm.loop !57
 
-.preheader356:                                    ; preds = %162
-  br i1 %165, label %.preheader355.lr.ph, label %._crit_edge397
+.preheader353:                                    ; preds = %162
+  br i1 %165, label %.preheader352.lr.ph, label %._crit_edge393
 
-.preheader355.lr.ph:                              ; preds = %.preheader356
+.preheader352.lr.ph:                              ; preds = %.preheader353
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !14
   %190 = icmp sgt i32 %189, 0
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br i1 %190, label %.preheader355.us.preheader, label %._crit_edge397
+  br i1 %190, label %.preheader352.us.preheader, label %._crit_edge393
 
-.preheader355.us.preheader:                       ; preds = %.preheader355.lr.ph
-  %wide.trip.count469 = zext nneg i32 %164 to i64
-  %wide.trip.count464 = zext nneg i32 %189 to i64
-  br label %.preheader355.us
+.preheader352.us.preheader:                       ; preds = %.preheader352.lr.ph
+  %wide.trip.count465 = zext nneg i32 %164 to i64
+  %wide.trip.count460 = zext nneg i32 %189 to i64
+  br label %.preheader352.us
 
-.preheader355.us:                                 ; preds = %.preheader355.us.preheader, %._crit_edge393.us
-  %indvars.iv466 = phi i64 [ 0, %.preheader355.us.preheader ], [ %indvars.iv.next467, %._crit_edge393.us ]
-  %.3231395.us = phi i32 [ 0, %.preheader355.us.preheader ], [ %202, %._crit_edge393.us ]
-  %192 = getelementptr i32, ptr %6, i64 %indvars.iv466
+.preheader352.us:                                 ; preds = %.preheader352.us.preheader, %._crit_edge389.us
+  %indvars.iv462 = phi i64 [ 0, %.preheader352.us.preheader ], [ %indvars.iv.next463, %._crit_edge389.us ]
+  %.3231391.us = phi i32 [ 0, %.preheader352.us.preheader ], [ %202, %._crit_edge389.us ]
+  %192 = getelementptr i32, ptr %6, i64 %indvars.iv462
   %193 = load i32, ptr %192, align 4, !tbaa !14
   br label %194
 
-194:                                              ; preds = %.preheader355.us, %194
-  %indvars.iv461 = phi i64 [ 0, %.preheader355.us ], [ %indvars.iv.next462, %194 ]
-  %.4232390.us = phi i32 [ %.3231395.us, %.preheader355.us ], [ %202, %194 ]
-  %195 = sext i32 %.4232390.us to i64
+194:                                              ; preds = %.preheader352.us, %194
+  %indvars.iv457 = phi i64 [ 0, %.preheader352.us ], [ %indvars.iv.next458, %194 ]
+  %.4232386.us = phi i32 [ %.3231391.us, %.preheader352.us ], [ %202, %194 ]
+  %195 = sext i32 %.4232386.us to i64
   %196 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %195
   store i32 %21, ptr %196, align 4, !tbaa !50
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store i32 2, ptr %197, align 4, !tbaa !52
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i32 %193, ptr %198, align 4, !tbaa !14
-  %199 = getelementptr i32, ptr %191, i64 %indvars.iv461
+  %199 = getelementptr i32, ptr %191, i64 %indvars.iv457
   %200 = load i32, ptr %199, align 4, !tbaa !14
   %201 = getelementptr i8, ptr %196, i64 12
   store i32 %200, ptr %201, align 4, !tbaa !14
-  %202 = add i32 %.4232390.us, 1
-  %indvars.iv.next462 = add nuw nsw i64 %indvars.iv461, 1
-  %exitcond465.not = icmp eq i64 %indvars.iv.next462, %wide.trip.count464
-  br i1 %exitcond465.not, label %._crit_edge393.us, label %194, !llvm.loop !58
+  %202 = add i32 %.4232386.us, 1
+  %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
+  %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count460
+  br i1 %exitcond461.not, label %._crit_edge389.us, label %194, !llvm.loop !58
 
-._crit_edge393.us:                                ; preds = %194
-  %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
-  %exitcond470.not = icmp eq i64 %indvars.iv.next467, %wide.trip.count469
-  br i1 %exitcond470.not, label %._crit_edge397, label %.preheader355.us, !llvm.loop !59
+._crit_edge389.us:                                ; preds = %194
+  %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
+  %exitcond466.not = icmp eq i64 %indvars.iv.next463, %wide.trip.count465
+  br i1 %exitcond466.not, label %._crit_edge393, label %.preheader352.us, !llvm.loop !59
 
-._crit_edge397:                                   ; preds = %._crit_edge393.us, %.preheader355.lr.ph, %.preheader356
-  %.3231.lcssa = phi i32 [ 0, %.preheader356 ], [ 0, %.preheader355.lr.ph ], [ %202, %._crit_edge393.us ]
+._crit_edge393:                                   ; preds = %._crit_edge389.us, %.preheader352.lr.ph, %.preheader353
+  %.3231.lcssa = phi i32 [ 0, %.preheader353 ], [ 0, %.preheader352.lr.ph ], [ %202, %._crit_edge389.us ]
   %203 = load i32, ptr %114, align 4, !tbaa !14
   %204 = add i32 %203, -97
   %or.cond.i279 = icmp ult i32 %204, 7964
   br i1 %or.cond.i279, label %205, label %.thread
 
-205:                                              ; preds = %._crit_edge397
+205:                                              ; preds = %._crit_edge393
   %206 = getelementptr i8, ptr %52, i64 12
   %207 = load i32, ptr %206, align 4, !tbaa !14
   %.fr.i281 = freeze i32 %207
@@ -1702,624 +1696,608 @@ onigenc_unicode_CaseUnfold_11_lookup.exit278._crit_edge: ; preds = %.lr.ph367, %
   %247 = load i32, ptr %246, align 4, !tbaa !14
   %.fr36.i = freeze i32 %247
   %.not4.i.not.i = icmp eq i32 %.fr.i281, %.fr36.i
-  br i1 %.not4.i.not.i, label %onigenc_unicode_CaseUnfold_12_lookup.exit, label %.thread
+  br i1 %.not4.i.not.i, label %.lr.ph398, label %.thread
 
-onigenc_unicode_CaseUnfold_12_lookup.exit:        ; preds = %245
+.lr.ph398:                                        ; preds = %245
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %249 = load i32, ptr %248, align 4, !tbaa !31
   %250 = and i32 %249, 7
-  %251 = add nsw i32 %250, -3
-  %or.cond543 = icmp ult i32 %251, -2
-  br i1 %or.cond543, label %.thread, label %.lr.ph402
+  %251 = getelementptr inbounds nuw i8, ptr %243, i64 12
+  %umax470 = tail call i32 @llvm.umax.i32(i32 %250, i32 1)
+  %wide.trip.count471 = zext nneg i32 %umax470 to i64
+  br label %252
 
-.lr.ph402:                                        ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit
-  %252 = getelementptr inbounds nuw i8, ptr %243, i64 12
-  %wide.trip.count474 = zext nneg i32 %250 to i64
-  br label %253
+252:                                              ; preds = %.lr.ph398, %onigenc_unicode_CaseUnfold_12_lookup.exit
+  %indvars.iv467 = phi i64 [ 0, %.lr.ph398 ], [ %indvars.iv.next468, %onigenc_unicode_CaseUnfold_12_lookup.exit ]
+  %.5233396 = phi i32 [ %.3231.lcssa, %.lr.ph398 ], [ %.6234, %onigenc_unicode_CaseUnfold_12_lookup.exit ]
+  %253 = getelementptr i32, ptr %251, i64 %indvars.iv467
+  %254 = load i32, ptr %253, align 4, !tbaa !14
+  %255 = icmp eq i32 %254, %10
+  br i1 %255, label %onigenc_unicode_CaseUnfold_12_lookup.exit, label %256
 
-253:                                              ; preds = %.lr.ph402, %263
-  %indvars.iv471 = phi i64 [ 0, %.lr.ph402 ], [ %indvars.iv.next472, %263 ]
-  %.5233400 = phi i32 [ %.3231.lcssa, %.lr.ph402 ], [ %.6234, %263 ]
-  %254 = getelementptr i32, ptr %252, i64 %indvars.iv471
-  %255 = load i32, ptr %254, align 4, !tbaa !14
-  %256 = icmp eq i32 %255, %10
-  br i1 %256, label %263, label %257
+256:                                              ; preds = %252
+  %257 = sext i32 %.5233396 to i64
+  %258 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %257
+  store i32 %21, ptr %258, align 4, !tbaa !50
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  store i32 1, ptr %259, align 4, !tbaa !52
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  store i32 %254, ptr %260, align 4, !tbaa !14
+  %261 = add i32 %.5233396, 1
+  br label %onigenc_unicode_CaseUnfold_12_lookup.exit
 
-257:                                              ; preds = %253
-  %258 = sext i32 %.5233400 to i64
-  %259 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %258
-  store i32 %21, ptr %259, align 4, !tbaa !50
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  store i32 1, ptr %260, align 4, !tbaa !52
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store i32 %255, ptr %261, align 4, !tbaa !14
-  %262 = add i32 %.5233400, 1
-  br label %263
+onigenc_unicode_CaseUnfold_12_lookup.exit:        ; preds = %252, %256
+  %.6234 = phi i32 [ %.5233396, %252 ], [ %261, %256 ]
+  %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 1
+  %exitcond472.not = icmp eq i64 %indvars.iv.next468, %wide.trip.count471
+  br i1 %exitcond472.not, label %.thread, label %252, !llvm.loop !60
 
-263:                                              ; preds = %253, %257
-  %.6234 = phi i32 [ %.5233400, %253 ], [ %262, %257 ]
-  %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
-  %exitcond475.not = icmp eq i64 %indvars.iv.next472, %wide.trip.count474
-  br i1 %exitcond475.not, label %.thread, label %253, !llvm.loop !60
+._crit_edge:                                      ; preds = %._crit_edge372.split.us.us.us, %.preheader356.lr.ph, %.preheader357
+  %.8236.lcssa = phi i32 [ 0, %.preheader357 ], [ 0, %.preheader356.lr.ph ], [ %187, %._crit_edge372.split.us.us.us ]
+  %262 = load i32, ptr %114, align 4, !tbaa !14
+  %263 = add i32 %262, -102
+  %or.cond.i282 = icmp ult i32 %263, 868
+  br i1 %or.cond.i282, label %264, label %.thread
 
-._crit_edge:                                      ; preds = %._crit_edge376.split.us.us.us, %.preheader360.lr.ph, %.preheader361
-  %.8236.lcssa = phi i32 [ 0, %.preheader361 ], [ 0, %.preheader360.lr.ph ], [ %187, %._crit_edge376.split.us.us.us ]
-  %264 = load i32, ptr %114, align 4, !tbaa !14
-  %265 = add i32 %264, -102
-  %or.cond.i282 = icmp ult i32 %265, 868
-  br i1 %or.cond.i282, label %266, label %.thread
+264:                                              ; preds = %._crit_edge
+  %265 = getelementptr i8, ptr %52, i64 12
+  %266 = load i32, ptr %265, align 4, !tbaa !14
+  %267 = add i32 %266, -102
+  %or.cond22.i = icmp ult i32 %267, 868
+  br i1 %or.cond22.i, label %268, label %.thread
 
-266:                                              ; preds = %._crit_edge
-  %267 = getelementptr i8, ptr %52, i64 12
-  %268 = load i32, ptr %267, align 4, !tbaa !14
-  %269 = add i32 %268, -102
-  %or.cond22.i = icmp ult i32 %269, 868
-  br i1 %or.cond22.i, label %270, label %.thread
+268:                                              ; preds = %264
+  %269 = getelementptr i8, ptr %52, i64 16
+  %270 = load i32, ptr %269, align 4, !tbaa !14
+  %.fr.i284 = freeze i32 %270
+  %271 = add i32 %.fr.i284, -102
+  %or.cond23.i = icmp ult i32 %271, 868
+  br i1 %or.cond23.i, label %272, label %.thread
 
-270:                                              ; preds = %266
-  %271 = getelementptr i8, ptr %52, i64 16
-  %272 = load i32, ptr %271, align 4, !tbaa !14
-  %.fr.i284 = freeze i32 %272
-  %273 = add i32 %.fr.i284, -102
-  %or.cond23.i = icmp ult i32 %273, 868
-  br i1 %or.cond23.i, label %274, label %.thread
+272:                                              ; preds = %268
+  %273 = and i32 %.fr.i284, 127
+  %274 = zext nneg i32 %273 to i64
+  %275 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %274
+  %276 = load i8, ptr %275, align 1, !tbaa !19
+  %277 = zext i8 %276 to i32
+  %278 = lshr i32 %.fr.i284, 7
+  %279 = zext nneg i32 %278 to i64
+  %280 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %279
+  %281 = load i8, ptr %280, align 1, !tbaa !19
+  %282 = zext i8 %281 to i32
+  %283 = and i32 %266, 127
+  %284 = zext nneg i32 %283 to i64
+  %285 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %284
+  %286 = load i8, ptr %285, align 1, !tbaa !19
+  %287 = zext i8 %286 to i32
+  %288 = lshr i32 %266, 7
+  %289 = zext nneg i32 %288 to i64
+  %290 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %289
+  %291 = load i8, ptr %290, align 1, !tbaa !19
+  %292 = zext i8 %291 to i32
+  %293 = and i32 %262, 127
+  %294 = zext nneg i32 %293 to i64
+  %295 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %294
+  %296 = load i8, ptr %295, align 1, !tbaa !19
+  %297 = zext i8 %296 to i32
+  %298 = lshr i32 %262, 7
+  %299 = zext nneg i32 %298 to i64
+  %300 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %299
+  %301 = load i8, ptr %300, align 1, !tbaa !19
+  %302 = zext i8 %301 to i32
+  %303 = add nuw nsw i32 %277, 14
+  %304 = add nuw nsw i32 %303, %282
+  %305 = add nuw nsw i32 %304, %287
+  %306 = add nuw nsw i32 %305, %292
+  %307 = add nuw nsw i32 %306, %297
+  %308 = add nuw nsw i32 %307, %302
+  %309 = icmp samesign ult i32 %308, 40
+  br i1 %309, label %310, label %.thread
 
-274:                                              ; preds = %270
-  %275 = and i32 %.fr.i284, 127
-  %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %276
-  %278 = load i8, ptr %277, align 1, !tbaa !19
-  %279 = zext i8 %278 to i32
-  %280 = lshr i32 %.fr.i284, 7
-  %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %281
-  %283 = load i8, ptr %282, align 1, !tbaa !19
-  %284 = zext i8 %283 to i32
-  %285 = and i32 %268, 127
-  %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %286
-  %288 = load i8, ptr %287, align 1, !tbaa !19
-  %289 = zext i8 %288 to i32
-  %290 = lshr i32 %268, 7
-  %291 = zext nneg i32 %290 to i64
-  %292 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %291
-  %293 = load i8, ptr %292, align 1, !tbaa !19
-  %294 = zext i8 %293 to i32
-  %295 = and i32 %264, 127
-  %296 = zext nneg i32 %295 to i64
-  %297 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %296
-  %298 = load i8, ptr %297, align 1, !tbaa !19
-  %299 = zext i8 %298 to i32
-  %300 = lshr i32 %264, 7
-  %301 = zext nneg i32 %300 to i64
-  %302 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %301
-  %303 = load i8, ptr %302, align 1, !tbaa !19
-  %304 = zext i8 %303 to i32
-  %305 = add nuw nsw i32 %279, 14
-  %306 = add nuw nsw i32 %305, %284
-  %307 = add nuw nsw i32 %306, %289
-  %308 = add nuw nsw i32 %307, %294
-  %309 = add nuw nsw i32 %308, %299
-  %310 = add nuw nsw i32 %309, %304
-  %311 = icmp samesign ult i32 %310, 40
-  br i1 %311, label %312, label %.thread
+310:                                              ; preds = %272
+  %311 = add nuw nsw i32 %308, 7
+  %312 = zext nneg i32 %311 to i64
+  %313 = shl nuw nsw i64 1, %312
+  %314 = and i64 %313, 106102737862656
+  %.not.i = icmp eq i64 %314, 0
+  br i1 %.not.i, label %.thread, label %315
 
-312:                                              ; preds = %274
-  %313 = add nuw nsw i32 %310, 7
-  %314 = zext nneg i32 %313 to i64
-  %315 = shl nuw nsw i64 1, %314
-  %316 = and i64 %315, 106102737862656
-  %.not.i = icmp eq i64 %316, 0
-  br i1 %.not.i, label %.thread, label %317
+315:                                              ; preds = %310
+  %316 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_13_lookup.wordlist, i64 %312
+  %317 = load i16, ptr %316, align 2, !tbaa !7
+  %318 = sext i16 %317 to i64
+  %319 = getelementptr %struct.CaseUnfold_13_Type, ptr @CaseUnfold_13_Table, i64 %318
+  %320 = load i32, ptr %319, align 8, !tbaa !14
+  %.not.i.i285 = icmp eq i32 %262, %320
+  br i1 %.not.i.i285, label %321, label %.thread
 
-317:                                              ; preds = %312
-  %318 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_13_lookup.wordlist, i64 %314
-  %319 = load i16, ptr %318, align 2, !tbaa !7
-  %320 = sext i16 %319 to i64
-  %321 = getelementptr %struct.CaseUnfold_13_Type, ptr @CaseUnfold_13_Table, i64 %320
-  %322 = load i32, ptr %321, align 8, !tbaa !14
-  %.not.i.i285 = icmp eq i32 %264, %322
-  br i1 %.not.i.i285, label %323, label %.thread
+321:                                              ; preds = %315
+  %322 = getelementptr i8, ptr %319, i64 4
+  %323 = load i32, ptr %322, align 4, !tbaa !14
+  %.not6.i.i = icmp eq i32 %266, %323
+  br i1 %.not6.i.i, label %324, label %.thread
 
-323:                                              ; preds = %317
-  %324 = getelementptr i8, ptr %321, i64 4
-  %325 = load i32, ptr %324, align 4, !tbaa !14
-  %.not6.i.i = icmp eq i32 %268, %325
-  br i1 %.not6.i.i, label %326, label %.thread
-
-326:                                              ; preds = %323
-  %327 = getelementptr i8, ptr %321, i64 8
-  %328 = load i32, ptr %327, align 8, !tbaa !14
-  %.fr41.i = freeze i32 %328
+324:                                              ; preds = %321
+  %325 = getelementptr i8, ptr %319, i64 8
+  %326 = load i32, ptr %325, align 8, !tbaa !14
+  %.fr41.i = freeze i32 %326
   %.not7.i.not.i = icmp eq i32 %.fr.i284, %.fr41.i
-  br i1 %.not7.i.not.i, label %onigenc_unicode_CaseUnfold_13_lookup.exit, label %.thread
+  br i1 %.not7.i.not.i, label %.lr.ph384, label %.thread
 
-onigenc_unicode_CaseUnfold_13_lookup.exit:        ; preds = %326
-  %329 = getelementptr inbounds nuw i8, ptr %321, i64 12
-  %330 = load i32, ptr %329, align 4, !tbaa !31
-  %331 = and i32 %330, 7
-  %332 = add nsw i32 %331, -3
-  %or.cond544 = icmp ult i32 %332, -2
-  br i1 %or.cond544, label %.thread, label %.lr.ph388
+.lr.ph384:                                        ; preds = %324
+  %327 = getelementptr inbounds nuw i8, ptr %319, i64 12
+  %328 = load i32, ptr %327, align 4, !tbaa !31
+  %329 = and i32 %328, 7
+  %330 = getelementptr inbounds nuw i8, ptr %319, i64 16
+  %umax = tail call i32 @llvm.umax.i32(i32 %329, i32 1)
+  %wide.trip.count455 = zext nneg i32 %umax to i64
+  br label %331
 
-.lr.ph388:                                        ; preds = %onigenc_unicode_CaseUnfold_13_lookup.exit
-  %333 = getelementptr inbounds nuw i8, ptr %321, i64 16
-  %wide.trip.count459 = zext nneg i32 %331 to i64
-  br label %334
+331:                                              ; preds = %.lr.ph384, %onigenc_unicode_CaseUnfold_13_lookup.exit
+  %indvars.iv452 = phi i64 [ 0, %.lr.ph384 ], [ %indvars.iv.next453, %onigenc_unicode_CaseUnfold_13_lookup.exit ]
+  %.11382 = phi i32 [ %.8236.lcssa, %.lr.ph384 ], [ %.12, %onigenc_unicode_CaseUnfold_13_lookup.exit ]
+  %332 = getelementptr i32, ptr %330, i64 %indvars.iv452
+  %333 = load i32, ptr %332, align 4, !tbaa !14
+  %334 = icmp eq i32 %333, %10
+  br i1 %334, label %onigenc_unicode_CaseUnfold_13_lookup.exit, label %335
 
-334:                                              ; preds = %.lr.ph388, %344
-  %indvars.iv456 = phi i64 [ 0, %.lr.ph388 ], [ %indvars.iv.next457, %344 ]
-  %.11386 = phi i32 [ %.8236.lcssa, %.lr.ph388 ], [ %.12, %344 ]
-  %335 = getelementptr i32, ptr %333, i64 %indvars.iv456
-  %336 = load i32, ptr %335, align 4, !tbaa !14
-  %337 = icmp eq i32 %336, %10
-  br i1 %337, label %344, label %338
+335:                                              ; preds = %331
+  %336 = sext i32 %.11382 to i64
+  %337 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %336
+  store i32 %21, ptr %337, align 4, !tbaa !50
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
+  store i32 1, ptr %338, align 4, !tbaa !52
+  %339 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  store i32 %333, ptr %339, align 4, !tbaa !14
+  %340 = add i32 %.11382, 1
+  br label %onigenc_unicode_CaseUnfold_13_lookup.exit
 
-338:                                              ; preds = %334
-  %339 = sext i32 %.11386 to i64
-  %340 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %339
-  store i32 %21, ptr %340, align 4, !tbaa !50
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 4
-  store i32 1, ptr %341, align 4, !tbaa !52
-  %342 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  store i32 %336, ptr %342, align 4, !tbaa !14
-  %343 = add i32 %.11386, 1
-  br label %344
+onigenc_unicode_CaseUnfold_13_lookup.exit:        ; preds = %331, %335
+  %.12 = phi i32 [ %.11382, %331 ], [ %340, %335 ]
+  %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
+  %exitcond456.not = icmp eq i64 %indvars.iv.next453, %wide.trip.count455
+  br i1 %exitcond456.not, label %.thread, label %331, !llvm.loop !61
 
-344:                                              ; preds = %334, %338
-  %.12 = phi i32 [ %.11386, %334 ], [ %343, %338 ]
-  %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
-  %exitcond460.not = icmp eq i64 %indvars.iv.next457, %wide.trip.count459
-  br i1 %exitcond460.not, label %.thread, label %334, !llvm.loop !61
-
-.thread:                                          ; preds = %344, %263, %onigenc_unicode_CaseUnfold_12_lookup.exit, %onigenc_unicode_CaseUnfold_13_lookup.exit, %205, %._crit_edge397, %245, %241, %235, %209, %270, %266, %._crit_edge, %326, %323, %317, %312, %274
-  %.7235 = phi i32 [ %.3231.lcssa, %onigenc_unicode_CaseUnfold_12_lookup.exit ], [ %.8236.lcssa, %onigenc_unicode_CaseUnfold_13_lookup.exit ], [ %.3231.lcssa, %205 ], [ %.3231.lcssa, %._crit_edge397 ], [ %.3231.lcssa, %245 ], [ %.3231.lcssa, %241 ], [ %.3231.lcssa, %235 ], [ %.3231.lcssa, %209 ], [ %.8236.lcssa, %270 ], [ %.8236.lcssa, %266 ], [ %.8236.lcssa, %._crit_edge ], [ %.8236.lcssa, %326 ], [ %.8236.lcssa, %323 ], [ %.8236.lcssa, %317 ], [ %.8236.lcssa, %312 ], [ %.8236.lcssa, %274 ], [ %.6234, %263 ], [ %.12, %344 ]
+.thread:                                          ; preds = %onigenc_unicode_CaseUnfold_13_lookup.exit, %onigenc_unicode_CaseUnfold_12_lookup.exit, %205, %._crit_edge393, %245, %241, %235, %209, %268, %264, %._crit_edge, %324, %321, %315, %310, %272
+  %.7235 = phi i32 [ %.3231.lcssa, %205 ], [ %.3231.lcssa, %._crit_edge393 ], [ %.3231.lcssa, %245 ], [ %.3231.lcssa, %241 ], [ %.3231.lcssa, %235 ], [ %.3231.lcssa, %209 ], [ %.8236.lcssa, %268 ], [ %.8236.lcssa, %264 ], [ %.8236.lcssa, %._crit_edge ], [ %.8236.lcssa, %324 ], [ %.8236.lcssa, %321 ], [ %.8236.lcssa, %315 ], [ %.8236.lcssa, %310 ], [ %.8236.lcssa, %272 ], [ %.6234, %onigenc_unicode_CaseUnfold_12_lookup.exit ], [ %.12, %onigenc_unicode_CaseUnfold_13_lookup.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
 .thread23.i:                                      ; preds = %23, %45, %50, %20
-  %345 = add i32 %10, -97
-  %or.cond.i286 = icmp ult i32 %345, 125155
-  br i1 %or.cond.i286, label %346, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+  %341 = add i32 %10, -97
+  %or.cond.i286 = icmp ult i32 %341, 125155
+  br i1 %or.cond.i286, label %342, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
-346:                                              ; preds = %.thread23.i
-  %347 = and i32 %10, 127
-  %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_hash.asso_values, i64 %348
-  %350 = getelementptr i8, ptr %349, i64 132
-  %351 = load i16, ptr %350, align 2, !tbaa !7
-  %352 = zext i16 %351 to i32
-  %353 = lshr i32 %10, 7
-  %354 = and i32 %353, 127
-  %355 = zext nneg i32 %354 to i64
-  %356 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_hash.asso_values, i64 %355
-  %357 = getelementptr i8, ptr %356, i64 8
-  %358 = load i16, ptr %357, align 2, !tbaa !7
-  %359 = zext i16 %358 to i32
-  %360 = add nuw nsw i32 %359, %352
-  %361 = lshr i32 %10, 14
-  %362 = zext nneg i32 %361 to i64
-  %363 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_hash.asso_values, i64 %362
-  %364 = load i16, ptr %363, align 2, !tbaa !7
-  %365 = zext i16 %364 to i32
-  %366 = add nuw nsw i32 %360, %365
-  %367 = icmp samesign ult i32 %366, 2774
-  br i1 %367, label %368, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+342:                                              ; preds = %.thread23.i
+  %343 = and i32 %10, 127
+  %344 = zext nneg i32 %343 to i64
+  %345 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_hash.asso_values, i64 %344
+  %346 = getelementptr i8, ptr %345, i64 132
+  %347 = load i16, ptr %346, align 2, !tbaa !7
+  %348 = zext i16 %347 to i32
+  %349 = lshr i32 %10, 7
+  %350 = and i32 %349, 127
+  %351 = zext nneg i32 %350 to i64
+  %352 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_hash.asso_values, i64 %351
+  %353 = getelementptr i8, ptr %352, i64 8
+  %354 = load i16, ptr %353, align 2, !tbaa !7
+  %355 = zext i16 %354 to i32
+  %356 = add nuw nsw i32 %355, %348
+  %357 = lshr i32 %10, 14
+  %358 = zext nneg i32 %357 to i64
+  %359 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_hash.asso_values, i64 %358
+  %360 = load i16, ptr %359, align 2, !tbaa !7
+  %361 = zext i16 %360 to i32
+  %362 = add nuw nsw i32 %356, %361
+  %363 = icmp samesign ult i32 %362, 2774
+  br i1 %363, label %364, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
-368:                                              ; preds = %346
-  %369 = zext nneg i32 %366 to i64
-  %370 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_lookup.wordlist, i64 %369
-  %371 = load i16, ptr %370, align 2, !tbaa !7
-  %372 = icmp sgt i16 %371, -1
-  br i1 %372, label %373, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+364:                                              ; preds = %342
+  %365 = zext nneg i32 %362 to i64
+  %366 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_11_lookup.wordlist, i64 %365
+  %367 = load i16, ptr %366, align 2, !tbaa !7
+  %368 = icmp sgt i16 %367, -1
+  br i1 %368, label %369, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
-373:                                              ; preds = %368
-  %374 = zext nneg i16 %371 to i64
-  %375 = getelementptr %struct.CaseUnfold_11_Type, ptr @CaseUnfold_11_Table, i64 %374
-  %376 = load i32, ptr %375, align 4, !tbaa !28
-  %.fr.i289 = freeze i32 %376
+369:                                              ; preds = %364
+  %370 = zext nneg i16 %367 to i64
+  %371 = getelementptr %struct.CaseUnfold_11_Type, ptr @CaseUnfold_11_Table, i64 %370
+  %372 = load i32, ptr %371, align 4, !tbaa !28
+  %.fr.i289 = freeze i32 %372
   %.not.i.not.i290 = icmp eq i32 %10, %.fr.i289
   br i1 %.not.i.not.i290, label %onigenc_unicode_CaseUnfold_11_lookup.exit291, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
-onigenc_unicode_CaseUnfold_11_lookup.exit291:     ; preds = %373
-  %377 = getelementptr inbounds nuw i8, ptr %375, i64 4
-  %378 = load i32, ptr %377, align 4, !tbaa !31
-  %379 = and i32 %378, 4
-  %.not255.not = icmp eq i32 %379, 0
-  br i1 %.not255.not, label %.preheader362, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+onigenc_unicode_CaseUnfold_11_lookup.exit291:     ; preds = %369
+  %373 = getelementptr inbounds nuw i8, ptr %371, i64 4
+  %374 = load i32, ptr %373, align 4, !tbaa !31
+  %375 = and i32 %374, 4
+  %.not255.not = icmp eq i32 %375, 0
+  br i1 %.not255.not, label %.preheader358, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
-.preheader362:                                    ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit291
-  %380 = and i32 %378, 3
-  %.not = icmp eq i32 %380, 0
+.preheader358:                                    ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit291
+  %376 = and i32 %374, 3
+  %.not = icmp eq i32 %376, 0
   br i1 %.not, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader362
-  %381 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  %wide.trip.count = zext nneg i32 %380 to i64
-  br label %382
+.lr.ph:                                           ; preds = %.preheader358
+  %377 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %wide.trip.count = zext nneg i32 %376 to i64
+  br label %378
 
-382:                                              ; preds = %.lr.ph, %382
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %382 ]
-  %383 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv
-  store i32 %21, ptr %383, align 4, !tbaa !50
-  %384 = getelementptr inbounds nuw i8, ptr %383, i64 4
-  store i32 1, ptr %384, align 4, !tbaa !52
-  %385 = getelementptr i32, ptr %381, i64 %indvars.iv
-  %386 = load i32, ptr %385, align 4, !tbaa !14
-  %387 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  store i32 %386, ptr %387, align 4, !tbaa !14
+378:                                              ; preds = %.lr.ph, %378
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %378 ]
+  %379 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv
+  store i32 %21, ptr %379, align 4, !tbaa !50
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 4
+  store i32 1, ptr %380, align 4, !tbaa !52
+  %381 = getelementptr i32, ptr %377, i64 %indvars.iv
+  %382 = load i32, ptr %381, align 4, !tbaa !14
+  %383 = getelementptr inbounds nuw i8, ptr %379, i64 8
+  store i32 %382, ptr %383, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %382, !llvm.loop !62
+  br i1 %exitcond.not, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %378, !llvm.loop !62
 
-onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %382, %110, %.preheader362, %.preheader353, %346, %368, %373, %.thread23.i, %65, %87, %92, %59, %onigenc_unicode_CaseUnfold_11_lookup.exit, %onigenc_unicode_CaseUnfold_11_lookup.exit291, %111
-  %.13 = phi i32 [ 0, %111 ], [ 0, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ 1, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ 1, %59 ], [ 1, %92 ], [ 1, %87 ], [ 1, %65 ], [ 0, %.thread23.i ], [ 0, %373 ], [ 0, %368 ], [ 0, %346 ], [ 1, %.preheader353 ], [ 0, %.preheader362 ], [ %.2230, %110 ], [ %380, %382 ]
-  %.0223 = phi i32 [ %10, %111 ], [ %10, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ %62, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ %62, %59 ], [ %62, %92 ], [ %62, %87 ], [ %62, %65 ], [ %10, %.thread23.i ], [ %10, %373 ], [ %10, %368 ], [ %10, %346 ], [ %62, %.preheader353 ], [ %10, %.preheader362 ], [ %62, %110 ], [ %10, %382 ]
-  %388 = and i32 %1, 1073741824
-  %.not262 = icmp eq i32 %388, 0
-  br i1 %.not262, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %389
+onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %378, %110, %.preheader358, %.preheader, %342, %364, %369, %.thread23.i, %65, %87, %92, %59, %onigenc_unicode_CaseUnfold_11_lookup.exit, %onigenc_unicode_CaseUnfold_11_lookup.exit291, %111
+  %.13 = phi i32 [ 0, %111 ], [ 0, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ 1, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ 1, %59 ], [ 1, %92 ], [ 1, %87 ], [ 1, %65 ], [ 0, %.thread23.i ], [ 0, %369 ], [ 0, %364 ], [ 0, %342 ], [ 1, %.preheader ], [ 0, %.preheader358 ], [ %.2230, %110 ], [ %376, %378 ]
+  %.0223 = phi i32 [ %10, %111 ], [ %10, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ %62, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ %62, %59 ], [ %62, %92 ], [ %62, %87 ], [ %62, %65 ], [ %10, %.thread23.i ], [ %10, %369 ], [ %10, %364 ], [ %10, %342 ], [ %62, %.preheader ], [ %10, %.preheader358 ], [ %62, %110 ], [ %10, %378 ]
+  %384 = and i32 %1, 1073741824
+  %.not262 = icmp eq i32 %384, 0
+  br i1 %.not262, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %385
 
-389:                                              ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
-  %390 = sext i32 %21 to i64
-  %391 = getelementptr i8, ptr %2, i64 %390
-  %392 = icmp ult ptr %391, %3
-  br i1 %392, label %393, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+385:                                              ; preds = %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+  %386 = sext i32 %21 to i64
+  %387 = getelementptr i8, ptr %2, i64 %386
+  %388 = icmp ult ptr %387, %3
+  br i1 %388, label %389, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+
+389:                                              ; preds = %385
+  %390 = load ptr, ptr %8, align 8, !tbaa !16
+  %391 = tail call i32 %390(ptr noundef %387, ptr noundef nonnull %3, ptr noundef %0) #8
+  %392 = add i32 %391, -65
+  %or.cond.i292 = icmp ult i32 %392, 125153
+  br i1 %or.cond.i292, label %393, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
 
 393:                                              ; preds = %389
-  %394 = load ptr, ptr %8, align 8, !tbaa !16
-  %395 = tail call i32 %394(ptr noundef %391, ptr noundef nonnull %3, ptr noundef %0) #7
-  %396 = add i32 %395, -65
-  %or.cond.i292 = icmp ult i32 %396, 125153
-  br i1 %or.cond.i292, label %397, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
+  %394 = and i32 %391, 127
+  %395 = zext nneg i32 %394 to i64
+  %396 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %395
+  %397 = getelementptr i8, ptr %396, i64 162
+  %398 = load i16, ptr %397, align 2, !tbaa !7
+  %399 = zext i16 %398 to i32
+  %400 = lshr i32 %391, 7
+  %401 = and i32 %400, 127
+  %402 = zext nneg i32 %401 to i64
+  %403 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %402
+  %404 = getelementptr i8, ptr %403, i64 4
+  %405 = load i16, ptr %404, align 2, !tbaa !7
+  %406 = zext i16 %405 to i32
+  %407 = add nuw nsw i32 %406, %399
+  %408 = lshr i32 %391, 14
+  %409 = zext nneg i32 %408 to i64
+  %410 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %409
+  %411 = load i16, ptr %410, align 2, !tbaa !7
+  %412 = zext i16 %411 to i32
+  %413 = add nuw nsw i32 %407, %412
+  %414 = icmp samesign ult i32 %413, 3085
+  br i1 %414, label %415, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
 
-397:                                              ; preds = %393
-  %398 = and i32 %395, 127
-  %399 = zext nneg i32 %398 to i64
-  %400 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %399
-  %401 = getelementptr i8, ptr %400, i64 162
-  %402 = load i16, ptr %401, align 2, !tbaa !7
-  %403 = zext i16 %402 to i32
-  %404 = lshr i32 %395, 7
-  %405 = and i32 %404, 127
-  %406 = zext nneg i32 %405 to i64
-  %407 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %406
-  %408 = getelementptr i8, ptr %407, i64 4
-  %409 = load i16, ptr %408, align 2, !tbaa !7
-  %410 = zext i16 %409 to i32
-  %411 = add nuw nsw i32 %410, %403
-  %412 = lshr i32 %395, 14
-  %413 = zext nneg i32 %412 to i64
-  %414 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %413
-  %415 = load i16, ptr %414, align 2, !tbaa !7
-  %416 = zext i16 %415 to i32
-  %417 = add nuw nsw i32 %411, %416
-  %418 = icmp samesign ult i32 %417, 3085
-  br i1 %418, label %419, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
+415:                                              ; preds = %393
+  %416 = zext nneg i32 %413 to i64
+  %417 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_lookup.wordlist, i64 %416
+  %418 = load i16, ptr %417, align 2, !tbaa !7
+  %419 = icmp sgt i16 %418, -1
+  br i1 %419, label %420, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
 
-419:                                              ; preds = %397
-  %420 = zext nneg i32 %417 to i64
-  %421 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_lookup.wordlist, i64 %420
-  %422 = load i16, ptr %421, align 2, !tbaa !7
-  %423 = icmp sgt i16 %422, -1
-  br i1 %423, label %424, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
-
-424:                                              ; preds = %419
-  %425 = zext nneg i16 %422 to i64
-  %426 = getelementptr %struct.CaseFold_11_Type, ptr @CaseFold_11_Table, i64 %425
-  %427 = load i32, ptr %426, align 4, !tbaa !28
-  %.fr.i295 = freeze i32 %427
-  %.not.i.not.i296 = icmp eq i32 %395, %.fr.i295
+420:                                              ; preds = %415
+  %421 = zext nneg i16 %418 to i64
+  %422 = getelementptr %struct.CaseFold_11_Type, ptr @CaseFold_11_Table, i64 %421
+  %423 = load i32, ptr %422, align 4, !tbaa !28
+  %.fr.i295 = freeze i32 %423
+  %.not.i.not.i296 = icmp eq i32 %391, %.fr.i295
   br i1 %.not.i.not.i296, label %onigenc_unicode_CaseFold_11_lookup.exit297, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
 
-onigenc_unicode_CaseFold_11_lookup.exit297:       ; preds = %424
-  %428 = getelementptr inbounds nuw i8, ptr %426, i64 4
-  %429 = load i32, ptr %428, align 4, !tbaa !31
-  %430 = and i32 %429, 7
-  %431 = icmp eq i32 %430, 1
-  br i1 %431, label %432, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
+onigenc_unicode_CaseFold_11_lookup.exit297:       ; preds = %420
+  %424 = getelementptr inbounds nuw i8, ptr %422, i64 4
+  %425 = load i32, ptr %424, align 4, !tbaa !31
+  %426 = and i32 %425, 7
+  %427 = icmp eq i32 %426, 1
+  br i1 %427, label %428, label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
 
-432:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit297
-  %433 = getelementptr inbounds nuw i8, ptr %426, i64 8
-  %434 = load i32, ptr %433, align 4, !tbaa !14
+428:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit297
+  %429 = getelementptr inbounds nuw i8, ptr %422, i64 8
+  %430 = load i32, ptr %429, align 4, !tbaa !14
   br label %onigenc_unicode_CaseFold_11_lookup.exit297.thread
 
-onigenc_unicode_CaseFold_11_lookup.exit297.thread: ; preds = %397, %419, %424, %393, %onigenc_unicode_CaseFold_11_lookup.exit297, %432
-  %.sroa.5.0 = phi i32 [ %434, %432 ], [ %395, %onigenc_unicode_CaseFold_11_lookup.exit297 ], [ %395, %393 ], [ %395, %424 ], [ %395, %419 ], [ %395, %397 ]
+onigenc_unicode_CaseFold_11_lookup.exit297.thread: ; preds = %393, %415, %420, %389, %onigenc_unicode_CaseFold_11_lookup.exit297, %428
+  %.sroa.5.0 = phi i32 [ %430, %428 ], [ %391, %onigenc_unicode_CaseFold_11_lookup.exit297 ], [ %391, %389 ], [ %391, %420 ], [ %391, %415 ], [ %391, %393 ]
   %.fr.i300 = freeze i32 %.sroa.5.0
-  %435 = load i32, ptr %11, align 8, !tbaa !20
-  %436 = load i32, ptr %13, align 4, !tbaa !21
-  %437 = icmp eq i32 %435, %436
-  br i1 %437, label %440, label %438
+  %431 = load i32, ptr %11, align 8, !tbaa !20
+  %432 = load i32, ptr %13, align 4, !tbaa !21
+  %433 = icmp eq i32 %431, %432
+  br i1 %433, label %436, label %434
 
-438:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit297.thread
-  %439 = tail call i32 @onigenc_mbclen(ptr noundef %391, ptr noundef nonnull %3, ptr noundef nonnull %0) #7
-  br label %440
+434:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit297.thread
+  %435 = tail call i32 @onigenc_mbclen(ptr noundef %387, ptr noundef nonnull %3, ptr noundef nonnull %0) #8
+  br label %436
 
-440:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit297.thread, %438
-  %441 = phi i32 [ %439, %438 ], [ %435, %onigenc_unicode_CaseFold_11_lookup.exit297.thread ]
-  %442 = add i32 %441, %21
-  %443 = add i32 %.0223, -97
-  %or.cond.i298 = icmp ult i32 %443, 7964
-  %444 = add i32 %.fr.i300, -97
-  %or.cond18.i301 = icmp ult i32 %444, 7964
+436:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit297.thread, %434
+  %437 = phi i32 [ %435, %434 ], [ %431, %onigenc_unicode_CaseFold_11_lookup.exit297.thread ]
+  %438 = add i32 %437, %21
+  %439 = add i32 %.0223, -97
+  %or.cond.i298 = icmp ult i32 %439, 7964
+  %440 = add i32 %.fr.i300, -97
+  %or.cond18.i301 = icmp ult i32 %440, 7964
   %or.cond351 = and i1 %or.cond.i298, %or.cond18.i301
-  br i1 %or.cond351, label %445, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
+  br i1 %or.cond351, label %441, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
 
-445:                                              ; preds = %440
-  %446 = and i32 %.fr.i300, 127
-  %447 = zext nneg i32 %446 to i64
-  %448 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %447
-  %449 = load i8, ptr %448, align 1, !tbaa !19
-  %450 = zext i8 %449 to i32
-  %451 = lshr i32 %.fr.i300, 7
-  %452 = zext nneg i32 %451 to i64
-  %453 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %452
-  %454 = load i8, ptr %453, align 1, !tbaa !19
-  %455 = zext i8 %454 to i32
-  %456 = and i32 %.0223, 127
-  %457 = zext nneg i32 %456 to i64
-  %458 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %457
-  %459 = load i8, ptr %458, align 1, !tbaa !19
-  %460 = zext i8 %459 to i32
-  %461 = lshr i32 %.0223, 7
-  %462 = zext nneg i32 %461 to i64
-  %463 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %462
-  %464 = load i8, ptr %463, align 1, !tbaa !19
-  %465 = zext i8 %464 to i32
-  %466 = add nuw nsw i32 %450, 3
-  %467 = add nuw nsw i32 %466, %455
-  %468 = add nuw nsw i32 %467, %460
-  %469 = add nuw nsw i32 %468, %465
-  %470 = icmp samesign ult i32 %469, 79
-  br i1 %470, label %471, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
+441:                                              ; preds = %436
+  %442 = and i32 %.fr.i300, 127
+  %443 = zext nneg i32 %442 to i64
+  %444 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %443
+  %445 = load i8, ptr %444, align 1, !tbaa !19
+  %446 = zext i8 %445 to i32
+  %447 = lshr i32 %.fr.i300, 7
+  %448 = zext nneg i32 %447 to i64
+  %449 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %448
+  %450 = load i8, ptr %449, align 1, !tbaa !19
+  %451 = zext i8 %450 to i32
+  %452 = and i32 %.0223, 127
+  %453 = zext nneg i32 %452 to i64
+  %454 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %453
+  %455 = load i8, ptr %454, align 1, !tbaa !19
+  %456 = zext i8 %455 to i32
+  %457 = lshr i32 %.0223, 7
+  %458 = zext nneg i32 %457 to i64
+  %459 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_12_hash.asso_values, i64 %458
+  %460 = load i8, ptr %459, align 1, !tbaa !19
+  %461 = zext i8 %460 to i32
+  %462 = add nuw nsw i32 %446, 3
+  %463 = add nuw nsw i32 %462, %451
+  %464 = add nuw nsw i32 %463, %456
+  %465 = add nuw nsw i32 %464, %461
+  %466 = icmp samesign ult i32 %465, 79
+  br i1 %466, label %467, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
 
-471:                                              ; preds = %445
-  %472 = zext nneg i32 %469 to i64
-  %473 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_12_lookup.wordlist, i64 %472
-  %474 = getelementptr i8, ptr %473, i64 6
-  %475 = load i16, ptr %474, align 2, !tbaa !7
-  %476 = icmp sgt i16 %475, -1
-  br i1 %476, label %477, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
+467:                                              ; preds = %441
+  %468 = zext nneg i32 %465 to i64
+  %469 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_12_lookup.wordlist, i64 %468
+  %470 = getelementptr i8, ptr %469, i64 6
+  %471 = load i16, ptr %470, align 2, !tbaa !7
+  %472 = icmp sgt i16 %471, -1
+  br i1 %472, label %473, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
 
-477:                                              ; preds = %471
-  %478 = zext nneg i16 %475 to i64
-  %479 = getelementptr %struct.CaseUnfold_12_Type, ptr @CaseUnfold_12_Table, i64 %478
-  %480 = load i32, ptr %479, align 4, !tbaa !14
-  %.not.i.i303 = icmp eq i32 %.0223, %480
-  br i1 %.not.i.i303, label %481, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
+473:                                              ; preds = %467
+  %474 = zext nneg i16 %471 to i64
+  %475 = getelementptr %struct.CaseUnfold_12_Type, ptr @CaseUnfold_12_Table, i64 %474
+  %476 = load i32, ptr %475, align 4, !tbaa !14
+  %.not.i.i303 = icmp eq i32 %.0223, %476
+  br i1 %.not.i.i303, label %477, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
 
-481:                                              ; preds = %477
-  %482 = getelementptr i8, ptr %479, i64 4
-  %483 = load i32, ptr %482, align 4, !tbaa !14
-  %.fr36.i304 = freeze i32 %483
+477:                                              ; preds = %473
+  %478 = getelementptr i8, ptr %475, i64 4
+  %479 = load i32, ptr %478, align 4, !tbaa !14
+  %.fr36.i304 = freeze i32 %479
   %.not4.i.not.i305 = icmp eq i32 %.fr.i300, %.fr36.i304
-  br i1 %.not4.i.not.i305, label %onigenc_unicode_CaseUnfold_12_lookup.exit306, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
+  br i1 %.not4.i.not.i305, label %.lr.ph406, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
 
-onigenc_unicode_CaseUnfold_12_lookup.exit306:     ; preds = %481
-  %484 = getelementptr inbounds nuw i8, ptr %479, i64 8
-  %485 = load i32, ptr %484, align 4, !tbaa !31
-  %486 = and i32 %485, 7
-  %487 = add nsw i32 %486, -3
-  %or.cond545 = icmp ult i32 %487, -2
-  br i1 %or.cond545, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, label %.lr.ph410
+.lr.ph406:                                        ; preds = %477
+  %480 = getelementptr inbounds nuw i8, ptr %475, i64 8
+  %481 = load i32, ptr %480, align 4, !tbaa !31
+  %482 = and i32 %481, 7
+  %483 = getelementptr inbounds nuw i8, ptr %475, i64 12
+  %umax481 = tail call i32 @llvm.umax.i32(i32 %482, i32 1)
+  %wide.trip.count482 = zext nneg i32 %umax481 to i64
+  br label %onigenc_unicode_CaseUnfold_12_lookup.exit306
 
-.lr.ph410:                                        ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit306
-  %488 = getelementptr inbounds nuw i8, ptr %479, i64 12
-  %wide.trip.count484 = zext nneg i32 %486 to i64
-  br label %489
+onigenc_unicode_CaseUnfold_12_lookup.exit306:     ; preds = %.lr.ph406, %onigenc_unicode_CaseUnfold_12_lookup.exit306
+  %indvars.iv478 = phi i64 [ 0, %.lr.ph406 ], [ %indvars.iv.next479, %onigenc_unicode_CaseUnfold_12_lookup.exit306 ]
+  %.17404 = phi i32 [ %.13, %.lr.ph406 ], [ %490, %onigenc_unicode_CaseUnfold_12_lookup.exit306 ]
+  %484 = sext i32 %.17404 to i64
+  %485 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %484
+  store i32 %438, ptr %485, align 4, !tbaa !50
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 4
+  store i32 1, ptr %486, align 4, !tbaa !52
+  %487 = getelementptr i32, ptr %483, i64 %indvars.iv478
+  %488 = load i32, ptr %487, align 4, !tbaa !14
+  %489 = getelementptr inbounds nuw i8, ptr %485, i64 8
+  store i32 %488, ptr %489, align 4, !tbaa !14
+  %490 = add i32 %.17404, 1
+  %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
+  %exitcond483.not = icmp eq i64 %indvars.iv.next479, %wide.trip.count482
+  br i1 %exitcond483.not, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, label %onigenc_unicode_CaseUnfold_12_lookup.exit306, !llvm.loop !63
 
-489:                                              ; preds = %.lr.ph410, %489
-  %indvars.iv481 = phi i64 [ 0, %.lr.ph410 ], [ %indvars.iv.next482, %489 ]
-  %.17408 = phi i32 [ %.13, %.lr.ph410 ], [ %496, %489 ]
-  %490 = sext i32 %.17408 to i64
-  %491 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %490
-  store i32 %442, ptr %491, align 4, !tbaa !50
-  %492 = getelementptr inbounds nuw i8, ptr %491, i64 4
-  store i32 1, ptr %492, align 4, !tbaa !52
-  %493 = getelementptr i32, ptr %488, i64 %indvars.iv481
-  %494 = load i32, ptr %493, align 4, !tbaa !14
-  %495 = getelementptr inbounds nuw i8, ptr %491, i64 8
-  store i32 %494, ptr %495, align 4, !tbaa !14
-  %496 = add i32 %.17408, 1
-  %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
-  %exitcond485.not = icmp eq i64 %indvars.iv.next482, %wide.trip.count484
-  br i1 %exitcond485.not, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, label %489, !llvm.loop !63
+onigenc_unicode_CaseUnfold_12_lookup.exit306.thread: ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit306, %441, %467, %473, %477, %436
+  %.16 = phi i32 [ %.13, %436 ], [ %.13, %477 ], [ %.13, %473 ], [ %.13, %467 ], [ %.13, %441 ], [ %490, %onigenc_unicode_CaseUnfold_12_lookup.exit306 ]
+  %491 = sext i32 %437 to i64
+  %492 = getelementptr i8, ptr %387, i64 %491
+  %493 = icmp ult ptr %492, %3
+  br i1 %493, label %494, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
-onigenc_unicode_CaseUnfold_12_lookup.exit306.thread: ; preds = %489, %445, %471, %477, %481, %440, %onigenc_unicode_CaseUnfold_12_lookup.exit306
-  %.16 = phi i32 [ %.13, %onigenc_unicode_CaseUnfold_12_lookup.exit306 ], [ %.13, %440 ], [ %.13, %481 ], [ %.13, %477 ], [ %.13, %471 ], [ %.13, %445 ], [ %496, %489 ]
-  %497 = sext i32 %441 to i64
-  %498 = getelementptr i8, ptr %391, i64 %497
-  %499 = icmp ult ptr %498, %3
-  br i1 %499, label %500, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+494:                                              ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
+  %495 = load ptr, ptr %8, align 8, !tbaa !16
+  %496 = tail call i32 %495(ptr noundef %492, ptr noundef nonnull %3, ptr noundef nonnull %0) #8
+  %497 = add i32 %496, -65
+  %or.cond.i307 = icmp ult i32 %497, 125153
+  br i1 %or.cond.i307, label %498, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
 
-500:                                              ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread
-  %501 = load ptr, ptr %8, align 8, !tbaa !16
-  %502 = tail call i32 %501(ptr noundef %498, ptr noundef nonnull %3, ptr noundef nonnull %0) #7
-  %503 = add i32 %502, -65
-  %or.cond.i307 = icmp ult i32 %503, 125153
-  br i1 %or.cond.i307, label %504, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
-
-504:                                              ; preds = %500
-  %505 = and i32 %502, 127
-  %506 = zext nneg i32 %505 to i64
-  %507 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %506
-  %508 = getelementptr i8, ptr %507, i64 162
-  %509 = load i16, ptr %508, align 2, !tbaa !7
-  %510 = zext i16 %509 to i32
-  %511 = lshr i32 %502, 7
-  %512 = and i32 %511, 127
-  %513 = zext nneg i32 %512 to i64
-  %514 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %513
-  %515 = getelementptr i8, ptr %514, i64 4
+498:                                              ; preds = %494
+  %499 = and i32 %496, 127
+  %500 = zext nneg i32 %499 to i64
+  %501 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %500
+  %502 = getelementptr i8, ptr %501, i64 162
+  %503 = load i16, ptr %502, align 2, !tbaa !7
+  %504 = zext i16 %503 to i32
+  %505 = lshr i32 %496, 7
+  %506 = and i32 %505, 127
+  %507 = zext nneg i32 %506 to i64
+  %508 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %507
+  %509 = getelementptr i8, ptr %508, i64 4
+  %510 = load i16, ptr %509, align 2, !tbaa !7
+  %511 = zext i16 %510 to i32
+  %512 = add nuw nsw i32 %511, %504
+  %513 = lshr i32 %496, 14
+  %514 = zext nneg i32 %513 to i64
+  %515 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %514
   %516 = load i16, ptr %515, align 2, !tbaa !7
   %517 = zext i16 %516 to i32
-  %518 = add nuw nsw i32 %517, %510
-  %519 = lshr i32 %502, 14
-  %520 = zext nneg i32 %519 to i64
-  %521 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_hash.asso_values, i64 %520
-  %522 = load i16, ptr %521, align 2, !tbaa !7
-  %523 = zext i16 %522 to i32
-  %524 = add nuw nsw i32 %518, %523
-  %525 = icmp samesign ult i32 %524, 3085
-  br i1 %525, label %526, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
+  %518 = add nuw nsw i32 %512, %517
+  %519 = icmp samesign ult i32 %518, 3085
+  br i1 %519, label %520, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
 
-526:                                              ; preds = %504
-  %527 = zext nneg i32 %524 to i64
-  %528 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_lookup.wordlist, i64 %527
-  %529 = load i16, ptr %528, align 2, !tbaa !7
-  %530 = icmp sgt i16 %529, -1
-  br i1 %530, label %531, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
+520:                                              ; preds = %498
+  %521 = zext nneg i32 %518 to i64
+  %522 = getelementptr i16, ptr @onigenc_unicode_CaseFold_11_lookup.wordlist, i64 %521
+  %523 = load i16, ptr %522, align 2, !tbaa !7
+  %524 = icmp sgt i16 %523, -1
+  br i1 %524, label %525, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
 
-531:                                              ; preds = %526
-  %532 = zext nneg i16 %529 to i64
-  %533 = getelementptr %struct.CaseFold_11_Type, ptr @CaseFold_11_Table, i64 %532
-  %534 = load i32, ptr %533, align 4, !tbaa !28
-  %.fr.i310 = freeze i32 %534
-  %.not.i.not.i311 = icmp eq i32 %502, %.fr.i310
+525:                                              ; preds = %520
+  %526 = zext nneg i16 %523 to i64
+  %527 = getelementptr %struct.CaseFold_11_Type, ptr @CaseFold_11_Table, i64 %526
+  %528 = load i32, ptr %527, align 4, !tbaa !28
+  %.fr.i310 = freeze i32 %528
+  %.not.i.not.i311 = icmp eq i32 %496, %.fr.i310
   br i1 %.not.i.not.i311, label %onigenc_unicode_CaseFold_11_lookup.exit312, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
 
-onigenc_unicode_CaseFold_11_lookup.exit312:       ; preds = %531
-  %535 = getelementptr inbounds nuw i8, ptr %533, i64 4
-  %536 = load i32, ptr %535, align 4, !tbaa !31
-  %537 = and i32 %536, 7
-  %538 = icmp eq i32 %537, 1
-  br i1 %538, label %539, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
+onigenc_unicode_CaseFold_11_lookup.exit312:       ; preds = %525
+  %529 = getelementptr inbounds nuw i8, ptr %527, i64 4
+  %530 = load i32, ptr %529, align 4, !tbaa !31
+  %531 = and i32 %530, 7
+  %532 = icmp eq i32 %531, 1
+  br i1 %532, label %533, label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
 
-539:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit312
-  %540 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  %541 = load i32, ptr %540, align 4, !tbaa !14
+533:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit312
+  %534 = getelementptr inbounds nuw i8, ptr %527, i64 8
+  %535 = load i32, ptr %534, align 4, !tbaa !14
   br label %onigenc_unicode_CaseFold_11_lookup.exit312.thread
 
-onigenc_unicode_CaseFold_11_lookup.exit312.thread: ; preds = %504, %526, %531, %500, %onigenc_unicode_CaseFold_11_lookup.exit312, %539
-  %.sroa.9.0 = phi i32 [ %541, %539 ], [ %502, %onigenc_unicode_CaseFold_11_lookup.exit312 ], [ %502, %500 ], [ %502, %531 ], [ %502, %526 ], [ %502, %504 ]
-  %542 = load i32, ptr %11, align 8, !tbaa !20
-  %543 = load i32, ptr %13, align 4, !tbaa !21
-  %544 = icmp eq i32 %542, %543
-  br i1 %544, label %547, label %545
+onigenc_unicode_CaseFold_11_lookup.exit312.thread: ; preds = %498, %520, %525, %494, %onigenc_unicode_CaseFold_11_lookup.exit312, %533
+  %.sroa.9.0 = phi i32 [ %535, %533 ], [ %496, %onigenc_unicode_CaseFold_11_lookup.exit312 ], [ %496, %494 ], [ %496, %525 ], [ %496, %520 ], [ %496, %498 ]
+  %536 = load i32, ptr %11, align 8, !tbaa !20
+  %537 = load i32, ptr %13, align 4, !tbaa !21
+  %538 = icmp eq i32 %536, %537
+  br i1 %538, label %541, label %539
 
-545:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit312.thread
-  %546 = tail call i32 @onigenc_mbclen(ptr noundef %498, ptr noundef nonnull %3, ptr noundef nonnull %0) #7
-  br label %547
+539:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit312.thread
+  %540 = tail call i32 @onigenc_mbclen(ptr noundef %492, ptr noundef nonnull %3, ptr noundef nonnull %0) #8
+  br label %541
 
-547:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit312.thread, %545
-  %548 = phi i32 [ %546, %545 ], [ %542, %onigenc_unicode_CaseFold_11_lookup.exit312.thread ]
-  %549 = add i32 %548, %442
-  %550 = add i32 %.0223, -102
-  %or.cond.i313 = icmp ult i32 %550, 868
-  %551 = add i32 %.fr.i300, -102
-  %or.cond22.i315 = icmp ult i32 %551, 868
+541:                                              ; preds = %onigenc_unicode_CaseFold_11_lookup.exit312.thread, %539
+  %542 = phi i32 [ %540, %539 ], [ %536, %onigenc_unicode_CaseFold_11_lookup.exit312.thread ]
+  %543 = add i32 %542, %438
+  %544 = add i32 %.0223, -102
+  %or.cond.i313 = icmp ult i32 %544, 868
+  %545 = add i32 %.fr.i300, -102
+  %or.cond22.i315 = icmp ult i32 %545, 868
   %or.cond = and i1 %or.cond.i313, %or.cond22.i315
-  br i1 %or.cond, label %552, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+  br i1 %or.cond, label %546, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
-552:                                              ; preds = %547
+546:                                              ; preds = %541
   %.fr.i316 = freeze i32 %.sroa.9.0
-  %553 = add i32 %.fr.i316, -102
-  %or.cond23.i317 = icmp ult i32 %553, 868
-  br i1 %or.cond23.i317, label %554, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+  %547 = add i32 %.fr.i316, -102
+  %or.cond23.i317 = icmp ult i32 %547, 868
+  br i1 %or.cond23.i317, label %548, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
-554:                                              ; preds = %552
-  %555 = and i32 %.fr.i316, 127
-  %556 = zext nneg i32 %555 to i64
-  %557 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %556
-  %558 = load i8, ptr %557, align 1, !tbaa !19
-  %559 = zext i8 %558 to i32
-  %560 = lshr i32 %.fr.i316, 7
-  %561 = zext nneg i32 %560 to i64
-  %562 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %561
-  %563 = load i8, ptr %562, align 1, !tbaa !19
-  %564 = zext i8 %563 to i32
-  %565 = and i32 %.fr.i300, 127
-  %566 = zext nneg i32 %565 to i64
-  %567 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %566
-  %568 = load i8, ptr %567, align 1, !tbaa !19
-  %569 = zext i8 %568 to i32
-  %570 = lshr i32 %.fr.i300, 7
-  %571 = zext nneg i32 %570 to i64
-  %572 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %571
-  %573 = load i8, ptr %572, align 1, !tbaa !19
-  %574 = zext i8 %573 to i32
-  %575 = and i32 %.0223, 127
-  %576 = zext nneg i32 %575 to i64
-  %577 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %576
-  %578 = load i8, ptr %577, align 1, !tbaa !19
-  %579 = zext i8 %578 to i32
-  %580 = lshr i32 %.0223, 7
-  %581 = zext nneg i32 %580 to i64
-  %582 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %581
-  %583 = load i8, ptr %582, align 1, !tbaa !19
-  %584 = zext i8 %583 to i32
-  %585 = add nuw nsw i32 %559, 14
-  %586 = add nuw nsw i32 %585, %564
-  %587 = add nuw nsw i32 %586, %569
-  %588 = add nuw nsw i32 %587, %574
-  %589 = add nuw nsw i32 %588, %579
-  %590 = add nuw nsw i32 %589, %584
-  %591 = icmp samesign ult i32 %590, 40
-  br i1 %591, label %592, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+548:                                              ; preds = %546
+  %549 = and i32 %.fr.i316, 127
+  %550 = zext nneg i32 %549 to i64
+  %551 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %550
+  %552 = load i8, ptr %551, align 1, !tbaa !19
+  %553 = zext i8 %552 to i32
+  %554 = lshr i32 %.fr.i316, 7
+  %555 = zext nneg i32 %554 to i64
+  %556 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %555
+  %557 = load i8, ptr %556, align 1, !tbaa !19
+  %558 = zext i8 %557 to i32
+  %559 = and i32 %.fr.i300, 127
+  %560 = zext nneg i32 %559 to i64
+  %561 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %560
+  %562 = load i8, ptr %561, align 1, !tbaa !19
+  %563 = zext i8 %562 to i32
+  %564 = lshr i32 %.fr.i300, 7
+  %565 = zext nneg i32 %564 to i64
+  %566 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %565
+  %567 = load i8, ptr %566, align 1, !tbaa !19
+  %568 = zext i8 %567 to i32
+  %569 = and i32 %.0223, 127
+  %570 = zext nneg i32 %569 to i64
+  %571 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %570
+  %572 = load i8, ptr %571, align 1, !tbaa !19
+  %573 = zext i8 %572 to i32
+  %574 = lshr i32 %.0223, 7
+  %575 = zext nneg i32 %574 to i64
+  %576 = getelementptr i8, ptr @onigenc_unicode_CaseUnfold_13_hash.asso_values, i64 %575
+  %577 = load i8, ptr %576, align 1, !tbaa !19
+  %578 = zext i8 %577 to i32
+  %579 = add nuw nsw i32 %553, 14
+  %580 = add nuw nsw i32 %579, %558
+  %581 = add nuw nsw i32 %580, %563
+  %582 = add nuw nsw i32 %581, %568
+  %583 = add nuw nsw i32 %582, %573
+  %584 = add nuw nsw i32 %583, %578
+  %585 = icmp samesign ult i32 %584, 40
+  br i1 %585, label %586, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
-592:                                              ; preds = %554
-  %593 = add nuw nsw i32 %590, 7
-  %594 = zext nneg i32 %593 to i64
-  %595 = shl nuw nsw i64 1, %594
-  %596 = and i64 %595, 106102737862656
-  %.not.i319 = icmp eq i64 %596, 0
-  br i1 %.not.i319, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %597
+586:                                              ; preds = %548
+  %587 = add nuw nsw i32 %584, 7
+  %588 = zext nneg i32 %587 to i64
+  %589 = shl nuw nsw i64 1, %588
+  %590 = and i64 %589, 106102737862656
+  %.not.i319 = icmp eq i64 %590, 0
+  br i1 %.not.i319, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %591
 
-597:                                              ; preds = %592
-  %598 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_13_lookup.wordlist, i64 %594
-  %599 = load i16, ptr %598, align 2, !tbaa !7
-  %600 = sext i16 %599 to i64
-  %601 = getelementptr %struct.CaseUnfold_13_Type, ptr @CaseUnfold_13_Table, i64 %600
+591:                                              ; preds = %586
+  %592 = getelementptr i16, ptr @onigenc_unicode_CaseUnfold_13_lookup.wordlist, i64 %588
+  %593 = load i16, ptr %592, align 2, !tbaa !7
+  %594 = sext i16 %593 to i64
+  %595 = getelementptr %struct.CaseUnfold_13_Type, ptr @CaseUnfold_13_Table, i64 %594
+  %596 = load i32, ptr %595, align 8, !tbaa !14
+  %.not.i.i320 = icmp eq i32 %.0223, %596
+  br i1 %.not.i.i320, label %597, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+
+597:                                              ; preds = %591
+  %598 = getelementptr i8, ptr %595, i64 4
+  %599 = load i32, ptr %598, align 4, !tbaa !14
+  %.not6.i.i321 = icmp eq i32 %.fr.i300, %599
+  br i1 %.not6.i.i321, label %600, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+
+600:                                              ; preds = %597
+  %601 = getelementptr i8, ptr %595, i64 8
   %602 = load i32, ptr %601, align 8, !tbaa !14
-  %.not.i.i320 = icmp eq i32 %.0223, %602
-  br i1 %.not.i.i320, label %603, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
-
-603:                                              ; preds = %597
-  %604 = getelementptr i8, ptr %601, i64 4
-  %605 = load i32, ptr %604, align 4, !tbaa !14
-  %.not6.i.i321 = icmp eq i32 %.fr.i300, %605
-  br i1 %.not6.i.i321, label %606, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
-
-606:                                              ; preds = %603
-  %607 = getelementptr i8, ptr %601, i64 8
-  %608 = load i32, ptr %607, align 8, !tbaa !14
-  %.fr41.i322 = freeze i32 %608
+  %.fr41.i322 = freeze i32 %602
   %.not7.i.not.i323 = icmp eq i32 %.fr.i316, %.fr41.i322
-  br i1 %.not7.i.not.i323, label %onigenc_unicode_CaseUnfold_13_lookup.exit324, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
+  br i1 %.not7.i.not.i323, label %.lr.ph410, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
 
-onigenc_unicode_CaseUnfold_13_lookup.exit324:     ; preds = %606
-  %609 = getelementptr inbounds nuw i8, ptr %601, i64 12
-  %610 = load i32, ptr %609, align 4, !tbaa !31
-  %611 = and i32 %610, 7
-  %612 = add nsw i32 %611, -3
-  %or.cond546 = icmp ult i32 %612, -2
-  br i1 %or.cond546, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %.lr.ph414
+.lr.ph410:                                        ; preds = %600
+  %603 = getelementptr inbounds nuw i8, ptr %595, i64 12
+  %604 = load i32, ptr %603, align 4, !tbaa !31
+  %605 = and i32 %604, 7
+  %606 = getelementptr inbounds nuw i8, ptr %595, i64 16
+  %umax487 = tail call i32 @llvm.umax.i32(i32 %605, i32 1)
+  %wide.trip.count488 = zext nneg i32 %umax487 to i64
+  br label %onigenc_unicode_CaseUnfold_13_lookup.exit324
 
-.lr.ph414:                                        ; preds = %onigenc_unicode_CaseUnfold_13_lookup.exit324
-  %613 = getelementptr inbounds nuw i8, ptr %601, i64 16
-  %wide.trip.count489 = zext nneg i32 %611 to i64
-  br label %614
+onigenc_unicode_CaseUnfold_13_lookup.exit324:     ; preds = %.lr.ph410, %onigenc_unicode_CaseUnfold_13_lookup.exit324
+  %indvars.iv484 = phi i64 [ 0, %.lr.ph410 ], [ %indvars.iv.next485, %onigenc_unicode_CaseUnfold_13_lookup.exit324 ]
+  %.19408 = phi i32 [ %.16, %.lr.ph410 ], [ %613, %onigenc_unicode_CaseUnfold_13_lookup.exit324 ]
+  %607 = sext i32 %.19408 to i64
+  %608 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %607
+  store i32 %543, ptr %608, align 4, !tbaa !50
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 4
+  store i32 1, ptr %609, align 4, !tbaa !52
+  %610 = getelementptr i32, ptr %606, i64 %indvars.iv484
+  %611 = load i32, ptr %610, align 4, !tbaa !14
+  %612 = getelementptr inbounds nuw i8, ptr %608, i64 8
+  store i32 %611, ptr %612, align 4, !tbaa !14
+  %613 = add i32 %.19408, 1
+  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
+  %exitcond489.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count488
+  br i1 %exitcond489.not, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %onigenc_unicode_CaseUnfold_13_lookup.exit324, !llvm.loop !64
 
-614:                                              ; preds = %.lr.ph414, %614
-  %indvars.iv486 = phi i64 [ 0, %.lr.ph414 ], [ %indvars.iv.next487, %614 ]
-  %.19412 = phi i32 [ %.16, %.lr.ph414 ], [ %621, %614 ]
-  %615 = sext i32 %.19412 to i64
-  %616 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %4, i64 %615
-  store i32 %549, ptr %616, align 4, !tbaa !50
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 4
-  store i32 1, ptr %617, align 4, !tbaa !52
-  %618 = getelementptr i32, ptr %613, i64 %indvars.iv486
-  %619 = load i32, ptr %618, align 4, !tbaa !14
-  %620 = getelementptr inbounds nuw i8, ptr %616, i64 8
-  store i32 %619, ptr %620, align 4, !tbaa !14
-  %621 = add i32 %.19412, 1
-  %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
-  %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
-  br i1 %exitcond490.not, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %614, !llvm.loop !64
-
-onigenc_unicode_CaseUnfold_13_lookup.exit324.thread: ; preds = %614, %554, %592, %597, %603, %606, %547, %552, %.thread, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, %onigenc_unicode_CaseUnfold_13_lookup.exit324, %389, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
-  %.15 = phi i32 [ %.13, %389 ], [ %.13, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread ], [ %.16, %onigenc_unicode_CaseUnfold_13_lookup.exit324 ], [ %.16, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread ], [ %.7235, %.thread ], [ %.16, %552 ], [ %.16, %547 ], [ %.16, %606 ], [ %.16, %603 ], [ %.16, %597 ], [ %.16, %592 ], [ %.16, %554 ], [ %621, %614 ]
+onigenc_unicode_CaseUnfold_13_lookup.exit324.thread: ; preds = %onigenc_unicode_CaseUnfold_13_lookup.exit324, %548, %586, %591, %597, %600, %541, %546, %.thread, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, %385, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+  %.15 = phi i32 [ %.13, %385 ], [ %.13, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread ], [ %.16, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread ], [ %.7235, %.thread ], [ %.16, %546 ], [ %.16, %541 ], [ %.16, %600 ], [ %.16, %597 ], [ %.16, %591 ], [ %.16, %586 ], [ %.16, %548 ], [ %613, %onigenc_unicode_CaseUnfold_13_lookup.exit324 ]
   ret i32 %.15
 }
 
@@ -2346,14 +2324,14 @@ define dso_local i32 @onigenc_unicode_case_map(ptr noundef captures(none) %0, pt
   %.0138193 = phi i32 [ %11, %.lr.ph ], [ %spec.select177, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread ]
   %.0141192 = phi ptr [ %3, %.lr.ph ], [ %219, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread ]
   %20 = load ptr, ptr %5, align 8, !tbaa !65
-  %21 = tail call i32 %20(ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %5) #7
+  %21 = tail call i32 %20(ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %5) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %16, align 8, !tbaa !16
   %25 = load ptr, ptr %1, align 8, !tbaa !27
-  %26 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %5) #7
+  %26 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %5) #8
   %27 = load ptr, ptr %1, align 8, !tbaa !27
   %28 = zext nneg i32 %21 to i64
   %29 = getelementptr i8, ptr %27, i64 %28
@@ -2424,7 +2402,7 @@ define dso_local i32 @onigenc_unicode_case_map(ptr noundef captures(none) %0, pt
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %17, align 8, !tbaa !32
-  %62 = tail call i32 %61(i32 noundef 105, ptr noundef %.0141192, ptr noundef nonnull %5) #7
+  %62 = tail call i32 %61(i32 noundef 105, ptr noundef %.0141192, ptr noundef nonnull %5) #8
   %63 = sext i32 %62 to i64
   %64 = getelementptr i8, ptr %.0141192, i64 %63
   br label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
@@ -2595,7 +2573,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %97
 
 159:                                              ; preds = %158
   %160 = load ptr, ptr %17, align 8, !tbaa !32
-  %161 = tail call i32 %160(i32 noundef %.2147, ptr noundef %.0141192, ptr noundef nonnull %5) #7
+  %161 = tail call i32 %160(i32 noundef %.2147, ptr noundef %.0141192, ptr noundef nonnull %5) #8
   %162 = sext i32 %161 to i64
   %163 = getelementptr i8, ptr %.0141192, i64 %162
   %164 = load i32, ptr %.0136, align 4, !tbaa !14
@@ -2603,13 +2581,13 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %97
 
 165:                                              ; preds = %158
   %166 = load ptr, ptr %17, align 8, !tbaa !32
-  %167 = tail call i32 %166(i32 noundef %.2147, ptr noundef %.0141192, ptr noundef nonnull %5) #7
+  %167 = tail call i32 %166(i32 noundef %.2147, ptr noundef %.0141192, ptr noundef nonnull %5) #8
   %168 = sext i32 %167 to i64
   %169 = getelementptr i8, ptr %.0141192, i64 %168
   %170 = load ptr, ptr %17, align 8, !tbaa !32
   %171 = getelementptr i8, ptr %.0136, i64 4
   %172 = load i32, ptr %.0136, align 4, !tbaa !14
-  %173 = tail call i32 %170(i32 noundef %172, ptr noundef %169, ptr noundef nonnull %5) #7
+  %173 = tail call i32 %170(i32 noundef %172, ptr noundef %169, ptr noundef nonnull %5) #8
   %174 = sext i32 %173 to i64
   %175 = getelementptr i8, ptr %169, i64 %174
   %176 = load i32, ptr %171, align 4, !tbaa !14
@@ -2692,7 +2670,7 @@ onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %onigenc_unicode_Cas
   %.1142 = phi ptr [ %.0141192, %33 ], [ %.0141192, %41 ], [ %.0141192, %50 ], [ %.0141192, %57 ], [ %64, %60 ], [ %.0141192, %55 ], [ %.0141192, %106 ], [ %.0141192, %111 ], [ %.0141192, %208 ], [ %.0141192, %205 ], [ %.0141192, %65 ], [ %.0141192, %158 ], [ %163, %159 ], [ %175, %165 ], [ %.0141192, %35 ], [ %.0141192, %44 ], [ %.0141192, %177 ], [ %.0141192, %198 ], [ %.0141192, %193 ], [ %.0141192, %.thread ], [ %.0141192, %109 ], [ %.0141192, %onigenc_unicode_CaseUnfold_11_lookup.exit ]
   %.1139 = phi i32 [ %.0138193, %33 ], [ %.0138193, %41 ], [ %.0138193, %50 ], [ %58, %57 ], [ %58, %60 ], [ %.0138193, %55 ], [ %107, %106 ], [ %.0138193, %111 ], [ %209, %208 ], [ %.0138193, %205 ], [ %spec.select175, %65 ], [ %115, %158 ], [ %115, %159 ], [ %115, %165 ], [ %36, %35 ], [ %45, %44 ], [ %.0138193, %177 ], [ %.0138193, %198 ], [ %.0138193, %193 ], [ %.0138193, %.thread ], [ %.0138193, %109 ], [ %.0138193, %onigenc_unicode_CaseUnfold_11_lookup.exit ]
   %216 = load ptr, ptr %17, align 8, !tbaa !32
-  %217 = tail call i32 %216(i32 noundef %.0145, ptr noundef %.1142, ptr noundef nonnull %5) #7
+  %217 = tail call i32 %216(i32 noundef %.0145, ptr noundef %.1142, ptr noundef nonnull %5) #8
   %218 = sext i32 %217 to i64
   %219 = getelementptr i8, ptr %.1142, i64 %218
   %220 = and i32 %.1139, 32768
@@ -2732,8 +2710,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2741,9 +2722,10 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

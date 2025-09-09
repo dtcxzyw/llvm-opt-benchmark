@@ -1870,18 +1870,18 @@ define range(i32 0, 2) i32 @SSL_CTX_dane_enable(ptr noundef captures(none) %0) l
 .preheader.i:                                     ; preds = %4, %25
   %.02530.i = phi i64 [ %26, %25 ], [ 0, %4 ]
   %10 = getelementptr inbounds nuw %struct.anon.6, ptr @dane_mds, i64 %.02530.i
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !256
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %25, label %14
+  %11 = icmp eq i64 %.02530.i, 0
+  br i1 %11, label %25, label %12
 
-14:                                               ; preds = %.preheader.i
-  %15 = tail call ptr @OBJ_nid2sn(i32 noundef %12) #20
+12:                                               ; preds = %.preheader.i
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !256
+  %15 = tail call ptr @OBJ_nid2sn(i32 noundef %14) #20
   %16 = tail call ptr @EVP_get_digestbyname(ptr noundef %15) #20
   %17 = icmp eq ptr %16, null
   br i1 %17, label %25, label %18
 
-18:                                               ; preds = %14
+18:                                               ; preds = %12
   %19 = load i8, ptr %10, align 8, !tbaa !258
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %5, i64 %20
@@ -1892,7 +1892,7 @@ define range(i32 0, 2) i32 @SSL_CTX_dane_enable(ptr noundef captures(none) %0) l
   store i8 %23, ptr %24, align 1, !tbaa !261
   br label %25
 
-25:                                               ; preds = %18, %14, %.preheader.i
+25:                                               ; preds = %18, %12, %.preheader.i
   %26 = add nuw nsw i64 %.02530.i, 1
   %exitcond.not.i = icmp eq i64 %26, 3
   br i1 %exitcond.not.i, label %27, label %.preheader.i, !llvm.loop !262

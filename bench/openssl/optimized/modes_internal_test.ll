@@ -177,97 +177,91 @@ define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %0) #0 {
   %.sroa.06.0.copyload = load i64, ptr %9, align 16, !tbaa !4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
   %.sroa.12.0.copyload = load ptr, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.02.0.copyload = load i64, ptr %10, align 16, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 88
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = icmp eq i64 %.sroa.018.0.copyload, 1
-  %12 = icmp eq i64 %.sroa.06.0.copyload, 1
-  %13 = icmp eq i64 %.sroa.02.0.copyload, 1
+  %10 = shl nuw i64 1, %5
+  %11 = and i64 %10, 553415
+  %.not.not = icmp eq i64 %11, 0
+  %12 = and i64 %10, 266305
+  %.not35.not.not = icmp eq i64 %12, 0
   %.sroa.027.0.copyload.tr = trunc i64 %.sroa.027.0.copyload to i32
-  %14 = shl i32 %.sroa.027.0.copyload.tr, 3
-  %15 = call i32 @AES_set_encrypt_key(ptr noundef %.sroa.428.0.copyload, i32 noundef %14, ptr noundef nonnull %4) #6
+  %13 = shl i32 %.sroa.027.0.copyload.tr, 3
+  %14 = call i32 @AES_set_encrypt_key(ptr noundef %.sroa.428.0.copyload, i32 noundef %13, ptr noundef nonnull %4) #6
   call void @CRYPTO_gcm128_init(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @AES_encrypt) #6
   call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %3, ptr noundef %.sroa.5.0.copyload, i64 noundef %.sroa.024.0.copyload) #6
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %2, i8 0, i64 %.sroa.06.0.copyload, i1 false)
-  %.not42 = icmp eq ptr %.sroa.6.0.copyload, null
-  %.not = select i1 %11, i1 true, i1 %.not42
-  br i1 %.not, label %18, label %16
+  br i1 %.not.not, label %15, label %17
 
-16:                                               ; preds = %1
-  %17 = call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.018.0.copyload) #6
-  br label %18
+15:                                               ; preds = %1
+  %16 = call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.018.0.copyload) #6
+  br label %17
 
-18:                                               ; preds = %16, %1
-  %.not3544 = icmp eq ptr %.sroa.12.0.copyload, null
-  %.not35 = select i1 %12, i1 true, i1 %.not3544
-  br i1 %.not35, label %22, label %19
+17:                                               ; preds = %15, %1
+  br i1 %.not35.not.not, label %18, label %21
 
-19:                                               ; preds = %18
-  %20 = call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.12.0.copyload, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload) #6
-  %21 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 873, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %20, i32 noundef 0) #6
-  %.not36 = icmp eq i32 %21, 0
-  br i1 %.not36, label %45, label %22
+18:                                               ; preds = %17
+  %19 = call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.12.0.copyload, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload) #6
+  %20 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 873, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %19, i32 noundef 0) #6
+  %.not39 = icmp eq i32 %20, 0
+  br i1 %.not39, label %44, label %21
 
-22:                                               ; preds = %19, %18
-  %23 = call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %3, ptr noundef %.sroa.3.0.copyload, i64 noundef 16) #6
-  %24 = icmp ne i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 875, ptr noundef nonnull @.str.20, i32 noundef %25) #6
-  %.not37 = icmp eq i32 %26, 0
-  br i1 %.not37, label %45, label %27
+21:                                               ; preds = %18, %17
+  %22 = call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %3, ptr noundef %.sroa.3.0.copyload, i64 noundef 16) #6
+  %23 = icmp ne i32 %22, 0
+  %24 = zext i1 %23 to i32
+  %25 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 875, ptr noundef nonnull @.str.20, i32 noundef %24) #6
+  %.not40 = icmp eq i32 %25, 0
+  br i1 %.not40, label %44, label %26
 
-27:                                               ; preds = %22
-  %.not3843 = icmp eq ptr %.sroa.4.0.copyload, null
-  %.not38 = select i1 %13, i1 true, i1 %.not3843
-  br i1 %.not38, label %30, label %28
+26:                                               ; preds = %21
+  br i1 %.not35.not.not, label %27, label %29
 
-28:                                               ; preds = %27
-  %29 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 877, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload, ptr noundef nonnull %.sroa.4.0.copyload, i64 noundef %.sroa.06.0.copyload) #6
-  %.not39 = icmp eq i32 %29, 0
-  br i1 %.not39, label %45, label %30
+27:                                               ; preds = %26
+  %28 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 877, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload, ptr noundef nonnull %.sroa.4.0.copyload, i64 noundef %.sroa.06.0.copyload) #6
+  %.not42 = icmp eq i32 %28, 0
+  br i1 %.not42, label %44, label %29
 
-30:                                               ; preds = %28, %27
+29:                                               ; preds = %27, %26
   call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %3, ptr noundef %.sroa.5.0.copyload, i64 noundef %.sroa.024.0.copyload) #6
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %2, i8 0, i64 %.sroa.06.0.copyload, i1 false)
-  br i1 %.not, label %33, label %31
+  br i1 %.not.not, label %30, label %32
 
-31:                                               ; preds = %30
-  %32 = call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.018.0.copyload) #6
-  br label %33
+30:                                               ; preds = %29
+  %31 = call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.018.0.copyload) #6
+  br label %32
 
-33:                                               ; preds = %31, %30
-  br i1 %.not38, label %36, label %34
+32:                                               ; preds = %30, %29
+  br i1 %.not35.not.not, label %33, label %35
 
-34:                                               ; preds = %33
-  %35 = call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.copyload, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload) #6
-  br label %36
+33:                                               ; preds = %32
+  %34 = call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.copyload, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload) #6
+  br label %35
 
-36:                                               ; preds = %34, %33
-  %37 = call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %3, ptr noundef %.sroa.3.0.copyload, i64 noundef 16) #6
-  %38 = icmp ne i32 %37, 0
-  %39 = zext i1 %38 to i32
-  %40 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 886, ptr noundef nonnull @.str.20, i32 noundef %39) #6
-  %.not40 = icmp eq i32 %40, 0
-  br i1 %.not40, label %45, label %41
+35:                                               ; preds = %33, %32
+  %36 = call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %3, ptr noundef %.sroa.3.0.copyload, i64 noundef 16) #6
+  %37 = icmp ne i32 %36, 0
+  %38 = zext i1 %37 to i32
+  %39 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 886, ptr noundef nonnull @.str.20, i32 noundef %38) #6
+  %.not43 = icmp eq i32 %39, 0
+  br i1 %.not43, label %44, label %40
 
-41:                                               ; preds = %36
-  br i1 %.not35, label %44, label %42
+40:                                               ; preds = %35
+  br i1 %.not35.not.not, label %41, label %43
 
-42:                                               ; preds = %41
-  %43 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 888, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload, ptr noundef nonnull %.sroa.12.0.copyload, i64 noundef %.sroa.06.0.copyload) #6
-  %.not41 = icmp eq i32 %43, 0
-  br i1 %.not41, label %45, label %44
+41:                                               ; preds = %40
+  %42 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 888, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull %2, i64 noundef %.sroa.06.0.copyload, ptr noundef nonnull %.sroa.12.0.copyload, i64 noundef %.sroa.06.0.copyload) #6
+  %.not44 = icmp eq i32 %42, 0
+  br i1 %.not44, label %44, label %43
 
-44:                                               ; preds = %42, %41
-  br label %45
+43:                                               ; preds = %41, %40
+  br label %44
 
-45:                                               ; preds = %36, %42, %22, %28, %19, %44
-  %.0 = phi i32 [ 1, %44 ], [ 0, %19 ], [ 0, %28 ], [ 0, %22 ], [ 0, %42 ], [ 0, %36 ]
+44:                                               ; preds = %35, %41, %21, %27, %18, %43
+  %.0 = phi i32 [ 1, %43 ], [ 0, %18 ], [ 0, %27 ], [ 0, %21 ], [ 0, %41 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

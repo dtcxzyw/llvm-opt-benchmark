@@ -969,7 +969,7 @@ define internal fastcc void @l1tf_select_mitigation() unnamed_addr #3 section ".
   %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %2 = and i64 %1, 1125899906842624
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %41, label %4
+  br i1 %3, label %39, label %4
 
 4:                                                ; preds = %0
   %5 = tail call zeroext i1 @cpu_mitigations_off() #15
@@ -1018,49 +1018,46 @@ define internal fastcc void @l1tf_select_mitigation() unnamed_addr #3 section ".
 
 19:                                               ; preds = %18, %15, %13, %10
   %20 = load i32, ptr @l1tf_mitigation, align 4
-  switch i32 %20, label %24 [
-    i32 5, label %21
-    i32 4, label %22
-    i32 3, label %22
-  ]
+  %switch.tableidx = add i32 %20, -3
+  %21 = icmp ult i32 %switch.tableidx, 3
+  br i1 %21, label %switch.lookup, label %22
 
-21:                                               ; preds = %19
+switch.lookup:                                    ; preds = %19
+  %switch.cast = trunc nuw i32 %switch.tableidx to i3
+  %switch.downshift = lshr exact i3 -4, %switch.cast
+  %switch.masked = trunc i3 %switch.downshift to i1
+  tail call void @cpu_smt_disable(i1 noundef zeroext %switch.masked) #15
+  %.pr = load i32, ptr @l1tf_mitigation, align 4
   br label %22
 
-22:                                               ; preds = %21, %19, %19
-  %23 = phi i1 [ true, %21 ], [ false, %19 ], [ false, %19 ]
-  tail call void @cpu_smt_disable(i1 noundef zeroext %23) #15
-  %.pr = load i32, ptr @l1tf_mitigation, align 4
-  br label %24
+22:                                               ; preds = %19, %switch.lookup
+  %23 = phi i32 [ %.pr, %switch.lookup ], [ %20, %19 ]
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 312), align 8
+  %25 = zext i8 %24 to i64
+  %26 = add nuw nsw i64 %25, 4294967283
+  %27 = and i64 %26, 4294967295
+  %28 = shl i64 4096, %27
+  %29 = icmp eq i32 %23, 0
+  br i1 %29, label %38, label %30
 
-24:                                               ; preds = %22, %19
-  %25 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
-  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 312), align 8
-  %27 = zext i8 %26 to i64
-  %28 = add nuw nsw i64 %27, 4294967283
-  %29 = and i64 %28, 4294967295
-  %30 = shl i64 4096, %29
-  %31 = icmp eq i32 %25, 0
-  br i1 %31, label %40, label %32
+30:                                               ; preds = %22
+  %31 = xor i64 %28, -1
+  %32 = tail call zeroext i1 @e820__mapped_any(i64 noundef %28, i64 noundef %31, i32 noundef 1) #15
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %24
-  %33 = xor i64 %30, -1
-  %34 = tail call zeroext i1 @e820__mapped_any(i64 noundef %30, i64 noundef %33, i32 noundef 1) #15
-  br i1 %34, label %35, label %40
+33:                                               ; preds = %30
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108) #17
+  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.109, i64 noundef %28) #17
+  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.110) #17
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.111) #17
+  br label %39
 
-35:                                               ; preds = %32
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108) #17
-  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.109, i64 noundef %30) #17
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.110) #17
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.111) #17
-  br label %41
-
-40:                                               ; preds = %32, %24
+38:                                               ; preds = %30, %22
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 71), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 71)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 31), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 31)) #15, !srcloc !12
-  br label %41
+  br label %39
 
-41:                                               ; preds = %40, %35, %0
+39:                                               ; preds = %38, %33, %0
   ret void
 }
 
@@ -3721,63 +3718,62 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #3 sect
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @spectre_v2_cmd, align 4
   switch i32 %2, label %3 [
-    i32 0, label %34
-    i32 2, label %34
+    i32 0, label %33
+    i32 2, label %33
   ]
 
 3:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !28
   %4 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.56, ptr noundef nonnull %1, i32 noundef 20) #15
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %34, label %.preheader
+  br i1 %5, label %33, label %.preheader
 
-.preheader:                                       ; preds = %3, %29
-  %6 = phi i64 [ %30, %29 ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %28
+  %6 = phi i64 [ %29, %28 ], [ 0, %3 ]
   %7 = getelementptr %struct.anon.5, ptr @v2_user_options, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = call i64 @strlen(ptr noundef %8) #15
   %10 = trunc i64 %9 to i32
   %11 = icmp eq i32 %4, %10
-  br i1 %11, label %12, label %29
+  br i1 %11, label %12, label %28
 
 12:                                               ; preds = %.preheader
   %13 = and i64 %9, 4294967295
   %14 = call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %8, i64 noundef %13) #15
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %29
+  br i1 %15, label %16, label %28
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %18 = load i8, ptr %17, align 4, !range !14, !noundef !29
-  %19 = icmp ne i8 %18, 0
-  %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
-  %21 = and i64 %20, 281474976710656
-  %22 = icmp ne i64 %21, 0
-  %23 = xor i1 %19, %22
-  br i1 %23, label %24, label %26
+  %17 = and i64 %6, 1152921504606846975
+  %18 = icmp eq i64 %17, 2
+  %19 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %20 = and i64 %19, 281474976710656
+  %21 = icmp ne i64 %20, 0
+  %22 = xor i1 %18, %21
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %16
-  %25 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, ptr noundef %8) #17
-  br label %26
+23:                                               ; preds = %16
+  %24 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, ptr noundef %8) #17
+  br label %25
 
-26:                                               ; preds = %24, %16
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %28 = load i32, ptr %27, align 8
-  br label %34
+25:                                               ; preds = %23, %16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = load i32, ptr %26, align 8
+  br label %33
 
-29:                                               ; preds = %12, %.preheader
-  %30 = add nuw nsw i64 %6, 1
-  %31 = icmp eq i64 %30, 7
-  br i1 %31, label %32, label %.preheader, !llvm.loop !30
+28:                                               ; preds = %12, %.preheader
+  %29 = add nuw nsw i64 %6, 1
+  %30 = icmp eq i64 %29, 7
+  br i1 %30, label %31, label %.preheader, !llvm.loop !29
 
-32:                                               ; preds = %29
-  %33 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef nonnull %1) #17
-  br label %34
+31:                                               ; preds = %28
+  %32 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef nonnull %1) #17
+  br label %33
 
-34:                                               ; preds = %0, %32, %26, %3, %0
-  %35 = phi i32 [ %28, %26 ], [ 1, %32 ], [ %2, %0 ], [ 1, %3 ], [ %2, %0 ]
+33:                                               ; preds = %0, %31, %25, %3, %0
+  %34 = phi i32 [ %27, %25 ], [ 1, %31 ], [ %2, %0 ], [ 1, %3 ], [ %2, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %35
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3801,17 +3797,17 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #3 section "
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i32 @cmdline_find_option_bool(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.74) #15
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %67
+  br i1 %3, label %4, label %68
 
 4:                                                ; preds = %0
   %5 = tail call zeroext i1 @cpu_mitigations_off() #15
-  br i1 %5, label %67, label %6
+  br i1 %5, label %68, label %6
 
 6:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !28
   %7 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.75, ptr noundef nonnull %1, i32 noundef 20) #15
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %67, label %.preheader
+  br i1 %8, label %68, label %.preheader
 
 .preheader:                                       ; preds = %6, %19
   %9 = phi i64 [ %20, %19 ], [ 0, %6 ]
@@ -3831,7 +3827,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #3 section "
 19:                                               ; preds = %15, %.preheader
   %20 = add nuw nsw i64 %9, 1
   %21 = icmp eq i64 %20, 11
-  br i1 %21, label %.thread, label %.preheader, !llvm.loop !31
+  br i1 %21, label %.thread, label %.preheader, !llvm.loop !30
 
 22:                                               ; preds = %15
   %23 = trunc i64 %9 to i32
@@ -3842,7 +3838,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #3 section "
 
 .thread:                                          ; preds = %19, %22
   %27 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.76, ptr noundef nonnull %1) #17
-  br label %67
+  br label %68
 
 28:                                               ; preds = %22
   %29 = add i32 %25, -6
@@ -3857,7 +3853,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #3 section "
 
 35:                                               ; preds = %31
   %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.78, ptr noundef %11) #17
-  br label %67
+  br label %68
 
 37:                                               ; preds = %31, %28
   switch i32 %25, label %44 [
@@ -3869,54 +3865,64 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #3 section "
   %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %40 = and i64 %39, 4
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %.thread1
+  br i1 %41, label %42, label %..thread1_crit_edge
+
+..thread1_crit_edge:                              ; preds = %38
+  %.pre = and i64 %9, 1152921500311879695
+  br label %.thread1
 
 42:                                               ; preds = %38
   %43 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.79, ptr noundef %11) #17
-  br label %67
+  br label %68
 
 44:                                               ; preds = %37
-  %45 = icmp eq i32 %25, 9
-  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
-  %47 = icmp ne i8 %46, 0
-  %48 = select i1 %45, i1 %47, i1 false
-  br i1 %48, label %49, label %51
+  %45 = and i64 %9, 1152921500311879695
+  %46 = icmp eq i64 %45, 10
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
+  %48 = icmp ne i8 %47, 0
+  %49 = select i1 %46, i1 %48, i1 false
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %44
-  %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.80, ptr noundef %11) #17
-  br label %67
+50:                                               ; preds = %44
+  %51 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.80, ptr noundef %11) #17
+  br label %68
 
-51:                                               ; preds = %44
-  br i1 %45, label %52, label %.thread1
+52:                                               ; preds = %44
+  br i1 %46, label %53, label %.thread1
 
-52:                                               ; preds = %51
-  %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %54 = and i64 %53, 144115188075855872
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %56, label %.thread1
+53:                                               ; preds = %52
+  %54 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %55 = and i64 %54, 144115188075855872
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %59, label %..thread1_crit_edge10
 
-56:                                               ; preds = %52
-  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.81, ptr noundef %11) #17
-  br label %67
+..thread1_crit_edge10:                            ; preds = %53
+  %57 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %58 = and i64 %57, 281474976710656
+  %.not = icmp eq i64 %58, 0
+  br i1 %.not, label %68, label %66
 
-.thread1:                                         ; preds = %38, %52, %51
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %59 = load i8, ptr %58, align 4, !range !14, !noundef !29
-  %60 = icmp ne i8 %59, 0
-  %61 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
-  %62 = and i64 %61, 281474976710656
-  %63 = icmp ne i64 %62, 0
-  %64 = xor i1 %60, %63
-  br i1 %64, label %65, label %67
+59:                                               ; preds = %53
+  %60 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.81, ptr noundef %11) #17
+  br label %68
 
-65:                                               ; preds = %.thread1
-  %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.91, ptr noundef %11) #17
-  br label %67
+.thread1:                                         ; preds = %..thread1_crit_edge, %52
+  %.pre-phi = phi i64 [ %.pre, %..thread1_crit_edge ], [ %45, %52 ]
+  %61 = icmp eq i64 %.pre-phi, 1
+  %62 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %63 = and i64 %62, 281474976710656
+  %64 = icmp ne i64 %63, 0
+  %65 = xor i1 %61, %64
+  br i1 %65, label %66, label %68
 
-67:                                               ; preds = %65, %.thread1, %56, %49, %42, %35, %.thread, %6, %4, %0
-  %68 = phi i32 [ 1, %.thread ], [ 1, %49 ], [ 1, %56 ], [ 1, %42 ], [ 1, %35 ], [ 0, %4 ], [ 0, %0 ], [ 1, %6 ], [ %25, %.thread1 ], [ %25, %65 ]
+66:                                               ; preds = %..thread1_crit_edge10, %.thread1
+  %67 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.91, ptr noundef %11) #17
+  br label %68
+
+68:                                               ; preds = %..thread1_crit_edge10, %66, %.thread1, %59, %50, %42, %35, %.thread, %6, %4, %0
+  %69 = phi i32 [ 1, %.thread ], [ 1, %50 ], [ 1, %59 ], [ 1, %42 ], [ 1, %35 ], [ 0, %4 ], [ 0, %0 ], [ 1, %6 ], [ %25, %.thread1 ], [ %25, %66 ], [ %25, %..thread1_crit_edge10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %68
+  ret i32 %69
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4109,7 +4115,7 @@ define internal fastcc i32 @ssb_parse_cmdline() unnamed_addr #3 section ".init.t
 19:                                               ; preds = %15, %.preheader
   %20 = add nuw nsw i64 %9, 1
   %21 = icmp eq i64 %20, 5
-  br i1 %21, label %.thread, label %.preheader, !llvm.loop !32
+  br i1 %21, label %.thread, label %.preheader, !llvm.loop !31
 
 22:                                               ; preds = %15
   %23 = trunc i64 %9 to i32
@@ -4206,7 +4212,6 @@ attributes #18 = { nounwind memory(none) }
 !26 = !{i64 2156103566}
 !27 = !{i64 2148478605, i64 2148478679}
 !28 = !{!"auto-init"}
-!29 = !{}
+!29 = distinct !{!29, !21, !22}
 !30 = distinct !{!30, !21, !22}
 !31 = distinct !{!31, !21, !22}
-!32 = distinct !{!32, !21, !22}

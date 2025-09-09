@@ -120,87 +120,85 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
   %4 = getelementptr inbounds %struct.anon, ptr @pkey_params, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %12
+  %7 = icmp eq i32 %0, 1
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %1
+  %9 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.2, i32 noundef 282, ptr noundef nonnull @.str.12) #3
+  br label %46
 
 10:                                               ; preds = %1
-  %11 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.2, i32 noundef 282, ptr noundef nonnull @.str.12) #3
-  br label %48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !15
+  %15 = trunc i64 %14 to i32
+  %16 = tail call ptr @BIO_new_mem_buf(ptr noundef %12, i32 noundef %15) #3
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 285, ptr noundef nonnull @.str.3, ptr noundef %16) #3
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %.critedge, label %18
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !14
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !15
-  %17 = trunc i64 %16 to i32
-  %18 = tail call ptr @BIO_new_mem_buf(ptr noundef %14, i32 noundef %17) #3
-  %19 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 285, ptr noundef nonnull @.str.3, ptr noundef %18) #3
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.critedge, label %20
-
-20:                                               ; preds = %12
-  %21 = call ptr @d2i_KeyParams_bio(i32 noundef %5, ptr noundef nonnull %2, ptr noundef %18) #3
-  %22 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @.str.4, ptr noundef %21) #3
-  %.not42 = icmp eq i32 %22, 0
+18:                                               ; preds = %10
+  %19 = call ptr @d2i_KeyParams_bio(i32 noundef %5, ptr noundef nonnull %2, ptr noundef %16) #3
+  %20 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @.str.4, ptr noundef %19) #3
+  %.not42 = icmp eq i32 %20, 0
   br i1 %.not42, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw %struct.pubkey, ptr %6, i64 %indvars.iv
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !17
-  %.not32 = icmp eq ptr %25, null
-  br i1 %.not32, label %.critedge, label %26
+.lr.ph:                                           ; preds = %18, %42
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %18 ]
+  %21 = getelementptr inbounds nuw %struct.pubkey, ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %.not32 = icmp eq ptr %23, null
+  br i1 %.not32, label %.critedge, label %24
 
-26:                                               ; preds = %.lr.ph
-  %27 = load i32, ptr %23, align 8, !tbaa !19
-  %.not33 = icmp eq i32 %27, 0
-  br i1 %.not33, label %36, label %28
+24:                                               ; preds = %.lr.ph
+  %25 = load i32, ptr %21, align 8, !tbaa !19
+  %.not33 = icmp eq i32 %25, 0
+  br i1 %.not33, label %34, label %26
 
-28:                                               ; preds = %26
-  %29 = call i32 @ERR_set_mark() #3
-  %30 = load ptr, ptr %2, align 8, !tbaa !4
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !20
-  %33 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %30, ptr noundef nonnull %25, i64 noundef %32) #3
-  %34 = call i32 @test_int_le(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i32 noundef %33, i32 noundef 0) #3
-  %35 = call i32 @ERR_pop_to_mark() #3
-  br label %42
+26:                                               ; preds = %24
+  %27 = call i32 @ERR_set_mark() #3
+  %28 = load ptr, ptr %2, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !20
+  %31 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %28, ptr noundef nonnull %23, i64 noundef %30) #3
+  %32 = call i32 @test_int_le(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i32 noundef %31, i32 noundef 0) #3
+  %33 = call i32 @ERR_pop_to_mark() #3
+  br label %40
 
-36:                                               ; preds = %26
-  %37 = load ptr, ptr %2, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !20
-  %40 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %37, ptr noundef nonnull %25, i64 noundef %39) #3
-  %41 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 303, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i32 noundef %40, i32 noundef 0) #3
-  br label %42
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %2, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !20
+  %38 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %35, ptr noundef nonnull %23, i64 noundef %37) #3
+  %39 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 303, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i32 noundef %38, i32 noundef 0) #3
+  br label %40
 
-42:                                               ; preds = %36, %28
-  %.1.in.in = phi i32 [ %34, %28 ], [ %41, %36 ]
+40:                                               ; preds = %34, %26
+  %.1.in.in = phi i32 [ %32, %26 ], [ %39, %34 ]
   %.1.in.not = icmp eq i32 %.1.in.in, 0
-  br i1 %.1.in.not, label %.thread44, label %44
+  br i1 %.1.in.not, label %.thread44, label %42
 
-.thread44:                                        ; preds = %42
-  %43 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 306, ptr noundef nonnull @.str.14, i32 noundef %43) #3
+.thread44:                                        ; preds = %40
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 306, ptr noundef nonnull @.str.14, i32 noundef %41) #3
   br label %.critedge
 
-44:                                               ; preds = %42
+42:                                               ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = icmp samesign ult i64 %indvars.iv, 9
-  br i1 %45, label %.lr.ph, label %.critedge, !llvm.loop !21
+  %43 = icmp samesign ult i64 %indvars.iv, 9
+  br i1 %43, label %.lr.ph, label %.critedge, !llvm.loop !21
 
-.critedge:                                        ; preds = %.lr.ph, %44, %12, %.thread44, %20
-  %.029.lcssa = phi i32 [ 0, %20 ], [ 0, %.thread44 ], [ 0, %12 ], [ 1, %44 ], [ 1, %.lr.ph ]
-  %46 = call i32 @BIO_free(ptr noundef %18) #3
-  %47 = load ptr, ptr %2, align 8, !tbaa !4
-  call void @EVP_PKEY_free(ptr noundef %47) #3
-  br label %48
+.critedge:                                        ; preds = %.lr.ph, %42, %10, %.thread44, %18
+  %.029.lcssa = phi i32 [ 0, %18 ], [ 0, %.thread44 ], [ 0, %10 ], [ 1, %42 ], [ 1, %.lr.ph ]
+  %44 = call i32 @BIO_free(ptr noundef %16) #3
+  %45 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @EVP_PKEY_free(ptr noundef %45) #3
+  br label %46
 
-48:                                               ; preds = %.critedge, %10
-  %.0 = phi i32 [ %11, %10 ], [ %.029.lcssa, %.critedge ]
+46:                                               ; preds = %.critedge, %8
+  %.0 = phi i32 [ %9, %8 ], [ %.029.lcssa, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -1052,44 +1052,46 @@ define noundef ptr @get_params(ptr noundef readnone captures(none) %0, ptr nound
 4:                                                ; preds = %24, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %24 ]
   %5 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !138
-  switch i32 %7, label %24 [
-    i32 3, label %8
-    i32 0, label %14
-    i32 5, label %19
-  ]
+  %6 = icmp samesign ult i64 %indvars.iv.i, 5
+  br i1 %6, label %7, label %13
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !140
-  %11 = load ptr, ptr %5, align 8, !tbaa !141
-  %12 = call i32 @dt_conf_get_bool(ptr noundef %11) #16
-  %.not33.i = icmp ne i32 %12, 0
-  %13 = zext i1 %.not33.i to i32
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.132, ptr noundef %10, i32 noundef %13) #16
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !138
+  %10 = load ptr, ptr %5, align 8, !tbaa !140
+  %11 = call i32 @dt_conf_get_bool(ptr noundef %10) #16
+  %.not33.i = icmp ne i32 %11, 0
+  %12 = zext i1 %.not33.i to i32
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.132, ptr noundef %9, i32 noundef %12) #16
   br label %24
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
+  %14 = icmp eq i64 %indvars.iv.i, 8
+  br i1 %14, label %.thread.i, label %19
+
+.thread.i:                                        ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !140
-  %17 = load ptr, ptr %5, align 8, !tbaa !141
+  %16 = load ptr, ptr %15, align 8, !tbaa !138
+  %17 = load ptr, ptr %5, align 8, !tbaa !140
   %18 = call i32 @dt_conf_get_int(ptr noundef %17) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.132, ptr noundef %16, i32 noundef %18) #16
-  br label %24
+  br label %.preheader.i.preheader
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %5, align 8, !tbaa !141
+.preheader.i.preheader:                           ; preds = %24, %.thread.i
+  br label %.preheader.i
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %5, align 8, !tbaa !140
   %21 = call ptr @dt_conf_get_string_const(ptr noundef %20) #16
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !140
+  %23 = load ptr, ptr %22, align 8, !tbaa !138
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.133, ptr noundef %23, ptr noundef %21) #16
   br label %24
 
-24:                                               ; preds = %19, %14, %8, %4
+24:                                               ; preds = %19, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %.preheader.i, label %4
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %4
 
 25:                                               ; preds = %38
   %26 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.137) #16
@@ -1105,8 +1107,8 @@ _get_current_configuration.exit.thread:           ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
-.preheader.i:                                     ; preds = %24, %38
-  %.0262.i = phi i32 [ %39, %38 ], [ 0, %24 ]
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %38
+  %.0262.i = phi i32 [ %39, %38 ], [ 0, %.preheader.i.preheader ]
   %30 = call i32 @dt_metadata_get_type_by_display_order(i32 noundef %.0262.i) #16
   %.not31.i = icmp eq i32 %30, 2
   br i1 %.not31.i, label %38, label %31
@@ -1179,7 +1181,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %19 ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !138
+  %9 = load i32, ptr %8, align 8, !tbaa !141
   switch i32 %9, label %19 [
     i32 3, label %10
     i32 0, label %13
@@ -1187,19 +1189,19 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
   ]
 
 10:                                               ; preds = %.preheader.i
-  %11 = load ptr, ptr %7, align 8, !tbaa !141
+  %11 = load ptr, ptr %7, align 8, !tbaa !140
   %12 = tail call i32 @dt_confgen_get_bool(ptr noundef %11, i32 noundef 0) #16
   tail call void @dt_conf_set_bool(ptr noundef %11, i32 noundef %12) #16
   br label %19
 
 13:                                               ; preds = %.preheader.i
-  %14 = load ptr, ptr %7, align 8, !tbaa !141
+  %14 = load ptr, ptr %7, align 8, !tbaa !140
   %15 = tail call i32 @dt_confgen_get_int(ptr noundef %14, i32 noundef 0) #16
   tail call void @dt_conf_set_int(ptr noundef %14, i32 noundef %15) #16
   br label %19
 
 16:                                               ; preds = %.preheader.i
-  %17 = load ptr, ptr %7, align 8, !tbaa !141
+  %17 = load ptr, ptr %7, align 8, !tbaa !140
   %18 = tail call ptr @dt_confgen_get(ptr noundef %17, i32 noundef 0) #16
   tail call void @dt_conf_set_string(ptr noundef %17, ptr noundef %18) #16
   br label %19
@@ -1240,7 +1242,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
   br i1 %.not6584.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_set_default_preferences.exit.i, %.thread.i
-  %.085.i = phi ptr [ %85, %.thread.i ], [ %29, %_set_default_preferences.exit.i ]
+  %.085.i = phi ptr [ %89, %.thread.i ], [ %29, %_set_default_preferences.exit.i ]
   %30 = load ptr, ptr %.085.i, align 8, !tbaa !42
   %31 = tail call ptr @g_strstr_len(ptr noundef %30, i64 noundef -1, ptr noundef nonnull @.str.140) #16
   %.not66.i = icmp eq ptr %31, null
@@ -1261,7 +1263,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
 .preheader.i73.i:                                 ; preds = %35, %40
   %indvars.iv.i74.i = phi i64 [ %indvars.iv.next.i75.i, %40 ], [ 0, %35 ]
   %37 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i74.i, i32 1
-  %38 = load ptr, ptr %37, align 8, !tbaa !140
+  %38 = load ptr, ptr %37, align 8, !tbaa !138
   %39 = tail call i32 @g_strcmp0(ptr noundef nonnull %34, ptr noundef %38) #16
   %.not12.i.i = icmp eq i32 %39, 0
   br i1 %.not12.i.i, label %_get_key_index.exit.i, label %40
@@ -1275,137 +1277,141 @@ _get_key_index.exit.i:                            ; preds = %.preheader.i73.i
   %sext.i = shl i64 %indvars.iv.i74.i, 32
   %41 = ashr exact i64 %sext.i, 32
   %42 = getelementptr inbounds %struct.anon.0, ptr @_pref, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i32, ptr %43, align 8, !tbaa !138
-  switch i32 %44, label %.thread.i [
-    i32 3, label %45
-    i32 0, label %50
-    i32 5, label %54
-  ]
+  %43 = icmp samesign ult i64 %indvars.iv.i74.i, 5
+  br i1 %43, label %44, label %49
 
-45:                                               ; preds = %_get_key_index.exit.i
-  %46 = load ptr, ptr %42, align 8, !tbaa !141
-  %47 = load i8, ptr %33, align 1, !tbaa !51
-  %48 = icmp eq i8 %47, 49
-  %49 = zext i1 %48 to i32
-  tail call void @dt_conf_set_bool(ptr noundef %46, i32 noundef %49) #16
+44:                                               ; preds = %_get_key_index.exit.i
+  %45 = load ptr, ptr %42, align 8, !tbaa !140
+  %46 = load i8, ptr %33, align 1, !tbaa !51
+  %47 = icmp eq i8 %46, 49
+  %48 = zext i1 %47 to i32
+  tail call void @dt_conf_set_bool(ptr noundef %45, i32 noundef %48) #16
   br label %.thread.i
 
-50:                                               ; preds = %_get_key_index.exit.i
-  %51 = load ptr, ptr %42, align 8, !tbaa !141
-  %52 = tail call i64 @strtol(ptr noundef nonnull captures(none) %33, ptr noundef null, i32 noundef 10) #16
-  %53 = trunc i64 %52 to i32
-  tail call void @dt_conf_set_int(ptr noundef %51, i32 noundef %53) #16
+49:                                               ; preds = %_get_key_index.exit.i
+  %50 = icmp eq i64 %indvars.iv.i74.i, 8
+  br i1 %50, label %51, label %55
+
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %42, align 8, !tbaa !140
+  %53 = tail call i64 @strtol(ptr noundef nonnull captures(none) %33, ptr noundef null, i32 noundef 10) #16
+  %54 = trunc i64 %53 to i32
+  tail call void @dt_conf_set_int(ptr noundef %52, i32 noundef %54) #16
   br label %.thread.i
 
-54:                                               ; preds = %_get_key_index.exit.i
-  %55 = load ptr, ptr %42, align 8, !tbaa !141
-  tail call void @dt_conf_set_string(ptr noundef %55, ptr noundef nonnull %33) #16
+55:                                               ; preds = %49
+  %56 = add nsw i64 %41, -5
+  %57 = icmp ult i64 %56, 3
+  br i1 %57, label %58, label %.thread.i
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %42, align 8, !tbaa !140
+  tail call void @dt_conf_set_string(ptr noundef %59, ptr noundef nonnull %33) #16
   br label %.thread.i
 
 _get_key_index.exit.thread.i:                     ; preds = %40, %35, %32
-  %56 = tail call i32 @g_strcmp0(ptr noundef %34, ptr noundef nonnull @.str.139) #16
-  %.not68.i = icmp eq i32 %56, 0
-  br i1 %.not68.i, label %69, label %57
+  %60 = tail call i32 @g_strcmp0(ptr noundef %34, ptr noundef nonnull @.str.139) #16
+  %.not68.i = icmp eq i32 %60, 0
+  br i1 %.not68.i, label %73, label %61
 
-57:                                               ; preds = %_get_key_index.exit.thread.i
-  %58 = tail call i32 @dt_metadata_get_keyid_by_name(ptr noundef %34) #16
-  %.not71.i = icmp eq i32 %58, -1
-  br i1 %.not71.i, label %.thread.i, label %59
+61:                                               ; preds = %_get_key_index.exit.thread.i
+  %62 = tail call i32 @dt_metadata_get_keyid_by_name(ptr noundef %34) #16
+  %.not71.i = icmp eq i32 %62, -1
+  br i1 %.not71.i, label %.thread.i, label %63
 
-59:                                               ; preds = %57
-  %60 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.134, ptr noundef %34) #16
-  %61 = tail call i32 @dt_conf_get_int(ptr noundef %60) #16
-  %62 = and i32 %61, -5
-  %63 = load i8, ptr %33, align 1, !tbaa !51
-  %64 = icmp eq i8 %63, 49
-  %65 = select i1 %64, i32 4, i32 0
-  %66 = or disjoint i32 %65, %62
-  tail call void @dt_conf_set_int(ptr noundef %60, i32 noundef %66) #16
-  tail call void @g_free(ptr noundef %60) #16
-  %67 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  %68 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.135, ptr noundef %34) #16
-  tail call void @dt_conf_set_string(ptr noundef %68, ptr noundef nonnull %67) #16
-  tail call void @g_free(ptr noundef %68) #16
+63:                                               ; preds = %61
+  %64 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.134, ptr noundef %34) #16
+  %65 = tail call i32 @dt_conf_get_int(ptr noundef %64) #16
+  %66 = and i32 %65, -5
+  %67 = load i8, ptr %33, align 1, !tbaa !51
+  %68 = icmp eq i8 %67, 49
+  %69 = select i1 %68, i32 4, i32 0
+  %70 = or disjoint i32 %69, %66
+  tail call void @dt_conf_set_int(ptr noundef %64, i32 noundef %70) #16
+  tail call void @g_free(ptr noundef %64) #16
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  %72 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.135, ptr noundef %34) #16
+  tail call void @dt_conf_set_string(ptr noundef %72, ptr noundef nonnull %71) #16
+  tail call void @g_free(ptr noundef %72) #16
   br label %.thread.i
 
-69:                                               ; preds = %_get_key_index.exit.thread.i
-  %70 = load i8, ptr %33, align 1, !tbaa !51
-  %71 = and i8 %70, -2
-  %switch.i = icmp eq i8 %71, 48
-  br i1 %switch.i, label %72, label %76
+73:                                               ; preds = %_get_key_index.exit.thread.i
+  %74 = load i8, ptr %33, align 1, !tbaa !51
+  %75 = and i8 %74, -2
+  %switch.i = icmp eq i8 %75, 48
+  br i1 %switch.i, label %76, label %80
 
-72:                                               ; preds = %69
-  %73 = icmp eq i8 %70, 49
-  %74 = zext i1 %73 to i32
-  tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.137, i32 noundef %74) #16
-  %75 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  br label %77
+76:                                               ; preds = %73
+  %77 = icmp eq i8 %74, 49
+  %78 = zext i1 %77 to i32
+  tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.137, i32 noundef %78) #16
+  %79 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  br label %81
 
-76:                                               ; preds = %69
+80:                                               ; preds = %73
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.137, i32 noundef 1) #16
-  br label %77
+  br label %81
 
-77:                                               ; preds = %76, %72
-  %.059.i = phi ptr [ %75, %72 ], [ %33, %76 ]
+81:                                               ; preds = %80, %76
+  %.059.i = phi ptr [ %79, %76 ], [ %33, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %78 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.059.i) #16
-  store ptr %78, ptr %4, align 8, !tbaa !137
+  %82 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.059.i) #16
+  store ptr %82, ptr %4, align 8, !tbaa !137
   %.057.in86.i = getelementptr inbounds nuw i8, ptr %.085.i, i64 8
   %.05787.i = load ptr, ptr %.057.in86.i, align 8, !tbaa !91
   %.not6988.i = icmp eq ptr %.05787.i, null
   br i1 %.not6988.i, label %._crit_edge.i, label %.lr.ph90.i
 
-.lr.ph90.i:                                       ; preds = %77, %81
-  %.05789.i = phi ptr [ %.057.i, %81 ], [ %.05787.i, %77 ]
-  %79 = load ptr, ptr %.05789.i, align 8, !tbaa !42
-  %char0.i = load i8, ptr %79, align 1
+.lr.ph90.i:                                       ; preds = %81, %85
+  %.05789.i = phi ptr [ %.057.i, %85 ], [ %.05787.i, %81 ]
+  %83 = load ptr, ptr %.05789.i, align 8, !tbaa !42
+  %char0.i = load i8, ptr %83, align 1
   %.not70.i = icmp eq i8 %char0.i, 0
-  br i1 %.not70.i, label %81, label %80
+  br i1 %.not70.i, label %85, label %84
 
-80:                                               ; preds = %.lr.ph90.i
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.141, ptr noundef nonnull %79) #16
-  br label %81
+84:                                               ; preds = %.lr.ph90.i
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.141, ptr noundef nonnull %83) #16
+  br label %85
 
-81:                                               ; preds = %80, %.lr.ph90.i
+85:                                               ; preds = %84, %.lr.ph90.i
   %.057.in.i = getelementptr inbounds nuw i8, ptr %.05789.i, i64 8
   %.057.i = load ptr, ptr %.057.in.i, align 8, !tbaa !91
   %.not69.i = icmp eq ptr %.057.i, null
   br i1 %.not69.i, label %._crit_edge.loopexit.i, label %.lr.ph90.i
 
-._crit_edge.loopexit.i:                           ; preds = %81
+._crit_edge.loopexit.i:                           ; preds = %85
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !137
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %77
-  %82 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %78, %77 ]
-  call void @dt_conf_set_string(ptr noundef nonnull @.str.138, ptr noundef %82) #16
-  %83 = load ptr, ptr %4, align 8, !tbaa !137
-  call void @g_free(ptr noundef %83) #16
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %81
+  %86 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %82, %81 ]
+  call void @dt_conf_set_string(ptr noundef nonnull @.str.138, ptr noundef %86) #16
+  %87 = load ptr, ptr %4, align 8, !tbaa !137
+  call void @g_free(ptr noundef %87) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i
 
-.thread.i:                                        ; preds = %59, %57, %54, %50, %45, %_get_key_index.exit.i, %.lr.ph.i
-  %84 = getelementptr inbounds nuw i8, ptr %.085.i, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !91
-  %.not65.i = icmp eq ptr %85, null
+.thread.i:                                        ; preds = %63, %61, %58, %55, %51, %44, %.lr.ph.i
+  %88 = getelementptr inbounds nuw i8, ptr %.085.i, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !91
+  %.not65.i = icmp eq ptr %89, null
   br i1 %.not65.i, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.thread.i, %._crit_edge.i, %_set_default_preferences.exit.i
   call void @g_list_free_full(ptr noundef %29, ptr noundef nonnull @g_free) #16
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %87 = load ptr, ptr %86, align 8, !tbaa !6
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %89 = load ptr, ptr %88, align 8, !tbaa !104
-  call void @dt_gui_preferences_bool_update(ptr noundef %89) #16
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 72
-  %91 = load ptr, ptr %90, align 8, !tbaa !105
-  call void @dt_gui_preferences_int_update(ptr noundef %91) #16
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 80
-  %93 = load ptr, ptr %92, align 8, !tbaa !106
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %91 = load ptr, ptr %90, align 8, !tbaa !6
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
+  %93 = load ptr, ptr %92, align 8, !tbaa !104
   call void @dt_gui_preferences_bool_update(ptr noundef %93) #16
-  %94 = getelementptr inbounds nuw i8, ptr %87, i64 104
-  call void @dt_import_metadata_update(ptr noundef nonnull %94) #16
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 72
+  %95 = load ptr, ptr %94, align 8, !tbaa !105
+  call void @dt_gui_preferences_int_update(ptr noundef %95) #16
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 80
+  %97 = load ptr, ptr %96, align 8, !tbaa !106
+  call void @dt_gui_preferences_bool_update(ptr noundef %97) #16
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 104
+  call void @dt_import_metadata_update(ptr noundef nonnull %98) #16
   br label %_apply_preferences.exit
 
 _apply_preferences.exit:                          ; preds = %.loopexit.i, %5, %3
@@ -5308,10 +5314,10 @@ attributes #19 = { nounwind allocsize(0) }
 !135 = !{!23, !25, i64 40}
 !136 = !{!9, !9, i64 0}
 !137 = !{!12, !12, i64 0}
-!138 = !{!139, !9, i64 16}
+!138 = !{!139, !12, i64 8}
 !139 = !{!"", !12, i64 0, !12, i64 8, !9, i64 16}
-!140 = !{!139, !12, i64 8}
-!141 = !{!139, !12, i64 0}
+!140 = !{!139, !12, i64 0}
+!141 = !{!139, !9, i64 16}
 !142 = !{!100, !101, i64 0}
 !143 = !{!23, !16, i64 96}
 !144 = !{!23, !16, i64 88}

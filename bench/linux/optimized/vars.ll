@@ -39,7 +39,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   %9 = add i64 %8, 1
   %10 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %9, i32 noundef 3264) #15
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %48, label %12
+  br i1 %11, label %50, label %12
 
 12:                                               ; preds = %5
   %13 = tail call i64 @ucs2_as_utf8(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %8) #14
@@ -50,8 +50,8 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   br label %17
 
 17:                                               ; preds = %.thread6, %12
-  %18 = phi i64 [ 0, %12 ], [ %44, %.thread6 ]
-  %19 = phi ptr [ @.str.3, %12 ], [ %46, %.thread6 ]
+  %18 = phi i64 [ 0, %12 ], [ %46, %.thread6 ]
+  %19 = phi ptr [ @.str.3, %12 ], [ %48, %.thread6 ]
   %20 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %18
   %21 = load i64, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -97,30 +97,33 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   br i1 %39, label %.thread4, label %.thread6
 
 .thread4:                                         ; preds = %38, %.preheader
-  %40 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit, label %.thread10
+  %40 = and i64 %18, 576460752303423487
+  %41 = shl nuw i64 1, %40
+  %42 = and i64 %41, 102400
+  %.not = icmp eq i64 %42, 0
+  br i1 %.not, label %.thread10, label %.loopexit
 
 .thread10:                                        ; preds = %.thread4
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %44 = load ptr, ptr %43, align 8
   tail call void @kfree(ptr noundef nonnull %10) #14
-  %43 = tail call zeroext i1 %41(ptr noundef %2, i32 noundef %26, ptr noundef %3, i64 noundef %4) #14
-  br label %48
+  %45 = tail call zeroext i1 %44(ptr noundef %2, i32 noundef %26, ptr noundef %3, i64 noundef %4) #14
+  br label %50
 
 .thread6:                                         ; preds = %32, %30, %17, %38
-  %44 = add nuw nsw i64 %18, 1
-  %45 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %44, i32 1
-  %46 = load ptr, ptr %45, align 16
-  %47 = icmp eq i64 %44, 16
-  br i1 %47, label %.loopexit, label %17, !llvm.loop !7
+  %46 = add nuw nsw i64 %18, 1
+  %47 = getelementptr %struct.variable_validate, ptr @variable_validate, i64 %46, i32 1
+  %48 = load ptr, ptr %47, align 16
+  %49 = icmp eq i64 %46, 16
+  br i1 %49, label %.loopexit, label %17, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.thread6, %.thread4
   tail call void @kfree(ptr noundef nonnull %10) #14
-  br label %48
+  br label %50
 
-48:                                               ; preds = %.thread10, %.loopexit, %5
-  %49 = phi i1 [ true, %.loopexit ], [ false, %5 ], [ %43, %.thread10 ]
-  ret i1 %49
+50:                                               ; preds = %.thread10, %.loopexit, %5
+  %51 = phi i1 [ true, %.loopexit ], [ false, %5 ], [ %45, %.thread10 ]
+  ret i1 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

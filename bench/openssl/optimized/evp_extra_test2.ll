@@ -398,86 +398,88 @@ define internal range(i32 0, 2) i32 @test_d2i_AutoPrivateKey_ex(i32 noundef %0) 
   %16 = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef nonnull %2, i64 noundef %12, ptr noundef %15, ptr noundef null) #7
   %17 = call i32 @test_ptr(ptr noundef nonnull @.str.28, i32 noundef 605, ptr noundef nonnull @.str.36, ptr noundef %16) #7
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %53, label %18
+  br i1 %.not, label %56, label %18
 
 18:                                               ; preds = %1
   %19 = load ptr, ptr %2, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %12
   %21 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.28, i32 noundef 606, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef %19, ptr noundef %20) #7
   %.not24 = icmp eq i32 %21, 0
-  br i1 %.not24, label %53, label %22
+  br i1 %.not24, label %56, label %22
 
 22:                                               ; preds = %18
   %23 = call i32 @EVP_PKEY_get_id(ptr noundef %16) #7
   %24 = call i32 @test_int_eq(ptr noundef nonnull @.str.28, i32 noundef 607, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %23, i32 noundef %14) #7
   %.not25 = icmp eq i32 %24, 0
-  br i1 %.not25, label %53, label %25
+  br i1 %.not25, label %56, label %25
 
 25:                                               ; preds = %22
-  switch i32 %14, label %36 [
-    i32 6, label %26
-    i32 1034, label %31
-  ]
+  %26 = icmp ult i32 %0, 2
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %25
-  %27 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #7
-  %28 = icmp ne i32 %27, 0
-  %29 = zext i1 %28 to i32
-  %30 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 612, ptr noundef nonnull @.str.41, i32 noundef %29) #7
-  %.not28 = icmp eq i32 %30, 0
-  br i1 %.not28, label %53, label %.thread
+27:                                               ; preds = %25
+  %28 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #7
+  %29 = icmp ne i32 %28, 0
+  %30 = zext i1 %29 to i32
+  %31 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 612, ptr noundef nonnull @.str.41, i32 noundef %30) #7
+  %.not28 = icmp eq i32 %31, 0
+  br i1 %.not28, label %56, label %.thread
 
-31:                                               ; preds = %25
+32:                                               ; preds = %25
+  %33 = icmp eq i32 %0, 2
+  br i1 %33, label %34, label %39
+
+34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %32 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %16, ptr noundef nonnull @.str.44, ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull %7) #7
-  %33 = icmp ne i32 %32, 0
-  %34 = zext i1 %33 to i32
-  %35 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 621, ptr noundef nonnull @.str.43, i32 noundef %34) #7
-  %.not27 = icmp eq i32 %35, 0
+  %35 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %16, ptr noundef nonnull @.str.44, ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull %7) #7
+  %36 = icmp ne i32 %35, 0
+  %37 = zext i1 %36 to i32
+  %38 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 621, ptr noundef nonnull @.str.43, i32 noundef %37) #7
+  %.not27 = icmp eq i32 %38, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not27, label %53, label %.thread
+  br i1 %.not27, label %56, label %.thread
 
-36:                                               ; preds = %25
-  %37 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.44, ptr noundef nonnull %5) #7
-  %38 = icmp ne i32 %37, 0
-  %39 = zext i1 %38 to i32
-  %40 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 625, ptr noundef nonnull @.str.45, i32 noundef %39) #7
-  %.not26 = icmp eq i32 %40, 0
-  br i1 %.not26, label %53, label %41
+39:                                               ; preds = %32
+  %40 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.44, ptr noundef nonnull %5) #7
+  %41 = icmp ne i32 %40, 0
+  %42 = zext i1 %41 to i32
+  %43 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 625, ptr noundef nonnull @.str.45, i32 noundef %42) #7
+  %.not26 = icmp eq i32 %43, 0
+  br i1 %.not26, label %56, label %44
 
-41:                                               ; preds = %36
-  %42 = icmp eq i32 %14, 28
-  br i1 %42, label %43, label %.thread
+44:                                               ; preds = %39
+  %45 = icmp eq i32 %0, 5
+  br i1 %45, label %46, label %.thread
 
-43:                                               ; preds = %41
-  %44 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull %3) #7
-  %45 = icmp ne i32 %44, 0
-  %46 = zext i1 %45 to i32
-  %47 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 630, ptr noundef nonnull @.str.46, i32 noundef %46) #7
-  %.not29 = icmp eq i32 %47, 0
-  br i1 %.not29, label %53, label %48
+46:                                               ; preds = %44
+  %47 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull %3) #7
+  %48 = icmp ne i32 %47, 0
+  %49 = zext i1 %48 to i32
+  %50 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 630, ptr noundef nonnull @.str.46, i32 noundef %49) #7
+  %.not29 = icmp eq i32 %50, 0
+  br i1 %.not29, label %56, label %51
 
-48:                                               ; preds = %43
-  %49 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.48, ptr noundef nonnull %4) #7
-  %50 = icmp ne i32 %49, 0
-  %51 = zext i1 %50 to i32
-  %52 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 632, ptr noundef nonnull @.str.47, i32 noundef %51) #7
-  %.not30 = icmp eq i32 %52, 0
-  br i1 %.not30, label %53, label %.thread
+51:                                               ; preds = %46
+  %52 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %16, ptr noundef nonnull @.str.48, ptr noundef nonnull %4) #7
+  %53 = icmp ne i32 %52, 0
+  %54 = zext i1 %53 to i32
+  %55 = call i32 @test_true(ptr noundef nonnull @.str.28, i32 noundef 632, ptr noundef nonnull @.str.47, i32 noundef %54) #7
+  %.not30 = icmp eq i32 %55, 0
+  br i1 %.not30, label %56, label %.thread
 
-.thread:                                          ; preds = %26, %31, %48, %41
-  br label %53
+.thread:                                          ; preds = %27, %34, %51, %44
+  br label %56
 
-53:                                               ; preds = %31, %43, %48, %36, %26, %1, %18, %22, %.thread
-  %.022 = phi i32 [ 1, %.thread ], [ 0, %48 ], [ 0, %43 ], [ 0, %26 ], [ 0, %31 ], [ 0, %36 ], [ 0, %22 ], [ 0, %18 ], [ 0, %1 ]
-  %54 = load ptr, ptr %3, align 8, !tbaa !16
-  call void @BN_free(ptr noundef %54) #7
-  %55 = load ptr, ptr %4, align 8, !tbaa !16
-  call void @BN_free(ptr noundef %55) #7
-  %56 = load ptr, ptr %5, align 8, !tbaa !16
-  call void @BN_free(ptr noundef %56) #7
+56:                                               ; preds = %34, %46, %51, %39, %27, %1, %18, %22, %.thread
+  %.022 = phi i32 [ 1, %.thread ], [ 0, %51 ], [ 0, %46 ], [ 0, %27 ], [ 0, %34 ], [ 0, %39 ], [ 0, %22 ], [ 0, %18 ], [ 0, %1 ]
+  %57 = load ptr, ptr %3, align 8, !tbaa !16
+  call void @BN_free(ptr noundef %57) #7
+  %58 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @BN_free(ptr noundef %58) #7
+  %59 = load ptr, ptr %5, align 8, !tbaa !16
+  call void @BN_free(ptr noundef %59) #7
   call void @EVP_PKEY_free(ptr noundef %16) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

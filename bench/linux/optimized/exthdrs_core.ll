@@ -24,21 +24,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ipv6_find_hd
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef zeroext i1 @ipv6_ext_hdr(i8 noundef zeroext %0) #0 align 16 {
-  switch i8 %0, label %2 [
-    i8 59, label %3
-    i8 51, label %3
-    i8 44, label %3
-    i8 43, label %3
-    i8 0, label %3
-    i8 60, label %3
-  ]
-
-2:                                                ; preds = %1
-  br label %3
-
-3:                                                ; preds = %2, %1, %1, %1, %1, %1, %1
-  %4 = phi i1 [ true, %1 ], [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
-  ret i1 %4
+  %2 = icmp ult i8 %0, 61
+  %switch.cast = zext nneg i8 %0 to i61
+  %switch.downshift = lshr i61 -574182564210671615, %switch.cast
+  %switch.masked = trunc i61 %switch.downshift to i1
+  %3 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

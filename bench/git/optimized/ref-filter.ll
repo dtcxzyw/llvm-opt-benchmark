@@ -636,135 +636,139 @@ _.exit104:                                        ; preds = %46, %48
 53:                                               ; preds = %43
   %54 = trunc nuw nsw i64 %indvars.iv124 to i32
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !37
-  %.not94 = icmp eq i32 %56, 0
-  br i1 %.not94, label %66, label %57
+  %56 = shl nuw i64 1, %indvars.iv124
+  %57 = and i64 %56, 35180077121537
+  %.not94.not = icmp eq i64 %57, 0
+  br i1 %.not94.not, label %58, label %67
 
-57:                                               ; preds = %53
-  %58 = tail call i32 @have_git_dir() #24
-  %.not95 = icmp eq i32 %58, 0
-  br i1 %.not95, label %59, label %._crit_edge
+58:                                               ; preds = %53
+  %59 = tail call i32 @have_git_dir() #24
+  %.not95 = icmp eq i32 %59, 0
+  br i1 %.not95, label %60, label %._crit_edge
 
-._crit_edge:                                      ; preds = %57
+._crit_edge:                                      ; preds = %58
   %.pre = load i32, ptr @used_atom_cnt, align 4, !tbaa !4
-  br label %66
+  br label %67
 
-59:                                               ; preds = %57
-  %60 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i105 = icmp eq i32 %60, 0
-  br i1 %.not4.i105, label %_.exit107, label %61
+60:                                               ; preds = %58
+  %61 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i105 = icmp eq i32 %61, 0
+  br i1 %.not4.i105, label %_.exit107, label %62
 
-61:                                               ; preds = %59
-  %62 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #24
+62:                                               ; preds = %60
+  %63 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #24
   br label %_.exit107
 
-_.exit107:                                        ; preds = %59, %61
-  %.0.i106 = phi ptr [ %62, %61 ], [ @.str.27, %59 ]
-  %63 = ptrtoint ptr %1 to i64
-  %64 = sub i64 %17, %63
-  %65 = trunc i64 %64 to i32
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %3, i32 poison, ptr noundef %.0.i106, i32 noundef %65, ptr noundef nonnull %1)
+_.exit107:                                        ; preds = %60, %62
+  %.0.i106 = phi ptr [ %63, %62 ], [ @.str.27, %60 ]
+  %64 = ptrtoint ptr %1 to i64
+  %65 = sub i64 %17, %64
+  %66 = trunc i64 %65 to i32
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %3, i32 poison, ptr noundef %.0.i106, i32 noundef %66, ptr noundef nonnull %1)
   br label %.loopexit
 
-66:                                               ; preds = %._crit_edge, %53
-  %67 = phi i32 [ %.pre, %._crit_edge ], [ %25, %53 ]
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr @used_atom_cnt, align 4, !tbaa !4
-  %69 = sext i32 %68 to i64
-  %mul.ov.i = icmp slt i32 %67, -1
-  br i1 %mul.ov.i, label %70, label %st_mult.exit
+67:                                               ; preds = %._crit_edge, %53
+  %68 = phi i32 [ %.pre, %._crit_edge ], [ %25, %53 ]
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr @used_atom_cnt, align 4, !tbaa !4
+  %70 = sext i32 %69 to i64
+  %mul.ov.i = icmp slt i32 %68, -1
+  br i1 %mul.ov.i, label %71, label %st_mult.exit
 
-70:                                               ; preds = %66
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.143, i64 noundef 112, i64 noundef %69) #26
+71:                                               ; preds = %67
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.143, i64 noundef 112, i64 noundef %70) #26
   unreachable
 
-st_mult.exit:                                     ; preds = %66
-  %71 = load ptr, ptr @used_atom, align 8, !tbaa !25
-  %72 = mul nsw i64 %69, 112
-  %73 = tail call ptr @xrealloc(ptr noundef %71, i64 noundef %72) #24
-  store ptr %73, ptr @used_atom, align 8, !tbaa !25
-  %74 = sext i32 %67 to i64
-  %75 = getelementptr inbounds %struct.used_atom, ptr %73, i64 %74
-  store i32 %54, ptr %75, align 8, !tbaa !27
-  %76 = ptrtoint ptr %1 to i64
-  %77 = sub i64 %17, %76
-  %78 = tail call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %77) #24
-  %79 = load ptr, ptr @used_atom, align 8, !tbaa !25
-  %80 = getelementptr inbounds %struct.used_atom, ptr %79, i64 %74, i32 1
-  store ptr %78, ptr %80, align 8, !tbaa !30
-  %81 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %82 = load i32, ptr %81, align 4, !tbaa !38
-  %83 = getelementptr inbounds %struct.used_atom, ptr %79, i64 %74, i32 2
-  store i32 %82, ptr %83, align 8, !tbaa !39
-  %84 = getelementptr inbounds %struct.used_atom, ptr %79, i64 %74, i32 3
-  store i32 %56, ptr %84, align 4, !tbaa !40
-  %85 = icmp eq i32 %56, 1
-  br i1 %85, label %86, label %91
+st_mult.exit:                                     ; preds = %67
+  %72 = load ptr, ptr @used_atom, align 8, !tbaa !25
+  %73 = mul nsw i64 %70, 112
+  %74 = tail call ptr @xrealloc(ptr noundef %72, i64 noundef %73) #24
+  store ptr %74, ptr @used_atom, align 8, !tbaa !25
+  %75 = sext i32 %68 to i64
+  %76 = getelementptr inbounds %struct.used_atom, ptr %74, i64 %75
+  store i32 %54, ptr %76, align 8, !tbaa !27
+  %77 = ptrtoint ptr %1 to i64
+  %78 = sub i64 %17, %77
+  %79 = tail call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %78) #24
+  %80 = load ptr, ptr @used_atom, align 8, !tbaa !25
+  %81 = getelementptr inbounds %struct.used_atom, ptr %80, i64 %75, i32 1
+  store ptr %79, ptr %81, align 8, !tbaa !30
+  %82 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %83 = load i32, ptr %82, align 4, !tbaa !37
+  %84 = getelementptr inbounds %struct.used_atom, ptr %80, i64 %75, i32 2
+  store i32 %83, ptr %84, align 8, !tbaa !38
+  %85 = load i32, ptr %55, align 8, !tbaa !39
+  %86 = getelementptr inbounds %struct.used_atom, ptr %80, i64 %75, i32 3
+  store i32 %85, ptr %86, align 4, !tbaa !40
+  %87 = add nsw i32 %54, -5
+  %88 = icmp ult i32 %87, 27
+  br i1 %88, label %89, label %94
 
-86:                                               ; preds = %st_mult.exit
-  %87 = load i8, ptr %1, align 1, !tbaa !15
-  %88 = icmp eq i8 %87, 42
-  br i1 %88, label %89, label %90
+89:                                               ; preds = %st_mult.exit
+  %90 = load i8, ptr %1, align 1, !tbaa !15
+  %91 = icmp eq i8 %90, 42
+  br i1 %91, label %92, label %93
 
-89:                                               ; preds = %86
+92:                                               ; preds = %89
   store ptr getelementptr inbounds nuw (i8, ptr @oi_deref, i64 96), ptr getelementptr inbounds nuw (i8, ptr @oi_deref, i64 144), align 8, !tbaa !41
-  br label %91
+  br label %94
 
-90:                                               ; preds = %86
+93:                                               ; preds = %89
   store ptr getelementptr inbounds nuw (i8, ptr @oi, i64 96), ptr getelementptr inbounds nuw (i8, ptr @oi, i64 144), align 8, !tbaa !41
-  br label %91
+  br label %94
 
-91:                                               ; preds = %89, %90, %st_mult.exit
-  br i1 %.not92, label %98, label %92
+94:                                               ; preds = %92, %93, %st_mult.exit
+  br i1 %.not92, label %101, label %95
 
-92:                                               ; preds = %91
-  %93 = ptrtoint ptr %20 to i64
-  %94 = sub i64 %93, %76
-  %95 = getelementptr inbounds i8, ptr %78, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
-  %97 = load i8, ptr %96, align 1, !tbaa !15
-  %.not96 = icmp eq i8 %97, 0
-  %spec.store.select = select i1 %.not96, ptr null, ptr %96
-  br label %98
+95:                                               ; preds = %94
+  %96 = ptrtoint ptr %20 to i64
+  %97 = sub i64 %96, %77
+  %98 = getelementptr inbounds i8, ptr %79, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !15
+  %.not96 = icmp eq i8 %100, 0
+  %spec.store.select = select i1 %.not96, ptr null, ptr %99
+  br label %101
 
-98:                                               ; preds = %92, %91
-  %.078 = phi ptr [ %spec.store.select, %92 ], [ null, %91 ]
-  %99 = getelementptr inbounds %struct.used_atom, ptr %79, i64 %74, i32 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %99, i8 0, i64 88, i1 false)
-  %100 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !48
-  %.not97 = icmp eq ptr %101, null
-  br i1 %.not97, label %105, label %102
+101:                                              ; preds = %95, %94
+  %.078 = phi ptr [ %spec.store.select, %95 ], [ null, %94 ]
+  %102 = getelementptr inbounds %struct.used_atom, ptr %80, i64 %75, i32 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %102, i8 0, i64 88, i1 false)
+  %103 = and i64 %56, 14602919006080
+  %.not97.not = icmp eq i64 %103, 0
+  br i1 %.not97.not, label %104, label %109
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds %struct.used_atom, ptr %79, i64 %74
-  %104 = tail call i32 %101(ptr noundef %0, ptr noundef %103, ptr noundef %.078, ptr noundef %3) #24
-  %.not98 = icmp eq i32 %104, 0
-  br i1 %.not98, label %105, label %.loopexit
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !48
+  %107 = getelementptr inbounds %struct.used_atom, ptr %80, i64 %75
+  %108 = tail call i32 %106(ptr noundef %0, ptr noundef %107, ptr noundef %.078, ptr noundef %3) #24
+  %.not98 = icmp eq i32 %108, 0
+  br i1 %.not98, label %109, label %.loopexit
 
-105:                                              ; preds = %102, %98
-  %106 = load i8, ptr %1, align 1, !tbaa !15
-  %107 = icmp eq i8 %106, 42
-  br i1 %107, label %108, label %109
+109:                                              ; preds = %104, %101
+  %110 = load i8, ptr %1, align 1, !tbaa !15
+  %111 = icmp eq i8 %110, 42
+  br i1 %111, label %112, label %113
 
-108:                                              ; preds = %105
+112:                                              ; preds = %109
   store i1 true, ptr @need_tagged, align 4
-  br label %109
+  br label %113
 
-109:                                              ; preds = %108, %105
-  %110 = icmp eq i64 %indvars.iv124, 34
-  br i1 %110, label %111, label %.loopexit
+113:                                              ; preds = %112, %109
+  %114 = icmp eq i64 %indvars.iv124, 34
+  br i1 %114, label %115, label %.loopexit
 
-111:                                              ; preds = %109
+115:                                              ; preds = %113
   store i1 true, ptr @need_symref, align 4
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %36
-  %112 = trunc nuw nsw i64 %indvars.iv to i32
+  %116 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %109, %111, %102, %_.exit107, %_.exit104, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit104 ], [ -1, %_.exit107 ], [ -1, %102 ], [ %67, %111 ], [ %67, %109 ], [ %112, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %113, %115, %104, %_.exit107, %_.exit104, %_.exit
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit104 ], [ -1, %_.exit107 ], [ -1, %104 ], [ %68, %115 ], [ %68, %113 ], [ %116, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -2283,7 +2287,7 @@ define internal i32 @compare_refs(ptr noundef readonly captures(none) %0, ptr no
   %14 = load i32, ptr %13, align 8, !tbaa !128
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %struct.used_atom, ptr %12, i64 %15, i32 2
-  %17 = load i32, ptr %16, align 8, !tbaa !39
+  %17 = load i32, ptr %16, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_sorting_atom.err, i64 24, i1 false)
   %18 = call fastcc i32 @get_ref_atom_value(ptr noundef %7, i32 noundef %14, ptr noundef %4, ptr noundef nonnull %6)
@@ -4994,7 +4998,7 @@ define internal range(i32 -1, 1) i32 @contents_atom_parser(ptr readnone captures
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %14, align 8, !tbaa !39
+  store i32 1, ptr %14, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 3, ptr %15, align 8, !tbaa !15
   br label %49
@@ -5159,7 +5163,7 @@ define internal range(i32 -1, 1) i32 @raw_atom_parser(ptr readnone captures(none
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %10, align 8, !tbaa !39
+  store i32 1, ptr %10, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %11, align 8, !tbaa !15
   br label %20
@@ -9492,7 +9496,7 @@ define internal fastcc void @grab_date(ptr noundef nonnull %0, ptr noundef captu
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !164
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %12, align 8, !tbaa !39
+  store i32 0, ptr %12, align 8, !tbaa !38
   br label %13
 
 13:                                               ; preds = %8, %3
@@ -9677,9 +9681,9 @@ attributes #27 = { nounwind willreturn memory(none) }
 !34 = !{!35, !10, i64 0}
 !35 = !{!"", !10, i64 0, !5, i64 8, !5, i64 12, !11, i64 16}
 !36 = distinct !{!36, !21}
-!37 = !{!35, !5, i64 8}
-!38 = !{!35, !5, i64 12}
-!39 = !{!28, !5, i64 16}
+!37 = !{!35, !5, i64 12}
+!38 = !{!28, !5, i64 16}
+!39 = !{!35, !5, i64 8}
 !40 = !{!28, !5, i64 20}
 !41 = !{!42, !11, i64 144}
 !42 = !{!"expand_data", !43, i64 0, !5, i64 36, !24, i64 40, !24, i64 48, !43, i64 56, !11, i64 96, !44, i64 104}

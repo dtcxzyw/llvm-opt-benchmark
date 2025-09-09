@@ -1312,17 +1312,13 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_shost_state
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %18
-
-18:                                               ; preds = %14
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.31, ptr noundef nonnull %16) #15
-  %20 = sext i32 %19 to i64
+  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.31, ptr noundef nonnull %16) #15
+  %18 = sext i32 %17 to i64
   br label %.thread
 
-.thread:                                          ; preds = %6, %18, %14
-  %21 = phi i64 [ %20, %18 ], [ -22, %14 ], [ -22, %6 ]
-  ret i64 %21
+.thread:                                          ; preds = %6, %14
+  %19 = phi i64 [ %18, %14 ], [ -22, %6 ]
+  ret i64 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2411,17 +2407,13 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_state_field
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %18
-
-18:                                               ; preds = %14
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.31, ptr noundef nonnull %16) #15
-  %20 = sext i32 %19 to i64
+  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.31, ptr noundef nonnull %16) #15
+  %18 = sext i32 %17 to i64
   br label %.thread
 
-.thread:                                          ; preds = %6, %18, %14
-  %21 = phi i64 [ %20, %18 ], [ -22, %14 ], [ -22, %6 ]
-  ret i64 %21
+.thread:                                          ; preds = %6, %14
+  %19 = phi i64 [ %18, %14 ], [ -22, %6 ]
+  ret i64 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

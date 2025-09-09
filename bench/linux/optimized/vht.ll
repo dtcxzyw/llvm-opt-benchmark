@@ -1441,42 +1441,25 @@ declare dso_local void @rate_control_rate_update(ptr noundef, ptr noundef, ptr n
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
 define dso_local void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 align 16 {
   %3 = zext i16 %0 to i32
-  br label %4
+  br label %switch.lookup
 
-4:                                                ; preds = %14, %2
-  %5 = phi i64 [ 0, %2 ], [ %16, %14 ]
-  %6 = trunc i64 %5 to i32
-  %7 = shl i32 %6, 1
-  %8 = lshr i32 %3, %7
-  %9 = and i32 %8, 3
-  %10 = getelementptr i16, ptr %1, i64 %5
-  switch i32 %9, label %default.unreachable1 [
-    i32 0, label %14
-    i32 1, label %11
-    i32 2, label %12
-    i32 3, label %13
-  ]
+switch.lookup:                                    ; preds = %switch.lookup, %2
+  %4 = phi i64 [ 0, %2 ], [ %11, %switch.lookup ]
+  %5 = trunc i64 %4 to i32
+  %6 = shl i32 %5, 1
+  %7 = lshr i32 %3, %6
+  %8 = getelementptr i16, ptr %1, i64 %4
+  %9 = shl nuw nsw i32 %7, 4
+  %10 = and i32 %9, 48
+  %switch.shiftamt = zext nneg i32 %10 to i64
+  %switch.downshift = lshr i64 4393785032959, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i16
+  store i16 %switch.masked, ptr %8, align 2
+  %11 = add nuw nsw i64 %4, 1
+  %12 = icmp eq i64 %11, 8
+  br i1 %12, label %13, label %switch.lookup, !llvm.loop !27
 
-11:                                               ; preds = %4
-  br label %14
-
-12:                                               ; preds = %4
-  br label %14
-
-default.unreachable1:                             ; preds = %4
-  unreachable
-
-13:                                               ; preds = %4
-  br label %14
-
-14:                                               ; preds = %4, %13, %12, %11
-  %15 = phi i16 [ 511, %11 ], [ 1023, %12 ], [ 0, %13 ], [ 255, %4 ]
-  store i16 %15, ptr %10, align 2
-  %16 = add nuw nsw i64 %5, 1
-  %17 = icmp eq i64 %16, 8
-  br i1 %17, label %18, label %4, !llvm.loop !27
-
-18:                                               ; preds = %14
+13:                                               ; preds = %switch.lookup
   ret void
 }
 

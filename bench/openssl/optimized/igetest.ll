@@ -385,40 +385,40 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %10 = load i32, ptr %9, align 8, !tbaa !12
-  %11 = icmp eq i32 %10, 1
-  br i1 %11, label %12, label %14
+  %10 = icmp eq i32 %0, 0
+  br i1 %10, label %11, label %13
 
-12:                                               ; preds = %8
-  %13 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %6, i32 noundef 128, ptr noundef nonnull %2) #4
-  br label %16
+11:                                               ; preds = %8
+  %12 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %6, i32 noundef 128, ptr noundef nonnull %2) #4
+  br label %15
 
-14:                                               ; preds = %8
-  %15 = call i32 @AES_set_decrypt_key(ptr noundef nonnull %6, i32 noundef 128, ptr noundef nonnull %2) #4
-  br label %16
+13:                                               ; preds = %8
+  %14 = call i32 @AES_set_decrypt_key(ptr noundef nonnull %6, i32 noundef 128, ptr noundef nonnull %2) #4
+  br label %15
 
-16:                                               ; preds = %14, %12
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @AES_ige_encrypt(ptr noundef nonnull %18, ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %10) #4
+15:                                               ; preds = %13, %11
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %16, i64 32, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %18 = load i32, ptr %9, align 8, !tbaa !12
+  call void @AES_ige_encrypt(ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %18) #4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 167, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull %3, i64 noundef 32) #4
   %.not32 = icmp eq i32 %20, 0
   br i1 %.not32, label %21, label %22
 
-21:                                               ; preds = %16
+21:                                               ; preds = %15
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.10, i32 noundef 168, ptr noundef nonnull @.str.21, i32 noundef %0) #4
   call void @test_output_memory(ptr noundef nonnull @.str.22, ptr noundef nonnull %6, i64 noundef 16) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.23, ptr noundef nonnull %17, i64 noundef 32) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.24, ptr noundef nonnull %18, i64 noundef 32) #4
+  call void @test_output_memory(ptr noundef nonnull @.str.23, ptr noundef nonnull %16, i64 noundef 32) #4
+  call void @test_output_memory(ptr noundef nonnull @.str.24, ptr noundef nonnull %17, i64 noundef 32) #4
   br label %22
 
-22:                                               ; preds = %21, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %21 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %18, i64 32, i1 false)
-  call void @AES_ige_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %10) #4
+22:                                               ; preds = %21, %15
+  %.0 = phi i32 [ 1, %15 ], [ 0, %21 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %16, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
+  call void @AES_ige_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %18) #4
   %23 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 180, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull %3, i64 noundef 32) #4
   %.not33 = icmp eq i32 %23, 0
   br i1 %.not33, label %24, label %25
@@ -426,8 +426,8 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
 24:                                               ; preds = %22
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.10, i32 noundef 181, ptr noundef nonnull @.str.25, i32 noundef %0) #4
   call void @test_output_memory(ptr noundef nonnull @.str.22, ptr noundef nonnull %6, i64 noundef 16) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.23, ptr noundef nonnull %17, i64 noundef 32) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.24, ptr noundef nonnull %18, i64 noundef 32) #4
+  call void @test_output_memory(ptr noundef nonnull @.str.23, ptr noundef nonnull %16, i64 noundef 32) #4
+  call void @test_output_memory(ptr noundef nonnull @.str.24, ptr noundef nonnull %17, i64 noundef 32) #4
   br label %25
 
 25:                                               ; preds = %22, %24, %1
@@ -453,33 +453,46 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
   %9 = trunc i64 %8 to i32
   %10 = tail call i32 @test_int_le(ptr noundef nonnull @.str.10, i32 noundef 198, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef %9, i32 noundef 64) #4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %23, label %11
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %13 = load i64, ptr %12, align 8, !tbaa !18
-  %.tr24 = trunc i64 %13 to i32
-  %14 = shl i32 %.tr24, 3
-  %15 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %6, i32 noundef %14, ptr noundef nonnull %2) #4
+  %12 = icmp ult i32 %0, 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  %14 = load i64, ptr %13, align 8, !tbaa !18
+  %.tr24 = trunc i64 %14 to i32
+  %15 = shl i32 %.tr24, 3
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %17 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %16, i32 noundef %14, ptr noundef nonnull %3) #4
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  call void @AES_bi_ige_encrypt(ptr noundef nonnull %18, ptr noundef nonnull %4, i64 noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %19, i32 noundef 1) #4
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 212, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %20, i64 noundef %8, ptr noundef nonnull %4, i64 noundef %8) #4
-  %.not26 = icmp eq i32 %21, 0
-  br i1 %.not26, label %22, label %23
+  br i1 %12, label %17, label %20
 
-22:                                               ; preds = %11
-  call void @test_output_memory(ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i64 noundef 32) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.28, ptr noundef nonnull %16, i64 noundef 32) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.23, ptr noundef nonnull %19, i64 noundef 64) #4
-  call void @test_output_memory(ptr noundef nonnull @.str.24, ptr noundef nonnull %18, i64 noundef %8) #4
+17:                                               ; preds = %11
+  %18 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %6, i32 noundef %15, ptr noundef nonnull %2) #4
+  %19 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %16, i32 noundef %15, ptr noundef nonnull %3) #4
   br label %23
 
-23:                                               ; preds = %11, %1, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 1, %11 ]
+20:                                               ; preds = %11
+  %21 = call i32 @AES_set_decrypt_key(ptr noundef nonnull %6, i32 noundef %15, ptr noundef nonnull %2) #4
+  %22 = call i32 @AES_set_decrypt_key(ptr noundef nonnull %16, i32 noundef %15, ptr noundef nonnull %3) #4
+  br label %23
+
+23:                                               ; preds = %20, %17
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  call void @AES_bi_ige_encrypt(ptr noundef nonnull %24, ptr noundef nonnull %4, i64 noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %25, i32 noundef 1) #4
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %27 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 212, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %26, i64 noundef %8, ptr noundef nonnull %4, i64 noundef %8) #4
+  %.not26 = icmp eq i32 %27, 0
+  br i1 %.not26, label %28, label %30
+
+28:                                               ; preds = %23
+  call void @test_output_memory(ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i64 noundef 32) #4
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  call void @test_output_memory(ptr noundef nonnull @.str.28, ptr noundef nonnull %29, i64 noundef 32) #4
+  call void @test_output_memory(ptr noundef nonnull @.str.23, ptr noundef nonnull %25, i64 noundef 64) #4
+  call void @test_output_memory(ptr noundef nonnull @.str.24, ptr noundef nonnull %24, i64 noundef %8) #4
+  br label %30
+
+30:                                               ; preds = %23, %1, %28
+  %.0 = phi i32 [ 0, %28 ], [ 0, %1 ], [ 1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

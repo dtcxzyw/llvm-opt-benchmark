@@ -418,7 +418,7 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call ptr @ossl_ht_new(ptr noundef nonnull %2) #13
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %56, label %7
+  br i1 %6, label %54, label %7
 
 7:                                                ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -504,46 +504,46 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
   call void @ossl_ht_value_list_free(ptr noundef nonnull %37) #13
   br label %42
 
-42:                                               ; preds = %41, %54
-  %.242 = phi i64 [ 0, %41 ], [ %55, %54 ]
+42:                                               ; preds = %41, %52
+  %.242 = phi i64 [ 0, %41 ], [ %53, %52 ]
   %43 = getelementptr inbounds nuw %struct.anon.0, ptr @test_int_hashtable.dels, i64 %.242
   %44 = load i32, ptr %43, align 8, !tbaa !39
   store i32 %44, ptr %9, align 8, !tbaa !29
   %45 = call i32 @ossl_ht_delete(ptr noundef nonnull %5, ptr noundef nonnull %3) #13
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !16
-  %.not32 = icmp eq i32 %47, 0
-  br i1 %.not32, label %51, label %48
+  switch i64 %.242, label %46 [
+    i64 5, label %49
+    i64 2, label %49
+  ]
 
-48:                                               ; preds = %42
-  %49 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 289, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.28, i32 noundef %45, i32 noundef 1) #13
-  %.not34 = icmp eq i32 %49, 0
-  br i1 %.not34, label %50, label %54
+46:                                               ; preds = %42
+  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 289, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.28, i32 noundef %45, i32 noundef 1) #13
+  %.not34 = icmp eq i32 %47, 0
+  br i1 %.not34, label %48, label %52
 
-50:                                               ; preds = %48
+48:                                               ; preds = %46
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 291, ptr noundef nonnull @.str.50, i32 noundef %44) #13
   br label %.loopexit
 
-51:                                               ; preds = %42
-  %52 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 295, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.25, i32 noundef %45, i32 noundef 0) #13
-  %.not33 = icmp eq i32 %52, 0
-  br i1 %.not33, label %53, label %54
+49:                                               ; preds = %42, %42
+  %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 295, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.25, i32 noundef %45, i32 noundef 0) #13
+  %.not33 = icmp eq i32 %50, 0
+  br i1 %.not33, label %51, label %52
 
-53:                                               ; preds = %51
+51:                                               ; preds = %49
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 296, ptr noundef nonnull @.str.51, i32 noundef %44) #13
   br label %.loopexit
 
-54:                                               ; preds = %48, %51
-  %55 = add nuw nsw i64 %.242, 1
-  %exitcond48.not = icmp eq i64 %55, 6
+52:                                               ; preds = %46, %49
+  %53 = add nuw nsw i64 %.242, 1
+  %exitcond48.not = icmp eq i64 %53, 6
   br i1 %exitcond48.not, label %.loopexit, label %42, !llvm.loop !40
 
-.loopexit:                                        ; preds = %54, %36, %20, %53, %50, %33, %28, %17
-  %.028 = phi i32 [ 0, %17 ], [ 0, %33 ], [ 0, %50 ], [ 0, %53 ], [ 0, %36 ], [ 0, %28 ], [ 0, %20 ], [ 1, %54 ]
+.loopexit:                                        ; preds = %52, %36, %20, %51, %48, %33, %28, %17
+  %.028 = phi i32 [ 0, %17 ], [ 0, %33 ], [ 0, %48 ], [ 0, %51 ], [ 0, %36 ], [ 0, %28 ], [ 0, %20 ], [ 1, %52 ]
   call void @ossl_ht_free(ptr noundef nonnull %5) #13
-  br label %56
+  br label %54
 
-56:                                               ; preds = %0, %.loopexit
+54:                                               ; preds = %0, %.loopexit
   %.0 = phi i32 [ %.028, %.loopexit ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

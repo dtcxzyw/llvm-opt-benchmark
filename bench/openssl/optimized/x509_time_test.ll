@@ -234,10 +234,10 @@ define internal range(i32 0, 2) i32 @test_x509_cmp_time(i32 noundef %0) #0 {
 define internal range(i32 0, 2) i32 @test_x509_time(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.TESTDATA_FORMAT, ptr @x509_format_tests, i64 %2
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !19
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %10, label %6
+  %4 = shl nuw i64 1, %2
+  %5 = and i64 %4, 61503
+  %.not.not = icmp eq i64 %5, 0
+  br i1 %.not.not, label %6, label %10
 
 6:                                                ; preds = %1
   %7 = tail call ptr @ASN1_TIME_new() #5
@@ -246,74 +246,71 @@ define internal range(i32 0, 2) i32 @test_x509_time(i32 noundef %0) #0 {
 
 9:                                                ; preds = %6
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 361, ptr noundef nonnull @.str.42, i32 noundef %0) #5
-  br label %.critedge.thread45
+  br label %.critedge.thread44
 
 10:                                               ; preds = %6, %1
   %.031 = phi ptr [ %7, %6 ], [ null, %1 ]
-  %11 = load ptr, ptr %3, align 16, !tbaa !21
+  %11 = load ptr, ptr %3, align 16, !tbaa !19
   %12 = tail call i32 @ASN1_TIME_set_string_X509(ptr noundef %.031, ptr noundef %11) #5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !22
+  %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 368, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.43, i32 noundef %12, i32 noundef %14) #5
-  %.not35 = icmp eq i32 %15, 0
-  br i1 %.not35, label %.critedge, label %16
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %.not36 = icmp eq ptr %.031, null
-  br i1 %.not36, label %.critedge.thread45, label %17
+  %.not35 = icmp eq ptr %.031, null
+  br i1 %.not35, label %.critedge.thread44, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load i32, ptr %18, align 16, !tbaa !23
-  %.not37 = icmp eq i32 %19, -1
-  br i1 %.not37, label %26, label %20
+  %18 = and i64 %4, 258559
+  %.not36.not = icmp eq i64 %18, 0
+  br i1 %.not36.not, label %19, label %.critedge.thread
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %.031, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 376, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef %22, i32 noundef %19) #5
-  %.not38 = icmp eq i32 %23, 0
-  br i1 %.not38, label %24, label %26
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %21 = load i32, ptr %20, align 16, !tbaa !22
+  %22 = getelementptr inbounds nuw i8, ptr %.031, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !12
+  %24 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 376, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef %23, i32 noundef %21) #5
+  %.not37 = icmp eq i32 %24, 0
+  br i1 %.not37, label %25, label %27
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %21, align 4, !tbaa !12
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 378, ptr noundef nonnull @.str.47, i32 noundef %0, i32 noundef %19, i32 noundef %25) #5
+25:                                               ; preds = %19
+  %26 = load i32, ptr %22, align 4, !tbaa !12
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 378, ptr noundef nonnull @.str.47, i32 noundef %0, i32 noundef %21, i32 noundef %26) #5
   br label %.critedge.thread
 
-26:                                               ; preds = %17, %20
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !24
-  %.not39 = icmp eq ptr %28, null
-  br i1 %.not39, label %.critedge.thread, label %29
-
-29:                                               ; preds = %26
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   %32 = load i32, ptr %.031, align 8, !tbaa !16
   %33 = sext i32 %32 to i64
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #6
-  %35 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.7, i32 noundef 387, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef %31, i64 noundef %33, ptr noundef nonnull %28, i64 noundef %34) #5
-  %.not40 = icmp eq i32 %35, 0
-  br i1 %.not40, label %36, label %.critedge.thread
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #6
+  %35 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.7, i32 noundef 387, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef %31, i64 noundef %33, ptr noundef nonnull %29, i64 noundef %34) #5
+  %.not39 = icmp eq i32 %35, 0
+  br i1 %.not39, label %36, label %.critedge.thread
 
-36:                                               ; preds = %29
+36:                                               ; preds = %27
   %37 = load i32, ptr %.031, align 8, !tbaa !16
   %38 = load ptr, ptr %30, align 8, !tbaa !15
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 390, ptr noundef nonnull @.str.50, i32 noundef %0, ptr noundef nonnull %28, i32 noundef %37, ptr noundef %38) #5
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 390, ptr noundef nonnull @.str.50, i32 noundef %0, ptr noundef nonnull %29, i32 noundef %37, ptr noundef %38) #5
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %10
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 370, ptr noundef nonnull @.str.44, i32 noundef %0, i32 noundef %14, i32 noundef %12) #5
-  %.not41 = icmp eq ptr %.031, null
-  br i1 %.not41, label %.critedge.thread45, label %.critedge.thread
+  %.not40 = icmp eq ptr %.031, null
+  br i1 %.not40, label %.critedge.thread44, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %24, %36, %29, %26, %.critedge
-  %.044 = phi i32 [ 0, %.critedge ], [ 1, %26 ], [ 1, %29 ], [ 0, %24 ], [ 0, %36 ]
+.critedge.thread:                                 ; preds = %17, %25, %36, %27, %.critedge
+  %.043 = phi i32 [ 0, %.critedge ], [ 1, %27 ], [ 0, %25 ], [ 0, %36 ], [ 1, %17 ]
   tail call void @ASN1_TIME_free(ptr noundef nonnull %.031) #5
-  br label %.critedge.thread45
+  br label %.critedge.thread44
 
-.critedge.thread45:                               ; preds = %16, %.critedge, %.critedge.thread, %9
-  %.030 = phi i32 [ 0, %9 ], [ %.044, %.critedge.thread ], [ 0, %.critedge ], [ 1, %16 ]
+.critedge.thread44:                               ; preds = %16, %.critedge, %.critedge.thread, %9
+  %.030 = phi i32 [ 0, %9 ], [ %.043, %.critedge.thread ], [ 0, %.critedge ], [ 1, %16 ]
   ret i32 %.030
 }
 
@@ -325,11 +322,11 @@ define internal range(i32 0, 2) i32 @test_days(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds %struct.anon, ptr @day_of_week_tests, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !25
+  %6 = load i32, ptr %5, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !27
+  %8 = load i32, ptr %7, align 4, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !28
+  %10 = load i32, ptr %9, align 4, !tbaa !27
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull @.str.63, i32 noundef %6, i32 noundef %8, i32 noundef %10) #5
   %12 = call ptr @ASN1_TIME_new() #5
   %13 = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 469, ptr noundef nonnull @.str.64, ptr noundef %12) #5
@@ -354,18 +351,18 @@ define internal range(i32 0, 2) i32 @test_days(i32 noundef %0) #0 {
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %26 = load i32, ptr %25, align 4, !tbaa !29
+  %26 = load i32, ptr %25, align 4, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !31
+  %28 = load i32, ptr %27, align 4, !tbaa !30
   %29 = call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 474, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef %26, i32 noundef %28) #5
   %.not11 = icmp eq i32 %29, 0
   br i1 %.not11, label %38, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !32
+  %32 = load i32, ptr %31, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %34 = load i32, ptr %33, align 4, !tbaa !32
   %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 475, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef %32, i32 noundef %34) #5
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -398,7 +395,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_rfc_822(i32 noundef %0
   %8 = getelementptr inbounds %struct.anon.0, ptr @x509_print_tests_rfc_822, i64 %7
   %9 = tail call i32 @ASN1_TIME_print_ex(ptr noundef %4, ptr noundef nonnull %8, i64 noundef 0) #5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %13, label %15
 
@@ -422,7 +419,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_rfc_822(i32 noundef %0
   br i1 %.not14, label %27, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %2, align 8, !tbaa !36
+  %24 = load ptr, ptr %2, align 8, !tbaa !35
   %sext = shl i64 %16, 32
   %25 = ashr exact i64 %sext, 32
   %26 = call i32 @test_strn_eq(ptr noundef nonnull @.str.7, i32 noundef 557, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.72, ptr noundef %24, i64 noundef %25, ptr noundef nonnull %11, i64 noundef %25) #5
@@ -452,7 +449,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_iso_8601(i32 noundef %
   %8 = getelementptr inbounds %struct.anon.1, ptr @x509_print_tests_iso_8601, i64 %7
   %9 = tail call i32 @ASN1_TIME_print_ex(ptr noundef %4, ptr noundef nonnull %8, i64 noundef 1) #5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %13, label %15
 
@@ -476,7 +473,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_iso_8601(i32 noundef %
   br i1 %.not14, label %27, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %2, align 8, !tbaa !36
+  %24 = load ptr, ptr %2, align 8, !tbaa !35
   %sext = shl i64 %16, 32
   %25 = ashr exact i64 %sext, 32
   %26 = call i32 @test_strn_eq(ptr noundef nonnull @.str.7, i32 noundef 585, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.72, ptr noundef %24, i64 noundef %25, ptr noundef nonnull %11, i64 noundef %25) #5
@@ -662,21 +659,20 @@ attributes #6 = { nounwind willreturn memory(read) }
 !16 = !{!13, !10, i64 0}
 !17 = !{!13, !11, i64 16}
 !18 = !{!5, !10, i64 24}
-!19 = !{!20, !10, i64 8}
+!19 = !{!20, !6, i64 0}
 !20 = !{!"", !6, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 24}
-!21 = !{!20, !6, i64 0}
-!22 = !{!20, !10, i64 12}
-!23 = !{!20, !10, i64 16}
-!24 = !{!20, !6, i64 24}
-!25 = !{!26, !10, i64 0}
-!26 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16}
-!27 = !{!26, !10, i64 4}
-!28 = !{!26, !10, i64 8}
-!29 = !{!30, !10, i64 28}
-!30 = !{!"tm", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !11, i64 40, !6, i64 48}
-!31 = !{!26, !10, i64 12}
-!32 = !{!30, !10, i64 24}
-!33 = !{!26, !10, i64 16}
-!34 = !{!35, !6, i64 24}
-!35 = !{!"", !13, i64 0, !6, i64 24}
-!36 = !{!6, !6, i64 0}
+!21 = !{!20, !10, i64 12}
+!22 = !{!20, !10, i64 16}
+!23 = !{!20, !6, i64 24}
+!24 = !{!25, !10, i64 0}
+!25 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16}
+!26 = !{!25, !10, i64 4}
+!27 = !{!25, !10, i64 8}
+!28 = !{!29, !10, i64 28}
+!29 = !{!"tm", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !11, i64 40, !6, i64 48}
+!30 = !{!25, !10, i64 12}
+!31 = !{!29, !10, i64 24}
+!32 = !{!25, !10, i64 16}
+!33 = !{!34, !6, i64 24}
+!34 = !{!"", !13, i64 0, !6, i64 24}
+!35 = !{!6, !6, i64 0}

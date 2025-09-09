@@ -957,71 +957,67 @@ declare i32 @cdf_read_doc_summary_info(ptr noundef, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  br label %3
+  br label %.lr.ph
 
-3:                                                ; preds = %2, %._crit_edge
-  %.02229 = phi i64 [ 0, %2 ], [ %35, %._crit_edge ]
-  %4 = getelementptr inbounds nuw %struct.sinfo, ptr @sectioninfo, i64 %.02229
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 16, !tbaa !15
-  %.not27 = icmp eq ptr %6, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %._crit_edge, %2
+  %.02229 = phi i64 [ 0, %2 ], [ %34, %._crit_edge ]
+  %3 = getelementptr inbounds nuw %struct.sinfo, ptr @sectioninfo, i64 %.02229
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 16, !tbaa !15
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  br label %11
 
-.lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  br label %12
+7:                                                ; preds = %11
+  %8 = add i64 %.02128, 1
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %._crit_edge, label %11
 
-8:                                                ; preds = %12
-  %9 = add i64 %.02128, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %12
+11:                                               ; preds = %.lr.ph, %7
+  %12 = phi ptr [ %5, %.lr.ph ], [ %10, %7 ]
+  %.02128 = phi i64 [ 0, %.lr.ph ], [ %8, %7 ]
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %.02128
+  %14 = load i32, ptr %13, align 4, !tbaa !35
+  %15 = tail call i32 @cdf_find_stream(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef %14) #7
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %17, label %7
 
-12:                                               ; preds = %.lr.ph, %8
-  %13 = phi ptr [ %6, %.lr.ph ], [ %11, %8 ]
-  %.02128 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %.02128
-  %15 = load i32, ptr %14, align 4, !tbaa !35
-  %16 = tail call i32 @cdf_find_stream(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %15) #7
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %8
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %19 = load i32, ptr %18, align 4, !tbaa !23
+  %20 = and i32 %19, 1040
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %26
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %20 = load i32, ptr %19, align 4, !tbaa !23
-  %21 = and i32 %20, 1040
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %27
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %3, align 8, !tbaa !57
+  %24 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %23) #7
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %.thread25, label %33
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %4, align 8, !tbaa !57
-  %25 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %24) #7
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %.thread25, label %34
+26:                                               ; preds = %17
+  %27 = and i32 %19, 16
+  %.not24 = icmp eq i32 %27, 0
+  br i1 %.not24, label %33, label %28
 
-27:                                               ; preds = %18
-  %28 = and i32 %20, 16
-  %.not24 = icmp eq i32 %28, 0
-  br i1 %.not24, label %34, label %29
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !59
+  %31 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %30) #7
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %.thread25, label %33
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !59
-  %32 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %31) #7
-  %33 = icmp eq i32 %32, -1
-  br i1 %33, label %.thread25, label %34
-
-34:                                               ; preds = %27, %29, %23
+33:                                               ; preds = %26, %28, %22
   br label %.thread25
 
-._crit_edge:                                      ; preds = %8, %3
-  %35 = add nuw nsw i64 %.02229, 1
-  %exitcond.not = icmp eq i64 %35, 6
-  br i1 %exitcond.not, label %.thread25, label %3
+._crit_edge:                                      ; preds = %7
+  %34 = add nuw nsw i64 %.02229, 1
+  %exitcond.not = icmp eq i64 %34, 6
+  br i1 %exitcond.not, label %.thread25, label %.lr.ph
 
-.thread25:                                        ; preds = %._crit_edge, %34, %23, %29
-  %.2 = phi i32 [ -1, %29 ], [ -1, %23 ], [ 1, %34 ], [ -1, %._crit_edge ]
+.thread25:                                        ; preds = %._crit_edge, %33, %22, %28
+  %.2 = phi i32 [ -1, %28 ], [ -1, %22 ], [ 1, %33 ], [ -1, %._crit_edge ]
   ret i32 %.2
 }
 

@@ -766,7 +766,7 @@ define i32 @png_handle_chunk(ptr noalias noundef %0, ptr noalias noundef %1, i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load i32, ptr %4, align 8, !tbaa !28
   switch i32 %5, label %png_chunk_index_from_name.exit [
-    i32 1229472850, label %..thread63_crit_edge
+    i32 1229472850, label %..thread64_crit_edge
     i32 1347179589, label %32
     i32 1229209940, label %6
     i32 1229278788, label %7
@@ -796,10 +796,10 @@ define i32 @png_handle_chunk(ptr noalias noundef %0, ptr noalias noundef %1, i32
     i32 2052348020, label %31
   ]
 
-..thread63_crit_edge:                             ; preds = %3
+..thread64_crit_edge:                             ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 300
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !24
-  br label %.thread63
+  br label %.thread64
 
 6:                                                ; preds = %3
   br label %32
@@ -888,7 +888,7 @@ define i32 @png_handle_chunk(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br i1 %.not, label %37, label %png_chunk_index_from_name.exit
 
 png_chunk_index_from_name.exit:                   ; preds = %3, %32
-  %.0.i58 = phi i32 [ %.0.i.ph, %32 ], [ 28, %3 ]
+  %.0.i59 = phi i32 [ %.0.i.ph, %32 ], [ 28, %3 ]
   %36 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   br label %83
 
@@ -898,53 +898,54 @@ png_chunk_index_from_name.exit:                   ; preds = %3, %32
   %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = and i32 %40, 1
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %.thread63
+  br i1 %42, label %43, label %.thread64
 
 43:                                               ; preds = %37
   tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #11
   unreachable
 
-.thread63:                                        ; preds = %..thread63_crit_edge, %37
-  %44 = phi i32 [ %40, %37 ], [ %.pre, %..thread63_crit_edge ]
-  %.0.i.ph6266 = phi i32 [ %.0.i.ph, %37 ], [ 0, %..thread63_crit_edge ]
-  %45 = phi ptr [ %38, %37 ], [ @read_chunks, %..thread63_crit_edge ]
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i32, ptr %46, align 8
-  %48 = lshr i32 %47, 20
-  %49 = and i32 %44, 15
-  %50 = and i32 %49, %48
-  %.not49 = icmp eq i32 %50, 0
-  br i1 %.not49, label %51, label %78
+.thread64:                                        ; preds = %..thread64_crit_edge, %37
+  %44 = phi i32 [ %40, %37 ], [ %.pre, %..thread64_crit_edge ]
+  %.0.i.ph6367 = phi i32 [ %.0.i.ph, %37 ], [ 0, %..thread64_crit_edge ]
+  %45 = phi ptr [ %38, %37 ], [ @read_chunks, %..thread64_crit_edge ]
+  %46 = phi i64 [ %34, %37 ], [ 1, %..thread64_crit_edge ]
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = lshr i32 %48, 20
+  %50 = and i32 %44, 15
+  %51 = and i32 %50, %49
+  %.not49 = icmp eq i32 %51, 0
+  br i1 %.not49, label %52, label %78
 
-51:                                               ; preds = %.thread63
-  %52 = lshr i32 %47, 24
-  %53 = and i32 %52, 15
-  %54 = and i32 %53, %44
-  %.not50 = icmp eq i32 %54, %53
-  br i1 %.not50, label %55, label %78
+52:                                               ; preds = %.thread64
+  %53 = lshr i32 %48, 24
+  %54 = and i32 %53, 15
+  %55 = and i32 %54, %44
+  %.not50 = icmp eq i32 %55, %54
+  br i1 %.not50, label %56, label %78
 
-55:                                               ; preds = %51
-  %56 = and i32 %47, 268435456
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %64
+56:                                               ; preds = %52
+  %57 = and i64 %46, 113210345
+  %.not51 = icmp eq i64 %57, 0
+  br i1 %.not51, label %64, label %58
 
-58:                                               ; preds = %55
+58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %60 = load i32, ptr %59, align 8, !tbaa !49
-  %61 = xor i32 %.0.i.ph6266, 31
+  %61 = xor i32 %.0.i.ph6367, 31
   %62 = lshr exact i32 -2147483648, %61
   %63 = and i32 %60, %62
-  %.not51 = icmp eq i32 %63, 0
-  br i1 %.not51, label %64, label %78
+  %.not52 = icmp eq i32 %63, 0
+  br i1 %.not52, label %64, label %78
 
-64:                                               ; preds = %58, %55
-  %65 = lshr i32 %47, 12
+64:                                               ; preds = %58, %56
+  %65 = lshr i32 %48, 12
   %66 = and i32 %65, 255
   %67 = icmp ult i32 %2, %66
   br i1 %67, label %78, label %68
 
 68:                                               ; preds = %64
-  %69 = and i32 %47, 4095
+  %69 = and i32 %48, 4095
   switch i32 %69, label %74 [
     i32 2050, label %70
     i32 2049, label %75
@@ -954,23 +955,23 @@ png_chunk_index_from_name.exit:                   ; preds = %3, %32
   %71 = zext i32 %2 to i64
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %73 = load i64, ptr %72, align 8, !tbaa !46
-  %.not52 = icmp ult i64 %73, %71
-  br i1 %.not52, label %78, label %75
+  %.not53 = icmp ult i64 %73, %71
+  br i1 %.not53, label %78, label %75
 
 74:                                               ; preds = %68
-  %.not53 = icmp ugt i32 %2, %69
-  br i1 %.not53, label %78, label %75
+  %.not54 = icmp ugt i32 %2, %69
+  br i1 %.not54, label %78, label %75
 
 75:                                               ; preds = %68, %74, %70
   %76 = load ptr, ptr %45, align 16, !tbaa !50
   %77 = tail call i32 %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #12
   br label %83
 
-78:                                               ; preds = %51, %.thread63, %58, %64, %70, %74
-  %.043.ph = phi ptr [ @.str.16, %74 ], [ @.str.15, %70 ], [ @.str.14, %64 ], [ @.str.13, %58 ], [ @.str.12, %.thread63 ], [ @.str.12, %51 ]
+78:                                               ; preds = %52, %.thread64, %58, %64, %70, %74
+  %.043.ph = phi ptr [ @.str.16, %74 ], [ @.str.15, %70 ], [ @.str.14, %64 ], [ @.str.13, %58 ], [ @.str.12, %.thread64 ], [ @.str.12, %52 ]
   %79 = and i32 %5, 536870912
-  %.not55 = icmp eq i32 %79, 0
-  br i1 %.not55, label %80, label %81
+  %.not56 = icmp eq i32 %79, 0
+  br i1 %.not56, label %80, label %81
 
 80:                                               ; preds = %78
   tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull %.043.ph) #11
@@ -982,15 +983,15 @@ png_chunk_index_from_name.exit:                   ; preds = %3, %32
   br label %92
 
 83:                                               ; preds = %png_chunk_index_from_name.exit, %75
-  %.0.i57 = phi i32 [ %.0.i58, %png_chunk_index_from_name.exit ], [ %.0.i.ph6266, %75 ]
+  %.0.i58 = phi i32 [ %.0.i59, %png_chunk_index_from_name.exit ], [ %.0.i.ph6367, %75 ]
   %.0 = phi i32 [ %36, %png_chunk_index_from_name.exit ], [ %77, %75 ]
   %84 = icmp ugt i32 %.0, 1
-  %85 = icmp ne i32 %.0.i57, 28
+  %85 = icmp ne i32 %.0.i58, 28
   %or.cond = and i1 %85, %84
   br i1 %or.cond, label %86, label %92
 
 86:                                               ; preds = %83
-  %87 = xor i32 %.0.i57, 31
+  %87 = xor i32 %.0.i58, 31
   %88 = lshr exact i32 -2147483648, %87
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %90 = load i32, ptr %89, align 8, !tbaa !49
@@ -999,8 +1000,8 @@ png_chunk_index_from_name.exit:                   ; preds = %3, %32
   br label %92
 
 92:                                               ; preds = %83, %86, %81
-  %.073 = phi i32 [ %.0, %83 ], [ %.0, %86 ], [ 0, %81 ]
-  ret i32 %.073
+  %.074 = phi i32 [ %.0, %83 ], [ %.0, %86 ], [ 0, %81 ]
+  ret i32 %.074
 }
 
 ; Function Attrs: nounwind uwtable

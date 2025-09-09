@@ -1141,7 +1141,7 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = alloca ptr, align 8
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %13 = icmp ult i32 %12, 3
-  br i1 %13, label %196, label %14
+  br i1 %13, label %197, label %14
 
 14:                                               ; preds = %4
   %15 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef 0, i32 noundef 0)
@@ -1150,7 +1150,7 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
   %18 = add i32 %12, -3
   %spec.select = select i1 %17, i32 %18, i32 %15
   %19 = icmp eq i32 %spec.select, 0
-  br i1 %19, label %196, label %20
+  br i1 %19, label %197, label %20
 
 20:                                               ; preds = %14
   %21 = load i32, ptr @proto_lbmsrs, align 4
@@ -1163,13 +1163,13 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = load i32, ptr @ett_lbmsrs_rsocket_frame, align 4
   %28 = call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %0, i32 noundef 3, i32 noundef %spec.select, i32 noundef %27, ptr noundef nonnull %8, ptr noundef nonnull @.str.368)
   %29 = icmp ult i32 %18, 4
-  br i1 %29, label %195, label %30
+  br i1 %29, label %196, label %30
 
 30:                                               ; preds = %20
   %31 = load i32, ptr @hf_lbmsrs_rsocket_stream_id, align 4
   %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef 3, i32 noundef 4, i32 noundef 0)
   %33 = icmp eq i32 %12, 7
-  br i1 %33, label %195, label %34
+  br i1 %33, label %196, label %34
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1192,299 +1192,300 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %44, label %getFrameTypeName.exit, label %38
 
 getFrameTypeName.exit:                            ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %getFrameTypeName.exit.thread, label %47
+  %45 = and i64 %.068.i, 1152921504606846975
+  %.not = icmp eq i64 %45, 16
+  br i1 %.not, label %getFrameTypeName.exit.thread, label %46
 
-47:                                               ; preds = %getFrameTypeName.exit
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = load ptr, ptr %48, align 8
-  call void @col_add_str(ptr noundef %49, i32 noundef 25, ptr noundef nonnull %46)
-  br label %52
+46:                                               ; preds = %getFrameTypeName.exit
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %50 = load ptr, ptr %49, align 8
+  call void @col_add_str(ptr noundef %50, i32 noundef 25, ptr noundef nonnull %48)
+  br label %53
 
 getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeName.exit
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = load ptr, ptr %50, align 8
-  call void @col_set_str(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.369)
-  br label %52
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8
+  call void @col_set_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.369)
+  br label %53
 
-52:                                               ; preds = %getFrameTypeName.exit.thread, %47
-  %53 = load i32, ptr @hf_lbmsrs_rsocket_ignore_flag, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %53, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %55 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 62, i32 noundef 2)
-  %56 = load i32, ptr @hf_lbmsrs_rsocket_metadata_flag, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %56, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %58 = load i64, ptr %9, align 8
-  %59 = call i32 @tvb_captured_length(ptr noundef %0)
-  %60 = add i32 %59, -7
-  switch i64 %58, label %dissect_rsocket_frame.exit.thread [
-    i64 1, label %61
-    i64 3, label %112
-    i64 4, label %119
-    i64 5, label %124
-    i64 6, label %129
-    i64 7, label %136
-    i64 8, label %145
-    i64 9, label %150
-    i64 10, label %152
-    i64 11, label %161
+53:                                               ; preds = %getFrameTypeName.exit.thread, %46
+  %54 = load i32, ptr @hf_lbmsrs_rsocket_ignore_flag, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %54, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %56 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 62, i32 noundef 2)
+  %57 = load i32, ptr @hf_lbmsrs_rsocket_metadata_flag, align 4
+  %58 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %57, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %59 = load i64, ptr %9, align 8
+  %60 = call i32 @tvb_captured_length(ptr noundef %0)
+  %61 = add i32 %60, -7
+  switch i64 %59, label %dissect_rsocket_frame.exit.thread [
+    i64 1, label %62
+    i64 3, label %113
+    i64 4, label %120
+    i64 5, label %125
+    i64 6, label %130
+    i64 7, label %137
+    i64 8, label %146
+    i64 9, label %151
+    i64 10, label %153
+    i64 11, label %162
   ]
 
-61:                                               ; preds = %52
-  %62 = icmp ult i32 %60, 14
-  br i1 %62, label %dissect_rsocket_frame.exit.thread, label %63
+62:                                               ; preds = %53
+  %63 = icmp ult i32 %61, 14
+  br i1 %63, label %dissect_rsocket_frame.exit.thread, label %64
 
-63:                                               ; preds = %61
-  %64 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 64, i32 noundef 1)
-  %65 = load i32, ptr @hf_lbmsrs_rsocket_resume_flag, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %65, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %67 = load i32, ptr @hf_lbmsrs_rsocket_lease_flag, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %67, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %69 = load i32, ptr @hf_lbmsrs_rsocket_major_version, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %69, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef 0)
-  %71 = load i32, ptr @hf_lbmsrs_rsocket_minor_version, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %71, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0)
-  %73 = load i32, ptr @hf_lbmsrs_rsocket_keepalive_interval, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %73, ptr noundef %0, i32 noundef 13, i32 noundef 4, i32 noundef 0)
-  %75 = load i32, ptr @hf_lbmsrs_rsocket_max_lifetime, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %75, ptr noundef %0, i32 noundef 17, i32 noundef 4, i32 noundef 0)
-  %.not.i = icmp eq i8 %64, 0
-  br i1 %.not.i, label %90, label %77
+64:                                               ; preds = %62
+  %65 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 64, i32 noundef 1)
+  %66 = load i32, ptr @hf_lbmsrs_rsocket_resume_flag, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %66, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %68 = load i32, ptr @hf_lbmsrs_rsocket_lease_flag, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %68, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %70 = load i32, ptr @hf_lbmsrs_rsocket_major_version, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %70, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef 0)
+  %72 = load i32, ptr @hf_lbmsrs_rsocket_minor_version, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %72, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0)
+  %74 = load i32, ptr @hf_lbmsrs_rsocket_keepalive_interval, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %74, ptr noundef %0, i32 noundef 13, i32 noundef 4, i32 noundef 0)
+  %76 = load i32, ptr @hf_lbmsrs_rsocket_max_lifetime, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %76, ptr noundef %0, i32 noundef 17, i32 noundef 4, i32 noundef 0)
+  %.not.i = icmp eq i8 %65, 0
+  br i1 %.not.i, label %91, label %78
 
-77:                                               ; preds = %63
-  %78 = add i32 %59, -21
-  %79 = icmp ult i32 %78, 2
-  br i1 %79, label %dissect_rsocket_frame.exit.thread, label %80
+78:                                               ; preds = %64
+  %79 = add i32 %60, -21
+  %80 = icmp ult i32 %79, 2
+  br i1 %80, label %dissect_rsocket_frame.exit.thread, label %81
 
-80:                                               ; preds = %77
+81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %81 = load i32, ptr @hf_lbmsrs_rsocket_resume_token_len, align 4
-  %82 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %81, ptr noundef %0, i32 noundef 21, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
-  %83 = add i32 %59, -23
-  %84 = load i32, ptr %5, align 4
-  %.not156.i = icmp ult i32 %83, %84
-  br i1 %.not156.i, label %.thread.i, label %85
+  %82 = load i32, ptr @hf_lbmsrs_rsocket_resume_token_len, align 4
+  %83 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %82, ptr noundef %0, i32 noundef 21, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
+  %84 = add i32 %60, -23
+  %85 = load i32, ptr %5, align 4
+  %.not156.i = icmp ult i32 %84, %85
+  br i1 %.not156.i, label %.thread.i, label %86
 
-.thread.i:                                        ; preds = %80
+.thread.i:                                        ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_rsocket_frame.exit.thread
 
-85:                                               ; preds = %80
-  %86 = load i32, ptr @hf_lbmsrs_rsocket_resume_token, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %86, ptr noundef %0, i32 noundef 23, i32 noundef %84, i32 noundef 50331648)
-  %88 = load i32, ptr %5, align 4
-  %89 = add i32 %88, 23
+86:                                               ; preds = %81
+  %87 = load i32, ptr @hf_lbmsrs_rsocket_resume_token, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %87, ptr noundef %0, i32 noundef 23, i32 noundef %85, i32 noundef 50331648)
+  %89 = load i32, ptr %5, align 4
+  %90 = add i32 %89, 23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %90
+  br label %91
 
-90:                                               ; preds = %85, %63
-  %.1.i = phi i32 [ %89, %85 ], [ 21, %63 ]
-  %91 = icmp eq i32 %59, %.1.i
-  br i1 %91, label %dissect_rsocket_frame.exit.thread, label %92
+91:                                               ; preds = %86, %64
+  %.1.i = phi i32 [ %90, %86 ], [ 21, %64 ]
+  %92 = icmp eq i32 %60, %.1.i
+  br i1 %92, label %dissect_rsocket_frame.exit.thread, label %93
 
-92:                                               ; preds = %90
+93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %93 = load i32, ptr @hf_lbmsrs_rsocket_mdata_mime_length, align 4
-  %94 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %93, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %95 = add i32 %.1.i, 1
-  %96 = sub i32 %59, %95
-  %97 = load i32, ptr %6, align 4
-  %98 = icmp ult i32 %96, %97
-  br i1 %98, label %dissect_rsocket_frame.exit.thread115, label %99
+  %94 = load i32, ptr @hf_lbmsrs_rsocket_mdata_mime_length, align 4
+  %95 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %94, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
+  %96 = add i32 %.1.i, 1
+  %97 = sub i32 %60, %96
+  %98 = load i32, ptr %6, align 4
+  %99 = icmp ult i32 %97, %98
+  br i1 %99, label %dissect_rsocket_frame.exit.thread115, label %100
 
-99:                                               ; preds = %92
-  %100 = load i32, ptr @hf_lbmsrs_rsocket_mdata_mime_type, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %100, ptr noundef %0, i32 noundef %95, i32 noundef %97, i32 noundef 0)
-  %102 = load i32, ptr %6, align 4
-  %103 = add i32 %102, %95
-  %104 = icmp eq i32 %59, %103
-  br i1 %104, label %dissect_rsocket_frame.exit.thread115, label %105
+100:                                              ; preds = %93
+  %101 = load i32, ptr @hf_lbmsrs_rsocket_mdata_mime_type, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %101, ptr noundef %0, i32 noundef %96, i32 noundef %98, i32 noundef 0)
+  %103 = load i32, ptr %6, align 4
+  %104 = add i32 %103, %96
+  %105 = icmp eq i32 %60, %104
+  br i1 %105, label %dissect_rsocket_frame.exit.thread115, label %106
 
-105:                                              ; preds = %99
+106:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %106 = load i32, ptr @hf_lbmsrs_rsocket_data_mime_length, align 4
-  %107 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %106, ptr noundef %0, i32 noundef %103, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
-  %108 = add i32 %103, 1
-  %109 = sub i32 %59, %108
-  %110 = load i32, ptr %7, align 4
-  %111 = icmp ult i32 %109, %110
-  br i1 %111, label %dissect_rsocket_frame.exit.thread118, label %dissect_rsocket_frame.exit
+  %107 = load i32, ptr @hf_lbmsrs_rsocket_data_mime_length, align 4
+  %108 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %107, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
+  %109 = add i32 %104, 1
+  %110 = sub i32 %60, %109
+  %111 = load i32, ptr %7, align 4
+  %112 = icmp ult i32 %110, %111
+  br i1 %112, label %dissect_rsocket_frame.exit.thread118, label %dissect_rsocket_frame.exit
 
-dissect_rsocket_frame.exit.thread118:             ; preds = %105
+dissect_rsocket_frame.exit.thread118:             ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_rsocket_frame.exit.thread
 
-112:                                              ; preds = %52
-  %113 = icmp ult i32 %60, 10
-  br i1 %113, label %dissect_rsocket_frame.exit.thread, label %114
+113:                                              ; preds = %53
+  %114 = icmp ult i32 %61, 10
+  br i1 %114, label %dissect_rsocket_frame.exit.thread, label %115
 
-114:                                              ; preds = %112
-  %115 = load i32, ptr @hf_lbmsrs_rsocket_respond_flag, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %115, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %117 = load i32, ptr @hf_lbmsrs_rsocket_keepalive_last_rcvd_pos, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %117, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
+115:                                              ; preds = %113
+  %116 = load i32, ptr @hf_lbmsrs_rsocket_respond_flag, align 4
+  %117 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %116, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %118 = load i32, ptr @hf_lbmsrs_rsocket_keepalive_last_rcvd_pos, align 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %118, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-119:                                              ; preds = %52
-  %120 = icmp ult i32 %60, 2
-  br i1 %120, label %dissect_rsocket_frame.exit.thread, label %121
+120:                                              ; preds = %53
+  %121 = icmp ult i32 %61, 2
+  br i1 %121, label %dissect_rsocket_frame.exit.thread, label %122
 
-121:                                              ; preds = %119
-  %122 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %122, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+122:                                              ; preds = %120
+  %123 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
+  %124 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %123, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-124:                                              ; preds = %52
-  %125 = icmp ult i32 %60, 2
-  br i1 %125, label %dissect_rsocket_frame.exit.thread, label %126
+125:                                              ; preds = %53
+  %126 = icmp ult i32 %61, 2
+  br i1 %126, label %dissect_rsocket_frame.exit.thread, label %127
 
-126:                                              ; preds = %124
-  %127 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %127, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+127:                                              ; preds = %125
+  %128 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %128, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-129:                                              ; preds = %52
-  %130 = icmp ult i32 %60, 6
-  br i1 %130, label %dissect_rsocket_frame.exit.thread, label %131
+130:                                              ; preds = %53
+  %131 = icmp ult i32 %61, 6
+  br i1 %131, label %dissect_rsocket_frame.exit.thread, label %132
 
-131:                                              ; preds = %129
-  %132 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %132, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %134 = load i32, ptr @hf_lbmsrs_rsocket_req_n, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %134, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
+132:                                              ; preds = %130
+  %133 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %133, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %135 = load i32, ptr @hf_lbmsrs_rsocket_req_n, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %135, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-136:                                              ; preds = %52
-  %137 = icmp ult i32 %60, 6
-  br i1 %137, label %dissect_rsocket_frame.exit.thread, label %138
+137:                                              ; preds = %53
+  %138 = icmp ult i32 %61, 6
+  br i1 %138, label %dissect_rsocket_frame.exit.thread, label %139
 
-138:                                              ; preds = %136
-  %139 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %139, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %141 = load i32, ptr @hf_lbmsrs_rsocket_complete_flag, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %141, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %143 = load i32, ptr @hf_lbmsrs_rsocket_req_n, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %143, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
+139:                                              ; preds = %137
+  %140 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %140, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %142 = load i32, ptr @hf_lbmsrs_rsocket_complete_flag, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %142, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %144 = load i32, ptr @hf_lbmsrs_rsocket_req_n, align 4
+  %145 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %144, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-145:                                              ; preds = %52
-  %146 = icmp ult i32 %60, 6
-  br i1 %146, label %dissect_rsocket_frame.exit.thread, label %147
+146:                                              ; preds = %53
+  %147 = icmp ult i32 %61, 6
+  br i1 %147, label %dissect_rsocket_frame.exit.thread, label %148
 
-147:                                              ; preds = %145
-  %148 = load i32, ptr @hf_lbmsrs_rsocket_req_n, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %148, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
+148:                                              ; preds = %146
+  %149 = load i32, ptr @hf_lbmsrs_rsocket_req_n, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %149, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-150:                                              ; preds = %52
-  %151 = icmp ult i32 %60, 2
-  br i1 %151, label %dissect_rsocket_frame.exit.thread, label %dissect_rsocket_frame.exit.thread106
+151:                                              ; preds = %53
+  %152 = icmp ult i32 %61, 2
+  br i1 %152, label %dissect_rsocket_frame.exit.thread, label %dissect_rsocket_frame.exit.thread106
 
-152:                                              ; preds = %52
-  %153 = icmp ult i32 %60, 2
-  br i1 %153, label %dissect_rsocket_frame.exit.thread, label %154
+153:                                              ; preds = %53
+  %154 = icmp ult i32 %61, 2
+  br i1 %154, label %dissect_rsocket_frame.exit.thread, label %155
 
-154:                                              ; preds = %152
-  %155 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %155, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %157 = load i32, ptr @hf_lbmsrs_rsocket_complete_flag, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %157, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
-  %159 = load i32, ptr @hf_lbmsrs_rsocket_next_flag, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %159, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+155:                                              ; preds = %153
+  %156 = load i32, ptr @hf_lbmsrs_rsocket_follows_flag, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %156, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %158 = load i32, ptr @hf_lbmsrs_rsocket_complete_flag, align 4
+  %159 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %158, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  %160 = load i32, ptr @hf_lbmsrs_rsocket_next_flag, align 4
+  %161 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %160, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-161:                                              ; preds = %52
-  %162 = icmp ult i32 %60, 6
-  br i1 %162, label %dissect_rsocket_frame.exit.thread, label %163
+162:                                              ; preds = %53
+  %163 = icmp ult i32 %61, 6
+  br i1 %163, label %dissect_rsocket_frame.exit.thread, label %164
 
-163:                                              ; preds = %161
-  %164 = load i32, ptr @hf_lbmsrs_rsocket_error_code, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %164, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
+164:                                              ; preds = %162
+  %165 = load i32, ptr @hf_lbmsrs_rsocket_error_code, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %165, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread106
 
-dissect_rsocket_frame.exit.thread106:             ; preds = %114, %121, %126, %131, %138, %147, %150, %154, %163
-  %.0152.i.ph = phi i32 [ 2, %150 ], [ 6, %163 ], [ 2, %154 ], [ 6, %147 ], [ 6, %138 ], [ 6, %131 ], [ 2, %126 ], [ 2, %121 ], [ 10, %114 ]
-  %166 = add nuw nsw i32 %.0152.i.ph, 7
-  br label %172
+dissect_rsocket_frame.exit.thread106:             ; preds = %115, %122, %127, %132, %139, %148, %151, %155, %164
+  %.0152.i.ph = phi i32 [ 2, %151 ], [ 6, %164 ], [ 2, %155 ], [ 6, %148 ], [ 6, %139 ], [ 6, %132 ], [ 2, %127 ], [ 2, %122 ], [ 10, %115 ]
+  %167 = add nuw nsw i32 %.0152.i.ph, 7
+  br label %173
 
-dissect_rsocket_frame.exit.thread115:             ; preds = %92, %99
-  %.4.i.ph = phi i32 [ %59, %99 ], [ %95, %92 ]
+dissect_rsocket_frame.exit.thread115:             ; preds = %93, %100
+  %.4.i.ph = phi i32 [ %60, %100 ], [ %96, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_rsocket_frame.exit.thread
 
-dissect_rsocket_frame.exit:                       ; preds = %105
-  %167 = load i32, ptr @hf_lbmsrs_rsocket_data_mime_type, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %167, ptr noundef %0, i32 noundef %108, i32 noundef %110, i32 noundef 0)
-  %169 = load i32, ptr %7, align 4
-  %170 = add i32 %169, %108
+dissect_rsocket_frame.exit:                       ; preds = %106
+  %168 = load i32, ptr @hf_lbmsrs_rsocket_data_mime_type, align 4
+  %169 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %168, ptr noundef %0, i32 noundef %109, i32 noundef %111, i32 noundef 0)
+  %170 = load i32, ptr %7, align 4
+  %171 = add i32 %170, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %171 = add i32 %170, -7
-  br label %172
+  %172 = add i32 %171, -7
+  br label %173
 
-172:                                              ; preds = %dissect_rsocket_frame.exit, %dissect_rsocket_frame.exit.thread106
-  %173 = phi i32 [ %166, %dissect_rsocket_frame.exit.thread106 ], [ %170, %dissect_rsocket_frame.exit ]
-  %.0152.i109 = phi i32 [ %.0152.i.ph, %dissect_rsocket_frame.exit.thread106 ], [ %171, %dissect_rsocket_frame.exit ]
-  %.not95 = icmp eq i8 %55, 0
-  br i1 %.not95, label %188, label %174
+173:                                              ; preds = %dissect_rsocket_frame.exit, %dissect_rsocket_frame.exit.thread106
+  %174 = phi i32 [ %167, %dissect_rsocket_frame.exit.thread106 ], [ %171, %dissect_rsocket_frame.exit ]
+  %.0152.i109 = phi i32 [ %.0152.i.ph, %dissect_rsocket_frame.exit.thread106 ], [ %172, %dissect_rsocket_frame.exit ]
+  %.not95 = icmp eq i8 %56, 0
+  br i1 %.not95, label %189, label %175
 
-174:                                              ; preds = %172
-  %175 = sub i32 %12, %173
-  %176 = icmp ult i32 %175, 3
-  br i1 %176, label %dissect_rsocket_frame.exit.thread, label %177
+175:                                              ; preds = %173
+  %176 = sub i32 %12, %174
+  %177 = icmp ult i32 %176, 3
+  br i1 %177, label %dissect_rsocket_frame.exit.thread, label %178
 
-177:                                              ; preds = %174
+178:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %178 = load i32, ptr @hf_lbmsrs_rsocket_mdata_len, align 4
-  %179 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %178, ptr noundef %0, i32 noundef %173, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %10)
-  %180 = add i32 %.0152.i109, 10
-  %181 = sub i32 %12, %180
-  %182 = load i32, ptr %10, align 4
-  %.not96 = icmp ult i32 %181, %182
-  br i1 %.not96, label %.thread, label %183
+  %179 = load i32, ptr @hf_lbmsrs_rsocket_mdata_len, align 4
+  %180 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %179, ptr noundef %0, i32 noundef %174, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %10)
+  %181 = add i32 %.0152.i109, 10
+  %182 = sub i32 %12, %181
+  %183 = load i32, ptr %10, align 4
+  %.not96 = icmp ult i32 %182, %183
+  br i1 %.not96, label %.thread, label %184
 
-.thread:                                          ; preds = %177
+.thread:                                          ; preds = %178
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_rsocket_frame.exit.thread
 
-183:                                              ; preds = %177
-  %184 = load i32, ptr @hf_lbmsrs_rsocket_mdata, align 4
-  %185 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %184, ptr noundef %0, i32 noundef %180, i32 noundef %182, i32 noundef 0)
-  %186 = load i32, ptr %10, align 4
-  %187 = add i32 %186, %180
+184:                                              ; preds = %178
+  %185 = load i32, ptr @hf_lbmsrs_rsocket_mdata, align 4
+  %186 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %185, ptr noundef %0, i32 noundef %181, i32 noundef %183, i32 noundef 0)
+  %187 = load i32, ptr %10, align 4
+  %188 = add i32 %187, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %188
+  br label %189
 
-188:                                              ; preds = %183, %172
-  %.086 = phi i32 [ %187, %183 ], [ %173, %172 ]
+189:                                              ; preds = %184, %173
+  %.086 = phi i32 [ %188, %184 ], [ %174, %173 ]
   %.not97 = icmp eq i32 %12, %.086
-  br i1 %.not97, label %dissect_rsocket_frame.exit.thread, label %189
+  br i1 %.not97, label %dissect_rsocket_frame.exit.thread, label %190
 
-189:                                              ; preds = %188
-  %190 = sub i32 %12, %.086
+190:                                              ; preds = %189
+  %191 = sub i32 %12, %.086
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %191 = load i32, ptr @ett_lbmsrs_data, align 4
-  %192 = call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.086, i32 noundef %190, i32 noundef %191, ptr noundef nonnull %11, ptr noundef nonnull @.str.370)
-  %193 = call fastcc i32 @dissect_lbmsrs_data(ptr noundef %0, ptr noundef %1, ptr noundef %192, i32 noundef %.086, i32 noundef %190)
-  %194 = add i32 %193, %.086
+  %192 = load i32, ptr @ett_lbmsrs_data, align 4
+  %193 = call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.086, i32 noundef %191, i32 noundef %192, ptr noundef nonnull %11, ptr noundef nonnull @.str.370)
+  %194 = call fastcc i32 @dissect_lbmsrs_data(ptr noundef %0, ptr noundef %1, ptr noundef %193, i32 noundef %.086, i32 noundef %191)
+  %195 = add i32 %194, %.086
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_rsocket_frame.exit.thread
 
-dissect_rsocket_frame.exit.thread:                ; preds = %188, %189, %174, %dissect_rsocket_frame.exit.thread115, %dissect_rsocket_frame.exit.thread118, %61, %112, %119, %124, %129, %136, %145, %152, %161, %52, %150, %.thread.i, %77, %90, %.thread
-  %.pn = phi i32 [ %180, %.thread ], [ %.4.i.ph, %dissect_rsocket_frame.exit.thread115 ], [ %108, %dissect_rsocket_frame.exit.thread118 ], [ 7, %61 ], [ 7, %112 ], [ 7, %119 ], [ 7, %124 ], [ 7, %129 ], [ 7, %136 ], [ 7, %145 ], [ 7, %152 ], [ 7, %161 ], [ 7, %52 ], [ 7, %150 ], [ %59, %90 ], [ 21, %77 ], [ 23, %.thread.i ], [ %173, %174 ], [ %194, %189 ], [ %12, %188 ]
+dissect_rsocket_frame.exit.thread:                ; preds = %189, %190, %175, %dissect_rsocket_frame.exit.thread115, %dissect_rsocket_frame.exit.thread118, %62, %113, %120, %125, %130, %137, %146, %153, %162, %53, %151, %.thread.i, %78, %91, %.thread
+  %.pn = phi i32 [ %181, %.thread ], [ %.4.i.ph, %dissect_rsocket_frame.exit.thread115 ], [ %109, %dissect_rsocket_frame.exit.thread118 ], [ 7, %62 ], [ 7, %113 ], [ 7, %120 ], [ 7, %125 ], [ 7, %130 ], [ 7, %137 ], [ 7, %146 ], [ 7, %153 ], [ 7, %162 ], [ 7, %53 ], [ 7, %151 ], [ %60, %91 ], [ 21, %78 ], [ 23, %.thread.i ], [ %174, %175 ], [ %195, %190 ], [ %12, %189 ]
   %.3 = sub i32 %.pn, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %195
-
-195:                                              ; preds = %30, %20, %dissect_rsocket_frame.exit.thread
-  %.2 = phi i32 [ %.3, %dissect_rsocket_frame.exit.thread ], [ 3, %20 ], [ 7, %30 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %196
 
-196:                                              ; preds = %195, %14, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.2, %195 ], [ 0, %14 ]
+196:                                              ; preds = %30, %20, %dissect_rsocket_frame.exit.thread
+  %.2 = phi i32 [ %.3, %dissect_rsocket_frame.exit.thread ], [ 3, %20 ], [ 7, %30 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %197
+
+197:                                              ; preds = %196, %14, %4
+  %.0 = phi i32 [ 0, %4 ], [ %.2, %196 ], [ 0, %14 ]
   ret i32 %.0
 }
 

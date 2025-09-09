@@ -110,63 +110,60 @@ define internal noalias noundef ptr @_ZL17data_create_khmerPK18hb_ot_shape_plan_
 
 5:                                                ; preds = %.preheader, %_ZNK11hb_ot_map_t10get_1_maskEj.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK11hb_ot_map_t10get_1_maskEj.exit ]
-  %6 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14khmer_features, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, 1
-  %.not12 = icmp eq i32 %9, 0
-  br i1 %.not12, label %10, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
+  %.not12 = icmp samesign ult i64 %indvars.iv, 5
+  br i1 %.not12, label %6, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
 
-10:                                               ; preds = %5
-  %11 = load i32, ptr %6, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i32, ptr %4, align 4
-  %.not1.i.i.i.i.i.i = icmp sgt i32 %13, 0
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14khmer_features, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i32, ptr %4, align 4
+  %.not1.i.i.i.i.i.i = icmp sgt i32 %10, 0
   br i1 %.not1.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %10
-  %14 = add nsw i32 %13, -1
+.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %6
+  %11 = add nsw i32 %10, -1
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %27, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %27 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %27 ], [ %14, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %15 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
-  %16 = lshr i32 %15, 1
-  %17 = zext nneg i32 %16 to i64
-  %18 = mul nuw nsw i64 %17, 36
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %18
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp ult i32 %11, %20
-  br i1 %21, label %22, label %24
+.lr.ph.i.i.i.i.i.i:                               ; preds = %24, %.lr.ph.preheader.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %24 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %24 ], [ %11, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %12 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
+  %13 = lshr i32 %12, 1
+  %14 = zext nneg i32 %13 to i64
+  %15 = mul nuw nsw i64 %14, 36
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp ult i32 %8, %17
+  br i1 %18, label %19, label %21
 
-22:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %23 = add nsw i32 %16, -1
-  br label %27
+19:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %20 = add nsw i32 %13, -1
+  br label %24
 
-24:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not23.i.i.i.i.i.i = icmp eq i32 %11, %20
-  br i1 %.not23.i.i.i.i.i.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, label %25
+21:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i = icmp eq i32 %8, %17
+  br i1 %.not23.i.i.i.i.i.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, label %22
 
-25:                                               ; preds = %24
-  %26 = add nuw nsw i32 %16, 1
-  br label %27
+22:                                               ; preds = %21
+  %23 = add nuw nsw i32 %13, 1
+  br label %24
 
-27:                                               ; preds = %25, %22
-  %.121.i.i.i.i.i.i = phi i32 [ %23, %22 ], [ %.0202.i.i.i.i.i.i, %25 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %22 ], [ %26, %25 ]
+24:                                               ; preds = %22, %19
+  %.121.i.i.i.i.i.i = phi i32 [ %20, %19 ], [ %.0202.i.i.i.i.i.i, %22 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %19 ], [ %23, %22 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i: ; preds = %24
-  %28 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %12, i64 %17, i32 5
-  %29 = load i32, ptr %28, align 4
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i: ; preds = %21
+  %25 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %9, i64 %14, i32 5
+  %26 = load i32, ptr %25, align 4
   br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
 
-_ZNK11hb_ot_map_t10get_1_maskEj.exit:             ; preds = %27, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, %10, %5
-  %30 = phi i32 [ 0, %5 ], [ %29, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i ], [ 0, %10 ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %30, ptr %31, align 4
+_ZNK11hb_ot_map_t10get_1_maskEj.exit:             ; preds = %24, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, %6, %5
+  %27 = phi i32 [ 0, %5 ], [ %26, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i ], [ 0, %6 ], [ 0, %24 ]
+  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  store i32 %27, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !10

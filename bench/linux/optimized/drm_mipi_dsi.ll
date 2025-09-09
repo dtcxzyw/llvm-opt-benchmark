@@ -576,65 +576,22 @@ define internal void @devm_mipi_dsi_detach(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef zeroext i1 @mipi_dsi_packet_format_is_short(i8 noundef zeroext %0) #3 align 16 {
-  switch i8 %0, label %2 [
-    i8 1, label %3
-    i8 17, label %3
-    i8 33, label %3
-    i8 49, label %3
-    i8 7, label %3
-    i8 8, label %3
-    i8 2, label %3
-    i8 18, label %3
-    i8 34, label %3
-    i8 50, label %3
-    i8 3, label %3
-    i8 19, label %3
-    i8 35, label %3
-    i8 4, label %3
-    i8 20, label %3
-    i8 36, label %3
-    i8 5, label %3
-    i8 21, label %3
-    i8 6, label %3
-    i8 22, label %3
-    i8 55, label %3
-  ]
-
-2:                                                ; preds = %1
-  br label %3
-
-3:                                                ; preds = %2, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %4 = phi i1 [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
-  ret i1 %4
+  %2 = icmp ult i8 %0, 56
+  %switch.cast = zext nneg i8 %0 to i56
+  %switch.downshift = lshr i56 -34339818301423106, %switch.cast
+  %switch.masked = trunc i56 %switch.downshift to i1
+  %3 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef zeroext i1 @mipi_dsi_packet_format_is_long(i8 noundef zeroext %0) #3 align 16 {
-  switch i8 %0, label %2 [
-    i8 9, label %3
-    i8 25, label %3
-    i8 41, label %3
-    i8 57, label %3
-    i8 10, label %3
-    i8 11, label %3
-    i8 12, label %3
-    i8 28, label %3
-    i8 44, label %3
-    i8 13, label %3
-    i8 29, label %3
-    i8 61, label %3
-    i8 14, label %3
-    i8 30, label %3
-    i8 46, label %3
-    i8 62, label %3
-  ]
-
-2:                                                ; preds = %1
-  br label %3
-
-3:                                                ; preds = %2, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %4 = phi i1 [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
-  ret i1 %4
+  %2 = icmp ult i8 %0, 63
+  %switch.cast = zext nneg i8 %0 to i63
+  %switch.downshift = lshr i63 -2161637659271725568, %switch.cast
+  %switch.masked = trunc i63 %switch.downshift to i1
+  %3 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -1089,55 +1046,43 @@ define dso_local i64 @mipi_dsi_generic_write(ptr noundef readonly captures(none)
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  switch i64 %2, label %15 [
-    i64 0, label %16
-    i64 1, label %13
-    i64 2, label %14
-  ]
+  %13 = icmp ult i64 %2, 3
+  %switch.idx.cast = trunc i64 %2 to i8
+  %switch.idx.mult = shl nsw i8 %switch.idx.cast, 4
+  %switch.offset = or disjoint i8 %switch.idx.mult, 3
+  %14 = select i1 %13, i8 %switch.offset, i8 41
+  store i8 %14, ptr %8, align 1
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %31, label %19
 
-13:                                               ; preds = %3
-  br label %16
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %31, label %23
 
-14:                                               ; preds = %3
-  br label %16
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 2048
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %29, label %28
 
-15:                                               ; preds = %3
-  br label %16
-
-16:                                               ; preds = %15, %14, %13, %3
-  %17 = phi i8 [ 41, %15 ], [ 35, %14 ], [ 19, %13 ], [ 3, %3 ]
-  store i8 %17, ptr %8, align 1
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %34, label %22
-
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %34, label %26
-
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %28 = load i64, ptr %27, align 8
-  %29 = and i64 %28, 2048
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %32, label %31
-
-31:                                               ; preds = %26
+28:                                               ; preds = %23
   store i16 2, ptr %9, align 2
-  br label %32
+  br label %29
 
-32:                                               ; preds = %31, %26
-  %33 = call i64 %24(ptr noundef %18, ptr noundef nonnull %4) #14
-  br label %34
+29:                                               ; preds = %28, %23
+  %30 = call i64 %21(ptr noundef %15, ptr noundef nonnull %4) #14
+  br label %31
 
-34:                                               ; preds = %32, %22, %16
-  %35 = phi i64 [ %33, %32 ], [ -38, %22 ], [ -38, %16 ]
+31:                                               ; preds = %29, %19, %3
+  %32 = phi i64 [ %30, %29 ], [ -38, %19 ], [ -38, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %35
+  ret i64 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1149,62 +1094,55 @@ define dso_local i64 @mipi_dsi_generic_read(ptr noundef readonly captures(none) 
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %6, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %2, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %4, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %3, ptr %15, align 8
-  switch i64 %2, label %36 [
-    i64 0, label %18
-    i64 1, label %16
-    i64 2, label %17
-  ]
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %4, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %3, ptr %14, align 8
+  %15 = icmp ult i64 %2, 3
+  br i1 %15, label %switch.lookup, label %33
 
-16:                                               ; preds = %5
-  br label %18
+switch.lookup:                                    ; preds = %5
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %switch.idx.cast = trunc nuw i64 %2 to i8
+  %switch.idx.mult = shl nuw nsw i8 %switch.idx.cast, 4
+  %switch.offset = or disjoint i8 %switch.idx.mult, 4
+  store i8 %switch.offset, ptr %16, align 1
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %33, label %21
 
-17:                                               ; preds = %5
-  br label %18
+21:                                               ; preds = %switch.lookup
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %33, label %25
 
-18:                                               ; preds = %17, %16, %5
-  %19 = phi i8 [ 36, %17 ], [ 20, %16 ], [ 4, %5 ]
-  store i8 %19, ptr %10, align 1
-  %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %36, label %24
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 2048
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %31, label %30
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %36, label %28
+30:                                               ; preds = %25
+  store i16 2, ptr %10, align 2
+  br label %31
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %30, 2048
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %34, label %33
+31:                                               ; preds = %30, %25
+  %32 = call i64 %23(ptr noundef %17, ptr noundef nonnull %6) #14
+  br label %33
 
-33:                                               ; preds = %28
-  store i16 2, ptr %11, align 2
-  br label %34
-
-34:                                               ; preds = %33, %28
-  %35 = call i64 %26(ptr noundef %20, ptr noundef nonnull %6) #14
-  br label %36
-
-36:                                               ; preds = %34, %24, %18, %5
-  %37 = phi i64 [ -22, %5 ], [ %35, %34 ], [ -38, %24 ], [ -38, %18 ]
+33:                                               ; preds = %5, %31, %21, %switch.lookup
+  %34 = phi i64 [ -22, %5 ], [ %32, %31 ], [ -38, %21 ], [ -38, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %37
+  ret i64 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
