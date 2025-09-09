@@ -6506,7 +6506,7 @@ define dso_local void @skl_get_initial_plane_config(ptr noundef readonly capture
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1416
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i1 %12(ptr noundef %8, ptr noundef nonnull %3) #11
-  br i1 %13, label %14, label %280
+  br i1 %13, label %14, label %286
 
 14:                                               ; preds = %2
   %15 = load i32, ptr %3, align 4
@@ -6557,7 +6557,7 @@ define dso_local void @skl_get_initial_plane_config(ptr noundef readonly capture
 40:                                               ; preds = %37, %35
   %41 = phi ptr [ %39, %37 ], [ null, %35 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.6) #11
-  br label %280
+  br label %286
 
 42:                                               ; preds = %31
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
@@ -6577,7 +6577,7 @@ define dso_local void @skl_get_initial_plane_config(ptr noundef readonly capture
 51:                                               ; preds = %48, %46
   %52 = phi ptr [ %50, %48 ], [ null, %46 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %52, i32 noundef 2, ptr noundef nonnull @.str.7) #11
-  br label %280
+  br label %286
 
 53:                                               ; preds = %42
   store ptr %6, ptr %44, align 8
@@ -6846,18 +6846,18 @@ skl_format_to_fourcc.exit:                        ; preds = %76, %82, %83, %84, 
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2560, i32 2313, i64 12) #11, !srcloc !86
   call void asm sideeffect "997: nop\0A\09.pushsection .discard.instr_end\0A\09.long 997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 997) #11, !srcloc !87
   call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_end\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #11, !srcloc !88
-  br label %279
+  br label %285
 
 175:                                              ; preds = %172, %171, %166, %165, %159, %154, %141, %140, %139, %131, %130, %125, %115, %113
   %176 = phi i64 [ 72057594037927939, %172 ], [ 72057594037927941, %171 ], [ 72057594037927945, %166 ], [ 72057594037927948, %165 ], [ 72057594037927947, %159 ], [ 72057594037927946, %154 ], [ 72057594037927938, %141 ], [ 72057594037927943, %140 ], [ 72057594037927950, %139 ], [ 72057594037927940, %131 ], [ 72057594037927942, %130 ], [ 72057594037927949, %125 ], [ 72057594037927937, %115 ], [ 0, %113 ]
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 6768
   %178 = load i8, ptr %177, align 8, !range !42, !noundef !43
   %179 = icmp eq i8 %178, 0
-  br i1 %179, label %180, label %switch.lookup
+  br i1 %179, label %180, label %224
 
 180:                                              ; preds = %175
   %181 = call zeroext i1 @intel_fb_modifier_uses_dpt(ptr noundef %6, i64 noundef %176) #11
-  br i1 %181, label %182, label %switch.lookup
+  br i1 %181, label %182, label %224
 
 182:                                              ; preds = %180
   %183 = icmp eq ptr %6, null
@@ -6871,9 +6871,9 @@ skl_format_to_fourcc.exit:                        ; preds = %76, %82, %83, %84, 
 187:                                              ; preds = %184, %182
   %188 = phi ptr [ %186, %184 ], [ null, %182 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %188, i32 noundef 2, ptr noundef nonnull @.str.10) #11
-  br label %279
+  br label %285
 
-switch.lookup:                                    ; preds = %180, %175
+224:                                              ; preds = %180, %175
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %190 = shl i32 %62, 3
   %switch.shiftamt = and i32 %190, 24
@@ -6919,98 +6919,98 @@ switch.lookup:                                    ; preds = %180, %175
 
 218:                                              ; preds = %202
   call void asm sideeffect "999: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 999b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 999) #11, !srcloc !89
-  %219 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @dev_driver_string(ptr noundef %220) #11
-  %222 = load ptr, ptr %219, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 80
-  %224 = load ptr, ptr %223, align 8
-  %225 = icmp eq ptr %224, null
-  br i1 %225, label %226, label %228
+  %225 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %226 = load ptr, ptr %225, align 8
+  %227 = call ptr @dev_driver_string(ptr noundef %226) #11
+  %228 = load ptr, ptr %225, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 80
+  %230 = load ptr, ptr %229, align 8
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %232, label %234
 
-226:                                              ; preds = %218
-  %227 = load ptr, ptr %222, align 8
-  br label %228
+232:                                              ; preds = %218
+  %233 = load ptr, ptr %228, align 8
+  br label %234
 
-228:                                              ; preds = %226, %218
-  %229 = phi ptr [ %227, %226 ], [ %224, %218 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %221, ptr noundef %229, ptr noundef nonnull @.str.11) #11
+234:                                              ; preds = %232, %218
+  %235 = phi ptr [ %233, %226 ], [ %230, %218 ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %227, ptr noundef %235, ptr noundef nonnull @.str.11) #11
   call void asm sideeffect "1000: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1000) #11, !srcloc !90
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2600, i32 2313, i64 12) #11, !srcloc !91
   call void asm sideeffect "1001: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1001) #11, !srcloc !92
   call void asm sideeffect "1002: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1002b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1002) #11, !srcloc !93
-  br label %230
+  br label %236
 
-230:                                              ; preds = %228, %202
-  %231 = load i32, ptr %3, align 4
-  %232 = shl i32 %231, 12
-  %233 = add i32 %56, 459152
-  %234 = add i32 %233, %232
-  %235 = load ptr, ptr %60, align 8
-  %236 = call i32 %235(ptr noundef nonnull %59, i32 %234, i1 noundef zeroext true) #11
-  %237 = lshr i32 %236, 16
-  %238 = add nuw nsw i32 %237, 1
-  %239 = getelementptr inbounds nuw i8, ptr %44, i64 132
-  store i32 %238, ptr %239, align 4
-  %240 = and i32 %236, 65535
-  %241 = add nuw nsw i32 %240, 1
-  %242 = getelementptr inbounds nuw i8, ptr %44, i64 128
-  store i32 %241, ptr %242, align 8
-  %243 = load i32, ptr %3, align 4
-  %244 = shl i32 %243, 12
-  %245 = add i32 %56, 459144
-  %246 = add i32 %245, %244
-  %247 = load ptr, ptr %60, align 8
-  %248 = call i32 %247(ptr noundef nonnull %59, i32 %246, i1 noundef zeroext true) #11
-  %249 = call zeroext i1 @is_surface_linear(ptr noundef nonnull %44, i32 noundef 0) #11
-  br i1 %249, label %252, label %250
+236:                                              ; preds = %234, %202
+  %237 = load i32, ptr %3, align 4
+  %238 = shl i32 %237, 12
+  %239 = add i32 %56, 459152
+  %240 = add i32 %239, %238
+  %241 = load ptr, ptr %60, align 8
+  %242 = call i32 %235(ptr noundef nonnull %59, i32 %240, i1 noundef zeroext true) #11
+  %243 = lshr i32 %242, 16
+  %244 = add nuw nsw i32 %243, 1
+  %245 = getelementptr inbounds nuw i8, ptr %44, i64 132
+  store i32 %244, ptr %245, align 4
+  %246 = and i32 %242, 65535
+  %247 = add nuw nsw i32 %246, 1
+  %248 = getelementptr inbounds nuw i8, ptr %44, i64 128
+  store i32 %247, ptr %248, align 8
+  %249 = load i32, ptr %3, align 4
+  %250 = shl i32 %249, 12
+  %251 = add i32 %56, 459144
+  %252 = add i32 %251, %250
+  %253 = load ptr, ptr %60, align 8
+  %254 = call i32 %247(ptr noundef nonnull %59, i32 %252, i1 noundef zeroext true) #11
+  %255 = call zeroext i1 @is_surface_linear(ptr noundef nonnull %44, i32 noundef 0) #11
+  br i1 %255, label %258, label %256
 
-250:                                              ; preds = %230
-  %251 = call i32 @intel_tile_width_bytes(ptr noundef nonnull %44, i32 noundef 0) #11
-  br label %252
+256:                                              ; preds = %236
+  %257 = call i32 @intel_tile_width_bytes(ptr noundef nonnull %44, i32 noundef 0) #11
+  br label %258
 
-252:                                              ; preds = %250, %230
-  %253 = phi i32 [ %251, %250 ], [ 64, %230 ]
-  %254 = and i32 %248, 4095
-  %255 = mul i32 %253, %254
-  %256 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  store i32 %255, ptr %256, align 8
-  %257 = load i32, ptr %239, align 4
-  %258 = call i32 @intel_fb_align_height(ptr noundef nonnull %44, i32 noundef 0, i32 noundef %257) #11
-  %259 = load i32, ptr %256, align 8
-  %260 = mul i32 %259, %258
-  %261 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %260, ptr %261, align 4
-  %262 = icmp eq ptr %6, null
-  br i1 %262, label %266, label %263
+258:                                              ; preds = %256, %236
+  %259 = phi i32 [ %257, %250 ], [ 64, %230 ]
+  %260 = and i32 %254, 4095
+  %261 = mul i32 %259, %260
+  %262 = getelementptr inbounds nuw i8, ptr %44, i64 88
+  store i32 %261, ptr %262, align 8
+  %263 = load i32, ptr %245, align 4
+  %264 = call i32 @intel_fb_align_height(ptr noundef nonnull %44, i32 noundef 0, i32 noundef %263) #11
+  %265 = load i32, ptr %262, align 8
+  %266 = mul i32 %265, %264
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %266, ptr %267, align 4
+  %268 = icmp eq ptr %6, null
+  br i1 %268, label %272, label %269
 
-263:                                              ; preds = %252
-  %264 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %265 = load ptr, ptr %264, align 8
-  br label %266
-
-266:                                              ; preds = %263, %252
-  %267 = phi ptr [ %265, %263 ], [ null, %252 ]
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds nuw i8, ptr %8, i64 24
+269:                                              ; preds = %258
+  %270 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %271 = load ptr, ptr %270, align 8
-  %272 = load i32, ptr %242, align 8
-  %273 = load i32, ptr %239, align 4
-  %274 = load ptr, ptr %110, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 6
-  %276 = load i8, ptr %275, align 2
-  %277 = zext i8 %276 to i32
-  %278 = shl nuw nsw i32 %277, 3
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %267, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef %269, ptr noundef %271, i32 noundef %272, i32 noundef %273, i32 noundef %278, i32 noundef %209, i32 noundef %259, i32 noundef %260) #11
+  br label %272
+
+272:                                              ; preds = %269, %258
+  %273 = phi ptr [ %271, %263 ], [ null, %252 ]
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %275 = load ptr, ptr %274, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %277 = load ptr, ptr %276, align 8
+  %278 = load i32, ptr %248, align 8
+  %279 = load i32, ptr %245, align 4
+  %280 = load ptr, ptr %110, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 6
+  %282 = load i8, ptr %281, align 2
+  %283 = zext i8 %282 to i32
+  %284 = shl nuw nsw i32 %283, 3
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %273, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef %275, ptr noundef %277, i32 noundef %278, i32 noundef %279, i32 noundef %284, i32 noundef %209, i32 noundef %265, i32 noundef %266) #11
   store ptr %44, ptr %1, align 8
-  br label %280
+  br label %286
 
-279:                                              ; preds = %198, %187, %173
+285:                                              ; preds = %198, %187, %173
   call void @kfree(ptr noundef nonnull %44) #11
-  br label %280
+  br label %286
 
-280:                                              ; preds = %279, %266, %51, %40, %2
+286:                                              ; preds = %285, %272, %51, %40, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

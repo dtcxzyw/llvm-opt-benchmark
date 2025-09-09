@@ -432,7 +432,7 @@ define dso_local void @intel_dp_get_adjust_train(ptr noundef %0, ptr noundef %1,
   br label %87
 
 87:                                               ; preds = %.loopexit, %77
-  %88 = phi i64 [ 0, %77 ], [ %269, %.loopexit ]
+  %88 = phi i64 [ 0, %77 ], [ %275, %.loopexit ]
   %89 = tail call zeroext i1 @intel_dp_is_uhbr(ptr noundef %1) #7
   %90 = load ptr, ptr %6, align 8
   %91 = tail call i32 @drm_dp_lttpr_count(ptr noundef nonnull %85) #7
@@ -631,7 +631,7 @@ intel_dp_phy_is_downstream_of_source.exit5:       ; preds = %.loopexit12
   %199 = icmp eq i8 %198, 16
   %200 = load i1, ptr @intel_dp_phy_preemph_max.__already_done, align 1
   %201 = select i1 %199, i1 true, i1 %200
-  br i1 %201, label %switch.lookup, label %202, !prof !10
+  br i1 %201, label %214, label %202, !prof !10
 
 202:                                              ; preds = %196
   store i1 true, ptr @intel_dp_phy_preemph_max.__already_done, align 1
@@ -656,15 +656,15 @@ intel_dp_phy_is_downstream_of_source.exit5:       ; preds = %.loopexit12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.17, i32 306, i32 2313, i64 12) #7, !srcloc !20
   tail call void asm sideeffect "599: nop\0A\09.pushsection .discard.instr_end\0A\09.long 599b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 599) #7, !srcloc !21
   tail call void asm sideeffect "600: nop\0A\09.pushsection .discard.instr_end\0A\09.long 600b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 600) #7, !srcloc !22
-  br label %switch.lookup
+  br label %214
 
-switch.lookup:                                    ; preds = %212, %196
-  %214 = icmp ult i8 %170, %197
-  %215 = or i8 %197, 32
-  %216 = select i1 %214, i8 %170, i8 %215
-  %217 = lshr i8 %216, 3
-  %218 = and i8 %217, 3
-  %switch.offset = xor i8 %218, 3
+214:                                              ; preds = %212, %196
+  %215 = icmp ult i8 %170, %197
+  %216 = or i8 %197, 32
+  %217 = select i1 %215, i8 %170, i8 %216
+  %218 = lshr i8 %217, 3
+  %219 = and i8 %218, 3
+  %switch.offset = xor i8 %219, 3
   %219 = load ptr, ptr %6, align 8
   %220 = tail call i32 @drm_dp_lttpr_count(ptr noundef nonnull %85) #7
   %221 = icmp sgt i32 %220, 0
@@ -676,22 +676,22 @@ switch.lookup:                                    ; preds = %212, %196
 225:                                              ; preds = %switch.lookup
   store i1 true, ptr @intel_dp_phy_is_downstream_of_source.__already_done, align 1
   tail call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #7, !srcloc !11
-  %226 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = tail call ptr @dev_driver_string(ptr noundef %227) #7
-  %229 = load ptr, ptr %226, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 80
-  %231 = load ptr, ptr %230, align 8
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %233, label %intel_dp_phy_is_downstream_of_source.exit6.thread
+  %232 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %233 = load ptr, ptr %232, align 8
+  %234 = tail call ptr @dev_driver_string(ptr noundef %233) #7
+  %235 = load ptr, ptr %232, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 80
+  %237 = load ptr, ptr %236, align 8
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %239, label %intel_dp_phy_is_downstream_of_source.exit6.thread
 
-233:                                              ; preds = %225
-  %234 = load ptr, ptr %229, align 8
+239:                                              ; preds = %225
+  %240 = load ptr, ptr %235, align 8
   br label %intel_dp_phy_is_downstream_of_source.exit6.thread
 
-intel_dp_phy_is_downstream_of_source.exit6.thread: ; preds = %225, %233
-  %235 = phi ptr [ %234, %233 ], [ %231, %225 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.15, ptr noundef %228, ptr noundef %235, ptr noundef nonnull @.str.21) #7
+intel_dp_phy_is_downstream_of_source.exit6.thread: ; preds = %225, %239
+  %241 = phi ptr [ %240, %233 ], [ %237, %225 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.15, ptr noundef %234, ptr noundef %241, ptr noundef nonnull @.str.21) #7
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #7, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.17, i32 261, i32 2313, i64 12) #7, !srcloc !13
   tail call void asm sideeffect "591: nop\0A\09.pushsection .discard.instr_end\0A\09.long 591b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 591) #7, !srcloc !14
@@ -708,12 +708,12 @@ intel_dp_phy_is_downstream_of_source.exit6:       ; preds = %switch.lookup
   %239 = tail call zeroext i8 %238(ptr noundef %0, ptr noundef %1) #7
   br label %243
 
-240:                                              ; preds = %intel_dp_phy_is_downstream_of_source.exit6
+intel_dp_phy_is_downstream_of_source.exit6:       ; preds = %intel_dp_phy_is_downstream_of_source.exit6
   %241 = tail call zeroext i1 @drm_dp_lttpr_voltage_swing_level_3_supported(ptr noundef %81) #7
   %242 = select i1 %241, i8 3, i8 2
   br label %243
 
-243:                                              ; preds = %240, %237
+243:                                              ; preds = %intel_dp_phy_is_downstream_of_source.exit6, %237
   %244 = phi i8 [ %239, %237 ], [ %242, %240 ]
   %245 = and i8 %244, -2
   %246 = icmp eq i8 %245, 2
@@ -721,48 +721,48 @@ intel_dp_phy_is_downstream_of_source.exit6:       ; preds = %switch.lookup
   %248 = select i1 %246, i1 true, i1 %247
   br i1 %248, label %261, label %249, !prof !10
 
-249:                                              ; preds = %243
+249:; preds = %243
   store i1 true, ptr @intel_dp_phy_voltage_max.__already_done, align 1
   tail call void asm sideeffect "593: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 593b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 593) #7, !srcloc !23
-  %250 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %251 = load ptr, ptr %250, align 8
-  %252 = tail call ptr @dev_driver_string(ptr noundef %251) #7
-  %253 = load ptr, ptr %250, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 80
-  %255 = load ptr, ptr %254, align 8
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %257, label %259
+  %256 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = tail call ptr @dev_driver_string(ptr noundef %257) #7
+  %259 = load ptr, ptr %256, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 80
+  %261 = load ptr, ptr %260, align 8
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %263, label %265
 
-257:                                              ; preds = %249
-  %258 = load ptr, ptr %253, align 8
-  br label %259
+263:                                              ; preds = %249
+  %264 = load ptr, ptr %259, align 8
+  br label %265
 
-259:                                              ; preds = %257, %249
-  %260 = phi ptr [ %258, %257 ], [ %255, %249 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.15, ptr noundef %252, ptr noundef %260, ptr noundef nonnull @.str.18) #7
+265:                                              ; preds = %263, %249
+  %266 = phi ptr [ %264, %257 ], [ %261, %249 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.15, ptr noundef %258, ptr noundef %266, ptr noundef nonnull @.str.18) #7
   tail call void asm sideeffect "594: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 594b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 594) #7, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.17, i32 284, i32 2313, i64 12) #7, !srcloc !25
   tail call void asm sideeffect "595: nop\0A\09.pushsection .discard.instr_end\0A\09.long 595b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 595) #7, !srcloc !26
   tail call void asm sideeffect "596: nop\0A\09.pushsection .discard.instr_end\0A\09.long 596b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 596) #7, !srcloc !27
-  br label %261
+  br label %267
 
-261:                                              ; preds = %259, %243
-  %262 = tail call i8 @llvm.umin.i8(i8 %171, i8 %switch.offset)
-  %263 = icmp ult i8 %262, %244
-  %264 = or i8 %244, 4
-  %265 = select i1 %263, i8 %262, i8 %264
-  %266 = or i8 %265, %216
+267:                                              ; preds = %265, %243
+  %268 = tail call i8 @llvm.umin.i8(i8 %171, i8 %switch.offset)
+  %269 = icmp ult i8 %268, %244
+  %270 = or i8 %244, 4
+  %271 = select i1 %269, i8 %268, i8 %270
+  %272 = or i8 %271, %217
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %261, %116, %113
-  %267 = phi i8 [ %266, %261 ], [ %122, %116 ], [ 0, %113 ], [ %126, %.preheader ]
-  %268 = getelementptr i8, ptr %84, i64 %88
-  store i8 %267, ptr %268, align 1
-  %269 = add nuw nsw i64 %88, 1
-  %270 = icmp eq i64 %269, 4
-  br i1 %270, label %271, label %87, !llvm.loop !28
+.loopexit:                                        ; preds = %.preheader, %267, %116, %113
+  %273 = phi i8 [ %272, %261 ], [ %122, %116 ], [ 0, %113 ], [ %126, %.preheader ]
+  %274 = getelementptr i8, ptr %84, i64 %88
+  store i8 %273, ptr %274, align 1
+  %275 = add nuw nsw i64 %88, 1
+  %276 = icmp eq i64 %275, 4
+  br i1 %276, label %277, label %87, !llvm.loop !28
 
-271:                                              ; preds = %.loopexit
+277:                                              ; preds = %.loopexit
   ret void
 }
 

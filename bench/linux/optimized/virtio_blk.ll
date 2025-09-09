@@ -1835,13 +1835,13 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %22
 
-22:                                               ; preds = %109, %18
-  %23 = phi ptr [ %16, %18 ], [ %111, %109 ]
+22:                                               ; preds = %113, %18
+  %23 = phi ptr [ %16, %18 ], [ %115, %109 ]
   %24 = phi i32 [ 0, %18 ], [ %26, %109 ]
   %25 = getelementptr i8, ptr %23, i64 -248
   %26 = add i32 %24, 1
   %27 = call zeroext i1 @blk_mq_complete_request_remote(ptr noundef %25) #14
-  br i1 %27, label %109, label %28
+  br i1 %27, label %113, label %28
 
 28:                                               ; preds = %22
   %.phi.trans.insert = getelementptr i8, ptr %23, i64 32
@@ -1909,7 +1909,7 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   %69 = getelementptr i8, ptr %23, i64 -176
   store ptr %68, ptr %69, align 8
   store ptr %25, ptr %1, align 8
-  br label %109
+  br label %113
 
 ._crit_edge:                                      ; preds = %28, %52, %43, %29
   %70 = getelementptr i8, ptr %23, i64 16
@@ -1930,7 +1930,7 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
 
 80:                                               ; preds = %._crit_edge
   %81 = getelementptr i8, ptr %23, i64 -126
-  %82 = load i16, ptr %81, align 2
+  %82 = load i9, ptr %81, align 2
   %83 = icmp eq i16 %82, 0
   br i1 %83, label %.thread11, label %84
 
@@ -1939,66 +1939,66 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   call void @sg_free_table_chained(ptr noundef %85, i32 noundef 2) #14
   %.pre5 = load i32, ptr %76, align 4
   %.pre6 = and i32 %.pre5, 262144
-  %86 = icmp eq i32 %.pre6, 0
-  br i1 %86, label %.thread11, label %87
+  %90 = icmp eq i32 %.pre6, 0
+  br i1 %90, label %.thread11, label %91
 
-87:                                               ; preds = %84
-  %88 = getelementptr i8, ptr %23, i64 -88
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i64, ptr @vmemmap_base, align 8
-  %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %91, %90
-  %93 = shl i64 %92, 6
-  %94 = load i64, ptr @page_offset_base, align 8
-  %95 = add i64 %93, %94
-  %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr i8, ptr %23, i64 -76
-  %98 = load i32, ptr %97, align 4
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr i8, ptr %96, i64 %99
-  call void @kfree(ptr noundef %100) #14
+91:                                               ; preds = %84
+  %92 = getelementptr i8, ptr %23, i64 -88
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i64, ptr @vmemmap_base, align 8
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %95, %94
+  %97 = shl i64 %96, 6
+  %98 = load i64, ptr @page_offset_base, align 8
+  %99 = add i64 %97, %98
+  %100 = inttoptr i64 %99 to ptr
+  %101 = getelementptr i8, ptr %23, i64 -76
+  %102 = load i32, ptr %101, align 4
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr i8, ptr %100, i64 %103
+  call void @kfree(ptr noundef %104) #14
   br label %.thread11
 
-.thread11:                                        ; preds = %80, %87, %84
-  %101 = getelementptr i8, ptr %23, i64 -224
-  %102 = load i32, ptr %101, align 8
-  %103 = and i32 %102, 255
-  %104 = icmp eq i32 %103, 7
-  br i1 %104, label %105, label %108
+.thread11:                                        ; preds = %80, %91, %84
+  %105 = getelementptr i8, ptr %23, i64 -224
+  %106 = load i32, ptr %105, align 8
+  %107 = and i32 %106, 255
+  %108 = icmp eq i32 %107, 7
+  br i1 %108, label %109, label %112
 
-105:                                              ; preds = %.thread11
-  %106 = load i64, ptr %70, align 8
-  %107 = getelementptr i8, ptr %23, i64 -200
-  store i64 %106, ptr %107, align 8
-  br label %108
+109:                                              ; preds = %.thread11
+  %110 = load i64, ptr %70, align 8
+  %111 = getelementptr i8, ptr %23, i64 -200
+  store i64 %110, ptr %111, align 8
+  br label %112
 
-108:                                              ; preds = %105, %.thread11
+112:                                              ; preds = %109, %.thread11
   call void @blk_mq_end_request(ptr noundef %25, i8 noundef zeroext %75) #14
-  br label %109
+  br label %113
 
-109:                                              ; preds = %108, %64, %22
-  %110 = load ptr, ptr %12, align 64
-  %111 = call ptr @virtqueue_get_buf(ptr noundef %110, ptr noundef nonnull %3) #14
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %22, !llvm.loop !23
+113:                                              ; preds = %112, %64, %22
+  %114 = load ptr, ptr %12, align 64
+  %115 = call ptr @virtqueue_get_buf(ptr noundef %114, ptr noundef nonnull %3) #14
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %22, !llvm.loop !23
 
-113:                                              ; preds = %109
-  %114 = icmp eq i32 %26, 0
-  br i1 %114, label %.thread, label %115
+117:                                              ; preds = %113
+  %118 = icmp eq i32 %26, 0
+  br i1 %118, label %.thread, label %119
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 80
-  %119 = load ptr, ptr %118, align 8
-  call void @blk_mq_start_stopped_hw_queues(ptr noundef %119, i1 noundef zeroext true) #14
+119:                                              ; preds = %117
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 80
+  %123 = load ptr, ptr %122, align 8
+  call void @blk_mq_start_stopped_hw_queues(ptr noundef %123, i1 noundef zeroext true) #14
   br label %.thread
 
-.thread:                                          ; preds = %2, %115, %113
-  %120 = phi i32 [ %26, %115 ], [ 0, %113 ], [ 0, %2 ]
+.thread:                                          ; preds = %2, %119, %117
+  %124 = phi i32 [ %26, %115 ], [ 0, %113 ], [ 0, %2 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %13, i64 noundef %14) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %120
+  ret i32 %124
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
@@ -2013,53 +2013,53 @@ define internal void @virtblk_request_done(ptr noundef %0) #8 align 16 {
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 262144
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %16
+  br i1 %11, label %12, label %9
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 122
-  %14 = load i16, ptr %13, align 2
+  %14 = load i9, ptr %13, align 2
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %.thread, label %16
 
-16:                                               ; preds = %1, %12
+9:                                                ; preds = %1, %12
   %17 = getelementptr i8, ptr %0, i64 288
   tail call void @sg_free_table_chained(ptr noundef %17, i32 noundef 2) #14
   %.pre = load i32, ptr %8, align 4
   %.pre1 = and i32 %.pre, 262144
-  %18 = icmp eq i32 %.pre1, 0
-  br i1 %18, label %.thread, label %19
+  %24 = icmp eq i32 %.pre1, 0
+  br i1 %24, label %.thread, label %25
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i64, ptr @vmemmap_base, align 8
-  %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %23, %22
-  %25 = shl i64 %24, 6
-  %26 = load i64, ptr @page_offset_base, align 8
-  %27 = add i64 %25, %26
-  %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %30 = load i32, ptr %29, align 4
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr i8, ptr %28, i64 %31
-  tail call void @kfree(ptr noundef %32) #14
+25:                                               ; preds = %9
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i64, ptr @vmemmap_base, align 8
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %29, %28
+  %31 = shl i64 %30, 6
+  %32 = load i64, ptr @page_offset_base, align 8
+  %33 = add i64 %31, %32
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %36 = load i32, ptr %35, align 4
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr i8, ptr %34, i64 %37
+  tail call void @kfree(ptr noundef %38) #14
   br label %.thread
 
-.thread:                                          ; preds = %12, %19, %16
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 255
-  %36 = icmp eq i32 %35, 7
-  br i1 %36, label %37, label %40
+.thread:                                          ; preds = %12, %25, %9
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, 255
+  %42 = icmp eq i32 %41, 7
+  br i1 %42, label %43, label %46
 
-37:                                               ; preds = %.thread
-  %38 = load i64, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %38, ptr %39, align 8
-  br label %40
+43:                                               ; preds = %.thread
+  %44 = load i64, ptr %2, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %44, ptr %45, align 8
+  br label %46
 
-40:                                               ; preds = %37, %.thread
+46:                                               ; preds = %43, %.thread
   %41 = icmp ult i8 %7, 7
   %switch.cast = zext i8 %7 to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
@@ -2835,7 +2835,7 @@ define internal i64 @serial_show(ptr noundef readonly captures(none) %0, ptr rea
 15:                                               ; preds = %3
   %16 = ptrtoint ptr %13 to i64
   %17 = trunc i64 %16 to i32
-  br label %33
+  br label %37
 
 18:                                               ; preds = %3
   %19 = getelementptr i8, ptr %13, i64 248
@@ -2864,26 +2864,26 @@ define internal i64 @serial_show(ptr noundef readonly captures(none) %0, ptr rea
 31:                                               ; preds = %24, %18
   %32 = phi i32 [ %22, %18 ], [ %30, %24 ]
   tail call void @blk_mq_free_request(ptr noundef %13) #14
-  br label %33
+  br label %37
 
-33:                                               ; preds = %31, %15
-  %34 = phi i32 [ %17, %15 ], [ %32, %31 ]
-  switch i32 %34, label %37 [
-    i32 0, label %35
-    i32 -5, label %39
+37:                                               ; preds = %31, %15
+  %38 = phi i32 [ %17, %15 ], [ %32, %31 ]
+  switch i32 %38, label %37 [
+    i32 0, label %39
+    i32 -5, label %43
   ]
 
-35:                                               ; preds = %33
-  %36 = tail call i64 @strlen(ptr noundef %2) #14
-  br label %39
+39:                                               ; preds = %37
+  %40 = tail call i64 @strlen(ptr noundef %2) #14
+  br label %43
 
-37:                                               ; preds = %33
-  %38 = sext i32 %34 to i64
-  br label %39
+41:                                               ; preds = %37
+  %42 = sext i32 %38 to i64
+  br label %43
 
-39:                                               ; preds = %37, %35, %33
-  %40 = phi i64 [ %38, %37 ], [ %36, %35 ], [ 0, %33 ]
-  ret i64 %40
+43:                                               ; preds = %41, %39, %37
+  %44 = phi i64 [ %42, %37 ], [ %40, %35 ], [ 0, %33 ]
+  ret i64 %44
 }
 
 ; Function Attrs: null_pointer_is_valid

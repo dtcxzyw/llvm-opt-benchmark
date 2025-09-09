@@ -1058,31 +1058,31 @@ define dso_local i64 @mipi_dsi_generic_write(ptr noundef readonly captures(none)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %31, label %19
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %31, label %23
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %34, label %26
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 2048
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %29, label %28
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %28, 2048
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %32, label %31
 
-28:                                               ; preds = %23
+31:                                               ; preds = %26
   store i16 2, ptr %9, align 2
-  br label %29
+  br label %32
 
-29:                                               ; preds = %28, %23
-  %30 = call i64 %21(ptr noundef %15, ptr noundef nonnull %4) #14
-  br label %31
+32:                                               ; preds = %31, %26
+  %33 = call i64 %21(ptr noundef %15, ptr noundef nonnull %4) #14
+  br label %34
 
-31:                                               ; preds = %29, %19, %3
-  %32 = phi i64 [ %30, %29 ], [ -38, %19 ], [ -38, %3 ]
+34:                                               ; preds = %32, %22, %3
+  %35 = phi i64 [ %33, %32 ], [ -38, %19 ], [ -38, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %32
+  ret i64 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1104,9 +1104,9 @@ define dso_local i64 @mipi_dsi_generic_read(ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %14, align 8
   %15 = icmp ult i64 %2, 3
-  br i1 %15, label %switch.lookup, label %33
+  br i1 %15, label %switch.lookup, label %36
 
-switch.lookup:                                    ; preds = %5
+switch.lookup:; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %switch.idx.cast = trunc nuw i64 %2 to i8
   %switch.idx.mult = shl nuw nsw i8 %switch.idx.cast, 4
@@ -1116,33 +1116,33 @@ switch.lookup:                                    ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %33, label %21
+  br i1 %20, label %36, label %21
 
-21:                                               ; preds = %switch.lookup
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %33, label %25
+24:                                               ; preds = %switch.lookup
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %36, label %28
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 2048
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 2048
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %34, label %33
 
-30:                                               ; preds = %25
+33:                                               ; preds = %28
   store i16 2, ptr %10, align 2
-  br label %31
+  br label %34
 
-31:                                               ; preds = %30, %25
-  %32 = call i64 %23(ptr noundef %17, ptr noundef nonnull %6) #14
-  br label %33
+34:                                               ; preds = %33, %28
+  %35 = call i64 %23(ptr noundef %17, ptr noundef nonnull %6) #14
+  br label %36
 
-33:                                               ; preds = %5, %31, %21, %switch.lookup
-  %34 = phi i64 [ -22, %5 ], [ %32, %31 ], [ -38, %21 ], [ -38, %switch.lookup ]
+36:                                               ; preds = %5, %34, %24, %switch.lookup
+  %37 = phi i64 [ -22, %5 ], [ %35, %31 ], [ -38, %24 ], [ -38, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %34
+  ret i64 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

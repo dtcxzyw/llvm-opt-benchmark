@@ -773,7 +773,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly 
   %or.cond = select i1 %13, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %17
 
-switch.lookup:                                    ; preds = %7
+13:                                               ; preds = %7
   %14 = shl nuw nsw i32 %12, 3
   %switch.shiftamt = zext nneg i32 %14 to i48
   %switch.downshift = lshr i48 1099511628032, %switch.shiftamt
@@ -805,11 +805,11 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   store i8 0, ptr %9, align 1
   %10 = load i8, ptr %4, align 4
   switch i8 %10, label %kstrtobool.exit [
-    i8 121, label %20
-    i8 89, label %20
-    i8 116, label %20
-    i8 84, label %20
-    i8 49, label %20
+    i8 121, label %19
+    i8 89, label %19
+    i8 116, label %19
+    i8 84, label %19
+    i8 49, label %19
     i8 110, label %11
     i8 78, label %11
     i8 102, label %11
@@ -820,7 +820,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   ]
 
 11:                                               ; preds = %8, %8, %8, %8, %8
-  br label %20
+  br label %19
 
 12:                                               ; preds = %8, %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -835,22 +835,22 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   %or.cond = select i1 %18, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %kstrtobool.exit
 
-switch.lookup:                                    ; preds = %12
+18:                                               ; preds = %12
   %19 = shl nuw nsw i32 %17, 3
   %switch.shiftamt = zext nneg i32 %19 to i48
   %switch.downshift = lshr i48 1099511628032, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %20
 
-20:                                               ; preds = %switch.lookup, %11, %8, %8, %8, %8, %8
-  %21 = phi i8 [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %switch.masked, %switch.lookup ]
-  store i8 %21, ptr %2, align 1
+19:                                               ; preds = %18, %11, %8, %8, %8, %8, %8
+  %20 = phi i8 [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %switch.masked, %switch.lookup ]
+  store i8 %20, ptr %2, align 1
   br label %kstrtobool.exit
 
 kstrtobool.exit:                                  ; preds = %12, %20, %8, %3
-  %22 = phi i32 [ -14, %3 ], [ -22, %8 ], [ -22, %12 ], [ 0, %20 ]
+  %21 = phi i32 [ -14, %3 ], [ -22, %8 ], [ -22, %12 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %22
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

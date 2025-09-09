@@ -1189,7 +1189,7 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %14, i32 %13, i1 noundef zeroext true) #14
   %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %165, label %19
+  br i1 %18, label %166, label %19
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 2624
@@ -1232,17 +1232,17 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %or.cond = select i1 %49, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %50
 
-50:                                               ; preds = %34
+49:                                               ; preds = %34
   tail call void asm sideeffect "961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 961) #14, !srcloc !70
-  %51 = zext nneg i32 %47 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.39, i64 noundef %51) #14
+  %50 = zext nneg i32 %47 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.39, i64 noundef %50) #14
   tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #14, !srcloc !71
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 787, i32 2313, i64 12) #14, !srcloc !72
   tail call void asm sideeffect "963: nop\0A\09.pushsection .discard.instr_end\0A\09.long 963b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 963) #14, !srcloc !73
   tail call void asm sideeffect "964: nop\0A\09.pushsection .discard.instr_end\0A\09.long 964b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 964) #14, !srcloc !74
   br label %.thread6.sink.split
 
-52:                                               ; preds = %106, %28
+51:                                               ; preds = %106, %28
   %53 = phi i64 [ 0, %28 ], [ %108, %106 ]
   %54 = phi i8 [ 0, %28 ], [ %107, %106 ]
   %55 = load i8, ptr %29, align 2
@@ -1252,14 +1252,14 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %106, label %60
 
-60:                                               ; preds = %52
+60:; preds = %52
   %61 = trunc i64 %53 to i32
   %62 = add i32 %61, 9
   %63 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %4, i32 noundef %62) #14
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %106, label %65
 
-65:                                               ; preds = %60
+65:; preds = %60
   %66 = load i16, ptr %21, align 8
   %67 = icmp ugt i16 %66, 11
   %68 = select i1 %67, i32 2013265920, i32 1879048192
@@ -1270,33 +1270,33 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %73 = load i32, ptr %72, align 4
   %74 = load i32, ptr %71, align 4
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %76 = load i32, ptr %75, align 4
+  %71 = load i32, ptr %75, align 4
   %77 = add i32 %73, 394240
   %78 = sub i32 %77, %74
   %79 = add i32 %78, %76
-  %80 = load ptr, ptr %15, align 8
+  %75 = load ptr, ptr %15, align 8
   %81 = tail call i32 %80(ptr noundef nonnull %14, i32 %79, i1 noundef zeroext true) #14
   tail call void @intel_display_power_put_unchecked(ptr noundef %4, i32 noundef %62) #14
   %82 = and i32 %81, %68
   %83 = icmp eq i32 %82, %69
   br i1 %83, label %84, label %106
 
-84:                                               ; preds = %65
+84:; preds = %65
   %85 = and i32 %81, 117440512
   %86 = icmp eq i32 %85, 50331648
   br i1 %86, label %98, label %87
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %33, align 4
-  %89 = and i32 %88, 2048
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %96
+92:                                               ; preds = %84
+  %93 = load i32, ptr %33, align 4
+  %89 = and i32 %93, 2048
+  %95 = icmp eq i32 %89, 0
+  br i1 %95, label %91, label %96
 
-91:                                               ; preds = %87
+107:                                              ; preds = %92
   %92 = load i16, ptr %21, align 8
   %93 = icmp ugt i16 %92, 13
-  %94 = icmp eq i32 %85, 67108864
-  %95 = and i1 %94, %93
+  %110 = icmp eq i32 %85, 67108864
+  %95 = and i1 %110, %93
   br i1 %95, label %98, label %101
 
 96:                                               ; preds = %87
@@ -1308,7 +1308,7 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %100 = or i8 %54, %99
   br label %101
 
-101:                                              ; preds = %98, %96, %91
+111:                                              ; preds = %98, %96, %107
   %102 = phi i8 [ %100, %98 ], [ %54, %96 ], [ %54, %91 ]
   %103 = load i8, ptr %1, align 1
   %104 = trunc i64 %57 to i8
@@ -1320,23 +1320,23 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %107 = phi i8 [ %54, %52 ], [ %102, %101 ], [ %54, %60 ], [ %54, %65 ]
   %108 = add nuw nsw i64 %53, 1
   %109 = icmp eq i64 %108, 4
-  br i1 %109, label %110, label %52, !llvm.loop !75
+  br i1 %109, label %119, label %52, !llvm.loop !75
 
-110:                                              ; preds = %106
+119:                                              ; preds = %106
   %111 = load i8, ptr %1, align 1
   %112 = icmp eq i8 %111, 0
   br i1 %112, label %113, label %124
 
-113:                                              ; preds = %110
+149:                                              ; preds = %110
   %114 = icmp eq ptr %4, null
   br i1 %114, label %118, label %115
 
-115:                                              ; preds = %113
+153:                                              ; preds = %149
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %117 = load ptr, ptr %116, align 8
   br label %118
 
-118:                                              ; preds = %115, %113
+155:                                              ; preds = %115, %113
   %119 = phi ptr [ %117, %115 ], [ null, %113 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %121 = load i32, ptr %120, align 8
@@ -1381,13 +1381,13 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   store i8 %147, ptr %1, align 1
   br label %.thread
 
-148:                                              ; preds = %124
+158:                                              ; preds = %124
   %149 = zext i8 %107 to i32
   %150 = load i8, ptr %1, align 1
   %151 = icmp eq i8 %107, %150
   br i1 %151, label %.thread, label %152
 
-152:                                              ; preds = %148
+152:; preds = %158
   %153 = icmp eq ptr %4, null
   br i1 %153, label %157, label %154
 
@@ -1407,14 +1407,14 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   br label %165
 
 .thread:                                          ; preds = %126, %136, %148
-  %164 = zext i1 %125 to i8
-  store i8 %164, ptr %2, align 1
-  br label %165
+  %165 = zext i1 %125 to i8
+  store i8 %165, ptr %2, align 1
+  br label %166
 
-165:                                              ; preds = %.thread, %157, %11
+166:                                              ; preds = %.thread, %157, %11
   %.pr = load i8, ptr %1, align 1
-  %166 = icmp eq i8 %.pr, 0
-  br i1 %166, label %190, label %.thread6
+  %167 = icmp eq i8 %.pr, 0
+  br i1 %167, label %190, label %.thread6
 
 switch.lookup:                                    ; preds = %34
   %167 = lshr exact i32 %47, 9
@@ -1423,12 +1423,12 @@ switch.lookup:                                    ; preds = %34
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %.thread6.sink.split
 
-.thread6.sink.split:                              ; preds = %switch.lookup, %50
+.thread6.sink.split:                              ; preds = %switch.lookup, %49
   %.sink = phi i8 [ 1, %50 ], [ %switch.masked, %switch.lookup ]
   store i8 %.sink, ptr %1, align 1
   br label %.thread6
 
-.thread6:                                         ; preds = %.thread6.sink.split, %165
+.thread6:                                         ; preds = %.thread6.sink.split, %166
   %168 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %169, 335544320
@@ -1462,7 +1462,7 @@ switch.lookup:                                    ; preds = %34
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %185, ptr noundef nonnull @.str.43, i32 noundef %187, ptr noundef %189, i32 noundef %176) #16
   br label %190
 
-190:                                              ; preds = %184, %172, %.thread6, %165
+190:                                              ; preds = %184, %172, %.thread6, %166
   %191 = load i32, ptr %7, align 4
   tail call void @intel_display_power_put_unchecked(ptr noundef %4, i32 noundef %191) #14
   br label %192

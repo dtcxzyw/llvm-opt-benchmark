@@ -749,11 +749,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   %16 = load i16, ptr %15, align 2
   br i1 %14, label %23, label %17
 
-17:                                               ; preds = %3
+13:                                               ; preds = %3
   %18 = icmp ugt i16 %16, 1088
   br i1 %18, label %125, label %19
 
-19:                                               ; preds = %17
+14:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i16, ptr %20, align 4
   %22 = icmp ugt i16 %21, 1024
@@ -769,50 +769,50 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i16, ptr %26, align 4
   %28 = icmp ugt i16 %27, 2048
-  %29 = icmp samesign ult i16 %16, 12
-  %or.cond = select i1 %28, i1 true, i1 %29
-  br i1 %or.cond, label %125, label %30
+  %.old = icmp samesign ult i16 %16, 12
+  %or.cond5 = select i1 %28, i1 true, i1 %.old
+  br i1 %or.cond5, label %125, label %30
 
-30:                                               ; preds = %19, %25
+29:                                               ; preds = %14, %25
   %31 = phi i16 [ %21, %19 ], [ %27, %25 ]
   %32 = icmp samesign ult i16 %31, 20
   br i1 %32, label %125, label %33
 
-33:                                               ; preds = %30
+33: ; preds = %29
   %34 = trunc i32 %4 to i8
   switch i8 %34, label %125 [
     i8 1, label %45
     i8 2, label %35
   ]
 
-35:                                               ; preds = %33
-  %36 = icmp eq i32 %5, 256
-  br i1 %36, label %37, label %125
+41:                                               ; preds = %33
+  %42 = icmp eq i32 %5, 256
+  br i1 %42, label %37, label %125
 
-37:                                               ; preds = %35
+107:                                              ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i16 0, ptr %38, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 0, ptr %39, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %110, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, 3
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %115 = load i32, ptr %114, align 4
+  %43 = and i32 %115, 3
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %46, label %125
 
-45:                                               ; preds = %33
+45:; preds = %33
   br i1 %7, label %125, label %46
 
-46:                                               ; preds = %45, %37
+46: ; preds = %45, %107
   %47 = srem i16 %31, %.rhs.trunc17
   %48 = sdiv i16 %31, %.rhs.trunc17
   %.sext18 = sext i16 %48 to i32
-  %49 = icmp eq i16 %47, 0
-  br i1 %49, label %50, label %125
+  %124 = icmp eq i16 %47, 0
+  br i1 %124, label %125, label %125
 
-50:                                               ; preds = %46
+125:                                              ; preds = %46
   %51 = load i32, ptr %11, align 4
   %52 = and i32 %51, 48
   %53 = icmp eq i32 %52, 0
@@ -824,7 +824,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %125
 
-60:                                               ; preds = %50
+60:; preds = %50
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32

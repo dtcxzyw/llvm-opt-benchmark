@@ -1740,7 +1740,7 @@ switch.lookup:
   %26 = select i1 %24, i32 %1, i32 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %28, i8 0, i64 328, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 536
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 56, i1 false)
@@ -1775,13 +1775,13 @@ switch.lookup:
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread5
 
-52:                                               ; preds = %8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %54 = load i8, ptr %53, align 8, !range !6, !noundef !7
+20:                                               ; preds = %8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %54 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %.thread, label %56
 
-56:                                               ; preds = %52
+56:                                               ; preds = %20
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 872
@@ -1793,31 +1793,31 @@ switch.lookup:
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread, label %65
 
-65:                                               ; preds = %56
+60:                                               ; preds = %56
   %66 = tail call fastcc i32 @_nfs4_proc_open_confirm(ptr noundef %0)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread, label %.thread5
 
 .thread:                                          ; preds = %56, %52, %65
-  %68 = tail call fastcc ptr @nfs4_opendata_to_nfs4_state(ptr noundef %0)
-  %69 = icmp ugt ptr %68, inttoptr (i64 -4096 to ptr)
-  br i1 %69, label %70, label %73
+  %72 = tail call fastcc ptr @nfs4_opendata_to_nfs4_state(ptr noundef %0)
+  %73 = icmp ugt ptr %72, inttoptr (i64 -4096 to ptr)
+  br i1 %73, label %74, label %77
 
-70:                                               ; preds = %.thread
-  %71 = ptrtoint ptr %68 to i64
-  %72 = trunc i64 %71 to i32
+74:                                               ; preds = %.thread
+  %75 = ptrtoint ptr %72 to i64
+  %76 = trunc i64 %75 to i32
   br label %.thread5
 
-73:                                               ; preds = %.thread
-  %74 = load ptr, ptr %2, align 8
-  %75 = icmp eq ptr %68, %74
-  %76 = select i1 %75, i32 0, i32 -116
-  tail call void @nfs4_close_state(ptr noundef %68, i32 noundef %1) #22
+77:                                               ; preds = %.thread
+  %78 = load ptr, ptr %2, align 8
+  %79 = icmp eq ptr %72, %78
+  %80 = select i1 %79, i32 0, i32 -116
+  tail call void @nfs4_close_state(ptr noundef %72, i32 noundef %1) #22
   br label %.thread5
 
-.thread5:                                         ; preds = %8, %73, %70, %65, %switch.lookup
-  %77 = phi i32 [ %72, %70 ], [ %76, %73 ], [ 0, %switch.lookup ], [ %66, %65 ], [ %50, %8 ]
-  ret i32 %77
+.thread5:                                         ; preds = %8, %77, %74, %65, %switch.lookup
+  %81 = phi i32 [ %76, %70 ], [ %80, %73 ], [ 0, %switch.lookup ], [ %66, %65 ], [ %50, %8 ]
+  ret i32 %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1441,13 +1441,13 @@ declare dso_local void @rate_control_rate_update(ptr noundef, ptr noundef, ptr n
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
 define dso_local void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 align 16 {
   %3 = zext i16 %0 to i32
-  br label %switch.lookup
+  br label %4
 
-switch.lookup:                                    ; preds = %switch.lookup, %2
-  %4 = phi i64 [ 0, %2 ], [ %11, %switch.lookup ]
-  %5 = trunc i64 %4 to i32
-  %6 = shl i32 %5, 1
-  %7 = lshr i32 %3, %6
+4:                                                ; preds = %4, %2
+  %5 = phi i64 [ 0, %2 ], [ %11, %switch.lookup ]
+  %6 = trunc i64 %5 to i32
+  %7 = shl i32 %6, 1
+  %8 = lshr i32 %3, %7
   %8 = getelementptr i16, ptr %1, i64 %4
   %9 = shl nuw nsw i32 %7, 4
   %10 = and i32 %9, 48
@@ -1457,7 +1457,7 @@ switch.lookup:                                    ; preds = %switch.lookup, %2
   store i16 %switch.masked, ptr %8, align 2
   %11 = add nuw nsw i64 %4, 1
   %12 = icmp eq i64 %11, 8
-  br i1 %12, label %13, label %switch.lookup, !llvm.loop !27
+  br i1 %12, label %13, label %4, !llvm.loop !27
 
 13:                                               ; preds = %switch.lookup
   ret void

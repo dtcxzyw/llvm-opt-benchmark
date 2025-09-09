@@ -969,7 +969,7 @@ define internal fastcc void @l1tf_select_mitigation() unnamed_addr #3 section ".
   %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %2 = and i64 %1, 1125899906842624
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %39, label %4
+  br i1 %3, label %41, label %4
 
 4:                                                ; preds = %0
   %5 = tail call zeroext i1 @cpu_mitigations_off() #15
@@ -1028,36 +1028,36 @@ switch.lookup:                                    ; preds = %19
   %switch.masked = trunc i3 %switch.downshift to i1
   tail call void @cpu_smt_disable(i1 noundef zeroext %switch.masked) #15
   %.pr = load i32, ptr @l1tf_mitigation, align 4
-  br label %22
+  br label %24
 
-22:                                               ; preds = %19, %switch.lookup
-  %23 = phi i32 [ %.pr, %switch.lookup ], [ %20, %19 ]
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 312), align 8
-  %25 = zext i8 %24 to i64
-  %26 = add nuw nsw i64 %25, 4294967283
-  %27 = and i64 %26, 4294967295
-  %28 = shl i64 4096, %27
-  %29 = icmp eq i32 %23, 0
-  br i1 %29, label %38, label %30
+24:                                               ; preds = %19, %switch.lookup
+  %25 = phi i32 [ %.pr, %switch.lookup ], [ %20, %19 ]
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 312), align 8
+  %27 = zext i8 %26 to i64
+  %28 = add nuw nsw i64 %27, 4294967283
+  %29 = and i64 %28, 4294967295
+  %30 = shl i64 4096, %29
+  %31 = icmp eq i32 %25, 0
+  br i1 %31, label %40, label %32
 
-30:                                               ; preds = %22
-  %31 = xor i64 %28, -1
-  %32 = tail call zeroext i1 @e820__mapped_any(i64 noundef %28, i64 noundef %31, i32 noundef 1) #15
-  br i1 %32, label %33, label %38
+32:                                               ; preds = %24
+  %33 = xor i64 %30, -1
+  %34 = tail call zeroext i1 @e820__mapped_any(i64 noundef %30, i64 noundef %33, i32 noundef 1) #15
+  br i1 %34, label %35, label %40
 
-33:                                               ; preds = %30
-  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108) #17
-  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.109, i64 noundef %28) #17
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.110) #17
-  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.111) #17
-  br label %39
+35:                                               ; preds = %32
+  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108) #17
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.109, i64 noundef %30) #17
+  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.110) #17
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.111) #17
+  br label %41
 
-38:                                               ; preds = %30, %22
+40:                                               ; preds = %32, %24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 71), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 71)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 31), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 31)) #15, !srcloc !12
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38, %33, %0
+41:                                               ; preds = %40, %35, %0
   ret void
 }
 

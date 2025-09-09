@@ -2451,15 +2451,15 @@ define dso_local noundef zeroext i1 @intel_dp_needs_vsc_sdp(ptr noundef readonly
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %8, 11
-  br i1 %9, label %switch.lookup, label %10
+  br i1 %9, label %9, label %10
 
-switch.lookup:                                    ; preds = %6
+9:                                                ; preds = %6
   %switch.cast = trunc nuw i32 %8 to i11
   %switch.downshift = lshr i11 -160, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
   br label %10
 
-10:                                               ; preds = %6, %switch.lookup, %2
+10:                                               ; preds = %6, %9, %2
   %11 = phi i1 [ true, %2 ], [ %switch.masked, %switch.lookup ], [ false, %6 ]
   ret i1 %11
 }

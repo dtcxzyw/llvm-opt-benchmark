@@ -1789,27 +1789,27 @@ define internal void @g4x_set_signal_levels(ptr noundef captures(none) %0, ptr r
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %9 [
-    i32 10, label %switch.lookup
-    i32 7, label %switch.lookup
-    i32 8, label %switch.lookup
-    i32 6, label %switch.lookup
+    i32 10, label %10
+    i32 7, label %10
+    i32 8, label %10
+    i32 6, label %10
     i32 11, label %6
   ]
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load ptr, ptr %7, align 8
-  br label %switch.lookup
+  br label %10
 
 9:                                                ; preds = %2
-  br label %switch.lookup
+  br label %10
 
-switch.lookup:                                    ; preds = %9, %6, %2, %2, %2, %2
-  %10 = phi ptr [ %8, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %9 ]
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1916
-  %12 = load i8, ptr %11, align 4
-  %13 = zext i8 %12 to i32
-  %14 = shl i32 %13, 25
+10:                                               ; preds = %9, %6, %2, %2, %2, %2
+  %11 = phi ptr [ %8, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %9 ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1916
+  %13 = load i8, ptr %12, align 4
+  %14 = zext i8 %13 to i32
+  %14 = shl i32 %14, 25
   %switch.idx.mult = and i32 %14, 100663296
   %15 = lshr i32 %13, 3
   %16 = and i32 %15, 3
@@ -1820,32 +1820,32 @@ switch.lookup:                                    ; preds = %9, %6, %2, %2, %2, 
     i32 3, label %21
   ]
 
-default.unreachable2:                             ; preds = %switch.lookup
+default.unreachable2:                             ; preds = %10
   unreachable
 
-17:                                               ; preds = %switch.lookup
+16:                                               ; preds = %10
   %18 = or disjoint i32 %switch.idx.mult, 4194304
   br label %23
 
-19:                                               ; preds = %switch.lookup
+18:                                               ; preds = %10
   %20 = or disjoint i32 %switch.idx.mult, 8388608
   br label %23
 
-21:                                               ; preds = %switch.lookup
-  %22 = or disjoint i32 %switch.idx.mult, 12582912
+23:                                               ; preds = %10
+  %24 = or disjoint i32 %switch.idx.mult, 12582912
   br label %23
 
-23:                                               ; preds = %21, %19, %17, %switch.lookup
+25:                                               ; preds = %21, %19, %17, %10
   %24 = phi i32 [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %switch.idx.mult, %switch.lookup ]
   %25 = icmp eq ptr %3, null
   br i1 %25, label %29, label %26
 
-26:                                               ; preds = %23
+27:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   br label %29
 
-29:                                               ; preds = %26, %23
+29:                                               ; preds = %27, %23
   %30 = phi ptr [ %28, %26 ], [ null, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 392
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %24) #10

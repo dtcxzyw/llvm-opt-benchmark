@@ -148,7 +148,7 @@ define internal fastcc void @rps_set_power(ptr noundef %0, i32 noundef %1) unnam
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %75, label %9
+  br i1 %8, label %78, label %9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
@@ -158,7 +158,7 @@ define internal fastcc void @rps_set_power(ptr noundef %0, i32 noundef %1) unnam
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %74
 
-15:                                               ; preds = %9
+15:; preds = %9
   %16 = icmp ult i32 %1, 3
   %switch.idx.mult = mul nsw i32 %1, -3000
   %switch.offset = add nsw i32 %switch.idx.mult, 16000
@@ -169,11 +169,11 @@ define internal fastcc void @rps_set_power(ptr noundef %0, i32 noundef %1) unnam
   %21 = tail call i64 @intel_gt_ns_to_pm_interval(ptr noundef %3, i64 noundef %20) #11
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %24 = load i32, ptr %23, align 4
-  %25 = add i32 %24, 41064
-  %26 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %23, align 4
+  %25 = add i32 %16, 41064
+  %18 = load ptr, ptr %5, align 8
   %27 = zext i32 %25 to i64
-  %28 = getelementptr i8, ptr %26, i64 %27
+  %28 = getelementptr i8, ptr %18, i64 %27
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %28) #11, !srcloc !5
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %30 = load i8, ptr %29, align 8
@@ -190,7 +190,7 @@ define internal fastcc void @rps_set_power(ptr noundef %0, i32 noundef %1) unnam
   %41 = getelementptr i8, ptr %39, i64 %40
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr elementtype(i32) %41) #11, !srcloc !5
   %42 = mul nuw nsw i32 %18, 1000
-  %43 = zext nneg i32 %42 to i64
+  %34 = zext nneg i32 %42 to i64
   %44 = tail call i64 @intel_gt_ns_to_pm_interval(ptr noundef %3, i64 noundef %43) #11
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr %23, align 4
@@ -202,8 +202,8 @@ define internal fastcc void @rps_set_power(ptr noundef %0, i32 noundef %1) unnam
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
-  %54 = mul nuw nsw i32 %18, 10
-  %55 = mul nuw nsw i32 %54, %53
+  %45 = mul nuw nsw i32 %18, 10
+  %55 = mul nuw nsw i32 %45, %53
   %56 = zext nneg i32 %55 to i64
   %57 = tail call i64 @intel_gt_ns_to_pm_interval(ptr noundef %3, i64 noundef %56) #11
   %58 = trunc i64 %57 to i32
@@ -213,24 +213,24 @@ define internal fastcc void @rps_set_power(ptr noundef %0, i32 noundef %1) unnam
   %62 = zext i32 %60 to i64
   %63 = getelementptr i8, ptr %61, i64 %62
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %58, ptr elementtype(i32) %63) #11, !srcloc !5
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 7176
+  %55 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 7176
   %66 = load i8, ptr %65, align 8
   %67 = icmp ugt i8 %66, 9
   %68 = select i1 %67, i32 1426, i32 3474
   %69 = load i32, ptr %23, align 4
   %70 = add i32 %69, 40996
-  %71 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %5, align 8
   %72 = zext i32 %70 to i64
   %73 = getelementptr i8, ptr %71, i64 %72
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %73) #11, !srcloc !5
   br label %74
 
-74:                                               ; preds = %15, %9
+74:; preds = %15, %9
   store i32 %1, ptr %6, align 8
-  br label %75
+  br label %78
 
-75:                                               ; preds = %74, %2
+78:                                               ; preds = %74, %2
   ret void
 }
 

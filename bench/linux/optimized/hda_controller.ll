@@ -2412,7 +2412,7 @@ switch.lookup:                                    ; preds = %40
   %46 = icmp eq ptr %45, %44
   br i1 %46, label %.loopexit6, label %.preheader5
 
-.preheader5:                                      ; preds = %switch.lookup, %67
+.preheader5:; preds = %switch.lookup, %67
   %47 = phi ptr [ %68, %67 ], [ %43, %switch.lookup ]
   %48 = phi ptr [ %70, %67 ], [ %45, %switch.lookup ]
   %49 = phi i32 [ %69, %67 ], [ 0, %switch.lookup ]
@@ -2422,10 +2422,10 @@ switch.lookup:                                    ; preds = %40
   %53 = load ptr, ptr %0, align 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %52, %54
-  br i1 %55, label %56, label %67
+  br i1 %55, label %58, label %67
 
-56:                                               ; preds = %.preheader5
-  %57 = getelementptr i8, ptr %48, i64 -40
+58:                                               ; preds = %.preheader5
+  %59 = getelementptr i8, ptr %48, i64 -40
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 392
   %60 = load ptr, ptr %59, align 8
@@ -2439,7 +2439,7 @@ switch.lookup:                                    ; preds = %40
   %.pre = load ptr, ptr %42, align 8
   br label %67
 
-67:                                               ; preds = %56, %.preheader5
+67:; preds = %56, %.preheader5
   %68 = phi ptr [ %47, %.preheader5 ], [ %.pre, %56 ]
   %69 = phi i32 [ %49, %.preheader5 ], [ %65, %56 ]
   %70 = load ptr, ptr %48, align 8
@@ -2447,7 +2447,7 @@ switch.lookup:                                    ; preds = %40
   %72 = icmp eq ptr %70, %71
   br i1 %72, label %.loopexit6, label %.preheader5, !llvm.loop !65
 
-.loopexit6:                                       ; preds = %67, %switch.lookup
+.loopexit6: ; preds = %67, %switch.lookup
   %73 = phi i32 [ 0, %switch.lookup ], [ %69, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 1192
   tail call void @_raw_spin_lock(ptr noundef nonnull %74) #15
@@ -2462,18 +2462,18 @@ switch.lookup:                                    ; preds = %40
   br i1 %switch.masked, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %95
-  %79 = phi ptr [ %96, %95 ], [ %75, %.preheader ]
-  %80 = phi ptr [ %97, %95 ], [ %77, %.preheader ]
-  %81 = getelementptr i8, ptr %80, i64 -232
-  %82 = load ptr, ptr %81, align 8
+  %81 = phi ptr [ %96, %95 ], [ %75, %.preheader ]
+  %82 = phi ptr [ %97, %95 ], [ %77, %.preheader ]
+  %83 = getelementptr i8, ptr %82, i64 -232
+  %84 = load ptr, ptr %83, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %0, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %83, %85
   br i1 %86, label %87, label %95
 
-87:                                               ; preds = %.preheader.split.us
-  %88 = getelementptr i8, ptr %80, i64 -40
+89:                                               ; preds = %.preheader.split.us
+  %90 = getelementptr i8, ptr %82, i64 -40
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 392
   %91 = load ptr, ptr %90, align 8
@@ -2485,14 +2485,14 @@ switch.lookup:                                    ; preds = %40
   %.pre9 = load ptr, ptr %42, align 8
   br label %95
 
-95:                                               ; preds = %87, %.preheader.split.us
+95:; preds = %87, %.preheader.split.us
   %96 = phi ptr [ %.pre9, %87 ], [ %79, %.preheader.split.us ]
   %97 = load ptr, ptr %80, align 8
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %99 = icmp eq ptr %97, %98
   br i1 %99, label %.loopexit, label %.preheader.split.us, !llvm.loop !66
 
-.preheader.split:                                 ; preds = %.preheader, %113
+.preheader.split:; preds = %.preheader, %113
   %100 = phi ptr [ %114, %113 ], [ %75, %.preheader ]
   %101 = phi ptr [ %115, %113 ], [ %77, %.preheader ]
   %102 = getelementptr i8, ptr %101, i64 -232
@@ -2503,38 +2503,38 @@ switch.lookup:                                    ; preds = %40
   %107 = icmp eq ptr %104, %106
   br i1 %107, label %108, label %113
 
-108:                                              ; preds = %.preheader.split
-  %109 = getelementptr i8, ptr %101, i64 -40
+110:                                              ; preds = %.preheader.split
+  %111 = getelementptr i8, ptr %101, i64 -40
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 392
   %112 = load ptr, ptr %111, align 8
   tail call void @snd_hdac_stream_stop(ptr noundef %112) #15
-  %.pre8 = load ptr, ptr %42, align 8
+  %114 = load ptr, ptr %42, align 8
   br label %113
 
-113:                                              ; preds = %108, %.preheader.split
+113:; preds = %110, %.preheader.split
   %114 = phi ptr [ %.pre8, %108 ], [ %100, %.preheader.split ]
   %115 = load ptr, ptr %101, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %117 = icmp eq ptr %115, %116
   br i1 %117, label %.loopexit, label %.preheader.split, !llvm.loop !66
 
-.loopexit:                                        ; preds = %113, %95, %.loopexit6
+.loopexit:; preds = %113, %95, %.loopexit6
   tail call void @_raw_spin_unlock(ptr noundef nonnull %74) #15
   tail call void @snd_hdac_stream_sync(ptr noundef %9, i1 noundef zeroext %switch.masked, i32 noundef %73) #15
   tail call void @_raw_spin_lock(ptr noundef nonnull %74) #15
   tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext false, i32 noundef %73, i32 noundef %35) #15
   br i1 %switch.masked, label %118, label %119
 
-118:                                              ; preds = %.loopexit
+118:; preds = %.loopexit
   tail call void @snd_hdac_stream_timecounter_init(ptr noundef %9, i32 noundef %73) #15
   br label %119
 
-119:                                              ; preds = %118, %.loopexit
+119:; preds = %118, %.loopexit
   tail call void @_raw_spin_unlock(ptr noundef nonnull %74) #15
   br label %120
 
-120:                                              ; preds = %40, %119, %30
+120:; preds = %40, %119, %30
   %121 = phi i32 [ 0, %119 ], [ -32, %30 ], [ -22, %40 ]
   ret i32 %121
 }

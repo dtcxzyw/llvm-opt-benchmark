@@ -520,103 +520,103 @@ define dso_local noundef range(i32 -2, 1) i32 @audit_del_rule(ptr noundef readon
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
-12:                                               ; preds = %1
+6:                                                ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 31
   br label %35
 
-16:                                               ; preds = %1
+7:                                                ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %33, label %.preheader
+  br i1 %19, label %33, label %13
 
-.preheader:                                       ; preds = %16, %30
+13:                                               ; preds = %7, %30
   %20 = phi i64 [ %31, %30 ], [ 0, %16 ]
   %21 = getelementptr %struct.list_head, ptr @audit_inode_hash, i64 %20
   br label %22
 
-22:                                               ; preds = %26, %.preheader
-  %23 = phi ptr [ %21, %.preheader ], [ %24, %26 ]
-  %24 = load ptr, ptr %23, align 8
+.preheader:                                       ; preds = %26, %13
+  %21 = phi ptr [ %21, %.preheader ], [ %24, %26 ]
+  %24 = load ptr, ptr %21, align 8
   %25 = icmp eq ptr %24, %21
   br i1 %25, label %30, label %26
 
-26:                                               ; preds = %22
+23:                                               ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %28 = tail call fastcc i32 @audit_compare_rule(ptr noundef nonnull %8, ptr noundef nonnull %27), !range !12
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.loopexit, label %22, !llvm.loop !13
+  %28 = tail call fastcc i32 @audit_compare_rule(ptr noundef nonnull %8, ptr noundef nonnull %27), !range !6
+  %26 = icmp eq i32 %28, 0
+  br i1 %26, label %59, label %22, !llvm.loop !13
 
-30:                                               ; preds = %22
+27:                                               ; preds = %22
   %31 = add nuw nsw i64 %20, 1
   %32 = icmp eq i64 %31, 32
-  br i1 %32, label %.thread, label %.preheader, !llvm.loop !14
+  br i1 %32, label %.thread, label %13, !llvm.loop !14
 
-33:                                               ; preds = %16
+39:                                               ; preds = %16
   %34 = load i32, ptr %4, align 8
-  br label %35
+  br label %43
 
-35:                                               ; preds = %33, %12
+43:                                               ; preds = %39, %6
   %.sink23 = phi i32 [ %34, %33 ], [ %15, %12 ]
   %audit_filter_list.sink = phi ptr [ @audit_filter_list, %33 ], [ @audit_inode_hash, %12 ]
   %36 = zext i32 %.sink23 to i64
   %37 = getelementptr %struct.list_head, ptr %audit_filter_list.sink, i64 %36
   br label %38
 
-38:                                               ; preds = %42, %35
+54:                                               ; preds = %42, %35
   %39 = phi ptr [ %37, %35 ], [ %40, %42 ]
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %37
   br i1 %41, label %.thread, label %42
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = tail call fastcc i32 @audit_compare_rule(ptr noundef nonnull %8, ptr noundef nonnull %43), !range !12
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit, label %38, !llvm.loop !15
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %44 = tail call fastcc i32 @audit_compare_rule(ptr noundef nonnull %8, ptr noundef nonnull %56), !range !6
+  %58 = icmp eq i32 %44, 0
+  br i1 %58, label %59, label %38, !llvm.loop !15
 
-.loopexit:                                        ; preds = %26, %42
+59:                                               ; preds = %26, %55
   %46 = phi ptr [ %40, %42 ], [ %24, %26 ]
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread, label %48
 
-48:                                               ; preds = %.loopexit
+48: ; preds = %.loopexit
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 344
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
 
-53:                                               ; preds = %48
+53:; preds = %48
   tail call void @audit_remove_watch_rule(ptr noundef nonnull %49) #14
   br label %54
 
 54:                                               ; preds = %53, %48
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 352
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
+  %68 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %68, null
   br i1 %57, label %60, label %58
 
-58:                                               ; preds = %54
+76:                                               ; preds = %54
   %59 = tail call i32 @audit_remove_tree_rule(ptr noundef nonnull %49) #14
   br label %60
 
-60:                                               ; preds = %58, %54
+60: ; preds = %58, %54
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 360
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %65, label %64
 
-64:                                               ; preds = %60
+64:; preds = %60
   tail call void @audit_remove_mark_rule(ptr noundef nonnull %49) #14
   br label %65
 
-65:                                               ; preds = %64, %60
+65: ; preds = %64, %60
   br i1 %7, label %66, label %69
 
-66:                                               ; preds = %65
+66: ; preds = %66
   %67 = load i32, ptr @audit_n_rules, align 4
   %68 = add i32 %67, -1
   store i32 %68, ptr @audit_n_rules, align 4
@@ -654,18 +654,18 @@ define dso_local noundef range(i32 -2, 1) i32 @audit_del_rule(ptr noundef readon
   tail call void @call_rcu(ptr noundef nonnull %85, ptr noundef nonnull @audit_free_rule_rcu) #14
   br label %.thread
 
-.thread:                                          ; preds = %30, %38, %75, %.loopexit
-  %86 = phi i32 [ 0, %75 ], [ -2, %.loopexit ], [ -2, %38 ], [ -2, %30 ]
+.thread:                                          ; preds = %30, %38, %76, %.loopexit
+  %87 = phi i32 [ 0, %75 ], [ -2, %.loopexit ], [ -2, %38 ], [ -2, %30 ]
   tail call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
-  %87 = icmp eq ptr %3, null
-  br i1 %87, label %89, label %88
+  %88 = icmp eq ptr %3, null
+  br i1 %88, label %90, label %89
 
-88:                                               ; preds = %.thread
+89:                                               ; preds = %.thread
   tail call void @audit_put_tree(ptr noundef nonnull %3) #14
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %.thread
-  ret i32 %86
+90:                                               ; preds = %89, %.thread
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -809,7 +809,7 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
 9:                                                ; preds = %6
   %10 = ptrtoint ptr %7 to i64
   %11 = trunc i64 %10 to i32
-  br label %170
+  br label %171
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -832,23 +832,23 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
 
-25:                                               ; preds = %12
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+20:                                               ; preds = %12
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 31
   br label %47
 
-29:                                               ; preds = %12
+21:                                               ; preds = %12
   %30 = load ptr, ptr %14, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %45, label %.preheader18
+  br i1 %31, label %76, label %26
 
-.preheader18:                                     ; preds = %29, %42
+26:                                               ; preds = %21, %42
   %32 = phi i64 [ %43, %42 ], [ 0, %29 ]
   %33 = getelementptr %struct.list_head, ptr @audit_inode_hash, i64 %32
   br label %34
 
-34:                                               ; preds = %38, %.preheader18
+30:                                               ; preds = %38, %26
   %35 = phi ptr [ %33, %.preheader18 ], [ %36, %38 ]
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %33
@@ -877,8 +877,8 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
   store ptr %49, ptr %5, align 8
   br label %50
 
-50:                                               ; preds = %54, %47
-  %51 = phi ptr [ %49, %47 ], [ %52, %54 ]
+.preheader18:                                     ; preds = %54, %47
+  %33 = phi ptr [ %49, %47 ], [ %52, %54 ]
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %49
   br i1 %53, label %.thread, label %54
@@ -889,145 +889,145 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %.loopexit16, label %50, !llvm.loop !15
 
-.loopexit16:                                      ; preds = %38, %54
-  %58 = phi ptr [ %52, %54 ], [ %36, %38 ]
-  %59 = icmp eq ptr %58, null
+.loopexit7:                                               ; preds = %38, %54
+  %36 = phi ptr [ %52, %54 ], [ %36, %38 ]
+  %59 = icmp eq ptr %76, null
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %.loopexit16
   tail call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
-  %61 = icmp eq ptr %17, null
-  br i1 %61, label %.thread45, label %62
+  %62 = icmp eq ptr %17, null
+  br i1 %62, label %.thread45, label %63
 
-62:                                               ; preds = %60
+63:                                               ; preds = %60
   tail call void @audit_put_tree(ptr noundef nonnull %17) #14
   br label %.thread45
 
 .thread:                                          ; preds = %42, %50, %.loopexit16
-  %63 = icmp eq ptr %15, null
-  br i1 %63, label %70, label %64
+  %64 = icmp eq ptr %15, null
+  br i1 %64, label %71, label %65
 
-64:                                               ; preds = %.thread
-  %65 = call i32 @audit_add_watch(ptr noundef nonnull %13, ptr noundef nonnull %5) #14
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %70, label %67
+65:                                               ; preds = %.thread
+  %66 = call i32 @audit_add_watch(ptr noundef nonnull %13, ptr noundef nonnull %5) #14
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %71, label %68
 
-67:                                               ; preds = %64
+68:                                               ; preds = %65
   call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
-  %68 = icmp eq ptr %17, null
-  br i1 %68, label %.thread45, label %69
+  %69 = icmp eq ptr %17, null
+  br i1 %69, label %.thread45, label %70
 
-69:                                               ; preds = %67
+70:                                               ; preds = %68
   call void @audit_put_tree(ptr noundef nonnull %17) #14
   br label %.thread45
 
-70:                                               ; preds = %64, %.thread
-  %71 = icmp eq ptr %17, null
-  br i1 %71, label %76, label %72
+71:                                               ; preds = %65, %.thread
+  %72 = icmp eq ptr %17, null
+  br i1 %72, label %77, label %73
 
-72:                                               ; preds = %70
-  %73 = call i32 @audit_add_tree_rule(ptr noundef nonnull %13) #14
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %76, label %75
+73:                                               ; preds = %71
+  %74 = call i32 @audit_add_tree_rule(ptr noundef nonnull %13) #14
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %77, label %76
 
-75:                                               ; preds = %72
+76:                                               ; preds = %73
   call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
   br label %.thread45
 
-76:                                               ; preds = %72, %70
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 400
-  store i64 -1, ptr %77, align 8
-  %78 = load i32, ptr %18, align 8
-  switch i32 %78, label %._crit_edge [
-    i32 4, label %79
-    i32 7, label %79
+77:                                               ; preds = %73, %71
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 400
+  store i64 -1, ptr %78, align 8
+  %79 = load i32, ptr %18, align 8
+  switch i32 %79, label %._crit_edge [
+    i32 4, label %80
+    i32 7, label %80
   ]
 
-._crit_edge:                                      ; preds = %76
+._crit_edge:                                      ; preds = %77
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 36
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %86
+  br label %87
 
-79:                                               ; preds = %76, %76
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %81 = load i32, ptr %80, align 4
-  %82 = and i32 %81, 16
-  %83 = icmp eq i32 %82, 0
-  %prio_low.prio_high = select i1 %83, ptr @prio_low, ptr @prio_high
-  %. = select i1 %83, i64 -1, i64 1
-  %84 = load i64, ptr %prio_low.prio_high, align 8
-  %85 = add i64 %84, %.
-  store i64 %85, ptr %prio_low.prio_high, align 8
-  store i64 %85, ptr %77, align 8
-  br label %86
+80:                                               ; preds = %77, %77
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %82, 16
+  %84 = icmp eq i32 %83, 0
+  %prio_low.prio_high = select i1 %84, ptr @prio_low, ptr @prio_high
+  %. = select i1 %84, i64 -1, i64 1
+  %85 = load i64, ptr %prio_low.prio_high, align 8
+  %86 = add i64 %85, %.
+  store i64 %86, ptr %prio_low.prio_high, align 8
+  store i64 %86, ptr %78, align 8
+  br label %87
 
-86:                                               ; preds = %._crit_edge, %79
-  %87 = phi i32 [ %.pre, %._crit_edge ], [ %81, %79 ]
-  %88 = and i32 %87, 16
-  %89 = icmp eq i32 %88, 0
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  %91 = zext i32 %78 to i64
-  %92 = getelementptr %struct.list_head, ptr @audit_rules_list, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 392
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %89, label %104, label %95
+87:                                               ; preds = %._crit_edge, %80
+  %88 = phi i32 [ %.pre, %._crit_edge ], [ %82, %79 ]
+  %89 = and i32 %88, 16
+  %90 = icmp eq i32 %89, 0
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 384
+  %92 = zext i32 %79 to i64
+  %93 = getelementptr %struct.list_head, ptr @audit_rules_list, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 392
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %90, label %105, label %96
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %97 = load ptr, ptr %92, align 16
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %90, ptr %98, align 8
-  store ptr %97, ptr %90, align 8
-  store ptr %92, ptr %93, align 8
-  store volatile ptr %90, ptr %92, align 16
-  %99 = load ptr, ptr %5, align 8
-  %100 = load ptr, ptr %99, align 8
-  store ptr %100, ptr %7, align 8
-  store ptr %99, ptr %94, align 8
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %98 = load ptr, ptr %93, align 16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store ptr %91, ptr %99, align 8
+  store ptr %98, ptr %91, align 8
+  store ptr %93, ptr %94, align 8
+  store volatile ptr %91, ptr %93, align 16
+  %100 = load ptr, ptr %5, align 8
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %7, align 8
+  store ptr %100, ptr %95, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
-  store volatile ptr %7, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr %7, ptr %101, align 8
-  %102 = load i32, ptr %96, align 4
-  %103 = and i32 %102, -17
-  store i32 %103, ptr %96, align 4
-  br label %110
+  store volatile ptr %7, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store ptr %7, ptr %102, align 8
+  %103 = load i32, ptr %97, align 4
+  %104 = and i32 %103, -17
+  store i32 %104, ptr %97, align 4
+  br label %111
 
-104:                                              ; preds = %86
-  %105 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %106 = load ptr, ptr %105, align 8
-  store ptr %90, ptr %105, align 8
-  store ptr %92, ptr %90, align 8
-  store ptr %106, ptr %93, align 8
-  store volatile ptr %90, ptr %106, align 8
-  %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8
-  store ptr %107, ptr %7, align 8
-  store ptr %109, ptr %94, align 8
+105:                                              ; preds = %87
+  %106 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %107 = load ptr, ptr %106, align 8
+  store ptr %91, ptr %106, align 8
+  store ptr %93, ptr %91, align 8
+  store ptr %107, ptr %94, align 8
+  store volatile ptr %91, ptr %107, align 8
+  %108 = load ptr, ptr %5, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8
+  store ptr %108, ptr %7, align 8
+  store ptr %110, ptr %95, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
-  store volatile ptr %7, ptr %109, align 8
-  store ptr %7, ptr %108, align 8
-  br label %110
+  store volatile ptr %7, ptr %110, align 8
+  store ptr %7, ptr %109, align 8
+  br label %111
 
-110:                                              ; preds = %104, %95
-  br i1 %21, label %111, label %114
+111:                                              ; preds = %105, %96
+  br i1 %21, label %112, label %115
 
-111:                                              ; preds = %110
-  %112 = load i32, ptr @audit_n_rules, align 4
-  %113 = add i32 %112, 1
-  store i32 %113, ptr @audit_n_rules, align 4
-  br label %114
+112:                                              ; preds = %111
+  %113 = load i32, ptr @audit_n_rules, align 4
+  %114 = add i32 %113, 1
+  store i32 %114, ptr @audit_n_rules, align 4
+  br label %115
 
-114:                                              ; preds = %111, %110
-  %115 = call fastcc i32 @audit_match_signal(ptr noundef %7), !range !12
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %131
+115:                                              ; preds = %112, %111
+  %116 = call fastcc i32 @audit_match_signal(ptr noundef %7), !range !12
+  %117 = icmp eq i32 %116, 0
+  br i1 %17, label %118, label %132
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr @audit_signals, align 4
-  %119 = add i32 %118, 1
-  store i32 %119, ptr @audit_signals, align 4
+118:                                              ; preds = %115
+  %119 = load i32, ptr @audit_signals, align 4
+  %120 = add i32 %119, 1
+  store i32 %120, ptr @audit_signals, align 4
   br label %131
 
 120:                                              ; preds = %4
@@ -1048,110 +1048,110 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
   tail call fastcc void @audit_log_rule_change(ptr noundef nonnull @.str.1, ptr noundef nonnull %127, i32 noundef %129)
   br label %132
 
-130:                                              ; preds = %4
+127:                                              ; preds = %4
   tail call void asm sideeffect "681: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 681b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 681) #14, !srcloc !20
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1154, i32 2305, i64 12) #14, !srcloc !21
   tail call void asm sideeffect "682: nop\0A\09.pushsection .discard.instr_end\0A\09.long 682b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 682) #14, !srcloc !22
-  br label %170
+  br label %171
 
-.thread45:                                        ; preds = %75, %62, %60, %69, %67
-  %.ph = phi i32 [ %65, %67 ], [ %65, %69 ], [ -17, %60 ], [ -17, %62 ], [ %73, %75 ]
+.thread45:                                        ; preds = %76, %63, %60, %70, %68
+  %.ph = phi i32 [ %66, %67 ], [ %66, %69 ], [ -17, %60 ], [ -17, %62 ], [ %74, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @audit_log_rule_change(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 0)
-  br label %132
+  br label %133
 
-131:                                              ; preds = %114, %117
+132:                                              ; preds = %115, %118
   call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @audit_log_rule_change(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 1)
-  br label %170
+  br label %171
 
-132:                                              ; preds = %.thread45, %.thread15
-  %133 = phi i32 [ %126, %.thread15 ], [ %.ph, %.thread45 ]
-  %134 = phi ptr [ %121, %.thread15 ], [ %7, %.thread45 ]
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 360
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %139, label %138
+133:                                              ; preds = %.thread45, %.thread15
+  %134 = phi i32 [ %126, %.thread15 ], [ %.ph, %.thread45 ]
+  %135 = phi ptr [ %121, %.thread15 ], [ %7, %.thread45 ]
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 360
+  %137 = load ptr, ptr %136, align 8
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %140, label %139
 
-138:                                              ; preds = %132
-  call void @audit_remove_mark(ptr noundef nonnull %136) #14
-  br label %139
+139:                                              ; preds = %133
+  call void @audit_remove_mark(ptr noundef nonnull %137) #14
+  br label %140
 
-139:                                              ; preds = %138, %132
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 344
-  %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %144, label %143
+140:                                              ; preds = %139, %133
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 344
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %145, label %144
 
-143:                                              ; preds = %139
-  call void @audit_put_watch(ptr noundef nonnull %141) #14
-  br label %144
+144:                                              ; preds = %140
+  call void @audit_put_watch(ptr noundef nonnull %142) #14
+  br label %145
 
-144:                                              ; preds = %143, %139
-  %145 = getelementptr inbounds nuw i8, ptr %134, i64 320
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %.loopexit, label %148
+145:                                              ; preds = %144, %140
+  %146 = getelementptr inbounds nuw i8, ptr %135, i64 320
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %.loopexit, label %149
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds nuw i8, ptr %134, i64 308
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %.loopexit, label %.preheader
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds nuw i8, ptr %135, i64 308
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %148, %163
-  %152 = phi i32 [ %164, %163 ], [ %150, %148 ]
-  %153 = phi i32 [ %165, %163 ], [ 0, %148 ]
-  %154 = load ptr, ptr %145, align 8
-  %155 = sext i32 %153 to i64
-  %156 = getelementptr %struct.audit_field, ptr %154, i64 %155
-  %157 = load i32, ptr %156, align 8
-  switch i32 %157, label %163 [
-    i32 13, label %158
-    i32 14, label %158
-    i32 15, label %158
-    i32 16, label %158
-    i32 17, label %158
-    i32 19, label %158
-    i32 20, label %158
-    i32 21, label %158
-    i32 22, label %158
-    i32 23, label %158
+.preheader:                                       ; preds = %149, %164
+  %153 = phi i32 [ %165, %163 ], [ %151, %148 ]
+  %154 = phi i32 [ %166, %163 ], [ 0, %148 ]
+  %155 = load ptr, ptr %146, align 8
+  %156 = sext i32 %154 to i64
+  %157 = getelementptr %struct.audit_field, ptr %155, i64 %156
+  %158 = load i32, ptr %157, align 8
+  switch i32 %158, label %163 [
+    i32 13, label %159
+    i32 14, label %159
+    i32 15, label %159
+    i32 16, label %159
+    i32 17, label %159
+    i32 19, label %159
+    i32 20, label %159
+    i32 21, label %159
+    i32 22, label %159
+    i32 23, label %159
   ]
 
-158:                                              ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %160 = load ptr, ptr %159, align 8
-  call void @kfree(ptr noundef %160) #14
-  %161 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %162 = load ptr, ptr %161, align 8
-  call void @security_audit_rule_free(ptr noundef %162) #14
-  %.pre26 = load i32, ptr %149, align 4
-  br label %163
+159:                                              ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %161 = load ptr, ptr %160, align 8
+  call void @kfree(ptr noundef %161) #14
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %163 = load ptr, ptr %162, align 8
+  call void @security_audit_rule_free(ptr noundef %163) #14
+  %.pre26 = load i32, ptr %150, align 4
+  br label %164
 
-163:                                              ; preds = %158, %.preheader
-  %164 = phi i32 [ %.pre26, %158 ], [ %152, %.preheader ]
-  %165 = add nuw i32 %153, 1
-  %166 = icmp ult i32 %165, %164
-  br i1 %166, label %.preheader, label %.loopexit.loopexit, !llvm.loop !5
+164:                                              ; preds = %159, %.preheader
+  %165 = phi i32 [ %.pre26, %158 ], [ %153, %.preheader ]
+  %166 = add nuw i32 %154, 1
+  %167 = icmp ult i32 %166, %165
+  br i1 %167, label %.preheader, label %.loopexit.loopexit, !llvm.loop !5
 
-.loopexit.loopexit:                               ; preds = %163
-  %.pre27 = load ptr, ptr %145, align 8
+.loopexit.loopexit:                               ; preds = %164
+  %.pre27 = load ptr, ptr %146, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %148, %144
-  %167 = phi ptr [ %.pre27, %.loopexit.loopexit ], [ %146, %148 ], [ null, %144 ]
-  call void @kfree(ptr noundef %167) #14
-  %168 = getelementptr inbounds nuw i8, ptr %134, i64 312
-  %169 = load ptr, ptr %168, align 8
-  call void @kfree(ptr noundef %169) #14
-  call void @kfree(ptr noundef %134) #14
-  br label %170
+.loopexit:                                        ; preds = %.loopexit.loopexit, %149, %145
+  %168 = phi ptr [ %.pre27, %.loopexit.loopexit ], [ %147, %148 ], [ null, %144 ]
+  call void @kfree(ptr noundef %168) #14
+  %169 = getelementptr inbounds nuw i8, ptr %135, i64 312
+  %170 = load ptr, ptr %169, align 8
+  call void @kfree(ptr noundef %170) #14
+  call void @kfree(ptr noundef %135) #14
+  br label %171
 
-170:                                              ; preds = %131, %.loopexit, %130, %123, %9
-  %171 = phi i32 [ -22, %130 ], [ %125, %123 ], [ %11, %9 ], [ 0, %131 ], [ %133, %.loopexit ]
-  ret i32 %171
+171:                                              ; preds = %132, %.loopexit, %130, %123, %9
+  %172 = phi i32 [ -22, %130 ], [ %125, %123 ], [ %11, %9 ], [ 0, %131 ], [ %134, %.loopexit ]
+  ret i32 %172
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

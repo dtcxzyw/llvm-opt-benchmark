@@ -2108,19 +2108,19 @@ define dso_local ptr @drm_dp_downstream_mode(ptr noundef %0, ptr noundef readonl
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %22, label %8
+  br i1 %7, label %27, label %8
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %1, align 1
   %10 = icmp ult i8 %9, 17
-  br i1 %10, label %22, label %11
+  br i1 %10, label %27, label %11
 
 11:                                               ; preds = %8
   %12 = load i8, ptr %2, align 1
   %13 = zext i8 %12 to i32
   %14 = and i32 %13, 7
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %27
 
 16:                                               ; preds = %11
   %17 = add nsw i32 %13, -16
@@ -2140,9 +2140,9 @@ switch.lookup:                                    ; preds = %16
   %21 = tail call ptr @drm_display_mode_from_cea_vic(ptr noundef %0, i8 noundef zeroext %switch.masked) #18
   br label %22
 
-22:                                               ; preds = %16, %switch.lookup, %11, %8, %3
-  %23 = phi ptr [ %21, %switch.lookup ], [ null, %3 ], [ null, %8 ], [ null, %16 ], [ null, %11 ]
-  ret ptr %23
+27:                                               ; preds = %16, %switch.lookup, %11, %8, %3
+  %28 = phi ptr [ %21, %switch.lookup ], [ null, %3 ], [ null, %8 ], [ null, %16 ], [ null, %11 ]
+  ret ptr %28
 }
 
 ; Function Attrs: null_pointer_is_valid

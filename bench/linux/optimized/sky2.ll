@@ -4286,7 +4286,7 @@ define internal void @sky2_get_strings(ptr readnone captures(none) %0, i32 nound
 define internal noundef range(i32 0, 2) i32 @sky2_set_phys_id(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   switch i32 %1, label %199 [
-    i32 1, label %200
+    i32 1, label %205
     i32 0, label %6
     i32 2, label %4
     i32 3, label %5
@@ -4394,7 +4394,7 @@ __gm_phy_read.exit.i:                             ; preds = %46, %37, %.thread.i
 65:                                               ; preds = %59
   %66 = and i16 %63, 8
   %67 = icmp eq i16 %66, 0
-  br i1 %67, label %switch.lookup, label %68
+  br i1 %67, label %gm_phy_write.exit.i, label %68
 
 68:                                               ; preds = %65
   tail call void @__const_udelay(i64 noundef 42950) #23
@@ -4412,7 +4412,7 @@ __gm_phy_read.exit.i:                             ; preds = %46, %37, %.thread.i
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %74, ptr noundef nonnull @.str.37, ptr noundef nonnull %79) #24
-  br label %switch.lookup
+  br label %gm_phy_write.exit.i
 
 80:                                               ; preds = %59
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4424,9 +4424,9 @@ __gm_phy_read.exit.i:                             ; preds = %46, %37, %.thread.i
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %83, ptr noundef nonnull @.str.36, ptr noundef nonnull %88) #24
-  br label %switch.lookup
+  br label %gm_phy_write.exit.i
 
-switch.lookup:                                    ; preds = %65, %71, %80
+gm_phy_write.exit.i:                              ; preds = %65, %71, %80
   %switch.cast = zext i32 %7 to i64
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 4
   %switch.downshift = lshr i64 -7378716393909643145, %switch.shiftamt
@@ -4439,27 +4439,27 @@ switch.lookup:                                    ; preds = %65, %71, %80
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 1024, ptr elementtype(i16) %92) #23, !srcloc !13
   br label %93
 
-93:                                               ; preds = %102, %switch.lookup
-  %94 = phi i32 [ 0, %switch.lookup ], [ %103, %102 ]
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr i8, ptr %95, i64 %18
-  %97 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %96) #23, !srcloc !16
+92:                                               ; preds = %102, %gm_phy_write.exit.i
+  %93 = phi i32 [ 0, %switch.lookup ], [ %108, %102 ]
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr i8, ptr %94, i64 %18
+  %97 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %95) #23, !srcloc !16
   %98 = icmp eq i16 %97, -1
   br i1 %98, label %114, label %99
 
-99:                                               ; preds = %93
-  %100 = and i16 %97, 8
-  %101 = icmp eq i16 %100, 0
-  br i1 %101, label %gm_phy_write.exit3.i, label %102
+104:                                              ; preds = %93
+  %105 = and i16 %97, 8
+  %106 = icmp eq i16 %105, 0
+  br i1 %106, label %gm_phy_write.exit3.i, label %107
 
-102:                                              ; preds = %99
+107:                                              ; preds = %104
   tail call void @__const_udelay(i64 noundef 42950) #23
-  %103 = add nuw nsw i32 %94, 1
-  %104 = icmp eq i32 %103, 1000
-  br i1 %104, label %105, label %93, !llvm.loop !43
+  %108 = add nuw nsw i32 %94, 1
+  %109 = icmp eq i32 %108, 1000
+  br i1 %109, label %110, label %93, !llvm.loop !43
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 8
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 184
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 416
@@ -4470,8 +4470,8 @@ switch.lookup:                                    ; preds = %65, %71, %80
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %108, ptr noundef nonnull @.str.37, ptr noundef nonnull %113) #24
   br label %gm_phy_write.exit3.i
 
-114:                                              ; preds = %93
-  %115 = getelementptr inbounds nuw i8, ptr %8, i64 8
+119:                                              ; preds = %93
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 184
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 416
@@ -4482,36 +4482,36 @@ switch.lookup:                                    ; preds = %65, %71, %80
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %117, ptr noundef nonnull @.str.36, ptr noundef nonnull %122) #24
   br label %gm_phy_write.exit3.i
 
-gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr i8, ptr %123, i64 %21
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %.0.i, ptr elementtype(i16) %124) #23, !srcloc !13
-  %125 = load ptr, ptr %8, align 8
-  %126 = getelementptr i8, ptr %125, i64 %18
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 1408, ptr elementtype(i16) %126) #23, !srcloc !13
-  br label %127
+gm_phy_write.exit3.i:                             ; preds = %104, %119, %110
+  %128 = load ptr, ptr %8, align 8
+  %129 = getelementptr i8, ptr %128, i64 %21
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %.0.i, ptr elementtype(i16) %129) #23, !srcloc !13
+  %130 = load ptr, ptr %8, align 8
+  %131 = getelementptr i8, ptr %130, i64 %18
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 1408, ptr elementtype(i16) %131) #23, !srcloc !13
+  br label %132
 
-127:                                              ; preds = %136, %gm_phy_write.exit3.i
-  %128 = phi i32 [ 0, %gm_phy_write.exit3.i ], [ %137, %136 ]
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr i8, ptr %129, i64 %18
-  %131 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %130) #23, !srcloc !16
-  %132 = icmp eq i16 %131, -1
-  br i1 %132, label %148, label %133
+132:                                              ; preds = %141, %gm_phy_write.exit3.i
+  %133 = phi i32 [ 0, %gm_phy_write.exit3.i ], [ %142, %136 ]
+  %134 = load ptr, ptr %8, align 8
+  %135 = getelementptr i8, ptr %134, i64 %18
+  %136 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %135) #23, !srcloc !16
+  %137 = icmp eq i16 %136, -1
+  br i1 %137, label %153, label %138
 
-133:                                              ; preds = %127
-  %134 = and i16 %131, 8
-  %135 = icmp eq i16 %134, 0
-  br i1 %135, label %sky2_led.exit, label %136
+138:                                              ; preds = %132
+  %139 = and i16 %136, 8
+  %140 = icmp eq i16 %139, 0
+  br i1 %140, label %sky2_led.exit, label %141
 
-136:                                              ; preds = %133
+141:                                              ; preds = %138
   tail call void @__const_udelay(i64 noundef 42950) #23
-  %137 = add nuw nsw i32 %128, 1
-  %138 = icmp eq i32 %137, 1000
-  br i1 %138, label %139, label %127, !llvm.loop !43
+  %142 = add nuw nsw i32 %133, 1
+  %143 = icmp eq i32 %142, 1000
+  br i1 %143, label %144, label %132, !llvm.loop !43
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %8, i64 8
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 184
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 416
@@ -4522,8 +4522,8 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %142, ptr noundef nonnull @.str.37, ptr noundef nonnull %147) #24
   br label %sky2_led.exit
 
-148:                                              ; preds = %127
-  %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
+153:                                              ; preds = %132
+  %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 184
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 416
@@ -4534,16 +4534,16 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %151, ptr noundef nonnull @.str.36, ptr noundef nonnull %156) #24
   br label %sky2_led.exit
 
-157:                                              ; preds = %6
-  %158 = trunc nuw nsw i32 %7 to i16
-  %159 = mul nuw nsw i16 %158, 1365
-  %160 = shl i32 %10, 12
-  %161 = add i32 %160, 10372
-  %162 = load ptr, ptr %8, align 8
-  %163 = zext i32 %161 to i64
-  %164 = getelementptr i8, ptr %162, i64 %163
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %159, ptr elementtype(i16) %164) #23, !srcloc !13
-  %165 = add i32 %160, 10368
+162:                                              ; preds = %6
+  %163 = trunc nuw nsw i32 %7 to i16
+  %164 = mul nuw nsw i16 %163, 1365
+  %165 = shl i32 %10, 12
+  %166 = add i32 %165, 10372
+  %167 = load ptr, ptr %8, align 8
+  %168 = zext i32 %166 to i64
+  %169 = getelementptr i8, ptr %167, i64 %168
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %164, ptr elementtype(i16) %169) #23, !srcloc !13
+  %170 = add i32 %165, 10368
   %166 = load ptr, ptr %8, align 8
   %167 = zext i32 %165 to i64
   %168 = getelementptr i8, ptr %166, i64 %167
@@ -4558,19 +4558,19 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   %174 = icmp eq i16 %173, -1
   br i1 %174, label %190, label %175
 
-175:                                              ; preds = %169
-  %176 = and i16 %173, 8
-  %177 = icmp eq i16 %176, 0
-  br i1 %177, label %sky2_led.exit, label %178
+180:                                              ; preds = %169
+  %181 = and i16 %173, 8
+  %182 = icmp eq i16 %181, 0
+  br i1 %182, label %sky2_led.exit, label %183
 
-178:                                              ; preds = %175
+183:                                              ; preds = %180
   tail call void @__const_udelay(i64 noundef 42950) #23
-  %179 = add nuw nsw i32 %170, 1
-  %180 = icmp eq i32 %179, 1000
-  br i1 %180, label %181, label %169, !llvm.loop !43
+  %184 = add nuw nsw i32 %170, 1
+  %185 = icmp eq i32 %184, 1000
+  br i1 %185, label %186, label %169, !llvm.loop !43
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw i8, ptr %8, i64 8
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 184
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 416
@@ -4581,8 +4581,8 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %184, ptr noundef nonnull @.str.37, ptr noundef nonnull %189) #24
   br label %sky2_led.exit
 
-190:                                              ; preds = %169
-  %191 = getelementptr inbounds nuw i8, ptr %8, i64 8
+195:                                              ; preds = %169
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 184
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 416
@@ -4593,16 +4593,16 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %193, ptr noundef nonnull @.str.36, ptr noundef nonnull %198) #24
   br label %sky2_led.exit
 
-sky2_led.exit:                                    ; preds = %133, %175, %139, %148, %181, %190
+sky2_led.exit:                                    ; preds = %138, %180, %144, %153, %186, %195
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %11) #23
-  br label %199
+  br label %1104
 
-199:                                              ; preds = %sky2_led.exit, %2
-  br label %200
+1104:                                              ; preds = %sky2_led.exit, %2
+  br label %205
 
-200:                                              ; preds = %199, %2
-  %201 = phi i32 [ 0, %199 ], [ %1, %2 ]
-  ret i32 %201
+205:                                              ; preds = %1104, %2
+  %206 = phi i32 [ 0, %199 ], [ %1, %2 ]
+  ret i32 %206
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1796,50 +1796,50 @@ define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_
   %or.cond = select i1 %12, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %.thread7, label %13
 
-13:                                               ; preds = %11
+13: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread7, label %17
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, %0
-  br i1 %24, label %25, label %.thread7
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %22, %0
+  br i1 %23, label %24, label %.thread7
 
-25:                                               ; preds = %17
-  %26 = icmp eq i32 %3, 0
-  br i1 %26, label %.thread, label %27
+24:                                               ; preds = %16
+  %25 = icmp eq i32 %3, 0
+  br i1 %25, label %.thread, label %26
 
-27:                                               ; preds = %25
-  %28 = icmp sgt i32 %3, 0
-  br i1 %28, label %29, label %36
+26:                                               ; preds = %24
+  %27 = icmp sgt i32 %3, 0
+  br i1 %27, label %28, label %35
 
-29:                                               ; preds = %27
-  %30 = tail call ptr @lookup_user_key(i32 noundef %3, i64 noundef 1, i32 noundef 3) #11
-  %31 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  %32 = ptrtoint ptr %30 to i64
-  br i1 %31, label %53, label %33
+28:                                               ; preds = %26
+  %29 = tail call ptr @lookup_user_key(i32 noundef %3, i64 noundef 1, i32 noundef 3) #11
+  %30 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
+  %31 = ptrtoint ptr %29 to i64
+  br i1 %30, label %52, label %32
 
-33:                                               ; preds = %29
-  %34 = and i64 %32, -2
-  %35 = inttoptr i64 %34 to ptr
+32:                                               ; preds = %28
+  %33 = and i64 %31, -2
+  %34 = inttoptr i64 %33 to ptr
   br label %.thread
 
-36:                                               ; preds = %27
-  %37 = icmp eq i32 %3, -7
-  br i1 %37, label %.thread7, label %38
+35:                                               ; preds = %26
+  %36 = icmp eq i32 %3, -7
+  br i1 %36, label %.thread7, label %38
 
-38:                                               ; preds = %36
+39:                                               ; preds = %36
   %39 = icmp samesign ugt i32 %3, -9
   br i1 %39, label %40, label %.thread7
 
-40:                                               ; preds = %38
+40: ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -1854,36 +1854,36 @@ define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_
   tail call void @refcount_warn_saturate(ptr noundef nonnull %42, i32 noundef 2) #11
   br label %.thread
 
-48:                                               ; preds = %44
-  %49 = add i32 %45, 1
-  %50 = or i32 %49, %45
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.thread, label %52, !prof !13
+47:                                               ; preds = %44
+  %48 = add i32 %45, 1
+  %49 = or i32 %48, %45
+  %50 = icmp sgt i32 %49, -1
+  br i1 %50, label %.thread, label %51, !prof !13
 
-52:                                               ; preds = %48
+51:                                               ; preds = %47
   tail call void @refcount_warn_saturate(ptr noundef nonnull %42, i32 noundef 1) #11
   br label %.thread
 
-53:                                               ; preds = %29
-  %54 = icmp slt ptr %30, null
-  br i1 %54, label %.thread7, label %.thread
+52:                                               ; preds = %28
+  %53 = icmp slt ptr %29, null
+  br i1 %53, label %.thread7, label %.thread
 
-.thread:                                          ; preds = %52, %48, %47, %40, %33, %25, %53
-  %55 = phi ptr [ null, %53 ], [ %42, %52 ], [ %42, %48 ], [ %42, %47 ], [ null, %40 ], [ %35, %33 ], [ null, %25 ]
-  %56 = load ptr, ptr %20, align 8
-  %57 = tail call i32 @key_reject_and_link(ptr noundef %56, i32 noundef %1, i32 noundef %2, ptr noundef %55, ptr noundef nonnull %15) #11
-  %58 = sext i32 %57 to i64
-  tail call void @key_put(ptr noundef %55) #11
-  %59 = icmp eq i32 %57, 0
-  br i1 %59, label %60, label %.thread7
+.thread:                                          ; preds = %51, %48, %47, %40, %33, %24, %52
+  %54 = phi ptr [ null, %53 ], [ %42, %52 ], [ %42, %48 ], [ %42, %47 ], [ null, %40 ], [ %34, %33 ], [ null, %25 ]
+  %55 = load ptr, ptr %19, align 8
+  %56 = tail call i32 @key_reject_and_link(ptr noundef %55, i32 noundef %1, i32 noundef %2, ptr noundef %54, ptr noundef nonnull %15) #11
+  %57 = sext i32 %56 to i64
+  tail call void @key_put(ptr noundef %54) #11
+  %58 = icmp eq i32 %56, 0
+  br i1 %58, label %59, label %.thread7
 
-60:                                               ; preds = %.thread
+59:                                               ; preds = %.thread
   tail call fastcc void @keyctl_change_reqkey_auth(ptr noundef null)
   br label %.thread7
 
-.thread7:                                         ; preds = %11, %38, %36, %60, %.thread, %53, %17, %13, %4
-  %61 = phi i64 [ -22, %4 ], [ -1, %17 ], [ %32, %53 ], [ 0, %60 ], [ %58, %.thread ], [ -1, %13 ], [ -126, %38 ], [ -22, %36 ], [ -22, %11 ]
-  ret i64 %61
+.thread7:                                         ; preds = %11, %38, %35, %59, %.thread, %52, %16, %13, %4
+  %60 = phi i64 [ -22, %4 ], [ -1, %17 ], [ %31, %53 ], [ 0, %60 ], [ %57, %.thread ], [ -1, %13 ], [ -126, %38 ], [ -22, %36 ], [ -22, %11 ]
+  ret i64 %60
 }
 
 ; Function Attrs: null_pointer_is_valid

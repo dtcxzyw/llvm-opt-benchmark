@@ -3876,7 +3876,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_close(i6
   %2 = trunc i64 %0 to i32
   %3 = tail call ptr @file_close_fd(i32 noundef %2) #14
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %switch.lookup, label %5
+  br i1 %4, label %32, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !32
@@ -3898,7 +3898,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_close(i6
   tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_end\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !92
   tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !93
   tail call void @__fput_sync(ptr noundef nonnull %3) #14
-  br label %switch.lookup
+  br label %32
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -3935,10 +3935,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_close(i6
   %or.cond = select i1 %31, i1 %switch.lobit, i1 false
   %32 = sext i32 %24 to i64
   %33 = select i1 %or.cond, i64 -4, i64 %32
-  br label %switch.lookup
+  br label %32
 
-switch.lookup:                                    ; preds = %.thread, %30, %1
-  %34 = phi i64 [ -9, %1 ], [ 0, %.thread ], [ %33, %30 ]
+32:                                               ; preds = %.thread, %30, %1
+  %33 = phi i64 [ -9, %1 ], [ 0, %.thread ], [ %33, %30 ]
   ret i64 %34
 }
 

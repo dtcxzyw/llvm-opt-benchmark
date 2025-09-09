@@ -5727,12 +5727,12 @@ define internal noundef range(i32 -16, 1) i32 @snd_pcm_pre_suspend(ptr noundef %
   %or.cond = select i1 %6, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %8, align 8
-  br label %switch.lookup
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %0, ptr %7, align 8
+  br label %8
 
-switch.lookup:                                    ; preds = %2, %7
+8:                                                ; preds = %2, %7
   %9 = phi i32 [ 0, %7 ], [ -16, %2 ]
   ret i32 %9
 }

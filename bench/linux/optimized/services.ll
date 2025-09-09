@@ -6480,12 +6480,12 @@ define dso_local noundef range(i32 0, 2) i32 @selinux_audit_rule_known(ptr nound
   %or.cond = select i1 %13, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %.loopexit, label %14
 
-14:                                               ; preds = %9
+14:; preds = %9
   %15 = add nuw nsw i64 %10, 1
   %16 = icmp eq i64 %15, %8
   br i1 %16, label %.loopexit, label %9, !llvm.loop !91
 
-.loopexit:                                        ; preds = %14, %9, %1
+13:                                               ; preds = %14, %9, %1
   %17 = phi i32 [ 0, %1 ], [ 1, %9 ], [ 0, %14 ]
   ret i32 %17
 }
