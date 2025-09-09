@@ -49181,11 +49181,11 @@ entry:
 
 if.end6.i:                                        ; preds = %entry
   %cmp19.i.i.i = icmp ult i16 %0, 10
-  br i1 %cmp19.i.i.i, label %while.end.i.i.i, label %if.end.i.i.i
+  br i1 %cmp19.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end6.i
   %cmp3.i.i.i = icmp ult i16 %0, 100
-  br i1 %cmp3.i.i.i, label %while.end.i.i.i, label %if.end5.i.i.i
+  br i1 %cmp3.i.i.i, label %if.then.i.i.i1, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %cmp6.i.i.i = icmp ult i16 %0, 1000
@@ -49215,20 +49215,17 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   store i8 %4, ptr %arrayidx7.i.i.i, align 1
   %sub8.i.i.i = add i32 %__pos.015.i.i.i, -2
   %cmp.i8.i.i = icmp samesign ugt i32 %__val.addr.016.i.i.i, 9999
-  br i1 %cmp.i8.i.i, label %while.body.i.i.i, label %while.end.i.i.i.loopexit, !llvm.loop !116
+  br i1 %cmp.i8.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !116
 
-while.end.i.i.i.loopexit:                         ; preds = %while.body.i.i.i
+while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   %conv.i23.i4 = zext nneg i32 %retval.0.i.i.i.ph to i64
-  br label %while.end.i.i.i
-
-while.end.i.i.i:                                  ; preds = %while.end.i.i.i.loopexit, %if.end6.i, %if.end.i.i.i
-  %conv.i23.i7 = phi i64 [ 1, %if.end6.i ], [ 2, %if.end.i.i.i ], [ %conv.i23.i4, %while.end.i.i.i.loopexit ]
-  %__val.addr.0.lcssa.i.i.i = phi i32 [ %conv.i, %if.end6.i ], [ %conv.i, %if.end.i.i.i ], [ %div.i.i.i, %while.end.i.i.i.loopexit ]
-  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i.i, 9
+  %cmp9.i.i.i = icmp samesign ugt i32 %__val.addr.016.i.i.i, 999
   br i1 %cmp9.i.i.i, label %if.then.i.i.i1, label %if.else.i.i.i
 
-if.then.i.i.i1:                                   ; preds = %while.end.i.i.i
-  %mul11.i.i.i = shl nuw nsw i32 %__val.addr.0.lcssa.i.i.i, 1
+if.then.i.i.i1:                                   ; preds = %if.end.i.i.i, %while.end.i.i.i
+  %__val.addr.0.lcssa.i.i.i13 = phi i32 [ %div.i.i.i, %while.end.i.i.i ], [ %conv.i, %if.end.i.i.i ]
+  %conv.i23.i712 = phi i64 [ %conv.i23.i4, %while.end.i.i.i ], [ 2, %if.end.i.i.i ]
+  %mul11.i.i.i = shl nuw nsw i32 %__val.addr.0.lcssa.i.i.i13, 1
   %5 = zext nneg i32 %mul11.i.i.i to i64
   %6 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %5
   %arrayidx14.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -49238,14 +49235,16 @@ if.then.i.i.i1:                                   ; preds = %while.end.i.i.i
   %8 = load i8, ptr %6, align 2
   br label %_ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
-if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
+if.else.i.i.i:                                    ; preds = %if.end6.i, %while.end.i.i.i
+  %__val.addr.0.lcssa.i.i.i19 = phi i32 [ %div.i.i.i, %while.end.i.i.i ], [ %conv.i, %if.end6.i ]
+  %conv.i23.i718 = phi i64 [ %conv.i23.i4, %while.end.i.i.i ], [ 1, %if.end6.i ]
+  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i19 to i8
   %conv.i.i.i = or disjoint i8 %9, 48
   br label %_ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %entry, %if.then.i.i.i1, %if.else.i.i.i
   %.sink.i = phi i8 [ 48, %entry ], [ %conv.i.i.i, %if.else.i.i.i ], [ %8, %if.then.i.i.i1 ]
-  %conv3033.i.sink.i = phi i64 [ 1, %entry ], [ %conv.i23.i7, %if.else.i.i.i ], [ %conv.i23.i7, %if.then.i.i.i1 ]
+  %conv3033.i.sink.i = phi i64 [ 1, %entry ], [ %conv.i23.i718, %if.else.i.i.i ], [ %conv.i23.i712, %if.then.i.i.i1 ]
   store i8 %.sink.i, ptr %buf, align 16
   %ss_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56

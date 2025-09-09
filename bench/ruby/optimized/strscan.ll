@@ -637,57 +637,52 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
   %15 = ashr exact i64 %sext, 32
   %16 = and i64 %.0.i, 2147483648
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %23, label %17
+  %.pre = load i64, ptr %4, align 8, !tbaa !23
+  %.pre15 = inttoptr i64 %.pre to ptr
+  br i1 %.not, label %.thread, label %17
 
 17:                                               ; preds = %rb_num2int_inline.exit
-  %18 = load i64, ptr %4, align 8, !tbaa !23
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !32
-  %22 = add nsw i64 %21, %15
-  br label %23
+  %18 = getelementptr inbounds nuw i8, ptr %.pre15, i64 16
+  %19 = load i64, ptr %18, align 8, !tbaa !32
+  %20 = add nsw i64 %19, %15
+  %21 = icmp slt i64 %20, 0
+  br i1 %21, label %22, label %.thread
 
-23:                                               ; preds = %17, %rb_num2int_inline.exit
-  %.0 = phi i64 [ %22, %17 ], [ %15, %rb_num2int_inline.exit ]
-  %24 = icmp slt i64 %.0, 0
-  br i1 %24, label %25, label %27
-
-25:                                               ; preds = %23
-  %26 = load i64, ptr @rb_eRangeError, align 8, !tbaa !10
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.68) #14
+22:                                               ; preds = %17
+  %23 = load i64, ptr @rb_eRangeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.68) #14
   unreachable
 
-27:                                               ; preds = %23
-  %28 = load i64, ptr %4, align 8, !tbaa !23
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !32
-  %32 = icmp sgt i64 %.0, %31
-  br i1 %32, label %33, label %35
+.thread:                                          ; preds = %rb_num2int_inline.exit, %17
+  %.014 = phi i64 [ %20, %17 ], [ %15, %rb_num2int_inline.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %.pre15, i64 16
+  %25 = load i64, ptr %24, align 8, !tbaa !32
+  %26 = icmp sgt i64 %.014, %25
+  br i1 %26, label %27, label %29
 
-33:                                               ; preds = %27
-  %34 = load i64, ptr @rb_eRangeError, align 8, !tbaa !10
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %34, ptr noundef nonnull @.str.68) #14
+27:                                               ; preds = %.thread
+  %28 = load i64, ptr @rb_eRangeError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.68) #14
   unreachable
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.0, ptr %36, align 8, !tbaa !29
-  %37 = add nuw i64 %.0, 4611686018427387904
-  %or.cond.i = icmp sgt i64 %37, -1
-  br i1 %or.cond.i, label %38, label %41
+29:                                               ; preds = %.thread
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 %.014, ptr %30, align 8, !tbaa !29
+  %31 = add nuw i64 %.014, 4611686018427387904
+  %or.cond.i = icmp sgt i64 %31, -1
+  br i1 %or.cond.i, label %32, label %35
 
-38:                                               ; preds = %35
-  %39 = shl nuw nsw i64 %.0, 1
-  %40 = or disjoint i64 %39, 1
+32:                                               ; preds = %29
+  %33 = shl nuw nsw i64 %.014, 1
+  %34 = or disjoint i64 %33, 1
   br label %rb_long2num_inline.exit
 
-41:                                               ; preds = %35
-  %42 = tail call i64 @rb_int2big(i64 noundef %.0) #12
+35:                                               ; preds = %29
+  %36 = tail call i64 @rb_int2big(i64 noundef %.014) #12
   br label %rb_long2num_inline.exit
 
-rb_long2num_inline.exit:                          ; preds = %38, %41
-  %.0.i12 = phi i64 [ %40, %38 ], [ %42, %41 ]
+rb_long2num_inline.exit:                          ; preds = %32, %35
+  %.0.i12 = phi i64 [ %34, %32 ], [ %36, %35 ]
   ret i64 %.0.i12
 }
 

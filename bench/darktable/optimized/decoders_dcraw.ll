@@ -5615,104 +5615,106 @@ define void @_ZN6LibRaw16nikon_read_curveEv(ptr noundef nonnull align 8 derefere
   %36 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %37 = zext i16 %36 to i32
   %38 = icmp ugt i16 %36, 1
-  br i1 %38, label %39, label %42
+  br i1 %38, label %39, label %41
 
 39:                                               ; preds = %31
-  %40 = add nsw i32 %37, -1
-  %41 = udiv i32 %35, %40
-  br label %42
+  %.rhs.trunc = add i16 %36, -1
+  %.lhs.trunc = trunc nuw nsw i32 %35 to i16
+  %40 = udiv i16 %.lhs.trunc, %.rhs.trunc
+  %.zext = zext nneg i16 %40 to i32
+  br label %41
 
-42:                                               ; preds = %39, %31
-  %.048 = phi i32 [ %41, %39 ], [ %35, %31 ]
-  %43 = icmp eq i32 %21, 68
-  br i1 %43, label %44, label %81
+41:                                               ; preds = %39, %31
+  %.048 = phi i32 [ %.zext, %39 ], [ %35, %31 ]
+  %42 = icmp eq i32 %21, 68
+  br i1 %42, label %43, label %80
 
-44:                                               ; preds = %42
-  %45 = icmp eq i32 %23, 32
-  br i1 %45, label %49, label %46
+43:                                               ; preds = %41
+  %44 = icmp eq i32 %23, 32
+  br i1 %44, label %48, label %45
 
-46:                                               ; preds = %44
-  %47 = icmp eq i32 %23, 64
-  %48 = icmp samesign ugt i32 %.048, 3
-  %or.cond6 = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond6, label %50, label %81
+45:                                               ; preds = %43
+  %46 = icmp eq i32 %23, 64
+  %47 = icmp samesign ugt i32 %.048, 3
+  %or.cond6 = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond6, label %49, label %80
 
-49:                                               ; preds = %44
+48:                                               ; preds = %43
   %.old5.not = icmp eq i32 %.048, 0
-  br i1 %.old5.not, label %81, label %50
+  br i1 %.old5.not, label %80, label %49
 
-50:                                               ; preds = %46, %49
-  %51 = icmp eq i32 %23, 64
-  %52 = lshr i32 %.048, 2
-  %53 = lshr i32 %35, 2
-  %.1 = select i1 %51, i32 %52, i32 %.048
-  %.0 = select i1 %51, i32 %53, i32 %35
+49:                                               ; preds = %45, %48
+  %50 = icmp eq i32 %23, 64
+  %51 = lshr i32 %.048, 2
+  %52 = lshr i32 %35, 2
+  %.1 = select i1 %50, i32 %51, i32 %.048
+  %.0 = select i1 %50, i32 %52, i32 %35
   %.not = icmp eq i16 %36, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  %55 = zext nneg i32 %.1 to i64
+.lr.ph:                                           ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  %54 = zext nneg i32 %.1 to i64
   %wide.trip.count = zext i16 %36 to i64
-  br label %57
+  br label %56
 
-.preheader:                                       ; preds = %57, %50
+.preheader:                                       ; preds = %56, %49
   %.not57 = icmp eq i32 %.0, 0
   br i1 %.not57, label %.loopexit, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.preheader
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %wide.trip.count62 = zext nneg i32 %.0 to i64
-  br label %61
+  br label %60
 
-57:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %58 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %59 = mul nuw nsw i64 %indvars.iv, %55
-  %60 = getelementptr inbounds nuw i16, ptr %54, i64 %59
-  store i16 %58, ptr %60, align 2, !tbaa !86
+56:                                               ; preds = %.lr.ph, %56
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
+  %57 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %58 = mul nuw nsw i64 %indvars.iv, %54
+  %59 = getelementptr inbounds nuw i16, ptr %53, i64 %58
+  store i16 %57, ptr %59, align 2, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %57, !llvm.loop !187
+  br i1 %exitcond.not, label %.preheader, label %56, !llvm.loop !187
 
-61:                                               ; preds = %.lr.ph56, %61
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %61 ]
-  %62 = trunc nuw nsw i64 %indvars.iv59 to i32
-  %63 = srem i32 %62, %.1
-  %64 = sub nsw i32 %62, %63
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %56, i64 %65
-  %67 = load i16, ptr %66, align 2, !tbaa !86
-  %68 = zext i16 %67 to i32
-  %69 = sub nsw i32 %.1, %63
-  %70 = mul nsw i32 %69, %68
-  %71 = add nsw i32 %64, %.1
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i16, ptr %56, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !86
-  %75 = zext i16 %74 to i32
-  %76 = mul nuw nsw i32 %63, %75
-  %77 = add nsw i32 %76, %70
-  %78 = sdiv i32 %77, %.1
-  %79 = trunc i32 %78 to i16
-  %80 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv59
-  store i16 %79, ptr %80, align 2, !tbaa !86
+60:                                               ; preds = %.lr.ph56, %60
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %60 ]
+  %61 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %62 = urem i32 %61, %.1
+  %63 = sub nuw nsw i32 %61, %62
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i16, ptr %55, i64 %64
+  %66 = load i16, ptr %65, align 2, !tbaa !86
+  %67 = zext i16 %66 to i32
+  %68 = sub nsw i32 %.1, %62
+  %69 = mul nsw i32 %68, %67
+  %70 = add nsw i32 %63, %.1
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i16, ptr %55, i64 %71
+  %73 = load i16, ptr %72, align 2, !tbaa !86
+  %74 = zext i16 %73 to i32
+  %75 = mul nuw nsw i32 %62, %74
+  %76 = add nsw i32 %75, %69
+  %77 = sdiv i32 %76, %.1
+  %78 = trunc i32 %77 to i16
+  %79 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv59
+  store i16 %78, ptr %79, align 2, !tbaa !86
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.loopexit, label %61, !llvm.loop !188
+  br i1 %exitcond63.not, label %.loopexit, label %60, !llvm.loop !188
 
-81:                                               ; preds = %49, %46, %42
-  %82 = icmp ne i32 %21, 70
-  %83 = icmp ult i16 %36, 16386
-  %or.cond10 = and i1 %82, %83
-  br i1 %or.cond10, label %84, label %.loopexit
+80:                                               ; preds = %48, %45, %41
+  %81 = icmp ne i32 %21, 70
+  %82 = icmp ult i16 %36, 16386
+  %or.cond10 = and i1 %81, %82
+  br i1 %or.cond10, label %83, label %.loopexit
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  call void @_ZN6LibRaw11read_shortsEPtj(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %85, i32 noundef %37)
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  call void @_ZN6LibRaw11read_shortsEPtj(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %84, i32 noundef %37)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.preheader, %81, %84
+.loopexit:                                        ; preds = %60, %.preheader, %80, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

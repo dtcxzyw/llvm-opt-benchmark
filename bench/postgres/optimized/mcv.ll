@@ -885,8 +885,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %153 = tail call ptr @palloc(i64 noundef %101) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %153, ptr nonnull align 1 %152, i64 %101, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 %101
-  %smax = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %75 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -981,8 +980,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 .lr.ph342.preheader:                              ; preds = %178
   %201 = shl nuw nsw i64 %98, 3
   %202 = tail call ptr @palloc(i64 noundef %201) #13
-  %smax407 = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
-  %wide.trip.count408 = zext nneg i32 %smax407 to i64
+  %wide.trip.count408 = zext nneg i32 %75 to i64
   br label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %.lr.ph342.preheader, %.lr.ph342
@@ -1020,8 +1018,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 %215
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 %216
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 %220
-  %smax425 = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
-  %wide.trip.count426 = zext nneg i32 %smax425 to i64
+  %wide.trip.count426 = zext nneg i32 %75 to i64
   br label %.lr.ph371
 
 .lr.ph376.us.preheader:                           ; preds = %.loopexit

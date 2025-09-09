@@ -204,15 +204,13 @@ bytestream2_init.exit:                            ; preds = %4
   %.0.i85 = phi i8 [ %102, %100 ], [ 0, %98 ]
   %103 = zext i8 %62 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.174, i8 %.0.i85, i64 %103, i1 false), !tbaa !16
-  %scevgep = getelementptr i8, ptr %.174, i64 1
-  %104 = add nsw i32 %63, -1
-  %105 = zext i32 %104 to i64
-  %scevgep143 = getelementptr i8, ptr %scevgep, i64 %105
+  %104 = zext i8 %62 to i64
+  %105 = getelementptr i8, ptr %.174, i64 %104
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %.lr.ph.preheader
   %.sroa.0.1 = phi ptr [ %.sroa.0.3, %.lr.ph.preheader ], [ %.sroa.0.2, %93 ]
-  %.4 = phi ptr [ %scevgep143, %.lr.ph.preheader ], [ %96, %93 ]
+  %.4 = phi ptr [ %105, %.lr.ph.preheader ], [ %96, %93 ]
   %106 = ptrtoint ptr %.sroa.0.1 to i64
   %107 = sub i64 %13, %106
   %108 = trunc i64 %107 to i32

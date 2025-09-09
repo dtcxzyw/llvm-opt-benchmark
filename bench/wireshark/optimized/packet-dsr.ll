@@ -288,12 +288,11 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %64 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef nonnull @.str.94)
   %65 = add nsw i32 %47, -4
-  %.not397 = icmp ult i32 %65, 4
+  %.not397 = icmp samesign ult i32 %65, 4
   br i1 %.not397, label %.loopexit, label %.lr.ph391.preheader
 
 .lr.ph391.preheader:                              ; preds = %60
   %66 = lshr i32 %65, 2
-  %umax401 = call i32 @llvm.umax.i32(i32 %66, i32 1)
   br label %.lr.ph391
 
 .lr.ph391:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391
@@ -307,7 +306,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.95, ptr noundef %71)
   %72 = add i32 %.0367389, 4
   %73 = add nuw nsw i32 %.0362390, 1
-  %exitcond402.not = icmp eq i32 %73, %umax401
+  %exitcond402.not = icmp eq i32 %73, %66
   br i1 %exitcond402.not, label %.loopexit, label %.lr.ph391, !llvm.loop !6
 
 74:                                               ; preds = %35
@@ -523,12 +522,11 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %236 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef nonnull @.str.94)
   %237 = add nsw i32 %212, -2
-  %.not395 = icmp ult i32 %237, 4
+  %.not395 = icmp samesign ult i32 %237, 4
   br i1 %.not395, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %232
   %238 = lshr i32 %237, 2
-  %umax = call i32 @llvm.umax.i32(i32 %238, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -542,7 +540,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %241, ptr noundef nonnull @.str.95, ptr noundef %243)
   %244 = add i32 %.2369384, 4
   %245 = add nuw nsw i32 %.2385, 1
-  %exitcond.not = icmp eq i32 %245, %umax
+  %exitcond.not = icmp eq i32 %245, %238
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 246:                                              ; preds = %35
@@ -611,7 +609,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph388, %.lr.ph391, %232, %93, %60, %202, %153, %173, %107, %138, %141, %144, %150, %74, %37, %279, %263, %258, %246, %177, %35
-  %.0366 = phi i32 [ 0, %35 ], [ %47, %37 ], [ %84, %74 ], [ %117, %107 ], [ %117, %138 ], [ %117, %150 ], [ %117, %141 ], [ %117, %144 ], [ %163, %173 ], [ %163, %153 ], [ %187, %177 ], [ %212, %202 ], [ %255, %246 ], [ 0, %258 ], [ %273, %263 ], [ %289, %279 ], [ %47, %60 ], [ %84, %93 ], [ %212, %232 ], [ %47, %.lr.ph391 ], [ %84, %.lr.ph388 ], [ %212, %.lr.ph ]
+  %.0366 = phi i32 [ 0, %35 ], [ %47, %37 ], [ %84, %74 ], [ %117, %107 ], [ %117, %138 ], [ %117, %150 ], [ %117, %141 ], [ %117, %144 ], [ %163, %173 ], [ %163, %153 ], [ %187, %177 ], [ %212, %202 ], [ %255, %246 ], [ 0, %258 ], [ %273, %263 ], [ %289, %279 ], [ 7, %60 ], [ %84, %93 ], [ %212, %232 ], [ %47, %.lr.ph391 ], [ %84, %.lr.ph388 ], [ %212, %.lr.ph ]
   %.not380 = icmp eq i8 %36, -32
   %.0366.fr = freeze i32 %.0366
   %298 = add nuw nsw i32 %.0366.fr, 2
@@ -743,13 +741,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
-
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

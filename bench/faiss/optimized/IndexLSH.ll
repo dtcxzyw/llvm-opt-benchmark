@@ -241,7 +241,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
   %56 = load ptr, ptr %8, align 8
   %invariant.gep = getelementptr float, ptr %36, i64 %54
-  %smax = tail call i64 @llvm.smax.i64(i64 %31, i64 1)
   %57 = getelementptr i8, ptr %invariant.gep, i64 -4
   br label %_ZSt4sortIPfEvT_S1_.exit.us
 
@@ -254,7 +253,7 @@ _ZSt4sortIPfEvT_S1_.exit.us:                      ; preds = %_ZSt4sortIPfEvT_S1_
   %62 = getelementptr inbounds nuw float, ptr %56, i64 %.03560.us
   store float %61, ptr %62, align 4, !tbaa !39
   %63 = add nuw nsw i64 %.03560.us, 1
-  %exitcond68.not = icmp eq i64 %63, %smax
+  %exitcond68.not = icmp eq i64 %63, %31
   br i1 %exitcond68.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, label %_ZSt4sortIPfEvT_S1_.exit.us, !llvm.loop !43
 
 64:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -2318,9 +2317,6 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #15
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

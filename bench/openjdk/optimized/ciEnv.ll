@@ -6631,7 +6631,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %_ZN9Bytecodes7code_
   %135 = and i8 %134, 15
   %136 = zext nneg i8 %135 to i32
   %137 = icmp eq i8 %135, 0
-  br i1 %137, label %138, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21.i
+  br i1 %137, label %138, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i
 
 138:                                              ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
   %139 = load i8, ptr %122, align 1
@@ -6647,7 +6647,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %_ZN9Bytecodes7code_
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i:       ; preds = %141, %138
   %144 = phi i32 [ %143, %141 ], [ %140, %138 ]
   %145 = icmp ult i32 %144, 239
-  br i1 %145, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i
+  br i1 %145, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i:   ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
   %146 = zext nneg i32 %144 to i64
@@ -6656,33 +6656,29 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i:   ; preds = %_ZN9Bytecodes7code_
   %149 = and i8 %148, 15
   %150 = zext nneg i8 %149 to i32
   %.not.i3.i.i = icmp eq i8 %149, 0
-  br i1 %.not.i3.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i
+  br i1 %.not.i3.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i
 
-_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i: ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
+_ZN9Bytecodes9length_atEP6MethodPh.exit.i:        ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
   %151 = call noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %144, ptr noundef nonnull %122, ptr noundef null) #19
-  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.i
+  %152 = icmp slt i32 %151, 1
+  br i1 %152, label %_ZN14BytecodeStream4nextEv.exit.thread, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit.i:        ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i
-  %.0.i = phi i32 [ %151, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i ], [ %150, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ]
-  %152 = icmp slt i32 %.0.i, 1
-  br i1 %152, label %_ZN14BytecodeStream4nextEv.exit.thread, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21.i
-
-_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21.i: ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
-  %.023.i = phi i32 [ %.0.i, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i ], [ %136, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
+_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i: ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
+  %.021.i = phi i32 [ %151, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i ], [ %150, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %136, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
   %153 = load i32, ptr %38, align 8
   %154 = load i32, ptr %37, align 8
-  %155 = sub nsw i32 %154, %.023.i
+  %155 = sub nsw i32 %154, %.021.i
   %156 = icmp sgt i32 %153, %155
   br i1 %156, label %_ZN14BytecodeStream4nextEv.exit.thread, label %157
 
-157:                                              ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21.i
-  %158 = sub nsw i32 %153, %.023.i
+157:                                              ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i
+  %158 = sub nsw i32 %153, %.021.i
   %159 = load i32, ptr %36, align 4
   %.not.i41 = icmp slt i32 %158, %159
   br i1 %.not.i41, label %160, label %_ZN14BytecodeStream4nextEv.exit.thread
 
 160:                                              ; preds = %157
-  %161 = add nsw i32 %159, %.023.i
+  %161 = add nsw i32 %159, %.021.i
   store i32 %161, ptr %36, align 4
   store i8 0, ptr %40, align 8
   %162 = icmp eq i32 %130, 196
@@ -6695,7 +6691,7 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread21.i: ; preds = %_ZN9Bytecodes9len
   store i8 1, ptr %40, align 8
   br label %_ZN14BytecodeStream4nextEv.exit
 
-_ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %157, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21.i, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
+_ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %157, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
   store i32 -1, ptr %41, align 4
   store i32 -1, ptr %42, align 4
   br label %217

@@ -1823,9 +1823,8 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %_ZN9__gnu_cxx5__ops
   %41 = load ptr, ptr %40, align 8, !tbaa !126
   %42 = load ptr, ptr %14, align 8, !tbaa !126
   store ptr %42, ptr %40, align 8, !tbaa !126
-  %.idx.i = shl nuw nsw i64 %17, 3
-  %43 = add nsw i64 %.idx.i, -8
-  %44 = ashr exact i64 %43, 3
+  %43 = add nuw nsw i64 %17, 2305843009213693951
+  %44 = and i64 %43, 2305843009213693951
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i48.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i.i, label %46
@@ -2110,9 +2109,8 @@ _ZNSt14_Function_baseD2Ev.exit.i15.i:             ; preds = %_ZN9__gnu_cxx5__ops
   %157 = load ptr, ptr %156, align 8, !tbaa !126
   %158 = load ptr, ptr %143, align 8, !tbaa !126
   store ptr %158, ptr %156, align 8, !tbaa !126
-  %.idx28.i = shl nuw nsw i64 %145, 3
-  %159 = add nsw i64 %.idx28.i, -8
-  %160 = ashr exact i64 %159, 3
+  %159 = add nuw nsw i64 %145, 2305843009213693951
+  %160 = and i64 %159, 2305843009213693951
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i1354.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i17.i, label %161
 
@@ -3892,9 +3890,8 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %_ZN9__gnu_cxx5__ops
   %42 = load ptr, ptr %41, align 8, !tbaa !126
   %43 = load ptr, ptr %15, align 8, !tbaa !126
   store ptr %43, ptr %41, align 8, !tbaa !126
-  %.idx.i = shl nuw nsw i64 %18, 3
-  %44 = add nsw i64 %.idx.i, -8
-  %45 = ashr exact i64 %44, 3
+  %44 = add nuw nsw i64 %18, 2305843009213693951
+  %45 = and i64 %44, 2305843009213693951
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i49.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i.i, label %47
@@ -4225,9 +4222,8 @@ _ZNSt14_Function_baseD2Ev.exit.i14.i:             ; preds = %_ZN9__gnu_cxx5__ops
   %182 = load ptr, ptr %181, align 8, !tbaa !126
   %183 = load ptr, ptr %168, align 8, !tbaa !126
   store ptr %183, ptr %181, align 8, !tbaa !126
-  %.idx27.i = shl nuw nsw i64 %170, 3
-  %184 = add nsw i64 %.idx27.i, -8
-  %185 = ashr exact i64 %184, 3
+  %184 = add nuw nsw i64 %170, 2305843009213693951
+  %185 = and i64 %184, 2305843009213693951
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i1255.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i16.i, label %186
 
@@ -5810,9 +5806,8 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %_ZN9__gnu_cxx5__ops
   %44 = load ptr, ptr %43, align 8, !tbaa !126
   %45 = load ptr, ptr %17, align 8, !tbaa !126
   store ptr %45, ptr %43, align 8, !tbaa !126
-  %.idx.i = shl nuw nsw i64 %20, 3
-  %46 = add nsw i64 %.idx.i, -8
-  %47 = ashr exact i64 %46, 3
+  %46 = add nuw nsw i64 %20, 2305843009213693951
+  %47 = and i64 %46, 2305843009213693951
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i53.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i.i, label %49
@@ -6312,9 +6307,8 @@ _ZNSt14_Function_baseD2Ev.exit.i14.i:             ; preds = %_ZN9__gnu_cxx5__ops
   %255 = load ptr, ptr %254, align 8, !tbaa !126
   %256 = load ptr, ptr %241, align 8, !tbaa !126
   store ptr %256, ptr %254, align 8, !tbaa !126
-  %.idx27.i = shl nuw nsw i64 %243, 3
-  %257 = add nsw i64 %.idx27.i, -8
-  %258 = ashr exact i64 %257, 3
+  %257 = add nuw nsw i64 %243, 2305843009213693951
+  %258 = and i64 %257, 2305843009213693951
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i1259.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i16.i, label %259
 
@@ -8024,9 +8018,8 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %_ZN9__gnu_cxx5__ops
   %42 = load ptr, ptr %41, align 8, !tbaa !126
   %43 = load ptr, ptr %15, align 8, !tbaa !126
   store ptr %43, ptr %41, align 8, !tbaa !126
-  %.idx.i = shl nuw nsw i64 %18, 3
-  %44 = add nsw i64 %.idx.i, -8
-  %45 = ashr exact i64 %44, 3
+  %44 = add nuw nsw i64 %18, 2305843009213693951
+  %45 = and i64 %44, 2305843009213693951
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i49.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i.i, label %47
@@ -8357,9 +8350,8 @@ _ZNSt14_Function_baseD2Ev.exit.i14.i:             ; preds = %_ZN9__gnu_cxx5__ops
   %182 = load ptr, ptr %181, align 8, !tbaa !126
   %183 = load ptr, ptr %168, align 8, !tbaa !126
   store ptr %183, ptr %181, align 8, !tbaa !126
-  %.idx27.i = shl nuw nsw i64 %170, 3
-  %184 = add nsw i64 %.idx27.i, -8
-  %185 = ashr exact i64 %184, 3
+  %184 = add nuw nsw i64 %170, 2305843009213693951
+  %185 = and i64 %184, 2305843009213693951
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   br i1 %.not.i.i.not.i.i1255.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERKS9_.exit.i.i16.i, label %186
 

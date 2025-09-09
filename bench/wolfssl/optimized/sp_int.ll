@@ -2876,12 +2876,12 @@ define range(i32 -98, 1) i32 @sp_submod_ct(ptr noundef readonly captures(none) %
   %51 = lshr i128 %49, 64
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
-  br i1 %exitcond61.not.i, label %._crit_edge51.i, label %40, !llvm.loop !56
+  br i1 %exitcond61.not.i, label %.lr.ph.i.i, label %40, !llvm.loop !56
 
-._crit_edge51.i:                                  ; preds = %40, %._crit_edge51.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge51.i ], [ %wide.trip.count60.i, %40 ]
-  %.016.i.i = phi i16 [ %58, %._crit_edge51.i ], [ -1, %40 ]
-  %.01215.i.i = phi i16 [ %57, %._crit_edge51.i ], [ %5, %40 ]
+.lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %wide.trip.count60.i, %40 ]
+  %.016.i.i = phi i16 [ %58, %.lr.ph.i.i ], [ -1, %40 ]
+  %.01215.i.i = phi i16 [ %57, %.lr.ph.i.i ], [ %5, %40 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %52 = getelementptr i64, ptr %3, i64 %indvars.iv.i.i
   %53 = load i64, ptr %52, align 8, !tbaa !8
@@ -2891,10 +2891,10 @@ define range(i32 -98, 1) i32 @sp_submod_ct(ptr noundef readonly captures(none) %
   %57 = sub i16 %.01215.i.i, %56
   %58 = select i1 %54, i16 %.016.i.i, i16 0
   %59 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %59, label %._crit_edge51.i, label %_sp_submod_ct.exit, !llvm.loop !54
+  br i1 %59, label %.lr.ph.i.i, label %_sp_submod_ct.exit, !llvm.loop !54
 
-_sp_submod_ct.exit:                               ; preds = %._crit_edge51.i, %9
-  %.012.lcssa.i.i = phi i16 [ 0, %9 ], [ %57, %._crit_edge51.i ]
+_sp_submod_ct.exit:                               ; preds = %.lr.ph.i.i, %9
+  %.012.lcssa.i.i = phi i16 [ 0, %9 ], [ %57, %.lr.ph.i.i ]
   store i16 %.012.lcssa.i.i, ptr %3, align 8, !tbaa !12
   br label %60
 
@@ -10650,12 +10650,12 @@ sp_clamp_ct.exit:                                 ; preds = %308, %sp_rshb.exit1
   %352 = lshr i128 %350, 64
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %318
-  br i1 %exitcond61.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !56
+  br i1 %exitcond61.not.i, label %.lr.ph.i.i, label %.lr.ph50.i, !llvm.loop !56
 
-._crit_edge51.i:                                  ; preds = %.lr.ph50.i, %._crit_edge51.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge51.i ], [ %318, %.lr.ph50.i ]
-  %.016.i.i = phi i16 [ %359, %._crit_edge51.i ], [ -1, %.lr.ph50.i ]
-  %.01215.i.i = phi i16 [ %358, %._crit_edge51.i ], [ %317, %.lr.ph50.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph50.i, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %318, %.lr.ph50.i ]
+  %.016.i.i = phi i16 [ %359, %.lr.ph.i.i ], [ -1, %.lr.ph50.i ]
+  %.01215.i.i = phi i16 [ %358, %.lr.ph.i.i ], [ %317, %.lr.ph50.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %353 = getelementptr i64, ptr %0, i64 %indvars.iv.i.i
   %354 = load i64, ptr %353, align 8, !tbaa !8
@@ -10665,10 +10665,10 @@ sp_clamp_ct.exit:                                 ; preds = %308, %sp_rshb.exit1
   %358 = sub i16 %.01215.i.i, %357
   %359 = select i1 %355, i16 %.016.i.i, i16 0
   %360 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %360, label %._crit_edge51.i, label %_sp_cmp_abs.exit.sink.split, !llvm.loop !54
+  br i1 %360, label %.lr.ph.i.i, label %_sp_cmp_abs.exit.sink.split, !llvm.loop !54
 
-_sp_cmp_abs.exit.sink.split:                      ; preds = %._crit_edge51.i, %.preheader.i147, %._crit_edge.loopexit.i, %.critedge4.split.loop.exit112.i, %.loopexit
-  %.0.in.lcssa.i.sink = phi i16 [ 0, %.loopexit ], [ %252, %.critedge4.split.loop.exit112.i ], [ 0, %._crit_edge.loopexit.i ], [ 0, %.preheader.i147 ], [ %358, %._crit_edge51.i ]
+_sp_cmp_abs.exit.sink.split:                      ; preds = %.lr.ph.i.i, %.preheader.i147, %._crit_edge.loopexit.i, %.critedge4.split.loop.exit112.i, %.loopexit
+  %.0.in.lcssa.i.sink = phi i16 [ 0, %.loopexit ], [ %252, %.critedge4.split.loop.exit112.i ], [ 0, %._crit_edge.loopexit.i ], [ 0, %.preheader.i147 ], [ %358, %.lr.ph.i.i ]
   store i16 %.0.in.lcssa.i.sink, ptr %0, align 8, !tbaa !12
   br label %_sp_cmp_abs.exit
 

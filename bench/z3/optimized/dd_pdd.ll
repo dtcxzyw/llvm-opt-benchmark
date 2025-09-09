@@ -38342,7 +38342,7 @@ define hidden noundef zeroext i1 @_ZN2dd11pdd_manager11well_formedEv(ptr noundef
   br i1 %4, label %_ZN6vectorIjLb0EjE3endEv.exit.thread, label %_ZN6vectorIjLb0EjE3endEv.exit
 
 _ZN6vectorIjLb0EjE3endEv.exit.thread:             ; preds = %1
-  %.pre80 = load ptr, ptr %0, align 8, !tbaa !91
+  %.pre77 = load ptr, ptr %0, align 8, !tbaa !91
   br label %._crit_edge
 
 _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
@@ -38367,27 +38367,27 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
   %14 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre, i64 %13, i32 1
   %15 = load i32, ptr %14, align 4, !tbaa !94
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.critedge.thread
+  br i1 %16, label %17, label %.critedge59
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre, i64 %13, i32 2
   %19 = load i32, ptr %18, align 4, !tbaa !92
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.critedge, label %.critedge.thread
+  br i1 %20, label %.critedge, label %.critedge59
 
 .critedge:                                        ; preds = %17
   %21 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre, i64 %13
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 1023
-  %.not96 = icmp eq i32 %23, 0
-  br i1 %.not96, label %10, label %.critedge.thread
+  %.not69 = icmp eq i32 %23, 0
+  br i1 %.not69, label %10, label %.critedge59
 
-.critedge.thread:                                 ; preds = %.lr.ph, %17, %.critedge
+.critedge59:                                      ; preds = %17, %.lr.ph, %.critedge
   %24 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %25 = tail call noundef zeroext i1 @_Z11is_threadedv()
   br i1 %25, label %26, label %52
 
-26:                                               ; preds = %.critedge.thread
+26:                                               ; preds = %.critedge59
   tail call void @_Z12verbose_lockv()
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.19, i64 noundef 26)
@@ -38417,7 +38417,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
   tail call void @_Z14verbose_unlockv()
   br label %.loopexit.sink.split
 
-52:                                               ; preds = %.critedge.thread
+52:                                               ; preds = %.critedge59
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.19, i64 noundef 26)
   %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %13)
@@ -38446,32 +38446,32 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
   br label %.loopexit.sink.split
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIjLb0EjE3endEv.exit.thread, %_ZN6vectorIjLb0EjE3endEv.exit
-  %.pre81 = phi ptr [ %.pre80, %_ZN6vectorIjLb0EjE3endEv.exit.thread ], [ %.pre, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  %78 = icmp eq ptr %.pre81, null
+  %.pre78 = phi ptr [ %.pre77, %_ZN6vectorIjLb0EjE3endEv.exit.thread ], [ %.pre, %_ZN6vectorIjLb0EjE3endEv.exit ]
+  %78 = icmp eq ptr %.pre78, null
   br i1 %78, label %.loopexit, label %_ZN6vectorIN2dd11pdd_manager4nodeELb0EjE3endEv.exit
 
 _ZN6vectorIN2dd11pdd_manager4nodeELb0EjE3endEv.exit: ; preds = %10, %._crit_edge
-  %.pre8184 = phi ptr [ %.pre81, %._crit_edge ], [ %.pre, %10 ]
-  %79 = getelementptr inbounds i8, ptr %.pre8184, i64 -4
+  %.pre7880 = phi ptr [ %.pre78, %._crit_edge ], [ %.pre, %10 ]
+  %79 = getelementptr inbounds i8, ptr %.pre7880, i64 -4
   %80 = load i32, ptr %79, align 4, !tbaa !83
   %81 = zext i32 %80 to i64
   %82 = shl nuw nsw i64 %81, 4
-  %83 = getelementptr inbounds nuw i8, ptr %.pre8184, i64 %82
-  %.not5066 = icmp eq i32 %80, 0
-  br i1 %.not5066, label %.loopexit, label %.lr.ph69
+  %83 = getelementptr inbounds nuw i8, ptr %.pre7880, i64 %82
+  %.not5065 = icmp eq i32 %80, 0
+  br i1 %.not5065, label %.loopexit, label %.lr.ph68
 
-.lr.ph69:                                         ; preds = %_ZN6vectorIN2dd11pdd_manager4nodeELb0EjE3endEv.exit, %.critedge52
-  %.04367 = phi ptr [ %176, %.critedge52 ], [ %.pre8184, %_ZN6vectorIN2dd11pdd_manager4nodeELb0EjE3endEv.exit ]
-  %84 = getelementptr inbounds nuw i8, ptr %.04367, i64 8
+.lr.ph68:                                         ; preds = %_ZN6vectorIN2dd11pdd_manager4nodeELb0EjE3endEv.exit, %.critedge52
+  %.04366 = phi ptr [ %176, %.critedge52 ], [ %.pre7880, %_ZN6vectorIN2dd11pdd_manager4nodeELb0EjE3endEv.exit ]
+  %84 = getelementptr inbounds nuw i8, ptr %.04366, i64 8
   %85 = load i32, ptr %84, align 4, !tbaa !92
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.critedge52, label %87
 
-87:                                               ; preds = %.lr.ph69
-  %88 = getelementptr inbounds nuw i8, ptr %.04367, i64 4
+87:                                               ; preds = %.lr.ph68
+  %88 = getelementptr inbounds nuw i8, ptr %.04366, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !94
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre8184, i64 %90
+  %91 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre7880, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 4, !tbaa !92
   %94 = icmp eq i32 %93, 0
@@ -38492,7 +38492,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit.i:             ; preds = %95
 _ZNK2dd11pdd_manager6is_valEj.exit.thread24.i:    ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit.i, %87
   %101 = load i32, ptr %91, align 4
   %102 = lshr i32 %101, 10
-  %103 = load i32, ptr %.04367, align 4
+  %103 = load i32, ptr %.04366, align 4
   %104 = lshr i32 %103, 10
   %105 = icmp samesign ult i32 %102, %104
   br i1 %105, label %106, label %_ZNK2dd11pdd_manager6is_valEj.exit.thread.i
@@ -38513,7 +38513,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit.thread24.i:    ; preds = %_ZNK2dd11pdd_manage
 _ZNK2dd11pdd_manager6is_valEj.exit.thread.i:      ; preds = %110, %106, %_ZNK2dd11pdd_manager6is_valEj.exit.thread24.i, %_ZNK2dd11pdd_manager6is_valEj.exit.i, %95
   %114 = phi i1 [ true, %_ZNK2dd11pdd_manager6is_valEj.exit.i ], [ false, %_ZNK2dd11pdd_manager6is_valEj.exit.thread24.i ], [ true, %95 ], [ true, %106 ], [ %113, %110 ]
   %115 = zext i32 %85 to i64
-  %116 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre8184, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre7880, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 4, !tbaa !92
   %119 = icmp eq i32 %118, 0
@@ -38534,7 +38534,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit20.i:           ; preds = %120
 _ZNK2dd11pdd_manager6is_valEj.exit20.thread25.i:  ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit20.i, %_ZNK2dd11pdd_manager6is_valEj.exit.thread.i
   %126 = load i32, ptr %116, align 4
   %127 = lshr i32 %126, 10
-  %128 = load i32, ptr %.04367, align 4
+  %128 = load i32, ptr %.04366, align 4
   %129 = lshr i32 %128, 10
   %.not.i = icmp samesign ugt i32 %127, %129
   br i1 %.not.i, label %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57, label %130
@@ -38558,8 +38558,8 @@ _ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit: ; preds = %120, %_ZNK2dd11pd
   br i1 %139, label %.critedge52, label %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57
 
 _ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57: ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit20.thread25.i, %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit
-  %140 = getelementptr inbounds nuw i8, ptr %.04367, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %.04367, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %.04366, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.04366, i64 4
   %142 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %143 = tail call noundef zeroext i1 @_Z11is_threadedv()
   br i1 %143, label %144, label %160
@@ -38567,7 +38567,7 @@ _ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57: ; preds = %_ZNK2dd1
 144:                                              ; preds = %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57
   tail call void @_Z12verbose_lockv()
   %145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
-  %146 = getelementptr inbounds nuw i8, ptr %.04367, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %.04366, i64 12
   %147 = load i32, ptr %146, align 4, !tbaa !98
   %148 = zext i32 %147 to i64
   %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %145, i64 noundef %148)
@@ -38586,7 +38586,7 @@ _ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57: ; preds = %_ZNK2dd1
 
 160:                                              ; preds = %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57
   %161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
-  %162 = getelementptr inbounds nuw i8, ptr %.04367, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %.04366, i64 12
   %163 = load i32, ptr %162, align 4, !tbaa !98
   %164 = zext i32 %163 to i64
   %165 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %161, i64 noundef %164)
@@ -38602,10 +38602,10 @@ _ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit.thread57: ; preds = %_ZNK2dd1
   %175 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2dd11pdd_manager7displayERSo(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull align 8 dereferenceable(8) %173)
   br label %.loopexit.sink.split
 
-.critedge52:                                      ; preds = %.lr.ph69, %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit
-  %176 = getelementptr inbounds nuw i8, ptr %.04367, i64 16
+.critedge52:                                      ; preds = %.lr.ph68, %_ZN2dd11pdd_manager11well_formedERKNS0_4nodeE.exit
+  %176 = getelementptr inbounds nuw i8, ptr %.04366, i64 16
   %.not50 = icmp eq ptr %176, %83
-  br i1 %.not50, label %.loopexit, label %.lr.ph69
+  br i1 %.not50, label %.loopexit, label %.lr.ph68
 
 .loopexit.sink.split:                             ; preds = %160, %144, %26, %52
   %.sink = phi i32 [ 1768, %52 ], [ 1768, %26 ], [ 1775, %144 ], [ 1775, %160 ]

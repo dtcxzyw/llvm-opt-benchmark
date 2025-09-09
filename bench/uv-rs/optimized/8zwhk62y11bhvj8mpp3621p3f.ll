@@ -7924,10 +7924,8 @@ define void @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes17h81f5
   store i32 59, ptr %21, align 8, !alias.scope !1573, !noalias !1576
   call fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef align 8 dereferenceable(48) %10)
   %22 = load i64, ptr %11, align 8, !range !11, !noalias !1570, !noundef !8
-  %trunc.i = trunc nuw i64 %22 to i1
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load i64, ptr %23, align 8, !noalias !1570
-  %.sroa.3.0.i = select i1 %trunc.i, i64 %24, i64 undef
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1570
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1570
   %switch.not.not = icmp eq i64 %22, 0
@@ -7969,19 +7967,19 @@ _ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit: ; preds = %25,
   br label %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16
 
 _ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16: ; preds = %29, %32
-  %33 = icmp eq i64 %.sroa.3.0.i, 0
+  %33 = icmp eq i64 %24, 0
   br i1 %33, label %.sink.split, label %34
 
 34:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16
-  %.not.i = icmp ult i64 %.sroa.3.0.i, %2
+  %.not.i = icmp ult i64 %24, %2
   br i1 %.not.i, label %37, label %35
 
 35:                                               ; preds = %34
-  %36 = icmp eq i64 %.sroa.3.0.i, %2
+  %36 = icmp eq i64 %24, %2
   br i1 %36, label %.sink.split, label %42
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 %.sroa.3.0.i
+  %38 = getelementptr inbounds i8, ptr %1, i64 %24
   %39 = load i8, ptr %38, align 1, !alias.scope !1578, !noundef !8
   %40 = icmp sgt i8 %39, -65
   br i1 %40, label %43, label %42
@@ -7990,14 +7988,14 @@ _ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16: ; preds = %2
   ret void
 
 42:                                               ; preds = %37, %35
-  call void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.sroa.3.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.24f1b6be3ccc3d100b959164cf70640d.178) #26
+  call void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.24f1b6be3ccc3d100b959164cf70640d.178) #26
   unreachable
 
 43:                                               ; preds = %37
-  call fastcc void @_ZN5regex5regex6string5Regex8replacen17hda2b0a8a02d012c2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes12STRAY_QUOTES17h0bf8d50d02940cc1E, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %.sroa.3.0.i, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  call fastcc void @_ZN5regex5regex6string5Regex8replacen17hda2b0a8a02d012c2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes12STRAY_QUOTES17h0bf8d50d02940cc1E, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %44 = getelementptr inbounds i8, ptr %1, i64 %.sroa.3.0.i
+  %44 = getelementptr inbounds i8, ptr %1, i64 %24
   %45 = load i8, ptr %44, align 1, !alias.scope !1581, !noundef !8
   %46 = icmp sgt i8 %45, -65
   br i1 %46, label %50, label %49
@@ -8009,19 +8007,19 @@ _ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16: ; preds = %2
           to label %70 unwind label %68
 
 49:                                               ; preds = %43
-  invoke void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.sroa.3.0.i, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.24f1b6be3ccc3d100b959164cf70640d.179) #26
+  invoke void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %24, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.24f1b6be3ccc3d100b959164cf70640d.179) #26
           to label %55 unwind label %47
 
 .sink.split:                                      ; preds = %35, %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16
-  %.sroa.3.0.i.sink = phi i64 [ 0, %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16 ], [ %.sroa.3.0.i, %35 ]
-  call fastcc void @_ZN5regex5regex6string5Regex8replacen17hda2b0a8a02d012c2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes12STRAY_QUOTES17h0bf8d50d02940cc1E, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %.sroa.3.0.i.sink, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  %.sink = phi i64 [ 0, %_ZN3std4sync6poison4once4Once9call_once17h51702279d1746998E.exit16 ], [ %24, %35 ]
+  call fastcc void @_ZN5regex5regex6string5Regex8replacen17hda2b0a8a02d012c2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN13uv_pypi_types19lenient_requirement19remove_stray_quotes12STRAY_QUOTES17h0bf8d50d02940cc1E, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %.sink, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %50
 
 50:                                               ; preds = %.sink.split, %43
-  %51 = sub nuw i64 %2, %.sroa.3.0.i
-  %52 = getelementptr inbounds i8, ptr %1, i64 %.sroa.3.0.i
+  %51 = sub nuw i64 %2, %24
+  %52 = getelementptr inbounds i8, ptr %1, i64 %24
   store ptr %52, ptr %12, align 8
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %51, ptr %53, align 8

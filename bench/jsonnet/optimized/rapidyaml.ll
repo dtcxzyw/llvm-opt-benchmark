@@ -1267,7 +1267,7 @@ define { ptr, i64 } @_ZN2c417decode_code_pointENS_15basic_substringIcEENS0_IKcEE
   %.sink = phi i32 [ -48, %.lr.ph ], [ -87, %9 ], [ -55, %11 ]
   %13 = add nsw i32 %.sink, %7
   %14 = shl i32 %.021, 4
-  %15 = add i32 %13, %14
+  %15 = add nuw i32 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %.034.i22, i64 1
   %.not.i = icmp eq ptr %16, %5
   br i1 %.not.i, label %_ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread, label %.lr.ph
@@ -45131,7 +45131,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit140: ; preds =
   %.sink = phi i32 [ -48, %281 ], [ -87, %285 ], [ -55, %287 ]
   %289 = add nsw i32 %.sink, %283
   %290 = shl i32 %.0262293, 4
-  %291 = add i32 %289, %290
+  %291 = add nuw i32 %289, %290
   %292 = getelementptr inbounds nuw i8, ptr %.034.i84294, i64 1
   %.not.i85 = icmp eq ptr %292, %280
   br i1 %.not.i85, label %_ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit94.thread, label %281
@@ -45398,7 +45398,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit163: ; preds =
   %.sink380 = phi i32 [ -48, %405 ], [ -87, %409 ], [ -55, %411 ]
   %413 = add nsw i32 %.sink380, %407
   %414 = shl i32 %.0260291, 4
-  %415 = add i32 %413, %414
+  %415 = add nuw i32 %413, %414
   %416 = getelementptr inbounds nuw i8, ptr %.034.i292, i64 1
   %.not.i = icmp eq ptr %416, %404
   br i1 %.not.i, label %_ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread, label %405

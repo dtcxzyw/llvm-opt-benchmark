@@ -1683,7 +1683,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 
 38:                                               ; preds = %36
   %39 = add nsw i32 %34, -7808
-  br label %86
+  br label %.thread
 
 40:                                               ; preds = %36
   %or.cond7 = icmp ugt i16 %33, -3
@@ -1716,7 +1716,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %55 = add nsw i32 %54, -12416
   %56 = add nuw nsw i32 %55, %53
   %57 = add nsw i32 %27, 2
-  br label %86
+  br label %.thread
 
 58:                                               ; preds = %48, %46
   %59 = add nsw i32 %27, 2
@@ -1769,9 +1769,8 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %85 = add nsw i32 %27, 3
   br label %.thread
 
-86:                                               ; preds = %52, %41, %31, %38
-  %.0119 = phi i32 [ %39, %38 ], [ %34, %31 ], [ %44, %41 ], [ %56, %52 ]
-  %.0115 = phi i32 [ %29, %38 ], [ %29, %31 ], [ %29, %41 ], [ %57, %52 ]
+86:                                               ; preds = %41, %31
+  %.0119 = phi i32 [ %34, %31 ], [ %44, %41 ]
   %87 = icmp eq i32 %.0119, 0
   %brmerge.not = select i1 %87, i1 %20, i1 false
   br i1 %brmerge.not, label %88, label %.thread
@@ -1780,9 +1779,9 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   store i32 %27, ptr %6, align 4, !tbaa !32
   br label %.thread
 
-.thread:                                          ; preds = %86, %84, %40, %88
-  %.0115148 = phi i32 [ %.0115, %88 ], [ %.0115, %86 ], [ %85, %84 ], [ %29, %40 ]
-  %.5124 = phi i32 [ -1, %88 ], [ %.0119, %86 ], [ %.3122, %84 ], [ -1, %40 ]
+.thread:                                          ; preds = %86, %84, %52, %40, %38, %88
+  %.0115148 = phi i32 [ %29, %88 ], [ %29, %86 ], [ %85, %84 ], [ %57, %52 ], [ %29, %40 ], [ %29, %38 ]
+  %.5124 = phi i32 [ -1, %88 ], [ %.0119, %86 ], [ %.3122, %84 ], [ %56, %52 ], [ -1, %40 ], [ %39, %38 ]
   %89 = zext nneg i32 %26 to i64
   %90 = getelementptr inbounds nuw i16, ptr %0, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !25

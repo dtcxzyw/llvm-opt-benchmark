@@ -13649,7 +13649,7 @@ while.body:                                       ; preds = %while.cond, %_ZN6go
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %ptr.addr.227, i64 1
-  br i1 %cmp.i, label %if.end, label %if.end.i
+  br i1 %cmp.i, label %handle_unusual, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
   %7 = load i8, ptr %add.ptr.i, align 1
@@ -13671,9 +13671,9 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %success, label %if.end
 
-if.end:                                           ; preds = %while.body, %if.then4.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
-  %retval.0.i32 = phi ptr [ %8, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.ptr5.i, %if.then4.i ], [ %add.ptr.i, %while.body ]
-  %tag.031 = phi i32 [ %9, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.i, %if.then4.i ], [ %conv.i, %while.body ]
+if.end:                                           ; preds = %if.then4.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
+  %retval.0.i32 = phi ptr [ %8, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.ptr5.i, %if.then4.i ]
+  %tag.031 = phi i32 [ %9, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.i, %if.then4.i ]
   %cmp = icmp eq i32 %tag.031, 202
   br i1 %cmp, label %if.then9, label %handle_unusual
 
@@ -13704,21 +13704,23 @@ while.cond.backedge:                              ; preds = %_ZN22protobuf_test_
   %ptr.addr.0.be = phi ptr [ %call11, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit ], [ %call24, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
   br label %while.cond, !llvm.loop !44
 
-handle_unusual:                                   ; preds = %if.end
-  %and = and i32 %tag.031, 7
+handle_unusual:                                   ; preds = %while.body, %if.end
+  %tag.03139 = phi i32 [ %tag.031, %if.end ], [ %conv.i, %while.body ]
+  %retval.0.i3238 = phi ptr [ %retval.0.i32, %if.end ], [ %add.ptr.i, %while.body ]
+  %and = and i32 %tag.03139, 7
   %cmp18 = icmp eq i32 %and, 4
-  %cmp19 = icmp eq i32 %tag.031, 0
+  %cmp19 = icmp eq i32 %tag.03139, 0
   %or.cond = or i1 %cmp19, %cmp18
   br i1 %or.cond, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %handle_unusual
-  %sub.i8 = add i32 %tag.031, -1
+  %sub.i8 = add i32 %tag.03139, -1
   %last_tag_minus_1_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   store i32 %sub.i8, ptr %last_tag_minus_1_.i, align 8
   br label %success
 
 if.end21:                                         ; preds = %handle_unusual
-  %conv22 = zext i32 %tag.031 to i64
+  %conv22 = zext i32 %tag.03139 to i64
   %15 = load ptr, ptr %_internal_metadata_.i, align 8
   %16 = ptrtoint ptr %15 to i64
   %conv.i4 = and i64 %16, 1
@@ -13766,12 +13768,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %17, %if.then.i ], [ %call.i.sink11.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
   %retval.i.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %call24 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv22, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i32, ptr noundef nonnull %ctx)
+  %call24 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv22, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i3238, ptr noundef nonnull %ctx)
   %cmp25.not = icmp eq ptr %call24, null
   br i1 %cmp25.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then20
-  %ptr.addr.1 = phi ptr [ %retval.0.i32, %if.then20 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i3238, %if.then20 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 

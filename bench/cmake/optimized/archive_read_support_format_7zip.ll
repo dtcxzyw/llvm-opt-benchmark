@@ -5067,21 +5067,18 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   br i1 %213, label %.lr.ph316, label %._crit_edge317, !llvm.loop !237
 
 ._crit_edge317:                                   ; preds = %.lr.ph316
-  br i1 %211, label %214, label %219
+  %214 = trunc nuw nsw i64 %indvars.iv.next345 to i32
+  br i1 %211, label %.lr.ph323, label %219
 
-214:                                              ; preds = %._crit_edge317
-  %215 = trunc nuw nsw i64 %indvars.iv.next345 to i32
-  %216 = sub nuw nsw i64 3, %indvars.iv344
-  br label %.lr.ph323
-
-.lr.ph323:                                        ; preds = %176, %214
-  %storemerge = phi i64 [ %216, %214 ], [ 4, %176 ]
-  %.2211.lcssa365370 = phi i32 [ %215, %214 ], [ 0, %176 ]
-  %.7.lcssa366369 = phi i64 [ %210, %214 ], [ %.2183, %176 ]
-  store i64 %storemerge, ptr %63, align 8, !tbaa !158
-  %217 = zext nneg i32 %.2211.lcssa365370 to i64
+.lr.ph323:                                        ; preds = %176, %._crit_edge317
+  %.7.lcssa366 = phi i64 [ %210, %._crit_edge317 ], [ %.2183, %176 ]
+  %.2211.lcssa365 = phi i32 [ %214, %._crit_edge317 ], [ 0, %176 ]
+  %215 = sub nuw nsw i32 4, %.2211.lcssa365
+  %216 = zext nneg i32 %215 to i64
+  store i64 %216, ptr %63, align 8, !tbaa !158
+  %217 = zext nneg i32 %.2211.lcssa365 to i64
   %scevgep347 = getelementptr i8, ptr %4, i64 %217
-  %narrow = sub nuw nsw i32 4, %.2211.lcssa365370
+  %narrow = sub nuw nsw i32 4, %.2211.lcssa365
   %218 = zext nneg i32 %narrow to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 1 %scevgep347, i64 %218, i1 false), !tbaa !37
   br label %.thread249
@@ -5093,7 +5090,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   %.3202.ph = phi i32 [ 1, %171 ], [ 1, %166 ], [ 1, %156 ], [ 11, %.lr.ph323 ]
   %.3197.ph = phi ptr [ %.0194, %171 ], [ %.0194, %166 ], [ %.0194, %156 ], [ %.4198, %.lr.ph323 ]
   %.3191.ph = phi ptr [ %.0188, %171 ], [ %.0188, %166 ], [ %.0188, %156 ], [ %.4192, %.lr.ph323 ]
-  %.6187.ph = phi i64 [ %.2183, %171 ], [ %.2183, %166 ], [ %.2183, %156 ], [ %.7.lcssa366369, %.lr.ph323 ]
+  %.6187.ph = phi i64 [ %.2183, %171 ], [ %.2183, %166 ], [ %.2183, %156 ], [ %.7.lcssa366, %.lr.ph323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %220
 

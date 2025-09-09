@@ -57462,17 +57462,15 @@ default.unreachable212.i:                         ; preds = %"_ZN75_$LT$citation
   %.sroa.gep229 = getelementptr inbounds nuw i8, ptr %516, i64 %.sink532
   %.0.i161.sroa.sel230 = select i1 %trunc.i, ptr %.sink, ptr %.sroa.gep229
   %.sink218.i = load i8, ptr %.0.i161.sroa.sel230, align 2, !range !23, !alias.scope !11899, !noalias !11903, !noundef !4
-  %trunc.i168 = trunc nuw i8 %.sink218.i to i1
   %524 = getelementptr inbounds nuw i8, ptr %.0.i161, i64 %.sink217.i
   %525 = load i8, ptr %524, align 1, !alias.scope !11899, !noalias !11903
   %526 = zext i8 %525 to i32
   %527 = add nuw nsw i32 %526, 1
-  %.sroa.9.2.i = select i1 %trunc.i168, i32 %527, i32 undef
   %.not196.i = icmp eq i8 %.sink218.i, 0
   br i1 %.not196.i, label %_ZN9hayagriva3csl9rendering16render_date_part17h7920b33967244e96E.exit, label %.thread.i162
 
 .thread.i162:                                     ; preds = %523, %519
-  %.sroa.9.1161.i = phi i32 [ %.sroa.9.2.i, %523 ], [ %spec.select197.i, %519 ]
+  %.sroa.9.1161.i = phi i32 [ %527, %523 ], [ %spec.select197.i, %519 ]
   store i32 %.sroa.9.1161.i, ptr %43, align 4, !noalias !11902
   %528 = load i8, ptr %78, align 8, !range !11651, !alias.scope !11900, !noalias !11904, !noundef !4
   %529 = icmp eq i8 %528, 5

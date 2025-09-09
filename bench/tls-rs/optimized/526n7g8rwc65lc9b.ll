@@ -11860,7 +11860,7 @@ _ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension17h6fb1cf
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 392, i64 noundef 8) #38
   ret void
 
-380:                                              ; preds = %422, %416, %390, %.critedge304.thread, %382, %436, %434, %431, %428, %424, %391, %.critedge302, %.critedge301, %.critedge300, %387, %385, %368
+380:                                              ; preds = %422, %416, %390, %.critedge304.thread, %382, %435, %433, %431, %428, %424, %391, %.critedge302, %.critedge301, %.critedge300, %387, %385, %368
   %381 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40
@@ -11875,8 +11875,8 @@ _ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension17h6fb1cf
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$$GT$17h386c143b035c9b65E"(ptr %.val316, ptr %.val317) #39
           to label %common.resume unwind label %380
 
-common.resume:                                    ; preds = %378, %382, %433, %430, %436, %408
-  %common.resume.op = phi { ptr, i32 } [ %409, %408 ], [ %.pn288, %436 ], [ %.pn288, %430 ], [ %.pn288, %433 ], [ %379, %378 ], [ %.pn, %382 ]
+common.resume:                                    ; preds = %378, %382, %430, %435, %408
+  %common.resume.op = phi { ptr, i32 } [ %409, %408 ], [ %.pn288, %435 ], [ %.pn288, %430 ], [ %379, %378 ], [ %.pn, %382 ]
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 392, i64 noundef 8) #38
   resume { ptr, i32 } %common.resume.op
 
@@ -12045,26 +12045,23 @@ common.resume:                                    ; preds = %378, %382, %433, %4
 
 430:                                              ; preds = %431, %426
   %cond307 = icmp eq i8 %.1259, 0
-  br i1 %cond307, label %common.resume, label %434
+  br i1 %cond307, label %common.resume, label %433
 
 431:                                              ; preds = %426
   %432 = getelementptr inbounds nuw i8, ptr %1, i64 320
   invoke void @"_ZN4core3ptr57drop_in_place$LT$rustls..hash_hs..HandshakeHashBuffer$GT$17h6fdf8abfe16799d1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %432) #39
           to label %430 unwind label %380
 
-433:                                              ; preds = %434
-  br i1 %417, label %436, label %common.resume
+433:                                              ; preds = %430
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$rustls..tls13..key_schedule..KeyScheduleEarly$GT$$GT$17hcac6449dd0f60cd8E"(ptr noalias noundef align 8 dereferenceable(24) %434) #39
+          to label %435 unwind label %380
 
-434:                                              ; preds = %430
-  %435 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$rustls..tls13..key_schedule..KeyScheduleEarly$GT$$GT$17hcac6449dd0f60cd8E"(ptr noalias noundef align 8 dereferenceable(24) %435) #39
-          to label %433 unwind label %380
-
-436:                                              ; preds = %433
-  %437 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.val314 = load ptr, ptr %437, align 8, !noundef !4
-  %438 = getelementptr i8, ptr %1, i64 384
-  %.val315 = load ptr, ptr %438, align 8
+435:                                              ; preds = %433
+  %436 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %.val314 = load ptr, ptr %436, align 8, !noundef !4
+  %437 = getelementptr i8, ptr %1, i64 384
+  %.val315 = load ptr, ptr %437, align 8
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$$GT$17h386c143b035c9b65E"(ptr %.val314, ptr %.val315) #39
           to label %common.resume unwind label %380
 }

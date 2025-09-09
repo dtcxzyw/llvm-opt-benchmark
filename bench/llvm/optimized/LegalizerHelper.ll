@@ -58809,10 +58809,6 @@ _ZNK4llvm3LLT14getNumElementsEv.exit124:          ; preds = %62, %63
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit
   %.0105207 = phi i32 [ %87, %.preheader.lr.ph ], [ %137, %_ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit ]
-  %.not217 = icmp eq i32 %.0105207, 0
-  br i1 %.not217, label %_ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit.thread, label %.lr.ph205.preheader
-
-.lr.ph205.preheader:                              ; preds = %.preheader
   %88 = zext i32 %.0105207 to i64
   br label %.lr.ph205
 
@@ -58873,7 +58869,7 @@ _ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i: ; preds = %101, %100, %
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %110, ptr align 4 %108, i64 %gepdiff.i.i, i1 false)
   br label %_ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit
 
-_ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit.thread: ; preds = %92, %.preheader
+_ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit.thread: ; preds = %92
   store i32 0, ptr %48, align 8, !tbaa !190
   store i32 0, ptr %80, align 8, !tbaa !190
   br label %._crit_edge208
@@ -58884,8 +58880,8 @@ _ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit: ; preds = %93, %_ZSt4cop
   %112 = icmp ugt i32 %storemerge, 1
   br i1 %112, label %.preheader, label %._crit_edge208, !llvm.loop !849
 
-.lr.ph205:                                        ; preds = %.lr.ph205.preheader, %_ZN4llvm15SmallVectorImplINS_8RegisterEE12emplace_backIJS1_EEERS1_DpOT_.exit
-  %indvars.iv220 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next221, %_ZN4llvm15SmallVectorImplINS_8RegisterEE12emplace_backIJS1_EEERS1_DpOT_.exit ]
+.lr.ph205:                                        ; preds = %.preheader, %_ZN4llvm15SmallVectorImplINS_8RegisterEE12emplace_backIJS1_EEERS1_DpOT_.exit
+  %indvars.iv220 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next221, %_ZN4llvm15SmallVectorImplINS_8RegisterEE12emplace_backIJS1_EEERS1_DpOT_.exit ]
   %113 = load ptr, ptr %0, align 8, !tbaa !139
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %3, ptr %8, align 8, !tbaa !173
@@ -59160,7 +59156,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit133.thread:         ; preds = %_ZNK4llvm3LLT14getN
   %227 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %229 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %230 = zext i32 %221 to i64
+  %230 = zext nneg i32 %221 to i64
   %wide.trip.count231 = zext i16 %.in to i64
   br label %231
 

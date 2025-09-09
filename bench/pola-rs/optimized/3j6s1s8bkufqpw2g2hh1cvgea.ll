@@ -4414,12 +4414,12 @@ define internal fastcc { i64, i64 } @"_ZN116_$LT$core..iter..adapters..flatten..
   %37 = extractvalue { i8, i64 } %36, 0
   switch i8 %37, label %38 [
     i8 2, label %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i
-    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread24
+    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread23
   ]
 
 38:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
   %39 = extractvalue { i8, i64 } %36, 1
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread24
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread23
 
 _ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i: ; preds = %13
   %40 = tail call { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea60fa08ec1cd1fbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
@@ -4434,7 +4434,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i: ; pre
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i
   %spec.select1.i.i.i = sub i64 2, %41
   %42 = extractvalue { i64, i64 } %40, 1
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread24
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread23
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4451,9 +4451,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.threa
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %50, label %.critedge
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread24: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i", %38, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19
-  %.sroa.3.0.i3.pn = phi i64 [ %.sroa.3.0.i3, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19 ], [ %42, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit ], [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i4, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19 ], [ %spec.select1.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit ], [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread23: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i", %38, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18
+  %.sroa.3.0.i3.pn = phi i64 [ %.sroa.3.0.i3, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18 ], [ %42, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit ], [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i4, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18 ], [ %spec.select1.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit ], [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
   %47 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %48 = insertvalue { i64, i64 } %47, i64 %.sroa.3.0.i3.pn, 1
   ret { i64, i64 } %48
@@ -4473,7 +4473,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.threa
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load i64, ptr %51, align 8, !range !11, !alias.scope !91, !noundef !3
   %53 = trunc nuw i64 %52 to i1
-  br i1 %53, label %54, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19
+  br i1 %53, label %54, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4535,33 +4535,31 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.threa
   %84 = extractvalue { i8, i64 } %83, 0
   switch i8 %84, label %85 [
     i8 2, label %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11
-    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19
+    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18
   ]
 
 85:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9"
   %86 = extractvalue { i8, i64 } %83, 1
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18
 
 _ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15: ; preds = %54
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %88 = tail call { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea60fa08ec1cd1fbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %87)
   %89 = extractvalue { i64, i64 } %88, 0
-  %90 = trunc nuw i64 %89 to i1
-  %91 = extractvalue { i64, i64 } %88, 1
-  %spec.select.i.i.i16 = select i1 %90, i64 %91, i64 undef
-  %spec.select1.i.i.i17 = sub i64 2, %89
-  %.not.i18 = icmp eq i64 %89, 0
-  br i1 %.not.i18, label %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19
+  %90 = extractvalue { i64, i64 } %88, 1
+  %spec.select1.i.i.i16 = sub i64 2, %89
+  %.not.i17 = icmp eq i64 %89, 0
+  br i1 %.not.i17, label %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18
 
 _ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9"
   store i64 0, ptr %51, align 8, !alias.scope !91
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit19: ; preds = %50, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9", %85, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11
-  %.sroa.3.0.i3 = phi i64 [ undef, %50 ], [ %spec.select.i.i.i16, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15 ], [ undef, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11 ], [ %86, %85 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
-  %.sroa.0.0.i4 = phi i64 [ 2, %50 ], [ %spec.select1.i.i.i17, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11 ], [ 1, %85 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit18: ; preds = %50, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9", %85, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11
+  %.sroa.3.0.i3 = phi i64 [ undef, %50 ], [ %90, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15 ], [ undef, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11 ], [ %86, %85 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
+  %.sroa.0.0.i4 = phi i64 [ 2, %50 ], [ %spec.select1.i.i.i16, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.i15 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h4713cb4713b6fa48E.exit.thread9.i11 ], [ 1, %85 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread24
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h83dbea213e776258E.exit.thread23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6213,12 +6211,12 @@ define internal fastcc { i64, i64 } @"_ZN116_$LT$core..iter..adapters..flatten..
   %37 = extractvalue { i8, i64 } %36, 0
   switch i8 %37, label %38 [
     i8 2, label %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i
-    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread24
+    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread23
   ]
 
 38:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
   %39 = extractvalue { i8, i64 } %36, 1
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread24
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread23
 
 _ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i: ; preds = %13
   %40 = tail call { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f6c3a3768593161E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
@@ -6233,7 +6231,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i: ; pre
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i
   %spec.select1.i.i.i = sub i64 2, %41
   %42 = extractvalue { i64, i64 } %40, 1
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread24
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread23
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -6250,9 +6248,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.threa
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %50, label %.critedge
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread24: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i", %38, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19
-  %.sroa.3.0.i3.pn = phi i64 [ %.sroa.3.0.i3, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19 ], [ %42, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit ], [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i4, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19 ], [ %spec.select1.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit ], [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread23: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i", %38, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18
+  %.sroa.3.0.i3.pn = phi i64 [ %.sroa.3.0.i3, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18 ], [ %42, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit ], [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i4, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18 ], [ %spec.select1.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit ], [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i" ]
   %47 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %48 = insertvalue { i64, i64 } %47, i64 %.sroa.3.0.i3.pn, 1
   ret { i64, i64 } %48
@@ -6272,7 +6270,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.threa
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load i64, ptr %51, align 8, !range !11, !alias.scope !487, !noundef !3
   %53 = trunc nuw i64 %52 to i1
-  br i1 %53, label %54, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19
+  br i1 %53, label %54, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6334,33 +6332,31 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.threa
   %84 = extractvalue { i8, i64 } %83, 0
   switch i8 %84, label %85 [
     i8 2, label %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11
-    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19
+    i8 0, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18
   ]
 
 85:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9"
   %86 = extractvalue { i8, i64 } %83, 1
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18
 
 _ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15: ; preds = %54
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %88 = tail call { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f6c3a3768593161E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %87)
   %89 = extractvalue { i64, i64 } %88, 0
-  %90 = trunc nuw i64 %89 to i1
-  %91 = extractvalue { i64, i64 } %88, 1
-  %spec.select.i.i.i16 = select i1 %90, i64 %91, i64 undef
-  %spec.select1.i.i.i17 = sub i64 2, %89
-  %.not.i18 = icmp eq i64 %89, 0
-  br i1 %.not.i18, label %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19
+  %90 = extractvalue { i64, i64 } %88, 1
+  %spec.select1.i.i.i16 = sub i64 2, %89
+  %.not.i17 = icmp eq i64 %89, 0
+  br i1 %.not.i17, label %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18
 
 _ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9"
   store i64 0, ptr %51, align 8, !alias.scope !487
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit19: ; preds = %50, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9", %85, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11
-  %.sroa.3.0.i3 = phi i64 [ undef, %50 ], [ %spec.select.i.i.i16, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15 ], [ undef, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11 ], [ %86, %85 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
-  %.sroa.0.0.i4 = phi i64 [ 2, %50 ], [ %spec.select1.i.i.i17, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11 ], [ 1, %85 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit18: ; preds = %50, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9", %85, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11
+  %.sroa.3.0.i3 = phi i64 [ undef, %50 ], [ %90, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15 ], [ undef, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11 ], [ %86, %85 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
+  %.sroa.0.0.i4 = phi i64 [ 2, %50 ], [ %spec.select1.i.i.i16, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.i15 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h3041e0c766634b0dE.exit.thread9.i11 ], [ 1, %85 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i9" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread24
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h86f8b57197c7177dE.exit.thread23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
