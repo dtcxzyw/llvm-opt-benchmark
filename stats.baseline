@@ -191,7 +191,7 @@
   "instcombine.NumAggregateReconstructionsSimplified": 18988,
   "instcombine.NumCombined": 125674505,
   "instcombine.NumConstProp": 163666,
-  "instcombine.NumDeadInst": 42524452,
+  "instcombine.NumDeadInst": 42524438,
   "instcombine.NumDeadStore": 26940,
   "instcombine.NumExpand": 2896,
   "instcombine.NumFactor": 45382,
