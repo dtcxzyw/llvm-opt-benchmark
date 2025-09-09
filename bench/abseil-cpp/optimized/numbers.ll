@@ -496,9 +496,9 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %9 = icmp ult i32 %0, 100000000
   %10 = udiv i32 %0, 10000
   %11 = urem i32 %0, 10000
-  br i1 %9, label %12, label %39
+  br i1 %9, label %12, label %38
 
-12:                                               ; preds = %8
+12:; preds = %8
   %13 = urem i32 %0, 10000
   %14 = zext nneg i32 %10 to i64
   %15 = zext nneg i32 %13 to i64
@@ -531,12 +531,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-39:                                               ; preds = %8
-  %40 = udiv i32 %0, 100000000
-  %41 = urem i32 %0, 100000000
-  %42 = udiv i32 %41, 10000
-  %43 = zext nneg i32 %42 to i64
-  %44 = zext nneg i32 %11 to i64
+38:                                               ; preds = %8
+  %39 = udiv i32 %0, 100000000
+  %40 = urem i32 %0, 100000000
+  %41 = udiv i32 %40, 10000
+  %42 = zext nneg i32 %42 to i64
+  %43 = zext nneg i32 %11 to i64
   %45 = shl nuw nsw i64 %44, 32
   %46 = or disjoint i64 %45, %43
   %47 = mul nuw nsw i64 %46, 10486
@@ -554,12 +554,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %57 = shl i64 %56, 8
   %58 = or disjoint i64 %55, 3472328296227680304
   %59 = add i64 %58, %57
-  %60 = add nsw i32 %40, -10
+  %60 = add nsw i32 %39, -10
   %61 = ashr i32 %60, 8
-  %narrow.i = mul nuw nsw i32 %40, 103
+  %narrow.i = mul nuw nsw i32 %39, 103
   %62 = lshr i32 %narrow.i, 10
   %.neg.i5 = mul nsw i32 %62, -10
-  %63 = add nsw i32 %.neg.i5, %40
+  %63 = add nsw i32 %.neg.i5, %39
   %64 = or disjoint i32 %62, 12336
   %65 = shl nsw i32 %63, 8
   %66 = add nsw i32 %64, %65
@@ -574,7 +574,7 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %4, %12, %39
+_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %4, %12, %38
   %.0.i = phi ptr [ %7, %4 ], [ %38, %12 ], [ %73, %39 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
@@ -610,10 +610,10 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %16 = urem i32 %.0, 10000
   br i1 %14, label %17, label %44
 
-17:                                               ; preds = %13
+15:                                               ; preds = %13
   %18 = urem i32 %.0, 10000
   %19 = zext nneg i32 %15 to i64
-  %20 = zext nneg i32 %18 to i64
+  %18 = zext nneg i32 %18 to i64
   %21 = shl nuw nsw i64 %20, 32
   %22 = or disjoint i64 %21, %19
   %23 = mul nuw nsw i64 %22, 10486
@@ -637,18 +637,18 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %38 = add i64 %34, 3472328296227680304
   %39 = lshr i64 %38, %37
   store i64 %39, ptr %.07, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %.07, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %41 = lshr i64 %36, 3
   %42 = sub nsw i64 0, %41
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-44:                                               ; preds = %13
-  %45 = udiv i32 %.0, 100000000
-  %46 = urem i32 %.0, 100000000
-  %47 = udiv i32 %46, 10000
-  %48 = zext nneg i32 %47 to i64
-  %49 = zext nneg i32 %16 to i64
+43:                                               ; preds = %13
+  %44 = udiv i32 %.0, 100000000
+  %45 = urem i32 %.0, 100000000
+  %46 = udiv i32 %45, 10000
+  %47 = zext nneg i32 %47 to i64
+  %48 = zext nneg i32 %16 to i64
   %50 = shl nuw nsw i64 %49, 32
   %51 = or disjoint i64 %50, %48
   %52 = mul nuw nsw i64 %51, 10486
@@ -666,12 +666,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %62 = shl i64 %61, 8
   %63 = or disjoint i64 %60, 3472328296227680304
   %64 = add i64 %63, %62
-  %65 = add nsw i32 %45, -10
+  %65 = add nsw i32 %44, -10
   %66 = ashr i32 %65, 8
-  %narrow.i = mul nuw nsw i32 %45, 103
+  %narrow.i = mul nuw nsw i32 %44, 103
   %67 = lshr i32 %narrow.i, 10
   %.neg.i11 = mul nsw i32 %67, -10
-  %68 = add nsw i32 %.neg.i11, %45
+  %68 = add nsw i32 %.neg.i11, %44
   %69 = or disjoint i32 %67, 12336
   %70 = shl nsw i32 %68, 8
   %71 = add nsw i32 %69, %70
@@ -686,8 +686,8 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %9, %17, %44
-  %.0.i = phi ptr [ %12, %9 ], [ %43, %17 ], [ %78, %44 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %9, %15, %43
+  %.0.i = phi ptr [ %12, %9 ], [ %42, %17 ], [ %78, %43 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }
@@ -713,9 +713,9 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %11 = icmp samesign ult i64 %0, 100000000
   %12 = udiv i32 %4, 10000
   %13 = urem i32 %4, 10000
-  br i1 %11, label %14, label %41
+  br i1 %11, label %14, label %40
 
-14:                                               ; preds = %10
+14:; preds = %10
   %15 = urem i32 %4, 10000
   %16 = zext nneg i32 %12 to i64
   %17 = zext nneg i32 %15 to i64
@@ -748,12 +748,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-41:                                               ; preds = %10
-  %42 = udiv i32 %4, 100000000
-  %43 = urem i32 %4, 100000000
-  %44 = udiv i32 %43, 10000
-  %45 = zext nneg i32 %44 to i64
-  %46 = zext nneg i32 %13 to i64
+40:                                               ; preds = %10
+  %41 = udiv i32 %4, 100000000
+  %42 = urem i32 %4, 100000000
+  %43 = udiv i32 %42, 10000
+  %44 = zext nneg i32 %44 to i64
+  %45 = zext nneg i32 %13 to i64
   %47 = shl nuw nsw i64 %46, 32
   %48 = or disjoint i64 %47, %45
   %49 = mul nuw nsw i64 %48, 10486
@@ -771,12 +771,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %59 = shl i64 %58, 8
   %60 = or disjoint i64 %57, 3472328296227680304
   %61 = add i64 %60, %59
-  %62 = add nsw i32 %42, -10
+  %62 = add nsw i32 %41, -10
   %63 = ashr i32 %62, 8
-  %narrow.i = mul nuw nsw i32 %42, 103
+  %narrow.i = mul nuw nsw i32 %41, 103
   %64 = lshr i32 %narrow.i, 10
   %.neg.i5 = mul nsw i32 %64, -10
-  %65 = add nsw i32 %.neg.i5, %42
+  %65 = add nsw i32 %.neg.i5, %41
   %66 = or disjoint i32 %64, 12336
   %67 = shl nsw i32 %65, 8
   %68 = add nsw i32 %66, %67
@@ -915,8 +915,8 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i: ; preds = %79, %108
   %173 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %6, %14, %41, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
-  %.0.i = phi ptr [ %173, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %9, %6 ], [ %40, %14 ], [ %75, %41 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %6, %14, %40, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
+  %.0.i = phi ptr [ %173, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %9, %6 ], [ %39, %14 ], [ %75, %40 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }
@@ -954,9 +954,9 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %16 = icmp samesign ult i64 %.0, 100000000
   %17 = udiv i32 %9, 10000
   %18 = urem i32 %9, 10000
-  br i1 %16, label %19, label %46
+  br i1 %16, label %19, label %45
 
-19:                                               ; preds = %15
+19:; preds = %15
   %20 = urem i32 %9, 10000
   %21 = zext nneg i32 %17 to i64
   %22 = zext nneg i32 %20 to i64
@@ -982,19 +982,19 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %39 = and i64 %38, 56
   %40 = add i64 %36, 3472328296227680304
   %41 = lshr i64 %40, %39
-  store i64 %41, ptr %.07, align 1
+  store i64 %40, ptr %.07, align 1
   %42 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %43 = lshr i64 %38, 3
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds i8, ptr %42, i64 %44
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-46:                                               ; preds = %15
-  %47 = udiv i32 %9, 100000000
-  %48 = urem i32 %9, 100000000
-  %49 = udiv i32 %48, 10000
+45:                                               ; preds = %15
+  %46 = udiv i32 %9, 100000000
+  %47 = urem i32 %9, 100000000
+  %48 = udiv i32 %47, 10000
   %50 = zext nneg i32 %49 to i64
-  %51 = zext nneg i32 %18 to i64
+  %50 = zext nneg i32 %18 to i64
   %52 = shl nuw nsw i64 %51, 32
   %53 = or disjoint i64 %52, %50
   %54 = mul nuw nsw i64 %53, 10486
@@ -1012,12 +1012,12 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   %64 = shl i64 %63, 8
   %65 = or disjoint i64 %62, 3472328296227680304
   %66 = add i64 %65, %64
-  %67 = add nsw i32 %47, -10
+  %67 = add nsw i32 %46, -10
   %68 = ashr i32 %67, 8
-  %narrow.i = mul nuw nsw i32 %47, 103
+  %narrow.i = mul nuw nsw i32 %46, 103
   %69 = lshr i32 %narrow.i, 10
   %.neg.i11 = mul nsw i32 %69, -10
-  %70 = add nsw i32 %.neg.i11, %47
+  %70 = add nsw i32 %.neg.i11, %46
   %71 = or disjoint i32 %69, 12336
   %72 = shl nsw i32 %70, 8
   %73 = add nsw i32 %71, %72
@@ -1156,8 +1156,8 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i: ; preds = %84, %113
   %178 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
-_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %11, %19, %46, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
-  %.0.i = phi ptr [ %178, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %14, %11 ], [ %45, %19 ], [ %80, %46 ]
+_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %11, %19, %45, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i
+  %.0.i = phi ptr [ %178, %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit.i ], [ %14, %11 ], [ %44, %19 ], [ %80, %45 ]
   store i8 0, ptr %.0.i, align 1, !tbaa !8
   ret ptr %.0.i
 }

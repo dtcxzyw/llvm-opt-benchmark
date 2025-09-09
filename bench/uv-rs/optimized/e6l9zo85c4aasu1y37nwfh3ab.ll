@@ -38296,10 +38296,10 @@ define noundef ptr @_ZN2uv8commands7version13print_version17h9e769de12bec0f33E(p
   br i1 %305, label %323, label %332
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17ha61663c493471c47E.exit.i.i.i54.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.0.129.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %307, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val37.i.i.i.i.i.i.i.i.i, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17ha61663c493471c47E.exit.i.i.i54.i.i.i.i.i.i.i.i.i" ]
-  %.sroa.011.028.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %314, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 10, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17ha61663c493471c47E.exit.i.i.i54.i.i.i.i.i.i.i.i.i" ]
-  %306 = urem i32 %.sroa.0.129.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10000
-  %307 = udiv i32 %.sroa.0.129.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10000
+  %.sroa.0.131.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %307, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val37.i.i.i.i.i.i.i.i.i, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17ha61663c493471c47E.exit.i.i.i54.i.i.i.i.i.i.i.i.i" ]
+  %.sroa.011.030.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %314, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 10, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17ha61663c493471c47E.exit.i.i.i54.i.i.i.i.i.i.i.i.i" ]
+  %306 = urem i32 %.sroa.0.131.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10000
+  %307 = udiv i32 %.sroa.0.131.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10000
   %.lhs.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw nsw i32 %306 to i16
   %308 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 100
   %309 = shl nuw nsw i16 %308, 1
@@ -38307,26 +38307,26 @@ define noundef ptr @_ZN2uv8commands7version13print_version17h9e769de12bec0f33E(p
   %311 = urem i32 %.sroa.0.129.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 100
   %312 = shl nuw nsw i32 %311, 1
   %313 = zext nneg i32 %312 to i64
-  %314 = add i64 %.sroa.011.028.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -4
+  %314 = add i64 %.sroa.011.030.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -4
   %315 = getelementptr inbounds nuw i8, ptr @anon.69b26a5bf96e3a9b616a9f0bc4c53137.130, i64 %310
   %316 = getelementptr inbounds i8, ptr %9, i64 %314
   %317 = load i16, ptr %315, align 1, !noalias !6890
   store i16 %317, ptr %316, align 1, !alias.scope !6887, !noalias !6886
   %318 = getelementptr inbounds nuw i8, ptr @anon.69b26a5bf96e3a9b616a9f0bc4c53137.130, i64 %313
-  %319 = getelementptr i8, ptr %9, i64 %.sroa.011.028.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %319 = getelementptr i8, ptr %9, i64 %.sroa.011.030.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %320 = getelementptr i8, ptr %319, i64 -2
   %321 = load i16, ptr %318, align 1, !noalias !6890
   store i16 %321, ptr %320, align 1, !alias.scope !6887, !noalias !6886
-  %322 = icmp ugt i32 %.sroa.0.129.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99999999
+  %322 = icmp ugt i32 %.sroa.0.131.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99999999
   br i1 %322, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 323:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i16
-  %324 = urem i16 %.lhs.trunc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 100
+  %.lhs.trunc26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i16
+  %324 = urem i16 %.lhs.trunc26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 100
   %325 = shl nuw nsw i16 %324, 1
   %326 = zext nneg i16 %325 to i64
-  %327 = udiv i16 %.lhs.trunc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 100
-  %.zext27.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i16 %327 to i32
+  %327 = udiv i16 %.lhs.trunc26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 100
+  %.zext29.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i16 %327 to i32
   %328 = add i64 %.sroa.011.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -2
   %329 = getelementptr inbounds nuw i8, ptr @anon.69b26a5bf96e3a9b616a9f0bc4c53137.130, i64 %326
   %330 = getelementptr inbounds i8, ptr %9, i64 %328
@@ -38336,7 +38336,7 @@ define noundef ptr @_ZN2uv8commands7version13print_version17h9e769de12bec0f33E(p
 
 332:                                              ; preds = %323, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.011.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %328, %323 ], [ %.sroa.011.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.zext27.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %323 ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.zext29.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %323 ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %333 = icmp samesign ult i32 %.sroa.0.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %333, label %341, label %334
 

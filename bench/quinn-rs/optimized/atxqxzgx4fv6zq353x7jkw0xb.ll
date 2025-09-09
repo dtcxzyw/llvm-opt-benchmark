@@ -867,10 +867,10 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
   br i1 %7, label %24, label %33
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
-  %.sroa.0.129.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %5, %2 ]
-  %.sroa.011.028.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 20, %2 ]
-  %8 = urem i64 %.sroa.0.129.i.i.i.i, 10000
-  %9 = udiv i64 %.sroa.0.129.i.i.i.i, 10000
+  %.sroa.0.131.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %5, %2 ]
+  %.sroa.011.030.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 20, %2 ]
+  %8 = urem i64 %.sroa.0.131.i.i.i.i, 10000
+  %9 = udiv i64 %.sroa.0.131.i.i.i.i, 10000
   %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc.i.i.i.i, 100
   %11 = shl nuw nsw i16 %10, 1
@@ -906,7 +906,7 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
 
 33:                                               ; preds = %24, %._crit_edge.i.i.i.i
   %.sroa.011.1.i.i.i.i = phi i64 [ %29, %24 ], [ %.sroa.011.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.0.2.i.i.i.i = phi i64 [ %.zext27.i.i.i.i, %24 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.sroa.011.1.i.i.i.i = phi i64 [ %.zext27.i.i.i.i, %24 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %34 = icmp samesign ult i64 %.sroa.0.2.i.i.i.i, 10
   br i1 %34, label %41, label %35
 
@@ -919,31 +919,31 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
   store i16 %40, ptr %39, align 1, !alias.scope !91, !noalias !86
   br label %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i
 
-41:                                               ; preds = %33
-  %42 = add i64 %.sroa.011.1.i.i.i.i, -1
-  %43 = trunc nuw nsw i64 %.sroa.0.2.i.i.i.i to i8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %42
-  %45 = or disjoint i8 %43, 48
-  store i8 %45, ptr %44, align 1, !alias.scope !91, !noalias !86
+42:                                               ; preds = %33
+  %43 = add i64 %.sroa.011.1.i.i.i.i, -1
+  %44 = trunc nuw nsw i64 %.sroa.0.2.i.i.i.i to i8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %43
+  %46 = or disjoint i8 %44, 48
+  store i8 %46, ptr %45, align 1, !alias.scope !91, !noalias !86
   br label %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i
 
-_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i: ; preds = %41, %35
-  %.sroa.011.2.i.i.i.i = phi i64 [ %42, %41 ], [ %37, %35 ]
-  %46 = sub i64 20, %.sroa.011.2.i.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.011.2.i.i.i.i
-  %48 = icmp ult i64 %46, 21
-  tail call void @llvm.assume(i1 %48)
-  %49 = call noundef ptr @_ZN3std2io5Write9write_all17h8422eef0cf8e27c5E(ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %46)
+_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i: ; preds = %42, %35
+  %.sroa.011.2.i.i.i.i = phi i64 [ %43, %41 ], [ %37, %35 ]
+  %47 = sub i64 20, %.sroa.011.2.i.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.011.2.i.i.i.i
+  %49 = icmp ult i64 %47, 21
+  tail call void @llvm.assume(i1 %49)
+  %50 = call noundef ptr @_ZN3std2io5Write9write_all17h8422eef0cf8e27c5E(ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 1 %48, i64 noundef %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !86
-  %.not.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i, label %_ZN4perf5stats4json19serialize_stream_id17ha7f2be810766c8b1E.exit, label %50, !prof !3
+  %.not.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i, label %_ZN4perf5stats4json19serialize_stream_id17ha7f2be810766c8b1E.exit, label %51, !prof !3
 
-50:                                               ; preds = %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i
-  %51 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h09b6d20b428e798cE(ptr noundef nonnull %49)
+51:                                               ; preds = %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i
+  %52 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h09b6d20b428e798cE(ptr noundef nonnull %50)
   br label %_ZN4perf5stats4json19serialize_stream_id17ha7f2be810766c8b1E.exit
 
-_ZN4perf5stats4json19serialize_stream_id17ha7f2be810766c8b1E.exit: ; preds = %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i, %50
-  %.sroa.0.0.i.i = phi ptr [ %51, %50 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i ]
+_ZN4perf5stats4json19serialize_stream_id17ha7f2be810766c8b1E.exit: ; preds = %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i, %51
+  %.sroa.0.0.i.i = phi ptr [ %52, %50 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417ha3351acb09fba62fE.exit.i.i ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -965,10 +965,10 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
   br i1 %7, label %24, label %33
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
-  %.sroa.0.129.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %5, %2 ]
-  %.sroa.011.028.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 20, %2 ]
-  %8 = urem i64 %.sroa.0.129.i.i.i.i, 10000
-  %9 = udiv i64 %.sroa.0.129.i.i.i.i, 10000
+  %.sroa.0.131.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %5, %2 ]
+  %.sroa.011.030.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 20, %2 ]
+  %8 = urem i64 %.sroa.0.131.i.i.i.i, 10000
+  %9 = udiv i64 %.sroa.0.131.i.i.i.i, 10000
   %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc.i.i.i.i, 100
   %11 = shl nuw nsw i16 %10, 1
@@ -985,7 +985,7 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
   %21 = getelementptr i8, ptr %20, i64 -2
   %22 = load i16, ptr %19, align 1, !noalias !106
   store i16 %22, ptr %21, align 1, !alias.scope !103, !noalias !98
-  %23 = icmp ugt i64 %.sroa.0.129.i.i.i.i, 99999999
+  %23 = icmp ugt i64 %.sroa.0.131.i.i.i.i, 99999999
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 24:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1004,7 +1004,7 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
 
 33:                                               ; preds = %24, %._crit_edge.i.i.i.i
   %.sroa.011.1.i.i.i.i = phi i64 [ %29, %24 ], [ %.sroa.011.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.0.2.i.i.i.i = phi i64 [ %.zext27.i.i.i.i, %24 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.sroa.011.1.i.i.i.i = phi i64 [ %.zext27.i.i.i.i, %24 ], [ %.sroa.0.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %34 = icmp samesign ult i64 %.sroa.0.2.i.i.i.i, 10
   br i1 %34, label %41, label %35
 
@@ -1017,31 +1017,31 @@ define hidden noundef align 8 ptr @"_ZN168_$LT$perf..stats..json.._..$LT$impl$u2
   store i16 %40, ptr %39, align 1, !alias.scope !103, !noalias !98
   br label %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i
 
-41:                                               ; preds = %33
-  %42 = add i64 %.sroa.011.1.i.i.i.i, -1
-  %43 = trunc nuw nsw i64 %.sroa.0.2.i.i.i.i to i8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %42
-  %45 = or disjoint i8 %43, 48
-  store i8 %45, ptr %44, align 1, !alias.scope !103, !noalias !98
+42:                                               ; preds = %33
+  %43 = add i64 %.sroa.011.1.i.i.i.i, -1
+  %44 = trunc nuw nsw i64 %.sroa.0.2.i.i.i.i to i8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %43
+  %46 = or disjoint i8 %44, 48
+  store i8 %46, ptr %45, align 1, !alias.scope !103, !noalias !98
   br label %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i
 
-_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i: ; preds = %41, %35
-  %.sroa.011.2.i.i.i.i = phi i64 [ %42, %41 ], [ %37, %35 ]
-  %46 = sub i64 20, %.sroa.011.2.i.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.011.2.i.i.i.i
-  %48 = icmp ult i64 %46, 21
-  tail call void @llvm.assume(i1 %48)
-  %49 = call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h7f45691a8f6c8682E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef %46)
+_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i: ; preds = %42, %35
+  %.sroa.011.2.i.i.i.i = phi i64 [ %43, %41 ], [ %37, %35 ]
+  %47 = sub i64 20, %.sroa.011.2.i.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.011.2.i.i.i.i
+  %49 = icmp ult i64 %47, 21
+  tail call void @llvm.assume(i1 %49)
+  %50 = call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h7f45691a8f6c8682E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %48, i64 noundef %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !98
-  %.not.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i, label %_ZN4perf5stats4json19serialize_stream_id17h4e50e6b95b3eabe3E.exit, label %50, !prof !3
+  %.not.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i, label %_ZN4perf5stats4json19serialize_stream_id17h4e50e6b95b3eabe3E.exit, label %51, !prof !3
 
-50:                                               ; preds = %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i
-  %51 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h09b6d20b428e798cE(ptr noundef nonnull %49)
+51:                                               ; preds = %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i
+  %52 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h09b6d20b428e798cE(ptr noundef nonnull %50)
   br label %_ZN4perf5stats4json19serialize_stream_id17h4e50e6b95b3eabe3E.exit
 
-_ZN4perf5stats4json19serialize_stream_id17h4e50e6b95b3eabe3E.exit: ; preds = %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i, %50
-  %.sroa.0.0.i.i = phi ptr [ %51, %50 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i ]
+_ZN4perf5stats4json19serialize_stream_id17h4e50e6b95b3eabe3E.exit: ; preds = %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i, %51
+  %.sroa.0.0.i.i = phi ptr [ %52, %50 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417h204d1a7e97f3feafE.exit.i.i ]
   ret ptr %.sroa.0.0.i.i
 }
 

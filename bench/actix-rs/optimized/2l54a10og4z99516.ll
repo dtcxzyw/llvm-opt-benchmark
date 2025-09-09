@@ -3730,10 +3730,10 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %4, label %21, label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.135 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
-  %.02834 = phi i64 [ %12, %.lr.ph ], [ 20, %2 ]
-  %5 = urem i64 %.135, 10000
-  %6 = udiv i64 %.135, 10000
+  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
+  %.02836 = phi i64 [ %12, %.lr.ph ], [ 20, %2 ]
+  %5 = urem i64 %.137, 10000
+  %6 = udiv i64 %.137, 10000
   %.lhs.trunc = trunc nuw nsw i64 %5 to i16
   %7 = udiv i16 %.lhs.trunc, 100
   %8 = shl nuw nsw i16 %7, 1
@@ -3745,7 +3745,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %14 = getelementptr inbounds i8, ptr %1, i64 %12
   %15 = load i16, ptr %13, align 1
   store i16 %15, ptr %14, align 1
-  %16 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %11
+  %16 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.41, i64 %11
   %17 = getelementptr i8, ptr %1, i64 %.02834
   %18 = getelementptr i8, ptr %17, i64 -2
   %19 = load i16, ptr %16, align 1
@@ -3767,22 +3767,22 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   store i16 %29, ptr %28, align 1
   br label %30
 
-30:                                               ; preds = %._crit_edge, %21
+33:                                               ; preds = %._crit_edge, %21
   %.129 = phi i64 [ %26, %21 ], [ %.028.lcssa, %._crit_edge ]
   %.027 = phi i64 [ %.zext33, %21 ], [ %.1.lcssa, %._crit_edge ]
   %31 = icmp samesign ult i64 %.027, 10
   br i1 %31, label %38, label %32
 
-32:                                               ; preds = %30
+32:; preds = %33
   %33 = shl nuw nsw i64 %.027, 1
   %34 = add i64 %.129, -2
-  %35 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.41, i64 %33
   %36 = getelementptr inbounds i8, ptr %1, i64 %34
   %37 = load i16, ptr %35, align 1
   store i16 %37, ptr %36, align 1
   br label %43
 
-38:                                               ; preds = %30
+38:; preds = %30
   %39 = add i64 %.129, -1
   %40 = trunc nuw nsw i64 %.027 to i8
   %41 = getelementptr inbounds i8, ptr %1, i64 %39
@@ -3790,7 +3790,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   store i8 %42, ptr %41, align 1
   br label %43
 
-43:                                               ; preds = %32, %38
+43: ; preds = %32, %41
   %.2 = phi i64 [ %39, %38 ], [ %34, %32 ]
   %44 = sub i64 20, %.2
   %45 = getelementptr inbounds i8, ptr %1, i64 %.2
@@ -8804,10 +8804,10 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   br i1 %12, label %29, label %38
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.135.i = phi i64 [ %14, %.lr.ph.i ], [ %0, %7 ]
-  %.02834.i = phi i64 [ %20, %.lr.ph.i ], [ 20, %7 ]
-  %13 = urem i64 %.135.i, 10000
-  %14 = udiv i64 %.135.i, 10000
+  %.137.i = phi i64 [ %14, %.lr.ph.i ], [ %0, %7 ]
+  %.02836.i = phi i64 [ %20, %.lr.ph.i ], [ 20, %7 ]
+  %13 = urem i64 %.137.i, 10000
+  %14 = udiv i64 %.137.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %13 to i16
   %15 = udiv i16 %.lhs.trunc.i, 100
   %16 = shl nuw nsw i16 %15, 1
@@ -8819,12 +8819,12 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   %22 = getelementptr inbounds i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !960
   store i16 %23, ptr %22, align 1, !alias.scope !960
-  %24 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %19
+  %24 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.41, i64 %19
   %25 = getelementptr i8, ptr %4, i64 %.02834.i
   %26 = getelementptr i8, ptr %25, i64 -2
   %27 = load i16, ptr %24, align 1, !noalias !960
   store i16 %27, ptr %26, align 1, !alias.scope !960
-  %28 = icmp ugt i64 %.135.i, 99999999
+  %28 = icmp ugt i64 %.137.i, 99999999
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 29:                                               ; preds = %._crit_edge.i
@@ -8839,15 +8839,15 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   %36 = getelementptr inbounds i8, ptr %4, i64 %34
   %37 = load i16, ptr %35, align 1, !noalias !960
   store i16 %37, ptr %36, align 1, !alias.scope !960
-  br label %38
+  br label %41
 
-38:                                               ; preds = %29, %._crit_edge.i
+41:                                               ; preds = %29, %._crit_edge.i
   %.129.i = phi i64 [ %34, %29 ], [ %.028.lcssa.i, %._crit_edge.i ]
   %.027.i = phi i64 [ %.zext33.i, %29 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %39 = icmp samesign ult i64 %.027.i, 10
   br i1 %39, label %46, label %40
 
-40:                                               ; preds = %38
+40:; preds = %41
   %41 = shl nuw nsw i64 %.027.i, 1
   %42 = add i64 %.129.i, -2
   %43 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %41
@@ -8856,19 +8856,19 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   store i16 %45, ptr %44, align 1, !alias.scope !960
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit"
 
-46:                                               ; preds = %38
-  %47 = add i64 %.129.i, -1
-  %48 = trunc nuw nsw i64 %.027.i to i8
-  %49 = getelementptr inbounds i8, ptr %4, i64 %47
-  %50 = or disjoint i8 %48, 48
-  store i8 %50, ptr %49, align 1, !alias.scope !960
+47:                                               ; preds = %38
+  %48 = add i64 %.129.i, -1
+  %49 = trunc nuw nsw i64 %.027.i to i8
+  %50 = getelementptr inbounds i8, ptr %4, i64 %48
+  %51 = or disjoint i8 %49, 48
+  store i8 %51, ptr %50, align 1, !alias.scope !960
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit": ; preds = %40, %46
-  %.2.i = phi i64 [ %47, %46 ], [ %42, %40 ]
-  %51 = sub i64 20, %.2.i
-  %52 = getelementptr inbounds i8, ptr %4, i64 %.2.i
-  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %51)
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit": ; preds = %40, %47
+  %.2.i = phi i64 [ %48, %46 ], [ %42, %40 ]
+  %52 = sub i64 20, %.2.i
+  %53 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %52)
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.77.llvm.15740990321789950213, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11

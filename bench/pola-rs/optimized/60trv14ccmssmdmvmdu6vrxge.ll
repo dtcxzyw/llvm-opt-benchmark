@@ -4067,10 +4067,10 @@ _ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit: ; preds = %4, %20
   br i1 %29, label %46, label %55
 
 .lr.ph.i:                                         ; preds = %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit, %.lr.ph.i
-  %.sroa.0.129.i = phi i64 [ %31, %.lr.ph.i ], [ %26, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit ]
-  %.sroa.011.028.i = phi i64 [ %37, %.lr.ph.i ], [ 20, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit ]
-  %30 = urem i64 %.sroa.0.129.i, 10000
-  %31 = udiv i64 %.sroa.0.129.i, 10000
+  %.sroa.0.131.i = phi i64 [ %31, %.lr.ph.i ], [ %26, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit ]
+  %.sroa.011.030.i = phi i64 [ %37, %.lr.ph.i ], [ 20, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit ]
+  %30 = urem i64 %.sroa.0.131.i, 10000
+  %31 = udiv i64 %.sroa.0.131.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %30 to i16
   %32 = udiv i16 %.lhs.trunc.i, 100
   %33 = shl nuw nsw i16 %32, 1
@@ -4083,7 +4083,7 @@ _ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit: ; preds = %4, %20
   %40 = load i16, ptr %38, align 1, !noalias !587
   store i16 %40, ptr %39, align 1, !alias.scope !587
   %41 = getelementptr inbounds nuw i8, ptr @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.39, i64 %36
-  %42 = getelementptr i8, ptr %27, i64 %.sroa.011.028.i
+  %42 = getelementptr i8, ptr %27, i64 %.sroa.011.030.i
   %43 = getelementptr i8, ptr %42, i64 -2
   %44 = load i16, ptr %41, align 1, !noalias !587
   store i16 %44, ptr %43, align 1, !alias.scope !587
@@ -4104,13 +4104,13 @@ _ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit: ; preds = %4, %20
   store i16 %54, ptr %53, align 1, !alias.scope !587
   br label %55
 
-55:                                               ; preds = %46, %._crit_edge.i
+58:                                               ; preds = %46, %._crit_edge.i
   %.sroa.011.1.i = phi i64 [ %51, %46 ], [ %.sroa.011.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.2.i = phi i64 [ %.zext27.i, %46 ], [ %.sroa.0.1.lcssa.i, %._crit_edge.i ]
   %56 = icmp samesign ult i64 %.sroa.0.2.i, 10
   br i1 %56, label %63, label %57
 
-57:                                               ; preds = %55
+57:  ; preds = %58
   %58 = shl nuw nsw i64 %.sroa.0.2.i, 1
   %59 = add i64 %.sroa.011.1.i, -2
   %60 = getelementptr inbounds nuw i8, ptr @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.39, i64 %58
@@ -4119,60 +4119,60 @@ _ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit: ; preds = %4, %20
   store i16 %62, ptr %61, align 1, !alias.scope !587
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit"
 
-63:                                               ; preds = %55
-  %64 = add i64 %.sroa.011.1.i, -1
-  %65 = trunc nuw nsw i64 %.sroa.0.2.i to i8
-  %66 = getelementptr inbounds nuw i8, ptr %27, i64 %64
-  %67 = or disjoint i8 %65, 48
-  store i8 %67, ptr %66, align 1, !alias.scope !587
+64:                                               ; preds = %55
+  %65 = add i64 %.sroa.011.1.i, -1
+  %66 = trunc nuw nsw i64 %.sroa.0.2.i to i8
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 %65
+  %68 = or disjoint i8 %66, 48
+  store i8 %68, ptr %67, align 1, !alias.scope !587
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit": ; preds = %57, %63
-  %.sroa.011.2.i = phi i64 [ %64, %63 ], [ %59, %57 ]
-  %68 = add i64 %.sroa.011.2.i, 19
-  %69 = icmp eq i128 %.sroa.0.0.i, 0
-  br i1 %69, label %124, label %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit": ; preds = %57, %64
+  %.sroa.011.2.i = phi i64 [ %65, %63 ], [ %59, %57 ]
+  %69 = add i64 %.sroa.011.2.i, 19
+  %70 = icmp eq i128 %.sroa.0.0.i, 0
+  br i1 %70, label %126, label %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12
 
 _ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit"
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %71 = add i64 %.sroa.011.2.i, -1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 48, i64 %71, i1 false)
-  %72 = lshr i128 %.sroa.0.0.i, 19
-  %73 = trunc nuw nsw i128 %72 to i64
-  %74 = udiv i64 %73, 19073486328125
-  %75 = zext nneg i64 %74 to i128
-  %.neg.i11 = mul nuw nsw i128 %75, 8446744073709551616
-  %76 = add nuw nsw i128 %.neg.i11, %.sroa.0.0.i
-  %77 = trunc i128 %76 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %72 = add i64 %.sroa.011.2.i, -1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %71, i8 48, i64 %72, i1 false)
+  %73 = lshr i128 %.sroa.0.0.i, 19
+  %74 = trunc nuw nsw i128 %73 to i64
+  %75 = udiv i64 %74, 19073486328125
+  %76 = zext nneg i64 %75 to i128
+  %.neg.i11 = mul nuw nsw i128 %76, 8446744073709551616
+  %77 = add nuw nsw i128 %.neg.i11, %.sroa.0.0.i
+  %78 = trunc i128 %77 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
-  %78 = icmp ugt i64 %77, 9999
-  br i1 %78, label %.lr.ph.i21, label %._crit_edge.i13
+  %79 = icmp ugt i64 %78, 9999
+  br i1 %79, label %.lr.ph.i21, label %._crit_edge.i13
 
 ._crit_edge.i13:                                  ; preds = %.lr.ph.i21, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12
   %.sroa.011.0.lcssa.i14 = phi i64 [ 20, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ], [ %87, %.lr.ph.i21 ]
-  %.sroa.0.1.lcssa.i15 = phi i64 [ %77, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ], [ %81, %.lr.ph.i21 ]
-  %79 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i15, 99
-  br i1 %79, label %96, label %105
+  %.sroa.0.1.lcssa.i15 = phi i64 [ %78, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ], [ %82, %.lr.ph.i21 ]
+  %80 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i15, 99
+  br i1 %80, label %96, label %105
 
 .lr.ph.i21:                                       ; preds = %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12, %.lr.ph.i21
-  %.sroa.0.129.i22 = phi i64 [ %81, %.lr.ph.i21 ], [ %77, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ]
-  %.sroa.011.028.i23 = phi i64 [ %87, %.lr.ph.i21 ], [ 20, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ]
-  %80 = urem i64 %.sroa.0.129.i22, 10000
-  %81 = udiv i64 %.sroa.0.129.i22, 10000
-  %.lhs.trunc.i24 = trunc nuw nsw i64 %80 to i16
-  %82 = udiv i16 %.lhs.trunc.i24, 100
-  %83 = shl nuw nsw i16 %82, 1
-  %84 = zext nneg i16 %83 to i64
-  %85 = urem i64 %.sroa.0.129.i22, 100
-  %86 = shl nuw nsw i64 %85, 1
+  %.sroa.0.131.i22 = phi i64 [ %82, %.lr.ph.i21 ], [ %78, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ]
+  %.sroa.011.030.i23 = phi i64 [ %87, %.lr.ph.i21 ], [ 20, %_ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12 ]
+  %81 = urem i64 %.sroa.0.131.i22, 10000
+  %82 = udiv i64 %.sroa.0.131.i22, 10000
+  %.lhs.trunc.i24 = trunc nuw nsw i64 %81 to i16
+  %83 = udiv i16 %.lhs.trunc.i24, 100
+  %84 = shl nuw nsw i16 %83, 1
+  %85 = zext nneg i16 %84 to i64
+  %86 = urem i64 %.sroa.0.129.i22, 100
+  %87 = shl nuw nsw i64 %86, 1
   %87 = add i64 %.sroa.011.028.i23, -4
   %88 = getelementptr inbounds nuw i8, ptr @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.39, i64 %84
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 %87
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %87
   %90 = load i16, ptr %88, align 1, !noalias !590
-  store i16 %90, ptr %89, align 1, !alias.scope !590
+  store i16 %90, ptr %90, align 1, !alias.scope !590
   %91 = getelementptr inbounds nuw i8, ptr @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.39, i64 %86
-  %92 = getelementptr i8, ptr %1, i64 %.sroa.011.028.i23
-  %93 = getelementptr i8, ptr %92, i64 -2
+  %93 = getelementptr i8, ptr %1, i64 %.sroa.011.028.i23
+  %94 = getelementptr i8, ptr %92, i64 -2
   %94 = load i16, ptr %91, align 1, !noalias !590
   store i16 %94, ptr %93, align 1, !alias.scope !590
   %95 = icmp ugt i64 %.sroa.0.129.i22, 99999999
@@ -4187,55 +4187,55 @@ _ZN4itoa7udiv12812udivmod_1e1917hf29dc47fb855bb59E.exit12: ; preds = %"_ZN4itoa5
   %.zext27.i20 = zext nneg i16 %100 to i64
   %101 = add i64 %.sroa.011.0.lcssa.i14, -2
   %102 = getelementptr inbounds nuw i8, ptr @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.39, i64 %99
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 %101
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 %101
   %104 = load i16, ptr %102, align 1, !noalias !590
-  store i16 %104, ptr %103, align 1, !alias.scope !590
+  store i16 %104, ptr %104, align 1, !alias.scope !590
   br label %105
 
 105:                                              ; preds = %96, %._crit_edge.i13
   %.sroa.011.1.i16 = phi i64 [ %101, %96 ], [ %.sroa.011.0.lcssa.i14, %._crit_edge.i13 ]
-  %.sroa.0.2.i17 = phi i64 [ %.zext27.i20, %96 ], [ %.sroa.0.1.lcssa.i15, %._crit_edge.i13 ]
-  %106 = icmp samesign ult i64 %.sroa.0.2.i17, 10
+  %.sroa.011.1.i16 = phi i64 [ %.zext27.i20, %96 ], [ %.sroa.0.1.lcssa.i15, %._crit_edge.i13 ]
+  %106 = icmp samesign ult i64 %.sroa.011.1.i16, 10
   br i1 %106, label %113, label %107
 
 107:                                              ; preds = %105
   %108 = shl nuw nsw i64 %.sroa.0.2.i17, 1
   %109 = add i64 %.sroa.011.1.i16, -2
   %110 = getelementptr inbounds nuw i8, ptr @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.39, i64 %108
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %109
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 %109
   %112 = load i16, ptr %110, align 1, !noalias !590
-  store i16 %112, ptr %111, align 1, !alias.scope !590
+  store i16 %112, ptr %112, align 1, !alias.scope !590
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25"
 
-113:                                              ; preds = %105
-  %114 = add i64 %.sroa.011.1.i16, -1
-  %115 = trunc nuw nsw i64 %.sroa.0.2.i17 to i8
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 %114
-  %117 = or disjoint i8 %115, 48
-  store i8 %117, ptr %116, align 1, !alias.scope !590
+115:                                              ; preds = %105
+  %116 = add i64 %.sroa.011.1.i16, -1
+  %117 = trunc nuw nsw i64 %.sroa.0.2.i17 to i8
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 %116
+  %119 = or disjoint i8 %117, 48
+  store i8 %119, ptr %118, align 1, !alias.scope !590
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25": ; preds = %107, %113
-  %.sroa.011.2.i18 = phi i64 [ %114, %113 ], [ %109, %107 ]
-  %118 = icmp samesign ult i64 %73, 19073486328125
-  br i1 %118, label %124, label %119
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25": ; preds = %107, %115
+  %.sroa.011.2.i18 = phi i64 [ %116, %113 ], [ %109, %107 ]
+  %120 = icmp samesign ult i64 %74, 19073486328125
+  br i1 %120, label %126, label %121
 
-119:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25"
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %121 = add i64 %.sroa.011.2.i18, -1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %120, i8 48, i64 %121, i1 false)
-  %122 = trunc nuw nsw i64 %74 to i8
-  %123 = or disjoint i8 %122, 48
-  store i8 %123, ptr %1, align 1
-  br label %124
+121:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25"
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %123 = add i64 %.sroa.011.2.i18, -1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %122, i8 48, i64 %123, i1 false)
+  %124 = trunc nuw nsw i64 %75 to i8
+  %125 = or disjoint i8 %124, 48
+  store i8 %125, ptr %1, align 1
+  br label %126
 
-124:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit", %119, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25"
-  %.sroa.03.0 = phi i64 [ %68, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit" ], [ %.sroa.011.2.i18, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25" ], [ 0, %119 ]
-  %125 = sub i64 39, %.sroa.03.0
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.03.0
-  %127 = insertvalue { ptr, i64 } poison, ptr %126, 0
-  %128 = insertvalue { ptr, i64 } %127, i64 %125, 1
-  ret { ptr, i64 } %128
+126:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit", %121, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25"
+  %.sroa.03.0 = phi i64 [ %69, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit" ], [ %.sroa.011.2.i18, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h3768e688ffbd7b24E.exit25" ], [ 0, %119 ]
+  %127 = sub i64 39, %.sroa.03.0
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.03.0
+  %129 = insertvalue { ptr, i64 } poison, ptr %128, 0
+  %130 = insertvalue { ptr, i64 } %129, i64 %127, 1
+  ret { ptr, i64 } %130
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -16644,13 +16644,13 @@ define void @_ZN8terminal18get_color_at_index17h3ae2e6cc16b4e54bE(ptr dead_on_un
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   br label %65
 
-65:                                               ; preds = %80, %79, %68, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7
+65:                                               ; preds = %81, %80, %68, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7
   ret void
 
 66:                                               ; preds = %5
   %67 = add i64 %1, -232
   %or.cond1 = icmp ult i64 %67, 24
-  br i1 %or.cond1, label %80, label %79
+  br i1 %or.cond1, label %81, label %80
 
 68:                                               ; preds = %5
   %69 = trunc nuw i64 %1 to i8
@@ -16666,15 +16666,15 @@ define void @_ZN8terminal18get_color_at_index17h3ae2e6cc16b4e54bE(ptr dead_on_un
   tail call void @_ZN8terminal10rgba_color17h50435aca2625fbedE(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, i8 noundef %76, i8 noundef %77, i8 noundef %78)
   br label %65
 
-79:                                               ; preds = %66
+80:                                               ; preds = %66
   tail call void @_ZN4gpui5color5black17h6d1cf81896dc0d99E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0)
   br label %65
 
-80:                                               ; preds = %66
-  %81 = trunc nuw i64 %1 to i8
-  %82 = mul i8 %81, 10
-  %83 = add i8 %82, -16
-  tail call void @_ZN8terminal10rgba_color17h50435aca2625fbedE(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, i8 noundef %83, i8 noundef %83, i8 noundef %83)
+81:                                               ; preds = %66
+  %82 = trunc nuw i64 %1 to i8
+  %83 = mul i8 %82, 10
+  %84 = add i8 %83, -16
+  tail call void @_ZN8terminal10rgba_color17h50435aca2625fbedE(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, i8 noundef %84, i8 noundef %84, i8 noundef %84)
   br label %65
 }
 

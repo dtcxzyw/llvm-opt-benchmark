@@ -5551,10 +5551,10 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %4, label %21, label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.135 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
-  %.02834 = phi i64 [ %12, %.lr.ph ], [ 20, %2 ]
-  %5 = urem i64 %.135, 10000
-  %6 = udiv i64 %.135, 10000
+  %.137 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
+  %.02836 = phi i64 [ %12, %.lr.ph ], [ 20, %2 ]
+  %5 = urem i64 %.137, 10000
+  %6 = udiv i64 %.137, 10000
   %.lhs.trunc = trunc nuw nsw i64 %5 to i16
   %7 = udiv i16 %.lhs.trunc, 100
   %8 = shl nuw nsw i16 %7, 1
@@ -5590,7 +5590,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 30:                                               ; preds = %._crit_edge, %21
   %.129 = phi i64 [ %26, %21 ], [ %.028.lcssa, %._crit_edge ]
-  %.027 = phi i64 [ %.zext33, %21 ], [ %.1.lcssa, %._crit_edge ]
+  %.129 = phi i64 [ %.zext33, %21 ], [ %.1.lcssa, %._crit_edge ]
   %31 = icmp samesign ult i64 %.027, 10
   br i1 %31, label %38, label %32
 
@@ -5604,19 +5604,19 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br label %43
 
 38:                                               ; preds = %30
-  %39 = add i64 %.129, -1
-  %40 = trunc nuw nsw i64 %.027 to i8
-  %41 = getelementptr inbounds i8, ptr %1, i64 %39
+  %40 = add i64 %.129, -1
+  %40 = trunc nuw nsw i64 %.129 to i8
+  %41 = getelementptr inbounds i8, ptr %1, i64 %40
   %42 = or disjoint i8 %40, 48
   store i8 %42, ptr %41, align 1
   br label %43
 
 43:                                               ; preds = %32, %38
-  %.2 = phi i64 [ %39, %38 ], [ %34, %32 ]
+  %.2 = phi i64 [ %40, %38 ], [ %34, %32 ]
   %44 = sub i64 20, %.2
   %45 = getelementptr inbounds i8, ptr %1, i64 %.2
   %46 = insertvalue { ptr, i64 } poison, ptr %45, 0
-  %47 = insertvalue { ptr, i64 } %46, i64 %44, 1
+  %47 = insertvalue { ptr, i64 } %47, i64 %44, 1
   ret { ptr, i64 } %47
 }
 
@@ -5633,10 +5633,10 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
   br i1 %4, label %21, label %30
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.135.i = phi i64 [ %6, %.lr.ph.i ], [ %1, %2 ]
-  %.02834.i = phi i64 [ %12, %.lr.ph.i ], [ 20, %2 ]
-  %5 = urem i64 %.135.i, 10000
-  %6 = udiv i64 %.135.i, 10000
+  %.137.i = phi i64 [ %6, %.lr.ph.i ], [ %1, %2 ]
+  %.02836.i = phi i64 [ %12, %.lr.ph.i ], [ 20, %2 ]
+  %5 = urem i64 %.137.i, 10000
+  %6 = udiv i64 %.137.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %5 to i16
   %7 = udiv i16 %.lhs.trunc.i, 100
   %8 = shl nuw nsw i16 %7, 1
@@ -5672,8 +5672,8 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
 
 30:                                               ; preds = %21, %._crit_edge.i
   %.129.i = phi i64 [ %26, %21 ], [ %.028.lcssa.i, %._crit_edge.i ]
-  %.027.i = phi i64 [ %.zext33.i, %21 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %31 = icmp samesign ult i64 %.027.i, 10
+  %.129.i = phi i64 [ %.zext33.i, %21 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %31 = icmp samesign ult i64 %.129.i, 10
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
@@ -5685,21 +5685,21 @@ define hidden { ptr, i64 } @_ZN4itoa6Buffer6format17h38172d20cbccf9f5E(ptr noali
   store i16 %37, ptr %36, align 1, !alias.scope !751
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.11658830040512789610.exit"
 
-38:                                               ; preds = %30
-  %39 = add i64 %.129.i, -1
-  %40 = trunc nuw nsw i64 %.027.i to i8
-  %41 = getelementptr inbounds i8, ptr %0, i64 %39
-  %42 = or disjoint i8 %40, 48
-  store i8 %42, ptr %41, align 1, !alias.scope !751
+39:                                               ; preds = %30
+  %40 = add i64 %.129.i, -1
+  %41 = trunc nuw nsw i64 %.027.i to i8
+  %42 = getelementptr inbounds i8, ptr %0, i64 %40
+  %43 = or disjoint i8 %41, 48
+  store i8 %43, ptr %42, align 1, !alias.scope !751
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.11658830040512789610.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.11658830040512789610.exit": ; preds = %32, %38
-  %.2.i = phi i64 [ %39, %38 ], [ %34, %32 ]
-  %43 = sub i64 20, %.2.i
-  %44 = getelementptr inbounds i8, ptr %0, i64 %.2.i
-  %45 = insertvalue { ptr, i64 } poison, ptr %44, 0
-  %46 = insertvalue { ptr, i64 } %45, i64 %43, 1
-  ret { ptr, i64 } %46
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.11658830040512789610.exit": ; preds = %32, %39
+  %.2.i = phi i64 [ %40, %38 ], [ %34, %32 ]
+  %44 = sub i64 20, %.2.i
+  %45 = getelementptr inbounds i8, ptr %0, i64 %.2.i
+  %46 = insertvalue { ptr, i64 } poison, ptr %45, 0
+  %47 = insertvalue { ptr, i64 } %46, i64 %44, 1
+  ret { ptr, i64 } %47
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -810,8 +810,8 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   %83 = zext nneg i32 %3 to i64
   %84 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_64ENS_12chars_formatEdE21_Max_shifted_mantissa, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !7
-  %.not279 = icmp ugt i64 %82, %85
-  br i1 %.not279, label %.thread256, label %.thread260
+  %.not287 = icmp ugt i64 %82, %85
+  br i1 %.not287, label %.thread256, label %.thread260
 
 .thread260:                                       ; preds = %81
   %86 = zext nneg i32 %.0.i to i64
@@ -880,26 +880,26 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   br i1 %126, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %124, %.lr.ph
-  %.3281 = phi ptr [ %137, %.lr.ph ], [ %.2, %124 ]
-  %.0217280 = phi i32 [ %127, %.lr.ph ], [ %125, %124 ]
-  %127 = udiv i32 %.0217280, 10000
+  %.3289 = phi ptr [ %137, %.lr.ph ], [ %.2, %124 ]
+  %.0217288 = phi i32 [ %127, %.lr.ph ], [ %125, %124 ]
+  %127 = udiv i32 %.0217288, 10000
   %.neg241 = mul i32 %127, -10000
-  %128 = add i32 %.neg241, %.0217280
+  %128 = add i32 %.neg241, %.0217288
   %129 = urem i32 %128, 100
   %130 = shl nuw nsw i32 %129, 1
   %131 = udiv i32 %128, 100
   %132 = shl nuw nsw i32 %131, 1
-  %133 = getelementptr inbounds i8, ptr %.3281, i64 -2
+  %133 = getelementptr inbounds i8, ptr %.3289, i64 -2
   %134 = zext nneg i32 %130 to i64
   %135 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %134
   %136 = load i16, ptr %135, align 2
   store i16 %136, ptr %133, align 1
-  %137 = getelementptr inbounds i8, ptr %.3281, i64 -4
+  %137 = getelementptr inbounds i8, ptr %.3289, i64 -4
   %138 = zext nneg i32 %132 to i64
   %139 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %138
   %140 = load i16, ptr %139, align 2
   store i16 %140, ptr %137, align 1
-  %141 = icmp ugt i32 %.0217280, 99999999
+  %141 = icmp ugt i32 %.0217288, 99999999
   br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %124
@@ -1053,24 +1053,24 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   %.1206 = phi i64 [ %199, %196 ], [ %2, %195 ]
   %233 = trunc i64 %.1206 to i32
   %234 = icmp ugt i32 %233, 9999
-  br i1 %234, label %.lr.ph286, label %._crit_edge287
+  br i1 %234, label %.lr.ph294, label %._crit_edge295
 
-.lr.ph286:                                        ; preds = %232
+.lr.ph294:                                        ; preds = %232
   %235 = zext nneg i32 %.0.i to i64
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 %235
   br label %237
 
-237:                                              ; preds = %.lr.ph286, %237
-  %.0209284 = phi i32 [ %233, %.lr.ph286 ], [ %238, %237 ]
-  %.1220283 = phi i32 [ %.0219, %.lr.ph286 ], [ %255, %237 ]
-  %238 = udiv i32 %.0209284, 10000
+237:                                              ; preds = %.lr.ph294, %237
+  %.0209292 = phi i32 [ %233, %.lr.ph286 ], [ %238, %237 ]
+  %.1220291 = phi i32 [ %.0219, %.lr.ph286 ], [ %255, %237 ]
+  %238 = udiv i32 %.0209292, 10000
   %.neg237 = mul i32 %238, -10000
-  %239 = add i32 %.neg237, %.0209284
+  %239 = add i32 %.neg237, %.0209292
   %240 = urem i32 %239, 100
   %241 = shl nuw nsw i32 %240, 1
   %242 = udiv i32 %239, 100
   %243 = shl nuw nsw i32 %242, 1
-  %244 = zext i32 %.1220283 to i64
+  %244 = zext i32 %.1220291 to i64
   %245 = sub nsw i64 0, %244
   %246 = getelementptr inbounds i8, ptr %236, i64 %245
   %247 = getelementptr inbounds i8, ptr %246, i64 -1
@@ -1083,22 +1083,22 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   %253 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %252
   %254 = load i16, ptr %253, align 2
   store i16 %254, ptr %251, align 1
-  %255 = add i32 %.1220283, 4
-  %256 = icmp ugt i32 %.0209284, 99999999
-  br i1 %256, label %237, label %._crit_edge287, !llvm.loop !11
+  %255 = add i32 %.1220291, 4
+  %256 = icmp ugt i32 %.0209292, 99999999
+  br i1 %256, label %237, label %._crit_edge295, !llvm.loop !11
 
-._crit_edge287:                                   ; preds = %237, %232
+._crit_edge295:                                   ; preds = %237, %232
   %.1220.lcssa = phi i32 [ %.0219, %232 ], [ %255, %237 ]
   %.0209.lcssa = phi i32 [ %233, %232 ], [ %238, %237 ]
   %257 = icmp samesign ugt i32 %.0209.lcssa, 99
   br i1 %257, label %258, label %271
 
-258:                                              ; preds = %._crit_edge287
-  %.lhs.trunc271 = trunc nuw i32 %.0209.lcssa to i16
-  %259 = urem i16 %.lhs.trunc271, 100
+258:                                              ; preds = %._crit_edge295
+  %.lhs.trunc275 = trunc nuw i32 %.0209.lcssa to i16
+  %259 = urem i16 %.lhs.trunc275, 100
   %260 = shl nuw nsw i16 %259, 1
-  %261 = udiv i16 %.lhs.trunc271, 100
-  %.zext274 = zext nneg i16 %261 to i32
+  %261 = udiv i16 %.lhs.trunc275, 100
+  %.zext278 = zext nneg i16 %261 to i32
   %262 = zext nneg i32 %.0.i to i64
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 %262
   %264 = zext i32 %.1220.lcssa to i64
@@ -1111,8 +1111,8 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   store i16 %270, ptr %267, align 1
   br label %271
 
-271:                                              ; preds = %258, %._crit_edge287
-  %.1210 = phi i32 [ %.zext274, %258 ], [ %.0209.lcssa, %._crit_edge287 ]
+271:                                              ; preds = %258, %._crit_edge295
+  %.1210 = phi i32 [ %.zext278, %258 ], [ %.0209.lcssa, %._crit_edge287 ]
   %272 = icmp samesign ugt i32 %.1210, 9
   br i1 %272, label %273, label %281
 

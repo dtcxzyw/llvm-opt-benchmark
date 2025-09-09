@@ -185,20 +185,20 @@ _ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit: ; preds = %5, %tailrecurse.
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %9 = zext nneg i32 %.0.i to i64
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %.not84 = icmp ult i32 %.sroa.0.0.extract.trunc, 10000
-  br i1 %.not84, label %._crit_edge, label %tailrecurse.i71.preheader
+  %.not86 = icmp ult i32 %.sroa.0.0.extract.trunc, 10000
+  br i1 %.not86, label %._crit_edge, label %tailrecurse.i71.preheader
 
 tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit, %tailrecurse.i71.preheader
-  %.06486 = phi i32 [ %12, %tailrecurse.i71.preheader ], [ %.sroa.0.0.extract.trunc, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
-  %.06685 = phi i32 [ %28, %tailrecurse.i71.preheader ], [ 0, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
-  %11 = urem i32 %.06486, 10000
-  %12 = udiv i32 %.06486, 10000
+  %.06488 = phi i32 [ %12, %tailrecurse.i71.preheader ], [ %.sroa.0.0.extract.trunc, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
+  %.06687 = phi i32 [ %28, %tailrecurse.i71.preheader ], [ 0, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ]
+  %11 = urem i32 %.06488, 10000
+  %12 = udiv i32 %.06488, 10000
   %13 = urem i32 %.06486, 100
   %14 = shl nuw nsw i32 %13, 1
   %.lhs.trunc82 = trunc nuw nsw i32 %11 to i16
   %15 = udiv i16 %.lhs.trunc82, 100
   %16 = shl nuw nsw i16 %15, 1
-  %17 = zext i32 %.06685 to i64
+  %17 = zext i32 %.06687 to i64
   %18 = sub nsw i64 0, %17
   %19 = getelementptr inbounds i8, ptr %10, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -1
@@ -211,8 +211,8 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %26 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %24, align 1
-  %28 = add i32 %.06685, 4
-  %.not = icmp ult i32 %.06486, 100000000
+  %28 = add i32 %.06687, 4
+  %.not = icmp ult i32 %.06488, 100000000
   br i1 %.not, label %._crit_edge, label %tailrecurse.i71.preheader, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %tailrecurse.i71.preheader, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit

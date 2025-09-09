@@ -198,10 +198,10 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br i1 %5, label %22, label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.135 = phi i64 [ %7, %.lr.ph ], [ %.0, %2 ]
-  %.02634 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
-  %6 = urem i64 %.135, 10000
-  %7 = udiv i64 %.135, 10000
+  %.137 = phi i64 [ %7, %.lr.ph ], [ %.0, %2 ]
+  %.02636 = phi i64 [ %13, %.lr.ph ], [ 20, %2 ]
+  %6 = urem i64 %.137, 10000
+  %7 = udiv i64 %.137, 10000
   %.lhs.trunc = trunc nuw nsw i64 %6 to i16
   %8 = udiv i16 %.lhs.trunc, 100
   %9 = shl nuw nsw i16 %8, 1
@@ -214,20 +214,20 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   %16 = load i16, ptr %14, align 1
   store i16 %16, ptr %15, align 1
   %17 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %12
-  %18 = getelementptr i8, ptr %1, i64 %.02634
+  %18 = getelementptr i8, ptr %1, i64 %.02636
   %19 = getelementptr i8, ptr %18, i64 -2
   %20 = load i16, ptr %17, align 1
   store i16 %20, ptr %19, align 1
-  %21 = icmp ugt i64 %.135, 99999999
+  %21 = icmp ugt i64 %.137, 99999999
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 22:                                               ; preds = %._crit_edge
-  %.lhs.trunc30 = trunc nuw i64 %.1.lcssa to i16
-  %23 = urem i16 %.lhs.trunc30, 100
+  %.lhs.trunc32 = trunc nuw i64 %.1.lcssa to i16
+  %23 = urem i16 %.lhs.trunc32, 100
   %24 = shl nuw nsw i16 %23, 1
   %25 = zext nneg i16 %24 to i64
-  %26 = udiv i16 %.lhs.trunc30, 100
-  %.zext33 = zext nneg i16 %26 to i64
+  %26 = udiv i16 %.lhs.trunc32, 100
+  %.zext35 = zext nneg i16 %26 to i64
   %27 = add i64 %.026.lcssa, -2
   %28 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %25
   %29 = getelementptr inbounds i8, ptr %1, i64 %27
@@ -236,14 +236,14 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br label %31
 
 31:                                               ; preds = %._crit_edge, %22
-  %.127 = phi i64 [ %27, %22 ], [ %.026.lcssa, %._crit_edge ]
-  %.025 = phi i64 [ %.zext33, %22 ], [ %.1.lcssa, %._crit_edge ]
-  %32 = icmp samesign ult i64 %.025, 10
+  %.129 = phi i64 [ %27, %22 ], [ %.026.lcssa, %._crit_edge ]
+  %.027 = phi i64 [ %.zext35, %22 ], [ %.1.lcssa, %._crit_edge ]
+  %32 = icmp samesign ult i64 %.027, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31
-  %34 = shl nuw nsw i64 %.025, 1
-  %35 = add i64 %.127, -2
+  %34 = shl nuw nsw i64 %.027, 1
+  %35 = add i64 %.129, -2
   %36 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %34
   %37 = getelementptr inbounds i8, ptr %1, i64 %35
   %38 = load i16, ptr %36, align 1
@@ -251,8 +251,8 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
   br label %44
 
 39:                                               ; preds = %31
-  %40 = add i64 %.127, -1
-  %41 = trunc nuw nsw i64 %.025 to i8
+  %40 = add i64 %.129, -1
+  %41 = trunc nuw nsw i64 %.027 to i8
   %42 = getelementptr inbounds i8, ptr %1, i64 %40
   %43 = or disjoint i8 %41, 48
   store i8 %43, ptr %42, align 1
@@ -260,10 +260,10 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 44:                                               ; preds = %39, %33
   %.2 = phi i64 [ %40, %39 ], [ %35, %33 ]
-  br i1 %3, label %48, label %45
+  br i1 %3, label %48, label %46
 
-45:                                               ; preds = %44
-  %46 = add i64 %.2, -1
+45:; preds = %44
+  %48 = add i64 %.2, -1
   %47 = getelementptr inbounds i8, ptr %1, i64 %46
   store i8 45, ptr %47, align 1
   br label %48
@@ -736,8 +736,8 @@ define noundef zeroext i1 @"_ZN65_$LT$serde_json..number..Number$u20$as$u20$core
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %6, label %default.unreachable20 [
     i64 0, label %8
-    i64 1, label %53
-    i64 2, label %103
+    i64 1, label %54
+    i64 2, label %105
   ]
 
 default.unreachable20:                            ; preds = %2
@@ -757,10 +757,10 @@ default.unreachable20:                            ; preds = %2
   br i1 %11, label %28, label %37
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.135.i = phi i64 [ %13, %.lr.ph.i ], [ %9, %8 ]
-  %.02834.i = phi i64 [ %19, %.lr.ph.i ], [ 20, %8 ]
-  %12 = urem i64 %.135.i, 10000
-  %13 = udiv i64 %.135.i, 10000
+  %.137.i = phi i64 [ %13, %.lr.ph.i ], [ %9, %8 ]
+  %.02836.i = phi i64 [ %19, %.lr.ph.i ], [ 20, %8 ]
+  %12 = urem i64 %.137.i, 10000
+  %13 = udiv i64 %.137.i, 10000
   %.lhs.trunc.i = trunc nuw nsw i64 %12 to i16
   %14 = udiv i16 %.lhs.trunc.i, 100
   %15 = shl nuw nsw i16 %14, 1
@@ -796,8 +796,8 @@ default.unreachable20:                            ; preds = %2
 
 37:                                               ; preds = %28, %._crit_edge.i
   %.129.i = phi i64 [ %33, %28 ], [ %.028.lcssa.i, %._crit_edge.i ]
-  %.027.i = phi i64 [ %.zext33.i, %28 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %38 = icmp samesign ult i64 %.027.i, 10
+  %.129.i = phi i64 [ %.zext33.i, %28 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %38 = icmp samesign ult i64 %.129.i, 10
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %37
@@ -809,56 +809,56 @@ default.unreachable20:                            ; preds = %2
   store i16 %44, ptr %43, align 1, !alias.scope !31
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
 
-45:                                               ; preds = %37
-  %46 = add i64 %.129.i, -1
-  %47 = trunc nuw nsw i64 %.027.i to i8
-  %48 = getelementptr inbounds i8, ptr %5, i64 %46
-  %49 = or disjoint i8 %47, 48
-  store i8 %49, ptr %48, align 1, !alias.scope !31
+46:                                               ; preds = %37
+  %47 = add i64 %.129.i, -1
+  %48 = trunc nuw nsw i64 %.027.i to i8
+  %49 = getelementptr inbounds i8, ptr %5, i64 %47
+  %50 = or disjoint i8 %48, 48
+  store i8 %50, ptr %49, align 1, !alias.scope !31
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit": ; preds = %39, %45
-  %.2.i = phi i64 [ %46, %45 ], [ %41, %39 ]
-  %50 = sub i64 20, %.2.i
-  %51 = getelementptr inbounds i8, ptr %5, i64 %.2.i
-  %52 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %50)
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit": ; preds = %39, %46
+  %.2.i = phi i64 [ %47, %45 ], [ %41, %39 ]
+  %51 = sub i64 20, %.2.i
+  %52 = getelementptr inbounds i8, ptr %5, i64 %.2.i
+  %53 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %107
+  br label %109
 
-53:                                               ; preds = %2
-  %54 = load i64, ptr %7, align 8, !noundef !7
+54:                                               ; preds = %2
+  %55 = load i64, ptr %7, align 8, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %55 = icmp sgt i64 %54, -1
-  %.0.i = tail call i64 @llvm.abs.i64(i64 %54, i1 false)
-  %56 = icmp ugt i64 %.0.i, 9999
-  br i1 %56, label %.lr.ph.i11, label %._crit_edge.i6
+  %56 = icmp sgt i64 %55, -1
+  %.0.i = tail call i64 @llvm.abs.i64(i64 %55, i1 false)
+  %57 = icmp ugt i64 %.0.i, 9999
+  br i1 %57, label %.lr.ph.i11, label %._crit_edge.i6
 
-._crit_edge.i6:                                   ; preds = %.lr.ph.i11, %53
+._crit_edge.i6:                                   ; preds = %.lr.ph.i11, %54
   %.026.lcssa.i = phi i64 [ 20, %53 ], [ %65, %.lr.ph.i11 ]
-  %.1.lcssa.i7 = phi i64 [ %.0.i, %53 ], [ %59, %.lr.ph.i11 ]
-  %57 = icmp samesign ugt i64 %.1.lcssa.i7, 99
-  br i1 %57, label %74, label %83
+  %.1.lcssa.i7 = phi i64 [ %.0.i, %53 ], [ %60, %.lr.ph.i11 ]
+  %58 = icmp samesign ugt i64 %.1.lcssa.i7, 99
+  br i1 %58, label %74, label %83
 
-.lr.ph.i11:                                       ; preds = %53, %.lr.ph.i11
-  %.135.i12 = phi i64 [ %59, %.lr.ph.i11 ], [ %.0.i, %53 ]
-  %.02634.i = phi i64 [ %65, %.lr.ph.i11 ], [ 20, %53 ]
-  %58 = urem i64 %.135.i12, 10000
-  %59 = udiv i64 %.135.i12, 10000
-  %.lhs.trunc.i13 = trunc nuw nsw i64 %58 to i16
-  %60 = udiv i16 %.lhs.trunc.i13, 100
-  %61 = shl nuw nsw i16 %60, 1
-  %62 = zext nneg i16 %61 to i64
-  %63 = urem i64 %.135.i12, 100
-  %64 = shl nuw nsw i64 %63, 1
+.lr.ph.i11:                                       ; preds = %54, %.lr.ph.i11
+  %.137.i12 = phi i64 [ %60, %.lr.ph.i11 ], [ %.0.i, %53 ]
+  %.02636.i = phi i64 [ %65, %.lr.ph.i11 ], [ 20, %53 ]
+  %59 = urem i64 %.137.i12, 10000
+  %60 = udiv i64 %.137.i12, 10000
+  %.lhs.trunc.i13 = trunc nuw nsw i64 %59 to i16
+  %61 = udiv i16 %.lhs.trunc.i13, 100
+  %62 = shl nuw nsw i16 %61, 1
+  %63 = zext nneg i16 %62 to i64
+  %64 = urem i64 %.135.i12, 100
+  %65 = shl nuw nsw i64 %64, 1
   %65 = add i64 %.02634.i, -4
-  %66 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %62
-  %67 = getelementptr inbounds i8, ptr %4, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %63
+  %68 = getelementptr inbounds i8, ptr %4, i64 %65
   %68 = load i16, ptr %66, align 1, !noalias !34
-  store i16 %68, ptr %67, align 1, !alias.scope !34
+  store i16 %68, ptr %68, align 1, !alias.scope !34
   %69 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %64
-  %70 = getelementptr i8, ptr %4, i64 %.02634.i
-  %71 = getelementptr i8, ptr %70, i64 -2
+  %71 = getelementptr i8, ptr %4, i64 %.02636.i
+  %72 = getelementptr i8, ptr %70, i64 -2
   %72 = load i16, ptr %69, align 1, !noalias !34
   store i16 %72, ptr %71, align 1, !alias.scope !34
   %73 = icmp ugt i64 %.135.i12, 99999999
@@ -873,29 +873,29 @@ default.unreachable20:                            ; preds = %2
   %.zext33.i10 = zext nneg i16 %78 to i64
   %79 = add i64 %.026.lcssa.i, -2
   %80 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %77
-  %81 = getelementptr inbounds i8, ptr %4, i64 %79
+  %82 = getelementptr inbounds i8, ptr %4, i64 %79
   %82 = load i16, ptr %80, align 1, !noalias !34
-  store i16 %82, ptr %81, align 1, !alias.scope !34
+  store i16 %82, ptr %82, align 1, !alias.scope !34
   br label %83
 
 83:                                               ; preds = %74, %._crit_edge.i6
   %.127.i = phi i64 [ %79, %74 ], [ %.026.lcssa.i, %._crit_edge.i6 ]
-  %.025.i = phi i64 [ %.zext33.i10, %74 ], [ %.1.lcssa.i7, %._crit_edge.i6 ]
-  %84 = icmp samesign ult i64 %.025.i, 10
+  %.127.i = phi i64 [ %.zext33.i10, %74 ], [ %.1.lcssa.i7, %._crit_edge.i6 ]
+  %84 = icmp samesign ult i64 %.127.i, 10
   br i1 %84, label %91, label %85
 
 85:                                               ; preds = %83
   %86 = shl nuw nsw i64 %.025.i, 1
   %87 = add i64 %.127.i, -2
   %88 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %86
-  %89 = getelementptr inbounds i8, ptr %4, i64 %87
+  %90 = getelementptr inbounds i8, ptr %4, i64 %87
   %90 = load i16, ptr %88, align 1, !noalias !34
-  store i16 %90, ptr %89, align 1, !alias.scope !34
+  store i16 %90, ptr %90, align 1, !alias.scope !34
   br label %96
 
 91:                                               ; preds = %83
   %92 = add i64 %.127.i, -1
-  %93 = trunc nuw nsw i64 %.025.i to i8
+  %93 = trunc nuw nsw i64 %.127.i to i8
   %94 = getelementptr inbounds i8, ptr %4, i64 %92
   %95 = or disjoint i8 %93, 48
   store i8 %95, ptr %94, align 1, !alias.scope !34
@@ -913,22 +913,22 @@ default.unreachable20:                            ; preds = %2
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit": ; preds = %96, %97
   %.3.i = phi i64 [ %.2.i8, %96 ], [ %98, %97 ]
-  %100 = sub i64 20, %.3.i
-  %101 = getelementptr inbounds i8, ptr %4, i64 %.3.i
-  %102 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %100)
+  %102 = sub i64 20, %.3.i
+  %103 = getelementptr inbounds i8, ptr %4, i64 %.3.i
+  %104 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %103, i64 noundef %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %107
+  br label %109
 
-103:                                              ; preds = %2
-  %104 = load double, ptr %7, align 8, !noundef !7
+105:                                              ; preds = %2
+  %106 = load double, ptr %7, align 8, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %105 = call noundef i64 @_ZN3ryu6pretty8format6417ha857aef885057fcfE(double noundef %104, ptr noundef nonnull %3)
-  %106 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %105)
+  %107 = call noundef i64 @_ZN3ryu6pretty8format6417ha857aef885057fcfE(double noundef %106, ptr noundef nonnull %3)
+  %108 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %107)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %107
+  br label %109
 
-107:                                              ; preds = %103, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit", %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
-  %.0.in = phi i1 [ %52, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit" ], [ %102, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit" ], [ %106, %103 ]
+109:                                              ; preds = %105, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit", %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
+  %.0.in = phi i1 [ %53, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit" ], [ %104, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit" ], [ %108, %103 ]
   ret i1 %.0.in
 }
 

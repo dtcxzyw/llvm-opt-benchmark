@@ -10785,37 +10785,37 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
 41:                                               ; preds = %4
   %42 = icmp samesign ult i32 %1, 100000
   %43 = udiv i32 %1, 10000
-  br i1 %42, label %44, label %60
+  br i1 %42, label %45, label %60
 
-44:                                               ; preds = %41
-  %45 = trunc nuw nsw i32 %43 to i8
-  %46 = or disjoint i8 %45, 48
-  store i8 %46, ptr %0, align 1, !tbaa !17
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %48 = urem i32 %1, 10000
-  %.lhs.trunc.i = trunc nuw nsw i32 %48 to i16
-  %49 = udiv i16 %.lhs.trunc.i, 100
-  %50 = shl nuw nsw i16 %49, 1
-  %51 = zext nneg i16 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %51
-  %53 = load i16, ptr %52, align 2
-  store i16 %53, ptr %47, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %55 = urem i16 %.lhs.trunc.i, 100
-  %56 = shl nuw nsw i16 %55, 1
-  %57 = zext nneg i16 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %57
-  %59 = load i16, ptr %58, align 2
-  store i16 %59, ptr %54, align 1
+45:                                               ; preds = %41
+  %46 = trunc nuw nsw i32 %43 to i8
+  %47 = or disjoint i8 %46, 48
+  store i8 %47, ptr %0, align 1, !tbaa !17
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %49 = urem i32 %1, 10000
+  %.lhs.trunc.i = trunc nuw nsw i32 %49 to i16
+  %50 = udiv i16 %.lhs.trunc.i, 100
+  %51 = shl nuw nsw i16 %50, 1
+  %52 = zext nneg i16 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %52
+  %54 = load i16, ptr %53, align 2
+  store i16 %54, ptr %48, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %56 = urem i16 %.lhs.trunc.i, 100
+  %57 = shl nuw nsw i16 %56, 1
+  %58 = zext nneg i16 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %58
+  %60 = load i16, ptr %59, align 2
+  store i16 %60, ptr %55, align 1
   br label %196
 
-60:                                               ; preds = %41
-  %61 = shl nuw nsw i32 %43, 1
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %62
-  %64 = load i16, ptr %63, align 2
-  store i16 %64, ptr %0, align 1
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2
+61:                                               ; preds = %41
+  %62 = shl nuw nsw i32 %43, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %63
+  %65 = load i16, ptr %64, align 2
+  store i16 %65, ptr %0, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %66 = urem i32 %1, 10000
   %.lhs.trunc.i30 = trunc nuw nsw i32 %66 to i16
   %67 = udiv i16 %.lhs.trunc.i30, 100
@@ -10823,7 +10823,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %69 = zext nneg i16 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %69
   %71 = load i16, ptr %70, align 2
-  store i16 %71, ptr %65, align 1
+  store i16 %71, ptr %66, align 1
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %73 = urem i16 %.lhs.trunc.i30, 100
   %74 = shl nuw nsw i16 %73, 1
@@ -10872,20 +10872,20 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   store i16 %105, ptr %100, align 1
   br label %196
 
-106:                                              ; preds = %80
-  %107 = shl nuw nsw i32 %82, 1
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %108
-  %110 = load i16, ptr %109, align 2
-  store i16 %110, ptr %0, align 1
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2
+107:                                              ; preds = %80
+  %108 = shl nuw nsw i32 %82, 1
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %109
+  %111 = load i16, ptr %110, align 2
+  store i16 %111, ptr %0, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %112 = urem i32 %1, 1000000
   %113 = udiv i32 %112, 10000
   %114 = shl nuw nsw i32 %113, 1
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %115
   %117 = load i16, ptr %116, align 2
-  store i16 %117, ptr %111, align 1
+  store i16 %117, ptr %112, align 1
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %119 = urem i32 %1, 10000
   %.lhs.trunc.i.i31 = trunc nuw nsw i32 %119 to i16
@@ -10987,7 +10987,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   store i16 %195, ptr %190, align 1
   br label %196
 
-196:                                              ; preds = %165, %135, %106, %83, %60, %44, %31, %22, %13, %10
+196:                                              ; preds = %165, %135, %107, %83, %61, %45, %31, %22, %13, %10
   %.sink = phi i64 [ 10, %165 ], [ 9, %135 ], [ 8, %106 ], [ 7, %83 ], [ 6, %60 ], [ 5, %44 ], [ 4, %31 ], [ 3, %22 ], [ 2, %13 ], [ 1, %10 ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   ret ptr %197
