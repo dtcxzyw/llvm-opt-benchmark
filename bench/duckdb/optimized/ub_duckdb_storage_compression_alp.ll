@@ -8061,10 +8061,10 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   br label %82
 
 ._crit_edge:                                      ; preds = %82, %20, %.loopexit
-  %.091152 = phi i64 [ %.091, %.loopexit ], [ 0, %20 ], [ %.091, %82 ]
-  %.0.lcssa147151 = phi i16 [ 0, %.loopexit ], [ 0, %20 ], [ %64, %82 ]
+  %.091151 = phi i64 [ %.091, %.loopexit ], [ 0, %20 ], [ %.091, %82 ]
+  %.0.lcssa146150 = phi i16 [ 0, %.loopexit ], [ 0, %20 ], [ %64, %82 ]
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 %.0.lcssa147151, ptr %80, align 2, !tbaa !432
+  store i16 %.0.lcssa146150, ptr %80, align 2, !tbaa !432
   %.not128 = icmp eq i64 %3, 0
   br i1 %.not128, label %.preheader, label %.lr.ph113
 
@@ -8100,7 +8100,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %94 = load i16, ptr %93, align 2, !tbaa !125
   %95 = zext i16 %94 to i64
   %96 = getelementptr inbounds nuw i64, ptr %81, i64 %95
-  store i64 %.091152, ptr %96, align 8, !tbaa !77
+  store i64 %.091151, ptr %96, align 8, !tbaa !77
   %97 = add nuw i64 %.097111, 1
   %exitcond136.not = icmp eq i64 %97, %3
   br i1 %exitcond136.not, label %.preheader, label %92, !llvm.loop !434
@@ -8167,15 +8167,14 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 14384
   %125 = and i64 %1, 31
   %126 = and i64 %1, -32
-  %.not22.i = icmp eq i64 %126, 0
-  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
+  %127 = icmp ult i64 %1, 32
+  br i1 %127, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %123
-  %127 = zext nneg i8 %.09.i.i to i32
+  %128 = zext nneg i8 %.09.i.i to i32
   br label %129
 
 ._crit_edge.i:                                    ; preds = %129, %123
-  %128 = phi i64 [ 0, %123 ], [ %126, %129 ]
   %.not.i = icmp eq i64 %125, 0
   br i1 %.not.i, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %136
 
@@ -8185,20 +8184,20 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %131 = lshr exact i64 %130, 3
   %132 = getelementptr inbounds nuw i8, ptr %124, i64 %131
   %133 = getelementptr inbounds nuw i64, ptr %99, i64 %.021.i
-  tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %133, ptr noundef nonnull %132, i32 noundef %127)
+  tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %133, ptr noundef nonnull %132, i32 noundef %128)
   %134 = add nuw i64 %.021.i, 32
   %135 = icmp ult i64 %134, %126
   br i1 %135, label %129, label %._crit_edge.i, !llvm.loop !437
 
 136:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %137 = getelementptr inbounds nuw i64, ptr %99, i64 %128
+  %137 = getelementptr inbounds nuw i64, ptr %99, i64 %126
   %138 = shl nuw nsw i64 %125, 3
   %139 = sub nuw nsw i64 256, %138
   %140 = getelementptr i8, ptr %6, i64 %138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %140, i8 0, i64 %139, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %137, i64 %138, i1 false)
-  %141 = mul i64 %128, %118
+  %141 = mul i64 %126, %118
   %142 = lshr exact i64 %141, 3
   %143 = getelementptr inbounds nuw i8, ptr %124, i64 %142
   %144 = zext nneg i8 %.09.i.i to i32
@@ -8208,18 +8207,18 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 _ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit: ; preds = %.preheader, %136, %._crit_edge.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
   %145 = phi i64 [ %118, %136 ], [ %118, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
-  %.0.i.i102176 = phi i64 [ %.0.i.i102, %136 ], [ %.0.i.i102, %._crit_edge.i ], [ %.0.i.i102, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 0, %.preheader ]
-  %.095.lcssa155160165174 = phi i64 [ %104, %136 ], [ %104, %._crit_edge.i ], [ %104, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 9223372036854775807, %.preheader ]
-  %.09.i.i166172 = phi i8 [ %.09.i.i, %136 ], [ %.09.i.i, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
-  %146 = mul i64 %.0.i.i102176, %145
+  %.0.i.i102175 = phi i64 [ %.0.i.i102, %136 ], [ %.0.i.i102, %._crit_edge.i ], [ %.0.i.i102, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 0, %.preheader ]
+  %.095.lcssa154159164173 = phi i64 [ %104, %136 ], [ %104, %._crit_edge.i ], [ %104, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 9223372036854775807, %.preheader ]
+  %.09.i.i165171 = phi i8 [ %.09.i.i, %136 ], [ %.09.i.i, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
+  %146 = mul i64 %.0.i.i102175, %145
   %147 = lshr i64 %146, 3
-  %148 = zext nneg i8 %.09.i.i166172 to i16
+  %148 = zext nneg i8 %.09.i.i165171 to i16
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %148, ptr %149, align 4, !tbaa !438
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %147, ptr %150, align 8, !tbaa !439
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.095.lcssa155160165174, ptr %151, align 8, !tbaa !440
+  store i64 %.095.lcssa154159164173, ptr %151, align 8, !tbaa !440
   ret void
 }
 
@@ -12522,10 +12521,10 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   br label %81
 
 ._crit_edge:                                      ; preds = %81, %20, %.loopexit
-  %.091152 = phi i64 [ %.091, %.loopexit ], [ 0, %20 ], [ %.091, %81 ]
-  %.0.lcssa147151 = phi i16 [ 0, %.loopexit ], [ 0, %20 ], [ %63, %81 ]
+  %.091151 = phi i64 [ %.091, %.loopexit ], [ 0, %20 ], [ %.091, %81 ]
+  %.0.lcssa146150 = phi i16 [ 0, %.loopexit ], [ 0, %20 ], [ %63, %81 ]
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 %.0.lcssa147151, ptr %79, align 2, !tbaa !506
+  store i16 %.0.lcssa146150, ptr %79, align 2, !tbaa !506
   %.not128 = icmp eq i64 %3, 0
   br i1 %.not128, label %.preheader, label %.lr.ph113
 
@@ -12561,7 +12560,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %93 = load i16, ptr %92, align 2, !tbaa !125
   %94 = zext i16 %93 to i64
   %95 = getelementptr inbounds nuw i64, ptr %80, i64 %94
-  store i64 %.091152, ptr %95, align 8, !tbaa !77
+  store i64 %.091151, ptr %95, align 8, !tbaa !77
   %96 = add nuw i64 %.097111, 1
   %exitcond136.not = icmp eq i64 %96, %3
   br i1 %exitcond136.not, label %.preheader, label %91, !llvm.loop !508
@@ -12628,15 +12627,14 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 18480
   %124 = and i64 %1, 31
   %125 = and i64 %1, -32
-  %.not22.i = icmp eq i64 %125, 0
-  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
+  %126 = icmp ult i64 %1, 32
+  br i1 %126, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %122
-  %126 = zext nneg i8 %.09.i.i to i32
+  %127 = zext nneg i8 %.09.i.i to i32
   br label %128
 
 ._crit_edge.i:                                    ; preds = %128, %122
-  %127 = phi i64 [ 0, %122 ], [ %125, %128 ]
   %.not.i = icmp eq i64 %124, 0
   br i1 %.not.i, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %135
 
@@ -12646,20 +12644,20 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %130 = lshr exact i64 %129, 3
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 %130
   %132 = getelementptr inbounds nuw i64, ptr %98, i64 %.021.i
-  tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %132, ptr noundef nonnull %131, i32 noundef %126)
+  tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %132, ptr noundef nonnull %131, i32 noundef %127)
   %133 = add nuw i64 %.021.i, 32
   %134 = icmp ult i64 %133, %125
   br i1 %134, label %128, label %._crit_edge.i, !llvm.loop !437
 
 135:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %136 = getelementptr inbounds nuw i64, ptr %98, i64 %127
+  %136 = getelementptr inbounds nuw i64, ptr %98, i64 %125
   %137 = shl nuw nsw i64 %124, 3
   %138 = sub nuw nsw i64 256, %137
   %139 = getelementptr i8, ptr %6, i64 %137
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, i8 0, i64 %138, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %136, i64 %137, i1 false)
-  %140 = mul i64 %127, %117
+  %140 = mul i64 %125, %117
   %141 = lshr exact i64 %140, 3
   %142 = getelementptr inbounds nuw i8, ptr %123, i64 %141
   %143 = zext nneg i8 %.09.i.i to i32
@@ -12669,18 +12667,18 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 _ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit: ; preds = %.preheader, %135, %._crit_edge.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
   %144 = phi i64 [ %117, %135 ], [ %117, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
-  %.0.i.i102176 = phi i64 [ %.0.i.i102, %135 ], [ %.0.i.i102, %._crit_edge.i ], [ %.0.i.i102, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 0, %.preheader ]
-  %.095.lcssa155160165174 = phi i64 [ %103, %135 ], [ %103, %._crit_edge.i ], [ %103, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 9223372036854775807, %.preheader ]
-  %.09.i.i166172 = phi i8 [ %.09.i.i, %135 ], [ %.09.i.i, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
-  %145 = mul i64 %.0.i.i102176, %144
+  %.0.i.i102175 = phi i64 [ %.0.i.i102, %135 ], [ %.0.i.i102, %._crit_edge.i ], [ %.0.i.i102, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 0, %.preheader ]
+  %.095.lcssa154159164173 = phi i64 [ %103, %135 ], [ %103, %._crit_edge.i ], [ %103, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 9223372036854775807, %.preheader ]
+  %.09.i.i165171 = phi i8 [ %.09.i.i, %135 ], [ %.09.i.i, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
+  %145 = mul i64 %.0.i.i102175, %144
   %146 = lshr i64 %145, 3
-  %147 = zext nneg i8 %.09.i.i166172 to i16
+  %147 = zext nneg i8 %.09.i.i165171 to i16
   %148 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %147, ptr %148, align 4, !tbaa !511
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %146, ptr %149, align 8, !tbaa !512
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.095.lcssa155160165174, ptr %150, align 8, !tbaa !513
+  store i64 %.095.lcssa154159164173, ptr %150, align 8, !tbaa !513
   ret void
 }
 

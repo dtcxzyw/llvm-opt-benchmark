@@ -1060,17 +1060,16 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86
   %63 = getelementptr inbounds nuw { { { [27 x i64] } } }, ptr %52, i64 %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull readonly align 8 dereferenceable(216) %63, i64 216, i1 false)
   %.pre7 = load i32, ptr %0, align 8, !range !133
-  %64 = add nsw i32 %.pre7, -3
-  %65 = icmp ult i32 %64, 2
-  br i1 %65, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit.thread", label %66
+  %64 = icmp samesign ugt i32 %.pre7, 2
+  br i1 %64, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit.thread", label %65
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit.thread": ; preds = %62, %61, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit", %66, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h83b958430eba2c69E.llvm.5441949568091396765.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit.thread": ; preds = %62, %61, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit", %65, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h83b958430eba2c69E.llvm.5441949568091396765.exit"
   ret void
 
-66:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit"
-  %67 = load i64, ptr %4, align 8, !noundef !10
-  %68 = add i64 %67, 1
-  store i64 %68, ptr %4, align 8
+65:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit"
+  %66 = load i64, ptr %4, align 8, !noundef !10
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit.thread"
 }
 

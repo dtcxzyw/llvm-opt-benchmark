@@ -1597,58 +1597,57 @@ define range(i64 -554050779136, 554050782975) i64 @tjBufSize(i32 noundef %0, i32
   %6 = icmp slt i32 %0, 1
   %7 = icmp slt i32 %1, 1
   %or.cond.i = or i1 %6, %7
-  %8 = add nsw i32 %2, -7
-  %9 = icmp ult i32 %8, -8
-  %or.cond5.i = or i1 %or.cond.i, %9
-  br i1 %or.cond5.i, label %tj3JPEGBufSize.exit.thread.sink.split, label %10
+  %8 = icmp samesign ugt i32 %2, 6
+  %or.cond5.i = or i1 %or.cond.i, %8
+  br i1 %or.cond5.i, label %tj3JPEGBufSize.exit.thread.sink.split, label %9
 
-10:                                               ; preds = %5
-  %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !88
-  %.fr14 = freeze i32 %13
-  %14 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %11
-  %15 = load i32, ptr %14, align 4, !tbaa !88
-  %.fr13 = freeze i32 %15
-  %16 = icmp eq i32 %2, 3
-  br i1 %16, label %tj3JPEGBufSize.exit, label %17
+9:                                                ; preds = %5
+  %10 = zext nneg i32 %2 to i64
+  %11 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %10
+  %12 = load i32, ptr %11, align 4, !tbaa !88
+  %.fr14 = freeze i32 %12
+  %13 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %10
+  %14 = load i32, ptr %13, align 4, !tbaa !88
+  %.fr13 = freeze i32 %14
+  %15 = icmp eq i32 %2, 3
+  br i1 %15, label %tj3JPEGBufSize.exit, label %16
 
-17:                                               ; preds = %10
-  %18 = mul i32 %.fr13, %.fr14
-  %19 = sdiv i32 256, %18
-  %narrow.i = add nsw i32 %19, 2
-  %20 = sext i32 %narrow.i to i64
+16:                                               ; preds = %9
+  %17 = mul i32 %.fr13, %.fr14
+  %18 = sdiv i32 256, %17
+  %narrow.i = add nsw i32 %18, 2
+  %19 = sext i32 %narrow.i to i64
   br label %tj3JPEGBufSize.exit
 
-tj3JPEGBufSize.exit:                              ; preds = %10, %17
-  %.fr = phi i64 [ %20, %17 ], [ 2, %10 ]
-  %21 = add nsw i32 %0, -1
-  %22 = add i32 %21, %.fr14
-  %23 = sub i32 0, %.fr14
-  %24 = and i32 %22, %23
-  %25 = add nsw i32 %1, -1
-  %26 = add i32 %25, %.fr13
-  %27 = sub i32 0, %.fr13
-  %28 = and i32 %26, %27
-  %29 = mul i32 %28, %24
-  %30 = sext i32 %29 to i64
-  %31 = mul nsw i64 %.fr, %30
-  %32 = add nsw i64 %31, 2048
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %tj3JPEGBufSize.exit.thread, label %36
+tj3JPEGBufSize.exit:                              ; preds = %9, %16
+  %.fr = phi i64 [ %19, %16 ], [ 2, %9 ]
+  %20 = add nsw i32 %0, -1
+  %21 = add i32 %20, %.fr14
+  %22 = sub i32 0, %.fr14
+  %23 = and i32 %21, %22
+  %24 = add nsw i32 %1, -1
+  %25 = add i32 %24, %.fr13
+  %26 = sub i32 0, %.fr13
+  %27 = and i32 %25, %26
+  %28 = mul i32 %27, %23
+  %29 = sext i32 %28 to i64
+  %30 = mul nsw i64 %.fr, %29
+  %31 = add nsw i64 %30, 2048
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %tj3JPEGBufSize.exit.thread, label %35
 
 tj3JPEGBufSize.exit.thread.sink.split:            ; preds = %5, %3
   %tj3JPEGBufSize.FUNCTION_NAME.sink = phi ptr [ @tjBufSize.FUNCTION_NAME, %3 ], [ @tj3JPEGBufSize.FUNCTION_NAME, %5 ]
-  %34 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
-  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %34, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull %tj3JPEGBufSize.FUNCTION_NAME.sink, ptr noundef nonnull @.str.1) #26
+  %33 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %33, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull %tj3JPEGBufSize.FUNCTION_NAME.sink, ptr noundef nonnull @.str.1) #26
   br label %tj3JPEGBufSize.exit.thread
 
 tj3JPEGBufSize.exit.thread:                       ; preds = %tj3JPEGBufSize.exit.thread.sink.split, %tj3JPEGBufSize.exit
-  br label %36
+  br label %35
 
-36:                                               ; preds = %tj3JPEGBufSize.exit, %tj3JPEGBufSize.exit.thread
-  %37 = phi i64 [ -1, %tj3JPEGBufSize.exit.thread ], [ %32, %tj3JPEGBufSize.exit ]
-  ret i64 %37
+35:                                               ; preds = %tj3JPEGBufSize.exit, %tj3JPEGBufSize.exit.thread
+  %36 = phi i64 [ -1, %tj3JPEGBufSize.exit.thread ], [ %31, %tj3JPEGBufSize.exit ]
+  ret i64 %36
 }
 
 ; Function Attrs: nofree nounwind uwtable

@@ -2024,9 +2024,8 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
 51:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
   %52 = load i32, ptr %16, align 8, !range !849, !alias.scope !850, !noalias !851, !noundef !9
-  %.off.i.i.i.i.i.i = add nsw i32 %52, -1
-  %switch.i1.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 2
-  br i1 %switch.i1.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i: ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i, i64 60
@@ -2371,9 +2370,8 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
 69:                                               ; preds = %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !933)
   %70 = load i32, ptr %29, align 8, !range !849, !alias.scope !936, !noalias !937, !noundef !9
-  %.off.i.i.i.i.i.i.i = add nsw i32 %70, -1
-  %switch.i1.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i, 2
-  br i1 %switch.i1.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i32 %70, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i.i: ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 60
@@ -7948,8 +7946,8 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$tree_sitter_cli..ge
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !range !1931, !noundef !9
-  %7 = add i64 %6, 9223372036854775807
-  %8 = icmp ult i64 %7, 9
+  %7 = add nsw i64 %6, 9223372036854775807
+  %8 = icmp ugt i64 %6, -9223372036854775808
   %9 = select i1 %8, i64 %7, i64 6
   switch i64 %9, label %10 [
     i64 0, label %12
@@ -18361,8 +18359,8 @@ tailrecurse.outer.i:                              ; preds = %157, %145
 tailrecurse.i:                                    ; preds = %151, %tailrecurse.outer.i
   %.tr.i = phi ptr [ %.tr.ph.i, %tailrecurse.outer.i ], [ %156, %151 ]
   %147 = load i64, ptr %.tr.i, align 8, !range !1931, !noundef !9
-  %148 = add i64 %147, 9223372036854775807
-  %149 = icmp ult i64 %148, 9
+  %148 = add nsw i64 %147, 9223372036854775807
+  %149 = icmp ugt i64 %147, -9223372036854775808
   %150 = select i1 %149, i64 %148, i64 6
   switch i64 %150, label %.loopexit.loopexit.i [
     i64 1, label %.loopexit.loopexit.i.loopexit192
@@ -18650,8 +18648,8 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate15prepare_grammar13exp
   %40 = alloca ptr, align 8
   store ptr %2, ptr %40, align 8
   %41 = load i64, ptr %2, align 8, !range !1931, !noundef !9
-  %42 = add i64 %41, 9223372036854775807
-  %43 = icmp ult i64 %42, 9
+  %42 = add nsw i64 %41, 9223372036854775807
+  %43 = icmp ugt i64 %41, -9223372036854775808
   %44 = select i1 %43, i64 %42, i64 6
   switch i64 %44, label %45 [
     i64 0, label %53
@@ -22010,7 +22008,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate15prepare_grammar13exp
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %18 = load i32, ptr %17, align 8, !range !5439, !noundef !9
   %19 = add nsw i32 %18, -1114112
-  %20 = icmp ult i32 %19, 8
+  %20 = icmp samesign ugt i32 %18, 1114111
   %narrow = select i1 %20, i32 %19, i32 2
   switch i32 %narrow, label %21 [
     i32 0, label %22

@@ -3331,7 +3331,7 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CheckSubGlyphs(ptr noundef ca
   %17 = zext i32 %15 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8, !tbaa !206
-  %20 = icmp eq i32 %15, 0
+  %20 = icmp ult i32 %14, 2
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %13
@@ -7982,75 +7982,73 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
   %spec.select. = select i1 %.not50, i64 %spec.select, i64 %21
   %.spec.select = select i1 %.not50, i64 %32, i64 %spec.select
   %33 = add nsw i64 %spec.select., 32
-  %34 = and i64 %33, -64
-  %35 = add nsw i64 %.spec.select, 32
-  %36 = and i64 %35, -64
-  %37 = icmp ne i64 %34, 0
-  %38 = icmp ne i64 %36, 0
-  %or.cond = select i1 %37, i1 %38, i1 false
+  %34 = add nsw i64 %.spec.select, 32
+  %35 = icmp ugt i64 %33, 63
+  %36 = icmp ugt i64 %34, 63
+  %or.cond = select i1 %35, i1 %36, i1 false
   br i1 %or.cond, label %.preheader, label %.thread56
 
 .preheader:                                       ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %40 = load i32, ptr %39, align 8, !tbaa !316
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph, label %.thread56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = load i32, ptr %37, align 8, !tbaa !316
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph, label %.thread56
 
 .lr.ph:                                           ; preds = %.preheader
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %43 = load ptr, ptr %42, align 8, !tbaa !317
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %41 = load ptr, ptr %40, align 8, !tbaa !317
   %.not62 = icmp eq i8 %2, 0
-  %wide.trip.count72 = zext nneg i32 %40 to i64
+  %wide.trip.count72 = zext nneg i32 %38 to i64
   br i1 %.not62, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv, i32 4
-  %45 = load i64, ptr %44, align 8, !tbaa !321
-  %46 = add nsw i64 %45, 32
-  %47 = and i64 %46, -64
-  %.not54.us = icmp eq i64 %36, %47
-  br i1 %.not54.us, label %.split.us, label %48
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
+  %42 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %41, i64 %indvars.iv, i32 4
+  %43 = load i64, ptr %42, align 8, !tbaa !321
+  %44 = add nsw i64 %43, 32
+  %45 = xor i64 %44, %34
+  %.not54.us = icmp ult i64 %45, 64
+  br i1 %.not54.us, label %.split.us, label %46
 
-48:                                               ; preds = %.lr.ph.split.us
+46:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
   br i1 %exitcond.not, label %.thread56, label %.lr.ph.split.us, !llvm.loop !355
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %61
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %61 ], [ 0, %.lr.ph ]
-  %49 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv69
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !321
-  %52 = add nsw i64 %51, 32
-  %53 = and i64 %52, -64
-  %.not54 = icmp eq i64 %36, %53
-  br i1 %.not54, label %54, label %61
+.lr.ph.split:                                     ; preds = %.lr.ph, %59
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %59 ], [ 0, %.lr.ph ]
+  %47 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %41, i64 %indvars.iv69
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load i64, ptr %48, align 8, !tbaa !321
+  %50 = add nsw i64 %49, 32
+  %51 = xor i64 %50, %34
+  %.not54 = icmp ult i64 %51, 64
+  br i1 %.not54, label %52, label %59
 
-54:                                               ; preds = %.lr.ph.split
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !320
-  %57 = add nsw i64 %56, 32
-  %58 = and i64 %57, -64
-  %59 = icmp eq i64 %34, %58
-  br i1 %59, label %.split.us, label %61
+52:                                               ; preds = %.lr.ph.split
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !320
+  %55 = add nsw i64 %54, 32
+  %56 = xor i64 %55, %33
+  %57 = icmp ult i64 %56, 64
+  br i1 %57, label %.split.us, label %59
 
-.split.us:                                        ; preds = %.lr.ph.split.us, %54
-  %.us-phi = phi i64 [ %indvars.iv69, %54 ], [ %indvars.iv, %.lr.ph.split.us ]
+.split.us:                                        ; preds = %.lr.ph.split.us, %52
+  %.us-phi = phi i64 [ %indvars.iv69, %52 ], [ %indvars.iv, %.lr.ph.split.us ]
   %.not55 = icmp eq ptr %3, null
-  br i1 %.not55, label %.thread56, label %60
+  br i1 %.not55, label %.thread56, label %58
 
-60:                                               ; preds = %.split.us
+58:                                               ; preds = %.split.us
   store i64 %.us-phi, ptr %3, align 8, !tbaa !37
   br label %.thread56
 
-61:                                               ; preds = %.lr.ph.split, %54
+59:                                               ; preds = %.lr.ph.split, %52
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.thread56, label %.lr.ph.split, !llvm.loop !355
 
-.thread56:                                        ; preds = %48, %61, %.preheader, %.split.us, %60, %31, %8, %4
-  %.0 = phi i32 [ 35, %4 ], [ 7, %8 ], [ 23, %31 ], [ 0, %60 ], [ 0, %.split.us ], [ 23, %.preheader ], [ 23, %61 ], [ 23, %48 ]
+.thread56:                                        ; preds = %46, %59, %.preheader, %.split.us, %58, %31, %8, %4
+  %.0 = phi i32 [ 35, %4 ], [ 7, %8 ], [ 23, %31 ], [ 0, %58 ], [ 0, %.split.us ], [ 23, %.preheader ], [ 23, %59 ], [ 23, %46 ]
   ret i32 %.0
 }
 

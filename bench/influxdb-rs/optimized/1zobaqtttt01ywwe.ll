@@ -4945,67 +4945,64 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !794, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !821)
   %9 = load i64, ptr %8, align 8, !range !824, !alias.scope !821, !noalias !825, !noundef !4
-  %10 = add nsw i64 %9, -22
-  %11 = icmp ult i64 %10, 5
-  %12 = add nsw i64 %9, -21
-  %13 = select i1 %11, i64 %12, i64 0
-  switch i64 %13, label %14 [
-    i64 0, label %15
-    i64 1, label %17
-    i64 2, label %20
-    i64 3, label %23
-    i64 4, label %26
-    i64 5, label %28
+  %10 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 21)
+  switch i64 %10, label %default.unreachable [
+    i64 0, label %11
+    i64 1, label %13
+    i64 2, label %16
+    i64 3, label %19
+    i64 4, label %22
+    i64 5, label %24
   ]
 
-14:                                               ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
-15:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !827
   store ptr %8, ptr %7, align 8, !noalias !827
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.200, i64 noundef 10, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.201)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.200, i64 noundef 10, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.201)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !827
   br label %"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit"
 
-17:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !827
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %18, ptr %6, align 8, !noalias !827
-  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.202, i64 noundef 9, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.203)
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %14, ptr %6, align 8, !noalias !827
+  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.202, i64 noundef 9, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.203)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !827
   br label %"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit"
 
-20:                                               ; preds = %2
+16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !827
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %21, ptr %5, align 8, !noalias !827
-  %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.204, i64 noundef 11, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.205)
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %17, ptr %5, align 8, !noalias !827
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.204, i64 noundef 11, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.205)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !827
   br label %"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit"
 
-23:                                               ; preds = %2
+19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !827
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %24, ptr %4, align 8, !noalias !827
-  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.118, i64 noundef 12, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.206)
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %20, ptr %4, align 8, !noalias !827
+  %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.118, i64 noundef 12, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.206)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !827
   br label %"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit"
 
-26:                                               ; preds = %2
-  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.207, i64 noundef 6), !noalias !821
+22:                                               ; preds = %2
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.207, i64 noundef 6), !noalias !821
   br label %"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit"
 
-28:                                               ; preds = %2
+24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !827
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %29, ptr %3, align 8, !noalias !827
-  %30 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.208, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.209)
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %25, ptr %3, align 8, !noalias !827
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9943255e705b9077f6d279e46728b0c5.208, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9943255e705b9077f6d279e46728b0c5.209)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !827
   br label %"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit"
 
-"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit": ; preds = %15, %17, %20, %23, %26, %28
-  %.0.in.i = phi i1 [ %16, %15 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %27, %26 ], [ %30, %28 ]
+"_ZN70_$LT$influxdb3_write..persister..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h85b09fcb55e74807E.exit": ; preds = %11, %13, %16, %19, %22, %24
+  %.0.in.i = phi i1 [ %12, %11 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ], [ %26, %24 ]
   ret i1 %.0.in.i
 }
 
@@ -6439,47 +6436,44 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h12007b43ab74ea61E(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h2126dfc890acf3ebE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !824, !alias.scope !1189, !noundef !4
-  %3 = add nsw i64 %2, -22
-  %4 = icmp ult i64 %3, 5
-  %5 = add nsw i64 %2, -21
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 21)
+  switch i64 %3, label %default.unreachable [
     i64 0, label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
-    i64 1, label %8
-    i64 2, label %10
-    i64 3, label %12
-    i64 4, label %14
-    i64 5, label %15
+    i64 1, label %4
+    i64 2, label %6
+    i64 3, label %8
+    i64 4, label %10
+    i64 5, label %11
   ]
 
-7:                                                ; preds = %1
+default.unreachable:                              ; preds = %1
   unreachable
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
 
-14:                                               ; preds = %1
-  br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
-
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit"
-
-"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit": ; preds = %1, %8, %10, %12, %14, %15
-  %.sroa.7.0.i = phi ptr [ @anon.45ca28eacd16980a982db8040ceab1d4.343.llvm.10820452972315511531, %8 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.297.llvm.10820452972315511531, %10 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.295.llvm.10820452972315511531, %12 ], [ undef, %14 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.345.llvm.10820452972315511531, %15 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.303.llvm.10820452972315511531, %1 ]
-  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %14 ], [ %16, %15 ], [ %0, %1 ]
-  %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.7.0.i, 1
-  ret { ptr, ptr } %18
+"_ZN72_$LT$influxdb3_write..persister..Error$u20$as$u20$core..error..Error$GT$6source17h9fbae71afa883296E.exit": ; preds = %1, %4, %6, %8, %10, %11
+  %.sroa.7.0.i = phi ptr [ @anon.45ca28eacd16980a982db8040ceab1d4.343.llvm.10820452972315511531, %4 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.297.llvm.10820452972315511531, %6 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.295.llvm.10820452972315511531, %8 ], [ undef, %10 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.345.llvm.10820452972315511531, %11 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.303.llvm.10820452972315511531, %1 ]
+  %.sroa.0.0.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ null, %10 ], [ %12, %11 ], [ %0, %1 ]
+  %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.7.0.i, 1
+  ret { ptr, ptr } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -10088,12 +10082,11 @@ _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit: ; preds 
   %24 = add nuw i32 %.0, 30
   %25 = sdiv i32 %24, 60
   %26 = srem i32 %25, 60
-  %27 = icmp ne i8 %10, 3
-  %28 = icmp ne i32 %26, 0
-  %or.cond2.not = select i1 %27, i1 true, i1 %28
+  %27 = icmp eq i8 %10, 3
+  %28 = icmp eq i32 %26, 0
+  %or.cond2.not.not = select i1 %27, i1 %28, i1 false
   %29 = trunc nsw i32 %26 to i8
-  %spec.select = select i1 %or.cond2.not, i8 %29, i8 0
-  %spec.select71 = zext i1 %or.cond2.not to i64
+  %spec.select = select i1 %or.cond2.not.not, i8 0, i8 %29
   br label %37
 
 30:                                               ; preds = %7, %7, %7
@@ -10111,7 +10104,7 @@ _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit: ; preds 
   %.057 = phi i8 [ %34, %43 ], [ %10, %7 ], [ %., %45 ], [ %spec.select, %23 ]
   %.051 = phi i8 [ %44, %43 ], [ %10, %7 ], [ 0, %45 ], [ 0, %23 ]
   %38 = phi i1 [ true, %43 ], [ false, %7 ], [ false, %45 ], [ false, %23 ]
-  %.049 = phi i64 [ 2, %43 ], [ 0, %7 ], [ %.67, %45 ], [ %spec.select71, %23 ]
+  %.049 = phi i1 [ false, %43 ], [ true, %7 ], [ %or.cond6.not.not, %45 ], [ %or.cond2.not.not, %23 ]
   %.062.in = sdiv i32 %.062.in.in, 3600
   %.062 = trunc i32 %.062.in to i8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10125,11 +10118,10 @@ _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit: ; preds 
   br label %37
 
 45:                                               ; preds = %30
-  %46 = icmp ne i8 %10, 5
-  %47 = icmp ne i32 %33, 0
-  %or.cond6.not = or i1 %47, %46
-  %. = select i1 %or.cond6.not, i8 %34, i8 0
-  %.67 = zext i1 %or.cond6.not to i64
+  %46 = icmp eq i8 %10, 5
+  %47 = icmp eq i32 %33, 0
+  %or.cond6.not.not = and i1 %47, %46
+  %. = select i1 %or.cond6.not.not, i8 0, i8 %34
   br label %37
 
 48:                                               ; preds = %37
@@ -10153,9 +10145,7 @@ _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit.thread: ;
   br i1 %58, label %60, label %73
 
 59:                                               ; preds = %_ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit.thread, %88
-  %.049.off = add nsw i64 %.049, -1
-  %switch = icmp ult i64 %.049.off, 2
-  br i1 %switch, label %93, label %92
+  br i1 %.049, label %92, label %93
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22697,6 +22687,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #28

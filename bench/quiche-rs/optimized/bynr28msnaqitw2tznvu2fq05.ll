@@ -414,7 +414,7 @@ switch.lookup:
 define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$qlog..events..EventData$GT$17h2640aef0fa61e2d3E"(ptr noalias noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !19, !noundef !8
   %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 49
+  %4 = icmp samesign ugt i64 %2, 1
   %5 = icmp ne i64 %3, 17
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 17
@@ -703,7 +703,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic.
   %2 = load i128, ptr %0, align 16, !range !39, !noundef !8
   %3 = add nsw i128 %2, -2
   %4 = trunc nuw nsw i128 %3 to i64
-  %5 = icmp ult i128 %3, 3
+  %5 = icmp samesign ugt i128 %2, 1
   %6 = icmp ne i128 %3, 1
   tail call void @llvm.assume(i1 %6)
   %7 = select i1 %5, i64 %4, i64 1
@@ -3151,7 +3151,7 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
 
 .thread:                                          ; preds = %6
   store i64 4, ptr %0, align 8
-  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13"
+  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12"
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3169,9 +3169,8 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load i64, ptr %4, align 8, !range !266, !alias.scope !267, !noundef !8
-  %17 = and i64 %16, -2
-  %switch.i = icmp eq i64 %17, -9223372036854775806
-  br i1 %switch.i, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit", label %18
+  %17 = icmp ugt i64 %16, -9223372036854775807
+  br i1 %17, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit", label %18
 
 18:                                               ; preds = %14
   invoke void @"_ZN4core3ptr107drop_in_place$LT$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h0f37b800193154f1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
@@ -3196,15 +3195,14 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
   store i64 %.sroa.02.0.copyload, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %12, ptr %.sroa.4.0..sroa_idx, align 8
-  %23 = and i64 %7, -2
-  %switch.i12 = icmp eq i64 %23, -9223372036854775806
-  br i1 %switch.i12, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13", label %24
+  %23 = icmp ugt i64 %7, -9223372036854775807
+  br i1 %23, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12", label %24
 
 24:                                               ; preds = %22
   call void @"_ZN4core3ptr107drop_in_place$LT$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h0f37b800193154f1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13"
+  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12"
 
-"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13": ; preds = %.thread, %22, %24
+"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12": ; preds = %.thread, %22, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5029,7 +5027,7 @@ define noundef range(i8 0, 11) i8 @_ZN12tokio_quiche4quic6router25initial_packet
 20:                                               ; preds = %8
   %.val.i = load i8, ptr %11, align 1, !range !516, !alias.scope !517, !noundef !8
   %21 = add nsw i8 %.val.i, -6
-  %22 = icmp ult i8 %21, 5
+  %22 = icmp samesign ugt i8 %.val.i, 5
   %23 = icmp ne i8 %21, 2
   tail call void @llvm.assume(i1 %23)
   %narrow.i.i.i = select i1 %22, i8 %21, i8 2
