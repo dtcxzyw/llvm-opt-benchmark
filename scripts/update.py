@@ -416,7 +416,7 @@ def update_pr():
             for line in out.splitlines():
                 try:
                     add, sub, file = line.split()
-                    difflines.append(int(add) - int(sub), file.removeprefix("bench/").replace("optimized/", ""))
+                    difflines.append((int(add) - int(sub), file.removeprefix("bench/").replace("optimized/", "")))
                 except Exception:
                     print("Cannot parse " + line)
                     pass
