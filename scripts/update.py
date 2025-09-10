@@ -418,6 +418,7 @@ def update_pr():
                     add, sub, file = line.split()
                     difflines.append(int(add) - int(sub), file.removeprefix("bench/").replace("optimized/", ""))
                 except Exception:
+                    print("Cannot parse " + line)
                     pass
             difflines.sort(reverse=True, key=lambda x: x[0])
             for diff, file in difflines[:200]:
