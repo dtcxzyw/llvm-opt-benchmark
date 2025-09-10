@@ -28335,7 +28335,7 @@ switch.lookup:
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i8, ptr %16, align 4, !range !523, !alias.scope !2283, !noundef !17
   %18 = add nsw i8 %17, -2
-  %19 = icmp ult i8 %18, 12
+  %19 = icmp samesign ugt i8 %17, 1
   %20 = icmp ne i8 %18, 3
   tail call void @llvm.assume(i1 %20)
   %narrow = select i1 %19, i8 %18, i8 3
@@ -35908,7 +35908,7 @@ define void @_ZN4fish6parser6Parser11stack_trace17ha874543ec5a00afeE(ptr dead_on
   store ptr %46, ptr %61, align 8, !noalias !2951
   call void @llvm.experimental.noalias.scope.decl(metadata !2953)
   call void @llvm.experimental.noalias.scope.decl(metadata !2956)
-  %107 = icmp ult i8 %104, 12
+  %107 = icmp samesign ugt i8 %103, 1
   %narrow.i.i.i.i.i.i.i = select i1 %107, i8 %104, i8 3
   switch i8 %narrow.i.i.i.i.i.i.i, label %108 [
     i8 0, label %"_ZN4fish6parser6Parser11stack_trace28_$u7b$$u7b$closure$u7d$$u7d$17h1a388aeb6376b49aE.exit.i.i.i.i.i"

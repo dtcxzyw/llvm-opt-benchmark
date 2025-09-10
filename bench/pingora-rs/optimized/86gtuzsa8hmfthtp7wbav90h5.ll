@@ -186,9 +186,8 @@ define internal fastcc void @"_ZN103_$LT$regex_automata..meta..regex..CapturesMa
 
 52:                                               ; preds = %47
   %53 = load i32, ptr %2, align 8, !range !23, !alias.scope !19, !noalias !20, !noundef !3
-  %.off.i.i = add nsw i32 %53, -1
-  %switch.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch.i.i, label %58, label %54
+  %.not.i = icmp eq i32 %53, 0
+  br i1 %.not.i, label %54, label %58
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %.pre, i64 60
@@ -285,8 +284,8 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
 108:                                              ; preds = %105
   %109 = add i64 %104, -1
   %110 = add i64 %107, -1
-  %.not.i = icmp ugt i64 %109, %110
-  br i1 %.not.i, label %111, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit, !prof !37
+  %.not.i2 = icmp ugt i64 %109, %110
+  br i1 %.not.i2, label %111, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit, !prof !37
 
 111:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !38
@@ -2522,9 +2521,8 @@ define void @_ZN13pingora_cache13cache_control12CacheControl18from_headers_named
 
 141:                                              ; preds = %136
   %142 = load i32, ptr %.sroa.02.sroa.4.0..sroa_idx.i, align 8, !range !23, !alias.scope !276, !noalias !277, !noundef !3
-  %.off.i.i.i.i = add nsw i32 %142, -1
-  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 2
-  br i1 %switch.i.i.i.i, label %147, label %143
+  %.not.i.i.i = icmp eq i32 %142, 0
+  br i1 %.not.i.i.i, label %143, label %147
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %99, i64 60
@@ -2622,8 +2620,8 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
 195:                                              ; preds = %192
   %196 = add i64 %191, -1
   %197 = add i64 %194, -1
-  %.not.i.i.i = icmp ugt i64 %196, %197
-  br i1 %.not.i.i.i, label %198, label %199, !prof !37
+  %.not.i2.i.i = icmp ugt i64 %196, %197
+  br i1 %.not.i2.i.i, label %198, label %199, !prof !37
 
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !293

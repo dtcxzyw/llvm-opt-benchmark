@@ -21,7 +21,6 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local noundef float @_Z12u32Tof32Slowj(i32 noundef %i) local_unnamed_addr #3 {
 entry:
   %shr = lshr i32 %i, 23
-  %and1 = and i32 %i, -2147483648
   %0 = and i32 %i, 8388607
   %trunc = trunc i32 %shr to i8
   switch i8 %trunc, label %if.end20 [
@@ -34,15 +33,15 @@ if.then:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %cleanup
 
 if.then7:                                         ; preds = %if.then
-  %tobool.not = icmp eq i32 %and1, 0
-  %cond = select nsz i1 %tobool.not, float 0x7FF0000000000000, float 0xFFF0000000000000
+  %1 = icmp sgt i32 %i, -1
+  %cond = select nsz i1 %1, float 0x7FF0000000000000, float 0xFFF0000000000000
   br label %cleanup
 
 if.then12:                                        ; preds = %entry
-  %tobool13.not = icmp eq i32 %and1, 0
+  %2 = icmp sgt i32 %i, -1
   %conv17 = uitofp nneg i32 %0 to float
   %call18 = tail call nsz float @ldexpf(float noundef %conv17, i32 noundef -149) #9
-  br i1 %tobool13.not, label %cleanup, label %cond.true
+  br i1 %2, label %cleanup, label %cond.true
 
 cond.true:                                        ; preds = %if.then12
   %fneg16 = fneg nsz float %call18
@@ -50,12 +49,12 @@ cond.true:                                        ; preds = %if.then12
 
 if.end20:                                         ; preds = %entry
   %and = and i32 %shr, 255
-  %tobool21.not = icmp eq i32 %and1, 0
-  %1 = or disjoint i32 %0, 8388608
-  %conv30 = uitofp nneg i32 %1 to float
+  %3 = icmp sgt i32 %i, -1
+  %4 = or disjoint i32 %0, 8388608
+  %conv30 = uitofp nneg i32 %4 to float
   %sub31 = add nsw i32 %and, -150
   %call32 = tail call nsz float @ldexpf(float noundef %conv30, i32 noundef %sub31) #9
-  br i1 %tobool21.not, label %cleanup, label %cond.true22
+  br i1 %3, label %cleanup, label %cond.true22
 
 cond.true22:                                      ; preds = %if.end20
   %fneg26 = fneg nsz float %call32

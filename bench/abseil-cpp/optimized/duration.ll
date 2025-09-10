@@ -1743,9 +1743,8 @@ define dso_local i64 @_ZN4absl15ToChronoSecondsENS_8DurationE(i64 %0, i32 %1) lo
   br label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEET_NS_8DurationE.exit
 
 6:                                                ; preds = %2
-  %7 = add i32 %1, -1
-  %8 = icmp ult i32 %7, -2
-  %narrow.i.i.i = and i1 %4, %8
+  %7 = icmp ne i32 %1, 0
+  %narrow.i.i.i = and i1 %4, %7
   %spec.select.i.i.i = zext i1 %narrow.i.i.i to i64
   %.0.i.i.i = add nsw i64 %0, %spec.select.i.i.i
   br label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEET_NS_8DurationE.exit

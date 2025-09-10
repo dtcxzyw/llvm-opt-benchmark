@@ -29617,7 +29617,7 @@ switch.lookup:
   %24 = icmp eq i64 %spec.select, %3
   br i1 %24, label %30, label %81
 
-25:                                               ; preds = %switch.lookup20, %76, %58, %57, %switch.lookup17, %81
+25:                                               ; preds = %switch.lookup19, %76, %58, %57, %switch.lookup16, %81
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -29625,9 +29625,8 @@ switch.lookup:
 .body:                                            ; preds = %74, %25
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %75, %74 ]
   %27 = load i64, ptr %1, align 8, !range !4129, !alias.scope !5271, !noundef !13
-  %28 = add i64 %27, 9223372036854775807
-  %switch.i.i = icmp ult i64 %28, 2
-  br i1 %switch.i.i, label %"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit", label %29
+  %28 = icmp ugt i64 %27, -9223372036854775808
+  br i1 %28, label %"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit", label %29
 
 29:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr58drop_in_place$LT$image..codecs..pnm..header..PnmHeader$GT$17h5e3f68435d64df69E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
@@ -29647,19 +29646,19 @@ switch.lookup:
   %34 = add i64 %33, 9223372036854775807
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 2)
   switch i64 %35, label %default.unreachable [
-    i64 0, label %switch.lookup17
+    i64 0, label %switch.lookup16
     i64 1, label %37
-    i64 2, label %switch.lookup20
+    i64 2, label %switch.lookup19
   ]
 
 default.unreachable:                              ; preds = %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit2.i", %30
   unreachable
 
-switch.lookup17:                                  ; preds = %30
+switch.lookup16:                                  ; preds = %30
   %36 = zext nneg i8 %6 to i64
-  %switch.gep18 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE.118", i64 %36
-  %switch.load19 = load i8, ptr %switch.gep18, align 1
-  invoke fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$20write_dynamic_header17h46265211c427748dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, i32 noundef %4, i32 noundef %5, i8 noundef %switch.load19, i8 undef)
+  %switch.gep17 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE.118", i64 %36
+  %switch.load18 = load i8, ptr %switch.gep17, align 1
+  invoke fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$20write_dynamic_header17h46265211c427748dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, i32 noundef %4, i32 noundef %5, i8 noundef %switch.load18, i8 undef)
           to label %90 unwind label %25
 
 37:                                               ; preds = %30
@@ -29823,12 +29822,12 @@ switch.lookup17:                                  ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !5294
   br label %90
 
-switch.lookup20:                                  ; preds = %30
+switch.lookup19:                                  ; preds = %30
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %80 = zext nneg i8 %6 to i64
-  %switch.gep21 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE.118", i64 %80
-  %switch.load22 = load i8, ptr %switch.gep21, align 1
-  invoke fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$17write_with_header17had1e2108dd291e1eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, i32 noundef %4, i32 noundef %5, i8 noundef %switch.load22, i8 undef)
+  %switch.gep20 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE.118", i64 %80
+  %switch.load21 = load i8, ptr %switch.gep20, align 1
+  invoke fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$17write_with_header17had1e2108dd291e1eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, i32 noundef %4, i32 noundef %5, i8 noundef %switch.load21, i8 undef)
           to label %90 unwind label %25
 
 81:                                               ; preds = %switch.lookup
@@ -29866,19 +29865,18 @@ switch.lookup20:                                  ; preds = %30
 89:                                               ; preds = %81
   unreachable
 
-90:                                               ; preds = %"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$21write_subtyped_header17hfc562043ddb36b4bE.exit.i", %switch.lookup17, %switch.lookup20
+90:                                               ; preds = %"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$21write_subtyped_header17hfc562043ddb36b4bE.exit.i", %switch.lookup16, %switch.lookup19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %91 = load i64, ptr %1, align 8, !range !4129, !alias.scope !5303, !noundef !13
-  %92 = add i64 %91, 9223372036854775807
-  %switch.i.i15 = icmp ult i64 %92, 2
-  br i1 %switch.i.i15, label %"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit16", label %93
+  %92 = icmp ugt i64 %91, -9223372036854775808
+  br i1 %92, label %"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit15", label %93
 
 93:                                               ; preds = %90
   call void @"_ZN4core3ptr58drop_in_place$LT$image..codecs..pnm..header..PnmHeader$GT$17h5e3f68435d64df69E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
-  br label %"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit16"
+  br label %"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit15"
 
-"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit16": ; preds = %90, %93
+"_ZN4core3ptr140drop_in_place$LT$image..codecs..pnm..encoder..PnmEncoder$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h660676bf628d2d52E.exit15": ; preds = %90, %93
   ret void
 
 94:                                               ; preds = %29

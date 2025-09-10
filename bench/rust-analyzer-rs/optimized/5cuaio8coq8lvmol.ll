@@ -2921,7 +2921,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hc411fa1bd45e135fE.llvm.4743249442795103037"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !507, !noundef !17
   %3 = add nsw i8 %2, -8
-  %4 = icmp ult i8 %3, 7
+  %4 = icmp samesign ugt i8 %2, 7
   %narrow = select i1 %4, i8 %3, i8 3
   switch i8 %narrow, label %5 [
     i8 0, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit"
@@ -3662,7 +3662,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !933)
   %5 = add nsw i8 %2, -8
-  %6 = icmp ult i8 %5, 7
+  %6 = icmp samesign ugt i8 %2, 7
   %narrow.i = select i1 %6, i8 %5, i8 3
   switch i8 %narrow.i, label %7 [
     i8 0, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hc411fa1bd45e135fE.llvm.4743249442795103037.exit"
@@ -12803,7 +12803,7 @@ _ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander6expand17h3fcea027ad756c
 
 291:                                              ; preds = %290
   %292 = add nsw i8 %.sroa.03.0.copyload.i84.i, -8
-  %293 = icmp ult i8 %292, 7
+  %293 = icmp samesign ugt i8 %.sroa.03.0.copyload.i84.i, 7
   %narrow.i.i.i.i = select i1 %293, i8 %292, i8 3
   switch i8 %narrow.i.i.i.i, label %294 [
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$2or17he12d02188a958b91E.exit.i"
@@ -12939,7 +12939,7 @@ _ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander6expand17h3fcea027ad756c
 
 335:                                              ; preds = %333
   %336 = add nsw i8 %.sroa.085.0.copyload, -8
-  %337 = icmp ult i8 %336, 7
+  %337 = icmp samesign ugt i8 %.sroa.085.0.copyload, 7
   %narrow.i.i.i = select i1 %337, i8 %336, i8 3
   switch i8 %narrow.i.i.i, label %338 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit.i"
@@ -13452,7 +13452,7 @@ define hidden void @_ZN10hir_expand2db14parse_with_map17h79d5688ab0fdab3aE(ptr n
 33:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3552)
   %34 = add nsw i8 %31, -8
-  %35 = icmp ult i8 %34, 7
+  %35 = icmp samesign ugt i8 %31, 7
   %narrow.i.i = select i1 %35, i8 %34, i8 3
   switch i8 %narrow.i.i, label %36 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit"
@@ -16644,7 +16644,7 @@ define hidden void @_ZN10hir_expand2db17expand_proc_macro17h18559c083b2998b5E.ll
 
 98:                                               ; preds = %94
   %99 = add nsw i8 %96, -8
-  %100 = icmp ult i8 %99, 7
+  %100 = icmp samesign ugt i8 %96, 7
   %narrow.i.i = select i1 %100, i8 %99, i8 3
   switch i8 %narrow.i.i, label %101 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit"
@@ -17263,7 +17263,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr103dro
 
 90:                                               ; preds = %88
   %91 = add nsw i8 %.sroa.081.0.copyload, -8
-  %92 = icmp ult i8 %91, 7
+  %92 = icmp samesign ugt i8 %.sroa.081.0.copyload, 7
   %narrow.i.i.i = select i1 %92, i8 %91, i8 3
   switch i8 %narrow.i.i.i, label %93 [
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$2or17he12d02188a958b91E.exit"
@@ -18053,7 +18053,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.4743249442795103037.ex
 
 138:                                              ; preds = %134
   %139 = add nsw i8 %136, -8
-  %140 = icmp ult i8 %139, 7
+  %140 = icmp samesign ugt i8 %136, 7
   %narrow.i.i = select i1 %140, i8 %139, i8 3
   switch i8 %narrow.i.i, label %141 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit"
@@ -18322,7 +18322,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %209
 
 228:                                              ; preds = %223
   %229 = add nsw i8 %226, -8
-  %230 = icmp ult i8 %229, 7
+  %230 = icmp samesign ugt i8 %226, 7
   %narrow.i.i195 = select i1 %230, i8 %229, i8 3
   switch i8 %narrow.i.i195, label %231 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit201"
@@ -18854,7 +18854,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %209
 
 402:                                              ; preds = %400
   %403 = add nsw i8 %.sroa.0420.0.copyload, -8
-  %404 = icmp ult i8 %403, 7
+  %404 = icmp samesign ugt i8 %.sroa.0420.0.copyload, 7
   %narrow.i.i.i = select i1 %404, i8 %403, i8 3
   switch i8 %narrow.i.i.i, label %405 [
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$2or17he12d02188a958b91E.exit"
@@ -19103,7 +19103,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %209
 
 476:                                              ; preds = %474
   %477 = add nsw i8 %.sroa.0437.0.copyload, -8
-  %478 = icmp ult i8 %477, 7
+  %478 = icmp samesign ugt i8 %.sroa.0437.0.copyload, 7
   %narrow.i.i.i258 = select i1 %478, i8 %477, i8 3
   switch i8 %narrow.i.i.i258, label %479 [
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$2or17he12d02188a958b91E.exit265"
@@ -19237,7 +19237,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %209
 
 520:                                              ; preds = %517
   %521 = add nsw i8 %518, -8
-  %522 = icmp ult i8 %521, 7
+  %522 = icmp samesign ugt i8 %518, 7
   %narrow.i.i274 = select i1 %522, i8 %521, i8 3
   switch i8 %narrow.i.i274, label %523 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit280"
@@ -19493,7 +19493,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %556, %553
 617:                                              ; preds = %614
   call void @llvm.experimental.noalias.scope.decl(metadata !5241)
   %618 = add nsw i8 %615, -8
-  %619 = icmp ult i8 %618, 7
+  %619 = icmp samesign ugt i8 %615, 7
   %narrow.i.i298 = select i1 %619, i8 %618, i8 3
   switch i8 %narrow.i.i298, label %620 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit304"
@@ -23088,7 +23088,7 @@ define noundef nonnull ptr @_ZN10hir_expand8span_map18expansion_span_map17h20670
 28:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$syntax..Parse$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5518afd7d760b833E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !6556)
   %29 = add nsw i8 %26, -8
-  %30 = icmp ult i8 %29, 7
+  %30 = icmp samesign ugt i8 %26, 7
   %narrow.i.i = select i1 %30, i8 %29, i8 3
   switch i8 %narrow.i.i, label %31 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit"
@@ -23169,7 +23169,7 @@ define void @"_ZN87_$LT$hir_expand..ExpandError$u20$as$u20$core..convert..From$L
 define noundef zeroext i1 @"_ZN62_$LT$hir_expand..ExpandError$u20$as$u20$core..fmt..Display$GT$3fmt17h8027ce21d0b118d2E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8, !range !507, !noundef !17
   %4 = add nsw i8 %3, -8
-  %5 = icmp ult i8 %4, 7
+  %5 = icmp samesign ugt i8 %3, 7
   %narrow = select i1 %5, i8 %4, i8 3
   switch i8 %narrow, label %6 [
     i8 0, label %7
@@ -23572,9 +23572,8 @@ define noundef zeroext i1 @_ZN10hir_expand10MacroDefId20is_env_or_option_env17h1
   %3 = icmp eq i8 %2, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !range !877
-  %.off.i = add nsw i8 %5, -7
-  %switch.i = icmp ult i8 %.off.i, 2
-  %.0 = select i1 %3, i1 %switch.i, i1 false
+  %6 = icmp samesign ugt i8 %5, 6
+  %.0 = select i1 %3, i1 %6, i1 false
   ret i1 %.0
 }
 
@@ -24543,7 +24542,7 @@ define { i32, i32 } @_ZN10hir_expand12MacroCallLoc15include_file_id17hd0940473ad
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.val3 = load ptr, ptr %26, align 8
   %27 = add nsw i8 %21, -8
-  %28 = icmp ult i8 %27, 7
+  %28 = icmp samesign ugt i8 %21, 7
   %narrow.i.i6 = select i1 %28, i8 %27, i8 3
   switch i8 %narrow.i.i6, label %29 [
     i8 0, label %.sink.split
@@ -27044,7 +27043,7 @@ default.unreachable:                              ; preds = %4
 274:                                              ; preds = %268
   call void @llvm.experimental.noalias.scope.decl(metadata !7622)
   %275 = add nsw i8 %272, -8
-  %276 = icmp ult i8 %275, 7
+  %276 = icmp samesign ugt i8 %272, 7
   %narrow.i.i = select i1 %276, i8 %275, i8 3
   switch i8 %narrow.i.i, label %277 [
     i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit"
@@ -31629,7 +31628,7 @@ define noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_expand..MacroCallLoc$u20$as$u
 define internal fastcc void @"_ZN62_$LT$hir_expand..ExpandError$u20$as$u20$core..clone..Clone$GT$5clone17h751cf20c21fd83f1E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 8, !range !507, !noundef !17
   %4 = add nsw i8 %3, -8
-  %5 = icmp ult i8 %4, 7
+  %5 = icmp samesign ugt i8 %3, 7
   %narrow = select i1 %5, i8 %4, i8 3
   switch i8 %narrow, label %6 [
     i8 0, label %7

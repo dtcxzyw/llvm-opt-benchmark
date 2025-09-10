@@ -77,8 +77,8 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
 36:                                               ; preds = %29
   %37 = icmp ugt ptr %19, %8
   %38 = icmp eq i64 %4, 1
-  %or.cond76 = or i1 %38, %37
-  br i1 %or.cond76, label %39, label %43
+  %or.cond75 = or i1 %38, %37
+  br i1 %or.cond75, label %39, label %43
 
 39:                                               ; preds = %36
   %40 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -89,40 +89,39 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %45 = load i8, ptr %19, align 1, !tbaa !10
-  %.not75 = icmp ult i8 %45, 4
-  br i1 %.not75, label %50, label %46
+  %46 = icmp ugt i8 %45, 3
+  br i1 %46, label %47, label %51
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
-  %48 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
-  %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__ginfo_decode, i32 noundef 114, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.5) #7
+47:                                               ; preds = %43
+  %48 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
+  %49 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
+  %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__ginfo_decode, i32 noundef 114, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.5) #7
   br label %120
 
-50:                                               ; preds = %43
-  %51 = and i8 %45, 1
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i8 %51, ptr %52, align 4, !tbaa !13
-  %53 = icmp samesign ugt i8 %45, 1
-  %54 = getelementptr inbounds nuw i8, ptr %30, i64 10
-  %55 = zext i1 %53 to i8
-  store i8 %55, ptr %54, align 2, !tbaa !17
-  %56 = trunc i8 %45 to i1
-  br i1 %56, label %57, label %84
+51:                                               ; preds = %43
+  %52 = and i8 %45, 1
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i8 %52, ptr %53, align 4, !tbaa !13
+  %54 = icmp samesign ugt i8 %45, 1
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 10
+  %56 = zext i1 %54 to i8
+  store i8 %56, ptr %55, align 2, !tbaa !17
+  %57 = trunc i8 %45 to i1
+  br i1 %57, label %58, label %84
 
-57:                                               ; preds = %50
-  %58 = icmp ugt ptr %44, %8
-  %59 = add nsw i64 %4, -2
-  %60 = icmp samesign ult i64 %59, 4
-  %or.cond78 = select i1 %58, i1 true, i1 %60
-  br i1 %or.cond78, label %61, label %65
+58:                                               ; preds = %51
+  %59 = icmp ugt ptr %44, %8
+  %60 = icmp samesign ult i64 %4, 6
+  %or.cond77 = or i1 %59, %60
+  br i1 %or.cond77, label %61, label %65
 
-61:                                               ; preds = %57
+61:                                               ; preds = %58
   %62 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %63 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
   %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__ginfo_decode, i32 noundef 121, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.2) #7
   br label %120
 
-65:                                               ; preds = %57
+65:                                               ; preds = %58
   %66 = load i8, ptr %44, align 1, !tbaa !10
   %67 = zext i8 %66 to i16
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 6
@@ -145,7 +144,7 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br label %87
 
-84:                                               ; preds = %50
+84:                                               ; preds = %51
   %85 = getelementptr inbounds nuw i8, ptr %30, i64 6
   store i16 8, ptr %85, align 2, !tbaa !18
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -154,7 +153,7 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
 
 87:                                               ; preds = %84, %65
   %.067 = phi ptr [ %83, %65 ], [ %44, %84 ]
-  br i1 %53, label %88, label %117
+  br i1 %54, label %88, label %117
 
 88:                                               ; preds = %87
   %89 = icmp ugt ptr %.067, %8
@@ -202,7 +201,7 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
   store i16 8, ptr %119, align 2, !tbaa !21
   br label %.thread
 
-120:                                              ; preds = %39, %46, %61, %95
+120:                                              ; preds = %39, %47, %61, %95
   %121 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_ginfo_t_reg_free_list, ptr noundef nonnull %30) #7
   br label %.thread
 

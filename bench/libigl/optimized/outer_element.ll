@@ -285,29 +285,30 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
   %.fr = freeze i64 %64
   %65 = sext i32 %59 to i64
   %66 = icmp eq i64 %.fr, %65
-  br i1 %66, label %73, label %67
+  br i1 %66, label %.thread, label %67
 
 67:                                               ; preds = %52
   %68 = sext i32 %61 to i64
   %69 = icmp eq i64 %.fr, %68
-  br i1 %69, label %73, label %70
+  br i1 %69, label %.thread, label %70
 
 70:                                               ; preds = %67
   %71 = sext i32 %.fr56 to i64
   %72 = icmp eq i64 %.fr, %71
-  %..i = select i1 %72, i64 2, i64 -1
-  br label %73
+  br i1 %72, label %74, label %.thread
 
-73:                                               ; preds = %70, %67, %52
-  %.0.i = phi i64 [ 0, %52 ], [ 1, %67 ], [ %..i, %70 ]
-  %74 = add nsw i64 %.0.i, 1
-  %.urem = add nsw i64 %.0.i, -2
-  %.cmp = icmp samesign ult i64 %74, 3
-  %75 = select i1 %.cmp, i64 %74, i64 %.urem
+.thread:                                          ; preds = %52, %67, %70
+  %.0.i.ph = phi i64 [ -1, %70 ], [ 1, %67 ], [ 0, %52 ]
+  %73 = add nsw i64 %.0.i.ph, 1
+  br label %74
+
+74:                                               ; preds = %70, %.thread
+  %.0.i68 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %70 ]
+  %75 = phi i64 [ %73, %.thread ], [ 0, %70 ]
   %76 = getelementptr inbounds i32, ptr %17, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !15
-  %78 = add nsw i64 %.0.i, 2
-  %.urem54 = add nsw i64 %.0.i, -1
+  %78 = add nsw i64 %.0.i68, 2
+  %.urem54 = add nsw i64 %.0.i68, -1
   %.cmp55 = icmp samesign ult i64 %78, 3
   %79 = select i1 %.cmp55, i64 %78, i64 %.urem54
   %80 = getelementptr inbounds i32, ptr %17, i64 %79
@@ -316,7 +317,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
   invoke void @_ZZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin1ELi3EEENS2_IlLin1ELi1ELi0ELin1ELi1EEElS5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERT2_SK_RNS1_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %81, i64 noundef %55)
           to label %83 unwind label %87
 
-83:                                               ; preds = %73
+83:                                               ; preds = %74
   %84 = sext i32 %82 to i64
   invoke void @_ZZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin1ELi3EEENS2_IlLin1ELi1ELi0ELin1ELi1EEElS5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERT2_SK_RNS1_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %84, i64 noundef %55)
           to label %85 unwind label %87
@@ -327,7 +328,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
   %exitcond.not = icmp eq i64 %86, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %52, !llvm.loop !49
 
-87:                                               ; preds = %83, %73
+87:                                               ; preds = %83, %74
   %88 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -651,29 +652,30 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   %.fr = freeze i64 %63
   %64 = sext i32 %58 to i64
   %65 = icmp eq i64 %.fr, %64
-  br i1 %65, label %72, label %66
+  br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %50
   %67 = sext i32 %60 to i64
   %68 = icmp eq i64 %.fr, %67
-  br i1 %68, label %72, label %69
+  br i1 %68, label %.thread, label %69
 
 69:                                               ; preds = %66
   %70 = sext i32 %.fr56 to i64
   %71 = icmp eq i64 %.fr, %70
-  %..i = select i1 %71, i64 2, i64 -1
-  br label %72
+  br i1 %71, label %73, label %.thread
 
-72:                                               ; preds = %69, %66, %50
-  %.0.i = phi i64 [ 0, %50 ], [ 1, %66 ], [ %..i, %69 ]
-  %73 = add nsw i64 %.0.i, 1
-  %.urem = add nsw i64 %.0.i, -2
-  %.cmp = icmp samesign ult i64 %73, 3
-  %74 = select i1 %.cmp, i64 %73, i64 %.urem
+.thread:                                          ; preds = %50, %66, %69
+  %.0.i.ph = phi i64 [ -1, %69 ], [ 1, %66 ], [ 0, %50 ]
+  %72 = add nsw i64 %.0.i.ph, 1
+  br label %73
+
+73:                                               ; preds = %69, %.thread
+  %.0.i68 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %69 ]
+  %74 = phi i64 [ %72, %.thread ], [ 0, %69 ]
   %75 = getelementptr inbounds i32, ptr %17, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !15
-  %77 = add nsw i64 %.0.i, 2
-  %.urem54 = add nsw i64 %.0.i, -1
+  %77 = add nsw i64 %.0.i68, 2
+  %.urem54 = add nsw i64 %.0.i68, -1
   %.cmp55 = icmp samesign ult i64 %77, 3
   %78 = select i1 %.cmp55, i64 %77, i64 %.urem54
   %79 = getelementptr inbounds i32, ptr %17, i64 %78
@@ -682,7 +684,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   invoke void @_ZZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELin1ELi1ELin1ELin1EEES4_lNS2_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERT2_SK_RNS1_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %80, i64 noundef %53)
           to label %82 unwind label %86
 
-82:                                               ; preds = %72
+82:                                               ; preds = %73
   %83 = sext i32 %81 to i64
   invoke void @_ZZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELin1ELi1ELin1ELin1EEES4_lNS2_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERT2_SK_RNS1_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %83, i64 noundef %53)
           to label %84 unwind label %86
@@ -693,7 +695,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   %exitcond.not = icmp eq i64 %85, %37
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !68
 
-86:                                               ; preds = %82, %72
+86:                                               ; preds = %82, %73
   %87 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1017,29 +1019,30 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   %.fr = freeze i64 %64
   %65 = sext i32 %59 to i64
   %66 = icmp eq i64 %.fr, %65
-  br i1 %66, label %73, label %67
+  br i1 %66, label %.thread, label %67
 
 67:                                               ; preds = %52
   %68 = sext i32 %61 to i64
   %69 = icmp eq i64 %.fr, %68
-  br i1 %69, label %73, label %70
+  br i1 %69, label %.thread, label %70
 
 70:                                               ; preds = %67
   %71 = sext i32 %.fr57 to i64
   %72 = icmp eq i64 %.fr, %71
-  %..i = select i1 %72, i64 2, i64 -1
-  br label %73
+  br i1 %72, label %74, label %.thread
 
-73:                                               ; preds = %70, %67, %52
-  %.0.i = phi i64 [ 0, %52 ], [ 1, %67 ], [ %..i, %70 ]
-  %74 = add nsw i64 %.0.i, 1
-  %.urem = add nsw i64 %.0.i, -2
-  %.cmp = icmp samesign ult i64 %74, 3
-  %75 = select i1 %.cmp, i64 %74, i64 %.urem
+.thread:                                          ; preds = %52, %67, %70
+  %.0.i.ph = phi i64 [ -1, %70 ], [ 1, %67 ], [ 0, %52 ]
+  %73 = add nsw i64 %.0.i.ph, 1
+  br label %74
+
+74:                                               ; preds = %70, %.thread
+  %.0.i69 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %70 ]
+  %75 = phi i64 [ %73, %.thread ], [ 0, %70 ]
   %76 = getelementptr inbounds i32, ptr %17, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !15
-  %78 = add nsw i64 %.0.i, 2
-  %.urem55 = add nsw i64 %.0.i, -1
+  %78 = add nsw i64 %.0.i69, 2
+  %.urem55 = add nsw i64 %.0.i69, -1
   %.cmp56 = icmp samesign ult i64 %78, 3
   %79 = select i1 %.cmp56, i64 %78, i64 %.urem55
   %80 = getelementptr inbounds i32, ptr %17, i64 %79
@@ -1048,7 +1051,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   invoke void @_ZZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEElNS2_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERT2_SL_RNS1_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %81, i64 noundef %55)
           to label %83 unwind label %87
 
-83:                                               ; preds = %73
+83:                                               ; preds = %74
   %84 = sext i32 %82 to i64
   invoke void @_ZZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEElNS2_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERT2_SL_RNS1_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %84, i64 noundef %55)
           to label %85 unwind label %87
@@ -1059,7 +1062,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   %exitcond.not = icmp eq i64 %86, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %52, !llvm.loop !84
 
-87:                                               ; preds = %83, %73
+87:                                               ; preds = %83, %74
   %88 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
