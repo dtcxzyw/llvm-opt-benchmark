@@ -5107,6 +5107,10 @@ _ZN13CompileReplay9parse_intEPKc.exit60.thread131: ; preds = %44
   %49 = icmp eq i32 %48, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %49, label %84, label %73
 
 _ZN13CompileReplay9parse_intEPKc.exit66.thread.sink.split: ; preds = %23, %_ZN13CompileReplay9parse_intEPKc.exit.thread118
@@ -5121,6 +5125,10 @@ _ZN13CompileReplay9parse_intEPKc.exit66.thread:   ; preds = %_ZN13CompileReplay9
   %.0.i82.ph = phi i32 [ %40, %_ZN13CompileReplay9parse_intEPKc.exit ], [ %.0.i82.ph.ph, %_ZN13CompileReplay9parse_intEPKc.exit66.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %84
 
 _ZN13CompileReplay9parse_intEPKc.exit60:          ; preds = %44
@@ -8667,6 +8675,7 @@ define linkonce_odr hidden noundef ptr @_ZN13CompileReplay10parse_dataEPKcRi(ptr
   %14 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull @.str.84, i32 noundef %12, i32 noundef 80) #17
   %15 = load i32, ptr %8, align 4
+  %.neg = add i32 %15, -80
   %16 = icmp slt i32 %15, 80
   br i1 %16, label %.loopexit, label %17
 
@@ -8682,56 +8691,62 @@ define linkonce_odr hidden noundef ptr @_ZN13CompileReplay10parse_dataEPKcRi(ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %19, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.lr.ph.split.preheader, label %.lr.ph42
+  br i1 %23, label %.lr.ph.split, label %_ZN13CompileReplay9parse_intEPKc.exit.us
 
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %24 = add nsw i32 %15, -81
-  br label %.lr.ph.split
+_ZN13CompileReplay9parse_intEPKc.exit.us:         ; preds = %.lr.ph, %_ZN13CompileReplay9parse_intEPKc.exit.us
+  %.02638.us = phi i32 [ %24, %_ZN13CompileReplay9parse_intEPKc.exit.us ], [ 0, %.lr.ph ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %24 = add nuw nsw i32 %.02638.us, 1
+  %exitcond.not = icmp eq i32 %24, %.neg
+  br i1 %exitcond.not, label %.lr.ph42, label %_ZN13CompileReplay9parse_intEPKc.exit.us, !llvm.loop !44
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN13CompileReplay9parse_intEPKc.exit
-  %25 = add nuw nsw i32 %.02638, 1
   %.pr = load ptr, ptr %19, align 8
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
-  %26 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph.split.preheader ]
-  %.02638 = phi i32 [ %25, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
+  %25 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
+  %.02638 = phi i32 [ %38, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not.i.i = icmp eq ptr %26, null
+  %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZN13CompileReplay9had_errorEv.exit.i, label %_ZN13CompileReplay9parse_intEPKc.exit
 
 _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %.lr.ph.split
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %.not2.i = icmp eq ptr %29, null
-  br i1 %.not2.i, label %30, label %_ZN13CompileReplay9parse_intEPKc.exit
+  %26 = load ptr, ptr %20, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %.not2.i = icmp eq ptr %28, null
+  br i1 %.not2.i, label %29, label %_ZN13CompileReplay9parse_intEPKc.exit
 
-30:                                               ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
+29:                                               ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
   store i32 0, ptr %6, align 4
-  %31 = load ptr, ptr %21, align 8
-  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.34, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
-  %.not.i = icmp eq i32 %32, 1
-  br i1 %.not.i, label %34, label %33
+  %30 = load ptr, ptr %21, align 8
+  %31 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %30, ptr noundef nonnull @.str.34, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  %.not.i = icmp eq i32 %31, 1
+  br i1 %.not.i, label %33, label %32
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   store ptr @.str.80, ptr %19, align 8
   br label %_ZN13CompileReplay9parse_intEPKc.exit
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %7, align 4
-  %36 = load ptr, ptr %21, align 8
-  %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  store ptr %38, ptr %21, align 8
+33:                                               ; preds = %29
+  %34 = load i32, ptr %7, align 4
+  %35 = load ptr, ptr %21, align 8
+  %36 = sext i32 %34 to i64
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
+  store ptr %37, ptr %21, align 8
   br label %_ZN13CompileReplay9parse_intEPKc.exit
 
-_ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %33, %34, %.lr.ph.split, %_ZN13CompileReplay9had_errorEv.exit.i
+_ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %32, %33, %.lr.ph.split, %_ZN13CompileReplay9had_errorEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %exitcond.not = icmp eq i32 %.02638, %24
-  br i1 %exitcond.not, label %.lr.ph42, label %.lr.ph.splitthread-pre-split, !llvm.loop !44
+  %38 = add nuw nsw i32 %.02638, 1
+  %exitcond45.not = icmp eq i32 %38, %.neg
+  br i1 %exitcond45.not, label %.lr.ph42, label %.lr.ph.splitthread-pre-split, !llvm.loop !45
 
 .loopexit:                                        ; preds = %13
   %39 = sub i32 80, %15
@@ -8743,12 +8758,12 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %33, %34, %.lr.ph.sp
   %42 = icmp slt i32 %39, 80
   br i1 %42, label %.lr.ph42, label %._crit_edge
 
-.lr.ph42:                                         ; preds = %_ZN13CompileReplay9parse_intEPKc.exit, %.lr.ph, %10, %17, %.loopexit
-  %.02555 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ]
+.lr.ph42:                                         ; preds = %_ZN13CompileReplay9parse_intEPKc.exit.us, %_ZN13CompileReplay9parse_intEPKc.exit, %10, %17, %.loopexit
+  %.02556 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit.us ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %46 = zext nneg i32 %.02555 to i64
+  %46 = zext nneg i32 %.02556 to i64
   br label %47
 
 47:                                               ; preds = %.lr.ph42, %_ZN13CompileReplay9parse_intEPKc.exit36
@@ -8798,8 +8813,8 @@ _ZN13CompileReplay9parse_intEPKc.exit36:          ; preds = %47, %_ZN13CompileRe
   store i8 %.0.i32, ptr %64, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = and i64 %indvars.iv.next, 4294967295
-  %exitcond49.not = icmp eq i64 %65, 80
-  br i1 %exitcond49.not, label %._crit_edge, label %47, !llvm.loop !46
+  %exitcond50.not = icmp eq i64 %65, 80
+  br i1 %exitcond50.not, label %._crit_edge, label %47, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %_ZN13CompileReplay9parse_intEPKc.exit36, %.loopexit
   store i32 80, ptr %2, align 4
@@ -8896,7 +8911,7 @@ _ZN13CompileReplay14parse_intptr_tEPKc.exit:      ; preds = %_ZN13CompileReplay7
   %37 = load i32, ptr %2, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %17, label %.loopexit, !llvm.loop !47
+  br i1 %39, label %17, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %_ZN13CompileReplay14parse_intptr_tEPKc.exit, %7, %3
   %.0 = phi ptr [ null, %3 ], [ %11, %7 ], [ %11, %_ZN13CompileReplay14parse_intptr_tEPKc.exit ]
@@ -8967,7 +8982,7 @@ _ZN13GrowableArrayIP19_ciMethodDataRecordE8allocateEv.exit: ; preds = %7, %11, %
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !48
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !49
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8983,7 +8998,7 @@ _ZN13GrowableArrayIP19_ciMethodDataRecordE8allocateEv.exit: ; preds = %7, %11, %
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !49
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !50
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -10183,7 +10198,7 @@ _ZN13GrowableArrayIP22_ciInstanceKlassRecordE8allocateEv.exit: ; preds = %7, %11
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !50
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !51
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10199,7 +10214,7 @@ _ZN13GrowableArrayIP22_ciInstanceKlassRecordE8allocateEv.exit: ; preds = %7, %11
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !51
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !52
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -12202,11 +12217,12 @@ attributes #20 = { noreturn nounwind }
 !41 = distinct !{!41, !9}
 !42 = distinct !{!42, !9}
 !43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9, !45}
-!45 = !{!"llvm.loop.unswitch.partial.disable"}
-!46 = distinct !{!46, !9}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !9, !46}
+!46 = !{!"llvm.loop.unswitch.partial.disable"}
 !47 = distinct !{!47, !9}
 !48 = distinct !{!48, !9}
 !49 = distinct !{!49, !9}
 !50 = distinct !{!50, !9}
 !51 = distinct !{!51, !9}
+!52 = distinct !{!52, !9}

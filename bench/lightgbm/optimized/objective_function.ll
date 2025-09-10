@@ -954,7 +954,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %37, ptr noundef nonnull dereferenceable(10) %31, i64 10)
   %38 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %38, label %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split
+  br i1 %38, label %39, label %._crit_edge.i.i49.thread195
+
+._crit_edge.i.i49.thread195:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %._crit_edge.i.i58.thread196
 
 39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %40 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -989,7 +994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %._c
   %bcmp.i44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %52, ptr noundef nonnull dereferenceable(13) %48, i64 13)
   %53 = icmp eq i32 %bcmp.i44, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %53, label %54, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split
+  br i1 %53, label %54, label %._crit_edge.i.i58.thread196
 
 54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
   %55 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -1024,7 +1029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %._c
   %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %67, ptr noundef nonnull dereferenceable(8) %63, i64 8)
   %68 = icmp eq i32 %bcmp.i53, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %68, label %69, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split
+  br i1 %68, label %69, label %._crit_edge.i.i71.thread197
 
 69:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57
   %70 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -1058,6 +1063,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %._c
           cleanup
   br label %_ZNSt14_Function_baseD2Ev.exit95
 
+._crit_edge.i.i58.thread196:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %._crit_edge.i.i49.thread195
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %._crit_edge.i.i71.thread197
+
 ._crit_edge.i.i58:                                ; preds = %._crit_edge.i.i49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1076,7 +1086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %._c
   %bcmp.i62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %90, ptr noundef nonnull dereferenceable(5) %86, i64 5)
   %91 = icmp eq i32 %bcmp.i62, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %91, label %92, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split
+  br i1 %91, label %92, label %._crit_edge.i.i80.thread198
 
 92:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
   %93 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #35
@@ -1110,6 +1120,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %._c
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt14_Function_baseD2Ev.exit95
+
+._crit_edge.i.i71.thread197:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %._crit_edge.i.i58.thread196
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %._crit_edge.i.i80.thread198
 
 ._crit_edge.i.i71:                                ; preds = %._crit_edge.i.i58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1150,6 +1165,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %._c
   store double %124, ptr %125, align 8, !tbaa !71
   br label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit
 
+._crit_edge.i.i80.thread198:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, %._crit_edge.i.i71.thread197
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split
+
 ._crit_edge.i.i80:                                ; preds = %._crit_edge.i.i71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1163,7 +1183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %._c
   %129 = icmp eq i64 %35, 7
   br i1 %129, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread.sink.split: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %._crit_edge.i.i80.thread198
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread
 
@@ -35586,7 +35606,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %55, ptr noundef nonnull dereferenceable(10) %50, i64 10)
   %56 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %56, label %57, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split
+  br i1 %56, label %57, label %._crit_edge.i.i21.thread180
+
+._crit_edge.i.i21.thread180:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %._crit_edge.i.i31.thread181
 
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %58 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -35630,7 +35655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %._c
   %bcmp.i15 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %70, ptr noundef nonnull dereferenceable(13) %66, i64 13)
   %71 = icmp eq i32 %bcmp.i15, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %71, label %72, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split
+  br i1 %71, label %72, label %._crit_edge.i.i31.thread181
 
 72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   %73 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -35668,7 +35693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %._c
   %bcmp.i25 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %81, ptr noundef nonnull dereferenceable(8) %77, i64 8)
   %82 = icmp eq i32 %bcmp.i25, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %82, label %83, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split
+  br i1 %82, label %83, label %._crit_edge.i.i41.thread182
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29
   %84 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -35688,6 +35713,11 @@ _ZN8LightGBM22RegressionQuantilelossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt
   call void @_ZdlPv(ptr noundef nonnull %84) #36
   br label %401
 
+._crit_edge.i.i31.thread181:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %._crit_edge.i.i21.thread180
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %._crit_edge.i.i41.thread182
+
 ._crit_edge.i.i31:                                ; preds = %._crit_edge.i.i21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -35706,7 +35736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %._c
   %bcmp.i35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %92, ptr noundef nonnull dereferenceable(5) %88, i64 5)
   %93 = icmp eq i32 %bcmp.i35, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %93, label %94, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split
+  br i1 %93, label %94, label %._crit_edge.i.i51.thread183
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
   %95 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #35
@@ -35754,6 +35784,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %._c
   call void @_ZdlPv(ptr noundef nonnull %95) #36
   br label %401
 
+._crit_edge.i.i41.thread182:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %._crit_edge.i.i31.thread181
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %._crit_edge.i.i51.thread183
+
 ._crit_edge.i.i41:                                ; preds = %._crit_edge.i.i31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -35792,6 +35827,11 @@ _ZN8LightGBM18RegressionFairLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
   call void @_ZdlPv(ptr noundef nonnull %116) #36
   br label %401
 
+._crit_edge.i.i51.thread183:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39, %._crit_edge.i.i41.thread182
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split
+
 ._crit_edge.i.i51:                                ; preds = %._crit_edge.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -35805,7 +35845,7 @@ _ZN8LightGBM18RegressionFairLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
   %123 = icmp eq i64 %53, 7
   br i1 %123, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread.sink.split: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, %._crit_edge.i.i51.thread183
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.thread
 

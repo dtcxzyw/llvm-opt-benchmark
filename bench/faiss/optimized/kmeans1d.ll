@@ -1998,7 +1998,8 @@ _ZN5faiss12_GLOBAL__N_16MatrixIlEC2Ell.exit:      ; preds = %_ZN5faiss12_GLOBAL_
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   %.not.i.i.i.i138 = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i.i138, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  br i1 %.not.i.i.i.i138, label %._crit_edge269, label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
 212:                                              ; preds = %40
   %213 = landingpad { ptr, i32 }
@@ -2029,7 +2030,6 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   br i1 %exitcond.not, label %._crit_edge, label %214, !llvm.loop !87
 
 _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 1, ptr %8, align 8, !tbaa !9
   %.not360 = icmp eq i64 %2, 1
   br i1 %.not360, label %.lr.ph268.preheader, label %.lr.ph260
@@ -2267,6 +2267,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %.loopexit, %.loopex
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit172
 
+._crit_edge269:                                   ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %_ZNSt6vectorIlSaIlEED2Ev.exit155
+
 .loopexit349:                                     ; preds = %393
   %328 = uitofp nneg i64 %2 to double
   %329 = fmul double %399, %328
@@ -2274,8 +2278,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %.loopexit, %.loopex
   %331 = fdiv double %329, %330
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit349
-  %332 = phi double [ %331, %.loopexit349 ], [ 0x7FF8000000000000, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %._crit_edge269, %.loopexit349
+  %332 = phi double [ 0x7FF8000000000000, %._crit_edge269 ], [ %331, %.loopexit349 ]
   %.not.i.i.i.i156 = icmp eq ptr %.sroa.0213.0, null
   br i1 %.not.i.i.i.i156, label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit, label %333
 

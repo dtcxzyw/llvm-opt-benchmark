@@ -19923,6 +19923,10 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold16scan_relocationsINS3_6X86_64EEEvRNS3_7
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %.thread
 
@@ -98174,6 +98178,8 @@ define linkonce_odr dso_local void @_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEEvSG_SG_T0_.exit.us: ; preds = %.lr.ph, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEEvSG_SG_T0_.exit.us
   %.sroa.026.030.us = phi ptr [ %16, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEEvSG_SG_T0_.exit.us ], [ %0, %.lr.ph ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.026.030.us, i64 %.idx
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %10, %17
   %19 = ashr exact i64 %18, 3
@@ -98341,9 +98347,13 @@ define linkonce_odr dso_local void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__norma
 .lr.ph:                                           ; preds = %6
   %.idx = shl nsw i64 %3, 3
   %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %14)
-  br label %.lr.ph.i.preheader
+  %14 = icmp eq i64 %3, 0
+  br i1 %14, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEET0_SG_SG_SG_SG_SL_T1_.exit.us, label %.lr.ph.i.preheader
+
+_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEET0_SG_SG_SG_SG_SL_T1_.exit.us: ; preds = %.lr.ph, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEET0_SG_SG_SG_SG_SL_T1_.exit.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEET0_SG_SG_SG_SG_SL_T1_.exit.us
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEET0_SG_SG_SG_SG_SL_T1_.exit
   %.066 = phi ptr [ %36, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterIZNS2_28sort_output_sections_regularIS4_EEvRNS2_7ContextIT_EEEUlS6_S6_E_EEET0_SG_SG_SG_SG_SL_T1_.exit ], [ %2, %.lr.ph ]

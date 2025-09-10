@@ -2878,64 +2878,69 @@ default.unreachable:                              ; preds = %543, %541, %449, %4
   br label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread223
 
 476:                                              ; preds = %447
-  br i1 %trunc, label %.thread326.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %.thread326.i, label %.thread
 
 477:                                              ; preds = %447
-  br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 478:                                              ; preds = %447
-  br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 479:                                              ; preds = %447
-  br i1 %trunc, label %496, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %496, label %.thread
 
 480:                                              ; preds = %447
-  br i1 %trunc, label %499, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %499, label %.thread
 
 481:                                              ; preds = %447
-  br i1 %trunc, label %504, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %504, label %.thread
 
 482:                                              ; preds = %447
-  br i1 %trunc, label %510, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %510, label %.thread
 
 483:                                              ; preds = %447
-  br i1 %trunc, label %518, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %518, label %.thread
 
 484:                                              ; preds = %447
-  br i1 %trunc, label %527, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %527, label %.thread
 
 485:                                              ; preds = %447
-  br i1 %trunc, label %530, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %530, label %.thread
 
 486:                                              ; preds = %447
-  br i1 %trunc, label %533, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %533, label %.thread
 
 487:                                              ; preds = %447
-  br i1 %trunc, label %538, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %538, label %.thread
 
 488:                                              ; preds = %447
-  br i1 %trunc, label %539, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %539, label %.thread
 
 489:                                              ; preds = %447
-  br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 490:                                              ; preds = %447
-  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 491:                                              ; preds = %447
-  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 492:                                              ; preds = %447
-  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 493:                                              ; preds = %447
-  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 494:                                              ; preds = %447
-  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
+  br i1 %trunc14, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i, label %.thread
 
 495:                                              ; preds = %447
-  br i1 %or.cond268.i, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i
+  br i1 %or.cond268.i, label %.thread, label %_ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i
+
+.thread:                                          ; preds = %476, %477, %478, %479, %480, %481, %482, %483, %484, %485, %486, %487, %488, %489, %490, %491, %492, %493, %494, %495
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !247
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !247
+  br label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread
 
 496:                                              ; preds = %479
   %497 = invoke noundef i32 @_ZN6chrono5naive7isoweek17iso_week_from_yof17h2305a0547217e990E(i32 noundef %315, i32 noundef %309)
@@ -4663,7 +4668,7 @@ _ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread223: 
   %989 = icmp eq i64 %.val3.i, 0
   br i1 %989, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h03df872deac1ed40E.exit", label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.exit.sink.split.i"
 
-_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread: ; preds = %.noexc178, %.noexc177, %.noexc29, %.noexc28, %.noexc33, %.noexc32, %.noexc31, %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit, %561, %.noexc40, %.noexc41, %.noexc42, %.noexc43, %.noexc47, %.noexc48, %.noexc100, %495, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484, %483, %482, %481, %480, %479, %478, %477, %476
+_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread: ; preds = %.noexc178, %.noexc177, %.noexc29, %.noexc28, %.noexc33, %.noexc32, %.noexc31, %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit, %561, %.noexc40, %.noexc41, %.noexc42, %.noexc43, %.noexc47, %.noexc48, %.noexc100, %.thread
   %.pr.pre.pre = load i8, ptr %71, align 8, !alias.scope !557
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   switch i8 %.pr.pre.pre, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h03df872deac1ed40E.exit59" [

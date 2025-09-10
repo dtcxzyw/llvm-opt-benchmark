@@ -2481,34 +2481,38 @@ _ZNSt10lock_guardIRKN11OpenImageIO6v3_1_010ImageInputEEC2ES4_.exit: ; preds = %6
   %.sroa.030.0.copyload90 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.030.0.copyload90, ptr %7, align 8
-  br i1 %55, label %58, label %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread
+  br i1 %55, label %57, label %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread
 
 .thread:                                          ; preds = %_ZNSt10lock_guardIRKN11OpenImageIO6v3_1_010ImageInputEEC2ES4_.exit, %40
   %56 = icmp eq i64 %5, -9223372036854775808
-  %57 = icmp eq i64 %5, %22
-  %or.cond115 = or i1 %56, %57
-  br i1 %or.cond115, label %.critedge101, label %84
+  br i1 %56, label %.critedge101, label %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit
 
-58:                                               ; preds = %.thread88
-  %59 = lshr i64 %.sroa.030.0.copyload90, 8
-  %60 = lshr i64 %.sroa.030.0.copyload90, 32
-  %61 = trunc nuw i64 %60 to i32
-  %narrow.i.i = call i32 @llvm.smax.i32(i32 %61, i32 1)
+57:                                               ; preds = %.thread88
+  %58 = lshr i64 %.sroa.030.0.copyload90, 8
+  %59 = lshr i64 %.sroa.030.0.copyload90, 32
+  %60 = trunc nuw i64 %59 to i32
+  %narrow.i.i = call i32 @llvm.smax.i32(i32 %60, i32 1)
   %spec.select.i.i = zext nneg i32 %narrow.i.i to i64
-  %62 = and i64 %59, 255
-  %63 = call noundef i64 @_ZNK11OpenImageIO6v3_1_08TypeDesc8basesizeEv(ptr noundef nonnull align 4 dereferenceable(8) %7) #6
-  %64 = mul nsw i64 %62, %51
-  %65 = mul i64 %64, %spec.select.i.i
-  %66 = mul i64 %65, %63
+  %61 = and i64 %58, 255
+  %62 = call noundef i64 @_ZNK11OpenImageIO6v3_1_08TypeDesc8basesizeEv(ptr noundef nonnull align 4 dereferenceable(8) %7) #6
+  %63 = mul nsw i64 %61, %51
+  %64 = mul i64 %63, %spec.select.i.i
+  %65 = mul i64 %64, %62
   br label %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread
 
-_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread: ; preds = %58, %.thread88
-  %.186.ph = phi i64 [ %5, %.thread88 ], [ %66, %58 ]
+_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread: ; preds = %57, %.thread88
+  %.186.ph = phi i64 [ %5, %.thread88 ], [ %65, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %67 = icmp eq i64 %.186.ph, %54
+  %66 = icmp eq i64 %.186.ph, %54
   br label %84
 
-.critedge101:                                     ; preds = %.thread
+_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit: ; preds = %.thread
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %67 = icmp eq i64 %5, %22
+  br i1 %67, label %.critedge101, label %84
+
+.critedge101:                                     ; preds = %.thread, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit
   %68 = load ptr, ptr %0, align 8, !tbaa !40
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
   %70 = load ptr, ptr %69, align 8
@@ -2534,9 +2538,9 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread: ; 
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit75
 
-84:                                               ; preds = %.thread, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread
-  %85 = phi i1 [ %67, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread ], [ false, %.thread ]
-  %.186112 = phi i64 [ %.186.ph, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread ], [ %5, %.thread ]
+84:                                               ; preds = %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit
+  %85 = phi i1 [ %66, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread ], [ false, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit ]
+  %.186112 = phi i64 [ %.186.ph, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit.thread ], [ %5, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlNS0_8TypeDescEi.exit ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %87 = load i32, ptr %86, align 4, !tbaa !141
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 68

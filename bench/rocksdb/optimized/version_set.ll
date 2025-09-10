@@ -5693,12 +5693,19 @@ define noundef zeroext i1 @_ZN7rocksdb21SomeFileOverlapsRangeERKNS_21InternalKey
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not.i39, label %.loopexit, label %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us
+  br i1 %.not.i39, label %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us.us, label %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us
+
+_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us.us: ; preds = %.lr.ph.split.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread
 
 _ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us: ; preds = %.lr.ph.split.us, %.critedge.us
   %.03346.us = phi i64 [ %30, %.critedge.us ], [ 0, %.lr.ph.split.us ]
   %18 = load ptr, ptr %15, align 8, !tbaa !596
   %19 = getelementptr inbounds nuw %"struct.rocksdb::FdWithKeyRange", ptr %18, i64 %.03346.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !4
@@ -5740,9 +5747,9 @@ _ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 232
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext true)
-  %43 = icmp slt i32 %42, 1
+  %43 = icmp sgt i32 %42, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %43, label %.loopexit, label %.critedge.us50
+  br i1 %43, label %.critedge.us50, label %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread
 
 .critedge.us50:                                   ; preds = %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.us
   %44 = add nuw i64 %.03346.us49, 1
@@ -5786,6 +5793,11 @@ _ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.ex
   %67 = icmp slt i32 %66, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %67, label %.critedge, label %.loopexit
+
+_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread: ; preds = %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.us, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.loopexit
 
 .critedge:                                        ; preds = %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit
   %68 = add nuw i64 %.03346, 1
@@ -5918,8 +5930,8 @@ _ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit, %.critedge, %.critedge.us50, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.us, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us, %.critedge.us, %.lr.ph.split.us, %.preheader, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit44, %102
-  %.3 = phi i1 [ %120, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit44 ], [ false, %102 ], [ false, %.preheader ], [ true, %.lr.ph.split.us ], [ %29, %.critedge.us ], [ %29, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us ], [ %43, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.us ], [ %43, %.critedge.us50 ], [ true, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit, %.critedge, %.critedge.us50, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us, %.critedge.us, %.preheader, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit44, %102
+  %.3 = phi i1 [ %120, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit44 ], [ false, %102 ], [ true, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread ], [ false, %.preheader ], [ %29, %.critedge.us ], [ %29, %_ZN7rocksdbL9AfterFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread.us ], [ false, %.critedge.us50 ], [ true, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit ], [ false, %.critedge ]
   ret i1 %.3
 }
 

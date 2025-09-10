@@ -136,7 +136,14 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE5clearEv.exit:     ; preds = %4, %_ZSt8_DestroyIP
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %.not142 = icmp eq ptr %35, %36
-  br i1 %.not142, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.lr.ph
+  br i1 %.not142, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.thread, label %.lr.ph
+
+_ZNSt13_Bvector_baseISaIbEED2Ev.exit.thread:      ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE5clearEv.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE5clearEv.exit
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -335,7 +342,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %99, %_ZNSt6vectorIm
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.094.1, i64 noundef %128) #17
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE5clearEv.exit, %._crit_edge141.thread192, %125
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.thread, %._crit_edge141.thread192, %125
   %129 = load ptr, ptr %43, align 8, !tbaa !64
   %.not5.i.i.i.i = icmp eq ptr %129, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i39

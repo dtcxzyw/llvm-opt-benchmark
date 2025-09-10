@@ -17005,6 +17005,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(pt
   br i1 %65, label %.noexc.thread, label %66
 
 66:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1887
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1887
   %67 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select111119.us, i32 noundef %spec.select118.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %68 unwind label %.loopexit.split.us
 
@@ -17270,6 +17272,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(pt
   br i1 %71, label %.noexc.thread, label %72
 
 72:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1904
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1904
   %73 = invoke noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select107115.us, i32 noundef %spec.select114.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %74 unwind label %.loopexit.split.us
 
@@ -17504,6 +17508,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
   br i1 %67, label %.noexc.thread, label %68
 
 68:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1924
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1924
   %69 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select110115.us, i32 noundef %spec.select114.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %70 unwind label %.loopexit.split.us
 
@@ -17772,28 +17778,30 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   br i1 %72, label %.noexc.thread, label %73
 
 73:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1944
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1944
   %74 = invoke noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select8994.us, i32 noundef %spec.select93.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %75 unwind label %.loopexit.split.us
 
 75:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1944
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1947
   br label %76
 
 76:                                               ; preds = %76, %75
   %77 = phi i64 [ 0, %75 ], [ %79, %76 ]
   %78 = getelementptr inbounds nuw float, ptr %4, i64 %77
-  store float 1.000000e+00, ptr %78, align 4, !noalias !1944
+  store float 1.000000e+00, ptr %78, align 4, !noalias !1947
   %79 = add nuw nsw i64 %77, 1
   %exitcond.not.i.us = icmp eq i64 %79, 4
   br i1 %exitcond.not.i.us, label %80, label %76
 
 80:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %74, i64 16, i1 false)
-  %81 = load float, ptr %4, align 4, !noalias !1944, !noundef !4
-  %82 = load float, ptr %65, align 4, !noalias !1944, !noundef !4
-  %83 = load float, ptr %66, align 4, !noalias !1944, !noundef !4
-  %84 = load float, ptr %67, align 4, !noalias !1944, !noundef !4
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1944
+  %81 = load float, ptr %4, align 4, !noalias !1947, !noundef !4
+  %82 = load float, ptr %65, align 4, !noalias !1947, !noundef !4
+  %83 = load float, ptr %66, align 4, !noalias !1947, !noundef !4
+  %84 = load float, ptr %67, align 4, !noalias !1947, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1947
   %85 = fpext float %81 to double
   %86 = fpext float %82 to double
   %87 = fpext float %83 to double
@@ -17856,10 +17864,10 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   br i1 %118, label %.noexc.thread, label %119
 
 119:                                              ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1948
-  store i64 %.sroa.671.0.copyload.fr, ptr %6, align 8, !noalias !1948
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1948
-  store ptr null, ptr %5, align 8, !noalias !1948
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1944
+  store i64 %.sroa.671.0.copyload.fr, ptr %6, align 8, !noalias !1944
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1944
+  store ptr null, ptr %5, align 8, !noalias !1944
   invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc48 unwind label %.loopexit.split-lp
 
@@ -18016,6 +18024,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   br i1 %67, label %.noexc.thread, label %68
 
 68:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1968
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1968
   %69 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select106111.us, i32 noundef %spec.select110.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %70 unwind label %.loopexit.split.us
 
@@ -18293,6 +18303,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(pt
   br i1 %73, label %.noexc.thread, label %74
 
 74:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1988
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1988
   %75 = invoke noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select106111.us, i32 noundef %spec.select110.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %76 unwind label %.loopexit.split.us
 
@@ -18530,6 +18542,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
   br i1 %70, label %.noexc.thread, label %71
 
 71:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2008
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2008
   %72 = invoke noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select107112.us, i32 noundef %spec.select111.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %73 unwind label %.loopexit.split.us
 
@@ -18781,6 +18795,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(pt
   br i1 %68, label %.noexc.thread, label %69
 
 69:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2025
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2025
   %70 = invoke noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select108116.us, i32 noundef %spec.select115.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %71 unwind label %.loopexit.split.us
 
@@ -19029,6 +19045,8 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(pt
   br i1 %65, label %.noexc.thread, label %66
 
 66:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2042
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2042
   %67 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select107116.us, i32 noundef %spec.select115.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %68 unwind label %.loopexit.split.us
 
@@ -19310,27 +19328,29 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   br i1 %71, label %.noexc.thread, label %72
 
 72:                                               ; preds = %.noexc.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2062
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2062
   %73 = invoke noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %spec.select8893.us, i32 noundef %spec.select92.us, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %74 unwind label %.loopexit.split.us
 
 74:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2062
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2065
   br label %75
 
 75:                                               ; preds = %75, %74
   %76 = phi i64 [ 0, %74 ], [ %78, %75 ]
   %77 = getelementptr inbounds nuw float, ptr %4, i64 %76
-  store float 1.000000e+00, ptr %77, align 4, !noalias !2062
+  store float 1.000000e+00, ptr %77, align 4, !noalias !2065
   %78 = add nuw nsw i64 %76, 1
   %exitcond.not.i.us = icmp eq i64 %78, 4
   br i1 %exitcond.not.i.us, label %79, label %75
 
 79:                                               ; preds = %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %73, i64 12, i1 false)
-  %80 = load float, ptr %4, align 4, !noalias !2062, !noundef !4
-  %81 = load float, ptr %65, align 4, !noalias !2062, !noundef !4
-  %82 = load float, ptr %66, align 4, !noalias !2062, !noundef !4
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2062
+  %80 = load float, ptr %4, align 4, !noalias !2065, !noundef !4
+  %81 = load float, ptr %65, align 4, !noalias !2065, !noundef !4
+  %82 = load float, ptr %66, align 4, !noalias !2065, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2065
   %83 = fpext float %80 to double
   %84 = fpext float %81 to double
   %85 = fpext float %82 to double
@@ -19387,10 +19407,10 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   br i1 %113, label %.noexc.thread, label %114
 
 114:                                              ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2066
-  store i64 %.sroa.670.0.copyload.fr, ptr %6, align 8, !noalias !2066
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2066
-  store ptr null, ptr %5, align 8, !noalias !2066
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2062
+  store i64 %.sroa.670.0.copyload.fr, ptr %6, align 8, !noalias !2062
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2062
+  store ptr null, ptr %5, align 8, !noalias !2062
   invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc48 unwind label %.loopexit.split-lp
 
@@ -46748,13 +46768,13 @@ attributes #20 = { cold noreturn nounwind }
 !1941 = distinct !{!1941, !1942, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949: argument 0"}
 !1942 = distinct !{!1942, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949"}
 !1943 = !{!1937}
-!1944 = !{!1945, !1947}
-!1945 = distinct !{!1945, !1946, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E: argument 0"}
-!1946 = distinct !{!1946, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E"}
-!1947 = distinct !{!1947, !1946, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E: argument 1"}
-!1948 = !{!1949}
-!1949 = distinct !{!1949, !1950, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E: argument 0"}
-!1950 = distinct !{!1950, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E"}
+!1944 = !{!1945}
+!1945 = distinct !{!1945, !1946, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E: argument 0"}
+!1946 = distinct !{!1946, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E"}
+!1947 = !{!1948, !1950}
+!1948 = distinct !{!1948, !1949, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E: argument 0"}
+!1949 = distinct !{!1949, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E"}
+!1950 = distinct !{!1950, !1949, !"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E: argument 1"}
 !1951 = !{!1952}
 !1952 = distinct !{!1952, !1953, !"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$10dimensions17h047dc4ac256e9874E: argument 0"}
 !1953 = distinct !{!1953, !"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$10dimensions17h047dc4ac256e9874E"}
@@ -46866,13 +46886,13 @@ attributes #20 = { cold noreturn nounwind }
 !2059 = distinct !{!2059, !2060, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949: argument 0"}
 !2060 = distinct !{!2060, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949"}
 !2061 = !{!2055}
-!2062 = !{!2063, !2065}
-!2063 = distinct !{!2063, !2064, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE: argument 0"}
-!2064 = distinct !{!2064, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE"}
-!2065 = distinct !{!2065, !2064, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE: argument 1"}
-!2066 = !{!2067}
-!2067 = distinct !{!2067, !2068, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE: argument 0"}
-!2068 = distinct !{!2068, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE"}
+!2062 = !{!2063}
+!2063 = distinct !{!2063, !2064, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE: argument 0"}
+!2064 = distinct !{!2064, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE"}
+!2065 = !{!2066, !2068}
+!2066 = distinct !{!2066, !2067, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE: argument 0"}
+!2067 = distinct !{!2067, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE"}
+!2068 = distinct !{!2068, !2067, !"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE: argument 1"}
 !2069 = !{!2070}
 !2070 = distinct !{!2070, !2071, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_indices17h008c2616f5c3269eE: argument 1"}
 !2071 = distinct !{!2071, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_indices17h008c2616f5c3269eE"}

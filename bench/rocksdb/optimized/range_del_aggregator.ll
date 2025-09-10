@@ -4156,6 +4156,8 @@ _ZN7rocksdb25TruncatedRangeDelIterator11SeekForPrevERKNS_5SliceE.exit: ; preds =
 _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread82: ; preds = %_ZN7rocksdb25TruncatedRangeDelIterator11SeekForPrevERKNS_5SliceE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %230
 
 .lr.ph:                                           ; preds = %_ZN7rocksdb25TruncatedRangeDelIterator11SeekForPrevERKNS_5SliceE.exit, %221
@@ -4196,6 +4198,8 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread45: ; preds = %127
 _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread: ; preds = %118
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.054, label %.critedge31, label %230
 
 _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %127
@@ -4394,6 +4398,8 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit34: ; preds = %210, %217
 _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread: ; preds = %221
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge31
 
 .critedge:                                        ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit

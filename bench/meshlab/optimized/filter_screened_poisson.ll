@@ -59719,8 +59719,12 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader.split.us ], [ -1, %.preheader ]
   %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv69
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr i8, ptr %invariant.gep25.us, i64 16
   store double 0.000000e+00, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr i8, ptr %invariant.gep25.us, i64 88
   store double 0.000000e+00, ptr %18, align 8
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
@@ -59752,8 +59756,12 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = getelementptr i8, ptr %invariant.gep25, i64 16
   store double 0.000000e+00, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr i8, ptr %invariant.gep25, i64 88
   store double 0.000000e+00, ptr %36, align 8
   br label %.split28.us
@@ -59838,11 +59846,19 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   br i1 %15, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store double 0.000000e+00, ptr %invariant.gep, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %gep26.us33.us.c = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 48
   store double 0.000000e+00, ptr %gep26.us33.us.c, align 8
   %invariant.gep25.us.c = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store double 0.000000e+00, ptr %invariant.gep25.us.c, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %gep26.us33.us.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 56
   store double 0.000000e+00, ptr %gep26.us33.us.c.c, align 8
   br label %.split43.us
@@ -59873,7 +59889,11 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store double 0.000000e+00, ptr %invariant.gep25, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %gep26.us.c = getelementptr inbounds nuw i8, ptr %invariant.gep25, i64 48
   store double 0.000000e+00, ptr %gep26.us.c, align 8
   br label %.split28.us
@@ -59963,8 +59983,12 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader.split.us ], [ -2, %.preheader ]
   %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv69
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = getelementptr i8, ptr %invariant.gep25.us, i64 24
   store double 0.000000e+00, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr i8, ptr %invariant.gep25.us, i64 168
   store double 0.000000e+00, ptr %21, align 8
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
@@ -59996,8 +60020,12 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = getelementptr i8, ptr %invariant.gep25, i64 24
   store double 0.000000e+00, ptr %38, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = getelementptr i8, ptr %invariant.gep25, i64 168
   store double 0.000000e+00, ptr %39, align 8
   br label %.split28.us
@@ -60086,8 +60114,12 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader.split.us ], [ -1, %.preheader ]
   %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv69
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr i8, ptr %invariant.gep25.us, i64 16
   store double 0.000000e+00, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = getelementptr i8, ptr %invariant.gep25.us, i64 136
   store double 0.000000e+00, ptr %19, align 8
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
@@ -60119,8 +60151,12 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr i8, ptr %invariant.gep25, i64 16
   store double 0.000000e+00, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr i8, ptr %invariant.gep25, i64 136
   store double 0.000000e+00, ptr %37, align 8
   br label %.split28.us

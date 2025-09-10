@@ -37287,6 +37287,10 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit.thread:       ; preds = %93, %97, %121, %126
   %225 = add i32 %159, %224
   %226 = srem i32 %225, %4
   %227 = call noundef float %2(ptr noundef %3, i32 noundef %226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %228 = add nuw nsw i32 %.0133228, 1
   %exitcond238.not = icmp eq i32 %228, %89
   br i1 %exitcond238.not, label %.loopexit, label %.lr.ph230.split.split, !llvm.loop !658

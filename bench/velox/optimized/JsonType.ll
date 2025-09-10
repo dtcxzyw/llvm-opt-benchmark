@@ -5675,6 +5675,8 @@ lpad.i.i.i.i.i.i.i.i.i.i.i551:                    ; preds = %.noexc53.i.i.i.i.i.
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i
   %retval.0.i.i406467.i.i.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i498, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i ], [ %retval.0.i.i40.i.i.i.i.i.i.i.i546, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ]
   %conv.i.i.i.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.0.i.i406467.i.i.i.i.i.i.i.i to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i326)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i326)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i327)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit.i.i.i.i.i.i.i.i
 
@@ -6691,6 +6693,8 @@ lpad.i.i.i.i.i.i.i.i.i.i.i930:                    ; preds = %.noexc53.i.i.i.i.i.
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i926, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i872
   %retval.0.i.i406467.i.i.i.i.i.i.i.i875 = phi i64 [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i874, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i872 ], [ %retval.0.i.i40.i.i.i.i.i.i.i.i924, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i926 ]
   %conv.i.i.i.i.i.i.i.i.i.i.i876 = trunc nsw i64 %retval.0.i.i406467.i.i.i.i.i.i.i.i875 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i701)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i701)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i702)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit.i.i.i.i.i.i.i.i
 
@@ -9468,6 +9472,8 @@ lpad.i.i.i.i.i.i.i.i.i.i.i1933:                   ; preds = %.noexc25.i.i.i.i.i.
 
 call1.i.noexc.i.i.i.i.i.i.i.i1912:                ; preds = %if.end9.i.i.i.i.i.i.i.i.i.i.i, %call.i.noexc.i.i.i.i.i.i.i.i1908
   %conv.i.i.i.i.i.i.i.i.i.i.i1913 = fptrunc double %retval.0.i.i.i.i.i.i.i.i.i.i1909 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i1716)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i1716)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i1717)
   %castType_.i.i.i.i.i.i.i.i.i.i1914 = getelementptr inbounds nuw i8, ptr %907, i64 40
   %925 = load ptr, ptr %castType_.i.i.i.i.i.i.i.i.i.i1914, align 8
@@ -67563,6 +67569,8 @@ lpad.i.i:                                         ; preds = %if.end.i.i
   resume { ptr, i32 } %2
 
 _ZNO5folly8ExpectedIdNS_14ConversionCodeEE11thenOrThrowIZNS_2toIdlEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES6_E4typeERKS7_EUldE_ZNS4_IdlEES9_SB_EUlS1_E_EEDTclclsr3stdE7declvalIS6_EEclL_ZSt7declvalIOdEDTcl9__declvalIS6_ELi0EEEvEEEEOS6_OS7_.exit: ; preds = %if.then4.i.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   ret double %conv.i.i
 }
 
@@ -70237,6 +70245,8 @@ lpad.i.i.i:                                       ; preds = %.noexc53
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i406467 = phi i64 [ %conv.i.i.i.i.i43, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i40, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i406467 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -72652,6 +72662,8 @@ lpad.i.i.i:                                       ; preds = %.noexc53
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i406467 = phi i64 [ %conv.i.i.i.i.i43, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i40, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i406467 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -77842,6 +77854,8 @@ lpad.i.i.i:                                       ; preds = %.noexc25
 
 call1.i.noexc:                                    ; preds = %if.end9.i.i.i, %call.i.noexc
   %conv.i.i.i = fptrunc double %retval.0.i.i to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %castType_.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   %45 = load ptr, ptr %castType_.i.i, align 8
@@ -88723,6 +88737,8 @@ lpad.i.i.i213:                                    ; preds = %if.end.i.i.i212
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i196954957 = phi i64 [ %conv.i.i.i.i.i199, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i196, %invoke.cont5.i.i.i ]
   %conv.i.i.i211 = trunc nsw i64 %retval.0.i.i196954957 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i207)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i208)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -88913,6 +88929,8 @@ lpad.i.i.i300:                                    ; preds = %if.end.i.i.i299
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i296.thread, %invoke.cont5.i.i.i296
   %retval.0.i.i282960963 = phi i64 [ %conv.i.i.i.i.i285, %invoke.cont5.i.i.i296.thread ], [ %retval.0.i.i282, %invoke.cont5.i.i.i296 ]
   %conv.i.i.i298 = trunc nsw i64 %retval.0.i.i282960963 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i293)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i294)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -89256,6 +89274,8 @@ lpad.i.i.i445:                                    ; preds = %if.end.i.i3.i
 
 _ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit439, %if.end9.i.i.i
   %conv.i.i.i444 = fptrunc double %retval.0.i.i429 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i440)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i440)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i441)
   %castType_.i.i447 = getelementptr inbounds nuw i8, ptr %199, i64 40
   %207 = load ptr, ptr %castType_.i.i447, align 8
@@ -92658,6 +92678,8 @@ lpad.i.i.i153:                                    ; preds = %if.end.i.i.i152
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i137649652 = phi i64 [ %conv.i.i.i.i.i140, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i137, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i137649652 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i148)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i149)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -92791,6 +92813,8 @@ lpad.i.i.i212:                                    ; preds = %if.end.i.i.i211
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i208.thread, %invoke.cont5.i.i.i208
   %retval.0.i.i194655658 = phi i64 [ %conv.i.i.i.i.i197, %invoke.cont5.i.i.i208.thread ], [ %retval.0.i.i194, %invoke.cont5.i.i.i208 ]
   %conv.i.i.i210 = trunc nsw i64 %retval.0.i.i194655658 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i205)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i206)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -93017,6 +93041,8 @@ lpad.i.i.i301:                                    ; preds = %if.end.i.i3.i
 
 _ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit295, %if.end9.i.i.i
   %conv.i.i.i300 = fptrunc double %retval.0.i.i285 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i296)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i296)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i297)
   %castType_.i.i303 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %121 = load ptr, ptr %castType_.i.i303, align 8
@@ -94943,6 +94969,8 @@ lpad.i.i.i155:                                    ; preds = %if.end.i.i.i154
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i139663666 = phi i64 [ %conv.i.i.i.i.i142, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i139, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i139663666 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i150)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i151)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -95078,6 +95106,8 @@ lpad.i.i.i215:                                    ; preds = %if.end.i.i.i214
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i211.thread, %invoke.cont5.i.i.i211
   %retval.0.i.i197669672 = phi i64 [ %conv.i.i.i.i.i200, %invoke.cont5.i.i.i211.thread ], [ %retval.0.i.i197, %invoke.cont5.i.i.i211 ]
   %conv.i.i.i213 = trunc nsw i64 %retval.0.i.i197669672 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i208)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i209)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -95308,6 +95338,8 @@ lpad.i.i.i307:                                    ; preds = %if.end.i.i3.i
 
 _ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit301, %if.end9.i.i.i
   %conv.i.i.i306 = fptrunc double %retval.0.i.i291 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i302)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i302)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i303)
   %castType_.i.i309 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %127 = load ptr, ptr %castType_.i.i309, align 8
@@ -97143,6 +97175,8 @@ lpad.i.i.i153:                                    ; preds = %if.end.i.i.i152
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i137649652 = phi i64 [ %conv.i.i.i.i.i140, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i137, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i137649652 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i148)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i149)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -97278,6 +97312,8 @@ lpad.i.i.i212:                                    ; preds = %if.end.i.i.i211
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i208.thread, %invoke.cont5.i.i.i208
   %retval.0.i.i194655658 = phi i64 [ %conv.i.i.i.i.i197, %invoke.cont5.i.i.i208.thread ], [ %retval.0.i.i194, %invoke.cont5.i.i.i208 ]
   %conv.i.i.i210 = trunc nsw i64 %retval.0.i.i194655658 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i205)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i206)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -97508,6 +97544,8 @@ lpad.i.i.i301:                                    ; preds = %if.end.i.i3.i
 
 _ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit295, %if.end9.i.i.i
   %conv.i.i.i300 = fptrunc double %retval.0.i.i285 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i296)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i296)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i297)
   %castType_.i.i303 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %127 = load ptr, ptr %castType_.i.i303, align 8
@@ -100542,6 +100580,8 @@ lpad.i.i.i205:                                    ; preds = %if.end.i.i.i204
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i189897900 = phi i64 [ %conv.i.i.i.i.i192, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i189, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i189897900 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i200)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i201)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -100718,6 +100758,8 @@ lpad.i.i.i287:                                    ; preds = %if.end.i.i.i286
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i283.thread, %invoke.cont5.i.i.i283
   %retval.0.i.i269903906 = phi i64 [ %conv.i.i.i.i.i272, %invoke.cont5.i.i.i283.thread ], [ %retval.0.i.i269, %invoke.cont5.i.i.i283 ]
   %conv.i.i.i285 = trunc nsw i64 %retval.0.i.i269903906 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i280)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i280)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i281)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -101035,6 +101077,8 @@ lpad.i.i.i422:                                    ; preds = %if.end.i.i3.i
 
 _ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit416, %if.end9.i.i.i
   %conv.i.i.i421 = fptrunc double %retval.0.i.i406 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i417)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i417)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i418)
   %castType_.i.i424 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %212 = load ptr, ptr %castType_.i.i424, align 8
@@ -103438,6 +103482,8 @@ lpad.i.i.i204:                                    ; preds = %if.end.i.i.i203
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i188896899 = phi i64 [ %conv.i.i.i.i.i191, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i188, %invoke.cont5.i.i.i ]
   %conv.i.i.i = trunc nsw i64 %retval.0.i.i188896899 to i8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i199)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i200)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -103616,6 +103662,8 @@ lpad.i.i.i287:                                    ; preds = %if.end.i.i.i286
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i283.thread, %invoke.cont5.i.i.i283
   %retval.0.i.i269902905 = phi i64 [ %conv.i.i.i.i.i272, %invoke.cont5.i.i.i283.thread ], [ %retval.0.i.i269, %invoke.cont5.i.i.i283 ]
   %conv.i.i.i285 = trunc nsw i64 %retval.0.i.i269902905 to i16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i280)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i280)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i281)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -103937,6 +103985,8 @@ lpad.i.i.i422:                                    ; preds = %if.end.i.i3.i
 
 _ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit416, %if.end9.i.i.i
   %conv.i.i.i421 = fptrunc double %retval.0.i.i406 to float
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i417)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i417)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i418)
   %castType_.i.i424 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %215 = load ptr, ptr %castType_.i.i424, align 8

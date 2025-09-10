@@ -1089,7 +1089,12 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %51,
   store i32 %25, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !24
   %54 = icmp sgt i32 %25, 0
-  br i1 %54, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
+  br i1 %54, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread
+
+_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread: ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1250,8 +1255,8 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds 
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27
   br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, label %122, !llvm.loop !97
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %125 = phi i32 [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %122 ]
+_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %125 = phi i32 [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread ], [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %98, %122 ]
   store i32 %125, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !24
   br label %126
@@ -1821,7 +1826,12 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %51,
   store i32 %25, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !65
   %54 = icmp sgt i32 %25, 0
-  br i1 %54, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
+  br i1 %54, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread
+
+_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread: ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1982,8 +1992,8 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds 
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27
   br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, label %122, !llvm.loop !97
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %125 = phi i32 [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %122 ]
+_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %125 = phi i32 [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25.thread ], [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %98, %122 ]
   store i32 %125, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !65
   br label %126

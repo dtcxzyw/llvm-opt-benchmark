@@ -84,7 +84,7 @@ define hidden void @_ZN25JfrObjectAllocationSample10send_eventEPK5KlassmbP6Threa
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 728
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %9, %11
-  br i1 %2, label %13, label %61
+  br i1 %2, label %13, label %63
 
 13:                                               ; preds = %4
   %14 = select i1 %12, i64 0, i64 %9
@@ -150,85 +150,93 @@ _Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit.i: ; preds = %_ZN8JfrE
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2201), align 1
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit, label %.preheader.split.i
+  br i1 %49, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.us.i, label %.preheader.split.i
+
+_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.us.i: ; preds = %.preheader.i, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.us.i
+  %.0.us.i = phi i64 [ %50, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.us.i ], [ %1, %.preheader.i ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %50 = sub nsw i64 %.0.us.i, %41
+  %51 = icmp sgt i64 %50, 0
+  br i1 %51, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.us.i, label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit, !llvm.loop !6
 
 .preheader.split.i:                               ; preds = %.preheader.i, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i
-  %50 = phi i8 [ %58, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i ], [ 1, %.preheader.i ]
-  %.0.i = phi i64 [ %59, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i ], [ %1, %.preheader.i ]
+  %52 = phi i8 [ %60, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i ], [ 1, %.preheader.i ]
+  %.0.i = phi i64 [ %61, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i ], [ %1, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %45, i8 0, i64 11, i1 false)
-  %.not.i.i16.i = icmp eq i8 %50, 0
+  %.not.i.i16.i = icmp eq i8 %52, 0
   br i1 %.not.i.i16.i, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i, label %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i17.i
 
 _ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i17.i: ; preds = %.preheader.split.i
-  %51 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
-  store i64 %51, ptr %6, align 8
-  %52 = tail call noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i32 noundef 91, i64 noundef %51) #7
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %47, align 1
+  %53 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
+  store i64 %53, ptr %6, align 8
+  %54 = tail call noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i32 noundef 91, i64 noundef %53) #7
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %47, align 1
   store i8 1, ptr %46, align 2
   %.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2201), align 1
-  br i1 %52, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.thread.i, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i
+  br i1 %54, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.thread.i, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i
 
 _Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.thread.i: ; preds = %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i17.i
-  %54 = load i64, ptr %10, align 8
-  %55 = sub nsw i64 %14, %54
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %0, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %55, ptr %57, align 8
+  %56 = load i64, ptr %10, align 8
+  %57 = sub nsw i64 %14, %56
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %57, ptr %59, align 8
   call void @_ZN8JfrEventI27EventObjectAllocationSampleE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %6)
   store i64 %14, ptr %10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit
 
 _Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i: ; preds = %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i17.i, %.preheader.split.i
-  %58 = phi i8 [ 0, %.preheader.split.i ], [ %.pre.i, %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i17.i ]
+  %60 = phi i8 [ 0, %.preheader.split.i ], [ %.pre.i, %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i17.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %59 = sub nsw i64 %.0.i, %41
-  %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %.preheader.split.i, label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit, !llvm.loop !6
+  %61 = sub nsw i64 %.0.i, %41
+  %62 = icmp sgt i64 %61, 0
+  br i1 %62, label %.preheader.split.i, label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit, !llvm.loop !8
 
-61:                                               ; preds = %4
-  %62 = icmp eq i64 %9, 0
-  %63 = or i1 %62, %12
-  br i1 %63, label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit, label %64
+63:                                               ; preds = %4
+  %64 = icmp eq i64 %9, 0
+  %65 = or i1 %64, %12
+  br i1 %65, label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit, label %66
 
-64:                                               ; preds = %61
+66:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %65, i8 0, i64 11, i1 false)
-  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2201), align 1
-  %.not.i.i = icmp eq i8 %66, 0
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %67, i8 0, i64 11, i1 false)
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2201), align 1
+  %.not.i.i = icmp eq i8 %68, 0
   br i1 %.not.i.i, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit, label %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i
 
-_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i: ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  %69 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
-  store i64 %69, ptr %5, align 8
-  %70 = tail call noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i32 noundef 91, i64 noundef %69) #7
-  %71 = zext i1 %70 to i8
-  store i8 %71, ptr %68, align 1
-  store i8 1, ptr %67, align 2
-  br i1 %70, label %_ZN8JfrEventI27EventObjectAllocationSampleE6commitEv.exit.i, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit
+_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i: ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  %71 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
+  store i64 %71, ptr %5, align 8
+  %72 = tail call noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i32 noundef 91, i64 noundef %71) #7
+  %73 = zext i1 %72 to i8
+  store i8 %73, ptr %70, align 1
+  store i8 1, ptr %69, align 2
+  br i1 %72, label %_ZN8JfrEventI27EventObjectAllocationSampleE6commitEv.exit.i, label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit
 
 _ZN8JfrEventI27EventObjectAllocationSampleE6commitEv.exit.i: ; preds = %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i
-  %72 = load i64, ptr %10, align 8
-  %73 = sub nsw i64 %9, %72
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %73, ptr %75, align 8
+  %74 = load i64, ptr %10, align 8
+  %75 = sub nsw i64 %9, %74
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %0, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %75, ptr %77, align 8
   call void @_ZN8JfrEventI27EventObjectAllocationSampleE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %5)
   store i64 %9, ptr %10, align 8
   br label %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit
 
-_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit: ; preds = %64, %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i, %_ZN8JfrEventI27EventObjectAllocationSampleE6commitEv.exit.i
+_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit: ; preds = %66, %_ZN8JfrEventI27EventObjectAllocationSampleE13should_commitEv.exit.i, %_ZN8JfrEventI27EventObjectAllocationSampleE6commitEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit
 
-_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit: ; preds = %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i, %.preheader.i, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.thread.i, %29, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit.i, %61, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit
+_ZL45normalize_as_tlab_and_send_allocation_samplesPK5KlasslP14JfrThreadLocalP6Thread.exit: ; preds = %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.i, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.us.i, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit20.thread.i, %29, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit.i, %63, %_Z22send_allocation_samplePK5KlasslP14JfrThreadLocal.exit
   ret void
 }
 
@@ -412,7 +420,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !9
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !10
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #7
@@ -542,9 +550,9 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %83 = select i1 %82, i8 10, i8 5
   %84 = or i8 %83, %81
   store i8 %84, ptr %72, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %69) #7
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store volatile i8 1, ptr @_ZN15JfrTraceIdEpoch10_tag_stateE, align 1
   %.pre.i.i.i.i.i = load i64, ptr %72, align 8
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i
@@ -1221,7 +1229,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store volatile ptr %31, ptr %34, align 8
   store ptr %31, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -1253,7 +1261,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store volatile ptr %43, ptr %46, align 8
   store ptr %43, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -1616,8 +1624,9 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = !{!"branch_weights", i32 1, i32 1048575}
-!10 = !{i64 2145392468}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{i64 2145392468}

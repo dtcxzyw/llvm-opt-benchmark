@@ -1630,7 +1630,7 @@ _ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61: ; preds
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 69
   %84 = load atomic i8, ptr %83 monotonic, align 1
   %85 = trunc i8 %84 to i1
-  br i1 %85, label %193, label %86
+  br i1 %85, label %194, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 80
@@ -1803,41 +1803,46 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51: ; preds = %174
   store ptr %175, ptr %181, align 8
   %182 = call noundef zeroext i1 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.103) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %182, label %.critedge4, label %187
+  br i1 %182, label %183, label %188
 
-.critedge4:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51, %180
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 4096
-  %184 = load ptr, ptr %183, align 8, !tbaa !360
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
-  %186 = load i64, ptr %185, align 1
+.critedge4:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %183
+
+183:                                              ; preds = %.critedge4, %180
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 4096
+  %185 = load ptr, ptr %184, align 8, !tbaa !360
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
+  %187 = load i64, ptr %186, align 1
   br label %_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
-187:                                              ; preds = %180
+188:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %10, ptr noundef nonnull align 8 dereferenceable(4529) %1)
-  %188 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRA49_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %10, ptr noundef nonnull align 1 dereferenceable(49) @.str.104)
-  %189 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRKNS_6SymbolIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %188, ptr noundef nonnull align 8 dereferenceable(51) %0)
-  %190 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRA2_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %189, ptr noundef nonnull align 1 dereferenceable(2) @.str.105)
-  %191 = load ptr, ptr %0, align 8, !tbaa !334
-  %192 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %190, ptr noundef nonnull align 8 dereferenceable(296) %191)
+  %189 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRA49_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %10, ptr noundef nonnull align 1 dereferenceable(49) @.str.104)
+  %190 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRKNS_6SymbolIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %189, ptr noundef nonnull align 8 dereferenceable(51) %0)
+  %191 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRA2_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %190, ptr noundef nonnull align 1 dereferenceable(2) @.str.105)
+  %192 = load ptr, ptr %0, align 8, !tbaa !334
+  %193 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %191, ptr noundef nonnull align 8 dereferenceable(296) %192)
   call void @_ZN4mold5FatalINS_7ContextINS_7PPC64V2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %10) #24
   unreachable
 
-193:                                              ; preds = %82
-  %194 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %195 = load ptr, ptr %194, align 8, !tbaa !327
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
-  %197 = load i64, ptr %196, align 1
-  %198 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %199 = load i64, ptr %198, align 8, !tbaa !328
-  %200 = add i64 %199, %197
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %202 = load i64, ptr %201, align 8, !tbaa !332
-  %203 = add i64 %200, %202
+194:                                              ; preds = %82
+  %195 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %196 = load ptr, ptr %195, align 8, !tbaa !327
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
+  %198 = load i64, ptr %197, align 1
+  %199 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %200 = load i64, ptr %199, align 8, !tbaa !328
+  %201 = add i64 %200, %198
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %203 = load i64, ptr %202, align 8, !tbaa !332
+  %204 = add i64 %201, %203
   br label %_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
-_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %101, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold12InputSectionINS_7PPC64V2EE4nameEv.exit, %21, %17, %73, %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35, %79, %90, %149, %166, %.critedge4, %193, %40, %46
-  %.1 = phi i64 [ %45, %40 ], [ %51, %46 ], [ %203, %193 ], [ %100, %90 ], [ %153, %149 ], [ %173, %166 ], [ %186, %.critedge4 ], [ %81, %79 ], [ %72, %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ %77, %73 ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_7PPC64V2EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %101 ]
+_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %101, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold12InputSectionINS_7PPC64V2EE4nameEv.exit, %21, %17, %73, %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35, %79, %90, %149, %166, %183, %194, %40, %46
+  %.1 = phi i64 [ %45, %40 ], [ %51, %46 ], [ %204, %194 ], [ %100, %90 ], [ %153, %149 ], [ %173, %166 ], [ %187, %183 ], [ %81, %79 ], [ %72, %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ %77, %73 ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_7PPC64V2EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %101 ]
   ret i64 %.1
 }
 

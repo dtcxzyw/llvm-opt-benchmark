@@ -1028,6 +1028,8 @@ if.then7.i:                                       ; preds = %_ZN5boost4math6deta
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %2, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(8) %location.addr.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %location.addr.i.i)
   %8 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %scale.addr.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scale.addr.i.i2)
   call void @llvm.lifetime.start.p0(ptr nonnull %location.addr.i.i1)
   store double %0, ptr %location.addr.i.i1, align 8, !tbaa !37
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %8, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(8) %location.addr.i.i1)
@@ -1036,14 +1038,18 @@ if.then7.i:                                       ; preds = %_ZN5boost4math6deta
 
 if.end8.i:                                        ; preds = %_ZN5boost4math6detail11check_scaleIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcT_PS9_RKT0_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %location.addr.i.i)
+  %9 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %scale.addr.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scale.addr.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %location.addr.i.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %location.addr.i.i1)
   %cmp1.i.i = fcmp ule double %x, 1.000000e+00
-  %9 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 480)
-  %or.cond5.i.i = and i1 %9, %cmp1.i.i
+  %10 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 480)
+  %or.cond5.i.i = and i1 %10, %cmp1.i.i
   br i1 %or.cond5.i.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end8.i
-  %10 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !38
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %10, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %x.addr)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %9, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %x.addr)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_.exit
 
 if.end14.i:                                       ; preds = %if.end8.i

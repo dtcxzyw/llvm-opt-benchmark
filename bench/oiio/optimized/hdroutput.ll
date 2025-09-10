@@ -749,8 +749,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %19
   %32 = zext nneg i32 %28 to i64
   %33 = zext nneg i32 %29 to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.050, i64 %31
-  %invariant.gep116 = getelementptr inbounds nuw i8, ptr %.050, i64 %32
-  %invariant.gep118 = getelementptr inbounds nuw i8, ptr %.050, i64 %33
+  %invariant.gep118 = getelementptr inbounds nuw i8, ptr %.050, i64 %32
+  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %.050, i64 %33
   br label %35
 
 .critedge61:                                      ; preds = %.loopexit79
@@ -824,10 +824,10 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %19
   store i8 %.sink.i.i, ptr %64, align 1, !tbaa !12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %.sink27.i.i, ptr %gep, align 1, !tbaa !12
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep116, i64 %indvars.iv
-  store i8 %.sink28.i.i, ptr %gep117, align 1, !tbaa !12
   %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep118, i64 %indvars.iv
-  store i8 %.sink29.i.i, ptr %gep119, align 1, !tbaa !12
+  store i8 %.sink28.i.i, ptr %gep119, align 1, !tbaa !12
+  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %indvars.iv
+  store i8 %.sink29.i.i, ptr %gep121, align 1, !tbaa !12
   %65 = getelementptr inbounds nuw i8, ptr %.25490, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %31

@@ -3280,7 +3280,7 @@ define dso_local void @_ZN17btSoftBodyHelpers9DrawInfosEP10btSoftBodyP12btIDebug
   br i1 %52, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !213
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %3, label %.lr.ph.split.split.us, label %._crit_edge
+  br i1 %3, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %66
   %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %.lr.ph.split ]
@@ -3315,8 +3315,16 @@ define dso_local void @_ZN17btSoftBodyHelpers9DrawInfosEP10btSoftBodyP12btIDebug
   %69 = icmp slt i64 %indvars.iv.next, %68
   br i1 %69, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !213
 
-._crit_edge:                                      ; preds = %66, %49, %31, %.lr.ph.split, %5
+._crit_edge:                                      ; preds = %.lr.ph.split.split.preheader, %66, %49, %31, %5
   ret void
+
+.lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split, %.lr.ph.split.split.preheader
+  %.010 = phi i32 [ %70, %.lr.ph.split.split.preheader ], [ 0, %.lr.ph.split ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %70 = add nuw nsw i32 %.010, 1
+  %71 = icmp slt i32 %70, %9
+  br i1 %71, label %.lr.ph.split.split.preheader, label %._crit_edge, !llvm.loop !213
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

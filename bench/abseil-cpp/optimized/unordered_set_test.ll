@@ -119943,7 +119943,12 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal23gtest_suite_Lo
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !247
   %.not122 = icmp eq ptr %31, %33
-  br i1 %.not122, label %._crit_edge128, label %.lr.ph
+  br i1 %.not122, label %.loopexit112.thread, label %.lr.ph
+
+.loopexit112.thread:                              ; preds = %18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %._crit_edge128
 
 .lr.ph:                                           ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -120270,7 +120275,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %129, %_ZNKSt14defau
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %167
 
-._crit_edge128:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit90, %18, %.loopexit112
+._crit_edge128:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit90, %.loopexit112.thread, %.loopexit112
   %148 = load ptr, ptr %28, align 8, !tbaa !157
   %.not5.i.i.i.i = icmp eq ptr %148, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIiiN4absl18container_internal5AllocIiEENSt8__detail9_IdentityENS1_20StatefulTestingEqualENS1_19StatefulTestingHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -121125,7 +121130,12 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal23gtest_suite_Lo
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !154
   %.not96 = icmp eq ptr %31, %33
-  br i1 %.not96, label %._crit_edge102, label %.lr.ph
+  br i1 %.not96, label %.loopexit.thread, label %.lr.ph
+
+.loopexit.thread:                                 ; preds = %18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %._crit_edge102
 
 .lr.ph:                                           ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -121395,7 +121405,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %99, %_ZNKSt14defaul
   %116 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %156
 
-._crit_edge102:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit82, %18, %.loopexit
+._crit_edge102:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit82, %.loopexit.thread, %.loopexit
   %117 = load ptr, ptr %28, align 8, !tbaa !297
   %.not5.i.i.i.i = icmp eq ptr %117, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N4absl18container_internal5AllocIS5_EENSt8__detail9_IdentityENS7_20StatefulTestingEqualENS7_19StatefulTestingHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -124508,7 +124518,12 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal23gtest_suite_Lo
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !247
   %.not176 = icmp eq ptr %33, %35
-  br i1 %.not176, label %._crit_edge182, label %.lr.ph
+  br i1 %.not176, label %.loopexit.thread, label %.lr.ph
+
+.loopexit.thread:                                 ; preds = %20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %._crit_edge182
 
 .lr.ph:                                           ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -124848,7 +124863,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i, %.p
   %161 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %181
 
-._crit_edge182:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit132, %20, %.loopexit
+._crit_edge182:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit132, %.loopexit.thread, %.loopexit
   %162 = load ptr, ptr %30, align 8, !tbaa !157
   %.not5.i.i.i.i = icmp eq ptr %162, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIiiN4absl18container_internal5AllocIiEENSt8__detail9_IdentityENS1_20StatefulTestingEqualENS1_19StatefulTestingHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i71
@@ -125727,7 +125742,12 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal23gtest_suite_Lo
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !154
   %.not151 = icmp eq ptr %33, %35
-  br i1 %.not151, label %._crit_edge157, label %.lr.ph
+  br i1 %.not151, label %.loopexit.thread, label %.lr.ph
+
+.loopexit.thread:                                 ; preds = %20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %._crit_edge157
 
 .lr.ph:                                           ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -126017,7 +126037,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNSt13unordered_se
   %130 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %170
 
-._crit_edge157:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit122, %20, %.loopexit
+._crit_edge157:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit122, %.loopexit.thread, %.loopexit
   %131 = load ptr, ptr %30, align 8, !tbaa !297
   %.not5.i.i.i.i = icmp eq ptr %131, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N4absl18container_internal5AllocIS5_EENSt8__detail9_IdentityENS7_20StatefulTestingEqualENS7_19StatefulTestingHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -128765,7 +128785,12 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal23gtest_suite_Lo
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !247
   %.not194 = icmp eq ptr %32, %34
-  br i1 %.not194, label %.loopexit181, label %.lr.ph
+  br i1 %.not194, label %.loopexit182.thread, label %.lr.ph
+
+.loopexit182.thread:                              ; preds = %19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %.loopexit181
 
 .lr.ph:                                           ; preds = %19
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -129490,7 +129515,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit181
 
-.loopexit181:                                     ; preds = %277, %19, %.loopexit182, %.critedge74, %131
+.loopexit181:                                     ; preds = %277, %.loopexit182.thread, %.loopexit182, %.critedge74, %131
   %280 = load ptr, ptr %29, align 8, !tbaa !157
   %.not5.i.i.i.i = icmp eq ptr %280, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIiiN4absl18container_internal5AllocIiEENSt8__detail9_IdentityENS1_20StatefulTestingEqualENS1_19StatefulTestingHashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -129998,7 +130023,12 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal23gtest_suite_Lo
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !154
   %.not164 = icmp eq ptr %32, %34
-  br i1 %.not164, label %.loopexit, label %.lr.ph
+  br i1 %.not164, label %.loopexit162.thread, label %.lr.ph
+
+.loopexit162.thread:                              ; preds = %19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %.loopexit
 
 .lr.ph:                                           ; preds = %19
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -130623,7 +130653,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %216, %19, %.loopexit162, %.critedge74, %98
+.loopexit:                                        ; preds = %216, %.loopexit162.thread, %.loopexit162, %.critedge74, %98
   %219 = load ptr, ptr %29, align 8, !tbaa !297
   %.not5.i.i.i.i = icmp eq ptr %219, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N4absl18container_internal5AllocIS5_EENSt8__detail9_IdentityENS7_20StatefulTestingEqualENS7_19StatefulTestingHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i

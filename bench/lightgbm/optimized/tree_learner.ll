@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %._c
   %bcmp.i55 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %60, ptr noundef nonnull dereferenceable(4) %56, i64 4)
   %61 = icmp eq i32 %bcmp.i55, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %61, label %62, label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit
+  br i1 %61, label %62, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread
 
 62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
   %63 = call noalias noundef nonnull dereferenceable(856) ptr @_Znwm(i64 noundef 856) #28
@@ -326,9 +326,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %._c
 
 ._crit_edge.i.i60.thread151:                      ; preds = %._crit_edge.i.i51, %._crit_edge.i.i51.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %._crit_edge.i.i60.thread151
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %66, ptr %8, align 8, !tbaa !4
@@ -501,7 +510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %._
   %bcmp.i104 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %120, ptr noundef nonnull dereferenceable(4) %116, i64 4)
   %121 = icmp eq i32 %bcmp.i104, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %121, label %122, label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit
+  br i1 %121, label %122, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117.thread
 
 122:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108
   %123 = call noalias noundef nonnull dereferenceable(856) ptr @_Znwm(i64 noundef 856) #28
@@ -515,9 +524,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %._
 
 ._crit_edge.i.i109.thread153:                     ; preds = %._crit_edge.i.i100, %._crit_edge.i.i100.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117.thread
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %._crit_edge.i.i109.thread153
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %126 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %126, ptr %13, align 8, !tbaa !4
@@ -544,6 +562,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
 
 ._crit_edge.i.i118:                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %135 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %135, ptr %14, align 8, !tbaa !4
@@ -626,8 +646,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %._
   call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.8)
   br label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit
 
-_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit: ; preds = %._crit_edge.i.i109.thread153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %._crit_edge.i.i60.thread151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.thread, %.noexc136, %.noexc88, %_ZN8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEEC2EPKNS_6ConfigE.exit, %_ZN8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEEC2EPKNS_6ConfigE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %160, %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %131, %122, %112, %71, %62, %52, %42
-  %.030 = phi ptr [ %37, %_ZN8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEEC2EPKNS_6ConfigE.exit ], [ %43, %42 ], [ %53, %52 ], [ %63, %62 ], [ %72, %71 ], [ %93, %_ZN8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEEC2EPKNS_6ConfigE.exit ], [ %113, %112 ], [ %123, %122 ], [ %132, %131 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ null, %159 ], [ null, %160 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %101, %.noexc88 ], [ %154, %.noexc136 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.thread ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ null, %._crit_edge.i.i60.thread151 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108 ], [ null, %._crit_edge.i.i109.thread153 ]
+_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread, %.noexc136, %.noexc88, %_ZN8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEEC2EPKNS_6ConfigE.exit, %_ZN8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEEC2EPKNS_6ConfigE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %160, %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %131, %122, %112, %71, %62, %52, %42
+  %.030 = phi ptr [ %37, %_ZN8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEEC2EPKNS_6ConfigE.exit ], [ %43, %42 ], [ %53, %52 ], [ %63, %62 ], [ %72, %71 ], [ %93, %_ZN8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEEC2EPKNS_6ConfigE.exit ], [ %113, %112 ], [ %123, %122 ], [ %132, %131 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ null, %159 ], [ null, %160 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %101, %.noexc88 ], [ %154, %.noexc136 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117.thread ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.thread ]
   ret ptr %.030
 
 .body:                                            ; preds = %157, %155, %104, %102, %98, %94, %133, %124, %114, %73, %64, %54, %44, %40

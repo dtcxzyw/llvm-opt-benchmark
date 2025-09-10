@@ -9848,6 +9848,26 @@ define { i8, i8 } @_ZN10hir_expand16builtin_fn_macro18find_builtin_macro17h0e83b
 
 "_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h5fc9d4cde8a08e32E.exit.thread": ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1427
   br label %194
 
 183:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h5fc9d4cde8a08e32E.exit3", %182

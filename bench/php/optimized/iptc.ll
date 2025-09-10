@@ -483,12 +483,17 @@ php_iptc_put1.exit.us.i:                          ; preds = %php_iptc_get1.exit2
 php_iptc_get1.exit23.preheader.split.i:           ; preds = %php_iptc_get1.exit23.preheader.i
   br i1 %.not138411, label %php_iptc_get1.exit23.us29.i, label %php_iptc_get1.exit23.i
 
-php_iptc_get1.exit23.us29.i:                      ; preds = %php_iptc_get1.exit23.preheader.split.i, %php_iptc_get1.exit23.us29.i
+php_iptc_get1.exit23.us29.i:                      ; preds = %php_iptc_get1.exit23.preheader.split.i, %php_iptc_put1.exit.us30.i
   %163 = call i32 @getc(ptr noundef nonnull %64)
   switch i32 %163, label %php_iptc_next_marker.exit [
     i32 -1, label %php_iptc_next_marker.exit.thread
-    i32 255, label %php_iptc_get1.exit23.us29.i
+    i32 255, label %php_iptc_put1.exit.us30.i
   ]
+
+php_iptc_put1.exit.us30.i:                        ; preds = %php_iptc_get1.exit23.us29.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %php_iptc_get1.exit23.us29.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %php_iptc_get1.exit22.i
   %164 = phi ptr [ %168, %php_iptc_get1.exit22.i ], [ %.promoted274, %.lr.ph.split.i ]

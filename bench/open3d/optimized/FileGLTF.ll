@@ -30403,53 +30403,61 @@ _ZL19stbi__load_gif_mainP13stbi__contextPPiS1_S1_S1_S1_i.exit: ; preds = %78, %7
   %or.cond.i.i = select i1 %93, i1 true, i1 %.not32.i.i
   %wide.trip.count.i.i = zext nneg i32 %92 to i64
   %94 = sext i32 %88 to i64
-  br i1 %or.cond.i.i, label %_ZL26stbi__vertical_flip_slicesPviiii.exit, label %.lr.ph.preheader.i.i
+  br i1 %or.cond.i.i, label %_ZL19stbi__vertical_flipPviii.exit.us.i, label %.lr.ph.preheader.i.i
+
+_ZL19stbi__vertical_flipPviii.exit.us.i:          ; preds = %.lr.ph.i14, %_ZL19stbi__vertical_flipPviii.exit.us.i
+  %.01213.us.i = phi i32 [ %95, %_ZL19stbi__vertical_flipPviii.exit.us.i ], [ 0, %.lr.ph.i14 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  %95 = add nuw nsw i32 %.01213.us.i, 1
+  %exitcond16.not.i = icmp eq i32 %95, %83
+  br i1 %exitcond16.not.i, label %_ZL26stbi__vertical_flip_slicesPviiii.exit, label %_ZL19stbi__vertical_flipPviii.exit.us.i, !llvm.loop !389
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i14, %_ZL19stbi__vertical_flipPviii.exit.loopexit.i
-  %.014.i = phi ptr [ %109, %_ZL19stbi__vertical_flipPviii.exit.loopexit.i ], [ %.0.i, %.lr.ph.i14 ]
-  %.01213.i = phi i32 [ %110, %_ZL19stbi__vertical_flipPviii.exit.loopexit.i ], [ 0, %.lr.ph.i14 ]
+  %.014.i = phi ptr [ %110, %_ZL19stbi__vertical_flipPviii.exit.loopexit.i ], [ %.0.i, %.lr.ph.i14 ]
+  %.01213.i = phi i32 [ %111, %_ZL19stbi__vertical_flipPviii.exit.loopexit.i ], [ 0, %.lr.ph.i14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
-  %95 = mul i64 %indvars.iv.i.i, %91
-  %96 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %95
-  %97 = trunc i64 %indvars.iv.i.i to i32
-  %98 = xor i32 %97, -1
-  %99 = add i32 %82, %98
-  %100 = sext i32 %99 to i64
-  %101 = mul i64 %91, %100
-  %102 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %101
-  br label %103
+  %96 = mul i64 %indvars.iv.i.i, %91
+  %97 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %96
+  %98 = trunc i64 %indvars.iv.i.i to i32
+  %99 = xor i32 %98, -1
+  %100 = add i32 %82, %99
+  %101 = sext i32 %100 to i64
+  %102 = mul i64 %91, %101
+  %103 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %102
+  br label %104
 
-103:                                              ; preds = %103, %.lr.ph.i.i
-  %.02935.i.i = phi i64 [ %91, %.lr.ph.i.i ], [ %108, %103 ]
-  %.03034.i.i = phi ptr [ %102, %.lr.ph.i.i ], [ %107, %103 ]
-  %.03133.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %106, %103 ]
-  %104 = call i64 @llvm.umin.i64(i64 %.02935.i.i, i64 2048)
-  %105 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %.03133.i.i, i64 noundef %104, i64 noundef 2048) #60, !alias.scope !389
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.03133.i.i, ptr noundef nonnull align 1 %.03034.i.i, i64 noundef %104, i1 noundef false) #60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.03034.i.i, ptr noundef nonnull align 16 %9, i64 noundef %104, i1 noundef false) #60
-  %106 = getelementptr inbounds nuw i8, ptr %.03133.i.i, i64 %104
-  %107 = getelementptr inbounds nuw i8, ptr %.03034.i.i, i64 %104
-  %108 = sub i64 %.02935.i.i, %104
-  %.not.i.i = icmp eq i64 %108, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %103, !llvm.loop !34
+104:                                              ; preds = %104, %.lr.ph.i.i
+  %.02935.i.i = phi i64 [ %91, %.lr.ph.i.i ], [ %109, %104 ]
+  %.03034.i.i = phi ptr [ %103, %.lr.ph.i.i ], [ %108, %104 ]
+  %.03133.i.i = phi ptr [ %97, %.lr.ph.i.i ], [ %107, %104 ]
+  %105 = call i64 @llvm.umin.i64(i64 %.02935.i.i, i64 2048)
+  %106 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %.03133.i.i, i64 noundef %105, i64 noundef 2048) #60, !alias.scope !390
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.03133.i.i, ptr noundef nonnull align 1 %.03034.i.i, i64 noundef %105, i1 noundef false) #60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.03034.i.i, ptr noundef nonnull align 16 %9, i64 noundef %105, i1 noundef false) #60
+  %107 = getelementptr inbounds nuw i8, ptr %.03133.i.i, i64 %105
+  %108 = getelementptr inbounds nuw i8, ptr %.03034.i.i, i64 %105
+  %109 = sub i64 %.02935.i.i, %105
+  %.not.i.i = icmp eq i64 %109, 0
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %104, !llvm.loop !34
 
-._crit_edge.i.i:                                  ; preds = %103
+._crit_edge.i.i:                                  ; preds = %104
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZL19stbi__vertical_flipPviii.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 _ZL19stbi__vertical_flipPviii.exit.loopexit.i:    ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %109 = getelementptr inbounds i8, ptr %.014.i, i64 %94
-  %110 = add nuw nsw i32 %.01213.i, 1
-  %exitcond.not.i = icmp eq i32 %110, %83
-  br i1 %exitcond.not.i, label %_ZL26stbi__vertical_flip_slicesPviiii.exit, label %.lr.ph.preheader.i.i, !llvm.loop !393
+  %110 = getelementptr inbounds i8, ptr %.014.i, i64 %94
+  %111 = add nuw nsw i32 %.01213.i, 1
+  %exitcond.not.i = icmp eq i32 %111, %83
+  br i1 %exitcond.not.i, label %_ZL26stbi__vertical_flip_slicesPviiii.exit, label %.lr.ph.preheader.i.i, !llvm.loop !389
 
-_ZL26stbi__vertical_flip_slicesPviiii.exit:       ; preds = %_ZL19stbi__vertical_flipPviii.exit.loopexit.i, %.lr.ph.i14, %81, %_ZL19stbi__load_gif_mainP13stbi__contextPPiS1_S1_S1_S1_i.exit
+_ZL26stbi__vertical_flip_slicesPviiii.exit:       ; preds = %_ZL19stbi__vertical_flipPviii.exit.loopexit.i, %_ZL19stbi__vertical_flipPviii.exit.us.i, %81, %_ZL19stbi__load_gif_mainP13stbi__contextPPiS1_S1_S1_S1_i.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0.i
 }
@@ -211701,11 +211709,11 @@ attributes #70 = { nounwind willreturn memory(none) }
 !386 = distinct !{!386, !385, !"memcpy.inline: argument 1"}
 !387 = !{!388, !388, i64 0}
 !388 = !{!"p1 int", !6, i64 0}
-!389 = !{!390, !392}
-!390 = distinct !{!390, !391, !"memcpy.inline: argument 0"}
-!391 = distinct !{!391, !"memcpy.inline"}
-!392 = distinct !{!392, !391, !"memcpy.inline: argument 1"}
-!393 = distinct !{!393, !29}
+!389 = distinct !{!389, !29}
+!390 = !{!391, !393}
+!391 = distinct !{!391, !392, !"memcpy.inline: argument 0"}
+!392 = distinct !{!392, !"memcpy.inline"}
+!393 = distinct !{!393, !392, !"memcpy.inline: argument 1"}
 !394 = !{!395, !397}
 !395 = distinct !{!395, !396, !"memcpy.inline: argument 0"}
 !396 = distinct !{!396, !"memcpy.inline"}

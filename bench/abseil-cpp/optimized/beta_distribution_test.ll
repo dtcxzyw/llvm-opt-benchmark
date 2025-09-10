@@ -2806,6 +2806,8 @@ _ZN7testing15AssertionResultD2Ev.exit.thread.i:   ; preds = %217
   %226 = icmp ne i64 %225, 0
   %227 = uitofp i1 %226 to double
   store double %227, ptr %27, align 8, !tbaa !116
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store double 0.000000e+00, ptr %33, align 8, !tbaa !116

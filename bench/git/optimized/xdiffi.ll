@@ -2037,12 +2037,17 @@ xdl_mark_ignorable_lines.exit:                    ; preds = %._crit_edge33.i, %6
 .lr.ph.i23:                                       ; preds = %121
   %129 = load i64, ptr %114, align 8, !tbaa !104
   %130 = icmp eq i64 %129, 0
-  br i1 %130, label %._crit_edge38.i, label %.lr.ph.split.i.preheader
+  br i1 %130, label %record_matches_regex.exit.us.i, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i23
   %131 = load ptr, ptr %125, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.lr.ph.i.i24
+
+record_matches_regex.exit.us.i:                   ; preds = %.lr.ph.i23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %._crit_edge38.i
 
 .lr.ph.splitthread-pre-split.i:                   ; preds = %record_matches_regex.exit.i
   %.pr.i = load i64, ptr %114, align 8, !tbaa !104
@@ -2107,12 +2112,17 @@ record_matches_regex.exit.i:                      ; preds = %140
 .lr.ph37.i:                                       ; preds = %._crit_edge.i21
   %157 = load i64, ptr %114, align 8, !tbaa !104
   %158 = icmp eq i64 %157, 0
-  br i1 %158, label %._crit_edge38.i, label %.lr.ph37.split.i.preheader
+  br i1 %158, label %record_matches_regex.exit33.us.i, label %.lr.ph37.split.i.preheader
 
 .lr.ph37.split.i.preheader:                       ; preds = %.lr.ph37.i
   %159 = load ptr, ptr %153, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.lr.ph.i28.i
+
+record_matches_regex.exit33.us.i:                 ; preds = %.lr.ph37.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %._crit_edge38.i
 
 .lr.ph37.splitthread-pre-split.i:                 ; preds = %record_matches_regex.exit33.i
   %.pr61.i = load i64, ptr %114, align 8, !tbaa !104
@@ -2164,8 +2174,8 @@ record_matches_regex.exit33.i:                    ; preds = %168
   %177 = icmp slt i64 %176, %.pre47.i
   br i1 %177, label %.lr.ph37.splitthread-pre-split.i, label %._crit_edge38.i, !llvm.loop !113
 
-._crit_edge38.i:                                  ; preds = %record_matches_regex.exit33.i, %record_matches_regex.exit33.thread64.i, %record_matches_regex.exit33.thread.i, %.lr.ph37.i, %._crit_edge.i21, %record_matches_regex.exit.thread57.i, %record_matches_regex.exit.thread.i, %.lr.ph.i23
-  %.124.lcssa.i = phi i32 [ 1, %._crit_edge.i21 ], [ 0, %.lr.ph37.i ], [ 0, %record_matches_regex.exit33.thread.i ], [ 0, %record_matches_regex.exit33.thread64.i ], [ 0, %.lr.ph.i23 ], [ 0, %record_matches_regex.exit.thread.i ], [ 0, %record_matches_regex.exit.thread57.i ], [ 1, %record_matches_regex.exit33.i ]
+._crit_edge38.i:                                  ; preds = %record_matches_regex.exit33.i, %record_matches_regex.exit33.thread64.i, %record_matches_regex.exit33.thread.i, %record_matches_regex.exit33.us.i, %._crit_edge.i21, %record_matches_regex.exit.thread57.i, %record_matches_regex.exit.thread.i, %record_matches_regex.exit.us.i
+  %.124.lcssa.i = phi i32 [ 1, %._crit_edge.i21 ], [ 0, %record_matches_regex.exit33.us.i ], [ 0, %record_matches_regex.exit33.thread.i ], [ 0, %record_matches_regex.exit33.thread64.i ], [ 0, %record_matches_regex.exit.us.i ], [ 0, %record_matches_regex.exit.thread.i ], [ 0, %record_matches_regex.exit.thread57.i ], [ 1, %record_matches_regex.exit33.i ]
   store i32 %.124.lcssa.i, ptr %119, align 8, !tbaa !92
   br label %178
 

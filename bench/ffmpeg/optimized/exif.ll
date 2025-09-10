@@ -41,176 +41,190 @@ define i32 @ff_exif_decode_ifd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %22 = icmp sgt i32 %3, 2
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = add nsw i32 %3, 1
-  br i1 %22, label %._crit_edge, label %.lr.ph.split
+  br i1 %22, label %exif_decode_tag.exit.thread.us, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %88
-  %.01522 = phi i32 [ %89, %88 ], [ 0, %.lr.ph ]
+exif_decode_tag.exit.thread.us:                   ; preds = %.lr.ph, %exif_decode_tag.exit.thread.us
+  %.01522.us = phi i32 [ %25, %exif_decode_tag.exit.thread.us ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %25 = call i32 @ff_tread_tag(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %6) #6
-  %26 = load ptr, ptr %1, align 8, !tbaa !10
-  %27 = load ptr, ptr %23, align 8, !tbaa !11
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = and i64 %30, 4294967295
-  %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %exif_decode_tag.exit.thread, label %40
-
-exif_decode_tag.exit.thread:                      ; preds = %.lr.ph.split
-  %32 = load i32, ptr %6, align 4, !tbaa !12
-  %33 = load ptr, ptr %12, align 8, !tbaa !4
-  %34 = ptrtoint ptr %33 to i64
-  %35 = sub i64 %34, %29
-  %36 = trunc i64 %35 to i32
-  %37 = icmp slt i32 %32, 0
-  %..i25.i = call i32 @llvm.smin.i32(i32 %32, i32 %36)
-  %.0.i26.i = select i1 %37, i32 0, i32 %..i25.i
-  %38 = sext i32 %.0.i26.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
-  store ptr %39, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %88
+  %25 = add nuw nsw i32 %.01522.us, 1
+  %exitcond25.not = icmp eq i32 %25, %11
+  br i1 %exitcond25.not, label %._crit_edge, label %exif_decode_tag.exit.thread.us, !llvm.loop !11
 
-40:                                               ; preds = %.lr.ph.split
-  %41 = load i32, ptr %7, align 4, !tbaa !12
-  %42 = call i32 @ff_tis_ifd(i32 noundef %41) #6
-  %.not23.i = icmp eq i32 %42, 0
-  br i1 %.not23.i, label %45, label %43
+.lr.ph.split:                                     ; preds = %.lr.ph, %89
+  %.01522 = phi i32 [ %90, %89 ], [ 0, %.lr.ph ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %26 = call i32 @ff_tread_tag(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %6) #6
+  %27 = load ptr, ptr %1, align 8, !tbaa !10
+  %28 = load ptr, ptr %23, align 8, !tbaa !13
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = and i64 %31, 4294967295
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %exif_decode_tag.exit.thread, label %41
 
-43:                                               ; preds = %40
-  %44 = call i32 @ff_exif_decode_ifd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %24, ptr noundef %4)
+exif_decode_tag.exit.thread:                      ; preds = %.lr.ph.split
+  %33 = load i32, ptr %6, align 4, !tbaa !14
+  %34 = load ptr, ptr %12, align 8, !tbaa !4
+  %35 = ptrtoint ptr %34 to i64
+  %36 = sub i64 %35, %30
+  %37 = trunc i64 %36 to i32
+  %38 = icmp slt i32 %33, 0
+  %..i25.i = call i32 @llvm.smin.i32(i32 %33, i32 %37)
+  %.0.i26.i = select i1 %38, i32 0, i32 %..i25.i
+  %39 = sext i32 %.0.i26.i to i64
+  %40 = getelementptr inbounds i8, ptr %28, i64 %39
+  store ptr %40, ptr %1, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %89
+
+41:                                               ; preds = %.lr.ph.split
+  %42 = load i32, ptr %7, align 4, !tbaa !14
+  %43 = call i32 @ff_tis_ifd(i32 noundef %42) #6
+  %.not23.i = icmp eq i32 %43, 0
+  br i1 %.not23.i, label %46, label %44
+
+44:                                               ; preds = %41
+  %45 = call i32 @ff_exif_decode_ifd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %24, ptr noundef %4)
   br label %exif_decode_tag.exit
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %7, align 4, !tbaa !12
-  %47 = trunc i32 %46 to i16
-  br label %49
+46:                                               ; preds = %41
+  %47 = load i32, ptr %7, align 4, !tbaa !14
+  %48 = trunc i32 %47 to i16
+  br label %50
 
-48:                                               ; preds = %49
+49:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 117
-  br i1 %exitcond.not.i, label %54, label %49, !llvm.loop !14
+  br i1 %exitcond.not.i, label %55, label %50, !llvm.loop !16
 
-49:                                               ; preds = %48, %45
-  %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr inbounds nuw %struct.exif_tag, ptr @tag_list, i64 %indvars.iv.i
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load i16, ptr %51, align 2, !tbaa !16
-  %53 = icmp eq i16 %52, %47
-  br i1 %53, label %exif_get_tag_name.exit, label %48
+50:                                               ; preds = %49, %46
+  %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %49 ]
+  %51 = getelementptr inbounds nuw %struct.exif_tag, ptr @tag_list, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = load i16, ptr %52, align 2, !tbaa !17
+  %54 = icmp eq i16 %53, %48
+  br i1 %54, label %exif_get_tag_name.exit, label %49
 
-exif_get_tag_name.exit:                           ; preds = %49
+exif_get_tag_name.exit:                           ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %56
+  br label %57
 
-54:                                               ; preds = %48
+55:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str, i32 noundef %46) #6
-  br label %56
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str, i32 noundef %47) #6
+  br label %57
 
-56:                                               ; preds = %exif_get_tag_name.exit, %54
-  %.0.i = phi ptr [ %50, %exif_get_tag_name.exit ], [ %10, %54 ]
-  %57 = load i32, ptr %8, align 4, !tbaa !12
-  %58 = load i32, ptr %9, align 4, !tbaa !12
-  switch i32 %58, label %76 [
-    i32 0, label %59
-    i32 12, label %60
-    i32 8, label %62
-    i32 3, label %64
-    i32 6, label %66
-    i32 1, label %68
-    i32 7, label %68
-    i32 2, label %70
-    i32 10, label %72
-    i32 5, label %72
-    i32 9, label %74
-    i32 4, label %74
+57:                                               ; preds = %exif_get_tag_name.exit, %55
+  %.0.i = phi ptr [ %51, %exif_get_tag_name.exit ], [ %10, %55 ]
+  %58 = load i32, ptr %8, align 4, !tbaa !14
+  %59 = load i32, ptr %9, align 4, !tbaa !14
+  switch i32 %59, label %77 [
+    i32 0, label %60
+    i32 12, label %61
+    i32 8, label %63
+    i32 3, label %65
+    i32 6, label %67
+    i32 1, label %69
+    i32 7, label %69
+    i32 2, label %71
+    i32 10, label %73
+    i32 5, label %73
+    i32 9, label %75
+    i32 4, label %75
   ]
 
-59:                                               ; preds = %56
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0.i, i32 noundef %57) #6
+60:                                               ; preds = %57
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0.i, i32 noundef %58) #6
   br label %exif_add_metadata.exit
 
-60:                                               ; preds = %56
-  %61 = call i32 @ff_tadd_doubles_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
+61:                                               ; preds = %57
+  %62 = call i32 @ff_tadd_doubles_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-62:                                               ; preds = %56
-  %63 = call i32 @ff_tadd_shorts_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, ptr noundef %4) #6
+63:                                               ; preds = %57
+  %64 = call i32 @ff_tadd_shorts_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-64:                                               ; preds = %56
-  %65 = call i32 @ff_tadd_shorts_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %4) #6
+65:                                               ; preds = %57
+  %66 = call i32 @ff_tadd_shorts_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-66:                                               ; preds = %56
-  %67 = call i32 @ff_tadd_bytes_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, ptr noundef %4) #6
+67:                                               ; preds = %57
+  %68 = call i32 @ff_tadd_bytes_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-68:                                               ; preds = %56, %56
-  %69 = call i32 @ff_tadd_bytes_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %4) #6
+69:                                               ; preds = %57, %57
+  %70 = call i32 @ff_tadd_bytes_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-70:                                               ; preds = %56
-  %71 = call i32 @ff_tadd_string_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
+71:                                               ; preds = %57
+  %72 = call i32 @ff_tadd_string_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-72:                                               ; preds = %56, %56
-  %73 = call i32 @ff_tadd_rational_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
+73:                                               ; preds = %57, %57
+  %74 = call i32 @ff_tadd_rational_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-74:                                               ; preds = %56, %56
-  %75 = call i32 @ff_tadd_long_metadata(i32 noundef %57, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
+75:                                               ; preds = %57, %57
+  %76 = call i32 @ff_tadd_long_metadata(i32 noundef %58, ptr noundef nonnull %.0.i, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4) #6
   br label %exif_add_metadata.exit
 
-76:                                               ; preds = %56
-  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %58) #6
+77:                                               ; preds = %57
+  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %59) #6
   br label %exif_add_metadata.exit
 
-exif_add_metadata.exit:                           ; preds = %59, %60, %62, %64, %66, %68, %70, %72, %74, %76
-  %.0.i17 = phi i32 [ 0, %76 ], [ 0, %59 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ]
+exif_add_metadata.exit:                           ; preds = %60, %61, %63, %65, %67, %69, %71, %73, %75, %77
+  %.0.i17 = phi i32 [ 0, %77 ], [ 0, %60 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %exif_decode_tag.exit
 
-exif_decode_tag.exit:                             ; preds = %43, %exif_add_metadata.exit
-  %.019.i = phi i32 [ %44, %43 ], [ %.0.i17, %exif_add_metadata.exit ]
-  %77 = load i32, ptr %6, align 4, !tbaa !12
-  %78 = load ptr, ptr %12, align 8, !tbaa !4
-  %79 = load ptr, ptr %23, align 8, !tbaa !11
-  %80 = ptrtoint ptr %78 to i64
+exif_decode_tag.exit:                             ; preds = %44, %exif_add_metadata.exit
+  %.019.i = phi i32 [ %45, %44 ], [ %.0.i17, %exif_add_metadata.exit ]
+  %78 = load i32, ptr %6, align 4, !tbaa !14
+  %79 = load ptr, ptr %12, align 8, !tbaa !4
+  %80 = load ptr, ptr %23, align 8, !tbaa !13
   %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = trunc i64 %82 to i32
-  %84 = icmp slt i32 %77, 0
-  %..i.i = call i32 @llvm.smin.i32(i32 %77, i32 %83)
-  %.0.i.i = select i1 %84, i32 0, i32 %..i.i
-  %85 = sext i32 %.0.i.i to i64
-  %86 = getelementptr inbounds i8, ptr %79, i64 %85
-  store ptr %86, ptr %1, align 8, !tbaa !10
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = trunc i64 %83 to i32
+  %85 = icmp slt i32 %78, 0
+  %..i.i = call i32 @llvm.smin.i32(i32 %78, i32 %84)
+  %.0.i.i = select i1 %85, i32 0, i32 %..i.i
+  %86 = sext i32 %.0.i.i to i64
+  %87 = getelementptr inbounds i8, ptr %80, i64 %86
+  store ptr %87, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %87 = icmp slt i32 %.019.i, 0
-  br i1 %87, label %.loopexit, label %88
+  %88 = icmp slt i32 %.019.i, 0
+  br i1 %88, label %.loopexit, label %89
 
-88:                                               ; preds = %exif_decode_tag.exit.thread, %exif_decode_tag.exit
-  %89 = add nuw nsw i32 %.01522, 1
-  %exitcond.not = icmp eq i32 %89, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+89:                                               ; preds = %exif_decode_tag.exit.thread, %exif_decode_tag.exit
+  %90 = add nuw nsw i32 %.01522, 1
+  %exitcond.not = icmp eq i32 %90, %11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %88, %.lr.ph, %.preheader
-  %90 = call i32 @ff_tget_long(ptr noundef nonnull %1, i32 noundef %2) #6
+._crit_edge:                                      ; preds = %89, %exif_decode_tag.exit.thread.us, %.preheader
+  %91 = call i32 @ff_tget_long(ptr noundef nonnull %1, i32 noundef %2) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %exif_decode_tag.exit, %5, %._crit_edge
-  %.0 = phi i32 [ %90, %._crit_edge ], [ -1094995529, %5 ], [ %.019.i, %exif_decode_tag.exit ]
+  %.0 = phi i32 [ %91, %._crit_edge ], [ -1094995529, %5 ], [ %.019.i, %exif_decode_tag.exit ]
   ret i32 %.0
 }
 
@@ -233,7 +247,7 @@ define i32 @avpriv_exif_decode_ifd(ptr noundef %0, ptr noundef %1, i32 noundef %
 bytestream2_init.exit:                            ; preds = %6
   store ptr %1, ptr %7, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !11
+  store ptr %1, ptr %10, align 8, !tbaa !13
   %11 = zext nneg i32 %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -300,12 +314,12 @@ attributes #7 = { noreturn nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!5, !6, i64 0}
-!11 = !{!5, !6, i64 16}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !8, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !18, i64 32}
-!17 = !{!"exif_tag", !8, i64 0, !18, i64 32}
-!18 = !{!"short", !8, i64 0}
-!19 = distinct !{!19, !15}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!5, !6, i64 16}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !8, i64 0}
+!16 = distinct !{!16, !12}
+!17 = !{!18, !19, i64 32}
+!18 = !{!"exif_tag", !8, i64 0, !19, i64 32}
+!19 = !{!"short", !8, i64 0}
