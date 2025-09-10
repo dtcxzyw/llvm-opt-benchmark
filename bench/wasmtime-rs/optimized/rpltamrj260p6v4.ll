@@ -3024,7 +3024,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i: ;
 
 26:                                               ; preds = %4
   switch i16 %1, label %30 [
-    i16 123, label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$11xmm_mov_r_m17h76081593d48675e2E.llvm.15687030032196409338.exit"
+    i16 123, label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit"
     i16 124, label %32
     i16 155, label %33
     i16 140, label %34
@@ -3034,7 +3034,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.2cddbf5bcaf761a71b3f633d4eb1e193.33.llvm.15687030032196409338, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2cddbf5bcaf761a71b3f633d4eb1e193.40.llvm.15687030032196409338) #20
   unreachable
 
-"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$11xmm_mov_r_m17h76081593d48675e2E.llvm.15687030032196409338.exit": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, %26, %34, %33, %32, %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit"
+"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, %26, %34, %33, %32, %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit"
   %.0.sink = phi i8 [ %.0.i1.i, %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit" ], [ 53, %32 ], [ 54, %33 ], [ 55, %34 ], [ 52, %26 ], [ 47, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit ]
   %storemerge = phi i8 [ 28, %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit" ], [ 62, %32 ], [ 62, %33 ], [ 62, %34 ], [ 62, %26 ], [ 62, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3052,13 +3052,13 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
   br i1 %.0.i4, label %35, label %44
 
 32:                                               ; preds = %26
-  br label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$11xmm_mov_r_m17h76081593d48675e2E.llvm.15687030032196409338.exit"
+  br label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit"
 
 33:                                               ; preds = %26
-  br label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$11xmm_mov_r_m17h76081593d48675e2E.llvm.15687030032196409338.exit"
+  br label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit"
 
 34:                                               ; preds = %26
-  br label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$11xmm_mov_r_m17h76081593d48675e2E.llvm.15687030032196409338.exit"
+  br label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit"
 
 35:                                               ; preds = %30
   %36 = and i16 %1, 15
@@ -3079,7 +3079,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
   %41 = zext nneg i16 %40 to i32
   %42 = shl nuw nsw i32 %.0.i.i6, %41
   %43 = icmp eq i32 %42, 128
-  br i1 %43, label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$11xmm_mov_r_m17h76081593d48675e2E.llvm.15687030032196409338.exit", label %44
+  br i1 %43, label %"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7mov_r_m17h24bcf0532abfcae6E.exit", label %44
 
 44:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

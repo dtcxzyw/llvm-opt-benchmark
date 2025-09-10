@@ -749,8 +749,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %19
   %32 = zext nneg i32 %28 to i64
   %33 = zext nneg i32 %29 to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.050, i64 %31
-  %invariant.gep118 = getelementptr inbounds nuw i8, ptr %.050, i64 %32
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %.050, i64 %33
+  %invariant.gep116 = getelementptr inbounds nuw i8, ptr %.050, i64 %32
+  %invariant.gep118 = getelementptr inbounds nuw i8, ptr %.050, i64 %33
   br label %35
 
 .critedge61:                                      ; preds = %.loopexit79

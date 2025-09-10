@@ -794,9 +794,9 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backEOS2_.exit.i38.i.i: ; preds = %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i45.i.i, %215
   %.sroa.0.8.i = phi ptr [ %228, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i45.i.i ], [ %.sroa.0.7.i, %215 ]
-  %.pn47.i = phi ptr [ %229, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i45.i.i ], [ %213, %215 ]
+  %.pn48.i = phi ptr [ %229, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i45.i.i ], [ %213, %215 ]
   %.sroa.22.6.i = phi ptr [ %233, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i45.i.i ], [ %.sroa.22.5.i, %215 ]
-  %.sroa.12.6.i = getelementptr inbounds nuw i8, ptr %.pn47.i, i64 8
+  %.sroa.12.6.i = getelementptr inbounds nuw i8, ptr %.pn48.i, i64 8
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i36.i.i, i64 16
   %.not.i39.i.i = icmp eq ptr %234, %212
   br i1 %.not.i39.i.i, label %_ZN3ue219add_to_dom_orderingISt10shared_ptrINS_11GoughSSAVarEEEEvRKSt6vectorIT_SaIS5_EEPS4_IPS2_SaISA_EE.exit.i.i, label %.lr.ph.i34.i.i

@@ -7795,15 +7795,15 @@ define void @_ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt
   %.sroa.035.050.us = phi ptr [ %39, %38 ], [ %15, %.lr.ph51 ]
   %29 = load i8, ptr %.sroa.035.050.us, align 8, !tbaa !668
   switch i8 %29, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us [
-    i8 0, label %.critedge.thread.us
+    i8 0, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
     i8 1, label %.critedge.thread.us
     i8 2, label %.critedge.thread.us
     i8 7, label %.critedge.thread.us
-    i8 4, label %.critedge.thread.us
+    i8 4, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
     i8 5, label %.critedge.thread.us
   ]
 
-.critedge.thread.us:                              ; preds = %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us
+_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us, %.lr.ph51.split.us
   %30 = load ptr, ptr @stdout, align 8, !tbaa !203
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.035.050.us, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !670
@@ -7824,10 +7824,10 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %
   %.not46.us = icmp eq ptr %39, %17
   br i1 %.not46.us, label %._crit_edge, label %.lr.ph51.split.us
 
-.lr.ph51.split:                                   ; preds = %.lr.ph51, %58
-  %.sroa.035.050 = phi ptr [ %59, %58 ], [ %15, %.lr.ph51 ]
-  %40 = load i8, ptr %.sroa.035.050, align 8, !tbaa !668
-  switch i8 %40, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit [
+.lr.ph51.split:                                   ; preds = %.lr.ph51, %55
+  %.sroa.035.050 = phi ptr [ %56, %58 ], [ %15, %.lr.ph51 ]
+  %37 = load i8, ptr %.sroa.035.050, align 8, !tbaa !668
+  switch i8 %37, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit [
     i8 0, label %.lr.ph
     i8 1, label %.lr.ph
     i8 2, label %.lr.ph
@@ -7837,10 +7837,10 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %
   ]
 
 .lr.ph:                                           ; preds = %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split, %.lr.ph51.split
-  %41 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !670
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.45, ptr noundef %43) #27
+  %38 = load ptr, ptr @stdout, align 8, !tbaa !203
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !670
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.45, ptr noundef %40) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 -14, ptr %11, align 8, !tbaa !671
   store i32 32767, ptr %18, align 4, !tbaa !672
@@ -7853,61 +7853,61 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %
   store i32 %7, ptr %21, align 8, !tbaa !679
   store i64 %8, ptr %24, align 8, !tbaa !680
   store i8 %12, ptr %25, align 8, !tbaa !681
-  br label %45
+  br label %42
 
 ..critedge.thread_crit_edge:                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit34
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %58
+  br label %55
 
-45:                                               ; preds = %.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit34
-  %.03048 = phi i32 [ %4, %.lr.ph ], [ %53, %_ZN7rocksdb6StatusD2Ev.exit34 ]
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.46, i32 noundef %.03048) #27
+42:                                               ; preds = %.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit34
+  %.03048 = phi i32 [ %4, %.lr.ph ], [ %50, %_ZN7rocksdb6StatusD2Ev.exit34 ]
+  %43 = load ptr, ptr @stdout, align 8, !tbaa !203
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.46, i32 noundef %.03048) #27
   store i32 %.03048, ptr %18, align 4, !tbaa !672
-  %48 = load i8, ptr %.sroa.035.050, align 8, !tbaa !668
-  call void @_ZN7rocksdb13SstFileDumper19ShowCompressionSizeEmNS_15CompressionTypeERKNS_18CompressionOptionsE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3336) %1, i64 noundef %2, i8 noundef zeroext %48, ptr noundef nonnull align 8 dereferenceable(49) %11)
-  %49 = load i8, ptr %0, align 8, !tbaa !206
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %51, label %60
+  %45 = load i8, ptr %.sroa.035.050, align 8, !tbaa !668
+  call void @_ZN7rocksdb13SstFileDumper19ShowCompressionSizeEmNS_15CompressionTypeERKNS_18CompressionOptionsE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3336) %1, i64 noundef %2, i8 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(49) %11)
+  %46 = load i8, ptr %0, align 8, !tbaa !206
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %57
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %28, align 8, !tbaa !214
-  %.not.i.i32 = icmp eq ptr %52, null
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %28, align 8, !tbaa !214
+  %.not.i.i32 = icmp eq ptr %49, null
   br i1 %.not.i.i32, label %_ZN7rocksdb6StatusD2Ev.exit34, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33: ; preds = %51
-  call void @_ZdaPv(ptr noundef nonnull %52) #26
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33: ; preds = %48
+  call void @_ZdaPv(ptr noundef nonnull %49) #26
   br label %_ZN7rocksdb6StatusD2Ev.exit34
 
-_ZN7rocksdb6StatusD2Ev.exit34:                    ; preds = %51, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33
+_ZN7rocksdb6StatusD2Ev.exit34:                    ; preds = %48, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33
   store ptr null, ptr %28, align 8, !tbaa !214
-  %53 = add i32 %.03048, 1
+  %50 = add i32 %.03048, 1
   %exitcond.not = icmp eq i32 %.03048, %5
-  br i1 %exitcond.not, label %..critedge.thread_crit_edge, label %45, !llvm.loop !682
+  br i1 %exitcond.not, label %..critedge.thread_crit_edge, label %42, !llvm.loop !682
 
 _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit: ; preds = %.lr.ph51.split
-  %54 = load ptr, ptr @stdout, align 8, !tbaa !203
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !670
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.47, ptr noundef %56) #27
-  br label %58
+  %51 = load ptr, ptr @stdout, align 8, !tbaa !203
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !670
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.47, ptr noundef %53) #27
+  br label %55
 
-58:                                               ; preds = %..critedge.thread_crit_edge, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 16
-  %.not46 = icmp eq ptr %59, %17
+55:                                               ; preds = %..critedge.thread_crit_edge, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 16
+  %.not46 = icmp eq ptr %56, %17
   br i1 %.not46, label %._crit_edge, label %.lr.ph51.split
 
-60:                                               ; preds = %45
+57:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %62
+  br label %59
 
-._crit_edge:                                      ; preds = %58, %38, %10
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %61, align 8, !tbaa !539, !alias.scope !683
+._crit_edge:                                      ; preds = %55, %38, %10
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %58, align 8, !tbaa !539, !alias.scope !683
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !683
-  br label %62
+  br label %59
 
-62:                                               ; preds = %60, %._crit_edge
+59:                                               ; preds = %57, %._crit_edge
   ret void
 }
 

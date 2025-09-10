@@ -1044,8 +1044,8 @@ if.end8.i:                                        ; preds = %_ZN5boost4math6deta
   call void @llvm.lifetime.start.p0(ptr nonnull %location.addr.i.i1)
   call void @llvm.lifetime.end.p0(ptr nonnull %location.addr.i.i1)
   %cmp1.i.i = fcmp ule double %x, 1.000000e+00
-  %10 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 480)
-  %or.cond5.i.i = and i1 %10, %cmp1.i.i
+  %9 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 480)
+  %or.cond5.i.i = and i1 %9, %cmp1.i.i
   br i1 %or.cond5.i.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end8.i

@@ -371,11 +371,11 @@ define void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 140)
   %14 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.1)
-          to label %15 unwind label %28
+          to label %15 unwind label %27
 
 15:                                               ; preds = %13
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %14)
-          to label %19 unwind label %30
+          to label %19 unwind label %29
 
 .critedge40:                                      ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -387,11 +387,11 @@ define void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 141)
   %17 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.2)
-          to label %18 unwind label %33
+          to label %18 unwind label %32
 
 18:                                               ; preds = %16
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(56) %17)
-          to label %20 unwind label %35
+          to label %20 unwind label %34
 
 19:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -421,11 +421,11 @@ define void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS0
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 142)
   %22 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.3)
-          to label %23 unwind label %38
+          to label %23 unwind label %37
 
 23:                                               ; preds = %21
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(56) %22)
-          to label %25 unwind label %40
+          to label %25 unwind label %39
 
 24:                                               ; preds = %19, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -439,70 +439,70 @@ define void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS0
   br label %.critedge48
 
 .critedge48:                                      ; preds = %24, %.thread62, %25
-  %26 = zext i1 %3 to i8
-  %27 = zext i1 %4 to i8
+  %25 = zext i1 %3 to i8
+  %26 = zext i1 %4 to i8
   store i8 %2, ptr %12, align 8, !tbaa !34
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store i8 %26, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !35
+  store i8 %25, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !35
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 2
-  store i8 %27, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !35
+  store i8 %26, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !35
   %.sroa.649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %.sroa.649.0..sroa_idx, align 8, !tbaa !37
   call fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull byval(%"struct.google::protobuf::internal::ExtensionInfo") align 8 %12)
   ret void
 
-28:                                               ; preds = %13
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %13
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %31
 
-30:                                               ; preds = %15
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %15
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %32
+  br label %31
 
-32:                                               ; preds = %28, %30
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
+31:                                               ; preds = %27, %29
+  %.pn = phi { ptr, i32 } [ %30, %30 ], [ %28, %28 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %43
+  br label %42
 
-33:                                               ; preds = %16
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %16
+  %33 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %36
 
-35:                                               ; preds = %18
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %35
-  %.pn33 = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
+36:                                               ; preds = %32, %34
+  %.pn33 = phi { ptr, i32 } [ %35, %35 ], [ %33, %33 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %43
-
-38:                                               ; preds = %21
-  %39 = landingpad { ptr, i32 }
-          cleanup
   br label %42
 
-40:                                               ; preds = %23
-  %41 = landingpad { ptr, i32 }
+37:                                               ; preds = %21
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  br label %41
+
+39:                                               ; preds = %23
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %42
+  br label %41
 
-42:                                               ; preds = %38, %40
-  %.pn36 = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
+41:                                               ; preds = %37, %39
+  %.pn36 = phi { ptr, i32 } [ %40, %40 ], [ %38, %38 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %37, %32
+42:                                               ; preds = %41, %36, %31
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %42 ], [ %.pn33, %37 ], [ %.pn, %32 ]
   resume { ptr, i32 } %.pn36.pn
 }

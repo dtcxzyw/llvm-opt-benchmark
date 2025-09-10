@@ -8691,9 +8691,9 @@ define linkonce_odr hidden noundef ptr @_ZN13CompileReplay10parse_dataEPKcRi(ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %19, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.lr.ph.split, label %_ZN13CompileReplay9parse_intEPKc.exit.us
+  br i1 %23, label %.lr.ph.split, label %.lr.ph.split.preheader
 
-_ZN13CompileReplay9parse_intEPKc.exit.us:         ; preds = %.lr.ph, %_ZN13CompileReplay9parse_intEPKc.exit.us
+.lr.ph.split.preheader:                           ; preds = %.lr.ph, %.lr.ph.split.preheader
   %.02638.us = phi i32 [ %24, %_ZN13CompileReplay9parse_intEPKc.exit.us ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8708,40 +8708,40 @@ _ZN13CompileReplay9parse_intEPKc.exit.us:         ; preds = %.lr.ph, %_ZN13Compi
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %25 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
+  %26 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
   %.02638 = phi i32 [ %38, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not.i.i = icmp eq ptr %25, null
+  %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN13CompileReplay9had_errorEv.exit.i, label %_ZN13CompileReplay9parse_intEPKc.exit
 
 _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %.lr.ph.split
-  %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not2.i = icmp eq ptr %28, null
-  br i1 %.not2.i, label %29, label %_ZN13CompileReplay9parse_intEPKc.exit
+  %27 = load ptr, ptr %20, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %.not2.i = icmp eq ptr %29, null
+  br i1 %.not2.i, label %30, label %_ZN13CompileReplay9parse_intEPKc.exit
 
-29:                                               ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
+30:                                               ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
   store i32 0, ptr %6, align 4
-  %30 = load ptr, ptr %21, align 8
-  %31 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %30, ptr noundef nonnull @.str.34, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
-  %.not.i = icmp eq i32 %31, 1
-  br i1 %.not.i, label %33, label %32
+  %31 = load ptr, ptr %21, align 8
+  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.34, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  %.not.i = icmp eq i32 %32, 1
+  br i1 %.not.i, label %34, label %33
 
-32:                                               ; preds = %29
+33:                                               ; preds = %30
   store ptr @.str.80, ptr %19, align 8
   br label %_ZN13CompileReplay9parse_intEPKc.exit
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %7, align 4
-  %35 = load ptr, ptr %21, align 8
-  %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds i8, ptr %35, i64 %36
-  store ptr %37, ptr %21, align 8
+34:                                               ; preds = %30
+  %35 = load i32, ptr %7, align 4
+  %36 = load ptr, ptr %21, align 8
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  store ptr %38, ptr %21, align 8
   br label %_ZN13CompileReplay9parse_intEPKc.exit
 
-_ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %32, %33, %.lr.ph.split, %_ZN13CompileReplay9had_errorEv.exit.i
+_ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %33, %34, %.lr.ph.split, %_ZN13CompileReplay9had_errorEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = add nuw nsw i32 %.02638, 1
@@ -8758,12 +8758,12 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %32, %33, %.lr.ph.sp
   %42 = icmp slt i32 %39, 80
   br i1 %42, label %.lr.ph42, label %._crit_edge
 
-.lr.ph42:                                         ; preds = %_ZN13CompileReplay9parse_intEPKc.exit.us, %_ZN13CompileReplay9parse_intEPKc.exit, %10, %17, %.loopexit
-  %.02556 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit.us ]
+.lr.ph42:                                         ; preds = %.lr.ph.split.preheader, %_ZN13CompileReplay9parse_intEPKc.exit, %10, %17, %.loopexit
+  %.02555 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit.us ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %46 = zext nneg i32 %.02556 to i64
+  %46 = zext nneg i32 %.02555 to i64
   br label %47
 
 47:                                               ; preds = %.lr.ph42, %_ZN13CompileReplay9parse_intEPKc.exit36
@@ -8813,8 +8813,8 @@ _ZN13CompileReplay9parse_intEPKc.exit36:          ; preds = %47, %_ZN13CompileRe
   store i8 %.0.i32, ptr %64, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = and i64 %indvars.iv.next, 4294967295
-  %exitcond50.not = icmp eq i64 %65, 80
-  br i1 %exitcond50.not, label %._crit_edge, label %47, !llvm.loop !47
+  %exitcond49.not = icmp eq i64 %65, 80
+  br i1 %exitcond49.not, label %._crit_edge, label %47, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %_ZN13CompileReplay9parse_intEPKc.exit36, %.loopexit
   store i32 80, ptr %2, align 4

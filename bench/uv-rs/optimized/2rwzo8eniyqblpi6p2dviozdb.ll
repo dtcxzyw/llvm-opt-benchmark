@@ -1133,7 +1133,7 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 2, ptr %0, align 8
-  br label %26
+  br label %25
 
 13:                                               ; preds = %11
   %14 = add i8 %10, -1
@@ -1157,49 +1157,49 @@ default.unreachable:                              ; preds = %3
   %.sroa.03.012.i20.off16 = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread" ], [ %10, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %.sroa.03.012.i20.off8, ptr %5, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i20.off16, ptr %17, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %.sroa.03.012.i20.off16, ptr %16, align 1
   invoke void @"_ZN75_$LT$tokio..process..imp..Child$u20$as$u20$core..future..future..Future$GT$4poll17h2104b772616baa18E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %20 unwind label %18
+          to label %20 unwind label %17
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
-          to label %"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit" unwind label %27
+          to label %"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit" unwind label %26
 
-20:                                               ; preds = %16
-  %21 = load i32, ptr %0, align 8, !range !315, !noundef !3
-  switch i32 %21, label %24 [
-    i32 0, label %22
-    i32 2, label %25
+19:                                               ; preds = %16
+  %20 = load i32, ptr %0, align 8, !range !315, !noundef !3
+  switch i32 %20, label %24 [
+    i32 0, label %21
+    i32 2, label %24
   ]
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i8 0, ptr %23, align 8
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i8 0, ptr %22, align 8
+  br label %23
+
+23:                                               ; preds = %19, %21
+  store i8 0, ptr %5, align 1
   br label %24
 
-24:                                               ; preds = %20, %22
-  store i8 0, ptr %5, align 1
+24:                                               ; preds = %19, %23
+  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
   br label %25
 
-25:                                               ; preds = %20, %24
-  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
-  br label %26
-
-26:                                               ; preds = %25, %.critedge
+25:                                               ; preds = %24, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-27:                                               ; preds = %18
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %17
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #20
   unreachable
 
-"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit": ; preds = %18
-  resume { ptr, i32 } %19
+"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit": ; preds = %17
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -1216,9 +1216,9 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.split.us, label %.split
+  br i1 %15, label %.split17.us, label %.split
 
-.split.us:                                        ; preds = %12, %.split.us
+.split17.us:                                      ; preds = %12, %.split17.us
   %.015.us = phi i32 [ %16, %.split.us ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1226,7 +1226,7 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   %.not12.us = icmp eq i32 %16, 163
   br i1 %.not12.us, label %.split17.us, label %.split.us, !llvm.loop !15
 
-.split17.us:                                      ; preds = %38, %.split.us
+.splitthread-pre-split:                           ; preds = %38, %.split17.us
   %17 = call i32 @get_log_level() #22
   %18 = icmp sgt i32 %17, 2
   br i1 %18, label %39, label %40
@@ -1236,41 +1236,41 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   br label %.split
 
 .split:                                           ; preds = %12, %.splitthread-pre-split
-  %19 = phi ptr [ %.pr, %.splitthread-pre-split ], [ %14, %12 ]
+  %18 = phi ptr [ %.pr, %.splitthread-pre-split ], [ %14, %12 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.splitthread-pre-split ], [ 0, %12 ]
-  %20 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %38, label %21
+  %.not13 = icmp eq ptr %18, null
+  br i1 %.not13, label %38, label %20
 
-21:                                               ; preds = %.split
-  %22 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %19, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1, !range !12, !noundef !13
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %38
+20:                                               ; preds = %.split
+  %21 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %18, i64 %indvars.iv
+  %22 = load i8, ptr %21, align 1, !range !12, !noundef !13
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %38
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %31, label %29
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %19, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %27 = load ptr, ptr %26, align 8
+  %.not14 = icmp eq ptr %27, null
+  br i1 %.not14, label %30, label %28
 
-29:                                               ; preds = %25
-  %30 = call ptr %28(ptr noundef nonnull %0) #22
-  store ptr %30, ptr %2, align 8
-  br label %31
+28:                                               ; preds = %24
+  %29 = call ptr %28(ptr noundef nonnull %0) #22
+  store ptr %29, ptr %2, align 8
+  br label %30
 
-31:                                               ; preds = %29, %25
-  %32 = call i32 @get_log_level() #22
-  %33 = icmp sgt i32 %32, 2
-  br i1 %33, label %34, label %37
+30:                                               ; preds = %28, %24
+  %31 = call i32 @get_log_level() #22
+  %32 = icmp sgt i32 %31, 2
+  br i1 %32, label %33, label %37
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %26, align 8
-  %36 = load ptr, ptr %2, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef %35, ptr noundef %36) #22
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %25, align 8
+  %35 = load ptr, ptr %2, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef %34, ptr noundef %35) #22
   br label %37
 
 37:                                               ; preds = %34, %31
@@ -1283,20 +1283,20 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   %.not12 = icmp eq i64 %indvars.iv.next, 163
   br i1 %.not12, label %.split17.us, label %.splitthread-pre-split, !llvm.loop !16
 
-39:                                               ; preds = %.split17.us
+38:                                               ; preds = %.split17.us
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7) #22
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %.split17.us
-  %41 = call i32 @get_log_level() #22
-  %42 = icmp sgt i32 %41, 2
-  br i1 %42, label %43, label %44
+39:                                               ; preds = %38, %.split17.us
+  %40 = call i32 @get_log_level() #22
+  %41 = icmp sgt i32 %40, 2
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9) #22
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %40
+43:                                               ; preds = %42, %39
   ret void
 }
 
@@ -5060,7 +5060,7 @@ _validate_share_options.exit:                     ; preds = %870, %873, %874, %8
   %957 = load ptr, ptr %10, align 8
   %958 = icmp ne ptr %957, null
   %959 = select i1 %956, i1 %958, i1 false
-  br i1 %959, label %949, label %.outer._crit_edge.i.i, !llvm.loop !21
+  br i1 %959, label %949, label %.outer._crit_edge.i.i, !llvm.loop !20
 
 960:                                              ; preds = %951, %949
   %961 = load ptr, ptr %8, align 8
@@ -5078,7 +5078,7 @@ _validate_share_options.exit:                     ; preds = %870, %873, %874, %8
   %968 = load ptr, ptr %10, align 8
   %969 = icmp ne ptr %968, null
   %970 = select i1 %967, i1 %969, i1 false
-  br i1 %970, label %.lr.ph.i.i, label %.outer._crit_edge.i.i, !llvm.loop !21
+  br i1 %970, label %.lr.ph.i.i, label %.outer._crit_edge.i.i, !llvm.loop !20
 
 971:                                              ; preds = %960
   %972 = load ptr, ptr %948, align 8
@@ -7395,7 +7395,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   %51 = load i32, ptr %50, align 8
   %.not43.us = icmp eq i32 %51, 0
   %or.cond74 = select i1 %.not.us, i1 %.not43.us, i1 false
-  br i1 %or.cond74, label %.split51.us, label %.critedge.us, !llvm.loop !25
+  br i1 %or.cond74, label %.split51.us, label %.critedge.us, !llvm.loop !24
 
 .critedge:                                        ; preds = %.critedge.preheader, %.split
   %52 = phi i32 [ %88, %.split ], [ %29, %.critedge.preheader ]
@@ -7484,7 +7484,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   %88 = load i32, ptr %87, align 8
   %.not43 = icmp eq i32 %88, 0
   %or.cond75 = select i1 %.not, i1 %.not43, i1 false
-  br i1 %or.cond75, label %.split51.us, label %.critedge, !llvm.loop !25
+  br i1 %or.cond75, label %.split51.us, label %.critedge, !llvm.loop !24
 
 .split51.us:                                      ; preds = %.split.us.split, %.split, %.split.us.split.preheader, %.split.preheader, %.split.us
   %89 = load ptr, ptr %3, align 8
@@ -14872,7 +14872,7 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
   call void @slurm_xfree(ptr noundef nonnull %8) #22
   %.pr = load ptr, ptr %5, align 8
   %.not32 = icmp eq ptr %.pr, null
-  br i1 %.not32, label %.critedge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not32, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %_get_gpu_cnt_and_str.exit, %9
   store ptr null, ptr %5, align 8

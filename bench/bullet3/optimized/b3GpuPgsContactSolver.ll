@@ -1588,7 +1588,7 @@ define dso_local void @_ZN21b3GpuPgsContactSolver32solveContactConstraintBatchSi
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br i1 %26, label %.lr.ph.us, label %.lr.ph220.split
+  br i1 %26, label %.lr.ph.us, label %397
 
 .lr.ph.us:                                        ; preds = %.lr.ph220, %._crit_edge.us
   %.031218.us = phi i32 [ %209, %._crit_edge.us ], [ 0, %.lr.ph220 ]
@@ -2557,7 +2557,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit62.us:    ; preds = %367
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %21) #23
   br label %403
 
-.lr.ph220.split:                                  ; preds = %.lr.ph220, %.lr.ph220.split
+397:                                              ; preds = %.lr.ph220, %.lr.ph220.split
   %.031218 = phi i32 [ %397, %.lr.ph220.split ], [ 0, %.lr.ph220 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2571,23 +2571,23 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit62.us:    ; preds = %367
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %404
+  br label %402
 
-._crit_edge227:                                   ; preds = %.lr.ph226.split, %._crit_edge.us229, %9
+._crit_edge227:                                   ; preds = %401, %._crit_edge.us229, %9
   invoke void @b3LeaveProfileZone()
-          to label %_ZN13b3ProfileZoneD2Ev.exit unwind label %399
+          to label %_ZN13b3ProfileZoneD2Ev.exit unwind label %398
 
-399:                                              ; preds = %._crit_edge227
-  %400 = landingpad { ptr, i32 }
+398:                                              ; preds = %._crit_edge227
+  %399 = landingpad { ptr, i32 }
           catch ptr null
-  %401 = extractvalue { ptr, i32 } %400, 0
-  call void @__clang_call_terminate(ptr %401) #24
+  %400 = extractvalue { ptr, i32 } %399, 0
+  call void @__clang_call_terminate(ptr %400) #24
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge227
   ret void
 
-.lr.ph226.split:                                  ; preds = %.lr.ph220.split, %.lr.ph226.split
+401:                                              ; preds = %.lr.ph220.split, %401
   %.028225 = phi i32 [ %402, %.lr.ph226.split ], [ 0, %.lr.ph220.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2601,21 +2601,21 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge227
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %404
+  br label %402
 
-404:                                              ; preds = %403, %398
+402:                                              ; preds = %403, %398
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %398 ], [ %.pn, %403 ]
   invoke void @b3LeaveProfileZone()
-          to label %_ZN13b3ProfileZoneD2Ev.exit68 unwind label %405
+          to label %_ZN13b3ProfileZoneD2Ev.exit68 unwind label %403
 
-405:                                              ; preds = %404
-  %406 = landingpad { ptr, i32 }
+403:                                              ; preds = %402
+  %404 = landingpad { ptr, i32 }
           catch ptr null
-  %407 = extractvalue { ptr, i32 } %406, 0
-  call void @__clang_call_terminate(ptr %407) #24
+  %405 = extractvalue { ptr, i32 } %404, 0
+  call void @__clang_call_terminate(ptr %405) #24
   unreachable
 
-_ZN13b3ProfileZoneD2Ev.exit68:                    ; preds = %404
+_ZN13b3ProfileZoneD2Ev.exit68:                    ; preds = %402
   resume { ptr, i32 } %.pn40.pn
 }
 
