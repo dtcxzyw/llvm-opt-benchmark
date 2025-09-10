@@ -412,10 +412,16 @@ def update_pr():
     if not NO_DIFF:
         out = run_cmd("git diff {}..HEAD --numstat --oneline bench/*".format(base), to=1800.0)
         if out is not None:
-            out = out.split("\n")
-            out = out[0:min(len(out), 200)]
-            out = "\n".join(out)
-        lines.append(out)
+            difflines = []
+            for line in out.splitlines():
+                try:
+                    add, sub, file = line.split()
+                    difflines.append(int(add) - int(sub), file.removeprefix("bench/").replace("optimized/", ""))
+                except Exception:
+                    pass
+            difflines.sort(reverse=True, key=lambda x: x[0])
+            for diff, file in difflines[:200]:
+                lines.append(f"{diff:+} {file}")
     lines.append("")
     output = "\n".join(lines)
     with open(OUT, "w") as f:
