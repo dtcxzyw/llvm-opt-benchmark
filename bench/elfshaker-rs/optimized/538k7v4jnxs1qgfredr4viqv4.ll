@@ -3760,12 +3760,11 @@ default.unreachable44:                            ; preds = %7
   %23 = add nuw i32 %.sroa.030.0, 30
   %24 = sdiv i32 %23, 60
   %25 = srem i32 %24, 60
-  %26 = icmp ne i8 %10, 3
-  %27 = icmp ne i32 %25, 0
-  %or.cond2.not = select i1 %26, i1 true, i1 %27
+  %26 = icmp eq i8 %10, 3
+  %27 = icmp eq i32 %25, 0
+  %or.cond2.not.not = select i1 %26, i1 %27, i1 false
   %28 = trunc nsw i32 %25 to i8
-  %spec.select = select i1 %or.cond2.not, i8 %28, i8 0
-  %spec.select38 = zext i1 %or.cond2.not to i64
+  %spec.select = select i1 %or.cond2.not.not, i8 0, i8 %28
   br label %36
 
 29:                                               ; preds = %7, %7, %7
@@ -3783,7 +3782,7 @@ default.unreachable44:                            ; preds = %7
   %.sroa.021.0 = phi i8 [ %33, %42 ], [ %10, %7 ], [ %., %44 ], [ %spec.select, %22 ]
   %.sroa.016.0.in.in = phi i32 [ %.sroa.030.0, %42 ], [ %.sroa.030.0, %7 ], [ %.sroa.030.0, %44 ], [ %23, %22 ]
   %37 = phi i1 [ true, %42 ], [ false, %7 ], [ false, %44 ], [ false, %22 ]
-  %.sroa.08.0 = phi i64 [ 2, %42 ], [ 0, %7 ], [ %.37, %44 ], [ %spec.select38, %22 ]
+  %.sroa.08.0 = phi i1 [ false, %42 ], [ true, %7 ], [ %or.cond6.not.not, %44 ], [ %or.cond2.not.not, %22 ]
   %.sroa.016.0.in = sdiv i32 %.sroa.016.0.in.in, 3600
   %.sroa.016.0 = trunc i32 %.sroa.016.0.in to i8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3797,11 +3796,10 @@ default.unreachable44:                            ; preds = %7
   br label %36
 
 44:                                               ; preds = %29
-  %45 = icmp ne i8 %10, 5
-  %46 = icmp ne i32 %32, 0
-  %or.cond6.not = or i1 %46, %45
-  %. = select i1 %or.cond6.not, i8 %33, i8 0
-  %.37 = zext i1 %or.cond6.not to i64
+  %45 = icmp eq i8 %10, 5
+  %46 = icmp eq i32 %32, 0
+  %or.cond6.not.not = and i1 %46, %45
+  %. = select i1 %or.cond6.not.not, i8 0, i8 %33
   br label %36
 
 47:                                               ; preds = %36
@@ -3832,9 +3830,7 @@ default.unreachable44:                            ; preds = %7
   br i1 %62, label %66, label %._crit_edge
 
 65:                                               ; preds = %47, %92
-  %.sroa.08.0.off = add nsw i64 %.sroa.08.0, -1
-  %switch = icmp ult i64 %.sroa.08.0.off, 2
-  br i1 %switch, label %102, label %101
+  br i1 %.sroa.08.0, label %101, label %102
 
 66:                                               ; preds = %59
   %67 = icmp sgt i64 %64, -1
@@ -5277,7 +5273,7 @@ define noundef zeroext i1 @"_ZN68_$LT$elfshaker..repo..error..Error$u20$as$u20$c
   %25 = alloca [8 x i8], align 8
   %26 = load i64, ptr %0, align 8, !range !325, !noundef !3
   %27 = add i64 %26, 9223372036854775807
-  %28 = icmp ult i64 %27, 16
+  %28 = icmp ugt i64 %26, -9223372036854775808
   %29 = icmp ne i64 %27, 1
   tail call void @llvm.assume(i1 %29)
   %30 = select i1 %28, i64 %27, i64 1

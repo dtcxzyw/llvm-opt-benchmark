@@ -43720,15 +43720,15 @@ define linkonce_odr void @_ZN3vcg3tri17ParamEdgeCollapseI8BaseMeshE8UpdateFFERNS
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %.pre
-  br i1 %24, label %48, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21, %.lr.ph
   %26 = icmp ne ptr %18, %.pre
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 72
   %.pre94 = load ptr, ptr %.phi.trans.insert, align 8
   %27 = icmp ne ptr %.pre94, %19
-  %or.cond110.not = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond110.not, label %._crit_edge93, label %48
+  %or.cond115.not = select i1 %26, i1 true, i1 %27
+  br i1 %or.cond115.not, label %._crit_edge93, label %.thread
 
 28:                                               ; preds = %2
   %29 = landingpad { ptr, i32 }
@@ -43770,15 +43770,15 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit78:       ; preds = %_ZNSt6vectorIP8Base
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %.pre
-  br i1 %40, label %48, label %41
+  br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %37, %._crit_edge93
   %42 = icmp eq ptr %.pre94, %.pre
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %19
-  %or.cond111 = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond111, label %48, label %._crit_edge95
+  %or.cond116 = select i1 %42, i1 %45, i1 false
+  br i1 %or.cond116, label %.thread, label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %41
   %46 = icmp ne ptr %44, %19
@@ -43786,28 +43786,29 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit78:       ; preds = %_ZNSt6vectorIP8Base
   %47 = icmp ne ptr %44, %.pre
   %brmerge90 = or i1 %20, %47
   %or.cond91 = and i1 %brmerge, %brmerge90
-  %spec.select = select i1 %or.cond91, i32 -1, i32 2
-  br label %48
+  br i1 %or.cond91, label %.thread, label %50
 
-48:                                               ; preds = %41, %25, %._crit_edge95, %37, %21
-  %.070 = phi i32 [ 0, %21 ], [ 1, %37 ], [ %spec.select, %._crit_edge95 ], [ 0, %25 ], [ 1, %41 ]
-  %49 = add nsw i32 %.070, 1
-  %.urem = add nsw i32 %.070, -2
-  %.cmp = icmp samesign ult i32 %49, 3
-  %50 = select i1 %.cmp, i32 %49, i32 %.urem
-  %51 = add nsw i32 %.070, 2
-  %.urem85 = add nsw i32 %.070, -1
-  %.cmp86 = icmp samesign ult i32 %51, 3
-  %52 = select i1 %.cmp86, i32 %51, i32 %.urem85
-  %53 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+.thread:                                          ; preds = %41, %25, %21, %37, %._crit_edge95
+  %.070.ph = phi i32 [ 1, %37 ], [ 0, %21 ], [ -1, %._crit_edge95 ], [ 0, %25 ], [ 1, %41 ]
+  %48 = add nsw i32 %.070.ph, 1
+  %49 = zext nneg i32 %48 to i64
+  br label %50
+
+50:                                               ; preds = %._crit_edge95, %.thread
+  %.070113 = phi i32 [ %.070.ph, %.thread ], [ 2, %._crit_edge95 ]
+  %51 = phi i64 [ %49, %.thread ], [ 0, %._crit_edge95 ]
+  %52 = add nsw i32 %.070113, 2
+  %.urem85 = add nsw i32 %.070113, -1
+  %.cmp86 = icmp samesign ult i32 %52, 3
+  %53 = select i1 %.cmp86, i32 %52, i32 %.urem85
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %51
   %56 = load ptr, ptr %55, align 8
-  %57 = zext nneg i32 %52 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %53, i64 %57
+  %57 = zext nneg i32 %53 to i64
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %54
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %51
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 %57
   %64 = load i8, ptr %63, align 1
@@ -43816,11 +43817,11 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit78:       ; preds = %_ZNSt6vectorIP8Base
   %or.cond = select i1 %65, i1 %66, i1 false
   br i1 %or.cond, label %67, label %69
 
-67:                                               ; preds = %48
+67:                                               ; preds = %50
   %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.104)
   br label %93
 
-69:                                               ; preds = %48
+69:                                               ; preds = %50
   br i1 %65, label %70, label %77
 
 70:                                               ; preds = %69
@@ -68111,89 +68112,95 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit23: ; preds = %_ZNKSt6vector
   %.fr = freeze i32 %69
   %70 = and i32 %.fr, 64
   %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %82, label %78
+  br i1 %.not, label %.thread, label %78
 
 71:                                               ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit23, %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i15, %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %72 = phi ptr [ %24, %_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit23 ], [ %22, %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i15 ], [ null, %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %73 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %104
 
 74:                                               ; preds = %29
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %103
 
-76:                                               ; preds = %82, %65, %63, %31, %30
+76:                                               ; preds = %89, %65, %63, %31, %30
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %4) #24
-  br label %100
+  br label %103
 
 78:                                               ; preds = %66
   %79 = and i32 %.fr, 128
   %.not35 = icmp eq i32 %79, 0
-  br i1 %.not35, label %82, label %80
+  br i1 %.not35, label %.thread, label %80
 
 80:                                               ; preds = %78
   %81 = and i32 %.fr, 256
   %.not36 = icmp eq i32 %81, 0
-  %spec.select = select i1 %.not36, i32 2, i32 -1
-  br label %82
+  br i1 %.not36, label %87, label %.thread
 
-82:                                               ; preds = %80, %78, %66
-  %.010 = phi i32 [ 0, %66 ], [ 1, %78 ], [ %spec.select, %80 ]
-  %83 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %84 = sext i32 %.010 to i64
-  %85 = getelementptr inbounds ptr, ptr %83, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %87 = add nsw i32 %.010, 1
-  %.urem = add nsw i32 %.010, -2
-  %.cmp = icmp samesign ult i32 %87, 3
-  %88 = select i1 %.cmp, i32 %87, i32 %.urem
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %83, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = invoke noundef float @_Z21EstimateLengthByParamI8BaseMeshENT_10ScalarTypeEPKNS1_10VertexTypeES5_PPNS1_8FaceTypeE(ptr noundef %86, ptr noundef %91, ptr noundef nonnull %5)
-          to label %93 unwind label %76
+.thread:                                          ; preds = %66, %78, %80
+  %.010.ph = phi i32 [ -1, %80 ], [ 1, %78 ], [ 0, %66 ]
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 64
+  %83 = sext i32 %.010.ph to i64
+  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %85 = add nsw i32 %.010.ph, 1
+  %86 = zext nneg i32 %85 to i64
+  br label %89
 
-93:                                               ; preds = %82
-  %94 = fsub float %62, %92
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %94, ptr %95, align 8
-  %96 = fdiv float 1.000000e+00, %94
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %96, ptr %97, align 8
+87:                                               ; preds = %80
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  br label %89
+
+89:                                               ; preds = %.thread, %87
+  %.in = phi ptr [ %88, %87 ], [ %84, %.thread ]
+  %90 = phi i64 [ 0, %87 ], [ %86, %.thread ]
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 64
+  %92 = load ptr, ptr %.in, align 8
+  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
+  %94 = load ptr, ptr %93, align 8
+  %95 = invoke noundef float @_Z21EstimateLengthByParamI8BaseMeshENT_10ScalarTypeEPKNS1_10VertexTypeES5_PPNS1_8FaceTypeE(ptr noundef %92, ptr noundef %94, ptr noundef nonnull %5)
+          to label %96 unwind label %76
+
+96:                                               ; preds = %89
+  %97 = fsub float %62, %95
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %97, ptr %98, align 8
+  %99 = fdiv float 1.000000e+00, %97
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %99, ptr %100, align 8
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %4) #24
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %3) #24
-  %98 = load ptr, ptr %2, align 8
-  %.not.i.i.i27 = icmp eq ptr %98, null
-  br i1 %.not.i.i.i27, label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit, label %99
+  %101 = load ptr, ptr %2, align 8
+  %.not.i.i.i27 = icmp eq ptr %101, null
+  br i1 %.not.i.i.i27, label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit, label %102
 
-99:                                               ; preds = %93
-  call void @_ZdlPv(ptr noundef nonnull %98) #35
+102:                                              ; preds = %96
+  call void @_ZdlPv(ptr noundef nonnull %101) #35
   br label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit
 
-_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %93, %99
-  ret float %96
+_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %96, %102
+  ret float %99
 
-100:                                              ; preds = %76, %74
+103:                                              ; preds = %76, %74
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ]
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %3) #24
   %.pre = load ptr, ptr %2, align 8
-  br label %101
+  br label %104
 
-101:                                              ; preds = %100, %71
-  %102 = phi ptr [ %.pre, %100 ], [ %72, %71 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %100 ], [ %73, %71 ]
-  %.not.i.i.i28 = icmp eq ptr %102, null
-  br i1 %.not.i.i.i28, label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit29, label %103
+104:                                              ; preds = %103, %71
+  %105 = phi ptr [ %.pre, %103 ], [ %72, %71 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %103 ], [ %73, %71 ]
+  %.not.i.i.i28 = icmp eq ptr %105, null
+  br i1 %.not.i.i.i28, label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit29, label %106
 
-103:                                              ; preds = %101
-  call void @_ZdlPv(ptr noundef nonnull %102) #35
+106:                                              ; preds = %104
+  call void @_ZdlPv(ptr noundef nonnull %105) #35
   br label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit29
 
-_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit29:       ; preds = %101, %103
+_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit29:       ; preds = %104, %106
   resume { ptr, i32 } %.pn.pn
 }
 

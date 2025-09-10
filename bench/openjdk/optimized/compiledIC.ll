@@ -524,8 +524,7 @@ define hidden noundef ptr @_Z17CompiledIC_beforeP7nmethodPh(ptr noundef %0, ptr 
 16:                                               ; preds = %2
   store i16 0, ptr %15, align 8
   %17 = load i16, ptr %11, align 2
-  %.mask.i.i.i = and i16 %17, -2048
-  %18 = icmp eq i16 %.mask.i.i.i, 30720
+  %18 = icmp sgt i16 %17, 30719
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
@@ -582,8 +581,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP7nmethodPh(ptr noundef %0, ptr noun
 15:                                               ; preds = %2
   store i16 0, ptr %14, align 8
   %16 = load i16, ptr %10, align 2
-  %.mask.i.i = and i16 %16, -2048
-  %17 = icmp eq i16 %.mask.i.i, 30720
+  %17 = icmp sgt i16 %16, 30719
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
@@ -692,8 +690,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef readonly c
 19:                                               ; preds = %1
   store i16 0, ptr %18, align 8
   %20 = load i16, ptr %14, align 2
-  %.mask.i.i.i = and i16 %20, -2048
-  %21 = icmp eq i16 %.mask.i.i.i, 30720
+  %21 = icmp sgt i16 %20, 30719
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
@@ -1370,8 +1367,7 @@ define hidden void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull 
   %17 = phi ptr [ %12, %.lr.ph ], [ %43, %35 ]
   store i16 0, ptr %10, align 8
   %18 = load i16, ptr %17, align 2
-  %.mask.i.i = and i16 %18, -2048
-  %19 = icmp eq i16 %.mask.i.i, 30720
+  %19 = icmp sgt i16 %18, 30719
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
@@ -1642,8 +1638,7 @@ define hidden noundef ptr @_ZN18CompiledDirectCall13find_stub_forEPh(ptr noundef
 15:                                               ; preds = %10
   store i16 0, ptr %8, align 8
   %16 = load i16, ptr %12, align 2
-  %.mask.i.i = and i16 %16, -2048
-  %17 = icmp eq i16 %.mask.i.i, 30720
+  %17 = icmp sgt i16 %16, 30719
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15

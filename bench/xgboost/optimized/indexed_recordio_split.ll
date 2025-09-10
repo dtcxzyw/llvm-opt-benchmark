@@ -2076,11 +2076,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit65: ; preds = %_ZStl
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %31 unwind label %175
+          to label %31 unwind label %176
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %174
+  br label %175
 
 32:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit65, %21
   %33 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit65 ], [ %17, %21 ]
@@ -2153,14 +2153,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75: ; preds = %_ZStl
   %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %52 unwind label %175
+          to label %52 unwind label %176
 
 52:                                               ; preds = %50, %48
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %174
+  br label %175
 
 53:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2263,14 +2263,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit88: ; preds = %_ZStl
   %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %82 unwind label %175
+          to label %82 unwind label %176
 
 82:                                               ; preds = %80, %78
   %.pn53 = phi { ptr, i32 } [ %79, %78 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %174
+  br label %175
 
 83:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit88
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2348,11 +2348,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit101: ; preds = %_ZSt
   %112 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %113 unwind label %175
+          to label %113 unwind label %176
 
 113:                                              ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %174
+  br label %175
 
 114:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit101, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit93
   %115 = zext nneg i32 %97 to i64
@@ -2392,11 +2392,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109: ; preds = %_ZSt
   %124 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %125 unwind label %175
+          to label %125 unwind label %176
 
 125:                                              ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %174
+  br label %175
 
 .lr.ph:                                           ; preds = %114, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109
   %.pre132 = load ptr, ptr %2, align 8, !tbaa !127
@@ -2434,11 +2434,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115: ; preds = %_ZSt
   %136 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %137 unwind label %175
+          to label %137 unwind label %176
 
 137:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %174
+  br label %175
 
 138:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115, %126
   %139 = phi ptr [ %.pre133, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115 ], [ %127, %126 ]
@@ -2470,11 +2470,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121: ; preds = %_ZSt
   %148 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %149 unwind label %175
+          to label %149 unwind label %176
 
 149:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %174
+  br label %175
 
 150:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121, %138
   %151 = getelementptr inbounds nuw i8, ptr %139, i64 4
@@ -2510,22 +2510,21 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121: ; preds = %_ZSt
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 %170
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store ptr %173, ptr %2, align 8, !tbaa !127
-  %.mask = and i32 %152, -536870912
-  %.not56 = icmp eq i32 %.mask, 1610612736
-  br i1 %.not56, label %.loopexit, label %126, !llvm.loop !132
+  %174 = icmp sgt i32 %152, 1610612735
+  br i1 %174, label %.loopexit, label %126, !llvm.loop !132
 
 .loopexit:                                        ; preds = %167, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109, %114, %3
   ret i1 %20
 
-174:                                              ; preds = %113, %149, %137, %125, %82, %52, %31
+175:                                              ; preds = %113, %149, %137, %125, %82, %52, %31
   %.pn58.pn.pn = phi { ptr, i32 } [ %.pn53, %82 ], [ %.pn, %52 ], [ %30, %31 ], [ %112, %113 ], [ %148, %149 ], [ %136, %137 ], [ %124, %125 ]
   resume { ptr, i32 } %.pn58.pn.pn
 
-175:                                              ; preds = %147, %135, %123, %111, %80, %50, %29
-  %176 = landingpad { ptr, i32 }
+176:                                              ; preds = %147, %135, %123, %111, %80, %50, %29
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #31
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #31
   unreachable
 }
 

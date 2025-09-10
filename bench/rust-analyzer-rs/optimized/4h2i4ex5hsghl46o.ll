@@ -11225,11 +11225,11 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2377)
   %3 = load i32, ptr %0, align 4, !range !2379, !alias.scope !2380, !noalias !2381, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow.i.i.i = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !alias.scope !2381, !noalias !2380, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3.i.i.i = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow.i.i.i, %narrow3.i.i.i
   br i1 %9, label %10, label %"_ZN55_$LT$hir..TypeParam$u20$as$u20$core..cmp..PartialEq$GT$2eq17h934225739648b114E.llvm.17814153394679541470.exit"
@@ -11314,11 +11314,11 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2397)
   %3 = load i32, ptr %0, align 4, !range !2379, !alias.scope !2399, !noalias !2400, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow.i.i.i = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !alias.scope !2400, !noalias !2399, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3.i.i.i = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow.i.i.i, %narrow3.i.i.i
   br i1 %9, label %10, label %"_ZN56_$LT$hir..ConstParam$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b9f1ddcb0b21e52E.llvm.17814153394679541470.exit"
@@ -11657,11 +11657,11 @@ default.unreachable:                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2450)
   %21 = load i32, ptr %18, align 4, !range !2379, !alias.scope !2452, !noalias !2453, !noundef !4
   %22 = add nsw i32 %21, -3
-  %23 = icmp ult i32 %22, 8
+  %23 = icmp samesign ugt i32 %21, 2
   %narrow.i.i.i = select i1 %23, i32 %22, i32 1
   %24 = load i32, ptr %19, align 4, !range !2379, !alias.scope !2453, !noalias !2452, !noundef !4
   %25 = add nsw i32 %24, -3
-  %26 = icmp ult i32 %25, 8
+  %26 = icmp samesign ugt i32 %24, 2
   %narrow3.i.i.i = select i1 %26, i32 %25, i32 1
   %27 = icmp eq i32 %narrow.i.i.i, %narrow3.i.i.i
   br i1 %27, label %28, label %"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.llvm.17814153394679541470.exit.i"
@@ -11736,11 +11736,11 @@ default.unreachable:                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2464)
   %57 = load i32, ptr %18, align 4, !range !2379, !alias.scope !2466, !noalias !2467, !noundef !4
   %58 = add nsw i32 %57, -3
-  %59 = icmp ult i32 %58, 8
+  %59 = icmp samesign ugt i32 %57, 2
   %narrow.i.i3.i = select i1 %59, i32 %58, i32 1
   %60 = load i32, ptr %19, align 4, !range !2379, !alias.scope !2467, !noalias !2466, !noundef !4
   %61 = add nsw i32 %60, -3
-  %62 = icmp ult i32 %61, 8
+  %62 = icmp samesign ugt i32 %60, 2
   %narrow3.i.i4.i = select i1 %62, i32 %61, i32 1
   %63 = icmp eq i32 %narrow.i.i3.i, %narrow3.i.i4.i
   br i1 %63, label %64, label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.llvm.17814153394679541470.exit.i"
@@ -11815,11 +11815,11 @@ default.unreachable:                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2478)
   %93 = load i32, ptr %18, align 4, !range !2379, !alias.scope !2480, !noalias !2481, !noundef !4
   %94 = add nsw i32 %93, -3
-  %95 = icmp ult i32 %94, 8
+  %95 = icmp samesign ugt i32 %93, 2
   %narrow.i.i8.i = select i1 %95, i32 %94, i32 1
   %96 = load i32, ptr %19, align 4, !range !2379, !alias.scope !2481, !noalias !2480, !noundef !4
   %97 = add nsw i32 %96, -3
-  %98 = icmp ult i32 %97, 8
+  %98 = icmp samesign ugt i32 %96, 2
   %narrow3.i.i9.i = select i1 %98, i32 %97, i32 1
   %99 = icmp eq i32 %narrow.i.i8.i, %narrow3.i.i9.i
   br i1 %99, label %100, label %"_ZN59_$LT$hir..LifetimeParam$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6c5007205496c33aE.exit.i"
@@ -12186,11 +12186,11 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$hir..TypeParam$u20$as$u20$core..cmp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2505)
   %3 = load i32, ptr %0, align 4, !range !2379, !alias.scope !2507, !noalias !2508, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow.i.i = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !alias.scope !2508, !noalias !2507, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3.i.i = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow.i.i, %narrow3.i.i
   br i1 %9, label %10, label %"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.llvm.17814153394679541470.exit"
@@ -12267,11 +12267,11 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$hir..ConstParam$u20$as$u20$core..cm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2517)
   %3 = load i32, ptr %0, align 4, !range !2379, !alias.scope !2519, !noalias !2520, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow.i.i = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !alias.scope !2520, !noalias !2519, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3.i.i = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow.i.i, %narrow3.i.i
   br i1 %9, label %10, label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.llvm.17814153394679541470.exit"
@@ -12583,9 +12583,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2531, !alias.scope !2532, !noundef !4
-  %10 = add nsw i64 %9, -3
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
-  br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr164drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$ide_db..symbol_index..LibrarySymbolsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h9d570c6df28bfc93E.exit", label %11
+  %10 = icmp samesign ugt i64 %9, 2
+  br i1 %10, label %"_ZN4core3ptr164drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$ide_db..symbol_index..LibrarySymbolsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h9d570c6df28bfc93E.exit", label %11
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr114drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h9fb1d72b25fd39b3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
@@ -12624,9 +12623,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2531, !alias.scope !2543, !noundef !4
-  %10 = add nsw i64 %9, -3
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
-  br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr145drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$ide_db..LineIndexQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h801398b558acfcd7E.exit", label %11
+  %10 = icmp samesign ugt i64 %9, 2
+  br i1 %10, label %"_ZN4core3ptr145drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$ide_db..LineIndexQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h801398b558acfcd7E.exit", label %11
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr102drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$line_index..LineIndex$GT$$GT$$GT$17h76b39d76bc7c2d59E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
@@ -12767,9 +12765,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !2531, !alias.scope !2554, !noundef !4
-  %10 = add nsw i64 %9, -3
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
-  br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr163drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$ide_db..symbol_index..ModuleSymbolsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17heeda731c4545928cE.exit", label %11
+  %10 = icmp samesign ugt i64 %9, 2
+  br i1 %10, label %"_ZN4core3ptr163drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$ide_db..symbol_index..ModuleSymbolsQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17heeda731c4545928cE.exit", label %11
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr114drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h9fb1d72b25fd39b3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
@@ -15160,11 +15157,11 @@ define hidden noundef zeroext i1 @"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   %3 = load i32, ptr %0, align 4, !range !2379, !alias.scope !3037, !noalias !3040, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow.i = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !alias.scope !3040, !noalias !3037, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3.i = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow.i, %narrow3.i
   br i1 %9, label %10, label %"_ZN62_$LT$hir_def..GenericDefId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfc7054d4c5941baE.llvm.17814153394679541470.exit"
@@ -15239,11 +15236,11 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3045)
   %3 = load i32, ptr %0, align 4, !range !2379, !alias.scope !3042, !noalias !3045, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow.i = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !alias.scope !3045, !noalias !3042, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3.i = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow.i, %narrow3.i
   br i1 %9, label %10, label %"_ZN62_$LT$hir_def..GenericDefId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfc7054d4c5941baE.llvm.17814153394679541470.exit"
@@ -15316,11 +15313,11 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$co
 define hidden noundef zeroext i1 @"_ZN62_$LT$hir_def..GenericDefId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfc7054d4c5941baE.llvm.17814153394679541470"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #9 {
   %3 = load i32, ptr %0, align 4, !range !2379, !noundef !4
   %4 = add nsw i32 %3, -3
-  %5 = icmp ult i32 %4, 8
+  %5 = icmp samesign ugt i32 %3, 2
   %narrow = select i1 %5, i32 %4, i32 1
   %6 = load i32, ptr %1, align 4, !range !2379, !noundef !4
   %7 = add nsw i32 %6, -3
-  %8 = icmp ult i32 %7, 8
+  %8 = icmp samesign ugt i32 %6, 2
   %narrow3 = select i1 %8, i32 %7, i32 1
   %9 = icmp eq i32 %narrow, %narrow3
   br i1 %9, label %10, label %15

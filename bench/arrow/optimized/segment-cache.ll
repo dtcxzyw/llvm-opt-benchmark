@@ -491,7 +491,7 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -67108864
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq i64 %3, 0
+  %5 = icmp ult ptr %0, inttoptr (i64 67108864 to ptr)
   br i1 %5, label %mi_is_valid_pointer.exit, label %6
 
 6:                                                ; preds = %1
@@ -561,11 +561,13 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   %42 = shl i64 %.val.i.i, 16
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 %42
   %.not51.i.i = icmp ugt ptr %43, %0
+  %..i.i = select i1 %.not51.i.i, ptr %34, ptr null
   br label %mi_is_valid_pointer.exit
 
 mi_is_valid_pointer.exit:                         ; preds = %1, %6, %15, %20, %28, %29, %40
-  %.0.i.i = phi i1 [ false, %1 ], [ true, %6 ], [ false, %15 ], [ false, %20 ], [ false, %29 ], [ %.not51.i.i, %40 ], [ false, %28 ]
-  ret i1 %.0.i.i
+  %.0.i.i = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %15 ], [ null, %20 ], [ null, %29 ], [ %..i.i, %40 ], [ null, %28 ]
+  %44 = icmp ne ptr %.0.i.i, null
+  ret i1 %44
 }
 
 declare i32 @_mi_os_numa_node_get(ptr noundef) local_unnamed_addr #1

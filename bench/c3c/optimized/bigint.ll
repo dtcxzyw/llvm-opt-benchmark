@@ -1895,33 +1895,31 @@ i128_ucomp.exit:                                  ; preds = %43, %select.unfold
 define dso_local { i64, i64 } @i128_srem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 {
   %5 = alloca %struct.Int128_, align 8
   %6 = alloca %struct.Int128_, align 8
-  %7 = and i64 %0, -9223372036854775808
-  %8 = and i64 %2, -9223372036854775808
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %i128_neg.exit, label %9
+  %7 = icmp slt i64 %0, 0
+  br i1 %7, label %8, label %i128_neg.exit
 
-9:                                                ; preds = %4
+8:                                                ; preds = %4
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %i128_neg.exit, label %10
+  br i1 %.not.i, label %i128_neg.exit, label %9
 
-10:                                               ; preds = %9
-  %11 = xor i64 %0, -1
-  %12 = xor i64 %1, -1
-  %13 = sub i64 0, %1
-  %14 = icmp ult i64 %13, %12
-  %15 = zext i1 %14 to i64
-  %16 = add nuw i64 %15, %11
+9:                                                ; preds = %8
+  %10 = xor i64 %0, -1
+  %11 = xor i64 %1, -1
+  %12 = sub i64 0, %1
+  %13 = icmp ult i64 %12, %11
+  %14 = zext i1 %13 to i64
+  %15 = add nuw i64 %14, %10
   br label %i128_neg.exit
 
-i128_neg.exit:                                    ; preds = %10, %9, %4
-  %.sroa.011.0 = phi i64 [ %0, %4 ], [ %16, %10 ], [ %0, %9 ]
-  %.sroa.514.0 = phi i64 [ %1, %4 ], [ %13, %10 ], [ 0, %9 ]
-  %.not18 = icmp eq i64 %8, 0
-  br i1 %.not18, label %i128_neg.exit25, label %17
+i128_neg.exit:                                    ; preds = %9, %8, %4
+  %.sroa.011.0 = phi i64 [ %0, %4 ], [ %15, %9 ], [ %0, %8 ]
+  %.sroa.514.0 = phi i64 [ %1, %4 ], [ %12, %9 ], [ 0, %8 ]
+  %16 = icmp slt i64 %2, 0
+  br i1 %16, label %17, label %i128_neg.exit23
 
 17:                                               ; preds = %i128_neg.exit
-  %.not.i20 = icmp eq i64 %3, 0
-  br i1 %.not.i20, label %i128_neg.exit25, label %18
+  %.not.i18 = icmp eq i64 %3, 0
+  br i1 %.not.i18, label %i128_neg.exit23, label %18
 
 18:                                               ; preds = %17
   %19 = xor i64 %2, -1
@@ -1930,9 +1928,9 @@ i128_neg.exit:                                    ; preds = %10, %9, %4
   %22 = icmp ult i64 %21, %20
   %23 = zext i1 %22 to i64
   %24 = add nuw i64 %23, %19
-  br label %i128_neg.exit25
+  br label %i128_neg.exit23
 
-i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.exit
+i128_neg.exit23:                                  ; preds = %18, %17, %i128_neg.exit
   %.sroa.07.0 = phi i64 [ %2, %i128_neg.exit ], [ %24, %18 ], [ %2, %17 ]
   %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1949,7 +1947,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %i128_urem.exit, label %31
 
-31:                                               ; preds = %i128_neg.exit25
+31:                                               ; preds = %i128_neg.exit23
   %32 = zext nneg i32 %29 to i64
   %33 = icmp eq i32 %29, 0
   br i1 %33, label %i128_shl64.exit.i.i.preheader, label %34
@@ -1981,14 +1979,14 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %43, %40, %36, %34, %31
   %.ph = phi i64 [ %.sroa.5.0, %31 ], [ 0, %34 ], [ 0, %36 ], [ 0, %40 ], [ %48, %43 ]
-  %.ph40 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
+  %.ph41 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
   %49 = phi i64 [ %60, %i128_ucomp.exit.i.i ], [ %.sroa.514.0, %i128_shl64.exit.i.i.preheader ]
   %50 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ %.sroa.011.0, %i128_shl64.exit.i.i.preheader ]
   %51 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %52 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph40, %i128_shl64.exit.i.i.preheader ]
+  %52 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph41, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %64, %i128_ucomp.exit.i.i ], [ %29, %i128_shl64.exit.i.i.preheader ]
   %53 = icmp ugt i64 %50, %52
   br i1 %53, label %select.unfold.i.i, label %54
@@ -2016,32 +2014,33 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
-i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %i128_neg.exit25
-  %.sroa.3.0.i = phi i64 [ %.sroa.514.0, %i128_neg.exit25 ], [ %60, %i128_ucomp.exit.i.i ]
-  %.sroa.03.0.i = phi i64 [ %.sroa.011.0, %i128_neg.exit25 ], [ %61, %i128_ucomp.exit.i.i ]
+i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %i128_neg.exit23
+  %.sroa.3.0.i = phi i64 [ %.sroa.514.0, %i128_neg.exit23 ], [ %60, %i128_ucomp.exit.i.i ]
+  %.sroa.03.0.i = phi i64 [ %.sroa.011.0, %i128_neg.exit23 ], [ %61, %i128_ucomp.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not19 = icmp eq i64 %8, %7
-  br i1 %.not19, label %i128_neg.exit31, label %65
+  %65 = xor i64 %2, %0
+  %.not = icmp sgt i64 %65, -1
+  br i1 %.not, label %i128_neg.exit29, label %66
 
-65:                                               ; preds = %i128_urem.exit
-  %.not.i26 = icmp eq i64 %.sroa.3.0.i, 0
-  br i1 %.not.i26, label %i128_neg.exit31, label %66
+66:                                               ; preds = %i128_urem.exit
+  %.not.i24 = icmp eq i64 %.sroa.3.0.i, 0
+  br i1 %.not.i24, label %i128_neg.exit29, label %67
 
-66:                                               ; preds = %65
-  %67 = xor i64 %.sroa.03.0.i, -1
-  %68 = xor i64 %.sroa.3.0.i, -1
-  %69 = sub i64 0, %.sroa.3.0.i
-  %70 = icmp ult i64 %69, %68
-  %71 = zext i1 %70 to i64
-  %72 = add i64 %71, %67
-  br label %i128_neg.exit31
+67:                                               ; preds = %66
+  %68 = xor i64 %.sroa.03.0.i, -1
+  %69 = xor i64 %.sroa.3.0.i, -1
+  %70 = sub i64 0, %.sroa.3.0.i
+  %71 = icmp ult i64 %70, %69
+  %72 = zext i1 %71 to i64
+  %73 = add i64 %72, %68
+  br label %i128_neg.exit29
 
-i128_neg.exit31:                                  ; preds = %66, %65, %i128_urem.exit
-  %.pn11.i27.pn = phi i64 [ %.sroa.03.0.i, %i128_urem.exit ], [ %72, %66 ], [ %.sroa.03.0.i, %65 ]
-  %.pn.i28.pn = phi i64 [ %.sroa.3.0.i, %i128_urem.exit ], [ %69, %66 ], [ 0, %65 ]
-  %.fca.0.insert.i8.pn.i29.pn = insertvalue { i64, i64 } poison, i64 %.pn11.i27.pn, 0
-  %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i8.pn.i29.pn, i64 %.pn.i28.pn, 1
+i128_neg.exit29:                                  ; preds = %67, %66, %i128_urem.exit
+  %.pn11.i25.pn = phi i64 [ %.sroa.03.0.i, %i128_urem.exit ], [ %73, %67 ], [ %.sroa.03.0.i, %66 ]
+  %.pn.i26.pn = phi i64 [ %.sroa.3.0.i, %i128_urem.exit ], [ %70, %67 ], [ 0, %66 ]
+  %.fca.0.insert.i8.pn.i27.pn = insertvalue { i64, i64 } poison, i64 %.pn11.i25.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i8.pn.i27.pn, i64 %.pn.i26.pn, 1
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
@@ -2063,33 +2062,31 @@ define dso_local { i64, i64 } @i128_from_unsigned(i64 noundef %0) local_unnamed_
 define dso_local { i64, i64 } @i128_sdiv(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 {
   %5 = alloca %struct.Int128_, align 8
   %6 = alloca %struct.Int128_, align 8
-  %7 = and i64 %0, -9223372036854775808
-  %8 = and i64 %2, -9223372036854775808
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %i128_neg.exit, label %9
+  %7 = icmp slt i64 %0, 0
+  br i1 %7, label %8, label %i128_neg.exit
 
-9:                                                ; preds = %4
+8:                                                ; preds = %4
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %i128_neg.exit, label %10
+  br i1 %.not.i, label %i128_neg.exit, label %9
 
-10:                                               ; preds = %9
-  %11 = xor i64 %0, -1
-  %12 = xor i64 %1, -1
-  %13 = sub i64 0, %1
-  %14 = icmp ult i64 %13, %12
-  %15 = zext i1 %14 to i64
-  %16 = add nuw i64 %15, %11
+9:                                                ; preds = %8
+  %10 = xor i64 %0, -1
+  %11 = xor i64 %1, -1
+  %12 = sub i64 0, %1
+  %13 = icmp ult i64 %12, %11
+  %14 = zext i1 %13 to i64
+  %15 = add nuw i64 %14, %10
   br label %i128_neg.exit
 
-i128_neg.exit:                                    ; preds = %10, %9, %4
-  %.sroa.011.0 = phi i64 [ %0, %4 ], [ %16, %10 ], [ %0, %9 ]
-  %.sroa.514.0 = phi i64 [ %1, %4 ], [ %13, %10 ], [ 0, %9 ]
-  %.not18 = icmp eq i64 %8, 0
-  br i1 %.not18, label %i128_neg.exit25, label %17
+i128_neg.exit:                                    ; preds = %9, %8, %4
+  %.sroa.011.0 = phi i64 [ %0, %4 ], [ %15, %9 ], [ %0, %8 ]
+  %.sroa.514.0 = phi i64 [ %1, %4 ], [ %12, %9 ], [ 0, %8 ]
+  %16 = icmp slt i64 %2, 0
+  br i1 %16, label %17, label %i128_neg.exit23
 
 17:                                               ; preds = %i128_neg.exit
-  %.not.i20 = icmp eq i64 %3, 0
-  br i1 %.not.i20, label %i128_neg.exit25, label %18
+  %.not.i18 = icmp eq i64 %3, 0
+  br i1 %.not.i18, label %i128_neg.exit23, label %18
 
 18:                                               ; preds = %17
   %19 = xor i64 %2, -1
@@ -2098,9 +2095,9 @@ i128_neg.exit:                                    ; preds = %10, %9, %4
   %22 = icmp ult i64 %21, %20
   %23 = zext i1 %22 to i64
   %24 = add nuw i64 %23, %19
-  br label %i128_neg.exit25
+  br label %i128_neg.exit23
 
-i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.exit
+i128_neg.exit23:                                  ; preds = %18, %17, %i128_neg.exit
   %.sroa.07.0 = phi i64 [ %2, %i128_neg.exit ], [ %24, %18 ], [ %2, %17 ]
   %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2117,7 +2114,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %i128_udiv.exit.thread, label %31
 
-31:                                               ; preds = %i128_neg.exit25
+31:                                               ; preds = %i128_neg.exit23
   %32 = zext nneg i32 %29 to i64
   %33 = icmp eq i32 %29, 0
   br i1 %33, label %i128_shl64.exit.i.i.preheader, label %34
@@ -2149,7 +2146,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %43, %40, %36, %34, %31
   %.ph = phi i64 [ %.sroa.5.0, %31 ], [ 0, %34 ], [ 0, %36 ], [ 0, %40 ], [ %48, %43 ]
-  %.ph51 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
+  %.ph52 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
@@ -2158,7 +2155,7 @@ i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i
   %51 = phi i64 [ %67, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %52 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %53 = phi i64 [ %68, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %54 = phi i64 [ %69, %i128_ucomp.exit.i.i ], [ %.ph51, %i128_shl64.exit.i.i.preheader ]
+  %54 = phi i64 [ %69, %i128_ucomp.exit.i.i ], [ %.ph52, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %70, %i128_ucomp.exit.i.i ], [ %29, %i128_shl64.exit.i.i.preheader ]
   %55 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %51, i64 1)
   %56 = shl i64 %51, 1
@@ -2195,37 +2192,39 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %55, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %67, 1
-  %.not19 = icmp eq i64 %8, %7
-  br i1 %.not19, label %79, label %71
+  %71 = xor i64 %2, %0
+  %.not = icmp sgt i64 %71, -1
+  br i1 %.not, label %81, label %73
 
-i128_udiv.exit.thread:                            ; preds = %i128_neg.exit25
+i128_udiv.exit.thread:                            ; preds = %i128_neg.exit23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not1936 = icmp eq i64 %8, %7
-  br i1 %.not1936, label %79, label %i128_neg.exit31
+  %72 = xor i64 %2, %0
+  %.not34 = icmp sgt i64 %72, -1
+  br i1 %.not34, label %81, label %i128_neg.exit29
 
-71:                                               ; preds = %i128_udiv.exit
-  %.not.i26 = icmp eq i64 %67, 0
-  br i1 %.not.i26, label %i128_neg.exit31, label %72
+73:                                               ; preds = %i128_udiv.exit
+  %.not.i24 = icmp eq i64 %67, 0
+  br i1 %.not.i24, label %i128_neg.exit29, label %74
 
-72:                                               ; preds = %71
-  %73 = xor i64 %55, -1
-  %74 = xor i64 %67, -1
-  %75 = sub i64 0, %67
-  %76 = icmp ult i64 %75, %74
-  %77 = zext i1 %76 to i64
-  %78 = add i64 %77, %73
-  br label %i128_neg.exit31
+74:                                               ; preds = %73
+  %75 = xor i64 %55, -1
+  %76 = xor i64 %67, -1
+  %77 = sub i64 0, %67
+  %78 = icmp ult i64 %77, %76
+  %79 = zext i1 %78 to i64
+  %80 = add i64 %79, %75
+  br label %i128_neg.exit29
 
-i128_neg.exit31:                                  ; preds = %i128_udiv.exit.thread, %71, %72
-  %.pn11.i27 = phi i64 [ %78, %72 ], [ %55, %71 ], [ 0, %i128_udiv.exit.thread ]
-  %.pn.i28 = phi i64 [ %75, %72 ], [ 0, %71 ], [ 0, %i128_udiv.exit.thread ]
-  %.fca.0.insert.i8.pn.i29 = insertvalue { i64, i64 } poison, i64 %.pn11.i27, 0
-  %.fca.1.insert.merged.i30 = insertvalue { i64, i64 } %.fca.0.insert.i8.pn.i29, i64 %.pn.i28, 1
-  br label %79
+i128_neg.exit29:                                  ; preds = %i128_udiv.exit.thread, %73, %74
+  %.pn11.i25 = phi i64 [ %80, %74 ], [ %55, %73 ], [ 0, %i128_udiv.exit.thread ]
+  %.pn.i26 = phi i64 [ %77, %74 ], [ 0, %73 ], [ 0, %i128_udiv.exit.thread ]
+  %.fca.0.insert.i8.pn.i27 = insertvalue { i64, i64 } poison, i64 %.pn11.i25, 0
+  %.fca.1.insert.merged.i28 = insertvalue { i64, i64 } %.fca.0.insert.i8.pn.i27, i64 %.pn.i26, 1
+  br label %81
 
-79:                                               ; preds = %i128_udiv.exit.thread, %i128_udiv.exit, %i128_neg.exit31
-  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.merged.i30, %i128_neg.exit31 ], [ %.fca.1.insert.i, %i128_udiv.exit ], [ zeroinitializer, %i128_udiv.exit.thread ]
+81:                                               ; preds = %i128_udiv.exit.thread, %i128_udiv.exit, %i128_neg.exit29
+  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.merged.i28, %i128_neg.exit29 ], [ %.fca.1.insert.i, %i128_udiv.exit ], [ zeroinitializer, %i128_udiv.exit.thread ]
   ret { i64, i64 } %.fca.1.insert.merged
 }
 

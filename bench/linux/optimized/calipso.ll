@@ -1619,7 +1619,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %11 = load i8, ptr %10, align 2
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %99
+  br i1 %12, label %13, label %100
 
 13:                                               ; preds = %1
   %14 = tail call i32 @ipv6_find_tlv(ptr noundef %0, i32 noundef 40, i32 noundef 7) #14
@@ -1628,7 +1628,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
   %17 = getelementptr i8, ptr %9, i64 %16
   %18 = icmp eq ptr %17, null
   %19 = select i1 %15, i1 true, i1 %18
-  br i1 %19, label %99, label %20
+  br i1 %19, label %100, label %20
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1653,7 +1653,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
 35:                                               ; preds = %26
   %36 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2080) #14
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %99, label %..thread_crit_edge
+  br i1 %37, label %100, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %35
   %.pre = load ptr, ptr %4, align 8
@@ -1672,7 +1672,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
   %47 = add nuw nsw i32 %46, 8
   %48 = call fastcc i32 @calipso_opt_find(ptr noundef %42, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !29
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %99
+  br i1 %49, label %50, label %100
 
 50:                                               ; preds = %.thread
   %51 = load i32, ptr %2, align 4
@@ -1686,12 +1686,12 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
   %56 = load i8, ptr %42, align 1
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 6
   store i8 %56, ptr %57, align 2
-  br label %87
+  br label %88
 
 58:                                               ; preds = %50
   %59 = sub i32 %53, %51
   %60 = and i32 %59, -8
-  %61 = icmp eq i32 %60, 0
+  %61 = icmp ult i32 %59, 8
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %58
@@ -1737,29 +1737,30 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
 
 85:                                               ; preds = %66, %70, %73, %82
   %86 = zext i32 %69 to i64
-  br i1 %61, label %99, label %87
+  %87 = icmp ult i32 %59, 8
+  br i1 %87, label %100, label %88
 
-87:                                               ; preds = %.thread4, %85
-  %88 = phi i64 [ 40, %.thread4 ], [ %86, %85 ]
-  %89 = phi i32 [ %47, %.thread4 ], [ %60, %85 ]
-  %90 = tail call ptr @skb_pull(ptr noundef %0, i32 noundef %89) #14
-  %91 = zext i32 %89 to i64
-  %92 = getelementptr i8, ptr %41, i64 %91
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %92, ptr align 4 %41, i64 %88, i1 false)
-  %93 = load ptr, ptr %21, align 8
-  %94 = load ptr, ptr %4, align 8
-  %95 = ptrtoint ptr %93 to i64
+88:                                               ; preds = %.thread4, %85
+  %89 = phi i64 [ 40, %.thread4 ], [ %86, %85 ]
+  %90 = phi i32 [ %47, %.thread4 ], [ %60, %85 ]
+  %91 = tail call ptr @skb_pull(ptr noundef %0, i32 noundef %90) #14
+  %92 = zext i32 %90 to i64
+  %93 = getelementptr i8, ptr %41, i64 %92
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %93, ptr align 4 %41, i64 %89, i1 false)
+  %94 = load ptr, ptr %21, align 8
+  %95 = load ptr, ptr %4, align 8
   %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = trunc i64 %97 to i16
-  store i16 %98, ptr %6, align 4
-  br label %99
+  %97 = ptrtoint ptr %95 to i64
+  %98 = sub i64 %96, %97
+  %99 = trunc i64 %98 to i16
+  store i16 %99, ptr %6, align 4
+  br label %100
 
-99:                                               ; preds = %87, %85, %.thread, %35, %13, %1
-  %100 = phi i32 [ %36, %35 ], [ %48, %.thread ], [ 0, %87 ], [ 0, %85 ], [ 0, %13 ], [ 0, %1 ]
+100:                                              ; preds = %88, %85, %.thread, %35, %13, %1
+  %101 = phi i32 [ %36, %35 ], [ %48, %.thread ], [ 0, %88 ], [ 0, %85 ], [ 0, %13 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %100
+  ret i32 %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

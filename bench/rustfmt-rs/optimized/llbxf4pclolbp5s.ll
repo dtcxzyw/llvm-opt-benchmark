@@ -30983,9 +30983,8 @@ select.unfold.us:                                 ; preds = %"_ZN91_$LT$core..sl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5197)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 84
   %27 = load i32, ptr %26, align 4, !range !4, !alias.scope !5197, !noalias !5200, !noundef !5
-  %28 = and i32 %27, -2
-  %switch.i.i = icmp eq i32 %28, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %29
+  %28 = icmp ugt i32 %27, -255
+  br i1 %28, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 48
@@ -31123,9 +31122,8 @@ _RNvMso_NtCs2al5CLA23zg_9rustc_ast3astNtB5_9LocalKind13init_else_opt.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5247), !noalias !5213
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 84
   %78 = load i32, ptr %77, align 4, !range !4, !alias.scope !5247, !noalias !5250, !noundef !5
-  %79 = and i32 %78, -2
-  %switch.i.i.i = icmp eq i32 %79, -254
-  br i1 %switch.i.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit.i, label %80
+  %79 = icmp ugt i32 %78, -255
+  br i1 %79, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit.i, label %80
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 48
@@ -31206,9 +31204,8 @@ define hidden void @_ZN9rustc_ast5visit10walk_param17hde40f86c823d227cE(ptr noal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5276)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %22 = load i32, ptr %21, align 4, !range !4, !alias.scope !5276, !noalias !5279, !noundef !5
-  %23 = and i32 %22, -2
-  %switch.i1.i = icmp eq i32 %23, -254
-  br i1 %switch.i1.i, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit, label %24
+  %23 = icmp ugt i32 %22, -255
+  br i1 %23, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -31390,9 +31387,8 @@ select.unfold.us:                                 ; preds = %_ZN9rustc_ast5visit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5363)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 84
   %49 = load i32, ptr %48, align 4, !range !4, !alias.scope !5363, !noalias !5366, !noundef !5
-  %50 = and i32 %49, -2
-  %switch.i.i = icmp eq i32 %50, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %51
+  %50 = icmp ugt i32 %49, -255
+  br i1 %50, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %51
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -31573,9 +31569,8 @@ define hidden void @_ZN9rustc_ast5visit14walk_attr_args17h3328ce823d1686ddE.llvm
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = load i32, ptr %6, align 4, !range !4, !noundef !5
-  %8 = and i32 %7, -2
-  %switch = icmp eq i32 %8, -254
-  br i1 %switch, label %9, label %10
+  %8 = icmp ugt i32 %7, -255
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2, %13
   ret void
@@ -31626,9 +31621,8 @@ define hidden void @_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E(ptr 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5448)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %11 = load i32, ptr %10, align 4, !range !4, !alias.scope !5448, !noalias !5451, !noundef !5
-  %12 = and i32 %11, -2
-  %switch.i = icmp eq i32 %12, -254
-  br i1 %switch.i, label %_ZN9rustc_ast5visit14walk_attr_args17h3328ce823d1686ddE.llvm.13158159170862922693.exit, label %13
+  %12 = icmp ugt i32 %11, -255
+  br i1 %12, label %_ZN9rustc_ast5visit14walk_attr_args17h3328ce823d1686ddE.llvm.13158159170862922693.exit, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -31741,9 +31735,8 @@ _ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E.exit: ; preds = %_ZN9rustc_ast5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5506)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 84
   %36 = load i32, ptr %35, align 4, !range !4, !alias.scope !5506, !noalias !5509, !noundef !5
-  %37 = and i32 %36, -2
-  %switch.i.i = icmp eq i32 %37, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %38
+  %37 = icmp ugt i32 %36, -255
+  br i1 %37, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -31833,9 +31826,8 @@ define hidden void @_ZN9rustc_ast5visit14walk_pat_field17h4ab9a2a2d20adf54E(ptr 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5530)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %21 = load i32, ptr %20, align 4, !range !4, !alias.scope !5530, !noalias !5533, !noundef !5
-  %22 = and i32 %21, -2
-  %switch.i.i = icmp eq i32 %22, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %23
+  %22 = icmp ugt i32 %21, -255
+  br i1 %22, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 48
@@ -31958,9 +31950,8 @@ default.unreachable113:                           ; preds = %167, %"_ZN91_$LT$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5589)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 84
   %39 = load i32, ptr %38, align 4, !range !4, !alias.scope !5589, !noalias !5592, !noundef !5
-  %40 = and i32 %39, -2
-  %switch.i.i = icmp eq i32 %40, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %41
+  %40 = icmp ugt i32 %39, -255
+  br i1 %40, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %41
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -32340,9 +32331,8 @@ define hidden void @_ZN9rustc_ast5visit15walk_expr_field17h20722bc30151e8deE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5764)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %21 = load i32, ptr %20, align 4, !range !4, !alias.scope !5764, !noalias !5767, !noundef !5
-  %22 = and i32 %21, -2
-  %switch.i.i = icmp eq i32 %22, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %23
+  %22 = icmp ugt i32 %21, -255
+  br i1 %22, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 48
@@ -32910,9 +32900,8 @@ default.unreachable97:                            ; preds = %145, %"_ZN91_$LT$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6019)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 84
   %38 = load i32, ptr %37, align 4, !range !4, !alias.scope !6019, !noalias !6022, !noundef !5
-  %39 = and i32 %38, -2
-  %switch.i.i = icmp eq i32 %39, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %40
+  %39 = icmp ugt i32 %38, -255
+  br i1 %39, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 48
@@ -33365,9 +33354,8 @@ default.unreachable:                              ; preds = %84, %._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6208)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 84
   %25 = load i32, ptr %24, align 4, !range !4, !alias.scope !6208, !noalias !6211, !noundef !5
-  %26 = and i32 %25, -2
-  %switch.i.i = icmp eq i32 %26, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %27
+  %26 = icmp ugt i32 %25, -255
+  br i1 %26, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 48
@@ -34416,9 +34404,8 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit: ; preds = %"_ZN91_$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6767), !noalias !6762
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 84
   %59 = load i32, ptr %58, align 4, !range !4, !alias.scope !6767, !noalias !6770, !noundef !5
-  %60 = and i32 %59, -2
-  %switch.i1.i = icmp eq i32 %60, -254
-  br i1 %switch.i1.i, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit, label %61
+  %60 = icmp ugt i32 %59, -255
+  br i1 %60, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit, label %61
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -34569,9 +34556,8 @@ _ZN9rustc_ast5visit19walk_closure_binder17h29acd0d0c671723aE.exit: ; preds = %"_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6858), !noalias !6853
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 84
   %126 = load i32, ptr %125, align 4, !range !4, !alias.scope !6858, !noalias !6861, !noundef !5
-  %127 = and i32 %126, -2
-  %switch.i1.i18 = icmp eq i32 %127, -254
-  br i1 %switch.i1.i18, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit20, label %128
+  %127 = icmp ugt i32 %126, -255
+  br i1 %127, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit20, label %128
 
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 48
@@ -34700,9 +34686,8 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6901), !noalias !6791
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 84
   %176 = load i32, ptr %175, align 4, !range !4, !alias.scope !6901, !noalias !6904, !noundef !5
-  %177 = and i32 %176, -2
-  %switch.i.i.i = icmp eq i32 %177, -254
-  br i1 %switch.i.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit.i, label %178
+  %177 = icmp ugt i32 %176, -255
+  br i1 %177, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit.i, label %178
 
 178:                                              ; preds = %172
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 48
@@ -34930,9 +34915,8 @@ select.unfold:                                    ; preds = %tailrecurse
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6992), !noalias !6987
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 84
   %82 = load i32, ptr %81, align 4, !range !4, !alias.scope !6992, !noalias !6995, !noundef !5
-  %83 = and i32 %82, -2
-  %switch.i1.i = icmp eq i32 %83, -254
-  br i1 %switch.i1.i, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit, label %84
+  %83 = icmp ugt i32 %82, -255
+  br i1 %83, label %_ZN9rustc_ast5visit7Visitor15visit_attribute17hd8f8631e5dcd10d6E.exit, label %84
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 48
@@ -35090,9 +35074,8 @@ _ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E.exit: ; preds = %_ZN9rustc_ast5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7073)
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 84
   %147 = load i32, ptr %146, align 4, !range !4, !alias.scope !7073, !noalias !7076, !noundef !5
-  %148 = and i32 %147, -2
-  %switch.i.i31 = icmp eq i32 %148, -254
-  br i1 %switch.i.i31, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %149
+  %148 = icmp ugt i32 %147, -255
+  br i1 %148, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %149
 
 149:                                              ; preds = %143
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 48
@@ -35351,9 +35334,8 @@ select.unfold18.us:                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7225)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 84
   %28 = load i32, ptr %27, align 4, !range !4, !alias.scope !7225, !noalias !7228, !noundef !5
-  %29 = and i32 %28, -2
-  %switch.i.i = icmp eq i32 %29, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %30
+  %29 = icmp ugt i32 %28, -255
+  br i1 %29, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 48
@@ -35562,9 +35544,8 @@ _ZN9rustc_ast5visit14walk_pat_field17h4ab9a2a2d20adf54E.exit.loopexit: ; preds =
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7289), !noalias !7272
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 84
   %68 = load i32, ptr %67, align 4, !range !4, !alias.scope !7289, !noalias !7292, !noundef !5
-  %69 = and i32 %68, -2
-  %switch.i.i = icmp eq i32 %69, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %70
+  %69 = icmp ugt i32 %68, -255
+  br i1 %69, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %70
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 48
@@ -35868,9 +35849,8 @@ default.unreachable446:                           ; preds = %"_ZN91_$LT$core..sl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7402)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 84
   %24 = load i32, ptr %23, align 4, !range !4, !alias.scope !7402, !noalias !7405, !noundef !5
-  %25 = and i32 %24, -2
-  %switch.i.i = icmp eq i32 %25, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %26
+  %25 = icmp ugt i32 %24, -255
+  br i1 %25, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -36535,9 +36515,8 @@ _ZN9rustc_ast5visit15walk_expr_field17h20722bc30151e8deE.exit.loopexit: ; preds 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7630), !noalias !7613
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 84
   %337 = load i32, ptr %336, align 4, !range !4, !alias.scope !7630, !noalias !7633, !noundef !5
-  %338 = and i32 %337, -2
-  %switch.i.i186 = icmp eq i32 %338, -254
-  br i1 %switch.i.i186, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit188, label %339
+  %338 = icmp ugt i32 %337, -255
+  br i1 %338, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit188, label %339
 
 339:                                              ; preds = %333
   %340 = getelementptr inbounds nuw i8, ptr %335, i64 48
@@ -37516,9 +37495,8 @@ select.unfold257._crit_edge:                      ; preds = %_ZN9rustc_ast5visit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8148)
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 84
   %410 = load i32, ptr %409, align 4, !range !4, !alias.scope !8148, !noalias !8151, !noundef !5
-  %411 = and i32 %410, -2
-  %switch.i.i = icmp eq i32 %411, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %412
+  %411 = icmp ugt i32 %410, -255
+  br i1 %411, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %412
 
 412:                                              ; preds = %406
   %413 = getelementptr inbounds nuw i8, ptr %408, i64 48
@@ -37660,9 +37638,8 @@ default.unreachable8:                             ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8192)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 84
   %32 = load i32, ptr %31, align 4, !range !4, !alias.scope !8192, !noalias !8195, !noundef !5
-  %33 = and i32 %32, -2
-  %switch.i.i = icmp eq i32 %33, -254
-  br i1 %switch.i.i, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %34
+  %33 = icmp ugt i32 %32, -255
+  br i1 %33, label %_ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 48

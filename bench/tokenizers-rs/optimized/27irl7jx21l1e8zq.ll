@@ -4574,7 +4574,7 @@ _ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17h7a38676c
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !526
   %14 = add nsw i64 %.sroa.09.0.copyload.i.i, -2
-  %15 = icmp ult i64 %14, 3
+  %15 = icmp samesign ugt i64 %.sroa.09.0.copyload.i.i, 1
   %16 = select i1 %15, i64 %14, i64 1
   switch i64 %16, label %17 [
     i64 0, label %.noexc.i.i
@@ -5457,7 +5457,7 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17h842b2a7189c44782E.exit: ; p
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %15 = add nsw i64 %.sroa.014.0.copyload, -2
-  %16 = icmp ult i64 %15, 3
+  %16 = icmp samesign ugt i64 %.sroa.014.0.copyload, 1
   %17 = select i1 %16, i64 %15, i64 1
   switch i64 %17, label %18 [
     i64 0, label %.noexc12
@@ -17452,9 +17452,8 @@ _ZN14regex_automata4util6search5Input8set_span17h69c2d0bff58a14eaE.exit: ; preds
 
 61:                                               ; preds = %56
   %62 = load i32, ptr %12, align 8, !range !3606, !alias.scope !3607, !noalias !3608, !noundef !4
-  %.off.i.i.i = add nsw i32 %62, -1
-  %switch13.i.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch13.i.i.i, label %63, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h2c1b19bb65f50811E.exit.thread.i.i
+  %.not.i.i = icmp eq i32 %62, 0
+  br i1 %.not.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h2c1b19bb65f50811E.exit.thread.i.i, label %63
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 64
@@ -32001,9 +32000,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h70de56d74ecd2357E.exit.i
 
 99:                                               ; preds = %94
   %100 = load i32, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8, !range !3606, !alias.scope !5794, !noalias !5795, !noundef !4
-  %.off.i.i.i.i.i.i = add nsw i32 %100, -1
-  %switch13.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 2
-  br i1 %switch13.i.i.i.i.i.i, label %105, label %101
+  %.not.i.i.i.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i.i.i, label %101, label %105
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i, i64 60
