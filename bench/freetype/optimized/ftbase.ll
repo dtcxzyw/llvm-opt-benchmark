@@ -7989,65 +7989,65 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
   br i1 %or.cond, label %.preheader, label %.thread56
 
 .preheader:                                       ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load i32, ptr %37, align 8, !tbaa !316
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.thread56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %40 = load i32, ptr %39, align 8, !tbaa !316
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %.lr.ph, label %.thread56
 
 .lr.ph:                                           ; preds = %.preheader
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load ptr, ptr %40, align 8, !tbaa !317
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %43 = load ptr, ptr %42, align 8, !tbaa !317
   %.not62 = icmp eq i8 %2, 0
-  %wide.trip.count72 = zext nneg i32 %38 to i64
+  %wide.trip.count72 = zext nneg i32 %40 to i64
   br i1 %.not62, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %46
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
-  %42 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %41, i64 %indvars.iv, i32 4
-  %43 = load i64, ptr %42, align 8, !tbaa !321
-  %44 = add nsw i64 %43, 32
-  %45 = xor i64 %44, %34
+  %44 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv, i32 4
+  %45 = load i64, ptr %44, align 8, !tbaa !321
+  %46 = add nsw i64 %45, 32
+  %45 = xor i64 %46, %34
   %.not54.us = icmp ult i64 %45, 64
-  br i1 %.not54.us, label %.split.us, label %46
+  br i1 %.not54.us, label %.split.us, label %48
 
-46:                                               ; preds = %.lr.ph.split.us
+48:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
   br i1 %exitcond.not, label %.thread56, label %.lr.ph.split.us, !llvm.loop !355
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %59
+.lr.ph.split:                                     ; preds = %.lr.ph, %61
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %59 ], [ 0, %.lr.ph ]
-  %47 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %41, i64 %indvars.iv69
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load i64, ptr %48, align 8, !tbaa !321
-  %50 = add nsw i64 %49, 32
-  %51 = xor i64 %50, %34
+  %49 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv69
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !321
+  %52 = add nsw i64 %51, 32
+  %51 = xor i64 %52, %34
   %.not54 = icmp ult i64 %51, 64
-  br i1 %.not54, label %52, label %59
+  br i1 %.not54, label %54, label %61
 
-52:                                               ; preds = %.lr.ph.split
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !320
-  %55 = add nsw i64 %54, 32
-  %56 = xor i64 %55, %33
-  %57 = icmp ult i64 %56, 64
-  br i1 %57, label %.split.us, label %59
+54:                                               ; preds = %.lr.ph.split
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %56 = load i64, ptr %55, align 8, !tbaa !320
+  %57 = add nsw i64 %56, 32
+  %56 = xor i64 %57, %33
+  %59 = icmp ult i64 %56, 64
+  br i1 %59, label %.split.us, label %61
 
-.split.us:                                        ; preds = %.lr.ph.split.us, %52
+.split.us:                                        ; preds = %.lr.ph.split.us, %54
   %.us-phi = phi i64 [ %indvars.iv69, %52 ], [ %indvars.iv, %.lr.ph.split.us ]
   %.not55 = icmp eq ptr %3, null
-  br i1 %.not55, label %.thread56, label %58
+  br i1 %.not55, label %.thread56, label %60
 
-58:                                               ; preds = %.split.us
+60:                                               ; preds = %.split.us
   store i64 %.us-phi, ptr %3, align 8, !tbaa !37
   br label %.thread56
 
-59:                                               ; preds = %.lr.ph.split, %52
+61:                                               ; preds = %.lr.ph.split, %54
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.thread56, label %.lr.ph.split, !llvm.loop !355
 
-.thread56:                                        ; preds = %46, %59, %.preheader, %.split.us, %58, %31, %8, %4
+.thread56:                                        ; preds = %48, %61, %.preheader, %.split.us, %60, %31, %8, %4
   %.0 = phi i32 [ 35, %4 ], [ 7, %8 ], [ 23, %31 ], [ 0, %58 ], [ 0, %.split.us ], [ 23, %.preheader ], [ 23, %59 ], [ 23, %46 ]
   ret i32 %.0
 }
