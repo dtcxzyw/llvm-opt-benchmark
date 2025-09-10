@@ -447,13 +447,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
 
 18:                                               ; preds = %5
   %19 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 2, ptr noundef null)
-  br label %129
+  br label %130
 
 20:                                               ; preds = %5
   %21 = icmp eq i64 %3, 0
   %22 = icmp eq i64 %4, 0
   %23 = or i1 %21, %22
-  br i1 %23, label %129, label %24
+  br i1 %23, label %130, label %24
 
 24:                                               ; preds = %20
   %25 = zext nneg i8 %15 to i64
@@ -471,7 +471,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
 
 36:                                               ; preds = %24
   %37 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 1, ptr noundef null)
-  br label %129
+  br label %130
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -511,7 +511,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
 
 62:                                               ; preds = %55
   %63 = icmp eq i32 %56, 0
-  br i1 %63, label %64, label %129
+  br i1 %63, label %64, label %130
 
 64:                                               ; preds = %62, %57, %38
   %65 = phi ptr [ %40, %62 ], [ %40, %38 ], [ %58, %57 ]
@@ -519,49 +519,49 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %67 = icmp ult i64 %4, 8
   br i1 %67, label %.loopexit6, label %68
 
-68:                                               ; preds = %64
-  %69 = and i64 %4, -8
-  br label %92
+69:                                               ; preds = %64
+  %70 = and i64 %4, -8
+  br label %93
 
-.loopexit6:                                       ; preds = %92, %64
-  %70 = phi ptr [ undef, %64 ], [ %102, %92 ]
-  %71 = phi ptr [ %65, %64 ], [ %102, %92 ]
-  %72 = icmp eq i64 %66, 0
-  br i1 %72, label %.loopexit, label %.preheader
+.loopexit6:                                       ; preds = %93, %64
+  %71 = phi ptr [ undef, %64 ], [ %102, %92 ]
+  %72 = phi ptr [ %65, %64 ], [ %102, %92 ]
+  %73 = icmp eq i64 %66, 0
+  br i1 %73, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit6, %.preheader
-  %73 = phi ptr [ %75, %.preheader ], [ %71, %.loopexit6 ]
-  %74 = phi i64 [ %76, %.preheader ], [ 0, %.loopexit6 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %2, i64 %31, i1 false)
-  %75 = getelementptr inbounds i8, ptr %73, i64 %31
-  %76 = add nuw nsw i64 %74, 1
-  %77 = icmp eq i64 %76, %66
-  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !63
+  %74 = phi ptr [ %76, %.preheader ], [ %72, %.loopexit6 ]
+  %75 = phi i64 [ %77, %.preheader ], [ 0, %.loopexit6 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %2, i64 %31, i1 false)
+  %76 = getelementptr inbounds i8, ptr %74, i64 %31
+  %77 = add nuw nsw i64 %75, 1
+  %78 = icmp eq i64 %77, %66
+  br i1 %78, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit6
-  %78 = phi ptr [ %70, %.loopexit6 ], [ %75, %.preheader ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %80 = load ptr, ptr %79, align 8, !tbaa !29
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %82 = load ptr, ptr %81, align 8, !tbaa !35
-  %83 = ptrtoint ptr %78 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  store ptr %78, ptr %39, align 8, !tbaa !34
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 80
-  %87 = load i64, ptr %86, align 8, !tbaa !55
-  %88 = tail call noundef i64 @llvm.umax.i64(i64 %87, i64 %85)
-  store i64 %88, ptr %86, align 8, !tbaa !31
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %90 = load ptr, ptr %89, align 8, !tbaa !43
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %129, label %105
+  %79 = phi ptr [ %71, %.loopexit6 ], [ %76, %.preheader ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %81 = load ptr, ptr %80, align 8, !tbaa !29
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %83 = load ptr, ptr %82, align 8, !tbaa !35
+  %84 = ptrtoint ptr %79 to i64
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %84, %85
+  store ptr %79, ptr %39, align 8, !tbaa !34
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 80
+  %88 = load i64, ptr %87, align 8, !tbaa !55
+  %89 = tail call noundef i64 @llvm.umax.i64(i64 %88, i64 %86)
+  store i64 %89, ptr %87, align 8, !tbaa !31
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %91 = load ptr, ptr %90, align 8, !tbaa !43
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %130, label %106
 
-92:                                               ; preds = %92, %68
-  %93 = phi ptr [ %65, %68 ], [ %102, %92 ]
-  %94 = phi i64 [ 0, %68 ], [ %103, %92 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %93, ptr align 1 %2, i64 %31, i1 false)
-  %95 = getelementptr inbounds i8, ptr %93, i64 %31
+93:                                               ; preds = %93, %69
+  %94 = phi ptr [ %65, %68 ], [ %102, %92 ]
+  %95 = phi i64 [ 0, %68 ], [ %103, %92 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr align 1 %2, i64 %31, i1 false)
+  %96 = getelementptr inbounds i8, ptr %94, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %2, i64 %31, i1 false)
   %96 = getelementptr inbounds i8, ptr %95, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %96, ptr align 1 %2, i64 %31, i1 false)
@@ -580,42 +580,42 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %104 = icmp eq i64 %103, %69
   br i1 %104, label %.loopexit6, label %92, !llvm.loop !65
 
-105:                                              ; preds = %.loopexit
+106:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store i8 32, ptr %6, align 8, !tbaa !56
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 519, ptr %106, align 8, !tbaa !56
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %107, ptr %108, align 8, !tbaa !56
-  store i8 0, ptr %107, align 8, !tbaa !56
-  %109 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %110 = load i32, ptr %109, align 4, !tbaa !57
-  %111 = load i8, ptr %7, align 8, !tbaa !62
-  %112 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %110, i8 noundef zeroext %111, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #12
-  %113 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1, i8 noundef signext 10) #12
-  %114 = load ptr, ptr %89, align 8, !tbaa !43
-  %115 = load i8, ptr %6, align 8
-  %116 = icmp ugt i8 %115, 30
-  %117 = load ptr, ptr %108, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %119 = select i1 %116, ptr %117, ptr %118
-  %120 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %121 = load i64, ptr %120, align 8
-  %122 = zext i8 %115 to i64
-  %123 = select i1 %116, i64 %121, i64 %122
-  %124 = load ptr, ptr %114, align 8, !tbaa !3
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %126 = load ptr, ptr %125, align 8
-  %127 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(20) %114, ptr noundef %119, i64 noundef %123) #12
-  %128 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 519, ptr %107, align 8, !tbaa !56
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %108, ptr %109, align 8, !tbaa !56
+  store i8 0, ptr %108, align 8, !tbaa !56
+  %110 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %111 = load i32, ptr %110, align 4, !tbaa !57
+  %112 = load i8, ptr %7, align 8, !tbaa !62
+  %113 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %111, i8 noundef zeroext %112, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #12
+  %114 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1, i8 noundef signext 10) #12
+  %115 = load ptr, ptr %90, align 8, !tbaa !43
+  %116 = load i8, ptr %6, align 8
+  %117 = icmp ugt i8 %116, 30
+  %118 = load ptr, ptr %109, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %120 = select i1 %117, ptr %118, ptr %119
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %122 = load i64, ptr %121, align 8
+  %123 = zext i8 %116 to i64
+  %124 = select i1 %117, i64 %122, i64 %123
+  %125 = load ptr, ptr %115, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %127 = load ptr, ptr %126, align 8
+  %128 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(20) %115, ptr noundef %120, i64 noundef %124) #12
+  %129 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %129
+  br label %130
 
-129:                                              ; preds = %105, %.loopexit, %62, %36, %20, %18
-  %130 = phi i32 [ %19, %18 ], [ 0, %20 ], [ %37, %36 ], [ %56, %62 ], [ 0, %105 ], [ 0, %.loopexit ]
-  ret i32 %130
+130:                                              ; preds = %106, %.loopexit, %62, %36, %20, %18
+  %131 = phi i32 [ %19, %18 ], [ 0, %20 ], [ %37, %36 ], [ %56, %62 ], [ 0, %105 ], [ 0, %.loopexit ]
+  ret i32 %131
 }
 
 ; Function Attrs: mustprogress uwtable

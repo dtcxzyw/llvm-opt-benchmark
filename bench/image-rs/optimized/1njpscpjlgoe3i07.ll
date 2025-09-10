@@ -29707,9 +29707,9 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.t
   %81 = uitofp i32 %.0.i172249 to float
   %82 = fdiv float 6.553500e+04, %81
   %83 = icmp ult i64 %4, 2
-  br i1 %83, label %.loopexit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader"
+  br i1 %83, label %.loopexit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader": ; preds = %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit": ; preds = %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread
   %84 = and i64 %4, -2
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
 
@@ -30251,13 +30251,13 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.t
   %81 = uitofp i32 %.0.i172249 to float
   %82 = fdiv float 6.553500e+04, %81
   %83 = icmp ult i64 %4, 2
-  br i1 %83, label %.loopexit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader"
+  br i1 %83, label %.loopexit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader": ; preds = %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread
   %84 = and i64 %4, -2
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
   %.sroa.7206.0256 = phi i64 [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader" ]
   %.sroa.4205.0255 = phi ptr [ %85, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit" ], [ %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.preheader" ]
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.4205.0255, i64 2

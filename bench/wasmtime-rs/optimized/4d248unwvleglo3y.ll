@@ -2898,8 +2898,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   br i1 %149, label %154, label %156
 
 .sink.split:                                      ; preds = %163, %158
-  %.sink167 = phi ptr [ %160, %158 ], [ %165, %163 ]
-  %150 = icmp ne ptr %.sink167, null
+  %.sink166 = phi ptr [ %160, %158 ], [ %165, %163 ]
+  %150 = icmp ne ptr %.sink166, null
   call void @llvm.assume(i1 %150)
   br label %151
 

@@ -616,7 +616,7 @@ default.unreachable:                              ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %25 = load i64, ptr %24, align 8, !range !35, !alias.scope !30, !noalias !36, !noundef !7
   %.not = icmp eq i64 %25, 4
-  br i1 %.not, label %32, label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit16"
+  br i1 %.not, label %33, label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit16"
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit16": ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(264) %3, i64 264, i1 false)
@@ -630,7 +630,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr276drop_in_place$LT$core..option..Option$LT$hyper..client..dispatch..Envelope$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$$GT$17he784ca134ec96aa0E.exit"
 
-28:                                               ; preds = %32
+28:                                               ; preds = %33
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = load i64, ptr %24, align 8, !range !35, !noundef !7
@@ -641,22 +641,22 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-32:                                               ; preds = %23
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 4, ptr %33, align 8
+33:                                               ; preds = %23
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 4, ptr %34, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val9 = load ptr, ptr %6, align 8, !nonnull !7, !align !13, !noundef !7
   %.val10 = load ptr, ptr %7, align 8, !noundef !7
-  %34 = getelementptr inbounds nuw i8, ptr %.val9, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !7, !noundef !7
+  %35 = getelementptr inbounds nuw i8, ptr %.val9, i64 24
+  %36 = load ptr, ptr %35, align 8, !nonnull !7, !noundef !7
   invoke void %35(ptr noundef %.val10)
           to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit18" unwind label %28
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit18": ; preds = %32
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit18": ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %36 = load i64, ptr %24, align 8, !range !35, !noundef !7
-  %37 = icmp samesign ugt i64 %36, 2
+  %37 = load i64, ptr %24, align 8, !range !35, !noundef !7
+  %37 = icmp samesign ugt i64 %37, 2
   br i1 %37, label %"_ZN4core3ptr276drop_in_place$LT$core..option..Option$LT$hyper..client..dispatch..Envelope$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$$GT$17he784ca134ec96aa0E.exit", label %38
 
 38:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h5ab04444e363d56aE.exit18"
@@ -17454,7 +17454,7 @@ define hidden void @"_ZN97_$LT$thrift_codec..data..thrift_struct..Struct$u20$as$
   %spec.store.select = select i1 %or.cond, i16 %34, i16 0
   %36 = load i64, ptr %.sroa.065.0125, align 8, !range !2372, !noundef !7
   %37 = add nsw i64 %36, -12
-  %38 = icmp samesign ugt i64 %36, 11
+  %38 = icmp samesign ugt i64 %37, 11
   %39 = icmp ne i64 %37, 8
   call void @llvm.assume(i1 %39)
   %40 = select i1 %38, i64 %37, i64 8

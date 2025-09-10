@@ -18315,21 +18315,21 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
   %5 = icmp samesign ugt i8 %4, 2
   br i1 %5, label %6, label %8
 
-6:                                                ; preds = %2
-  %7 = icmp ne i8 %4, 4
-  ret i1 %7
+5:                                                ; preds = %2
+  %6 = icmp ne i8 %4, 4
+  ret i1 %6
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.8e48b6470a27d08b5500ade55998fee0.148.llvm.15125219604780613101, ptr %3, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.8e48b6470a27d08b5500ade55998fee0.18.llvm.15125219604780613101, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %12, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.8e48b6470a27d08b5500ade55998fee0.18.llvm.15125219604780613101, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e48b6470a27d08b5500ade55998fee0.150.llvm.15125219604780613101) #42
   unreachable
 }

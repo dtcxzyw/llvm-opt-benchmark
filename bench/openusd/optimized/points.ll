@@ -681,13 +681,13 @@ define i32 @_ZN32pxrInternal_v0_24__pxrReserved__8HdPoints12_GetReprDescERKNS_7T
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdPoints15_reprDescConfigE, i64 8), align 8
   %.not22.i = icmp eq ptr %3, %4
   %.pre.i = load ptr, ptr %0, align 8
-  br i1 %.not22.i, label %._crit_edge.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.lr.ph.i
+  br i1 %.not22.i, label %._crit_edge.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.lr.ph.i: ; preds = %1
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i: ; preds = %1
   %5 = ptrtoint ptr %.pre.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEppEv.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.lr.ph.i
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i:; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEppEv.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i
   %.sroa.0.023.i = phi ptr [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.lr.ph.i ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEppEv.exit.i ]
   %6 = load ptr, ptr %.sroa.0.023.i, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -696,25 +696,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfToken
   br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit7.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEppEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit7.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
-  %11 = load i32, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
+  %10 = load i32, ptr %9, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEppEv.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 16
-  %.not.i = icmp eq ptr %12, %4
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 16
+  %.not.i = icmp eq ptr %11, %4
   br i1 %.not.i, label %._crit_edge.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEppEv.exit.i, %1
   store ptr @.str.4, ptr %2, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 312, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 0, ptr %16, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 312, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i8 0, ptr %15, align 8
   %17 = icmp ult ptr %.pre.i, inttoptr (i64 8 to ptr)
   br i1 %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i, label %18
 
@@ -727,12 +727,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfToken
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %18, %._crit_edge.i
-  %24 = phi ptr [ %23, %18 ], [ @.str.8, %._crit_edge.i ]
-  call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %2, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %24)
+  %21 = phi ptr [ %23, %18 ], [ @.str.8, %._crit_edge.i ]
+  call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %2, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %21)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_16HdPointsReprDescELi1EE4FindERKNS_7TfTokenE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit7.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i
-  %.sroa.020.0.i = phi i32 [ %11, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit7.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i ]
+  %.sroa.020.0.i = phi i32 [ %10, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_16HdPointsReprDescELm1EEESaIS7_EELb0EEptEv.exit7.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.sroa.020.0.i
 }

@@ -2195,22 +2195,22 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
 
 195:                                              ; preds = %192
   %196 = icmp ult i32 %.0144, 16
-  br i1 %196, label %197, label %198
+  br i1 %196, label %197, label %203
 
-197:                                              ; preds = %195
+198:                                              ; preds = %195
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.79) #13
   br label %207
 
-198:                                              ; preds = %195
+203:                                              ; preds = %195
   %199 = getelementptr inbounds nuw i8, ptr %.0143, i64 4
   br label %200
 
-200:                                              ; preds = %192, %198, %185
+200:; preds = %192, %203, %185
   %.2 = phi ptr [ %199, %198 ], [ %.0143, %192 ], [ %.0143, %185 ]
   %201 = getelementptr inbounds nuw i8, ptr %.2, i64 12
   br label %202
 
-202:                                              ; preds = %200, %177
+202:; preds = %200, %177
   %.1 = phi ptr [ %201, %200 ], [ %.0143, %177 ]
   %203 = ptrtoint ptr %.1 to i64
   %204 = ptrtoint ptr %17 to i64
