@@ -2835,21 +2835,21 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
   %4 = icmp ne i64 %3, 2
   tail call void @llvm.assume(i1 %4)
   %.inv = icmp samesign ult i64 %2, 2
-  %5 = select i1 %.inv, i64 2, i64 %3
-  switch i64 %5, label %6 [
+  %6 = select i1 %.inv, i64 2, i64 %3
+  switch i64 %6, label %7 [
     i64 0, label %43
     i64 1, label %43
     i64 2, label %43
-    i64 3, label %7
+    i64 3, label %8
     i64 4, label %8
     i64 5, label %9
     i64 6, label %10
     i64 7, label %11
-    i64 8, label %19
+    i64 8, label %12
     i64 9, label %20
     i64 10, label %21
     i64 11, label %25
-    i64 12, label %26
+    i64 12, label %27
     i64 13, label %27
     i64 14, label %31
     i64 15, label %32
@@ -2862,7 +2862,7 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
     i64 22, label %42
   ]
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   unreachable
 
 7:                                                ; preds = %1
@@ -2889,7 +2889,7 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
   %spec.select = select i1 %17, i64 %spec.store.select, i64 %18
   br label %43
 
-19:                                               ; preds = %1
+12:                                               ; preds = %1
   br label %43
 
 20:                                               ; preds = %1
@@ -2902,7 +2902,7 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
   %. = select i1 %24, i64 19, i64 18
   br label %43
 
-25:                                               ; preds = %1
+22:                                               ; preds = %1
   br label %43
 
 26:                                               ; preds = %1
@@ -2915,7 +2915,7 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
   %.3 = select i1 %30, i64 23, i64 22
   br label %43
 
-31:                                               ; preds = %1
+28:                                               ; preds = %1
   br label %43
 
 32:                                               ; preds = %1
@@ -2934,7 +2934,7 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
   %.4 = select i1 %38, i64 29, i64 28
   br label %43
 
-39:                                               ; preds = %1
+36:                                               ; preds = %1
   br label %43
 
 40:                                               ; preds = %1
@@ -2958,13 +2958,13 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto5frame5Frame16is_ack_eliciting
   %4 = icmp ne i64 %3, 2
   tail call void @llvm.assume(i1 %4)
   %.inv = icmp samesign ult i64 %2, 2
-  %5 = select i1 %.inv, i64 2, i64 %3
-  %6 = icmp ugt i64 %5, 18
-  %switch.cast = trunc i64 %5 to i19
+  %6 = select i1 %.inv, i64 2, i64 %3
+  %7 = icmp ugt i64 %6, 18
+  %switch.cast = trunc i64 %6 to i19
   %switch.downshift = lshr i19 262138, %switch.cast
   %switch.masked = trunc i19 %switch.downshift to i1
-  %7 = select i1 %6, i1 true, i1 %switch.masked
-  ret i1 %7
+  %8 = select i1 %7, i1 true, i1 %switch.masked
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

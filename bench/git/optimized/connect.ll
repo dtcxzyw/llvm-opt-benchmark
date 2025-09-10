@@ -2968,8 +2968,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %254, align 1, !tbaa !4
   call void @sq_quote_buf(ptr noundef nonnull %16, ptr noundef %68) #24
   %255 = load ptr, ptr @local_repo_env, align 8, !tbaa !15
-  %.not6098 = icmp eq ptr %255, null
-  br i1 %.not6098, label %._crit_edge, label %.lr.ph
+  %.not6097 = icmp eq ptr %255, null
+  br i1 %.not6097, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %strbuf_addch.exit
   %256 = getelementptr inbounds nuw i8, ptr %238, i64 24
@@ -2977,9 +2977,9 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 257:                                              ; preds = %.lr.ph, %257
   %258 = phi ptr [ %255, %.lr.ph ], [ %261, %257 ]
-  %.04999 = phi ptr [ @local_repo_env, %.lr.ph ], [ %260, %257 ]
+  %.04998 = phi ptr [ @local_repo_env, %.lr.ph ], [ %260, %257 ]
   %259 = call ptr @strvec_push(ptr noundef nonnull %256, ptr noundef nonnull %258) #24
-  %260 = getelementptr inbounds nuw i8, ptr %.04999, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %.04998, i64 8
   %261 = load ptr, ptr %260, align 8, !tbaa !15
   %.not60 = icmp eq ptr %261, null
   br i1 %.not60, label %._crit_edge, label %257, !llvm.loop !78
@@ -3157,21 +3157,21 @@ push_ssh_options.exit.i:                          ; preds = %321, %320
   %329 = icmp eq i32 %.1.i80, 2
   %330 = icmp sgt i32 %.050, 0
   %or.cond.i.i = and i1 %330, %329
-  br i1 %or.cond.i.i, label %.thread.i81, label %331
+  br i1 %or.cond.i.i, label %336, label %331
 
 331:                                              ; preds = %327
   %332 = and i32 %4, 4
   %.not.i29.i = icmp eq i32 %332, 0
   br i1 %.not.i29.i, label %341, label %338
 
-.thread.i81:                                      ; preds = %327
+336:                                              ; preds = %327
   %333 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %334 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull @.str.112) #24
   %335 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull @.str.113) #24
   %336 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %333, ptr noundef nonnull @.str.42, i32 noundef %.050) #24
   %337 = and i32 %4, 4
-  %.not.i2955.i = icmp eq i32 %337, 0
-  br i1 %.not.i2955.i, label %.thread58.i, label %.sink.split.i30.i
+  %.not.i29.i = icmp eq i32 %337, 0
+  br i1 %.not.i29.i, label %.thread58.i, label %.sink.split.i30.i
 
 338:                                              ; preds = %331
   %.not53.i = icmp eq i32 %.1.i80, 1
@@ -3185,40 +3185,40 @@ push_ssh_options.exit.i:                          ; preds = %321, %320
 341:                                              ; preds = %331
   %342 = and i32 %4, 8
   %.not21.i33.i = icmp eq i32 %342, 0
-  br i1 %.not21.i33.i, label %348, label %344
+  br i1 %.not21.i33.i, label %347, label %343
 
 .thread58.i:                                      ; preds = %.thread.i81
   %343 = and i32 %4, 8
   %.not21.i3359.i = icmp eq i32 %343, 0
   br i1 %.not21.i3359.i, label %.thread62.i, label %.sink.split.i30.i
 
-344:                                              ; preds = %341
+343:                                              ; preds = %341
   %.not54.i = icmp eq i32 %.1.i80, 1
   br i1 %.not54.i, label %345, label %.sink.split.i30.i
 
-345:                                              ; preds = %344
-  %346 = call fastcc ptr @_(ptr noundef nonnull @.str.117)
-  call void (ptr, ...) @die(ptr noundef %346) #25
+344:                                              ; preds = %343
+  %345 = call fastcc ptr @_(ptr noundef nonnull @.str.117)
+  call void (ptr, ...) @die(ptr noundef %345) #25
   unreachable
 
-.sink.split.i30.i:                                ; preds = %344, %.thread58.i, %338, %.thread.i81
+.sink.split.i30.i:                                ; preds = %343, %.thread58.i, %338, %336
   %.str.118.sink.i31.i = phi ptr [ @.str.116, %338 ], [ @.str.118, %344 ], [ @.str.116, %.thread.i81 ], [ @.str.118, %.thread58.i ]
-  %347 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull %.str.118.sink.i31.i) #24
-  br label %348
+  %346 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull %.str.118.sink.i31.i) #24
+  br label %347
 
-348:                                              ; preds = %.sink.split.i30.i, %341
-  %349 = icmp eq i32 %.1.i80, 5
-  br i1 %349, label %350, label %.thread62.i
+347:                                              ; preds = %.sink.split.i30.i, %341
+  %348 = icmp eq i32 %.1.i80, 5
+  br i1 %348, label %349, label %351
 
-350:                                              ; preds = %348
-  %351 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull @.str.119) #24
-  br label %.thread62.i
+349:                                              ; preds = %347
+  %350 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull @.str.119) #24
+  br label %351
 
-.thread62.i:                                      ; preds = %350, %348, %.thread58.i
+351:                                              ; preds = %349, %347, %.thread58.i
   %.not22.i32.i = icmp eq ptr %281, null
   br i1 %.not22.i32.i, label %358, label %352
 
-352:                                              ; preds = %.thread62.i
+352:                                              ; preds = %351
   switch i32 %.1.i80, label %default.unreachable120 [
     i32 5, label %355
     i32 1, label %353
@@ -3241,10 +3241,10 @@ push_ssh_options.exit.i:                          ; preds = %321, %320
   %357 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef nonnull %281) #24
   br label %358
 
-default.unreachable120:                           ; preds = %352
+default.unreachable119:                           ; preds = %352
   unreachable
 
-358:                                              ; preds = %.sink.split24.i.i, %.thread62.i
+358:                                              ; preds = %.sink.split24.i.i, %351
   %359 = call ptr @strvec_push(ptr noundef nonnull %238, ptr noundef %69) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %366

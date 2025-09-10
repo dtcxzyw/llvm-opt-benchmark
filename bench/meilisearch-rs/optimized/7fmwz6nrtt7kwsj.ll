@@ -17,7 +17,7 @@ define hidden void @"_ZN4core3ptr147drop_in_place$LT$$LP$meilisearch_types..inde
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !15, !noalias !4, !noundef !16
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %17, label %6
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %.noexc
   %7 = load ptr, ptr %2, align 8, !noalias !4, !nonnull !16, !noundef !16
@@ -32,34 +32,34 @@ define hidden void @"_ZN4core3ptr147drop_in_place$LT$$LP$meilisearch_types..inde
           cleanup
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !range !17, !alias.scope !18, !noundef !16
-  %15 = icmp ugt i64 %14, -9223372036854775804
+  %15 = icmp ugt i64 %14, -9223372036854775803
   br i1 %15, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit", label %16
 
-16:                                               ; preds = %11
+15:                                               ; preds = %11
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
-          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit" unwind label %22
+          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit" unwind label %20
 
-17:                                               ; preds = %.noexc, %6
+16:                                               ; preds = %.noexc, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !range !17, !alias.scope !21, !noundef !16
-  %20 = icmp ugt i64 %19, -9223372036854775804
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load i64, ptr %17, align 8, !range !17, !alias.scope !21, !noundef !16
+  %20 = icmp ugt i64 %18, -9223372036854775803
   br i1 %20, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit3", label %21
 
-21:                                               ; preds = %17
-  tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %18)
-  br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit3"
+19:                                               ; preds = %16
+  tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %17)
+  br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit5"
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit3": ; preds = %17, %21
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit5": ; preds = %16, %19
   ret void
 
-22:                                               ; preds = %16
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %15
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit": ; preds = %11, %16
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit": ; preds = %11, %15
   resume { ptr, i32 } %12
 }
 
@@ -282,13 +282,13 @@ common.resume:                                    ; preds = %11, %22, %28
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !16
-  %3 = icmp ugt i64 %2, -9223372036854775804
+  %3 = icmp ugt i64 %2, -9223372036854775803
   br i1 %3, label %"_ZN4core3ptr55drop_in_place$LT$meilisearch_auth..IndexSearchRules$GT$17h68d79dd61c14c59eE.exit", label %4
 
-"_ZN4core3ptr55drop_in_place$LT$meilisearch_auth..IndexSearchRules$GT$17h68d79dd61c14c59eE.exit": ; preds = %1, %4
+"_ZN4core3ptr55drop_in_place$LT$meilisearch_auth..IndexSearchRules$GT$17h68d79dd61c14c59eE.exit": ; preds = %1, %3
   ret void
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   br label %"_ZN4core3ptr55drop_in_place$LT$meilisearch_auth..IndexSearchRules$GT$17h68d79dd61c14c59eE.exit"
 }
@@ -1165,7 +1165,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h60a6336d68
 .noexc.i.i:                                       ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9780d5bff03ebfd2E.exit"
   %34 = load i64, ptr %13, align 8, !range !15, !noalias !249, !noundef !16
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %46, label %36
+  br i1 %35, label %45, label %36
 
 36:                                               ; preds = %.noexc.i.i
   %37 = load ptr, ptr %2, align 8, !noalias !249, !nonnull !16, !noundef !16
@@ -1179,36 +1179,36 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h60a6336d68
           cleanup
   %42 = getelementptr inbounds i8, ptr %31, i64 -72
   %43 = load i64, ptr %42, align 8, !range !17, !alias.scope !263, !noalias !262, !noundef !16
-  %44 = icmp ugt i64 %43, -9223372036854775804
+  %44 = icmp ugt i64 %43, -9223372036854775803
   br i1 %44, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i", label %45
 
-45:                                               ; preds = %40
+44:                                               ; preds = %40
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %42)
-          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i" unwind label %51, !noalias !262
+          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i" unwind label %49, !noalias !262
 
-46:                                               ; preds = %36, %.noexc.i.i
+45:                                               ; preds = %36, %.noexc.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !249
-  %47 = getelementptr inbounds i8, ptr %31, i64 -72
-  %48 = load i64, ptr %47, align 8, !range !17, !alias.scope !266, !noalias !262, !noundef !16
-  %49 = icmp ugt i64 %48, -9223372036854775804
+  %46 = getelementptr inbounds i8, ptr %31, i64 -72
+  %47 = load i64, ptr %46, align 8, !range !17, !alias.scope !266, !noalias !262, !noundef !16
+  %49 = icmp ugt i64 %47, -9223372036854775803
   br i1 %49, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit", label %50
 
 50:                                               ; preds = %46
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %47), !noalias !262
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit"
 
-51:                                               ; preds = %45
-  %52 = landingpad { ptr, i32 }
+49:                                               ; preds = %44
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !262
   unreachable
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i": ; preds = %45, %40
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i": ; preds = %44, %40
   resume { ptr, i32 } %41
 
-"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit": ; preds = %46, %50
-  %53 = icmp eq i64 %32, 0
-  br i1 %53, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9780d5bff03ebfd2E.exit.thread", label %15
+"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit": ; preds = %45, %50
+  %51 = icmp eq i64 %32, 0
+  br i1 %51, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9780d5bff03ebfd2E.exit.thread", label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2120,7 +2120,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !15, !noalias !391, !noundef !16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %19, label %8
+  br i1 %7, label %18, label %8
 
 8:                                                ; preds = %.noexc.i
   %9 = load ptr, ptr %2, align 8, !noalias !391, !nonnull !16, !noundef !16
@@ -2128,41 +2128,41 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E
   %11 = load i64, ptr %10, align 8, !noalias !391, !noundef !16
   %12 = getelementptr inbounds i8, ptr %3, i64 -80
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.16429374078602074278"(ptr noalias noundef nonnull readonly align 1 %12, ptr noundef nonnull %9, i64 noundef %6, i64 noundef %11)
-          to label %19 unwind label %13
+          to label %18 unwind label %13
 
 13:                                               ; preds = %8, %1
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = getelementptr inbounds i8, ptr %3, i64 -72
   %16 = load i64, ptr %15, align 8, !range !17, !alias.scope !402, !noundef !16
-  %17 = icmp ugt i64 %16, -9223372036854775804
+  %17 = icmp ugt i64 %16, -9223372036854775803
   br i1 %17, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i", label %18
 
-18:                                               ; preds = %13
+17:                                               ; preds = %13
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15)
-          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i" unwind label %24
+          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i" unwind label %22
 
-19:                                               ; preds = %8, %.noexc.i
+18:                                               ; preds = %8, %.noexc.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !391
-  %20 = getelementptr inbounds i8, ptr %3, i64 -72
-  %21 = load i64, ptr %20, align 8, !range !17, !alias.scope !405, !noundef !16
-  %22 = icmp ugt i64 %21, -9223372036854775804
+  %19 = getelementptr inbounds i8, ptr %3, i64 -72
+  %20 = load i64, ptr %19, align 8, !range !17, !alias.scope !405, !noundef !16
+  %22 = icmp ugt i64 %20, -9223372036854775803
   br i1 %22, label %"_ZN4core3ptr147drop_in_place$LT$$LP$meilisearch_types..index_uid_pattern..IndexUidPattern$C$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$RP$$GT$17hc419dde2e567e039E.llvm.13625133489657380139.exit", label %23
 
-23:                                               ; preds = %19
-  tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %20)
+21:                                               ; preds = %18
+  tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19)
   br label %"_ZN4core3ptr147drop_in_place$LT$$LP$meilisearch_types..index_uid_pattern..IndexUidPattern$C$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$RP$$GT$17hc419dde2e567e039E.llvm.13625133489657380139.exit"
 
-24:                                               ; preds = %18
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i": ; preds = %18, %13
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i": ; preds = %17, %13
   resume { ptr, i32 } %14
 
-"_ZN4core3ptr147drop_in_place$LT$$LP$meilisearch_types..index_uid_pattern..IndexUidPattern$C$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$RP$$GT$17hc419dde2e567e039E.llvm.13625133489657380139.exit": ; preds = %19, %23
+"_ZN4core3ptr147drop_in_place$LT$$LP$meilisearch_types..index_uid_pattern..IndexUidPattern$C$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$RP$$GT$17hc419dde2e567e039E.llvm.13625133489657380139.exit": ; preds = %18, %21
   ret void
 }
 
@@ -2285,7 +2285,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h912b55
 .noexc.i.i:                                       ; preds = %32
   %34 = load i64, ptr %8, align 8, !range !15, !noalias !437, !noundef !16
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %46, label %36
+  br i1 %35, label %45, label %36
 
 36:                                               ; preds = %.noexc.i.i
   %37 = load ptr, ptr %2, align 8, !noalias !437, !nonnull !16, !noundef !16
@@ -2299,18 +2299,18 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h912b55
           cleanup
   %42 = getelementptr inbounds i8, ptr %29, i64 -72
   %43 = load i64, ptr %42, align 8, !range !17, !alias.scope !451, !noalias !450, !noundef !16
-  %44 = icmp ugt i64 %43, -9223372036854775804
+  %44 = icmp ugt i64 %43, -9223372036854775803
   br i1 %44, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i", label %45
 
-45:                                               ; preds = %40
+44:                                               ; preds = %40
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hc66bd3b1e6b9b36fE.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(72) %42)
-          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i" unwind label %51, !noalias !450
+          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i" unwind label %49, !noalias !450
 
-46:                                               ; preds = %36, %.noexc.i.i
+45:                                               ; preds = %36, %.noexc.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !437
-  %47 = getelementptr inbounds i8, ptr %29, i64 -72
-  %48 = load i64, ptr %47, align 8, !range !17, !alias.scope !454, !noalias !450, !noundef !16
-  %49 = icmp ugt i64 %48, -9223372036854775804
+  %46 = getelementptr inbounds i8, ptr %29, i64 -72
+  %47 = load i64, ptr %46, align 8, !range !17, !alias.scope !454, !noalias !450, !noundef !16
+  %49 = icmp ugt i64 %47, -9223372036854775803
   br i1 %49, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit", label %50
 
 50:                                               ; preds = %46
@@ -2318,19 +2318,19 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h912b55
   %.pr.pre = load i64, ptr %3, align 8, !alias.scope !421
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit"
 
-51:                                               ; preds = %45
-  %52 = landingpad { ptr, i32 }
+49:                                               ; preds = %44
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !450
   unreachable
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i": ; preds = %45, %40
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$meilisearch_auth..IndexSearchRules$GT$$GT$17h8b75367c49880143E.llvm.13625133489657380139.exit.i.i": ; preds = %44, %40
   resume { ptr, i32 } %41
 
-"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit": ; preds = %46, %50
+"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17had1bb8bd1c81c4b5E.llvm.13625133489657380139.exit": ; preds = %45, %50
   %.pr = phi i64 [ %30, %46 ], [ %.pr.pre, %50 ]
-  %53 = icmp eq i64 %.pr, 0
-  br i1 %53, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9780d5bff03ebfd2E.exit.thread", label %10
+  %51 = icmp eq i64 %.pr, 0
+  br i1 %51, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9780d5bff03ebfd2E.exit.thread", label %10
 }
 
 ; Function Attrs: nonlazybind uwtable

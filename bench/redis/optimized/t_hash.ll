@@ -8810,12 +8810,12 @@ define dso_local void @hstrlenCommand(ptr noundef %0) local_unnamed_addr #1 {
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !132
   %10 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %8, ptr noundef %9) #16
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %35, label %12
+  br i1 %11, label %36, label %12
 
 12:                                               ; preds = %1
   %13 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 4) #16
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %35
+  br i1 %.not, label %14, label %36
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8829,32 +8829,32 @@ define dso_local void @hstrlenCommand(ptr noundef %0) local_unnamed_addr #1 {
   %.not16 = icmp eq i32 %22, 0
   br i1 %.not16, label %25, label %23
 
-23:                                               ; preds = %14
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !132
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %24) #16
-  br label %35
+24:                                               ; preds = %14
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !132
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %25) #16
+  br label %36
 
-25:                                               ; preds = %14
-  %26 = load ptr, ptr %2, align 8, !tbaa !85
-  %.not15 = icmp eq ptr %26, null
-  br i1 %.not15, label %29, label %27
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %2, align 8, !tbaa !85
+  %.not15 = icmp eq ptr %27, null
+  br i1 %.not15, label %30, label %28
 
-27:                                               ; preds = %25
-  %28 = load i32, ptr %3, align 4, !tbaa !65
-  br label %32
+28:                                               ; preds = %26
+  %29 = load i32, ptr %3, align 4, !tbaa !65
+  br label %33
 
-29:                                               ; preds = %25
-  %30 = load i64, ptr %4, align 8, !tbaa !24
-  %31 = call i32 @sdigits10(i64 noundef %30) #16
-  br label %32
+30:                                               ; preds = %26
+  %31 = load i64, ptr %4, align 8, !tbaa !24
+  %32 = call i32 @sdigits10(i64 noundef %31) #16
+  br label %33
 
-32:                                               ; preds = %29, %27
-  %33 = phi i32 [ %28, %27 ], [ %31, %29 ]
-  %34 = zext i32 %33 to i64
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %34) #16
-  br label %35
+33:                                               ; preds = %30, %28
+  %34 = phi i32 [ %29, %27 ], [ %32, %29 ]
+  %35 = zext i32 %34 to i64
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %35) #16
+  br label %36
 
-35:                                               ; preds = %23, %32, %1, %12
+36:                                               ; preds = %24, %33, %1, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
