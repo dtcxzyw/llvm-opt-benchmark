@@ -132,7 +132,7 @@
   "function-attrs.NumWillReturn": 1429825,
   "function-attrs.NumWriteOnlyArg": 971668,
   "function-specialization.NumSpecsCreated": 29,
-  "globaldce.NumFunctions": 349133,
+  "globaldce.NumFunctions": 349184,
   "globaldce.NumVFuncs": 6499,
   "globaldce.NumVariables": 91811,
   "globalopt.NumAliasesRemoved": 16,

@@ -7062,8 +7062,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %invariant.gep118 = getelementptr inbounds nuw i16, ptr %122, i64 %128
   %invariant.gep120 = getelementptr inbounds nuw i16, ptr %122, i64 %128
   %invariant.gep122 = getelementptr inbounds nuw i16, ptr %122, i64 %127
-  %.not132 = icmp eq i16 %115, 2
-  br i1 %.not132, label %.ph, label %.ph.lver.orig
+  %.not133 = icmp eq i16 %115, 2
+  br i1 %.not133, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %indvars.iv100.lver.orig = phi i64 [ %indvars.iv.next101.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]

@@ -205,8 +205,8 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %wide.trip.count93 = and i64 %54, 4294967295
   %.pre95 = load i16, ptr %6, align 16, !tbaa !80
   %.pre96 = load i16, ptr %55, align 16, !tbaa !80
-  %.not123 = icmp eq i16 %51, 2
-  br i1 %.not123, label %.ph, label %.ph.lver.orig
+  %.not124 = icmp eq i16 %51, 2
+  br i1 %.not124, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %56 = phi i16 [ %60, %.ph.lver.orig ], [ %.pre96, %.lver.check ]
