@@ -15165,8 +15165,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304: ; preds = %_
   %.pre = load ptr, ptr %16, align 8, !tbaa !433
   %.sroa.035.0.copyload.pre = load i64, ptr %.pre, align 8, !tbaa !20
   %5122 = icmp ugt i64 %.sroa.035.0.copyload.pre, 2
-  %or.cond4090 = select i1 %5121, i1 %5122, i1 false
-  br i1 %or.cond4090, label %5123, label %5136
+  %or.cond4071 = select i1 %5121, i1 %5122, i1 false
+  br i1 %or.cond4071, label %5123, label %5136
 
 5123:                                             ; preds = %5119
   call void @llvm.lifetime.start.p0(ptr nonnull %749)
@@ -15928,8 +15928,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2377: ; preds = %_
   %spec.select = select i1 %.sroa.82681.0.lcssa, i8 %.sroa.02676.0.lcssa, i8 %5395
   %5396 = trunc i8 %spec.select to i1
   %5397 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.sink4096 = select i1 %5396, i32 %.0719.lcssa, i32 2
-  store i32 %.sink4096, ptr %5397, align 8, !tbaa !468
+  %.sink4077 = select i1 %5396, i32 %.0719.lcssa, i32 2
+  store i32 %.sink4077, ptr %5397, align 8, !tbaa !468
   %5398 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %5399 = load i8, ptr %5398, align 8, !tbaa !469, !range !370, !noundef !371
   %5400 = trunc nuw i8 %5399 to i1
@@ -16050,9 +16050,9 @@ _ZNSt13random_deviceC2Ev.exit2382:                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %5449, label %5451, label %.sink.split
 
 .sink.split:                                      ; preds = %5444, %5443
-  %.sink4091 = phi i32 [ %.sroa.02690.0.lcssa, %5443 ], [ 0, %5444 ]
+  %.sink4072 = phi i32 [ %.sroa.02690.0.lcssa, %5443 ], [ 0, %5444 ]
   %5450 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 %.sink4091, ptr %5450, align 8, !tbaa !472
+  store i32 %.sink4072, ptr %5450, align 8, !tbaa !472
   br label %5451
 
 5451:                                             ; preds = %.sink.split, %5444
@@ -16060,7 +16060,7 @@ _ZNSt13random_deviceC2Ev.exit2382:                ; preds = %_ZNKSt7__cxx1112bas
   %.sink = select i1 %.sroa.5.0.lcssa, i8 %.sroa.02667.0.lcssa, i8 %5452
   %5453 = getelementptr inbounds nuw i8, ptr %1, i64 215
   store i8 %.sink, ptr %5453, align 1, !tbaa !473
-  br i1 %.sroa.52673.0.lcssa, label %.sink.split4093, label %5454
+  br i1 %.sroa.52673.0.lcssa, label %.sink.split4074, label %5454
 
 5454:                                             ; preds = %5451
   %5455 = getelementptr inbounds nuw i8, ptr %1, i64 976
@@ -16068,15 +16068,15 @@ _ZNSt13random_deviceC2Ev.exit2382:                ; preds = %_ZNKSt7__cxx1112bas
   %5457 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %5458 = load ptr, ptr %5457, align 8, !tbaa !471
   %5459 = icmp eq ptr %5456, %5458
-  br i1 %5459, label %5461, label %.sink.split4093
+  br i1 %5459, label %5461, label %.sink.split4074
 
-.sink.split4093:                                  ; preds = %5454, %5451
-  %.sink4094 = phi i8 [ %.sroa.02671.0.lcssa, %5451 ], [ 0, %5454 ]
+.sink.split4074:                                  ; preds = %5454, %5451
+  %.sink4075 = phi i8 [ %.sroa.02671.0.lcssa, %5451 ], [ 0, %5454 ]
   %5460 = getelementptr inbounds nuw i8, ptr %1, i64 225
-  store i8 %.sink4094, ptr %5460, align 1, !tbaa !474
+  store i8 %.sink4075, ptr %5460, align 1, !tbaa !474
   br label %5461
 
-5461:                                             ; preds = %.sink.split4093, %5454
+5461:                                             ; preds = %.sink.split4074, %5454
   %5462 = getelementptr inbounds nuw i8, ptr %1, i64 181
   %5463 = load i8, ptr %5462, align 1, !tbaa !421, !range !370, !noundef !371
   %5464 = trunc nuw i8 %5463 to i1

@@ -2311,39 +2311,39 @@ numusehash.exit.i:                                ; preds = %countint.exit.i.i
 
 70:                                               ; preds = %._crit_edge.i.i, %68
   %indvars.iv.i15.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i16.i, %._crit_edge.i.i ]
-  %.02850.i.i = phi i32 [ 1, %68 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ]
-  %.03049.i.i = phi i32 [ 0, %68 ], [ %89, %._crit_edge.i.i ]
-  %.03348.i.i = phi i32 [ 1, %68 ], [ %90, %._crit_edge.i.i ]
-  %71 = icmp ugt i32 %.03348.i.i, %67
+  %.02849.i.i = phi i32 [ 1, %68 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ]
+  %.03048.i.i = phi i32 [ 0, %68 ], [ %89, %._crit_edge.i.i ]
+  %.03347.i.i = phi i32 [ 1, %68 ], [ %90, %._crit_edge.i.i ]
+  %71 = icmp ugt i32 %.03347.i.i, %67
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = icmp ugt i32 %.02850.i.i, %67
+  %73 = icmp ugt i32 %.02849.i.i, %67
   br i1 %73, label %numusearray.exit.i, label %74
 
 74:                                               ; preds = %72, %70
-  %.025.i.i = phi i32 [ %67, %72 ], [ %.03348.i.i, %70 ]
-  %.not44.i.i = icmp ugt i32 %.02850.i.i, %.025.i.i
-  br i1 %.not44.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.025.i.i = phi i32 [ %67, %72 ], [ %.03347.i.i, %70 ]
+  %.not43.i.i = icmp ugt i32 %.02849.i.i, %.025.i.i
+  br i1 %.not43.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %74
   %.val.i.i = load ptr, ptr %69, align 8, !tbaa !19
   %75 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 4
-  %76 = zext i32 %.02850.i.i to i64
+  %76 = zext i32 %.02849.i.i to i64
   %77 = zext i32 %.025.i.i to i64
   br label %78
 
 78:                                               ; preds = %78, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ %76, %.lr.ph.i.i ]
-  %.02646.i.i = phi i32 [ %spec.select.i.i, %78 ], [ 0, %.lr.ph.i.i ]
+  %.02645.i.i = phi i32 [ %spec.select.i.i, %78 ], [ 0, %.lr.ph.i.i ]
   %79 = add nuw i64 %indvars.iv.i, 4294967295
   %80 = and i64 %79, 4294967295
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !16
   %83 = and i8 %82, 15
-  %.not43.i.i = icmp ne i8 %83, 0
-  %84 = zext i1 %.not43.i.i to i32
-  %spec.select.i.i = add i32 %.02646.i.i, %84
+  %.not42.i.i = icmp ne i8 %83, 0
+  %84 = zext i1 %.not42.i.i to i32
+  %spec.select.i.i = add i32 %.02645.i.i, %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %77
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit.i, label %78
@@ -2353,20 +2353,20 @@ numusehash.exit.i:                                ; preds = %countint.exit.i.i
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %74
-  %.2.lcssa.i.i = phi i32 [ %.02850.i.i, %74 ], [ %85, %._crit_edge.i.loopexit.i ]
+  %.2.lcssa.i.i = phi i32 [ %.02849.i.i, %74 ], [ %85, %._crit_edge.i.loopexit.i ]
   %.026.lcssa.i.i = phi i32 [ 0, %74 ], [ %spec.select.i.i, %._crit_edge.i.loopexit.i ]
   %86 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i15.i
   %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = add i32 %87, %.026.lcssa.i.i
   store i32 %88, ptr %86, align 4, !tbaa !23
-  %89 = add i32 %.026.lcssa.i.i, %.03049.i.i
+  %89 = add i32 %.026.lcssa.i.i, %.03048.i.i
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i15.i, 1
-  %90 = shl i32 %.03348.i.i, 1
+  %90 = shl i32 %.03347.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i16.i, 32
   br i1 %exitcond.not.i.i, label %numusearray.exit.i, label %70
 
 numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %72
-  %.030.lcssa.i.i = phi i32 [ %.03049.i.i, %72 ], [ %89, %._crit_edge.i.i ]
+  %.030.lcssa.i.i = phi i32 [ %.03048.i.i, %72 ], [ %89, %._crit_edge.i.i ]
   %91 = add i32 %.030.lcssa.i.i, %64
   %92 = add i32 %.030.lcssa.i.i, %63
   %93 = zext i32 %92 to i64

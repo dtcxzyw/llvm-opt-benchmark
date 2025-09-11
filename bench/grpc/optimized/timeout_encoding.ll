@@ -765,72 +765,72 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %9 = and i64 %8, 255
   %10 = select i1 %.not.i, i64 %9, i64 %8
   %11 = getelementptr i8, ptr %6, i64 %10
-  %.not70 = icmp samesign eq i64 %10, 0
-  br i1 %.not70, label %.critedge, label %.lr.ph
+  %.not69 = icmp samesign eq i64 %10, 0
+  br i1 %.not69, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %14
-  %.04671 = phi ptr [ %15, %14 ], [ %6, %1 ]
-  %12 = load i8, ptr %.04671, align 1, !tbaa !10
+  %.04670 = phi ptr [ %15, %14 ], [ %6, %1 ]
+  %12 = load i8, ptr %.04670, align 1, !tbaa !10
   %13 = icmp eq i8 %12, 32
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.04671, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.04670, i64 1
   %.not = icmp eq ptr %15, %11
-  br i1 %.not, label %.critedge58, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.critedge57, label %.lr.ph, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %1
-  %.046.lcssa = phi ptr [ %6, %1 ], [ %.04671, %.lr.ph ]
-  %.not5374 = icmp eq ptr %.046.lcssa, %11
-  br i1 %.not5374, label %.critedge58, label %.lr.ph78.preheader
+  %.046.lcssa = phi ptr [ %6, %1 ], [ %.04670, %.lr.ph ]
+  %.not5273 = icmp eq ptr %.046.lcssa, %11
+  br i1 %.not5273, label %.critedge57, label %.lr.ph77.preheader
 
-.lr.ph78.preheader:                               ; preds = %.critedge
+.lr.ph77.preheader:                               ; preds = %.critedge
   %16 = load i8, ptr %.046.lcssa, align 1, !tbaa !10
   %17 = add i8 %16, -58
-  %or.cond56114 = icmp ult i8 %17, -10
-  br i1 %or.cond56114, label %.critedge2, label %.lr.ph117
+  %or.cond55112 = icmp ult i8 %17, -10
+  br i1 %or.cond55112, label %.critedge2, label %.lr.ph115
 
-.lr.ph78:                                         ; preds = %27
+.lr.ph77:                                         ; preds = %27
   %18 = load i8, ptr %30, align 1, !tbaa !10
   %19 = add i8 %18, -48
-  %or.cond56 = icmp ult i8 %19, 10
-  br i1 %or.cond56, label %.lr.ph117, label %.critedge2, !llvm.loop !17
+  %or.cond55 = icmp ult i8 %19, 10
+  br i1 %or.cond55, label %.lr.ph115, label %.critedge2, !llvm.loop !17
 
-.lr.ph117:                                        ; preds = %.lr.ph78.preheader, %.lr.ph78
+.lr.ph115:                                        ; preds = %.lr.ph77.preheader, %.lr.ph77
   %20 = phi i8 [ %18, %.lr.ph78 ], [ %16, %.lr.ph78.preheader ]
-  %.14776116 = phi ptr [ %30, %.lr.ph78 ], [ %.046.lcssa, %.lr.ph78.preheader ]
-  %.077115 = phi i32 [ %29, %.lr.ph78 ], [ 0, %.lr.ph78.preheader ]
+  %.14775114 = phi ptr [ %30, %.lr.ph78 ], [ %.046.lcssa, %.lr.ph78.preheader ]
+  %.076113 = phi i32 [ %29, %.lr.ph78 ], [ 0, %.lr.ph78.preheader ]
   %21 = zext nneg i8 %20 to i32
   %22 = add nsw i32 %21, -48
-  %23 = icmp sgt i32 %.077115, 99999999
+  %23 = icmp sgt i32 %.076113, 99999999
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %.lr.ph117
-  %25 = icmp ne i32 %.077115, 100000000
+24:                                               ; preds = %.lr.ph115
+  %25 = icmp ne i32 %.076113, 100000000
   %26 = icmp ne i32 %22, 0
   %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %.critedge58, label %27
+  br i1 %or.cond, label %.critedge57, label %27
 
-27:                                               ; preds = %24, %.lr.ph117
-  %28 = mul nsw i32 %.077115, 10
+27:                                               ; preds = %24, %.lr.ph115
+  %28 = mul nsw i32 %.076113, 10
   %29 = add nsw i32 %22, %28
-  %30 = getelementptr inbounds nuw i8, ptr %.14776116, i64 1
-  %.not53 = icmp eq ptr %30, %11
-  br i1 %.not53, label %..critedge2_crit_edge, label %.lr.ph78, !llvm.loop !17
+  %30 = getelementptr inbounds nuw i8, ptr %.14775114, i64 1
+  %.not52 = icmp eq ptr %30, %11
+  br i1 %.not52, label %..critedge2_crit_edge, label %.lr.ph77, !llvm.loop !17
 
 ..critedge2_crit_edge:                            ; preds = %27
   br label %.critedge2, !llvm.loop !17
 
-.critedge2:                                       ; preds = %.lr.ph78, %..critedge2_crit_edge, %.lr.ph78.preheader
+.critedge2:                                       ; preds = %.lr.ph77, %..critedge2_crit_edge, %.lr.ph77.preheader
   %.147.lcssa = phi ptr [ %30, %..critedge2_crit_edge ], [ %.046.lcssa, %.lr.ph78.preheader ], [ %30, %.lr.ph78 ]
   %.0.lcssa = phi i32 [ %29, %..critedge2_crit_edge ], [ 0, %.lr.ph78.preheader ], [ %29, %.lr.ph78 ]
-  %.not5586 = icmp eq ptr %.147.lcssa, %11
-  %or.cond89 = or i1 %or.cond56114, %.not5586
-  br i1 %or.cond89, label %.critedge58, label %.lr.ph88
+  %.not5485 = icmp eq ptr %.147.lcssa, %11
+  %or.cond88 = or i1 %or.cond55112, %.not5485
+  br i1 %or.cond88, label %.critedge57, label %.lr.ph87
 
-.lr.ph88:                                         ; preds = %.critedge2, %32
-  %.287 = phi ptr [ %33, %32 ], [ %.147.lcssa, %.critedge2 ]
-  %31 = load i8, ptr %.287, align 1, !tbaa !10
+.lr.ph87:                                         ; preds = %.critedge2, %32
+  %.286 = phi ptr [ %33, %32 ], [ %.147.lcssa, %.critedge2 ]
+  %31 = load i8, ptr %.286, align 1, !tbaa !10
   switch i8 %31, label %.critedge58 [
     i8 32, label %32
     i8 110, label %34
@@ -841,12 +841,12 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
     i8 72, label %56
   ]
 
-32:                                               ; preds = %.lr.ph88
-  %33 = getelementptr inbounds nuw i8, ptr %.287, i64 1
-  %.not55 = icmp eq ptr %33, %11
-  br i1 %.not55, label %.critedge58, label %.lr.ph88, !llvm.loop !18
+32:                                               ; preds = %.lr.ph87
+  %33 = getelementptr inbounds nuw i8, ptr %.286, i64 1
+  %.not54 = icmp eq ptr %33, %11
+  br i1 %.not54, label %.critedge57, label %.lr.ph87, !llvm.loop !18
 
-34:                                               ; preds = %.lr.ph88
+34:                                               ; preds = %.lr.ph87
   %35 = sdiv i32 %.0.lcssa, 1000000
   %36 = srem i32 %.0.lcssa, 1000000
   %37 = icmp ne i32 %36, 0
@@ -855,7 +855,7 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %40 = sext i32 %39 to i64
   br label %59
 
-41:                                               ; preds = %.lr.ph88
+41:                                               ; preds = %.lr.ph87
   %42 = sdiv i32 %.0.lcssa, 1000
   %43 = srem i32 %.0.lcssa, 1000
   %44 = icmp ne i32 %43, 0
@@ -864,46 +864,46 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %47 = sext i32 %46 to i64
   br label %59
 
-48:                                               ; preds = %.lr.ph88
+48:                                               ; preds = %.lr.ph87
   %49 = sext i32 %.0.lcssa to i64
   br label %59
 
-50:                                               ; preds = %.lr.ph88
+50:                                               ; preds = %.lr.ph87
   %51 = sext i32 %.0.lcssa to i64
   %52 = mul nsw i64 %51, 1000
   br label %59
 
-53:                                               ; preds = %.lr.ph88
+53:                                               ; preds = %.lr.ph87
   %54 = sext i32 %.0.lcssa to i64
   %55 = mul nsw i64 %54, 60000
   br label %59
 
-56:                                               ; preds = %.lr.ph88
+56:                                               ; preds = %.lr.ph87
   %57 = sext i32 %.0.lcssa to i64
   %58 = mul nsw i64 %57, 3600000
   br label %59
 
 59:                                               ; preds = %56, %53, %50, %48, %41, %34
   %.sroa.0.0 = phi i64 [ %40, %34 ], [ %47, %41 ], [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.287, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.286, i64 1
   %.not6.i = icmp eq ptr %60, %11
-  br i1 %.not6.i, label %.critedge58, label %.lr.ph.i
+  br i1 %.not6.i, label %.critedge57, label %.lr.ph.i
 
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  %.not.i60 = icmp eq ptr %62, %11
-  br i1 %.not.i60, label %.critedge58, label %.lr.ph.i, !llvm.loop !19
+  %.not.i59 = icmp eq ptr %62, %11
+  br i1 %.not.i59, label %.critedge57, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %59, %61
   %.07.i = phi ptr [ %62, %61 ], [ %60, %59 ]
   %63 = load i8, ptr %.07.i, align 1, !tbaa !10
   %64 = icmp eq i8 %63, 32
-  br i1 %64, label %61, label %.critedge58
+  br i1 %64, label %61, label %.critedge57
 
-.critedge58:                                      ; preds = %14, %24, %32, %.lr.ph88, %.lr.ph.i, %61, %.critedge, %59, %.critedge2
-  %.sroa.062.0 = phi i64 [ undef, %.critedge2 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph.i ], [ undef, %.lr.ph88 ], [ undef, %32 ], [ 9223372036854775807, %24 ], [ undef, %14 ]
+.critedge57:                                      ; preds = %14, %24, %32, %.lr.ph87, %.lr.ph.i, %61, %.critedge, %59, %.critedge2
+  %.sroa.061.0 = phi i64 [ undef, %.critedge2 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph.i ], [ undef, %.lr.ph88 ], [ undef, %32 ], [ 9223372036854775807, %24 ], [ undef, %14 ]
   %.sroa.3.0 = phi i8 [ 0, %.critedge2 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %61 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph88 ], [ 0, %32 ], [ 1, %24 ], [ 0, %14 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.062.0, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.061.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

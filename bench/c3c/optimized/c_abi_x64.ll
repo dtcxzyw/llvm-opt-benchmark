@@ -812,14 +812,14 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8
-  %.not48 = icmp eq ptr %23, null
-  br i1 %.not48, label %.thread-pre-split_crit_edge, label %24
+  %.not47 = icmp eq ptr %23, null
+  br i1 %.not47, label %.thread-pre-split_crit_edge, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %23, i64 -8
   %26 = load i32, ptr %25, align 4
-  %.not76 = icmp eq i32 %26, 0
-  br i1 %.not76, label %.thread-pre-split_crit_edge, label %.lr.ph
+  %.not75 = icmp eq i32 %26, 0
+  br i1 %.not75, label %.thread-pre-split_crit_edge, label %.lr.ph
 
 .thread-pre-split_crit_edge:                      ; preds = %18, %24
   %.pr.pre = load i32, ptr %4, align 4
@@ -830,7 +830,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   %wide.trip.count = zext i32 %26 to i64
   br label %29
 
-28:                                               ; preds = %x64_merge.exit64
+28:                                               ; preds = %x64_merge.exit63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.thread, label %29, !llvm.loop !9
@@ -852,18 +852,18 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @type_size(ptr noundef %39) #7
-  %.not49 = icmp ne i32 %9, %40
+  %.not48 = icmp ne i32 %9, %40
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %42 = sext i32 %41 to i64
   %43 = icmp ugt i64 %10, %42
-  %or.cond = select i1 %.not49, i1 true, i1 %43
+  %or.cond = select i1 %.not48, i1 true, i1 %43
   br i1 %or.cond, label %45, label %46
 
 44:                                               ; preds = %36
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
-  %.old51 = sext i32 %.old to i64
-  %.old52 = icmp ugt i64 %10, %.old51
-  br i1 %.old52, label %45, label %46
+  %.old50 = sext i32 %.old to i64
+  %.old51 = icmp ugt i64 %10, %.old50
+  br i1 %.old51, label %45, label %46
 
 45:                                               ; preds = %44, %37
   store i32 1, ptr %3, align 4
@@ -875,17 +875,17 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   %49 = tail call i32 @type_abi_alignment(ptr noundef %48) #7
   %50 = zext i32 %49 to i64
   %51 = urem i64 %35, %50
-  %.not50 = icmp eq i64 %51, 0
-  br i1 %.not50, label %55, label %52
+  %.not49 = icmp eq i64 %51, 0
+  br i1 %.not49, label %55, label %52
 
 52:                                               ; preds = %46
   store i32 1, ptr %3, align 4
   %53 = load i32, ptr %4, align 4
   %54 = icmp eq i32 %53, 4
-  %or.cond94 = and i1 %27, %54
-  br i1 %or.cond94, label %.thread.i55, label %x64_classify_post_merge.exit
+  %or.cond93 = and i1 %27, %54
+  br i1 %or.cond93, label %.thread.i54, label %x64_classify_post_merge.exit
 
-.thread.i55:                                      ; preds = %52
+.thread.i54:                                      ; preds = %52
   store i32 3, ptr %4, align 4
   br label %x64_classify_post_merge.exit
 
@@ -924,13 +924,13 @@ x64_merge.exit:                                   ; preds = %55, %60, %61, %62
   %64 = load i32, ptr %4, align 4
   %65 = load i32, ptr %8, align 4
   %66 = icmp eq i32 %64, %65
-  br i1 %66, label %x64_merge.exit64, label %67
+  br i1 %66, label %x64_merge.exit63, label %67
 
 67:                                               ; preds = %x64_merge.exit
-  %spec.select.i61 = tail call i32 @llvm.umin.i32(i32 %64, i32 %65)
-  %spec.select15.i62 = tail call i32 @llvm.umax.i32(i32 %64, i32 %65)
-  switch i32 %spec.select.i61, label %70 [
-    i32 0, label %x64_merge.exit64
+  %spec.select.i60 = tail call i32 @llvm.umin.i32(i32 %64, i32 %65)
+  %spec.select15.i61 = tail call i32 @llvm.umax.i32(i32 %64, i32 %65)
+  switch i32 %spec.select.i60, label %70 [
+    i32 0, label %x64_merge.exit63
     i32 1, label %.thread
     i32 2, label %68
     i32 4, label %69
@@ -942,52 +942,52 @@ x64_merge.exit:                                   ; preds = %55, %60, %61, %62
   br label %85
 
 68:                                               ; preds = %67
-  br label %x64_merge.exit64
+  br label %x64_merge.exit63
 
 69:                                               ; preds = %67, %67
-  br label %x64_merge.exit64
+  br label %x64_merge.exit63
 
 70:                                               ; preds = %67
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.x64_merge, ptr noundef nonnull @.str.2, i32 noundef 203) #8
   unreachable
 
-x64_merge.exit64:                                 ; preds = %x64_merge.exit, %67, %68, %69
-  %.0.i63 = phi i32 [ 2, %68 ], [ 3, %69 ], [ %64, %x64_merge.exit ], [ %spec.select15.i62, %67 ]
-  store i32 %.0.i63, ptr %4, align 4
+x64_merge.exit63:                                 ; preds = %x64_merge.exit, %67, %68, %69
+  %.0.i62 = phi i32 [ 2, %68 ], [ 3, %69 ], [ %64, %x64_merge.exit ], [ %spec.select15.i61, %67 ]
+  store i32 %.0.i62, ptr %4, align 4
   %71 = load i32, ptr %3, align 4
   %72 = icmp eq i32 %71, 1
-  %73 = icmp eq i32 %.0.i63, 1
-  %or.cond54 = or i1 %73, %72
-  br i1 %or.cond54, label %.loopexit, label %28
+  %73 = icmp eq i32 %.0.i62, 1
+  %or.cond53 = or i1 %73, %72
+  br i1 %or.cond53, label %.loopexit, label %28
 
-.loopexit:                                        ; preds = %x64_merge.exit64, %.thread-pre-split_crit_edge
-  %74 = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %.0.i63, %x64_merge.exit64 ]
+.loopexit:                                        ; preds = %x64_merge.exit63, %.thread-pre-split_crit_edge
+  %74 = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %.0.i62, %x64_merge.exit64 ]
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %85, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %28, %.loopexit
-  %76 = phi i32 [ %74, %.loopexit ], [ %.0.i63, %28 ]
+  %76 = phi i32 [ %74, %.loopexit ], [ %.0.i62, %28 ]
   %77 = icmp ugt i32 %9, 16
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %.loopexit.thread
   %79 = load i32, ptr %3, align 4
-  %.not.i67 = icmp eq i32 %79, 3
-  %.not9.i68 = icmp eq i32 %76, 4
-  %or.cond.i69 = and i1 %.not9.i68, %.not.i67
-  br i1 %or.cond.i69, label %x64_classify_post_merge.exit, label %85
+  %.not.i66 = icmp eq i32 %79, 3
+  %.not9.i67 = icmp eq i32 %76, 4
+  %or.cond.i68 = and i1 %.not9.i67, %.not.i66
+  br i1 %or.cond.i68, label %x64_classify_post_merge.exit, label %85
 
 80:                                               ; preds = %.loopexit.thread
   %81 = icmp eq i32 %76, 4
-  br i1 %81, label %.thread.i65, label %x64_classify_post_merge.exit
+  br i1 %81, label %.thread.i64, label %x64_classify_post_merge.exit
 
-.thread.i65:                                      ; preds = %80
-  %.pre.i66 = load i32, ptr %3, align 4
-  %82 = add i32 %.pre.i66, -3
+.thread.i64:                                      ; preds = %80
+  %.pre.i65 = load i32, ptr %3, align 4
+  %82 = add i32 %.pre.i65, -3
   %83 = icmp ult i32 %82, 2
   br i1 %83, label %x64_classify_post_merge.exit, label %84
 
-84:                                               ; preds = %.thread.i65
+84:                                               ; preds = %.thread.i64
   store i32 3, ptr %4, align 4
   br label %x64_classify_post_merge.exit
 
@@ -995,7 +995,7 @@ x64_merge.exit64:                                 ; preds = %x64_merge.exit, %67
   store i32 1, ptr %3, align 4
   br label %x64_classify_post_merge.exit
 
-x64_classify_post_merge.exit:                     ; preds = %52, %85, %84, %.thread.i65, %80, %78, %.thread.i55, %45, %12, %6
+x64_classify_post_merge.exit:                     ; preds = %52, %85, %84, %.thread.i64, %80, %78, %.thread.i54, %45, %12, %6
   ret void
 }
 

@@ -6082,7 +6082,7 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit", label %12
 
-12:                                               ; preds = %2
+15:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %14 = load i8, ptr %13, align 1, !range !81, !alias.scope !1250, !noalias !1241, !noundef !11
   %15 = trunc nuw i8 %14 to i1
@@ -6093,12 +6093,12 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   %brmerge.i.i.i = select i1 %15, i1 true, i1 %.not.i.i.i
   br i1 %brmerge.i.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
 
-_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i: ; preds = %12
+_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i:; preds = %12
   %switch.not.i.i = icmp ne i8 %14, 0
   %19 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext %switch.not.i.i), !noalias !1249
   br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
 
-"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit": ; preds = %2, %12, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i
+"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit": ; preds = %2, %12, %24
   %.merged.i.i = phi { i64, ptr } [ %6, %12 ], [ %6, %2 ], [ %19, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i ]
   ret { i64, ptr } %.merged.i.i
 }
@@ -40191,7 +40191,7 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_ca
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit, label %12
 
-12:                                               ; preds = %2
+15:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %14 = load i8, ptr %13, align 1, !range !81, !alias.scope !9903, !noundef !11
   %15 = trunc nuw i8 %14 to i1
@@ -40202,12 +40202,12 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_ca
   %brmerge.i.i = select i1 %15, i1 true, i1 %.not.i.i
   br i1 %brmerge.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i, label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
 
-_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i: ; preds = %12
+_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i:; preds = %12
   %switch.not.i = icmp ne i8 %14, 0
   %19 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext %switch.not.i), !noalias !9900
   br label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
 
-_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit: ; preds = %2, %12, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i
+_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit: ; preds = %2, %12, %24
   %.merged.i = phi { i64, ptr } [ %6, %12 ], [ %6, %2 ], [ %19, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i ]
   ret { i64, ptr } %.merged.i
 }

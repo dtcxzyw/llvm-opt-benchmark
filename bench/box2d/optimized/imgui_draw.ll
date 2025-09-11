@@ -24360,7 +24360,7 @@ _ZNK6ImFont19FindGlyphNoFallbackEt.exit.thread.i: ; preds = %183, %.split
 
 _ZL22FindFirstExistingGlyphP6ImFontPKti.exit:     ; preds = %_ZNK6ImFont19FindGlyphNoFallbackEt.exit.thread.i, %183, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit, %177
   %187 = phi ptr [ %178, %177 ], [ %175, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit ], [ %178, %183 ], [ %178, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit.thread.i ]
-  %.fr161 = phi ptr [ null, %177 ], [ null, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit ], [ %179, %183 ], [ %179, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit.thread.i ]
+  %.fr157 = phi ptr [ null, %177 ], [ null, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit ], [ %179, %183 ], [ %179, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit.thread.i ]
   %.us-phi = phi i16 [ -1, %177 ], [ -1, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit ], [ -1, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit.thread.i ], [ %181, %183 ]
   store i16 %.us-phi, ptr %163, align 2, !tbaa !276
   %188 = zext i16 %.us-phi to i64
@@ -24375,15 +24375,15 @@ _ZL22FindFirstExistingGlyphP6ImFontPKti.exit:     ; preds = %_ZNK6ImFont19FindGl
 
 _ZNK6ImFont19FindGlyphNoFallbackEt.exit61:        ; preds = %189
   %193 = zext i16 %191 to i64
-  %194 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr161, i64 %193
+  %194 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr157, i64 %193
   store ptr %194, ptr %187, align 8, !tbaa !153
-  %195 = icmp eq ptr %.fr161, null
+  %195 = icmp eq ptr %.fr157, null
   br i1 %195, label %_ZNK6ImFont19FindGlyphNoFallbackEt.exit61.thread, label %203
 
 _ZNK6ImFont19FindGlyphNoFallbackEt.exit61.thread: ; preds = %189, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit, %_ZNK6ImFont19FindGlyphNoFallbackEt.exit61
   %196 = load i32, ptr %2, align 8, !tbaa !502
   %197 = sext i32 %196 to i64
-  %198 = getelementptr %struct.ImFontGlyph, ptr %.fr161, i64 %197
+  %198 = getelementptr %struct.ImFontGlyph, ptr %.fr157, i64 %197
   %199 = getelementptr i8, ptr %198, i64 -40
   store ptr %199, ptr %187, align 8, !tbaa !153
   %200 = load i32, ptr %199, align 4

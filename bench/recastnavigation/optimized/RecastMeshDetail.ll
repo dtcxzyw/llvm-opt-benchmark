@@ -2428,17 +2428,17 @@ _ZL13polyMinExtentPKfi.exit.i:                    ; preds = %._crit_edge.us.i.i,
   br label %1067
 
 1067:                                             ; preds = %1106, %.lr.ph.i.i361
-  %.1101.i.i = phi i16 [ -1, %.lr.ph.i.i361 ], [ %.2.i.i362, %1106 ]
-  %.06599.i.i = phi i32 [ 1, %.lr.ph.i.i361 ], [ %1107, %1106 ]
-  %.06697.i.i = phi i32 [ 0, %.lr.ph.i.i361 ], [ %1108, %1106 ]
-  %.06796.i.i = phi i32 [ 0, %.lr.ph.i.i361 ], [ %1088, %1106 ]
-  %.06895.i.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i.i361 ], [ %.169.i.i, %1106 ]
-  %.07094.i.i = phi i32 [ 16, %.lr.ph.i.i361 ], [ %.171.i.i, %1106 ]
-  %.07293.i.i = phi i32 [ 8, %.lr.ph.i.i361 ], [ %.173.i.i, %1106 ]
-  %.07492.i.i = phi i32 [ 1, %.lr.ph.i.i361 ], [ %.175.i.i, %1106 ]
-  %.07691.i.i = phi i32 [ 0, %.lr.ph.i.i361 ], [ %.177.i.i, %1106 ]
-  %1068 = add nsw i32 %.06599.i.i, %1055
-  %1069 = add nsw i32 %.06697.i.i, %1059
+  %.1100.i.i = phi i16 [ -1, %.lr.ph.i.i361 ], [ %.2.i.i362, %1106 ]
+  %.06598.i.i = phi i32 [ 1, %.lr.ph.i.i361 ], [ %1107, %1106 ]
+  %.06696.i.i = phi i32 [ 0, %.lr.ph.i.i361 ], [ %1108, %1106 ]
+  %.06795.i.i = phi i32 [ 0, %.lr.ph.i.i361 ], [ %1088, %1106 ]
+  %.06894.i.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i.i361 ], [ %.169.i.i, %1106 ]
+  %.07093.i.i = phi i32 [ 16, %.lr.ph.i.i361 ], [ %.171.i.i, %1106 ]
+  %.07292.i.i = phi i32 [ 8, %.lr.ph.i.i361 ], [ %.173.i.i, %1106 ]
+  %.07491.i.i = phi i32 [ 1, %.lr.ph.i.i361 ], [ %.175.i.i, %1106 ]
+  %.07690.i.i = phi i32 [ 0, %.lr.ph.i.i361 ], [ %.177.i.i, %1106 ]
+  %1068 = add nsw i32 %.06598.i.i, %1055
+  %1069 = add nsw i32 %.06696.i.i, %1059
   %1070 = icmp sgt i32 %1068, -1
   %1071 = icmp sgt i32 %1069, -1
   %or.cond.i.i = select i1 %1070, i1 %1071, i1 false
@@ -2447,8 +2447,8 @@ _ZL13polyMinExtentPKfi.exit.i:                    ; preds = %._crit_edge.us.i.i,
 1072:                                             ; preds = %1067
   %1073 = icmp slt i32 %1068, %284
   %1074 = icmp slt i32 %1069, %288
-  %or.cond86.i.i = select i1 %1073, i1 %1074, i1 false
-  br i1 %or.cond86.i.i, label %1075, label %1087
+  %or.cond85.i.i = select i1 %1073, i1 %1074, i1 false
+  br i1 %or.cond85.i.i, label %1075, label %1087
 
 1075:                                             ; preds = %1072
   %1076 = mul nsw i32 %1069, %284
@@ -2463,57 +2463,57 @@ _ZL13polyMinExtentPKfi.exit.i:                    ; preds = %._crit_edge.us.i.i,
   %1082 = uitofp i16 %1080 to float
   %1083 = call float @llvm.fmuladd.f32(float %1082, float %989, float %1066)
   %1084 = call float @llvm.fabs.f32(float %1083)
-  %1085 = fcmp olt float %1084, %.06895.i.i
+  %1085 = fcmp olt float %1084, %.06894.i.i
   br i1 %1085, label %1086, label %1087
 
 1086:                                             ; preds = %1081
   br label %1087
 
 1087:                                             ; preds = %1086, %1081, %1075, %1072, %1067
-  %.169.i.i = phi float [ %1084, %1086 ], [ %.06895.i.i, %1081 ], [ %.06895.i.i, %1075 ], [ %.06895.i.i, %1072 ], [ %.06895.i.i, %1067 ]
-  %.2.i.i362 = phi i16 [ %1080, %1086 ], [ %.1101.i.i, %1081 ], [ %.1101.i.i, %1075 ], [ %.1101.i.i, %1072 ], [ %.1101.i.i, %1067 ]
-  %1088 = add nuw i32 %.06796.i.i, 1
-  %1089 = icmp eq i32 %1088, %.07293.i.i
+  %.169.i.i = phi float [ %1084, %1086 ], [ %.06894.i.i, %1081 ], [ %.06894.i.i, %1075 ], [ %.06894.i.i, %1072 ], [ %.06894.i.i, %1067 ]
+  %.2.i.i362 = phi i16 [ %1080, %1086 ], [ %.1100.i.i, %1081 ], [ %.1100.i.i, %1075 ], [ %.1100.i.i, %1072 ], [ %.1100.i.i, %1067 ]
+  %1088 = add nuw i32 %.06795.i.i, 1
+  %1089 = icmp eq i32 %1088, %.07292.i.i
   br i1 %1089, label %1090, label %1094
 
 1090:                                             ; preds = %1087
-  %.not84.i.i = icmp eq i16 %.2.i.i362, -1
-  br i1 %.not84.i.i, label %1091, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit.i
+  %.not83.i.i = icmp eq i16 %.2.i.i362, -1
+  br i1 %.not83.i.i, label %1091, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit.i
 
 1091:                                             ; preds = %1090
-  %1092 = add nsw i32 %.07293.i.i, %.07094.i.i
-  %1093 = add nsw i32 %.07094.i.i, 8
+  %1092 = add nsw i32 %.07292.i.i, %.07093.i.i
+  %1093 = add nsw i32 %.07093.i.i, 8
   br label %1094
 
 1094:                                             ; preds = %1091, %1087
-  %.173.i.i = phi i32 [ %1092, %1091 ], [ %.07293.i.i, %1087 ]
-  %.171.i.i = phi i32 [ %1093, %1091 ], [ %.07094.i.i, %1087 ]
-  %1095 = icmp eq i32 %.06599.i.i, %.06697.i.i
+  %.173.i.i = phi i32 [ %1092, %1091 ], [ %.07292.i.i, %1087 ]
+  %.171.i.i = phi i32 [ %1093, %1091 ], [ %.07093.i.i, %1087 ]
+  %1095 = icmp eq i32 %.06598.i.i, %.06696.i.i
   br i1 %1095, label %1104, label %1096
 
 1096:                                             ; preds = %1094
-  %1097 = icmp slt i32 %.06599.i.i, 0
-  %1098 = sub nsw i32 0, %.06697.i.i
-  %1099 = icmp eq i32 %.06599.i.i, %1098
-  %or.cond88.i.i = select i1 %1097, i1 %1099, i1 false
-  br i1 %or.cond88.i.i, label %1104, label %1100
+  %1097 = icmp slt i32 %.06598.i.i, 0
+  %1098 = sub nsw i32 0, %.06696.i.i
+  %1099 = icmp eq i32 %.06598.i.i, %1098
+  %or.cond87.i.i = select i1 %1097, i1 %1099, i1 false
+  br i1 %or.cond87.i.i, label %1104, label %1100
 
 1100:                                             ; preds = %1096
-  %1101 = icmp sgt i32 %.06599.i.i, 0
-  %1102 = sub nsw i32 1, %.06697.i.i
-  %1103 = icmp eq i32 %.06599.i.i, %1102
-  %or.cond90.i.i = select i1 %1101, i1 %1103, i1 false
-  br i1 %or.cond90.i.i, label %1104, label %1106
+  %1101 = icmp sgt i32 %.06598.i.i, 0
+  %1102 = sub nsw i32 1, %.06696.i.i
+  %1103 = icmp eq i32 %.06598.i.i, %1102
+  %or.cond89.i.i = select i1 %1101, i1 %1103, i1 false
+  br i1 %or.cond89.i.i, label %1104, label %1106
 
 1104:                                             ; preds = %1100, %1096, %1094
-  %1105 = sub nsw i32 0, %.07691.i.i
+  %1105 = sub nsw i32 0, %.07690.i.i
   br label %1106
 
 1106:                                             ; preds = %1104, %1100
-  %.177.i.i = phi i32 [ %.07492.i.i, %1104 ], [ %.07691.i.i, %1100 ]
-  %.175.i.i = phi i32 [ %1105, %1104 ], [ %.07492.i.i, %1100 ]
-  %1107 = add nsw i32 %.175.i.i, %.06599.i.i
-  %1108 = add nsw i32 %.177.i.i, %.06697.i.i
+  %.177.i.i = phi i32 [ %.07491.i.i, %1104 ], [ %.07690.i.i, %1100 ]
+  %.175.i.i = phi i32 [ %1105, %1104 ], [ %.07491.i.i, %1100 ]
+  %1107 = add nsw i32 %.175.i.i, %.06598.i.i
+  %1108 = add nsw i32 %.177.i.i, %.06696.i.i
   %exitcond.not.i264.i = icmp eq i32 %1088, %232
   br i1 %exitcond.not.i264.i, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit.i, label %1067, !llvm.loop !25
 
@@ -3576,17 +3576,17 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i: ; preds = %1593, %
   br i1 %.not1220, label %.lr.ph.i274.us.i, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit297.us.i
 
 .lr.ph.i274.us.i:                                 ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i, %1647
-  %.1101.i275.us.i = phi i16 [ %.2.i286.us.i, %1647 ], [ -1, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.06599.i276.us.i = phi i32 [ %1648, %1647 ], [ 1, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.06697.i277.us.i = phi i32 [ %1649, %1647 ], [ 0, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.06796.i278.us.i = phi i32 [ %1629, %1647 ], [ 0, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.06895.i279.us.i = phi float [ %.169.i285.us.i, %1647 ], [ 0x47EFFFFFE0000000, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.07094.i280.us.i = phi i32 [ %.171.i288.us.i, %1647 ], [ 16, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.07293.i281.us.i = phi i32 [ %.173.i287.us.i, %1647 ], [ 8, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.07492.i282.us.i = phi i32 [ %.175.i292.us.i, %1647 ], [ 1, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %.07691.i283.us.i = phi i32 [ %.177.i291.us.i, %1647 ], [ 0, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
-  %1609 = add nsw i32 %.06599.i276.us.i, %1604
-  %1610 = add nsw i32 %.06697.i277.us.i, %1511
+  %.1100.i275.us.i = phi i16 [ %.2.i286.us.i, %1647 ], [ -1, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.06598.i276.us.i = phi i32 [ %1648, %1647 ], [ 1, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.06696.i277.us.i = phi i32 [ %1649, %1647 ], [ 0, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.06795.i278.us.i = phi i32 [ %1629, %1647 ], [ 0, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.06894.i279.us.i = phi float [ %.169.i285.us.i, %1647 ], [ 0x47EFFFFFE0000000, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.07093.i280.us.i = phi i32 [ %.171.i288.us.i, %1647 ], [ 16, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.07292.i281.us.i = phi i32 [ %.173.i287.us.i, %1647 ], [ 8, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.07491.i282.us.i = phi i32 [ %.175.i292.us.i, %1647 ], [ 1, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %.07690.i283.us.i = phi i32 [ %.177.i291.us.i, %1647 ], [ 0, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i ]
+  %1609 = add nsw i32 %.06598.i276.us.i, %1604
+  %1610 = add nsw i32 %.06696.i277.us.i, %1511
   %1611 = icmp sgt i32 %1609, -1
   %1612 = icmp sgt i32 %1610, -1
   %or.cond.i284.us.i = select i1 %1611, i1 %1612, i1 false
@@ -3595,8 +3595,8 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i: ; preds = %1593, %
 1613:                                             ; preds = %.lr.ph.i274.us.i
   %1614 = icmp slt i32 %1609, %284
   %1615 = icmp slt i32 %1610, %288
-  %or.cond86.i295.us.i = select i1 %1614, i1 %1615, i1 false
-  br i1 %or.cond86.i295.us.i, label %1616, label %1628
+  %or.cond85.i295.us.i = select i1 %1614, i1 %1615, i1 false
+  br i1 %or.cond85.i295.us.i, label %1616, label %1628
 
 1616:                                             ; preds = %1613
   %1617 = mul nsw i32 %1610, %284
@@ -3611,57 +3611,57 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i: ; preds = %1593, %
   %1623 = uitofp i16 %1621 to float
   %1624 = call float @llvm.fmuladd.f32(float %1623, float %1597, float %1500)
   %1625 = call float @llvm.fabs.f32(float %1624)
-  %1626 = fcmp olt float %1625, %.06895.i279.us.i
+  %1626 = fcmp olt float %1625, %.06894.i279.us.i
   br i1 %1626, label %1627, label %1628
 
 1627:                                             ; preds = %1622
   br label %1628
 
 1628:                                             ; preds = %1627, %1622, %1616, %1613, %.lr.ph.i274.us.i
-  %.169.i285.us.i = phi float [ %1625, %1627 ], [ %.06895.i279.us.i, %1622 ], [ %.06895.i279.us.i, %1616 ], [ %.06895.i279.us.i, %1613 ], [ %.06895.i279.us.i, %.lr.ph.i274.us.i ]
-  %.2.i286.us.i = phi i16 [ %1621, %1627 ], [ %.1101.i275.us.i, %1622 ], [ %.1101.i275.us.i, %1616 ], [ %.1101.i275.us.i, %1613 ], [ %.1101.i275.us.i, %.lr.ph.i274.us.i ]
-  %1629 = add nuw i32 %.06796.i278.us.i, 1
-  %1630 = icmp eq i32 %1629, %.07293.i281.us.i
+  %.169.i285.us.i = phi float [ %1625, %1627 ], [ %.06894.i279.us.i, %1622 ], [ %.06894.i279.us.i, %1616 ], [ %.06894.i279.us.i, %1613 ], [ %.06894.i279.us.i, %.lr.ph.i274.us.i ]
+  %.2.i286.us.i = phi i16 [ %1621, %1627 ], [ %.1100.i275.us.i, %1622 ], [ %.1100.i275.us.i, %1616 ], [ %.1100.i275.us.i, %1613 ], [ %.1100.i275.us.i, %.lr.ph.i274.us.i ]
+  %1629 = add nuw i32 %.06795.i278.us.i, 1
+  %1630 = icmp eq i32 %1629, %.07292.i281.us.i
   br i1 %1630, label %1631, label %1635
 
 1631:                                             ; preds = %1628
-  %.not84.i294.us.i = icmp eq i16 %.2.i286.us.i, -1
-  br i1 %.not84.i294.us.i, label %1632, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit297.us.i
+  %.not83.i294.us.i = icmp eq i16 %.2.i286.us.i, -1
+  br i1 %.not83.i294.us.i, label %1632, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit297.us.i
 
 1632:                                             ; preds = %1631
-  %1633 = add nsw i32 %.07293.i281.us.i, %.07094.i280.us.i
-  %1634 = add nsw i32 %.07094.i280.us.i, 8
+  %1633 = add nsw i32 %.07292.i281.us.i, %.07093.i280.us.i
+  %1634 = add nsw i32 %.07093.i280.us.i, 8
   br label %1635
 
 1635:                                             ; preds = %1632, %1628
-  %.173.i287.us.i = phi i32 [ %1633, %1632 ], [ %.07293.i281.us.i, %1628 ]
-  %.171.i288.us.i = phi i32 [ %1634, %1632 ], [ %.07094.i280.us.i, %1628 ]
-  %1636 = icmp eq i32 %.06599.i276.us.i, %.06697.i277.us.i
+  %.173.i287.us.i = phi i32 [ %1633, %1632 ], [ %.07292.i281.us.i, %1628 ]
+  %.171.i288.us.i = phi i32 [ %1634, %1632 ], [ %.07093.i280.us.i, %1628 ]
+  %1636 = icmp eq i32 %.06598.i276.us.i, %.06696.i277.us.i
   br i1 %1636, label %1645, label %1637
 
 1637:                                             ; preds = %1635
-  %1638 = icmp slt i32 %.06599.i276.us.i, 0
-  %1639 = sub nsw i32 0, %.06697.i277.us.i
-  %1640 = icmp eq i32 %.06599.i276.us.i, %1639
-  %or.cond88.i289.us.i = select i1 %1638, i1 %1640, i1 false
-  br i1 %or.cond88.i289.us.i, label %1645, label %1641
+  %1638 = icmp slt i32 %.06598.i276.us.i, 0
+  %1639 = sub nsw i32 0, %.06696.i277.us.i
+  %1640 = icmp eq i32 %.06598.i276.us.i, %1639
+  %or.cond87.i289.us.i = select i1 %1638, i1 %1640, i1 false
+  br i1 %or.cond87.i289.us.i, label %1645, label %1641
 
 1641:                                             ; preds = %1637
-  %1642 = icmp sgt i32 %.06599.i276.us.i, 0
-  %1643 = sub nsw i32 1, %.06697.i277.us.i
-  %1644 = icmp eq i32 %.06599.i276.us.i, %1643
-  %or.cond90.i290.us.i = select i1 %1642, i1 %1644, i1 false
-  br i1 %or.cond90.i290.us.i, label %1645, label %1647
+  %1642 = icmp sgt i32 %.06598.i276.us.i, 0
+  %1643 = sub nsw i32 1, %.06696.i277.us.i
+  %1644 = icmp eq i32 %.06598.i276.us.i, %1643
+  %or.cond89.i290.us.i = select i1 %1642, i1 %1644, i1 false
+  br i1 %or.cond89.i290.us.i, label %1645, label %1647
 
 1645:                                             ; preds = %1641, %1637, %1635
-  %1646 = sub nsw i32 0, %.07691.i283.us.i
+  %1646 = sub nsw i32 0, %.07690.i283.us.i
   br label %1647
 
 1647:                                             ; preds = %1645, %1641
-  %.177.i291.us.i = phi i32 [ %.07492.i282.us.i, %1645 ], [ %.07691.i283.us.i, %1641 ]
-  %.175.i292.us.i = phi i32 [ %1646, %1645 ], [ %.07492.i282.us.i, %1641 ]
-  %1648 = add nsw i32 %.175.i292.us.i, %.06599.i276.us.i
-  %1649 = add nsw i32 %.177.i291.us.i, %.06697.i277.us.i
+  %.177.i291.us.i = phi i32 [ %.07491.i282.us.i, %1645 ], [ %.07690.i283.us.i, %1641 ]
+  %.175.i292.us.i = phi i32 [ %1646, %1645 ], [ %.07491.i282.us.i, %1641 ]
+  %1648 = add nsw i32 %.175.i292.us.i, %.06598.i276.us.i
+  %1649 = add nsw i32 %.177.i291.us.i, %.06696.i277.us.i
   %exitcond.not.i293.us.i = icmp eq i32 %1629, %232
   br i1 %exitcond.not.i293.us.i, label %_ZL9getHeightffffffiRK13rcHeightPatch.exit297.us.i, label %.lr.ph.i274.us.i, !llvm.loop !25
 

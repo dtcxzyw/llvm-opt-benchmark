@@ -248,16 +248,16 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call fastcc void @aegis256_init(ptr noundef %8, ptr noundef %7, ptr noundef %10)
-  %.not88 = icmp ult i64 %6, 32
-  br i1 %.not88, label %.preheader87, label %.lr.ph
+  %.not82 = icmp ult i64 %6, 32
+  br i1 %.not82, label %.preheader81, label %.lr.ph
 
-.preheader87:                                     ; preds = %.lr.ph, %9
+.preheader81:                                     ; preds = %.lr.ph, %9
   %.052.lcssa = phi i64 [ 0, %9 ], [ %25, %.lr.ph ]
   %14 = or disjoint i64 %.052.lcssa, 16
-  %.not7090 = icmp ugt i64 %14, %6
-  br i1 %.not7090, label %._crit_edge, label %.lr.ph92
+  %.not6484 = icmp ugt i64 %14, %6
+  br i1 %.not6484, label %._crit_edge, label %.lr.ph86
 
-.lr.ph92:                                         ; preds = %.preheader87
+.lr.ph86:                                         ; preds = %.preheader81
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %.sroa.413.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -273,20 +273,20 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %25 = phi i64 [ %27, %.lr.ph ], [ 32, %9 ]
-  %.05289 = phi i64 [ %25, %.lr.ph ], [ 0, %9 ]
-  %26 = getelementptr i8, ptr %5, i64 %.05289
+  %.05283 = phi i64 [ %25, %.lr.ph ], [ 0, %9 ]
+  %26 = getelementptr i8, ptr %5, i64 %.05283
   call fastcc void @aegis256_absorb2(ptr noundef %26, ptr noundef %10)
   %27 = add i64 %25, 32
   %.not = icmp ugt i64 %27, %6
-  br i1 %.not, label %.preheader87, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.preheader81, label %.lr.ph, !llvm.loop !16
 
-28:                                               ; preds = %.lr.ph92, %28
+28:                                               ; preds = %.lr.ph86, %28
   %29 = phi i64 [ %14, %.lr.ph92 ], [ %72, %28 ]
-  %.191 = phi i64 [ %.052.lcssa, %.lr.ph92 ], [ %29, %28 ]
-  %30 = getelementptr i8, ptr %5, i64 %.191
+  %.185 = phi i64 [ %.052.lcssa, %.lr.ph92 ], [ %29, %28 ]
+  %30 = getelementptr i8, ptr %5, i64 %.185
   %.val = load i64, ptr %30, align 1
   %31 = getelementptr i8, ptr %30, i64 8
-  %.val75 = load i64, ptr %31, align 1
+  %.val69 = load i64, ptr %31, align 1
   %.sroa.012.0.copyload.i.i = load i64, ptr %15, align 16
   %.sroa.413.0.copyload.i.i = load i64, ptr %.sroa.413.0..sroa_idx.i.i, align 8
   %32 = load i64, ptr %16, align 16
@@ -338,39 +338,39 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   %68 = extractvalue { i64, i64 } %67, 0
   %69 = extractvalue { i64, i64 } %67, 1
   %70 = xor i64 %68, %.val
-  %71 = xor i64 %69, %.val75
+  %71 = xor i64 %69, %.val69
   store i64 %70, ptr %10, align 16
   store i64 %71, ptr %24, align 8
   %72 = add i64 %29, 16
-  %.not70 = icmp ugt i64 %72, %6
-  br i1 %.not70, label %._crit_edge, label %28, !llvm.loop !17
+  %.not64 = icmp ugt i64 %72, %6
+  br i1 %.not64, label %._crit_edge, label %28, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %28, %.preheader87
+._crit_edge:                                      ; preds = %28, %.preheader81
   %.1.lcssa = phi i64 [ %.052.lcssa, %.preheader87 ], [ %29, %28 ]
   %73 = and i64 %6, 15
-  %.not71 = icmp eq i64 %73, 0
-  br i1 %.not71, label %128, label %74
+  %.not65 = icmp eq i64 %73, 0
+  br i1 %.not65, label %128, label %74
 
 74:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #7
   %75 = getelementptr i8, ptr %5, i64 %.1.lcssa
   %76 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %75, i64 noundef range(i64 1, 16) %73, i64 noundef 16) #7, !alias.scope !18
-  %.val76 = load i64, ptr %11, align 16
+  %.val70 = load i64, ptr %11, align 16
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.val77 = load i64, ptr %77, align 8
+  %.val71 = load i64, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %.sroa.012.0.copyload.i.i82 = load i64, ptr %78, align 16
-  %.sroa.413.0..sroa_idx.i.i83 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %.sroa.413.0.copyload.i.i84 = load i64, ptr %.sroa.413.0..sroa_idx.i.i83, align 8
+  %.sroa.012.0.copyload.i.i76 = load i64, ptr %78, align 16
+  %.sroa.413.0..sroa_idx.i.i77 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %.sroa.413.0.copyload.i.i78 = load i64, ptr %.sroa.413.0..sroa_idx.i.i77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %80 = load i64, ptr %79, align 16
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %82 = load i64, ptr %81, align 8
-  %83 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %80, i64 %82, i64 %.sroa.012.0.copyload.i.i82, i64 %.sroa.413.0.copyload.i.i84) #7
+  %83 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %80, i64 %82, i64 %.sroa.012.0.copyload.i.i76, i64 %.sroa.413.0.copyload.i.i78) #7
   %84 = extractvalue { i64, i64 } %83, 0
   %85 = extractvalue { i64, i64 } %83, 1
   store i64 %84, ptr %78, align 16
-  store i64 %85, ptr %.sroa.413.0..sroa_idx.i.i83, align 8
+  store i64 %85, ptr %.sroa.413.0..sroa_idx.i.i77, align 8
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %87 = load i64, ptr %86, align 16
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -416,56 +416,56 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   store i64 %120, ptr %106, align 8
   %121 = load i64, ptr %10, align 16
   %122 = load i64, ptr %114, align 8
-  %123 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %.sroa.012.0.copyload.i.i82, i64 %.sroa.413.0.copyload.i.i84, i64 %121, i64 %122) #7
+  %123 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %.sroa.012.0.copyload.i.i76, i64 %.sroa.413.0.copyload.i.i78, i64 %121, i64 %122) #7
   %124 = extractvalue { i64, i64 } %123, 0
   %125 = extractvalue { i64, i64 } %123, 1
-  %126 = xor i64 %124, %.val76
-  %127 = xor i64 %125, %.val77
+  %126 = xor i64 %124, %.val70
+  %127 = xor i64 %125, %.val71
   store i64 %126, ptr %10, align 16
   store i64 %127, ptr %114, align 8
   br label %128
 
 128:                                              ; preds = %74, %._crit_edge
   %129 = icmp ne ptr %0, null
-  %.not7398 = icmp ult i64 %2, 16
-  br i1 %129, label %.preheader, label %.preheader85
+  %.not6792 = icmp ult i64 %2, 16
+  br i1 %129, label %.preheader, label %.preheader79
 
-.preheader85:                                     ; preds = %128
-  br i1 %.not7398, label %.loopexit, label %.lr.ph96
+.preheader79:                                     ; preds = %128
+  br i1 %.not6792, label %.loopexit, label %.lr.ph90
 
 .preheader:                                       ; preds = %128
-  br i1 %.not7398, label %.loopexit, label %.lr.ph100
+  br i1 %.not6792, label %.loopexit, label %.lr.ph94
 
-.lr.ph100:                                        ; preds = %.preheader, %.lr.ph100
+.lr.ph94:                                         ; preds = %.preheader, %.lr.ph94
   %130 = phi i64 [ %134, %.lr.ph100 ], [ 16, %.preheader ]
-  %.299 = phi i64 [ %130, %.lr.ph100 ], [ 0, %.preheader ]
-  %131 = getelementptr i8, ptr %0, i64 %.299
-  %132 = getelementptr i8, ptr %1, i64 %.299
-  %.val78 = load i64, ptr %132, align 1
+  %.293 = phi i64 [ %130, %.lr.ph100 ], [ 0, %.preheader ]
+  %131 = getelementptr i8, ptr %0, i64 %.293
+  %132 = getelementptr i8, ptr %1, i64 %.293
+  %.val72 = load i64, ptr %132, align 1
   %133 = getelementptr i8, ptr %132, i64 8
-  %.val79 = load i64, ptr %133, align 1
-  call fastcc void @aegis256_dec(ptr noundef %131, i64 %.val78, i64 %.val79, ptr noundef %10)
+  %.val73 = load i64, ptr %133, align 1
+  call fastcc void @aegis256_dec(ptr noundef %131, i64 %.val72, i64 %.val73, ptr noundef %10)
   %134 = add i64 %130, 16
-  %.not73 = icmp ugt i64 %134, %2
-  br i1 %.not73, label %.loopexit, label %.lr.ph100, !llvm.loop !22
+  %.not67 = icmp ugt i64 %134, %2
+  br i1 %.not67, label %.loopexit, label %.lr.ph94, !llvm.loop !22
 
-.lr.ph96:                                         ; preds = %.preheader85, %.lr.ph96
+.lr.ph90:                                         ; preds = %.preheader79, %.lr.ph90
   %135 = phi i64 [ %138, %.lr.ph96 ], [ 16, %.preheader85 ]
-  %.495 = phi i64 [ %135, %.lr.ph96 ], [ 0, %.preheader85 ]
-  %136 = getelementptr i8, ptr %1, i64 %.495
-  %.val80 = load i64, ptr %136, align 1
+  %.489 = phi i64 [ %135, %.lr.ph96 ], [ 0, %.preheader85 ]
+  %136 = getelementptr i8, ptr %1, i64 %.489
+  %.val74 = load i64, ptr %136, align 1
   %137 = getelementptr i8, ptr %136, i64 8
-  %.val81 = load i64, ptr %137, align 1
-  call fastcc void @aegis256_dec(ptr noundef nonnull %12, i64 %.val80, i64 %.val81, ptr noundef %10)
+  %.val75 = load i64, ptr %137, align 1
+  call fastcc void @aegis256_dec(ptr noundef nonnull %12, i64 %.val74, i64 %.val75, ptr noundef %10)
   %138 = add i64 %135, 16
-  %.not72 = icmp ugt i64 %138, %2
-  br i1 %.not72, label %.loopexit, label %.lr.ph96, !llvm.loop !23
+  %.not66 = icmp ugt i64 %138, %2
+  br i1 %.not66, label %.loopexit, label %.lr.ph90, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph96, %.lr.ph100, %.preheader85, %.preheader
+.loopexit:                                        ; preds = %.lr.ph90, %.lr.ph94, %.preheader79, %.preheader
   %.3 = phi i64 [ 0, %.preheader ], [ 0, %.preheader85 ], [ %130, %.lr.ph100 ], [ %135, %.lr.ph96 ]
   %139 = and i64 %2, 15
-  %.not74 = icmp eq i64 %139, 0
-  br i1 %.not74, label %142, label %.sink.split
+  %.not68 = icmp eq i64 %139, 0
+  br i1 %.not68, label %142, label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit
   %140 = getelementptr i8, ptr %0, i64 %.3

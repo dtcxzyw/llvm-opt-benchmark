@@ -32867,26 +32867,26 @@ invoke.cont34:                                    ; preds = %cleanup.done
   br i1 %cmp44, label %for.cond, label %invoke.cont34.split.us
 
 invoke.cont34.split.us:                           ; preds = %invoke.cont34
-  %cmp.us13.not = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.us13.not, label %if.then.i9, label %for.body.us
+  %cmp.us12.not = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.us12.not, label %if.then.i8, label %for.body.us
 
 invoke.cont41.us.loopexit:                        ; preds = %for.inc.us
   %.pre = load i64, ptr %observers_, align 8
-  %.pre20 = and i64 %.pre, 4611686018427387903
-  br label %if.then.i9
+  %.pre19 = and i64 %.pre, 4611686018427387903
+  br label %if.then.i8
 
 for.body.us:                                      ; preds = %invoke.cont34.split.us, %for.inc.us
-  %idx.0.us14 = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont34.split.us ]
+  %idx.0.us13 = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont34.split.us ]
   %3 = load i64, ptr %observers_, align 8
   %and.i.i.i.us = and i64 %3, 4611686018427387903
-  %cmp.not.i.us = icmp samesign ult i64 %idx.0.us14, %and.i.i.i.us
+  %cmp.not.i.us = icmp samesign ult i64 %idx.0.us13, %and.i.i.i.us
   br i1 %cmp.not.i.us, label %invoke.cont46.us, label %if.then.i
 
 invoke.cont46.us:                                 ; preds = %for.body.us
   %4 = load ptr, ptr %u.i.i.i.i, align 8
   %tobool.not1.i.i.i.i.us = icmp slt i64 %3, 0
   %cond.i.i.i.i.us = select i1 %tobool.not1.i.i.i.i.us, ptr %4, ptr %u.i.i.i.i
-  %add.ptr.i.i.us = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.us, i64 %idx.0.us14
+  %add.ptr.i.i.us = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.us, i64 %idx.0.us13
   %5 = load ptr, ptr %add.ptr.i.i.us, align 8
   %cmp.i.not.us = icmp eq ptr %5, null
   br i1 %cmp.i.not.us, label %for.inc.us, label %if.end.us
@@ -32897,7 +32897,7 @@ if.end.us:                                        ; preds = %invoke.cont46.us
           to label %for.inc.us unwind label %terminate.lpad.loopexit.split.us
 
 for.inc.us:                                       ; preds = %if.end.us, %invoke.cont46.us
-  %inc.us = add nuw nsw i64 %idx.0.us14, 1
+  %inc.us = add nuw nsw i64 %idx.0.us13, 1
   %exitcond.not = icmp eq i64 %inc.us, %and.i.i
   br i1 %exitcond.not, label %invoke.cont41.us.loopexit, label %for.body.us, !llvm.loop !228
 
@@ -32907,15 +32907,15 @@ terminate.lpad.loopexit.split.us:                 ; preds = %if.end.us
   br label %terminate.lpad
 
 for.cond:                                         ; preds = %invoke.cont34, %for.inc
-  %.pre16.pre18 = phi i64 [ %.pre16.pre, %for.inc ], [ %2, %invoke.cont34 ]
+  %.pre15.pre17 = phi i64 [ %.pre15.pre, %for.inc ], [ %2, %invoke.cont34 ]
   %idx.0 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont34 ]
   %cmp = icmp samesign ult i64 %idx.0, %and.i.i
-  %.pre21 = and i64 %.pre16.pre18, 4611686018427387903
-  %7 = icmp samesign ult i64 %idx.0, %.pre21
+  %.pre20 = and i64 %.pre15.pre17, 4611686018427387903
+  %7 = icmp samesign ult i64 %idx.0, %.pre20
   br i1 %cmp, label %for.body, label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %for.cond
-  br i1 %7, label %invoke.cont46, label %if.then.i9
+  br i1 %7, label %invoke.cont46, label %if.then.i8
 
 for.body:                                         ; preds = %for.cond
   br i1 %7, label %invoke.cont46, label %if.then.i
@@ -32929,7 +32929,7 @@ if.then.i:                                        ; preds = %for.body.us, %for.b
 
 invoke.cont46:                                    ; preds = %invoke.cont41, %for.body
   %8 = load ptr, ptr %u.i.i.i.i, align 8
-  %tobool.not1.i.i.i.i = icmp slt i64 %.pre16.pre18, 0
+  %tobool.not1.i.i.i.i = icmp slt i64 %.pre15.pre17, 0
   %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %8, ptr %u.i.i.i.i
   %add.ptr.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i, i64 %idx.0
   %9 = load ptr, ptr %add.ptr.i.i, align 8
@@ -32942,27 +32942,27 @@ if.end:                                           ; preds = %invoke.cont46
           to label %if.end.for.inc_crit_edge unwind label %terminate.lpad.loopexit.split
 
 if.end.for.inc_crit_edge:                         ; preds = %if.end
-  %.pre16.pre.pre = load i64, ptr %observers_, align 8
+  %.pre15.pre.pre = load i64, ptr %observers_, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.for.inc_crit_edge, %invoke.cont46
-  %.pre16.pre = phi i64 [ %.pre16.pre.pre, %if.end.for.inc_crit_edge ], [ %.pre16.pre18, %invoke.cont46 ]
+  %.pre15.pre = phi i64 [ %.pre15.pre.pre, %if.end.for.inc_crit_edge ], [ %.pre15.pre17, %invoke.cont46 ]
   %inc = add nuw nsw i64 %idx.0, 1
   br label %for.cond, !llvm.loop !228
 
-if.then.i9:                                       ; preds = %invoke.cont41, %invoke.cont34.split.us, %invoke.cont41.us.loopexit
-  %.us-phi = phi i64 [ %.pre, %invoke.cont41.us.loopexit ], [ %2, %invoke.cont34.split.us ], [ %.pre16.pre18, %invoke.cont41 ]
-  %.us-phi11 = phi i64 [ %.pre20, %invoke.cont41.us.loopexit ], [ 0, %invoke.cont34.split.us ], [ %.pre21, %invoke.cont41 ]
+if.then.i8:                                       ; preds = %invoke.cont41, %invoke.cont34.split.us, %invoke.cont41.us.loopexit
+  %.us-phi = phi i64 [ %.pre, %invoke.cont41.us.loopexit ], [ %2, %invoke.cont34.split.us ], [ %.pre15.pre17, %invoke.cont41 ]
+  %.us-phi10 = phi i64 [ %.pre19, %invoke.cont41.us.loopexit ], [ 0, %invoke.cont34.split.us ], [ %.pre20, %invoke.cont41 ]
   %removalDuringIteration_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %11 = load i8, ptr %removalDuringIteration_.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %11 to i1
   br i1 %tobool.i.i.i, label %invoke.cont.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISB_EEEENS_26ObserverContainerStoreBaseISB_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit
 
-invoke.cont.i.i.i:                                ; preds = %if.then.i9
+invoke.cont.i.i.i:                                ; preds = %if.then.i8
   %12 = load ptr, ptr %u.i.i.i.i, align 8
   %tobool.not1.i.i.i.i.i = icmp slt i64 %.us-phi, 0
   %cond.i.i.i.i.i = select i1 %tobool.not1.i.i.i.i.i, ptr %12, ptr %u.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.i, i64 %.us-phi11
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.i, i64 %.us-phi10
   %call.i4.i.i.i = invoke noundef ptr @_ZSt11__remove_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_(ptr noundef %cond.i.i.i.i.i, ptr noundef %add.ptr.i.i.i.i)
           to label %invoke.cont8.i.i.i unwind label %terminate.lpad.i.i.i
 
@@ -32983,7 +32983,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont8.i.i.i,
   tail call void @__clang_call_terminate(ptr %16) #42
   unreachable
 
-_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISB_EEEENS_26ObserverContainerStoreBaseISB_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit: ; preds = %if.then.i9, %invoke.cont8.i.i.i
+_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISB_EEEENS_26ObserverContainerStoreBaseISB_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit: ; preds = %if.then.i8, %invoke.cont8.i.i.i
   store i8 0, ptr %iterating_, align 8
   store i8 0, ptr %hasValue.i, align 8
   store i8 0, ptr %removalDuringIteration_.i.i.i, align 4

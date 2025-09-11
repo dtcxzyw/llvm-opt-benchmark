@@ -14510,13 +14510,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %.not3941 = icmp samesign eq i64 %21, 0
-  br i1 %.not3941, label %._crit_edge.thread, label %.lr.ph
+  %.not3840 = icmp samesign eq i64 %21, 0
+  br i1 %.not3840, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %47
-  %.043 = phi i64 [ %49, %47 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
-  %.sroa.030.042 = phi ptr [ %50, %47 ], [ %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
-  %.not = icmp eq i64 %.043, 0
+  %.042 = phi i64 [ %49, %47 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
+  %.sroa.029.041 = phi ptr [ %50, %47 ], [ %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
+  %.not = icmp eq i64 %.042, 0
   br i1 %.not, label %35, label %23
 
 23:                                               ; preds = %.lr.ph
@@ -14528,23 +14528,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %27 = getelementptr inbounds i8, ptr %1, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !280
-  %.not.i18 = icmp eq i64 %29, 0
-  br i1 %.not.i18, label %32, label %30
+  %.not.i17 = icmp eq i64 %29, 0
+  br i1 %.not.i17, label %32, label %30
 
 30:                                               ; preds = %23
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i64 noundef 1)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19
 
 32:                                               ; preds = %23
   %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 44)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20: ; preds = %30, %32
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %30, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %34 = icmp eq i64 %.043, 32
-  br i1 %34, label %.thread36, label %35
+  %34 = icmp eq i64 %.042, 32
+  br i1 %34, label %.thread35, label %35
 
-35:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20, %.lr.ph
+35:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 32, ptr %5, align 1, !tbaa !52
   %36 = load ptr, ptr %1, align 8, !tbaa !4
@@ -14553,8 +14553,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20: ; preds = %30, %32
   %39 = getelementptr inbounds i8, ptr %1, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !280
-  %.not.i21 = icmp eq i64 %41, 0
-  br i1 %.not.i21, label %44, label %42
+  %.not.i20 = icmp eq i64 %41, 0
+  br i1 %.not.i20, label %44, label %42
 
 42:                                               ; preds = %35
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i64 noundef 1)
@@ -14564,20 +14564,20 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20: ; preds = %30, %32
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 32)
   br label %47
 
-.thread36:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20
+.thread35:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19
   %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.117, i64 noundef 4)
   br label %._crit_edge
 
 47:                                               ; preds = %44, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %48 = load i8, ptr %.sroa.030.042, align 1, !tbaa !52
+  %48 = load i8, ptr %.sroa.029.041, align 1, !tbaa !52
   call void @_ZN7testing8internal7PrintToEhPSo(i8 noundef zeroext %48, ptr noundef nonnull %1)
-  %49 = add nuw i64 %.043, 1
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.030.042, i64 1
-  %.not39 = icmp eq ptr %50, %22
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %49 = add nuw i64 %.042, 1
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.029.041, i64 1
+  %.not38 = icmp eq ptr %50, %22
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %47, %.thread36
+._crit_edge:                                      ; preds = %47, %.thread35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !52
   %51 = load ptr, ptr %1, align 8, !tbaa !4
@@ -14586,22 +14586,22 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit20: ; preds = %30, %32
   %54 = getelementptr inbounds i8, ptr %1, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !280
-  %.not.i24 = icmp eq i64 %56, 0
-  br i1 %.not.i24, label %59, label %57
+  %.not.i23 = icmp eq i64 %56, 0
+  br i1 %.not.i23, label %59, label %57
 
 57:                                               ; preds = %._crit_edge
   %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 1)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit26
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit25
 
 59:                                               ; preds = %._crit_edge
   %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 32)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit26
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit25
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit26: ; preds = %57, %59
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit25: ; preds = %57, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit26
+._crit_edge.thread:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 125, ptr %3, align 1, !tbaa !52
   %61 = load ptr, ptr %1, align 8, !tbaa !4
@@ -14610,18 +14610,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit26: ; preds = %57, %59
   %64 = getelementptr inbounds i8, ptr %1, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i64, ptr %65, align 8, !tbaa !280
-  %.not.i27 = icmp eq i64 %66, 0
-  br i1 %.not.i27, label %69, label %67
+  %.not.i26 = icmp eq i64 %66, 0
+  br i1 %.not.i26, label %69, label %67
 
 67:                                               ; preds = %._crit_edge.thread
   %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 1)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit29
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit28
 
 69:                                               ; preds = %._crit_edge.thread
   %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 125)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit29
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit28
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit29: ; preds = %67, %69
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit28: ; preds = %67, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
